@@ -54,9 +54,9 @@ gantt
     Governors                 :active,  emp1, 2026-03-18, 42d
     Territory Map VS          :         emp2, after emp1, 28d
     WM Building Upgrades      :         emp3, 2026-03-18, 14d
-    World Map VS              :         emp4, 2026-06-23, 14d
+    World Map VS              :         emp4, 2026-07-21, 14d
     WM Zoom & LOD             :         emp5, after emp4, 14d
-    Conquest Guide + Barriers :         emp6, 2026-06-23, 28d
+    Conquest Guide + Barriers :         emp6, 2026-07-21, 28d
     Map Content               :active,  emp_content, 2026-03-18, 434d
 
     section Metagame

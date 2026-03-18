@@ -100,9 +100,29 @@ Sprint 7:    Flex / risk buffer / iteration
 ## Milestone: Beta Launch Prep
 
 **Ends**: Jul 21, 2026 (2 sprints available)
-**Engineering budget**: 2 sprints committed, 0 sprint flex
 
-> **Note**: Tight milestone. 4 features in 2 sprints. Assumes features are scoped small or can run in parallel.
+> No Empire engineering features planned for this milestone. Map Content continues.
+
+### Features
+
+#### Map Content (Design/Art Track - continued)
+| | |
+|---|---|
+| **Estimate** | Ongoing |
+| **Status** | CONTINUES FROM M&Ms |
+| **Risk** | Quantity targets still TBD |
+| **ClickUp** | [Folder link] |
+
+**Content Targets This Milestone**:
+- Territory Maps: [TBD qty]
+- World Maps: [TBD qty]
+
+---
+---
+
+## Milestone: Monetization & Conversion (M&C)
+
+**Ends**: Oct 13, 2026 (6 sprints available)
 
 ### Features
 
@@ -166,7 +186,7 @@ Sprint 7:    Flex / risk buffer / iteration
 | | |
 |---|---|
 | **Estimate** | Ongoing |
-| **Status** | CONTINUES FROM M&Ms |
+| **Status** | NOT STARTED |
 | **Dependencies** | World Map VS informs world map content needs |
 | **Risk** | Quantity targets still TBD |
 | **ClickUp** | [Folder link] |
@@ -174,35 +194,6 @@ Sprint 7:    Flex / risk buffer / iteration
 **Content Targets This Milestone**:
 - Territory Maps: [TBD qty]
 - World Maps: [TBD qty]
-
----
-
-### Beta Launch Prep Sprint Allocation (Empire)
-
-```
-Sprint 1:  World Map VS + Conquest Guide + Map Content (parallel)
-Sprint 2:  WM Zoom/LOD + Barrier & Story Shard Iterations + Map Content (parallel)
-```
-
-> **Risk note**: Zero flex time. If World Map VS takes longer than 1 sprint, Zoom/LOD gets pushed. Consider whether any of these can start earlier in M&Ms flex sprint.
-
----
----
-
-## Milestone: Monetization & Conversion (M&C)
-
-**Ends**: Oct 13, 2026 (6 sprints available)
-
-### Features
-
-[TBD - awaiting feature definitions]
-
-#### Map Content (Design/Art Track - continued)
-| | |
-|---|---|
-| **Estimate** | Ongoing |
-| **Status** | NOT STARTED |
-| **Content Targets** | [TBD qty] |
 
 ---
 
@@ -254,10 +245,10 @@ gantt
     WM Building Upgrades      :         emp3, 2026-03-18, 14d
     Flex / Risk Buffer        :         emp_flex1, after emp2, 14d
 
-    section Beta Launch Prep (ends Jul 21)
-    World Map VS              :         emp4, 2026-06-23, 14d
+    section M&C (ends Oct 13)
+    World Map VS              :         emp4, 2026-07-21, 14d
     WM Zoom Filtering & LOD   :         emp5, after emp4, 14d
-    Conquest Guide Full Screen :        emp6, 2026-06-23, 7d
+    Conquest Guide Full Screen :        emp6, 2026-07-21, 7d
     Barrier & Story Iterations :        emp7, after emp6, 7d
 
     section Continuous
