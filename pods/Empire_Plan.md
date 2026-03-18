@@ -11,6 +11,7 @@ Pod Lead: Diana Vasilescu
 ## Milestone: Multiplayer & Meta (M&Ms)
 
 **Ends**: Jun 23, 2026 (~7 sprints available)
+**Engineering capacity**: 1 engineer (sequential features)
 **Engineering budget**: 6 sprints committed, 1 sprint flex/risk buffer
 
 ### Features
@@ -77,14 +78,16 @@ Pod Lead: Diana Vasilescu
 
 ---
 
-### M&Ms Sprint Allocation (Empire)
+### M&Ms Sprint Allocation (Empire - 1 engineer, sequential)
 
 ```
-Sprint 1-3:  Governors + Map Content (parallel)
-Sprint 4-5:  Territory Map VS + Map Content (parallel)
-Sprint 6:    WM Building Upgrades + Map Content (parallel)
+Sprint 1-3:  Governors
+Sprint 4-5:  Territory Map VS
+Sprint 6:    WM Building Upgrades
 Sprint 7:    Flex / risk buffer / iteration
 ```
+
+Map Content runs in parallel on design/art (separate from engineering).
 
 ### M&Ms Validation Alignment
 
@@ -242,13 +245,13 @@ gantt
     section M&Ms (ends Jun 23)
     Governors                 :active,  emp1, 2026-03-18, 42d
     Territory Map VS          :         emp2, after emp1, 28d
-    WM Building Upgrades      :         emp3, 2026-03-18, 14d
-    Flex / Risk Buffer        :         emp_flex1, after emp2, 14d
+    WM Building Upgrades      :         emp3, after emp2, 14d
+    Flex / Risk Buffer        :         emp_flex1, after emp3, 14d
 
     section M&C (ends Oct 13)
-    World Map VS              :         emp4, 2026-07-21, 14d
+    World Map VS              :         emp4, after emp_flex1, 14d
     WM Zoom Filtering & LOD   :         emp5, after emp4, 14d
-    Conquest Guide Full Screen :        emp6, 2026-07-21, 7d
+    Conquest Guide Full Screen :        emp6, after emp5, 7d
     Barrier & Story Iterations :        emp7, after emp6, 7d
 
     section Continuous

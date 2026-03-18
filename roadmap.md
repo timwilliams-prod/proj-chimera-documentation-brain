@@ -50,13 +50,14 @@ gantt
     Live Ops & Social         :milestone, ms4, 2027-02-02, 0d
     Soft Launch               :milestone, ms5, 2027-05-30, 0d
 
-    section Empire
+    section Empire (1 eng, sequential)
     Governors                 :active,  emp1, 2026-03-18, 42d
     Territory Map VS          :         emp2, after emp1, 28d
-    WM Building Upgrades      :         emp3, 2026-03-18, 14d
-    World Map VS              :         emp4, 2026-07-21, 14d
+    WM Building Upgrades      :         emp3, after emp2, 14d
+    World Map VS              :         emp4, after emp3, 28d
     WM Zoom & LOD             :         emp5, after emp4, 14d
-    Conquest Guide + Barriers :         emp6, 2026-07-21, 28d
+    Conquest Guide             :        emp6, after emp5, 7d
+    Barrier & Story Iterations :        emp7, after emp6, 7d
     Map Content               :active,  emp_content, 2026-03-18, 434d
 
     section Metagame
