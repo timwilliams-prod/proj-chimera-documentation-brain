@@ -6,11 +6,11 @@ You are performing a risk evaluation across the project documentation to identif
 
 ## Project Structure
 
-- `pods/Empire_Backlog.md` - Empire pod backlog
-- `pods/Metagame_Backlog.md` - Metagame pod backlog
-- `pods/Battle_Backlog.md` - Battle pod backlog
-- `pods/SocialDynamics_Backlog.md` - Social Dynamics pod backlog
-- `pods/Dozer_Backlog.md` - Dozer pod backlog
+- `pods/Empire_Plan.md` - Empire pod backlog
+- `pods/Metagame_Plan.md` - Metagame pod backlog
+- `pods/Battle_Plan.md` - Battle pod backlog
+- `pods/SocialDynamics_Plan.md` - Social Dynamics pod backlog
+- `pods/Dozer_Plan.md` - Dozer pod backlog
 - `roadmap.md` - Visual Feature Roadmap (Mermaid Gantt charts)
 - `ValidationRoadmap.md` - Winning Hypotheses, BHQs, SHQs
 - `dependency_map.md` - Pod relationships and shared resources
@@ -22,7 +22,7 @@ You are performing a risk evaluation across the project documentation to identif
 ## Your Task
 
 ### 1. Read Project State
-- Read all `pods/*_Backlog.md` files
+- Read all `pods/*_Plan.md` files
 - Read `dependency_map.md` for pod relationships
 - Read `GlobalRules.md` for constraints
 - Read `ValidationRoadmap.md` for hypothesis/SHQ status

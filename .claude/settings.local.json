@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(grep -rl \"Combat Systems\\\\|Character Systems\\\\|World/Environment\\\\|UI/UX\\\\|Multiplayer\" C:/Users/TimWilliams/ClaudeWorkspace/lotusDocumentationBrain/ --include=*.md)"
+      "Bash(grep -rl \"Combat Systems\\\\|Character Systems\\\\|World/Environment\\\\|UI/UX\\\\|Multiplayer\" C:/Users/TimWilliams/ClaudeWorkspace/lotusDocumentationBrain/ --include=*.md)",
+      "Bash(mv Battle_Backlog.md Battle_Plan.md)",
+      "Bash(mv Metagame_Backlog.md Metagame_Plan.md)",
+      "Bash(mv SocialDynamics_Backlog.md SocialDynamics_Plan.md)",
+      "Bash(mv Dozer_Backlog.md Dozer_Plan.md)"
     ]
   }
 }

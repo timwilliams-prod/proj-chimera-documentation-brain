@@ -4,6 +4,33 @@ Last Updated: 2026-03-18
 
 > This is the **Feature Roadmap** - what we're building and when.
 > For product validation (Winning Hypotheses, BHQs, SHQs), see `ValidationRoadmap.md`.
+> For feature details per pod, see `pods/*_Plan.md`.
+> Sprint-level execution lives in **ClickUp** - this document tracks features/boulders across milestones.
+
+---
+
+## Milestones
+
+| # | Milestone | End Date | Sprints | Dev Phase | Goal |
+|---|-----------|----------|---------|-----------|------|
+| 1 | **Multiplayer & Meta (M&Ms)** | Jun 23, 2026 | ~7 | Iteration & Refinement | Introduce multiplayer foundations and metagame depth |
+| 2 | **Beta Launch Prep** | Jul 21, 2026 | 2 | Polish | Production-quality first impression, vertical slices complete |
+| 3 | **Monetization & Conversion (M&C)** | Oct 13, 2026 | 6 | Iteration & Refinement | Validate monetization model, conversion funnels |
+| 4 | **Live Ops & Social** | Feb 2, 2027 | 8 | Iteration & Refinement | Evergreen engagement, social features, alliance systems |
+| 5 | **Soft Launch (UA Scale)** | May 30, 2027 | ~8 | Scale | UA-driven external validation at medium scale |
+
+**Cadence**: 2-week sprints
+**Prior Milestones (complete)**: Core Experience (Jul 2025), Core Loop (Oct 2025), Systems Validation (Mar 2026)
+
+### Milestone-Validation Alignment
+
+| Feature Milestone | Validation Milestone | Key SHQs to Validate |
+|-------------------|---------------------|----------------------|
+| M&Ms | Multiplayer (Aug 2026) | Multiplayer engagement, social context |
+| Beta Launch Prep | - | Production readiness |
+| M&C | Early Experience (May 2026) + later | Conversion, spend depth |
+| Live Ops & Social | Live Ops & Social (Nov 2026) | Evergreen engagement, alliance impact |
+| Soft Launch | Fortis Soft Launch (Mar 2027) | D0-D30 retention, LTV |
 
 ---
 
@@ -11,164 +38,73 @@ Last Updated: 2026-03-18
 
 ```mermaid
 gantt
-    title Feature Roadmap - Q2 2026
+    title Feature Roadmap - 2026/2027
     dateFormat YYYY-MM-DD
-    axisFormat %b %d
-    tickInterval 1week
+    axisFormat %b '%y
+    tickInterval 4week
+
+    section Milestones
+    M&Ms                      :milestone, ms1, 2026-06-23, 0d
+    Beta Launch Prep          :milestone, ms2, 2026-07-21, 0d
+    M&C                       :milestone, ms3, 2026-10-13, 0d
+    Live Ops & Social         :milestone, ms4, 2027-02-02, 0d
+    Soft Launch               :milestone, ms5, 2027-05-30, 0d
 
     section Empire
-    [Phase 1 - TBD]          :         hl_emp1, 2026-03-18, 28d
-    [Phase 2 - TBD]          :         hl_emp2, after hl_emp1, 28d
+    Governors                 :active,  emp1, 2026-03-18, 42d
+    Territory Map VS          :         emp2, after emp1, 28d
+    WM Building Upgrades      :         emp3, 2026-03-18, 14d
+    World Map VS              :         emp4, 2026-06-23, 14d
+    WM Zoom & LOD             :         emp5, after emp4, 14d
+    Conquest Guide + Barriers :         emp6, 2026-06-23, 28d
+    Map Content               :active,  emp_content, 2026-03-18, 434d
 
     section Metagame
-    [Phase 1 - TBD]          :         hl_meta1, 2026-03-18, 28d
-    [Phase 2 - TBD]          :         hl_meta2, after hl_meta1, 28d
+    [TBD - M&Ms features]    :         meta1, 2026-03-18, 98d
 
     section Battle
-    [Phase 1 - TBD]          :         hl_bat1, 2026-03-18, 28d
-    [Phase 2 - TBD]          :         hl_bat2, after hl_bat1, 28d
+    [TBD - M&Ms features]    :         bat1, 2026-03-18, 98d
 
     section Social Dynamics
-    [Phase 1 - TBD]          :         hl_soc1, 2026-04-15, 28d
-    [Phase 2 - TBD]          :         hl_soc2, after hl_soc1, 28d
+    [TBD - M&Ms features]    :         soc1, 2026-03-18, 98d
 
     section Dozer
-    [Phase 1 - TBD]          :         hl_doz1, 2026-03-18, 28d
-    [Phase 2 - TBD]          :         hl_doz2, after hl_doz1, 28d
-
-    section Milestones
-    Milestone 1               :milestone, m1, 2026-05-15, 0d
-    Milestone 2               :milestone, m2, 2026-06-30, 0d
+    [TBD - M&Ms features]    :         doz1, 2026-03-18, 98d
 ```
 
 ---
 
-## Detailed Pod Roadmaps
+## Per-Pod Feature Plans
 
-### Empire
+Detailed feature breakdowns live in each pod's plan file:
 
-```mermaid
-gantt
-    title Empire - Detailed View
-    dateFormat YYYY-MM-DD
-    axisFormat %b %d
-    tickInterval 1week
-
-    section Current Sprint
-    [Task TBD]                :         emp1, 2026-03-18, 14d
-
-    section Next Sprint
-    [Task TBD]                :         emp2, 2026-04-01, 14d
-
-    section Milestones
-    Milestone 1               :milestone, em1, 2026-05-15, 0d
-```
-
----
-
-### Metagame
-
-```mermaid
-gantt
-    title Metagame - Detailed View
-    dateFormat YYYY-MM-DD
-    axisFormat %b %d
-    tickInterval 1week
-
-    section Current Sprint
-    [Task TBD]                :         meta1, 2026-03-18, 14d
-
-    section Next Sprint
-    [Task TBD]                :         meta2, 2026-04-01, 14d
-
-    section Milestones
-    Milestone 1               :milestone, mm1, 2026-05-15, 0d
-```
-
----
-
-### Battle
-
-```mermaid
-gantt
-    title Battle - Detailed View
-    dateFormat YYYY-MM-DD
-    axisFormat %b %d
-    tickInterval 1week
-
-    section Current Sprint
-    [Task TBD]                :         bat1, 2026-03-18, 14d
-
-    section Next Sprint
-    [Task TBD]                :         bat2, 2026-04-01, 14d
-
-    section Milestones
-    Milestone 1               :milestone, bm1, 2026-05-15, 0d
-```
-
----
-
-### Social Dynamics
-
-```mermaid
-gantt
-    title Social Dynamics - Detailed View
-    dateFormat YYYY-MM-DD
-    axisFormat %b %d
-    tickInterval 1week
-
-    section Current Sprint
-    [Task TBD]                :         soc1, 2026-03-18, 14d
-
-    section Next Sprint
-    [Task TBD]                :         soc2, 2026-04-01, 14d
-
-    section Milestones
-    Milestone 1               :milestone, sm1, 2026-05-15, 0d
-```
-
----
-
-### Dozer
-
-```mermaid
-gantt
-    title Dozer - Detailed View
-    dateFormat YYYY-MM-DD
-    axisFormat %b %d
-    tickInterval 1week
-
-    section Current Sprint
-    [Task TBD]                :         doz1, 2026-03-18, 14d
-
-    section Next Sprint
-    [Task TBD]                :         doz2, 2026-04-01, 14d
-
-    section Milestones
-    Milestone 1               :milestone, dm1, 2026-05-15, 0d
-```
-
----
-
-## Legend
-
-| Visual | Meaning |
-|--------|---------|
-| Gray bar | `done` - Completed work |
-| Blue bar | `active` - Currently in progress |
-| Red bar | `crit` - Blocked or at risk |
-| Default bar | Planned / committed (not yet started) |
-| Diamond | `milestone` - Key delivery date |
+| Pod | Plan File | Lead |
+|-----|-----------|------|
+| Empire | [`pods/Empire_Plan.md`](pods/Empire_Plan.md) | Diana Vasilescu |
+| Metagame | [`pods/Metagame_Plan.md`](pods/Metagame_Plan.md) | [TBD] |
+| Battle | [`pods/Battle_Plan.md`](pods/Battle_Plan.md) | [TBD] |
+| Social Dynamics | [`pods/SocialDynamics_Plan.md`](pods/SocialDynamics_Plan.md) | [TBD] |
+| Dozer | [`pods/Dozer_Plan.md`](pods/Dozer_Plan.md) | [TBD] |
 
 ---
 
 ## How to Read This Roadmap
 
-- **High-Level chart**: Major phases per pod + milestones. Executive overview.
-- **Detailed Pod charts**: Individual tasks per sprint. Team-level planning.
-- **Dependencies**: `after [id]` = must wait for referenced task. Cross-pod arrows from `dependency_map.md`.
-- **Critical (red)**: Blocked or at risk of delaying downstream work.
-- **Milestones align with `ValidationRoadmap.md`**: Milestone 1 here = Milestone 1 SHQ evaluation there.
+- **Milestones table**: The source of truth for dates, sprint counts, and goals
+- **Gantt chart**: Visual overview of features across milestones per pod. Features, not tasks.
+- **Pod Plan files**: Details on each feature (scope, estimates, dependencies, assumptions, risk)
+- **ClickUp**: Sprint-level execution. Each feature here links to a ClickUp Epic/Folder for task breakdown.
+- **Validation alignment**: Maps feature milestones to validation milestones in `ValidationRoadmap.md`
+
+### Legend
+
+| Visual | Meaning |
+|--------|---------|
+| Gray bar | `done` - Completed |
+| Blue bar | `active` - In progress |
+| Red bar | `crit` - Blocked or at risk |
+| Default bar | Planned (not yet started) |
+| Diamond | `milestone` - Milestone end date |
 
 ---
 
@@ -176,4 +112,4 @@ gantt
 
 | Date | Changed By | Summary |
 |------|-----------|---------|
-| 2026-03-18 | Initial | Created roadmap structure with all 5 pods |
+| 2026-03-18 | Tim / Claude | Milestone definitions, Empire M&Ms + Beta Launch Prep features |

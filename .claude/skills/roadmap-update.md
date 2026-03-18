@@ -1,33 +1,35 @@
 # Roadmap Update Skill
 
-You are helping update the project's **Feature Roadmap** - both the structured data in pod backlog files and the visual Mermaid Gantt in `roadmap.md`.
+You are helping update the project's **Feature Roadmap** - both the feature plans in `pods/*_Plan.md` and the visual Mermaid Gantt in `roadmap.md`.
 
-> **Note**: This skill handles the Feature Roadmap (what we're building and when).
+> **Note**: This skill handles the Feature Roadmap (what features/boulders we're building, in which milestones, and when).
+> Sprint-level task execution lives in **ClickUp**, not here.
 > For Validation Roadmap updates (hypotheses, BHQs, SHQs), see the validation-review skill.
 
 ---
 
 ## Project Structure
 
-- `pods/Empire_Backlog.md` - Empire pod backlog
-- `pods/Metagame_Backlog.md` - Metagame pod backlog
-- `pods/Battle_Backlog.md` - Battle pod backlog
-- `pods/SocialDynamics_Backlog.md` - Social Dynamics pod backlog
-- `pods/Dozer_Backlog.md` - Dozer pod backlog
-- `roadmap.md` - Visual Feature Roadmap (Mermaid Gantt charts)
-- `dependency_map.md` - Pod relationships and shared resources
+- `roadmap.md` - Milestone definitions, timeline, and high-level Gantt
+- `pods/Empire_Plan.md` - Empire features by milestone (lead: Diana Vasilescu)
+- `pods/Metagame_Plan.md` - Metagame features by milestone
+- `pods/Battle_Plan.md` - Battle features by milestone
+- `pods/SocialDynamics_Plan.md` - Social Dynamics features by milestone
+- `pods/Dozer_Plan.md` - Dozer features by milestone
+- `dependency_map.md` - Pod and feature dependencies
 - `GlobalRules.md` - Cross-project constraints
 - `features/*.md` - Feature documentation
+- `ValidationRoadmap.md` - Validation hypotheses and SHQs
 
 ---
 
 ## Your Task
 
 ### 1. Read Current State
-- Read the relevant `pods/*_Backlog.md` file(s) for the pod(s) being updated
+- Read the relevant `pods/*_Plan.md` file(s) for the pod(s) being updated
+- Read `roadmap.md` for milestone definitions and the current Gantt
 - Read `dependency_map.md` for constraints
-- Read `roadmap.md` for the current visual roadmap
-- If cross-pod impact is possible, read all pod backlogs
+- If cross-pod impact is possible, read all pod plans
 - Read relevant feature docs in `features/` if needed
 
 ### 2. Gather Updates
@@ -48,7 +50,7 @@ Ask the user for:
 - Check if changes affect any SHQs in `ValidationRoadmap.md` (mention if so, but don't update it here)
 
 ### 4. Update Documentation
-- Update the relevant `pods/*_Backlog.md` file(s) with new information
+- Update the relevant `pods/*_Plan.md` file(s) with new information
 - Update "Last Updated" timestamps
 - If priorities shifted significantly, ask if `dependency_map.md` needs updates
 - If new cross-pod features emerge, ask if `GlobalRules.md` needs updates
@@ -66,7 +68,7 @@ Ask the user for:
 
 ## Visual Roadmap Rules
 
-The visual Feature Roadmap lives in `roadmap.md`. It contains Mermaid Gantt charts built from `pods/*_Backlog.md` data.
+The visual Feature Roadmap lives in `roadmap.md`. It contains Mermaid Gantt charts built from `pods/*_Plan.md` data.
 
 ### File Structure for `roadmap.md`
 

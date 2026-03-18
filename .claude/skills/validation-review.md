@@ -10,7 +10,7 @@ You are helping evaluate and update the **Validation Roadmap** - the hypothesis-
 ## Project Structure
 
 - `ValidationRoadmap.md` - The validation hierarchy and sprint evaluation log
-- `pods/*_Backlog.md` - Pod backlogs (to check feature work alignment)
+- `pods/*_Plan.md` - Pod backlogs (to check feature work alignment)
 - `roadmap.md` - Feature Roadmap (to cross-reference timelines)
 - `features/*.md` - Feature docs (for detailed context on what's being built)
 
@@ -20,7 +20,7 @@ You are helping evaluate and update the **Validation Roadmap** - the hypothesis-
 
 ### 1. Read Current State
 - Read `ValidationRoadmap.md` for current hypothesis status, BHQs, SHQs
-- Read all `pods/*_Backlog.md` to understand what's being built
+- Read all `pods/*_Plan.md` to understand what's being built
 - Read `roadmap.md` to check timeline alignment
 - Read relevant `features/*.md` if diving deep on specific validations
 
