@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -rl \"Combat Systems\\\\|Character Systems\\\\|World/Environment\\\\|UI/UX\\\\|Multiplayer\" C:/Users/TimWilliams/ClaudeWorkspace/lotusDocumentationBrain/ --include=*.md)"
+    ]
+  }
+}

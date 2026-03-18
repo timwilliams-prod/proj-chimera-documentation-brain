@@ -1,0 +1,305 @@
+{
+  "main": {
+    "id": "9343172ea42a53ab",
+    "type": "split",
+    "children": [
+      {
+        "id": "8e0593a758d21334",
+        "type": "tabs",
+        "dimension": 36.14551083591331,
+        "children": [
+          {
+            "id": "892cabbb58025e6e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "QUICK_START.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "QUICK_START"
+            }
+          }
+        ]
+      },
+      {
+        "id": "9c4c76124b52545c",
+        "type": "tabs",
+        "dimension": 63.854489164086694,
+        "children": [
+          {
+            "id": "32d804acf79abbfc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "README"
+            }
+          },
+          {
+            "id": "783cb444c7954990",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "dependency_map.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "dependency_map"
+            }
+          },
+          {
+            "id": "c5e7a66ff89a6626",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "GlobalRules.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "GlobalRules"
+            }
+          },
+          {
+            "id": "c4cb926a7e926f63",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "dependency_map.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "dependency_map"
+            }
+          },
+          {
+            "id": "93a61a124a2c8a8b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "ValidationRoadmap.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "ValidationRoadmap"
+            }
+          },
+          {
+            "id": "50bd5215cf7d5e9b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "pods/Empire_Backlog.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Empire_Backlog"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "1c771ab2fdbda98b",
+    "type": "split",
+    "children": [
+      {
+        "id": "0b888e5467963b38",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0305ddcaaa9d2852",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "61cc569b248f4b1a",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "f2a59a6e835fd1b3",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "81d2c05b4a46e97f",
+    "type": "split",
+    "children": [
+      {
+        "id": "5ed953f6907728c9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1602a673240cdcce",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "README.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for README"
+            }
+          },
+          {
+            "id": "b3a5c7158319cf69",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "README.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from README"
+            }
+          },
+          {
+            "id": "540c737aff840cc2",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "01aca787dfb45ab0",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "5ba051cfce749fd1",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "README.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of README"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "32d804acf79abbfc",
+  "lastOpenFiles": [
+    "pods/Empire_Backlog.md",
+    "ValidationRoadmap.md",
+    "Lotus Productionomicon - Validation Roadmap.csv",
+    "QUICK_START.md",
+    "dependency_map.md",
+    "GlobalRules.md",
+    "pods/Battle_Backlog.md",
+    "features/combat_system.md",
+    "roadmap.md",
+    "README.md",
+    "roadmap.md.tmp.6784.1773861170356",
+    "GlobalRules.md.tmp.6784.1773861147895",
+    "EXAMPLES.md.tmp.6784.1773861118306",
+    "QUICK_START.md.tmp.6784.1773861118031",
+    "README.md.tmp.6784.1773861117774",
+    "roadmap.md.tmp.6784.1773860523582",
+    "ValidationRoadmap.md.tmp.6784.1773860517770",
+    "pods/Dozer_Backlog.md",
+    "pods/SocialDynamics_Backlog.md",
+    "pods/Metagame_Backlog.md",
+    "pods",
+    "Pod_Backlog.md",
+    "INGESTION_GUIDE.md",
+    "EXAMPLES.md"
+  ]
+}
