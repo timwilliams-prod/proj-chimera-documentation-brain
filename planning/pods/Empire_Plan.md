@@ -33,101 +33,7 @@ Note: some BHQs are cross-pod — Empire contributes but doesn't solely own them
 
 ---
 
-## Milestone: Multiplayer & Meta (M&Ms)
-
-**Ends**: Jun 23, 2026 (~7 sprints)
-
-### Feature Priorities (ordered)
-
-| # | Feature | Estimate | Status | Feature Doc |
-|---|---------|----------|--------|-------------|
-| 1 | Governors | 3 sprints | IN PROGRESS | [`planning/features/governors.md`](../features/governors.md) |
-| 2 | Territory Map Vertical Slice | 2 sprints | NOT STARTED | `planning/features/territory_map_vs.md` [TBD] |
-| 3 | WM Support for Building Upgrades | 1 sprint | NOT STARTED | `planning/features/wm_building_upgrades.md` [TBD] |
-| - | Map Content (Design/Art Track) | Ongoing | IN PROGRESS | `planning/features/map_content.md` [TBD] |
-
-**Flex**: ~1 sprint buffer for risk/iteration.
-
-### Validation Alignment
-
-| Feature | Related SHQs | What It Proves |
-|---------|-------------|----------------|
-| Governors | SHQ7 (short/mid/long-term goals) | Governors provide a long-term goal vector in Empire |
-| Territory Map VS | SHQ1 (map at scale), SHQ2 (strategy <-> conquest) | VS should test whether the two map layers feel connected |
-| Map Content | SHQ1 (high visual bar, variety) | Content pipeline validates production capacity |
-
-### Sprint Allocation
-
-```
-Sprint 1-3:  Governors
-Sprint 4-5:  Territory Map VS
-Sprint 6:    WM Building Upgrades
-Sprint 7:    Flex / risk buffer / iteration
-```
-
-Map Content runs in parallel on design/art (see `planning/capacity.md`).
-
----
-
-## Milestone: Beta Launch Prep
-
-**Ends**: Jul 21, 2026 (2 sprints)
-
-### Feature Priorities
-
-| # | Feature | Estimate | Status | Feature Doc |
-|---|---------|----------|--------|-------------|
-| - | Map Content (Design/Art Track) | Ongoing | CONTINUES | `planning/features/map_content.md` [TBD] |
-
-No Empire engineering features planned. Engineering capacity may flex to other pods (see `planning/capacity.md`).
-
----
-
-## Milestone: Monetization & Conversion (M&C)
-
-**Ends**: Oct 13, 2026 (6 sprints)
-
-### Feature Priorities (ordered)
-
-| # | Feature | Estimate | Status | Feature Doc |
-|---|---------|----------|--------|-------------|
-| 1 | World Map Vertical Slice | ~1 sprint | NOT STARTED | `planning/features/world_map_vs.md` [TBD] |
-| 2 | World Map Zoom Filtering & LOD | ~1 sprint | NOT STARTED | `planning/features/wm_zoom_lod.md` [TBD] |
-| 3 | Conquest Guide Full Screen | ~0.5 sprint | NOT STARTED | `planning/features/conquest_guide.md` [TBD] |
-| 4 | Barrier & Story Shard Iterations | ~0.5 sprint | NOT STARTED | `planning/features/barrier_story_iterations.md` [TBD] |
-| - | Map Content (Design/Art Track) | Ongoing | NOT STARTED | `planning/features/map_content.md` [TBD] |
-
-### Validation Alignment
-
-[TBD - map features to SHQs for this milestone]
-
----
-
-## Milestone: Live Ops & Social
-
-**Ends**: Feb 2, 2027 (8 sprints)
-
-### Feature Priorities
-
-[TBD - awaiting feature definitions]
-
-Map Content continues.
-
----
-
-## Milestone: Soft Launch (UA Scale)
-
-**Ends**: May 30, 2027 (~8 sprints)
-
-### Feature Priorities
-
-[TBD - awaiting feature definitions]
-
-Map Content: final push. Content targets must be defined before this milestone.
-
----
-
-## Empire Feature Timeline
+## Roadmap View
 
 ```mermaid
 gantt
@@ -142,8 +48,11 @@ gantt
     WM Building Upgrades      :         emp3, after emp2, 14d
     Flex / Risk Buffer        :         emp_flex1, after emp3, 14d
 
+    section Beta Prep (ends Jul 21)
+    No eng features           :         emp_bp, after emp_flex1, 28d
+
     section M&C (ends Oct 13)
-    World Map VS              :         emp4, after emp_flex1, 14d
+    World Map VS              :         emp4, after emp_bp, 14d
     WM Zoom Filtering & LOD   :         emp5, after emp4, 14d
     Conquest Guide Full Screen :        emp6, after emp5, 7d
     Barrier & Story Iterations :        emp7, after emp6, 7d
@@ -158,3 +67,83 @@ gantt
     Live Ops & Social         :milestone, ms4, 2027-02-02, 0d
     Soft Launch               :milestone, ms5, 2027-05-30, 0d
 ```
+
+---
+
+## Feature Priorities
+
+All Empire features across milestones, ordered by priority within each milestone.
+
+| # | Feature | Milestone | Estimate | Status | Related SHQs | What It Proves |
+|---|---------|-----------|----------|--------|-------------|----------------|
+| 1 | [Governors](../features/governors.md) | M&Ms | 3 sprints | IN PROGRESS | SHQ7 (short/mid/long-term goals) | Long-term goal vector within Empire; meaningful project investment |
+| 2 | [Territory Map VS](../features/territory_map_vs.md) | M&Ms | 2 sprints | NOT STARTED | SHQ1 (map at scale), SHQ2 (strategy <-> conquest) | Two map layers feel connected; seamless strategic flow |
+| 3 | [WM Building Upgrades](../features/wm_building_upgrades.md) | M&Ms | 1 sprint | NOT STARTED | - | World map supports empire investment visibility |
+| 4 | [Map Content](../features/map_content.md) | Ongoing | Ongoing | IN PROGRESS | SHQ1 (high visual bar, variety) | Content pipeline validates production capacity at scale |
+| 5 | [World Map VS](../features/world_map_vs.md) | M&C | ~1 sprint | NOT STARTED | [TBD] | [TBD - map features to SHQs] |
+| 6 | [WM Zoom Filtering & LOD](../features/wm_zoom_lod.md) | M&C | ~1 sprint | NOT STARTED | [TBD] | [TBD] |
+| 7 | [Conquest Guide Full Screen](../features/conquest_guide.md) | M&C | ~0.5 sprint | NOT STARTED | [TBD] | [TBD] |
+| 8 | [Barrier & Story Shard Iterations](../features/barrier_story_iterations.md) | M&C | ~0.5 sprint | NOT STARTED | [TBD] | [TBD] |
+
+> Feature docs marked as links may not exist yet — create with `planning/features/governors.md` as template.
+
+---
+
+## Milestone Breakdown
+
+### M&Ms (Multiplayer & Meta)
+
+**Ends**: Jun 23, 2026 | **Sprints**: ~7 | **Flex**: 1 sprint buffer for risk/iteration
+
+```
+Sprint 1-3:  Governors (IN PROGRESS)
+Sprint 4-5:  Territory Map VS
+Sprint 6:    WM Building Upgrades
+Sprint 7:    Flex / risk buffer / iteration
+```
+
+Map Content runs in parallel on design/art track (see `planning/capacity.md`).
+
+---
+
+### Beta Launch Prep
+
+**Ends**: Jul 21, 2026 | **Sprints**: 2 | **Flex**: -
+
+No Empire engineering features planned. Engineering capacity may flex to other pods (see `planning/capacity.md`).
+Map Content continues on design/art track.
+
+---
+
+### M&C (Monetization & Conversion)
+
+**Ends**: Oct 13, 2026 | **Sprints**: 6 | **Flex**: [TBD]
+
+```
+Sprint 1:    World Map VS
+Sprint 2:    WM Zoom Filtering & LOD
+Sprint 3:    Conquest Guide + Barrier & Story Iterations
+Sprint 4-6:  [TBD - awaiting feature definitions]
+```
+
+Map Content continues. M&C validation alignment TBD.
+
+---
+
+### Live Ops & Social
+
+**Ends**: Feb 2, 2027 | **Sprints**: 8 | **Flex**: [TBD]
+
+[TBD - awaiting feature definitions]
+
+Map Content continues.
+
+---
+
+### Soft Launch (UA Scale)
+
+**Ends**: May 30, 2027 | **Sprints**: ~8 | **Flex**: [TBD]
+
+[TBD - awaiting feature definitions]
+
+Map Content: final push. Content targets must be defined before this milestone.
