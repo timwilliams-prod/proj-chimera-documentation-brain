@@ -14,12 +14,13 @@ Pod Lead: [TBD]
 Social Dynamics runs two parallel tracks during M&Ms:
 
 1. **Multiplayer AI Prototype** -- Playtesting and iterating on the AI-driven prototype throughout M&Ms. This is our active playtest vehicle until the real client is ready.
-2. **Map Foundation Build-Up** -- Engineering builds the real multiplayer map phase by phase (see Feature Phases below).
+2. **Multiplayer Maps Build-Up** -- Engineering builds the real multiplayer map phase by phase (Phases 1-10, see below).
 
 **Switchover Goal**: Get the in-client version functional enough to replace the AI prototype for playtesting during M&Ms.
 **Player Release Goal**: Ship multiplayer to players during / at the end of M&C.
+**All phases (1-10) target completion by end of M&C** (Oct 13, 2026). Later phases assume additional resources beyond the initial 2 engineers.
 
-**Staffing**: 2 client engineers (Randy, Garrett) across M&Ms and M&C.
+**Staffing**: 2 client engineers (Randy, Garrett) across M&Ms and M&C. Additional resources expected for later phases.
 
 ---
 
@@ -33,25 +34,21 @@ gantt
     tickInterval 2week
 
     section Track 1: AI Prototype
-    Playtesting & Iteration       :active,  ai1, 2026-03-19, 2026-06-23
+    Playtesting & Iteration          :active,  ai1, 2026-03-19, 2026-06-23
 
-    section Track 2: Map Build-Up
+    section Track 2: Multiplayer Maps
     P1 - Infrastructure & Foundation :active,  sd1, 2026-03-19, 2026-03-30
     P2 - Map Foundation              :         sd2, after sd1, 30d
-    P2 - Basic Game Logic            :         sd3, after sd2, 42d
-    P3 - Heroes on Map               :         sd4, after sd3, 28d
-    P4 - Interesting Tiles            :         sd5, after sd4, 28d
-    P5 - Initial Rollout              :         sd6, after sd5, 14d
-
-    section Post-Rollout
-    P6 - Dynamic Experience           :         sd7, after sd6, 28d
-    P7 - Clarity of State             :         sd8, after sd7, 28d
-    P8 - More Design Depth            :         sd9, after sd8, 28d
-    P9 - Preparing for Rollout        :         sd10, after sd9, 28d
-
-    section Standalone Features
-    Ravager's Reef                    :         sd_rr, after sd6, 42d
-    Battlepass                        :         sd_bp, after sd_rr, 28d
+    P3 - Basic Game Logic            :         sd3, after sd2, 42d
+    P4 - Heroes on Map              :         sd4, after sd3, 28d
+    P5 - Interesting Tiles           :         sd5, after sd4, 21d
+    P6 - Initial Rollout             :         sd6, after sd5, 14d
+    P7 - Dynamic Experience          :         sd7, after sd6, 21d
+    P8 - Clarity of State            :         sd8, after sd7, 14d
+    P9 - More Design Depth           :         sd9, after sd8, 14d
+    P10 - Preparing for Rollout      :         sd10, after sd9, 14d
+    Ravager's Reef                   :         sd_rr, after sd10, 42d
+    Battlepass                       :         sd_bp, after sd_rr, 28d
 
     section Milestones
     M&M - Jun 23              :crit, milestone, 2026-06-23, 0d
@@ -61,7 +58,7 @@ gantt
     Soft Launch - May 30      :crit, milestone, 2027-05-30, 0d
 ```
 
-> Gantt durations for Phases 2-9 are estimates. Actual timelines TBD as breakdowns are finalized.
+> Gantt durations are estimates. Phases 7-10 compress with additional resources. Actual timelines TBD as breakdowns are finalized.
 
 ---
 
@@ -80,7 +77,7 @@ gantt
 - Engineering Work Breakdown
 - Map Foundation Support
 
-### Phase 2 -- Basic Game Logic (TBD)
+### Phase 3 -- Basic Game Logic (TBD)
 
 | # | Feature |
 |---|---------|
@@ -91,7 +88,7 @@ gantt
 | 9 (part 1) | Troop Training |
 | 13 | Battles |
 
-### Phase 3 -- Heroes on Map (TBD)
+### Phase 4 -- Heroes on Map (TBD)
 
 | # | Feature |
 |---|---------|
@@ -100,7 +97,7 @@ gantt
 | 7 | Hero Energy System (& pathing) |
 | 9 (part 2) | Army Screen |
 
-### Phase 4 -- Interesting Tiles (TBD)
+### Phase 5 -- Interesting Tiles (TBD)
 
 | # | Feature |
 |---|---------|
@@ -108,7 +105,7 @@ gantt
 | 11 | Tile Types (Foundations, Barracks, Shrines) |
 | 8 | Cycle Generation System |
 
-### Phase 5 -- "Initial Rollout" / Completed Game Loop (TBD)
+### Phase 6 -- "Initial Rollout" / Completed Game Loop (TBD)
 
 | # | Feature |
 |---|---------|
@@ -116,7 +113,7 @@ gantt
 
 ---
 
-### Phase 6 -- Dynamic Experience (TBD)
+### Phase 7 -- Dynamic Experience (TBD)
 
 | # | Feature |
 |---|---------|
@@ -126,7 +123,7 @@ gantt
 | 19 | Each Map in Multiplayer has a different modifier |
 | 24 | Departure logic |
 
-### Phase 7 -- Clarity of State (TBD)
+### Phase 8 -- Clarity of State (TBD)
 
 | # | Feature |
 |---|---------|
@@ -136,7 +133,7 @@ gantt
 | 23 | End Level Reward Screen Updates |
 | 25 | Metagame Leaderboard (comparing ALL players across the whole season) |
 
-### Phase 8 -- More Design Depth (TBD)
+### Phase 9 -- More Design Depth (TBD)
 
 | # | Feature |
 |---|---------|
@@ -144,7 +141,7 @@ gantt
 | 21 | "Seasonal" support where the map changes over time |
 | 26 | Leaderboard Payouts |
 
-### Phase 9 -- Preparing for Rollout (TBD)
+### Phase 10 -- Preparing for Rollout (TBD)
 
 | # | Feature |
 |---|---------|
@@ -154,12 +151,12 @@ gantt
 
 ---
 
-## Standalone Features (Post-Initial Rollout)
+## Standalone Features (Post-Phase 10)
 
-| Feature | Estimate | Milestone | Status |
-|---------|----------|-----------|--------|
-| Ravager's Reef | 3 sprints | TBD (post-M&C) | NOT STARTED |
-| Battlepass | 2 sprints | TBD (post-M&C) | NOT STARTED |
+| Feature | Estimate | Status |
+|---------|----------|--------|
+| Ravager's Reef | 3 sprints | NOT STARTED |
+| Battlepass | 2 sprints | NOT STARTED |
 
 ---
 
@@ -171,13 +168,13 @@ gantt
 
 Two parallel tracks:
 - **AI Prototype**: Continuous playtesting and iteration throughout milestone
-- **Map Build-Up**: Phase 1 through as far as possible (target: enough for playtest switchover)
+- **Multiplayer Maps**: Phase 1 through as far as possible (target: enough for playtest switchover)
 
 ```
 Phase 1:  Infrastructure & Foundation (through 3/30)
 Phase 2:  Map Foundation (~1 month)
-Phase 2:  Basic Game Logic
-Phase 3+: As time allows -- goal is playtest switchover from AI prototype
+Phase 3:  Basic Game Logic
+Phase 4+: As time allows -- goal is playtest switchover from AI prototype
 ```
 
 ---
@@ -194,7 +191,7 @@ Phase 3+: As time allows -- goal is playtest switchover from AI prototype
 
 **Ends**: Oct 13, 2026 | **Sprints**: 6
 
-Continue phased build-up toward player release. Target: multiplayer ships to players during / at end of M&C.
+All remaining phases (through P10) complete by end of milestone. Additional resources ramped up to hit this target. Multiplayer ships to players during / at end of M&C.
 
 ---
 
@@ -202,7 +199,7 @@ Continue phased build-up toward player release. Target: multiplayer ships to pla
 
 **Ends**: Feb 2, 2027 | **Sprints**: 8
 
-Post-release phases (6-9) + Ravager's Reef (3 sprints) + Battlepass (2 sprints).
+Ravager's Reef (3 sprints) + Battlepass (2 sprints).
 
 ---
 
