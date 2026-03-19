@@ -14,7 +14,7 @@ ClickUp: [Epic link]
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ7 | Is there a clear sense of short-, mid-, and long-term goals that interconnect across verticals, with projects that feel meaningful for the different player profiles? | ANSWERED |
+| SHQ7 | Is there a clear sense of short-, mid-, and long-term goals that interconnect across verticals, with projects that feel meaningful for the different player profiles? | Planning |
 
 **Parent BHQ**: BHQ-E3 - Can our Empire progression systems remain compelling in the long term?
 
