@@ -40,27 +40,38 @@ Each sprint we evaluate progress against these targets. Over time, milestone by 
 ## Validation Hierarchy
 
 ```mermaid
-mindmap
-  root((Product Vision))
-    WH-1 Battle
-      BHQ-B1 Fun & Sticky Gameplay
-      BHQ-B2 Intuitive Actions
-      BHQ-B3 Keys & Locks Motivation
-      BHQ-B4 Scalable Battle Content
-    WH-2 Empire
-      BHQ-E1 Intuitive Map Exploration
-      BHQ-E2 Return Motivations
-      BHQ-E3 Long-Term Progression
-      BHQ-E4 Instant Gratification
-    WH-3 Monetization
-      BHQ-M1 Hero Collectability
-      BHQ-M2 PvE to Social Pipeline
-      BHQ-M3 Spend Depth
-      BHQ-M4 Multiplayer Motivations
-    WH-4 Production
-      Content Pipeline
-      Technical Stability
-      Ad Creatives
+%%{init: {'theme': 'dark'}}%%
+flowchart TD
+    V((Product Vision))
+    V --> WH1[WH-1 Battle]
+    V --> WH2[WH-2 Empire]
+    V --> WH3[WH-3 Monetization]
+    V --> WH4[WH-4 Production]
+
+    WH1 --> B1[BHQ-B1 Fun & Sticky Gameplay]
+    WH1 --> B2[BHQ-B2 Intuitive Actions]
+    WH1 --> B3[BHQ-B3 Keys & Locks Motivation]
+    WH1 --> B4[BHQ-B4 Scalable Battle Content]
+
+    WH2 --> E1[BHQ-E1 Intuitive Map Exploration]
+    WH2 --> E2[BHQ-E2 Return Motivations]
+    WH2 --> E3[BHQ-E3 Long-Term Progression]
+    WH2 --> E4[BHQ-E4 Instant Gratification]
+
+    WH3 --> M1[BHQ-M1 Hero Collectability]
+    WH3 --> M2[BHQ-M2 PvE to Social Pipeline]
+    WH3 --> M3[BHQ-M3 Spend Depth]
+    WH3 --> M4[BHQ-M4 Multiplayer Motivations]
+
+    WH4 --> P1[Content Pipeline]
+    WH4 --> P2[Technical Stability]
+    WH4 --> P3[Ad Creatives]
+
+    style V fill:#6366f1,stroke:#818cf8,color:#fff
+    style WH1 fill:#dc2626,stroke:#f87171,color:#fff
+    style WH2 fill:#16a34a,stroke:#4ade80,color:#fff
+    style WH3 fill:#d97706,stroke:#fbbf24,color:#fff
+    style WH4 fill:#7c3aed,stroke:#a78bfa,color:#fff
 ```
 
 ---
@@ -463,6 +474,7 @@ Track confidence changes sprint-over-sprint.
 ## Validation Status Summary
 
 ```mermaid
+%%{init: {'theme': 'dark'}}%%
 quadrantChart
     title Hypothesis Confidence vs Evidence Collected
     x-axis "Low Evidence" --> "High Evidence"
