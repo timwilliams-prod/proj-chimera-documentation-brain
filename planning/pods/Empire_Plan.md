@@ -110,7 +110,7 @@ Map Content runs in parallel on design/art track (see `planning/capacity.md`).
 
 **Ends**: Jul 21, 2026 | **Sprints**: 2 | **Flex**: -
 
-No Empire engineering features planned. Engineering capacity may flex to other pods (see `planning/capacity.md`).
+Empire Engineers will focus on build stability and bugfixing. Engineering capacity may flex to other pods (see `planning/capacity.md`).
 Map Content continues on design/art track.
 
 ---
