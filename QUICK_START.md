@@ -1,271 +1,132 @@
 # Quick Start Guide
 
-Get your documentation brain up and running in 30 minutes.
+Get oriented in 15 minutes.
 
 ---
 
-## Step 1: Understand the Structure (5 min)
+## Step 1: Understand the Three Layers (3 min)
+
+This brain separates three concerns:
 
 ```
-lotusDocumentationBrain/
-├── GlobalRules.md              # Cross-project standards (update rarely)
-├── ValidationRoadmap.md        # Winning Hypotheses → BHQs → SHQs (evaluate per sprint)
-├── roadmap.md                  # Feature Roadmap Gantt charts (auto-regenerated)
-├── dependency_map.md           # Pod relationships (update when integrations change)
-├── pods/                       # Per-pod backlogs (update 2-3x/week)
-│   ├── Empire_Backlog.md
-│   ├── Metagame_Backlog.md
-│   ├── Battle_Backlog.md
-│   ├── SocialDynamics_Backlog.md
-│   └── Dozer_Backlog.md
-├── features/                   # Feature specs (update when designs change)
-└── .claude/skills/             # Reusable workflows
-    ├── roadmap-update.md       # Update backlogs + Gantt
-    ├── risk-evaluation.md      # Find risks across docs
-    └── validation-review.md    # Evaluate hypotheses + SHQs
+pods/Empire_Plan.md        -> WHAT to build and WHY (priorities + validation)
+features/governors.md      -> HOW MUCH it costs and HOW to build it (specs + approach)
+capacity.md                -> WHO is available WHERE (staffing across milestones)
 ```
 
-**Two types of roadmaps**:
-- **Feature Roadmap** (`roadmap.md`): What we're building and when (Mermaid Gantt)
-- **Validation Roadmap** (`ValidationRoadmap.md`): Are we building the right thing (hypotheses → BHQs → SHQs)
+**Supporting files**:
+- `ValidationRoadmap.md` - Are we building the right thing? (Hypotheses -> BHQs -> SHQs)
+- `roadmap.md` - Visual Gantt chart of features across milestones
+- `dependency_map.md` - Pod and feature dependencies
+- `GlobalRules.md` - Cross-project constraints
+
+**Sprint execution lives in ClickUp**, not here.
 
 ---
 
-## Step 2: Fill In Your Validation Roadmap (10 min)
+## Step 2: Read a Pod Plan (3 min)
 
-This is the most valuable thing to do first - it drives everything else.
+Open `pods/Empire_Plan.md` to see the pattern:
 
-### 2.1 Define Your Winning Hypotheses
-
-Open `ValidationRoadmap.md` and fill in the 3 Winning Hypotheses:
-
-```markdown
-### WH-1: [Your Hypothesis Name]
-
-**Statement**: "If [condition], then [outcome], because [reasoning]."
-**Status**: NOT YET VALIDATED
-**Evidence Required**: [What would prove this true?]
-**Evidence Against**: [What would prove this false?]
-**Current Confidence**: Low
-```
-
-### 2.2 Break Down into BHQs
-
-For each Winning Hypothesis, define 2-3 Big Hairy Questions:
-
-```markdown
-##### BHQ-1.1: [Testable Question]
-
-**Question**: "[Specific question that addresses part of WH-1]"
-**How We Test**: [Method - playtest, analytics, prototype, etc.]
-**Success Criteria**: [What does "answered" look like?]
-**Pods Involved**: [Which pods contribute?]
-```
-
-### 2.3 Define SHQs for Current Milestone
-
-Add 3-5 Small Hairy Questions for your current milestone:
-
-```markdown
-| ID | Question | Parent BHQ | Status | Result | Notes |
-|----|----------|-----------|--------|--------|-------|
-| SHQ-1.1.1 | Do players find X intuitive? | BHQ-1.1 | NOT STARTED | | |
-```
+1. **Validation Focus** - Which hypotheses and BHQs this pod owns
+2. **Feature Priorities** - Ordered list per milestone with links to feature docs
+3. **Validation Alignment** - How each feature connects to SHQs
+4. **Sprint Allocation** - High-level sequence of features
+5. **Gantt Chart** - Visual timeline
 
 ---
 
-## Step 3: Populate One Pod Backlog (5 min)
+## Step 3: Read a Feature Doc (3 min)
 
-Pick your most active pod. Open its file in `pods/` (e.g., `pods/Empire_Backlog.md`):
+Open `features/governors.md` to see the template:
 
-```markdown
-# Empire Pod Backlog
+1. **Why This Feature** (top of doc) - SHQ connections, what it must prove, success criteria
+2. **Scope** - What's in/out
+3. **Estimate & Approach** - Total sprints, discipline breakdown, sprint-level implementation flow
+4. **Dependencies** - What blocks it, what it blocks
+5. **Risks & Open Questions**
 
-Last Updated: 2026-03-18
-Pod Lead: @name
-
----
-
-## Current Sprint (Sprint 23: Mar 18 - Mar 31)
-**Goal**: [Sprint goal]
-
-### In Progress
-- `EMP-101` - Task name
-  - Owner: @username
-  - ClickUp: [link]
-  - Status: 60% - Brief status
-  - Blockers: None
-
-### Committed
-- `EMP-102` - Another task
-
-## Next Sprint (Sprint 24: Apr 1 - Apr 14)
-**Planned Goal**: [Goal]
-
-- `EMP-105` - Planned task
-```
-
-**Pro tip**: Start with just current sprint. Fill in backlog later.
+Key design principle: **validation goals come first** so everyone is aligned on the value before diving into implementation details.
 
 ---
 
-## Step 4: Map Your Dependencies (5 min)
+## Step 4: Check Capacity (3 min)
 
-Edit `dependency_map.md` with your actual pod relationships:
-- Replace the example pods with Empire, Metagame, Battle, Social Dynamics, Dozer
-- Fill in "Depends On" and "Depended On By" for each
-- Identify shared resources (services, systems, databases)
+Open `capacity.md` to see:
+
+- **By discipline** (Engineering, UX/UI, Game Design, Art) - who is allocated where
+- **By milestone** - how allocations shift over time
+- **Flexible notes** - planned moves, approximate ranges, known risks
+
+This is the file to consult when asking "can we afford to do X?" or "what if we move someone?"
 
 ---
 
-## Step 5: Try the Skills (5 min)
+## Step 5: Try the Skills (3 min)
 
-### Test Feature Roadmap Update
-
+### Update a Pod Plan
 ```
 /roadmap-update
 ```
+Updates priorities, sprint allocation, and regenerates the Gantt chart.
 
-Follow the prompts to update one pod. This will:
-1. Read the pod's backlog
-2. Ask what changed
-3. Update the backlog file
-4. Regenerate the Gantt chart in `roadmap.md`
-
-### Test Validation Review
-
+### Evaluate Validation
 ```
 /validation-review
 ```
+Reviews SHQ progress, updates confidence levels, checks feature-validation alignment.
 
-Follow the prompts for a sprint evaluation. This will:
-1. Review SHQ progress
-2. Update confidence levels
-3. Check feature-validation alignment
-
-### Test Risk Evaluation
-
+### Check Risks
 ```
 /risk-evaluation
 ```
-
-Scans everything and finds risks including validation gaps.
-
----
-
-## Step 6: Git Workflow (5 min)
-
-```bash
-cd lotusDocumentationBrain
-git init
-git add .
-git commit -m "Initial documentation brain setup"
-
-git remote add origin <your-repo-url>
-git push -u origin main
-```
+Scans all docs for risks including validation gaps, capacity conflicts, and dependency issues.
 
 ---
 
-## Daily/Weekly Workflow
+## Asking the LLM Good Questions
 
-### Update Sprint Progress (2-3x/week)
-```
-/roadmap-update
-```
-Answer prompts -> Review diff -> Commit
+With this structure, you can ask targeted questions:
 
-### Evaluate Validation (every sprint)
-```
-/validation-review
-```
-Update SHQ status -> Review confidence trends -> Commit
-
-### Check Risks (weekly or before planning)
-```
-/risk-evaluation
-```
-Read report -> Address critical risks
-
-### Work on Features (any time)
-```
-Help me implement [task]
-```
-Claude reads feature docs, pod backlogs, and dependencies for full context.
+| Question Type | What the LLM Reads |
+|--------------|---------------------|
+| "What should Empire work on next?" | Pod plan (priorities + validation) |
+| "How long will Governors take and what does it need?" | Feature doc (estimate + disciplines + approach) |
+| "Can we pull an engineer to help Battle?" | Capacity (who's where) + pod plans (impact on priorities) |
+| "Are we on track to validate BHQ-E1?" | Validation Roadmap (SHQ status) + pod plan (feature alignment) |
+| "If we cut a feature, what opens up?" | Feature doc (estimate freed) + capacity (sprints recovered) + pod plan (reprioritize) |
 
 ---
 
-## What to Update When
+## Creating a New Feature Doc
 
-| Event | File to Update | How |
-|-------|---------------|-----|
-| Sprint Planning | `pods/*_Backlog.md` | `/roadmap-update` |
-| Mid-Sprint Standup | `pods/*_Backlog.md` | `/roadmap-update` |
-| Blocker Found | `pods/*_Backlog.md` | `/roadmap-update` |
-| Sprint Evaluation | `ValidationRoadmap.md` | `/validation-review` |
-| Milestone Boundary | `ValidationRoadmap.md` | `/validation-review` (milestone mode) |
-| New Playtest Data | `ValidationRoadmap.md` | `/validation-review` (SHQ update) |
-| Design Change | `features/*.md` | Manual edit or ask Claude |
-| New Integration | `dependency_map.md` | Manual edit |
-| Policy Change | `GlobalRules.md` | Manual edit |
+Copy the pattern from `features/governors.md`:
+
+1. Start with **Why** - SHQ connections and success criteria
+2. Define **Scope** - in/out
+3. Estimate with **Discipline Breakdown** - which disciplines, how many sprints each
+4. Write the **Implementation Flow** - sprint-by-sprint approach
+5. List **Pre-Conditions** - what must be ready before each phase
+6. Add to the pod plan's priority list
 
 ---
 
 ## Update Cadence
 
-| File | Frequency | Time |
-|------|-----------|------|
-| `pods/*_Backlog.md` | 2-3x/week | 5 min each |
-| `ValidationRoadmap.md` | Every sprint | 15-20 min |
-| `roadmap.md` | Auto-generated | 0 min (skill does it) |
-| `features/*.md` | When design changes | 15-30 min |
-| `dependency_map.md` | Monthly or when integrations change | 10 min |
-| `GlobalRules.md` | Quarterly or when policy changes | 10 min |
-
----
-
-## Common Questions
-
-### "Isn't this duplicating Notion/ClickUp?"
-
-No. This is a **curated summary** for LLM consumption.
-- **Notion**: Full design docs, diagrams, discussions
-- **ClickUp**: Task details, time tracking, assignees
-- **This repo**: High-level "brain" for fast LLM context
-
-### "How do I keep it in sync?"
-
-Start manual. Skills like `/roadmap-update` handle formatting. When it becomes tedious, automate (see `INGESTION_GUIDE.md`).
-
-### "Why two roadmaps?"
-
-They answer different questions:
-- **Feature Roadmap**: "What are we building and when?" (Gantt chart)
-- **Validation Roadmap**: "Is this the right thing to build?" (hypothesis tracking)
-
-Keeping them separate prevents conflating "we shipped the feature" with "the feature validated our hypothesis."
-
-### "Can I change the format?"
-
-Absolutely. These are **templates**. If an LLM can read it and extract meaning, it works.
-
----
-
-## Next Steps
-
-1. Fill in your 3 Winning Hypotheses in `ValidationRoadmap.md`
-2. Populate one pod backlog
-3. Map dependencies for your actual pods
-4. Create 1-2 feature docs
-5. Try all 3 skills
-6. Commit to git
-7. Use for 1-2 sprints, iterate based on what's useful
+| Event | What to Update |
+|-------|---------------|
+| Sprint planning | Pod plan priorities, capacity allocations |
+| Feature starts/completes | Pod plan status, feature doc status |
+| People move between pods | `capacity.md` |
+| Design changes | Feature doc scope/estimate |
+| Sprint evaluation | `ValidationRoadmap.md` via `/validation-review` |
+| Milestone boundary | All of the above + full validation review |
 
 ---
 
 ## Resources
 
 - `README.md` - Full system overview
-- `EXAMPLES.md` - Detailed usage examples
+- `EXAMPLES.md` - Usage examples
 - `INGESTION_GUIDE.md` - Notion/ClickUp sync strategies
-- `.claude/skills/` - Available skills (customize as needed)
+- `.claude/skills/` - Available skills

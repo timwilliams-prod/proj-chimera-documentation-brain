@@ -6,7 +6,7 @@
       {
         "id": "8e0593a758d21334",
         "type": "tabs",
-        "dimension": 36.14551083591331,
+        "dimension": 67.26006191950464,
         "children": [
           {
             "id": "892cabbb58025e6e",
@@ -27,7 +27,7 @@
       {
         "id": "9c4c76124b52545c",
         "type": "tabs",
-        "dimension": 63.854489164086694,
+        "dimension": 32.73993808049536,
         "children": [
           {
             "id": "32d804acf79abbfc",
@@ -264,6 +264,8 @@
   },
   "active": "93a61a124a2c8a8b",
   "lastOpenFiles": [
+    "capacity.md",
+    "features/governors.md",
     "roadmap.md.tmp.6784.1773869022797",
     "pods/Dozer_Plan.md",
     "pods/SocialDynamics_Plan.md",
@@ -291,7 +293,6 @@
     "pods/Dozer_Backlog.md",
     "pods/SocialDynamics_Backlog.md",
     "pods/Metagame_Backlog.md",
-    "pods",
     "Pod_Backlog.md",
     "INGESTION_GUIDE.md",
     "EXAMPLES.md"

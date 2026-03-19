@@ -1,84 +1,58 @@
 # Empire Pod Plan
 
-Last Updated: 2026-03-18
+Last Updated: 2026-03-19
 Pod Lead: Diana Vasilescu
 
-> Feature-level planning per milestone. Sprint execution lives in ClickUp.
-> For the overall milestone timeline, see `roadmap.md`.
+> **What this file tracks**: Feature priorities per milestone and validation alignment.
+> **What lives elsewhere**: Feature details in `features/*.md`. Staffing in `capacity.md`. Sprint execution in ClickUp.
+
+---
+
+## Validation Focus
+
+The Empire pod is primarily validating **WH-2: Empire Hypothesis** - that we can retain better than traditional mobile 4X by anchoring early progression in intuitive, visual exploration on the map layer.
+
+### Key BHQs This Pod Owns
+
+| BHQ | Question | Status |
+|-----|----------|--------|
+| BHQ-E1 | Can we make the civ-like grid intuitive, scalable, and will players be motivated to explore? | NOT YET TESTED |
+| BHQ-E2 | Can we create sharp return motivations that feel organic and not punishing? | TESTING |
+| BHQ-E3 | Can Empire progression remain compelling long-term ("one more turn" on mobile)? | NOT YET TESTED |
+| BHQ-E4 | Can we increase instant gratification when the player takes actions? | NOT YET TESTED |
+
+### Active SHQ Gaps
+
+- **SHQ2** (empire strategy <-> tile conquest seamlessness) - IN PROGRESS
+- **SHQ3** (map -> hero progression) - ANSWERED with a negative result. Design iteration needed.
+- **BHQ-E4** has no SHQs defined yet. Needs attention.
 
 ---
 
 ## Milestone: Multiplayer & Meta (M&Ms)
 
-**Ends**: Jun 23, 2026 (~7 sprints available)
-**Engineering capacity**: 1 engineer (sequential features)
-**Engineering budget**: 6 sprints committed, 1 sprint flex/risk buffer
+**Ends**: Jun 23, 2026 (~7 sprints)
 
-### Features
+### Feature Priorities (ordered)
 
-#### Governors
-| | |
-|---|---|
-| **Estimate** | 3 sprints (6 weeks) |
-| **Status** | IN PROGRESS |
-| **Dependencies** | None |
-| **Assumptions** | [TBD - scope assumptions, design readiness, etc.] |
-| **Risk** | [TBD] |
-| **ClickUp** | [Epic link] |
+| # | Feature | Estimate | Status | Feature Doc |
+|---|---------|----------|--------|-------------|
+| 1 | Governors | 3 sprints | IN PROGRESS | [`features/governors.md`](../features/governors.md) |
+| 2 | Territory Map Vertical Slice | 2 sprints | NOT STARTED | `features/territory_map_vs.md` [TBD] |
+| 3 | WM Support for Building Upgrades | 1 sprint | NOT STARTED | `features/wm_building_upgrades.md` [TBD] |
+| - | Map Content (Design/Art Track) | Ongoing | IN PROGRESS | `features/map_content.md` [TBD] |
 
-**Scope**: [TBD - high-level summary of what Governors delivers]
+**Flex**: ~1 sprint buffer for risk/iteration.
 
----
+### Validation Alignment
 
-#### Territory Map Vertical Slice
-| | |
-|---|---|
-| **Estimate** | 2 sprints (4 weeks) |
-| **Status** | NOT STARTED |
-| **Dependencies** | Governors (builds on governor system?) [confirm] |
-| **Assumptions** | [TBD] |
-| **Risk** | [TBD] |
-| **ClickUp** | [Epic link] |
+| Feature | Related SHQs | What It Proves |
+|---------|-------------|----------------|
+| Governors | SHQ7 (short/mid/long-term goals) | Governors provide a long-term goal vector in Empire |
+| Territory Map VS | SHQ1 (map at scale), SHQ2 (strategy <-> conquest) | VS should test whether the two map layers feel connected |
+| Map Content | SHQ1 (high visual bar, variety) | Content pipeline validates production capacity |
 
-**Scope**: [TBD - what does the Territory Map VS prove out?]
-
----
-
-#### WM Support for Building Upgrades
-| | |
-|---|---|
-| **Estimate** | 1 sprint (2 weeks) |
-| **Status** | NOT STARTED |
-| **Dependencies** | None |
-| **Assumptions** | [TBD] |
-| **Risk** | Low - small scope |
-| **ClickUp** | [Epic link] |
-
-**Scope**: [TBD - World Map support for building upgrade visuals/interactions]
-
----
-
-#### Map Content (Design/Art Track)
-| | |
-|---|---|
-| **Estimate** | Ongoing through Soft Launch (May 2027) |
-| **Status** | IN PROGRESS |
-| **Dependencies** | Territory Map VS and World Map VS inform content requirements |
-| **Assumptions** | Dedicated design/art resources available continuously |
-| **Risk** | Medium - quantity targets not yet defined. Pipeline capacity unproven at scale. |
-| **ClickUp** | [Folder link] |
-
-**Scope**: Territory Maps, World Maps, Onboarding maps, Narrative content. Runs in parallel with engineering features. Quantity targets TBD - placeholder until pipeline is validated.
-
-**Content Types This Milestone**:
-- Territory Maps: [TBD qty]
-- World Maps: [TBD qty]
-- Onboarding content: [TBD qty]
-- Narrative: [TBD qty]
-
----
-
-### M&Ms Sprint Allocation (Empire - 1 engineer, sequential)
+### Sprint Allocation
 
 ```
 Sprint 1-3:  Governors
@@ -87,150 +61,66 @@ Sprint 6:    WM Building Upgrades
 Sprint 7:    Flex / risk buffer / iteration
 ```
 
-Map Content runs in parallel on design/art (separate from engineering).
+Map Content runs in parallel on design/art (see `capacity.md`).
 
-### M&Ms Validation Alignment
-
-| Feature | Related SHQs | Notes |
-|---------|-------------|-------|
-| Governors | SHQ7 (short/mid/long-term goals) | Governors may provide a long-term goal vector |
-| Territory Map VS | SHQ1 (map at scale), SHQ2 (empire strategy ↔ tile conquest) | VS should test SHQ2 assumptions |
-| Map Content | SHQ1 (high visual bar, variety) | Content pipeline validates production capacity |
-
----
 ---
 
 ## Milestone: Beta Launch Prep
 
-**Ends**: Jul 21, 2026 (2 sprints available)
+**Ends**: Jul 21, 2026 (2 sprints)
 
-> No Empire engineering features planned for this milestone. Map Content continues.
+### Feature Priorities
 
-### Features
+| # | Feature | Estimate | Status | Feature Doc |
+|---|---------|----------|--------|-------------|
+| - | Map Content (Design/Art Track) | Ongoing | CONTINUES | `features/map_content.md` [TBD] |
 
-#### Map Content (Design/Art Track - continued)
-| | |
-|---|---|
-| **Estimate** | Ongoing |
-| **Status** | CONTINUES FROM M&Ms |
-| **Risk** | Quantity targets still TBD |
-| **ClickUp** | [Folder link] |
+No Empire engineering features planned. Engineering capacity may flex to other pods (see `capacity.md`).
 
-**Content Targets This Milestone**:
-- Territory Maps: [TBD qty]
-- World Maps: [TBD qty]
-
----
 ---
 
 ## Milestone: Monetization & Conversion (M&C)
 
-**Ends**: Oct 13, 2026 (6 sprints available)
+**Ends**: Oct 13, 2026 (6 sprints)
 
-### Features
+### Feature Priorities (ordered)
 
-#### World Map Vertical Slice
-| | |
-|---|---|
-| **Estimate** | ~1 sprint [confirm] |
-| **Status** | NOT STARTED |
-| **Dependencies** | Territory Map VS (M&Ms) - world map builds on territory map learnings |
-| **Assumptions** | Territory Map VS completed and learnings applied |
-| **Risk** | Medium - depends on M&Ms Territory Map VS landing cleanly |
-| **ClickUp** | [Epic link] |
+| # | Feature | Estimate | Status | Feature Doc |
+|---|---------|----------|--------|-------------|
+| 1 | World Map Vertical Slice | ~1 sprint | NOT STARTED | `features/world_map_vs.md` [TBD] |
+| 2 | World Map Zoom Filtering & LOD | ~1 sprint | NOT STARTED | `features/wm_zoom_lod.md` [TBD] |
+| 3 | Conquest Guide Full Screen | ~0.5 sprint | NOT STARTED | `features/conquest_guide.md` [TBD] |
+| 4 | Barrier & Story Shard Iterations | ~0.5 sprint | NOT STARTED | `features/barrier_story_iterations.md` [TBD] |
+| - | Map Content (Design/Art Track) | Ongoing | NOT STARTED | `features/map_content.md` [TBD] |
 
-**Scope**: [TBD - what does the World Map VS prove?]
+### Validation Alignment
 
----
-
-#### World Map Zoom Filtering and LOD
-| | |
-|---|---|
-| **Estimate** | ~1 sprint [confirm] |
-| **Status** | NOT STARTED |
-| **Dependencies** | World Map VS (this milestone) |
-| **Assumptions** | LOD strategy defined during World Map VS |
-| **Risk** | Medium - performance-sensitive, may need iteration |
-| **ClickUp** | [Epic link] |
-
-**Scope**: [TBD - zoom levels, what shows/hides at each level, performance targets]
-
----
-
-#### Conquest Guide Full Screen
-| | |
-|---|---|
-| **Estimate** | ~0.5 sprint [confirm] |
-| **Status** | NOT STARTED |
-| **Dependencies** | None |
-| **Assumptions** | Design complete before milestone starts |
-| **Risk** | Low |
-| **ClickUp** | [Epic link] |
-
-**Scope**: [TBD]
-
----
-
-#### Barrier & Story Shard Minor Iterations
-| | |
-|---|---|
-| **Estimate** | ~0.5 sprint [confirm] |
-| **Status** | NOT STARTED |
-| **Dependencies** | None |
-| **Assumptions** | Iteration scope defined from M&Ms playtest feedback |
-| **Risk** | Low - minor iterations |
-| **ClickUp** | [Epic link] |
-
-**Scope**: [TBD - polish/iteration on existing barrier and story shard systems]
-
----
-
-#### Map Content (Design/Art Track - continued)
-| | |
-|---|---|
-| **Estimate** | Ongoing |
-| **Status** | NOT STARTED |
-| **Dependencies** | World Map VS informs world map content needs |
-| **Risk** | Quantity targets still TBD |
-| **ClickUp** | [Folder link] |
-
-**Content Targets This Milestone**:
-- Territory Maps: [TBD qty]
-- World Maps: [TBD qty]
+[TBD - map features to SHQs for this milestone]
 
 ---
 
 ## Milestone: Live Ops & Social
 
-**Ends**: Feb 2, 2027 (8 sprints available)
+**Ends**: Feb 2, 2027 (8 sprints)
 
-### Features
+### Feature Priorities
 
 [TBD - awaiting feature definitions]
 
-#### Map Content (Design/Art Track - continued)
-| | |
-|---|---|
-| **Estimate** | Ongoing |
-| **Content Targets** | [TBD qty] |
+Map Content continues.
 
 ---
 
 ## Milestone: Soft Launch (UA Scale)
 
-**Ends**: May 30, 2027 (~8 sprints available)
+**Ends**: May 30, 2027 (~8 sprints)
 
-### Features
+### Feature Priorities
 
 [TBD - awaiting feature definitions]
 
-#### Map Content (Design/Art Track - continued)
-| | |
-|---|---|
-| **Estimate** | Ongoing - final push |
-| **Content Targets** | [TBD qty - must be defined before this milestone] |
+Map Content: final push. Content targets must be defined before this milestone.
 
----
 ---
 
 ## Empire Feature Timeline
@@ -264,22 +154,3 @@ gantt
     Live Ops & Social         :milestone, ms4, 2027-02-02, 0d
     Soft Launch               :milestone, ms5, 2027-05-30, 0d
 ```
-
----
-
-## How This Connects to ClickUp
-
-```
-Brain (this file)                    ClickUp
-─────────────────                    ───────
-Feature: "Governors"        →→→      Epic: Governors
-  Estimate: 3 sprints                  Sprint 1: [tasks]
-  Status: IN PROGRESS                  Sprint 2: [tasks]
-  Dependencies: None                   Sprint 3: [tasks]
-  Assumptions: [...]                   Burndown, assignees, etc.
-```
-
-- **This file** tracks: what features, which milestone, estimates, dependencies, assumptions, risk
-- **ClickUp** tracks: stories/tasks within each feature, sprint assignments, assignees, burndown
-- **Status here** reflects ClickUp reality: update when features start, complete, or get blocked
-- **Estimates here** are planning-level (sprints). ClickUp has task-level estimates (hours/points).
