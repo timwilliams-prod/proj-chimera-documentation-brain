@@ -23,7 +23,6 @@ Note: some BHQs are cross-pod — Empire contributes but doesn't solely own them
 | BHQ-E1 | Can we make the civ-like grid intuitive, scalable, and will players be motivated to explore? | NOT YET TESTED | No |
 | BHQ-E2 | Can we create sharp return motivations that feel organic and not punishing? | TESTING | Potentially (metagame hooks) |
 | BHQ-E3 | Can Empire progression remain compelling long-term ("one more turn" on mobile)? | NOT YET TESTED | Yes (connects to Metagame) |
-| BHQ-E4 | Can we increase instant gratification when the player takes actions? | NOT YET TESTED | Yes (Battle + Empire) |
 
 ### Active SHQ Gaps
 
