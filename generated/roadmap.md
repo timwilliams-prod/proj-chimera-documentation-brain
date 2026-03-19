@@ -56,7 +56,12 @@ gantt
     TBD                       :         bat1, 2026-03-18, 98d
 
     section Social Dynamics
-    TBD                       :         soc1, 2026-03-18, 98d
+    AI Prototype Playtesting   :active,  soc_ai, 2026-03-19, 2026-06-23
+    P1-P6 Map Build-Up        :active,  soc1, 2026-03-19, 2026-07-20
+    P7-P10 Map Completion      :         soc2, after soc1, 84d
+    Multiplayer Networking     :active,  soc_net, 2026-03-19, 2026-06-23
+    Ravager's Reef             :         soc_rr, after soc2, 42d
+    Battlepass                 :         soc_bp, after soc_rr, 28d
 
     section Dozer
     TBD                       :         doz1, 2026-03-18, 98d
@@ -151,14 +156,32 @@ gantt
 **Pod Lead**: Paul Flores | **Producer**: Tim Williams
 **Plan**: [`planning/pods/SocialDynamics_Plan.md`](../planning/pods/SocialDynamics_Plan.md)
 
-**M&Ms Validation Focus**: TBD - features and SHQ alignment not yet defined.
+**M&Ms Validation Focus**: Building multiplayer map foundations via phased build-up (P1-P10), with AI prototype playtesting in parallel until in-client switchover.
 
 | Key BHQ | Key SHQs for M&Ms | Status |
 |---------|-------------------|--------|
 | BHQ-M2: PvE to social pipeline | No SHQs until post-Systems Validation | Future milestone |
 | BHQ-M4: Multiplayer motivations | SHQ18-22 (paper/prototype multiplayer designs) | NOT STARTED |
 
-**M&Ms Features**: [TBD - awaiting feature definitions]
+**Strategy**: 3 parallel tracks -- AI Prototype (playtesting), Multiplayer Maps (P1-P10 phased build), Networking. All phases target completion by end of M&C. Switchover from AI prototype to in-client during M&Ms.
+
+**M&Ms Features** (2x ENG: Randy, Garrett):
+
+| Phase | Feature | Status |
+|-------|---------|--------|
+| P1 | Infrastructure & Foundation (ETA 3/30) | IN PROGRESS |
+| P2 | Map Foundation (~1 month) | NOT STARTED |
+| P3 | Basic Game Logic (6 features) | NOT STARTED |
+| P4+ | Heroes on Map, Interesting Tiles, Initial Rollout | NOT STARTED |
+| - | Multiplayer Networking (parallel) | IN PROGRESS |
+| - | AI Prototype Playtesting (parallel) | IN PROGRESS |
+
+**Post-M&C Features**:
+
+| Feature | Estimate | Status |
+|---------|----------|--------|
+| Ravager's Reef | 3 sprints | NOT STARTED |
+| Battlepass | 2 sprints | NOT STARTED |
 
 ---
 
@@ -193,6 +216,7 @@ gantt
 
 | Date | Changed By | Summary |
 |------|-----------|---------|
+| 2026-03-19 | Tim / Claude | Added Social Dynamics features (3 tracks, 10 phases, P1-P10 + Ravager's Reef + Battlepass). Added System Validation milestone (Mar 30) across all roadmaps. |
 | 2026-03-19 | Tim / Claude | Added full Metagame feature plan across all milestones (M&Ms through Soft Launch). Updated milestone markers with crit styling and dates. Added Empire Beta Prep gap to Gantt. |
 | 2026-03-19 | Tim / Claude | Rearranged: Gantt first, pod sections with validation summaries, legend/history at bottom |
 | 2026-03-19 | Tim / Claude | Restructured as consolidated operational view; milestone definitions moved to product_targets.md |
