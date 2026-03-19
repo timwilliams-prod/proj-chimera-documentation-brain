@@ -48,7 +48,7 @@ Next Milestone: M&Ms (starts ~3/31, ends Jun 23, 2026)
 ## Engineering
 
 | Person | Role | Pod (Current) | M&Ms (7 spr) | M&C (6 spr) | Notes |
-|--------|------|---------------|---------------|--------------------|----|-------|
+|--------|------|---------------|---------------|----|-------|
 | Gabriel Arruda | Client Engineer | Empire | Empire | [TBD] | |
 | Henrique De Lima | Client Engineer | Empire | Empire | [TBD] | |
 | Marcos Loures | Client Engineer | Empire | Empire | [TBD] | |
@@ -66,8 +66,8 @@ Next Milestone: M&Ms (starts ~3/31, ends Jun 23, 2026)
 
 ## Design
 
-| Person | Role | Pod (Current) | M&Ms (7 spr) | Beta Prep (2 spr) | M&C (6 spr) | Notes |
-|--------|------|---------------|---------------|--------------------|----|-------|
+| Person | Role | Pod (Current) | M&Ms (7 spr) | M&C (6 spr) | Notes |
+|--------|------|---------------|---------------|----|-------|
 | Diana Vasilescu | Design Lead | Empire | Empire | [TBD] | |
 | Elise Cole | Designer | Empire | Empire | [TBD] | |
 | Jacob Siegel | Designer | Empire | Empire | [TBD] | |
@@ -84,7 +84,7 @@ Next Milestone: M&Ms (starts ~3/31, ends Jun 23, 2026)
 ## UX / UI
 
 | Person | Role | Pod (Current) | M&Ms (7 spr) | M&C (6 spr) | Notes |
-|--------|------|---------------|---------------|--------------------|----|-------|
+|--------|------|---------------|---------------|----|-------|
 | Kevin Ligon | UX Lead | Metagame | [TBD] | [TBD] | |
 | Yura Rusin | UX Designer | Empire | Empire | [TBD] | Governors UI needed by Sprint 2 of M&Ms |
 | Miguel Duran | UI Artist | Metagame | Metagame | [TBD] | |
@@ -94,7 +94,7 @@ Next Milestone: M&Ms (starts ~3/31, ends Jun 23, 2026)
 ## Art
 
 | Person | Role | Pod (Current) | M&Ms (7 spr) | M&C (6 spr) | Notes |
-|--------|------|---------------|---------------|--------------------|----|-------|
+|--------|------|---------------|---------------|----|-------|
 | Kevin Griffith | Art Director | Art | Art | Art | Cross-pod leadership |
 | Brendan Cheatham | Associate Art Director | Art | Art | Art | Cross-pod leadership |
 | Lawrence Steele | Sound Engineer | Art | Art | Art | |
@@ -114,7 +114,7 @@ Next Milestone: M&Ms (starts ~3/31, ends Jun 23, 2026)
 ## QA
 
 | Person | Role | Pod (Current) | M&Ms (7 spr) | M&C (6 spr) | Notes |
-|--------|------|---------------|---------------|--------------------|----|-------|
+|--------|------|---------------|---------------|----|-------|
 | Hafiz Kassam | QA Lead | Cross-pod | Cross-pod | Cross-pod | |
 | Laura Santana | QA | Empire | Empire | [TBD] | |
 | Hugo Hideo | QA | Metagame | Metagame | [TBD] | |
