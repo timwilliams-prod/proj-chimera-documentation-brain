@@ -1,6 +1,6 @@
 # Global Rules
 
-Last Updated: 2026-03-18
+Last Updated: 2026-03-19
 
 ## Purpose
 Cross-project constraints, standards, and principles that apply to all pods and features.
@@ -9,40 +9,35 @@ Cross-project constraints, standards, and principles that apply to all pods and 
 
 | Pod | Prefix | Focus |
 |-----|--------|-------|
-| Empire | EMP | [TBD - e.g., base building, resource management] |
-| Metagame | META | [TBD - e.g., progression, economy, meta-loop] |
-| Battle | BAT | [TBD - e.g., combat, PvP, PvE encounters] |
-| Social Dynamics | SOC | [TBD - e.g., alliances, social features, trading] |
-| Dozer | DOZ | [TBD - e.g., infrastructure, tooling, analytics] |
+| Empire | EMP | Maps and Map Content |
+| Metagame | META | Meta-loop, progression & economy |
+| Battle | BAT | Battles & Units |
+| Social Dynamics | SOC | Multiplayer & Social features |
+| Dozer | DOZ | Technical Efforts |
 
 ## Technical Standards
 
 ### Code Quality
-- **Test Coverage**: Minimum 70% for new features
 - **Code Review**: Required for all PRs, minimum 1 approval
 - **Documentation**: All public APIs must have inline docs
 
 ### Architecture Principles
 - **Modularity**: Features should be pod-isolated where possible
-- **Performance**: Target 60fps on minimum spec hardware
+- **Performance**: Performs acceptably on minimum device specs
 - **Scalability**: Design for 10x current user load
 
-### Security
-- **Authentication**: All API endpoints must validate auth tokens
-- **Data Privacy**: PII must be encrypted at rest
-- **Audit Logging**: All state changes logged with user/timestamp
+### Privacy
+- **Data Privacy**: PII must be encrypted at rest; GDPR compliance required
 
 ## Process Standards
 
 ### Development Workflow
-- **Branch Strategy**: feature/POD-XXX from main
-- **Commit Messages**: Conventional commits format
+- **Branch Strategy**: Features worked on in master, disabled with feature flags
 - **Deployment**: Staging → QA approval → Production
 
 ### Communication
 - **Standups**: Daily per pod, async updates in Slack
 - **Planning**: Sprint planning every 2 weeks
-- **Retros**: End of sprint, action items tracked
 
 ### Validation Process
 - **Winning Hypotheses**: 4x top-level product hypotheses (see `planning/ValidationRoadmap.md`)
@@ -54,26 +49,11 @@ Cross-project constraints, standards, and principles that apply to all pods and 
 ## Business Constraints
 
 ### Timeline
-- **Release Cadence**: Bi-weekly production deployments
-- **Feature Freeze**: 3 days before release
-- **Hotfix SLA**: Critical bugs fixed within 24h
+- **Code Freeze**: Friday before sprint end, noon PST
 
 ### Budget
-- **Cloud Costs**: Monthly budget $X per pod
 - **Third-party Services**: Require approval for new services
-
-## Dependencies & Integrations
-
-### Required Services
-- Notion (documentation source)
-- ClickUp (task tracking)
-- GitHub (version control)
-- AWS (infrastructure)
-
-### Integration Points
-- All pods must expose health check endpoints
-- Events published to central message bus
-- Shared authentication service
+- **Usage-Sensitive Features**: Features that could bloat costs based on usage must be estimated and approved by production/financial
 
 ---
 
