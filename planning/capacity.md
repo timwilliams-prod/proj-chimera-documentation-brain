@@ -26,6 +26,8 @@ Next Milestone: M&Ms (starts ~3/31, ends Jun 23, 2026)
 |--------|------|-------|
 | James Fielding | Game Director | |
 | Holly Mellor | Executive Producer | |
+| Kevin Griffith | Art Director | |
+| Derek Gallant | Tech Director | |
 | Hafiz Kassam | QA Lead | |
 
 ---
