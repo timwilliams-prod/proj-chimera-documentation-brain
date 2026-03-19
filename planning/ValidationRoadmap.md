@@ -65,14 +65,14 @@ gantt
     tickInterval 3month
 
     section Milestones
-    Core Experience           :milestone, 2025-07-07, 0d
-    Core Loop                 :milestone, 2025-10-06, 0d
-    Systems Validation        :milestone, 2026-03-15, 0d
-    M and Ms                  :milestone, 2026-06-23, 0d
-    Beta Launch Prep          :milestone, 2026-07-21, 0d
-    Monetization and Conv     :milestone, 2026-10-13, 0d
-    Live Ops and Social       :milestone, 2027-02-02, 0d
-    Soft Launch               :milestone, 2027-03-30, 0d
+    Core Experience - Jul 7          :crit, milestone, 2025-07-07, 0d
+    Core Loop - Oct 6                :crit, milestone, 2025-10-06, 0d
+    Systems Validation - Mar 15      :crit, milestone, 2026-03-15, 0d
+    M&M - Jun 23                     :crit, milestone, 2026-06-23, 0d
+    Beta Launch Prep - Jul 21        :crit, milestone, 2026-07-21, 0d
+    M&C - Oct 13                     :crit, milestone, 2026-10-13, 0d
+    Live Ops & Social - Feb 2        :crit, milestone, 2027-02-02, 0d
+    Soft Launch - Mar 30             :crit, milestone, 2027-03-30, 0d
 
     section WH-1 Battle
     B1 Fun and Sticky - 3/3 done          :done, 2025-04-01, 2026-03-15
