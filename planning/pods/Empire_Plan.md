@@ -61,11 +61,11 @@ gantt
     Map Content               :active,  emp_content, 2026-03-18, 490d
 
     section Milestones
-    M&Ms                      :milestone, ms1, 2026-06-23, 0d
-    Beta Launch Prep          :milestone, ms2, 2026-07-21, 0d
-    M&C                       :milestone, ms3, 2026-10-13, 0d
-    Live Ops & Social         :milestone, ms4, 2027-02-02, 0d
-    Soft Launch               :milestone, ms5, 2027-05-30, 0d
+    M&M - Jun 23              :crit, milestone, 2026-06-23, 0d
+    Beta Prep - Jul 21        :crit, milestone, 2026-07-21, 0d
+    M&C - Oct 13              :crit, milestone, 2026-10-13, 0d
+    Live Ops & Social - Feb 2 :crit, milestone, 2027-02-02, 0d
+    Soft Launch - May 30      :crit, milestone, 2027-05-30, 0d
 ```
 
 ---

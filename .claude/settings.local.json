@@ -18,7 +18,9 @@
       "Bash(powershell.exe -Command \"[System.Reflection.Assembly]::LoadWithPartialName\\('System.IO'\\); \\\\$bytes = [System.IO.File]::ReadAllBytes\\('C:\\\\Users\\\\TimWilliams\\\\ClaudeWorkspace\\\\lotusDocumentationBrain\\\\reference\\\\Empire_Multiplayer_Monetization_Vision.pdf'\\); \\\\$text = [System.Text.Encoding]::UTF8.GetString\\(\\\\$bytes\\); \\\\$matches = [regex]::Matches\\(\\\\$text, '\\(?s\\)BT.*?ET'\\); Write-Host 'PDF size:' \\\\$bytes.Length 'bytes, text blocks:' \\\\$matches.Count\")",
       "Bash(powershell.exe -File - <<'PSEOF'\n$bytes = [System.IO.File]::ReadAllBytes\\(\"C:\\\\Users\\\\TimWilliams\\\\ClaudeWorkspace\\\\lotusDocumentationBrain\\\\reference\\\\Empire_Multiplayer_Monetization_Vision.pdf\"\\)\n$text = [System.Text.Encoding]::Latin1.GetString\\($bytes\\)\n# Extract readable strings \\(4+ chars\\) from PDF\n$readable = [regex]::Matches\\($text, '[\\\\x20-\\\\x7E]{4,}'\\) | ForEach-Object { $_.Value }\n$readable -join \"`n\" | Out-String\nPSEOF)",
       "Bash(grep -oE '[A-Za-z ]{6,}')",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(mkdir -p \"C:/Users/TimWilliams/ClaudeWorkspace/lotusDocumentationBrain/.claude/commands\")",
+      "Bash(mv \"C:/Users/TimWilliams/ClaudeWorkspace/lotusDocumentationBrain/.claude/skills/\"*.md \"C:/Users/TimWilliams/ClaudeWorkspace/lotusDocumentationBrain/.claude/commands/\")"
     ]
   }
 }

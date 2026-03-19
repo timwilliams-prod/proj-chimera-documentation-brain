@@ -9,6 +9,57 @@ Pod Lead: [TBD]
 
 ---
 
+## Roadmap View
+
+```mermaid
+gantt
+    title Metagame Features by Milestone
+    dateFormat YYYY-MM-DD
+    axisFormat %b '%y
+    tickInterval 1month
+
+    section M&Ms - Pipeline A
+    UI Foundation              :active, ma1, 2026-03-18, 84d
+
+    section M&Ms - Pipeline B
+    Building Upgrades          :mb1, 2026-03-18, 14d
+    Empire Progression Tree    :mb2, after mb1, 14d
+    Global Combat Research     :mb3, after mb2, 28d
+    Hero Gacha v1              :mb4, after mb3, 14d
+    Passive Bonus Tiles        :mb5, after mb4, 14d
+
+    section Beta Prep
+    Stabilize, polish, bugfix  :mbp, 2026-06-24, 28d
+
+    section M&C - Pipeline A
+    Main Menu UX/UI            :mc1, 2026-07-22, 14d
+    Timed Objectives           :mc2, after mc1, 14d
+    Academies                  :mc3, after mc2, 14d
+    Shop                       :mc4, after mc3, 14d
+    Timed PvE Live Ops Maps    :mc5, after mc4, 14d
+
+    section M&C - Pipeline B
+    Dungeons v2                :md1, 2026-07-22, 14d
+    End Level Reward Screen    :md2, after md1, 14d
+    Hero Ranking Up            :md3, after md2, 14d
+    Hero Gacha v2              :md4, after md3, 14d
+
+    section Live Ops & Social
+    10 features at 2x ENG      :ml, 2026-10-14, 70d
+
+    section Soft Launch
+    5 features at 2x ENG       :ms, 2027-02-03, 42d
+
+    section Milestones
+    M&M - Jun 23               :crit, milestone, 2026-06-23, 0d
+    Beta Prep - Jul 21         :crit, milestone, 2026-07-21, 0d
+    M&C - Oct 13               :crit, milestone, 2026-10-13, 0d
+    Live Ops & Social - Feb 2  :crit, milestone, 2027-02-02, 0d
+    Soft Launch - May 30       :crit, milestone, 2027-05-30, 0d
+```
+
+---
+
 ## Milestone: Multiplayer & Meta (M&Ms)
 
 **Ends**: Jun 23, 2026 (~7 sprints available)

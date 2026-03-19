@@ -18,36 +18,47 @@ gantt
     title Feature Roadmap - 2026/2027
     dateFormat YYYY-MM-DD
     axisFormat %b '%y
-    tickInterval 4week
+    tickInterval 1month
 
     section Milestones
-    M&Ms                      :milestone, ms1, 2026-06-23, 0d
-    Beta Launch Prep          :milestone, ms2, 2026-07-21, 0d
-    M&C                       :milestone, ms3, 2026-10-13, 0d
-    Live Ops & Social         :milestone, ms4, 2027-02-02, 0d
-    Soft Launch               :milestone, ms5, 2027-05-30, 0d
+    M&M - Jun 23              :crit, milestone, 2026-06-23, 0d
+    Beta Prep - Jul 21        :crit, milestone, 2026-07-21, 0d
+    M&C - Oct 13              :crit, milestone, 2026-10-13, 0d
+    Live Ops & Social - Feb 2 :crit, milestone, 2027-02-02, 0d
+    Soft Launch - May 30      :crit, milestone, 2027-05-30, 0d
 
     section Empire
     Governors                 :active,  emp1, 2026-03-18, 42d
     Territory Map VS          :         emp2, after emp1, 28d
     WM Building Upgrades      :         emp3, after emp2, 14d
-    World Map VS              :         emp4, after emp3, 28d
+    Flex / Beta Prep          :         emp_bp, after emp3, 42d
+    World Map VS              :         emp4, after emp_bp, 14d
     WM Zoom & LOD             :         emp5, after emp4, 14d
-    Conquest Guide             :        emp6, after emp5, 7d
-    Barrier & Story Iterations :        emp7, after emp6, 7d
+    Conquest Guide            :         emp6, after emp5, 7d
+    Barrier & Story Iterations:         emp7, after emp6, 7d
     Map Content               :active,  emp_content, 2026-03-18, 434d
 
     section Metagame
-    [TBD - M&Ms features]    :         meta1, 2026-03-18, 98d
+    UI Foundation              :active, meta_a, 2026-03-18, 84d
+    Building Upgrades          :meta1, 2026-03-18, 14d
+    Empire Progression Tree    :meta2, after meta1, 14d
+    Global Combat Research     :meta3, after meta2, 28d
+    Hero Gacha v1              :meta4, after meta3, 14d
+    Passive Bonus Tiles        :meta5, after meta4, 14d
+    Beta Prep                  :meta_bp, 2026-06-24, 28d
+    M&C Pipeline A - 5 features :meta_mc1, 2026-07-22, 70d
+    M&C Pipeline B - 4 features :meta_mc2, 2026-07-22, 56d
+    Live Ops - 10 features     :meta_lo, 2026-10-14, 70d
+    Soft Launch - 5 features   :meta_sl, 2027-02-03, 42d
 
     section Battle
-    [TBD - M&Ms features]    :         bat1, 2026-03-18, 98d
+    TBD                       :         bat1, 2026-03-18, 98d
 
     section Social Dynamics
-    [TBD - M&Ms features]    :         soc1, 2026-03-18, 98d
+    TBD                       :         soc1, 2026-03-18, 98d
 
     section Dozer
-    [TBD - M&Ms features]    :         doz1, 2026-03-18, 98d
+    TBD                       :         doz1, 2026-03-18, 98d
 ```
 
 ---
@@ -83,14 +94,37 @@ gantt
 **Pod Lead**: Leonard Perez | **Producer**: Tim Williams
 **Plan**: [`planning/pods/Metagame_Plan.md`](../planning/pods/Metagame_Plan.md)
 
-**M&Ms Validation Focus**: TBD - features and SHQ alignment not yet defined.
+**M&Ms Validation Focus**: Building the systems and UI layers that support empire progression depth and hero investment.
 
 | Key BHQ | Key SHQs for M&Ms | Status |
 |---------|-------------------|--------|
 | BHQ-E3: Long-term progression (cross-pod) | SHQ7 (short/mid/long-term goals) | Contributes alongside Empire |
 | BHQ-M1: Hero collectability | SHQ10-13 (hero value, attachment, agency, assets) | NOT STARTED |
 
-**M&Ms Features**: [TBD - awaiting feature definitions]
+**M&Ms Features** (2x ENG, parallel pipelines):
+
+| # | Feature | Sprints | Pipeline | Status |
+|---|---------|---------|----------|--------|
+| 1 | UI Foundation | 6 | A | IN PROGRESS |
+| 2 | Building Upgrades | 1 | B | NOT STARTED |
+| 3 | Empire Progression Tree | 1 | B | NOT STARTED |
+| 4 | Global Combat Research Tree | 2 | B | NOT STARTED |
+| 5 | Hero Gacha v1 | 1 | B | NOT STARTED |
+| 6 | Passive Bonus Tiles | 1 | B | NOT STARTED |
+
+**M&C Features** (2x ENG, parallel pipelines):
+
+| # | Feature | Sprints | Status |
+|---|---------|---------|--------|
+| 1 | Main Menu UX/UI | 1 | NOT STARTED |
+| 2 | Dungeons v2 | 1 | NOT STARTED |
+| 3 | Timed Objectives | 1 | NOT STARTED |
+| 4 | End Level Reward Screen | 1 | NOT STARTED |
+| 5 | Academies | 1 | NOT STARTED |
+| 6 | Hero Ranking Up | 1 | NOT STARTED |
+| 7 | Shop | 1 | NOT STARTED |
+| 8 | Hero Gacha v2 | 1 | NOT STARTED |
+| 9 | Timed PvE Live Ops Maps | 1 | NOT STARTED |
 
 ---
 
@@ -149,8 +183,8 @@ gantt
 | Gray bar | `done` - Completed |
 | Blue bar | `active` - In progress |
 | Red bar | `crit` - Blocked or at risk |
+| Red diamond | `crit, milestone` - Milestone end date |
 | Default bar | Planned (not yet started) |
-| Diamond | `milestone` - Milestone end date |
 
 ---
 
@@ -158,6 +192,7 @@ gantt
 
 | Date | Changed By | Summary |
 |------|-----------|---------|
+| 2026-03-19 | Tim / Claude | Added full Metagame feature plan across all milestones (M&Ms through Soft Launch). Updated milestone markers with crit styling and dates. Added Empire Beta Prep gap to Gantt. |
 | 2026-03-19 | Tim / Claude | Rearranged: Gantt first, pod sections with validation summaries, legend/history at bottom |
 | 2026-03-19 | Tim / Claude | Restructured as consolidated operational view; milestone definitions moved to product_targets.md |
 | 2026-03-18 | Tim / Claude | Initial milestone definitions, Empire M&Ms + M&C features |

@@ -146,4 +146,4 @@ Copy the pattern from `planning/features/governors.md`:
 - `README.md` - Full system overview
 - `EXAMPLES.md` - Usage examples
 - `INGESTION_GUIDE.md` - Notion/ClickUp sync strategies
-- `.claude/skills/` - Available skills
+- `.claude/commands/` - Available slash commands (`/roadmap-update`, `/risk-evaluation`, etc.)
