@@ -1,10 +1,10 @@
 # Feature: Governors
 
-Last Updated: 2026-03-19
-Status: IN PROGRESS
-Pod: Empire
-Design Owner: [Diana Vasilescu]
-ClickUp: [Epic link]
+- **Last Updated**: 2026-03-19
+- **Status**: IN PROGRESS
+- **Pod**: Empire
+- **Design Owner**: Diana Vasilescu
+- **ClickUp**: [Epic link]
 
 ---
 

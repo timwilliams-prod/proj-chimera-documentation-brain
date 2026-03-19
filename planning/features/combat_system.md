@@ -1,8 +1,8 @@
 # Feature: Combat System
 
-Last Updated: 2026-03-18
-Status: In Active Development
-Owner: Combat Systems Pod
+- **Last Updated**: 2026-03-18
+- **Status**: In Active Development
+- **Owner**: Combat Systems Pod
 
 ---
 
