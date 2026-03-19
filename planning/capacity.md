@@ -66,7 +66,7 @@ Next Milestone: M&Ms (starts ~3/31, ends Jun 23, 2026)
 
 ## Design
 
-| Person | Role | Pod (Current) | M&Ms (7 spr) | Beta Prep (2 spr) | M&C (6 spr) | Notes |
+| Person | Role | Pod (Current) | M&Ms (7 spr) | M&C (6 spr) | Notes |
 |--------|------|---------------|---------------|----|-------|
 | Diana Vasilescu | Design Lead | Empire | Empire | [TBD] | |
 | Elise Cole | Designer | Empire | Empire | [TBD] | |
