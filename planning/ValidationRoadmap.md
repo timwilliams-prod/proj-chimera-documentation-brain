@@ -37,42 +37,47 @@ Each sprint we evaluate progress against these targets. Over time, milestone by 
 
 ---
 
-## Validation Hierarchy
+## Validation Hierarchy — Timeline
+
+Each bar = one BHQ. The span shows which milestones contain its SHQs. When the bar ends, that BHQ should be answerable. Fractions show SHQs answered vs total.
 
 ```mermaid
 %%{init: {'theme': 'dark'}}%%
-flowchart TD
-    V((Product Vision))
-    V --> WH1[WH-1 Battle]
-    V --> WH2[WH-2 Empire]
-    V --> WH3[WH-3 Monetization]
-    V --> WH4[WH-4 Production]
+gantt
+    title Validation Roadmap — BHQ Resolution Timeline
+    dateFormat YYYY-MM-DD
+    axisFormat %b %Y
+    tickInterval 3month
 
-    WH1 --> B1[BHQ-B1 Fun & Sticky Gameplay]
-    WH1 --> B2[BHQ-B2 Intuitive Actions]
-    WH1 --> B3[BHQ-B3 Keys & Locks Motivation]
-    WH1 --> B4[BHQ-B4 Scalable Battle Content]
+    section Milestones
+    Core Experience           :milestone, 2025-07-07, 0d
+    Core Loop                 :milestone, 2025-10-06, 0d
+    Systems Validation        :milestone, 2026-03-15, 0d
+    M and Ms                  :milestone, 2026-06-23, 0d
 
-    WH2 --> E1[BHQ-E1 Intuitive Map Exploration]
-    WH2 --> E2[BHQ-E2 Return Motivations]
-    WH2 --> E3[BHQ-E3 Long-Term Progression]
-    WH2 --> E4[BHQ-E4 Instant Gratification]
+    section WH-1 Battle
+    B1 Fun and Sticky - 3/3 done          :done, 2025-04-01, 2026-03-15
+    B2 Intuitive Actions - 3/3 done       :done, 2025-04-01, 2026-03-15
+    B3 Keys and Locks - 5/6, 1 neg        :active, 2025-04-01, 2026-03-15
+    B4 Scalable Content - 3/3 done        :done, 2025-07-08, 2026-03-15
 
-    WH3 --> M1[BHQ-M1 Hero Collectability]
-    WH3 --> M2[BHQ-M2 PvE to Social Pipeline]
-    WH3 --> M3[BHQ-M3 Spend Depth]
-    WH3 --> M4[BHQ-M4 Multiplayer Motivations]
+    section WH-2 Empire
+    E1 Map Exploration - 5/7, 1 neg 1 IP  :active, 2025-07-08, 2026-03-15
+    E2 Return Motivations - 6/6 done      :done, 2025-04-01, 2026-03-15
+    E3 Long-Term Progression - 5/5 done   :done, 2025-07-08, 2026-03-15
+    E4 Instant Gratification - NO SHQs    :crit, 2025-04-01, 2026-03-15
 
-    WH4 --> P1[Content Pipeline]
-    WH4 --> P2[Technical Stability]
-    WH4 --> P3[Ad Creatives]
+    section WH-3 Monetization
+    M1 Hero Collectability - 0/5          :2025-07-08, 2026-03-15
+    M2 PvE to Social - deferred post-SV   :crit, 2026-04-01, 2026-06-23
+    M3 Spend Depth - 0/1                  :2025-10-07, 2026-03-15
+    M4 MP Motivations - 0/5              :2025-10-07, 2026-03-15
 
-    style V fill:#6366f1,stroke:#818cf8,color:#fff
-    style WH1 fill:#dc2626,stroke:#f87171,color:#fff
-    style WH2 fill:#16a34a,stroke:#4ade80,color:#fff
-    style WH3 fill:#d97706,stroke:#fbbf24,color:#fff
-    style WH4 fill:#7c3aed,stroke:#a78bfa,color:#fff
+    section WH-4 Production
+    Content, Tech, Ads - 0/4              :2025-10-07, 2026-03-15
 ```
+
+**Legend**: Green (done) = all SHQs answered positively | Blue (active) = in progress or mixed results | Red (crit) = gap or deferred | Gray = not started
 
 ---
 
