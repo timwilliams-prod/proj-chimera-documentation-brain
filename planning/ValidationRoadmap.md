@@ -26,6 +26,11 @@ Each sprint we evaluate progress against these targets. Over time, milestone by 
 | **Core Experience** | Build a core battle in which players can clearly observe heroes being awesome, and generate goals from what they see. | July 7, 2025 | Closed Beta Test | Android |
 | **Core Loop** | An engaging first session that leaves players wanting more, supported by a lightweight FTUE that onboards players onto core loop mechanics. | October 6, 2025 | External Validation (Paid Playtesters) | Android |
 | **Systems Validation** | Day 0-1: Expand FTUE with map exploration that facilitates strong emotional attachment to characters & "completing" a hero to a soft-cap (e.g. epic max rank). | March 2026 | External Validation (Paid Playtesters) | Android |
+| **Multiplayer & Meta (M&Ms)** | Day 2-3: Home Empire territories (1-9) conquered; player pushes on vertical depth of upgrading buildings in the empire and farming dungeons for gear. | June 23, 2026 | [TBD] | [TBD] |
+| **Beta Launch Prep** | Stabilize, polish, and bugfix the game with a final push before releasing. No planned feature work during this milestone. | July 21, 2026 | [TBD] | [TBD] |
+| **Monetization & Conversion** | 7 days of PvE Home Territory content and PvP limited timed events. | October 13, 2026 | [TBD] | [TBD] |
+| **Live Ops & Social** | Broader battle mechanics and game modes give players more ways to play and keeps them coming back. As they near the end of the solo content, players are introduced to dynamic PvP options that provide dynamic objectives and opponents. | February 2, 2027 | [TBD] | [TBD] |
+| **Soft Launch (UA Scale)** | Players start thinking about tier 4 goals and setting goals to optimize their army setup. | March 30, 2027 | [TBD] | [TBD] |
 
 ### Validation Methods by Milestone
 
@@ -34,6 +39,16 @@ Each sprint we evaluate progress against these targets. Over time, milestone by 
 **Core Loop**: PTC targeting of actual audience (Eddard, Jimmy, Jackson) to measure response to first session of play. Qualitative surveys on art style and theme with regard to characters.
 
 **Systems Validation**: Qualitative playtest feedback. Technical performance metrics to ensure stability (unhandled exceptions, crash rates, ANR).
+
+**Multiplayer & Meta (M&Ms)**: [TBD]
+
+**Beta Launch Prep**: Bug triage, crash/ANR rates, performance benchmarks. No new validation — focus on stability.
+
+**Monetization & Conversion**: [TBD]
+
+**Live Ops & Social**: [TBD]
+
+**Soft Launch (UA Scale)**: [TBD]
 
 ---
 
@@ -54,6 +69,10 @@ gantt
     Core Loop                 :milestone, 2025-10-06, 0d
     Systems Validation        :milestone, 2026-03-15, 0d
     M and Ms                  :milestone, 2026-06-23, 0d
+    Beta Launch Prep          :milestone, 2026-07-21, 0d
+    Monetization and Conv     :milestone, 2026-10-13, 0d
+    Live Ops and Social       :milestone, 2027-02-02, 0d
+    Soft Launch               :milestone, 2027-03-30, 0d
 
     section WH-1 Battle
     B1 Fun and Sticky - 3/3 done          :done, 2025-04-01, 2026-03-15
@@ -69,9 +88,9 @@ gantt
 
     section WH-3 Monetization
     M1 Hero Collectability - 0/5          :2025-07-08, 2026-03-15
-    M2 PvE to Social - deferred post-SV   :crit, 2026-04-01, 2026-06-23
-    M3 Spend Depth - 0/1                  :2025-10-07, 2026-03-15
-    M4 MP Motivations - 0/5              :2025-10-07, 2026-03-15
+    M2 PvE to Social - deferred           :crit, 2026-06-24, 2026-10-13
+    M3 Spend Depth - 0/1                  :2025-10-07, 2026-10-13
+    M4 MP Motivations - 0/5              :2025-10-07, 2026-10-13
 
     section WH-4 Production
     Content, Tech, Ads - 0/4              :2025-10-07, 2026-03-15
