@@ -10,9 +10,11 @@ You are helping evaluate and update the **Validation Roadmap** - the hypothesis-
 ## Project Structure
 
 - `ValidationRoadmap.md` - The validation hierarchy and sprint evaluation log
-- `pods/*_Plan.md` - Pod backlogs (to check feature work alignment)
-- `roadmap.md` - Feature Roadmap (to cross-reference timelines)
-- `features/*.md` - Feature docs (for detailed context on what's being built)
+- `product_targets.md` - Milestone definitions and success criteria (check validation alignment)
+- `pods/*_Plan.md` - Pod feature priorities (to check feature work alignment)
+- `roadmap.md` - Consolidated feature list + Gantt (to cross-reference timelines)
+- `features/*.md` - Feature docs with validation goals at top (for detailed context)
+- `capacity.md` - Team staffing (to check if validation work is resourced)
 
 ---
 
@@ -20,9 +22,11 @@ You are helping evaluate and update the **Validation Roadmap** - the hypothesis-
 
 ### 1. Read Current State
 - Read `ValidationRoadmap.md` for current hypothesis status, BHQs, SHQs
-- Read all `pods/*_Plan.md` to understand what's being built
-- Read `roadmap.md` to check timeline alignment
-- Read relevant `features/*.md` if diving deep on specific validations
+- Read `product_targets.md` for milestone success criteria and must-have features
+- Read all `pods/*_Plan.md` to understand what's being built and why (validation alignment sections)
+- Read `roadmap.md` for the consolidated feature timeline
+- Read relevant `features/*.md` for validation goals (top of each feature doc)
+- Read `capacity.md` if checking whether validation work is resourced
 
 ### 2. Determine Evaluation Type
 
@@ -64,6 +68,8 @@ For each WH with updated BHQs:
 - Are there SHQs with no corresponding sprint work? (gap)
 - Are there features being built with no tied SHQ? (waste risk)
 - Are upcoming SHQ deadlines realistic given the feature roadmap?
+- Do milestone success criteria in `product_targets.md` align with SHQ coverage?
+- Are feature docs' validation goals (top of each `features/*.md`) consistent with SHQ status?
 
 #### e. Log the Sprint Evaluation
 Add a new entry to the Sprint Evaluation Log in `ValidationRoadmap.md`.

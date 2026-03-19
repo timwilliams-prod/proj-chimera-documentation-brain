@@ -4,19 +4,20 @@ Get oriented in 15 minutes.
 
 ---
 
-## Step 1: Understand the Three Layers (3 min)
+## Step 1: Understand the Layers (3 min)
 
-This brain separates three concerns:
+This brain separates concerns:
 
 ```
-pods/Empire_Plan.md        -> WHAT to build and WHY (priorities + validation)
+product_targets.md         -> WHAT must each milestone achieve? (stable benchmark)
+pods/Empire_Plan.md        -> WHAT to build and WHY per pod (priorities + validation)
 features/governors.md      -> HOW MUCH it costs and HOW to build it (specs + approach)
 capacity.md                -> WHO is available WHERE (staffing across milestones)
+roadmap.md                 -> CONSOLIDATED view of what all pods are building (generated)
 ```
 
 **Supporting files**:
 - `ValidationRoadmap.md` - Are we building the right thing? (Hypotheses -> BHQs -> SHQs)
-- `roadmap.md` - Visual Gantt chart of features across milestones
 - `dependency_map.md` - Pod and feature dependencies
 - `GlobalRules.md` - Cross-project constraints
 
@@ -24,7 +25,20 @@ capacity.md                -> WHO is available WHERE (staffing across milestones
 
 ---
 
-## Step 2: Read a Pod Plan (3 min)
+## Step 2: Check Product Targets (2 min)
+
+Open `product_targets.md` to see:
+
+1. **Milestone definitions** - dates, sprint counts, dev phase
+2. **Must-have features** per milestone - the non-negotiables
+3. **Success criteria** - what "done" looks like for each milestone
+4. **Validation alignment** - which SHQs must be answered
+
+This is the stable benchmark everything else is measured against.
+
+---
+
+## Step 3: Read a Pod Plan (3 min)
 
 Open `pods/Empire_Plan.md` to see the pattern:
 
@@ -36,7 +50,7 @@ Open `pods/Empire_Plan.md` to see the pattern:
 
 ---
 
-## Step 3: Read a Feature Doc (3 min)
+## Step 4: Read a Feature Doc (3 min)
 
 Open `features/governors.md` to see the template:
 
@@ -50,7 +64,7 @@ Key design principle: **validation goals come first** so everyone is aligned on 
 
 ---
 
-## Step 4: Check Capacity (3 min)
+## Step 5: Check Capacity (3 min)
 
 Open `capacity.md` to see:
 
@@ -62,7 +76,7 @@ This is the file to consult when asking "can we afford to do X?" or "what if we 
 
 ---
 
-## Step 5: Try the Skills (3 min)
+## Step 6: Try the Skills (3 min)
 
 ### Update a Pod Plan
 ```
@@ -90,11 +104,13 @@ With this structure, you can ask targeted questions:
 
 | Question Type | What the LLM Reads |
 |--------------|---------------------|
+| "Are we on track for M&Ms?" | Product targets (must-haves) + roadmap (what's planned) + capacity (staffed?) |
 | "What should Empire work on next?" | Pod plan (priorities + validation) |
 | "How long will Governors take and what does it need?" | Feature doc (estimate + disciplines + approach) |
 | "Can we pull an engineer to help Battle?" | Capacity (who's where) + pod plans (impact on priorities) |
 | "Are we on track to validate BHQ-E1?" | Validation Roadmap (SHQ status) + pod plan (feature alignment) |
 | "If we cut a feature, what opens up?" | Feature doc (estimate freed) + capacity (sprints recovered) + pod plan (reprioritize) |
+| "What are we missing for Soft Launch?" | Product targets (must-haves) vs roadmap (planned) = gaps |
 
 ---
 
@@ -115,12 +131,13 @@ Copy the pattern from `features/governors.md`:
 
 | Event | What to Update |
 |-------|---------------|
+| Milestone goals change | `product_targets.md` (rare) |
 | Sprint planning | Pod plan priorities, capacity allocations |
 | Feature starts/completes | Pod plan status, feature doc status |
 | People move between pods | `capacity.md` |
 | Design changes | Feature doc scope/estimate |
 | Sprint evaluation | `ValidationRoadmap.md` via `/validation-review` |
-| Milestone boundary | All of the above + full validation review |
+| Milestone boundary | All of the above + full validation review + target assessment |
 
 ---
 
