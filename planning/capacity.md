@@ -48,7 +48,7 @@ Next Milestone: M&Ms (starts ~3/31, ends Jun 23, 2026)
 ## Engineering
 
 | Person | Role | Pod (Current) | M&Ms (7 spr) | M&C (6 spr) | Notes |
-|--------|------|---------------|---------------|--------------------|----|-------|
+|--------|------|---------------|---------------|----|-------|
 | Gabriel Arruda | Client Engineer | Empire | Empire | [TBD] | |
 | Henrique De Lima | Client Engineer | Empire | Empire | [TBD] | |
 | Marcos Loures | Client Engineer | Empire | Empire | [TBD] | |
