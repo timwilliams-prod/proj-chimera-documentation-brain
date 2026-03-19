@@ -34,10 +34,10 @@ Next Milestone: M&Ms (starts ~3/31, ends Jun 23, 2026)
 
 | Pod | Producer | Design Lead | Eng Lead | QA POC |
 |-----|----------|-------------|----------|--------|
-| Empire | Brann Livesay | Diana Vasilescu | - | Laura Santana |
+| Empire | Brann Livesay | Diana Vasilescu | Dan Dupuis | Laura Santana |
 | Metagame | Tim Williams | Leonard Perez | Dan Dupuis | Hugo Hideo |
-| Battle | Thorben Novais | Lincoln Li | - | Julio Scarabelli |
-| Social Dynamics | Tim Williams | Paul Flores | - | - |
+| Battle | Thorben Novais | Lincoln Li | Jota Oliveira | Julio Scarabelli |
+| Social Dynamics | Tim Williams | Paul Flores | Derek Gallant | - |
 | Dozer | - | - | Derek Gallant | - |
 | Art | Brann Livesay | - | - | - |
 
