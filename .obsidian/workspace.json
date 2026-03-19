@@ -213,6 +213,8 @@
   },
   "active": "32d804acf79abbfc",
   "lastOpenFiles": [
+    "reference/llm_brain_presentation.md",
+    "reference/llm_brain_presentation.md.tmp.15848.1773955977096",
     "reference/visualization_examples.md",
     "planning/GlobalRules.md.tmp.15848.1773954656806",
     "generated/roadmap.md.tmp.15848.1773950419326",
@@ -225,7 +227,6 @@
     "planning/features/governors.md.tmp.23408.1773940886098",
     "QUICK_START.md",
     "EXAMPLES.md",
-    "reference/Empire_Multiplayer_Monetization_Vision.pdf",
     "reference/README.md",
     "generated/roadmap.md",
     "planning/features/combat_system.md",
@@ -247,7 +248,6 @@
     "features/governors.md",
     "pods/Dozer_Plan.md",
     "pods/SocialDynamics_Plan.md",
-    "pods/Metagame_Plan.md",
-    "pods/Battle_Plan.md"
+    "pods/Metagame_Plan.md"
   ]
 }
