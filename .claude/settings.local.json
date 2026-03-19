@@ -5,7 +5,8 @@
       "Bash(mv Battle_Backlog.md Battle_Plan.md)",
       "Bash(mv Metagame_Backlog.md Metagame_Plan.md)",
       "Bash(mv SocialDynamics_Backlog.md SocialDynamics_Plan.md)",
-      "Bash(mv Dozer_Backlog.md Dozer_Plan.md)"
+      "Bash(mv Dozer_Backlog.md Dozer_Plan.md)",
+      "Bash(git mv:*)"
     ]
   }
 }

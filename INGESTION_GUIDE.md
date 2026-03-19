@@ -8,65 +8,56 @@ How to get data from Notion and ClickUp into your documentation brain.
 
 The fastest way to get started - let Claude convert your Notion/ClickUp data into the right format.
 
-#### From Notion
+#### From Notion (Design Docs → Feature Docs)
 
 1. **Export Notion page as Markdown**
    - Open your design doc in Notion
    - Click `...` → Export → Markdown & CSV
-   - Unzip the export
+   - Save export to `reference/notion-exports/`
 
 2. **Convert with Claude**
    ```
    Convert this Notion export into our feature doc format.
    Source: [paste Notion markdown]
-   Target: features/[feature_name].md
+   Target: planning/features/[feature_name].md
 
-   Keep the Overview, Goals, Requirements, Architecture, and Risks sections.
+   Use planning/features/governors.md as the template.
+   Make sure validation goals (SHQs) are at the top.
    ```
 
-3. **Review and commit**
+3. **Review, add to pod plan, and commit**
 
-#### From Notion (Validation Data)
+#### From Notion (Validation Data → Validation Roadmap)
 
-For Winning Hypotheses, BHQs, and milestone definitions:
+For Winning Hypotheses, BHQs, and SHQs:
 
 ```
-I need to update ValidationRoadmap.md with our hypotheses from Notion.
+I need to update planning/ValidationRoadmap.md with hypotheses from Notion.
 
 Here's what we have:
 - WH-1: [paste from Notion]
-- WH-2: [paste from Notion]
-- WH-3: [paste from Notion]
-
-BHQs:
-[paste from Notion]
+- BHQs: [paste]
+- SHQs: [paste]
 ```
 
-Claude will structure them into the ValidationRoadmap.md schema.
+Claude will structure them into the ValidationRoadmap.md schema. Remember: BHQs and SHQs can be cross-pod — don't force them into a single pod's ownership.
 
-#### From ClickUp
+#### From ClickUp (Task Status → Pod Plans)
 
-1. **Get task list from ClickUp**
-   - Open your pod's sprint view
-   - Copy task list (or export CSV)
+1. **Get feature status from ClickUp**
+   - Check epic/feature progress in ClickUp
 
 2. **Update with Claude**
    ```
    /roadmap-update
 
    Pod: Empire
-   Sprint: 23
-
-   In Progress:
-   - EMP-101: Base building foundation (60% done)
-   - EMP-102: Resource gathering system (30% done)
-
-   Committed:
-   - EMP-103: Storage system
-   - EMP-104: Building upgrades
+   Updates:
+   - Governors: complete (3/3 sprints done)
+   - Territory Map VS: in progress (Sprint 1 of 2)
    ```
 
-3. **Claude updates `pods/Empire_Backlog.md` and regenerates `roadmap.md`**
+3. **Claude updates `planning/pods/Empire_Plan.md` and regenerates `generated/roadmap.md`**
 
 **Pros**: Fast, flexible, works immediately
 **Cons**: Manual, requires discipline to stay in sync
@@ -100,60 +91,41 @@ async function syncFeatureDocs() {
     });
 
     const mdContent = convertToFeatureDoc(blocks, { title, status, owner });
-    const filename = `features/${slugify(title)}.md`;
+    const filename = `planning/features/${slugify(title)}.md`;
     fs.writeFileSync(filename, mdContent);
     console.log(`Synced ${filename}`);
   }
 }
 ```
 
-### ClickUp → Per-Pod Backlog Scripts
+### ClickUp → Pod Plan Status Script
 
 ```javascript
 // scripts/clickup-sync.js
+// Note: This only updates feature STATUS in pod plans, not the full plan.
+// Pod plan priorities, estimates, and validation alignment are human-authored.
 
 const POD_MAP = {
-  'Empire':           'pods/Empire_Backlog.md',
-  'Metagame':         'pods/Metagame_Backlog.md',
-  'Battle':           'pods/Battle_Backlog.md',
-  'Social Dynamics':  'pods/SocialDynamics_Backlog.md',
-  'Dozer':            'pods/Dozer_Backlog.md',
+  'Empire':           'planning/pods/Empire_Plan.md',
+  'Metagame':         'planning/pods/Metagame_Plan.md',
+  'Battle':           'planning/pods/Battle_Plan.md',
+  'Social Dynamics':  'planning/pods/SocialDynamics_Plan.md',
+  'Dozer':            'planning/pods/Dozer_Plan.md',
 };
 
-async function syncPodBacklogs() {
+async function syncPodStatus() {
   const spaces = await fetchClickUpSpaces(process.env.CLICKUP_TEAM_ID);
 
   for (const space of spaces) {
     const podFile = POD_MAP[space.name];
     if (!podFile) continue;
 
-    const sprintTasks = await fetchClickUpTasks(space.id, {
-      status: ['in progress', 'committed'],
-      sprint: 'current',
-    });
+    const epics = await fetchClickUpEpics(space.id);
 
-    const inProgress = sprintTasks.filter(t => t.status === 'in progress');
-    const committed = sprintTasks.filter(t => t.status === 'committed');
-
-    let md = `# ${space.name} Pod Backlog\n\n`;
-    md += `Last Updated: ${new Date().toISOString().split('T')[0]}\n`;
-    md += `Pod Lead: ${space.lead || '[TBD]'}\n\n---\n\n`;
-    md += `## Current Sprint\n\n`;
-    md += `### In Progress\n`;
-
-    for (const task of inProgress) {
-      md += `- \`${task.custom_id}\` - ${task.name}\n`;
-      md += `  - Owner: ${task.assignee}\n`;
-      md += `  - ClickUp: ${task.url}\n`;
-      md += `  - Status: ${task.progress}% - ${task.description}\n`;
-      if (task.blockers) md += `  - Blockers: ${task.blockers}\n`;
-      md += `\n`;
-    }
-
-    // ... similar for committed, backlog, etc.
-
-    fs.writeFileSync(podFile, md);
-    console.log(`Synced ${podFile}`);
+    // Update feature status in pod plan (IN PROGRESS, COMPLETE, etc.)
+    // Don't overwrite priorities, estimates, or validation alignment
+    updateFeatureStatuses(podFile, epics);
+    console.log(`Updated status in ${podFile}`);
   }
 }
 ```
@@ -184,7 +156,7 @@ jobs:
           NOTION_FEATURE_DB_ID: ${{ secrets.NOTION_FEATURE_DB_ID }}
         run: node scripts/notion-sync.js
 
-      - name: Sync ClickUp
+      - name: Sync ClickUp Status
         env:
           CLICKUP_API_KEY: ${{ secrets.CLICKUP_API_KEY }}
           CLICKUP_TEAM_ID: ${{ secrets.CLICKUP_TEAM_ID }}
@@ -206,37 +178,41 @@ jobs:
 **Start Manual** → **Script Pain Points** → **Automate Stable Parts**
 
 ### Phase 1: Manual (Week 1-2)
-- Use `/roadmap-update` for sprint updates to pod backlogs
+- Use `/roadmap-update` for pod plan updates
 - Use `/validation-review` for sprint evaluations
-- Copy/paste Notion docs, let Claude convert
+- Copy/paste Notion docs, let Claude convert to feature doc template
+- Save raw exports to `reference/`
 
-### Phase 2: Script High-Churn Files (Week 3-4)
-- Automate pod backlog syncs (change often, one file per pod)
-- Keep feature docs and ValidationRoadmap manual (change less, need human judgment)
+### Phase 2: Script High-Churn Syncs (Week 3-4)
+- Automate feature status syncs from ClickUp (just status, not priorities)
+- Keep feature docs, validation roadmap, and capacity manual (need human judgment)
 
 ### Phase 3: Full Automation (Month 2+)
-- Scheduled syncs for backlogs
+- Scheduled status syncs
 - Manual override always available
+- Notion → feature doc pipeline for new features
 
 ---
 
 ## Mapping Guide
 
-### Notion → Features
+### Notion → Feature Docs (`planning/features/*.md`)
 
 | Notion Field | Feature Doc Section |
 |--------------|---------------------|
 | Title | `# Feature: [Title]` |
 | Status | `Status: [Status]` |
-| Owner | `Owner: [Pod]` |
-| Overview | `## Overview` |
-| Goals | `### Goals` |
-| Requirements | `## Requirements` |
-| Architecture | `## Architecture` |
-| Risks | `## Risks & Mitigations` |
+| Owner | `Design Owner: [Name]` |
+| Related SHQs | `## Why This Feature > Validation Goals` (top of doc) |
+| Overview | `## Scope` |
+| Requirements | `## Scope > In Scope / Out of Scope` |
+| Estimate | `## Estimate & Approach > Total Estimate` |
+| Disciplines needed | `## Estimate & Approach > Disciplines Required` |
+| Implementation plan | `## Estimate & Approach > Implementation Flow` |
+| Risks | `## Risks` |
 | Open Questions | `## Open Questions` |
 
-### Notion → Validation Roadmap
+### Notion → Validation Roadmap (`planning/ValidationRoadmap.md`)
 
 | Notion Field | ValidationRoadmap Section |
 |--------------|--------------------------|
@@ -246,48 +222,44 @@ jobs:
 | Test Method | `How We Test` field |
 | Success Criteria | `Success Criteria` field |
 
-### ClickUp → Pod Backlogs
+Note: BHQs/SHQs are cross-pod. Don't assign them to a single pod — they belong in the ValidationRoadmap, and pod plans reference them by ID.
 
-| ClickUp Field | Backlog Section |
+### ClickUp → Pod Plans (`planning/pods/*_Plan.md`)
+
+| ClickUp Field | Pod Plan Update |
 |---------------|-----------------|
-| Custom ID | Task ID (e.g., `EMP-101`) |
-| Task Name | Task description |
-| Assignee | Owner field |
-| Status | Section (In Progress/Committed) |
-| Progress | Status percentage |
-| Tags | Priority (P0/P1/P2) |
-| Blockers (custom) | Blockers field |
-| Sprint | Current/Next/Backlog section |
-| Space/Folder | Determines which `pods/*_Backlog.md` file |
+| Epic/Feature Status | Feature status in priority table (IN PROGRESS, COMPLETE, etc.) |
+| Sprint Progress | Pod plan is feature-level, not task-level — only update when feature status changes |
+
+Note: Pod plans track features/boulders, not individual tasks. ClickUp handles task-level tracking.
 
 ---
 
 ## Data Flow Diagram
 
 ```
-┌─────────┐                  ┌──────────────────────┐
-│ Notion   │ ─────────────→  │  Feature Docs         │
-│ (Design) │   Manual/Script │  features/*.md        │
-│          │                 │                        │
-│          │ ─────────────→  │  ValidationRoadmap.md  │
-│          │   Manual        │  (hypotheses, BHQs)    │
-└──────────┘                 └──────────────────────┘
-                                       ↓
-┌──────────┐                 ┌──────────────────────┐        ┌──────────┐
-│ ClickUp  │ ─────────────→  │  pods/*_Backlog.md    │ ────→ │  LLMs    │
-│ (Tasks)  │   Manual/Script │  dependency_map.md    │ Read  │  Humans  │
-└──────────┘                 │  GlobalRules.md       │ ←──── │  Skills  │
-                             └──────────────────────┘ Update └──────────┘
-                                       ↓
-                             ┌──────────────────────┐
-                             │  roadmap.md (Gantt)   │
-                             │  (auto-generated)     │
-                             └──────────────────────┘
-                                       ↓
-                             ┌──────────────────────┐
-                             │   Git Repository      │
-                             │   (Version Control)   │
-                             └──────────────────────┘
+┌─────────┐                  ┌───────────────────────────────┐
+│ Notion   │ ─────────────→  │  planning/features/*.md       │
+│ (Design) │   Manual/Script │  (feature specs)              │
+│          │                 │                                │
+│          │ ─────────────→  │  planning/ValidationRoadmap.md │
+│          │   Manual        │  (hypotheses, BHQs, SHQs)     │
+└──────────┘                 └───────────────────────────────┘
+                                        ↓
+┌──────────┐                 ┌───────────────────────────────┐
+│ ClickUp  │ ─────────────→  │  planning/pods/*_Plan.md      │
+│ (Tasks)  │   Manual/Script │  (feature status updates)     │
+│          │   (status only) │                                │
+└──────────┘                 │  planning/capacity.md          │
+                             │  planning/dependency_map.md    │
+                             └───────────────────────────────┘
+                                        ↓ /roadmap-update
+                             ┌───────────────────────────────┐
+                             │  generated/roadmap.md          │
+                             │  (consolidated view + Gantt)   │
+                             └───────────────────────────────┘
+
+Raw exports saved to: reference/
 ```
 
 ---
@@ -297,25 +269,36 @@ jobs:
 ### Keep Source of Truth Clear
 - **Notion** = Design decisions, architecture, hypotheses
 - **ClickUp** = Task details, assignees, time tracking
-- **This Repo** = High-level summaries for LLM context + validation tracking
+- **This Repo** = Strategic planning summaries for LLM context + validation tracking
 
 ### Link, Don't Duplicate
 ```markdown
 - Notion Design Doc: [link]
-- ClickUp Epic: EMP-100 [link]
+- ClickUp Epic: [link]
 ```
 
 ### What Stays Manual
 Some things should always be human-driven:
-- Validation Roadmap evaluations (requires judgment)
-- Confidence level changes (requires evidence assessment)
-- Hypothesis revisions (strategic decisions)
-- Dependency map changes (architectural awareness)
+- Feature priorities in pod plans (strategic judgment)
+- Validation Roadmap evaluations (requires evidence assessment)
+- Capacity allocations (requires people knowledge)
+- Product targets (leadership decisions)
 
 ### What Can Be Automated
-- Pod backlog status syncs from ClickUp
-- Feature doc structure from Notion
-- Gantt chart regeneration (skill does this already)
+- Feature status syncs from ClickUp (IN PROGRESS, COMPLETE)
+- Feature doc structure from Notion exports
+- Consolidated roadmap generation (`/roadmap-update` does this already)
+
+### Save Raw Data
+Keep Notion/ClickUp exports in `reference/` for audit trail:
+```
+reference/
+├── notion-exports/
+│   └── alliance-system-design.md
+├── clickup-exports/
+│   └── empire-sprint-3.csv
+└── Lotus Productionomicon - Validation Roadmap.csv
+```
 
 ---
 
@@ -324,4 +307,4 @@ Some things should always be human-driven:
 1. Start with manual ingestion for 1-2 sprints
 2. Identify what's tedious to keep in sync
 3. Script those specific workflows
-4. Keep validation work manual (it requires human judgment)
+4. Keep validation work and priority decisions manual (they require human judgment)

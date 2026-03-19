@@ -7,18 +7,18 @@ You are performing a risk evaluation across the project documentation to identif
 ## Project Structure
 
 ### Benchmark (what we need to achieve)
-- `product_targets.md` - Milestone definitions, must-have features, success criteria
-- `ValidationRoadmap.md` - Winning Hypotheses, BHQs, SHQs
+- `planning/product_targets.md` - Milestone definitions, must-have features, success criteria
+- `planning/ValidationRoadmap.md` - Winning Hypotheses, BHQs, SHQs
 
 ### Plans (what we're actually doing)
-- `pods/*_Plan.md` - Per-pod feature priorities by milestone
-- `roadmap.md` - Consolidated feature list + Gantt (generated from pod plans)
-- `features/*.md` - Feature specs with estimates, discipline needs, implementation approach
+- `planning/pods/*_Plan.md` - Per-pod feature priorities by milestone
+- `generated/roadmap.md` - Consolidated feature list + Gantt (generated from pod plans)
+- `planning/features/*.md` - Feature specs with estimates, discipline needs, implementation approach
 
 ### Resources (what we have to work with)
-- `capacity.md` - Team staffing by discipline and milestone
-- `dependency_map.md` - Pod relationships and shared resources
-- `GlobalRules.md` - Cross-project constraints
+- `planning/capacity.md` - Team staffing by discipline and milestone
+- `planning/dependency_map.md` - Pod relationships and shared resources
+- `planning/GlobalRules.md` - Cross-project constraints
 
 ---
 
@@ -27,25 +27,25 @@ You are performing a risk evaluation across the project documentation to identif
 ### 1. Read Project State
 
 Read these files in order:
-1. `product_targets.md` - What must each milestone achieve?
-2. `roadmap.md` - What are we actually building? (consolidated view)
-3. `capacity.md` - Do we have the people?
-4. All `pods/*_Plan.md` - Detailed priorities per pod
-5. `ValidationRoadmap.md` - Are we validating the right things?
-6. `dependency_map.md` - What depends on what?
-7. Relevant `features/*.md` - For detailed estimates and pre-conditions
+1. `planning/product_targets.md` - What must each milestone achieve?
+2. `generated/roadmap.md` - What are we actually building? (consolidated view)
+3. `planning/capacity.md` - Do we have the people?
+4. All `planning/pods/*_Plan.md` - Detailed priorities per pod
+5. `planning/ValidationRoadmap.md` - Are we validating the right things?
+6. `planning/dependency_map.md` - What depends on what?
+7. Relevant `planning/features/*.md` - For detailed estimates and pre-conditions
 
 ### 2. Identify Risks
 
 Scan for these risk patterns:
 
-#### Target Gaps (product_targets.md vs roadmap.md)
+#### Target Gaps (product_targets.md vs generated/roadmap.md)
 - Must-have features that aren't in any pod plan
 - Must-have features that are planned but at risk (blocked, understaffed, late in milestone)
 - Success criteria that no feature work addresses
 - Milestone targets with no clear path to achievement
 
-#### Capacity Risks (capacity.md vs feature estimates)
+#### Capacity Risks (planning/capacity.md vs feature estimates)
 - Pod is overallocated (more feature-sprints than people-sprints)
 - Key disciplines missing (feature needs UX/UI but nobody allocated)
 - Single points of failure (one person, no backup)
@@ -101,8 +101,8 @@ Output the structured report (see format below).
 ### 6. Recommend Actions
 
 For top 3-5 risks, suggest specific actions:
-- "Governors needs UX/UI designs by Sprint 2 - confirm allocation in capacity.md"
-- "M&Ms is missing a multiplayer foundation feature (product_targets.md must-have) - which pod owns this?"
+- "Governors needs UX/UI designs by Sprint 2 - confirm allocation in planning/capacity.md"
+- "M&Ms is missing a multiplayer foundation feature (planning/product_targets.md must-have) - which pod owns this?"
 - "SHQ-10 has no feature work planned in M&Ms - add to Metagame plan or defer SHQ"
 - "Empire has 1 engineer doing 6 sprints of work in 7 sprints with no backup - consider adding flex"
 
@@ -120,14 +120,14 @@ For top 3-5 risks, suggest specific actions:
 
 ## Target Health Check
 
-### Milestone Readiness (product_targets.md vs roadmap.md)
+### Milestone Readiness (product_targets.md vs generated/roadmap.md)
 
 | Milestone | Must-Haves Covered | Gaps | Assessment |
 |-----------|-------------------|------|------------|
 | M&Ms | 2/4 | [Missing features] | AT RISK |
 | M&C | [X/Y] | | |
 
-### Capacity Check (capacity.md vs feature estimates)
+### Capacity Check (planning/capacity.md vs feature estimates)
 
 | Pod | Available (eng-sprints) | Committed | Delta | Assessment |
 |-----|------------------------|-----------|-------|------------|
@@ -198,7 +198,7 @@ Recommend re-running:
 **Quick Scan** (default): Product targets + roadmap + capacity
 **Deep Dive**: Include all feature docs, check pre-conditions and open questions
 **Pre-Milestone**: Comprehensive check including success criteria readiness
-**Validation Focus**: Deep check on ValidationRoadmap alignment with feature work
+**Validation Focus**: Deep check on planning/ValidationRoadmap alignment with feature work
 **Capacity Focus**: Deep check on staffing vs commitments across all pods
 
 ---

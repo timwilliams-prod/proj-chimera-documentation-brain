@@ -15,6 +15,8 @@ This roadmap tracks our **product validation** - the structured process of provi
 
 Each sprint we evaluate progress against these targets. Over time, milestone by milestone, we validate (or pivot) our product direction.
 
+**Important**: BHQs and SHQs are **not necessarily pod-specific**. Some belong clearly to one pod, but many are cross-pod "cohesive product" questions that require contributions from multiple teams. This file is the single source of truth for all validation content — pod plans and feature docs reference SHQs by ID, they don't duplicate them.
+
 ---
 
 ## Milestones In Scope

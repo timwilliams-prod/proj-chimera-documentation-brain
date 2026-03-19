@@ -1,10 +1,11 @@
-# Battle Pod Plan
+# Social Dynamics Pod Plan
 
 Last Updated: 2026-03-18
 Pod Lead: [TBD]
 
 > Feature-level planning per milestone. Sprint execution lives in ClickUp.
-> For the overall milestone timeline, see `roadmap.md`.
+> For the overall milestone timeline, see `generated/roadmap.md`.
+> For the full validation hierarchy, see `planning/ValidationRoadmap.md`.
 
 ---
 

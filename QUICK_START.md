@@ -9,17 +9,17 @@ Get oriented in 15 minutes.
 This brain separates concerns:
 
 ```
-product_targets.md         -> WHAT must each milestone achieve? (stable benchmark)
-pods/Empire_Plan.md        -> WHAT to build and WHY per pod (priorities + validation)
-features/governors.md      -> HOW MUCH it costs and HOW to build it (specs + approach)
-capacity.md                -> WHO is available WHERE (staffing across milestones)
-roadmap.md                 -> CONSOLIDATED view of what all pods are building (generated)
+planning/product_targets.md         -> WHAT must each milestone achieve? (stable benchmark)
+planning/pods/Empire_Plan.md        -> WHAT to build and WHY per pod (priorities + validation)
+planning/features/governors.md      -> HOW MUCH it costs and HOW to build it (specs + approach)
+planning/capacity.md                -> WHO is available WHERE (staffing across milestones)
+generated/roadmap.md                -> CONSOLIDATED view of what all pods are building (generated)
 ```
 
 **Supporting files**:
-- `ValidationRoadmap.md` - Are we building the right thing? (Hypotheses -> BHQs -> SHQs)
-- `dependency_map.md` - Pod and feature dependencies
-- `GlobalRules.md` - Cross-project constraints
+- `planning/ValidationRoadmap.md` - Are we building the right thing? (Hypotheses -> BHQs -> SHQs)
+- `planning/dependency_map.md` - Pod and feature dependencies
+- `planning/GlobalRules.md` - Cross-project constraints
 
 **Sprint execution lives in ClickUp**, not here.
 
@@ -27,7 +27,7 @@ roadmap.md                 -> CONSOLIDATED view of what all pods are building (g
 
 ## Step 2: Check Product Targets (2 min)
 
-Open `product_targets.md` to see:
+Open `planning/product_targets.md` to see:
 
 1. **Milestone definitions** - dates, sprint counts, dev phase
 2. **Must-have features** per milestone - the non-negotiables
@@ -40,7 +40,7 @@ This is the stable benchmark everything else is measured against.
 
 ## Step 3: Read a Pod Plan (3 min)
 
-Open `pods/Empire_Plan.md` to see the pattern:
+Open `planning/pods/Empire_Plan.md` to see the pattern:
 
 1. **Validation Focus** - Which hypotheses and BHQs this pod owns
 2. **Feature Priorities** - Ordered list per milestone with links to feature docs
@@ -52,7 +52,7 @@ Open `pods/Empire_Plan.md` to see the pattern:
 
 ## Step 4: Read a Feature Doc (3 min)
 
-Open `features/governors.md` to see the template:
+Open `planning/features/governors.md` to see the template:
 
 1. **Why This Feature** (top of doc) - SHQ connections, what it must prove, success criteria
 2. **Scope** - What's in/out
@@ -66,7 +66,7 @@ Key design principle: **validation goals come first** so everyone is aligned on 
 
 ## Step 5: Check Capacity (3 min)
 
-Open `capacity.md` to see:
+Open `planning/capacity.md` to see:
 
 - **By discipline** (Engineering, UX/UI, Game Design, Art) - who is allocated where
 - **By milestone** - how allocations shift over time
@@ -116,7 +116,7 @@ With this structure, you can ask targeted questions:
 
 ## Creating a New Feature Doc
 
-Copy the pattern from `features/governors.md`:
+Copy the pattern from `planning/features/governors.md`:
 
 1. Start with **Why** - SHQ connections and success criteria
 2. Define **Scope** - in/out
@@ -131,12 +131,12 @@ Copy the pattern from `features/governors.md`:
 
 | Event | What to Update |
 |-------|---------------|
-| Milestone goals change | `product_targets.md` (rare) |
+| Milestone goals change | `planning/product_targets.md` (rare) |
 | Sprint planning | Pod plan priorities, capacity allocations |
 | Feature starts/completes | Pod plan status, feature doc status |
-| People move between pods | `capacity.md` |
+| People move between pods | `planning/capacity.md` |
 | Design changes | Feature doc scope/estimate |
-| Sprint evaluation | `ValidationRoadmap.md` via `/validation-review` |
+| Sprint evaluation | `planning/ValidationRoadmap.md` via `/validation-review` |
 | Milestone boundary | All of the above + full validation review + target assessment |
 
 ---

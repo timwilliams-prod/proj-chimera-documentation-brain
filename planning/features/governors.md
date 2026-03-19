@@ -100,7 +100,7 @@ Sprint 3: Governors Experience Iterations (Engineering + Design review)
 | Risk | Impact | Probability | Mitigation |
 |------|--------|-------------|------------|
 | Scope assumptions not yet defined | Medium | Medium | Fill in scope section from design doc before Sprint 2 |
-| UX/UI designs not ready for Sprint 2 | High | [TBD] | Flag early, align with UX capacity in `capacity.md` |
+| UX/UI designs not ready for Sprint 2 | High | [TBD] | Flag early, align with UX capacity in `planning/capacity.md` |
 | [TBD] | | | |
 
 ---
@@ -118,4 +118,4 @@ Sprint 3: Governors Experience Iterations (Engineering + Design review)
 
 - Notion Design Doc: [link]
 - ClickUp Epic: [link]
-- Related: `pods/Empire_Plan.md` (priority context), `ValidationRoadmap.md` (SHQ7)
+- Related: `planning/pods/Empire_Plan.md` (priority context), `planning/ValidationRoadmap.md` (SHQ7)

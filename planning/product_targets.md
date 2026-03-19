@@ -4,8 +4,8 @@ Last Updated: 2026-03-19
 
 > **What this file is**: The stable, leadership-authored definition of what each milestone must achieve.
 > This is the benchmark that plans are measured against.
-> For what we're actually building (operational view), see `roadmap.md`.
-> For why we're building it (validation), see `ValidationRoadmap.md`.
+> For what we're actually building (operational view), see `generated/roadmap.md`.
+> For why we're building it (validation), see `planning/ValidationRoadmap.md`.
 
 ---
 
@@ -168,17 +168,17 @@ Last Updated: 2026-03-19
 ## How This File Is Used
 
 ```
-product_targets.md          "What must each milestone achieve?"
+planning/product_targets.md    "What must each milestone achieve?"
         ↓ compared against
-roadmap.md                  "What are we actually building?" (consolidated from pod plans)
+generated/roadmap.md           "What are we actually building?" (consolidated from pod plans)
         ↓ checked against
-capacity.md                 "Do we have the people?"
+planning/capacity.md           "Do we have the people?"
         ↓ gaps surfaced by
-/risk-evaluation            "Are we on track to hit targets?"
+/risk-evaluation               "Are we on track to hit targets?"
 ```
 
 - **Pod leads** reference this when prioritizing features in their pod plans
-- **Risk evaluation** compares planned features (roadmap.md) against these targets to find gaps
+- **Risk evaluation** compares planned features (`generated/roadmap.md`) against these targets to find gaps
 - **Milestone reviews** assess success criteria against actual outcomes
 - **This file changes rarely** - only when leadership redefines milestone goals
 

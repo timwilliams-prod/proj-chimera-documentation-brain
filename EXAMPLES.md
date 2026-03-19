@@ -4,9 +4,9 @@ Practical examples of how to use the documentation brain with Claude Code.
 
 ---
 
-## Example 1: Update Sprint Progress
+## Example 1: Update Pod Plan & Roadmap
 
-**Scenario**: Mid-sprint, Empire pod has progress updates.
+**Scenario**: Empire has finished Governors Sprint 1 and needs to update the plan.
 
 ### User:
 ```
@@ -17,49 +17,32 @@ Practical examples of how to use the documentation brain with Claude Code.
 ```
 I'll help update the Feature Roadmap. Let me read the current state.
 
-[reads pods/Empire_Backlog.md, dependency_map.md, roadmap.md]
+[reads planning/pods/Empire_Plan.md, planning/product_targets.md,
+ generated/roadmap.md, planning/capacity.md]
 
 Which pod would you like to update?
 ```
 
 ### User:
 ```
-Empire
-```
-
-### Claude:
-```
-Current state for Empire - Sprint 23:
-
-In Progress:
-- EMP-101: Base building foundation (60%)
-- EMP-102: Resource gathering system (30%)
-
-What updates do you have?
-```
-
-### User:
-```
-EMP-101 is now 90%. EMP-102 is blocked - waiting on art assets.
-Add a new task: EMP-110 for tutorial integration.
+Empire - Governors Sprint 1 is complete. Backend & data setup done.
+Moving into Sprint 2 (UI implementation). UX designs are delivered.
 ```
 
 ### Claude:
 ```
 Changes:
-- EMP-101: 60% → 90%
-- EMP-102: Note blocker (art assets)
-- New task: EMP-110 (tutorial integration)
+- Governors: still IN PROGRESS, Sprint 1 complete, Sprint 2 starting
+- Pre-condition met: UX/UI designs delivered
 
-Checking dependencies...
+Checking against product_targets.md...
+- M&Ms must-have: Governors ✓ (on track)
+- M&Ms must-have: Territory Map VS ✓ (not started, but scheduled Sprint 4-5)
 
-[reads dependency_map.md]
+Checking capacity.md...
+- 1 engineer on Empire, 4 sprints remaining - sufficient for remaining features
 
-Heads up: EMP-102 is a dependency for Metagame pod's resource
-economy work next sprint. If art assets delay, Metagame may be affected.
-
-Also noting: SHQ-1.1.2 ("Do players find resource gathering intuitive?")
-depends on EMP-102 completing. This may affect Milestone 1 validation.
+No validation impact - SHQ7 still depends on Governors completing all 3 sprints.
 
 Proceed with update?
 ```
@@ -71,28 +54,24 @@ yes
 
 ### Claude:
 ```
-[updates pods/Empire_Backlog.md]
-[regenerates roadmap.md Gantt chart]
+[updates planning/pods/Empire_Plan.md]
+[updates planning/features/governors.md - marks Sprint 1 pre-conditions complete]
+[regenerates generated/roadmap.md consolidated tables + Gantt]
 
 ## Roadmap Update Summary
 
-**Updated**: Empire - Sprint 23
+**Updated**: Empire
 
 **Changes**:
-- EMP-101: 60% → 90% (near completion)
-- EMP-102: Blocked (art assets) - marked critical on Gantt
-- Added EMP-110 to backlog as P1
+- Governors Sprint 1 complete, Sprint 2 starting
+- UX/UI pre-condition for Sprint 2: met
 
-**Milestone Impact**:
-- Milestone 1: AT RISK - SHQ-1.1.2 depends on EMP-102
-
-**Cross-Pod Impact**:
-- Metagame may be affected (depends on Empire resource system)
+**Target Impact** (vs planning/product_targets.md):
+- M&Ms: All must-haves on track
 
 **Recommended Actions**:
-1. Follow up on art asset ETA
-2. Notify Metagame pod of potential EMP-102 delay
-3. Create EMP-110 in ClickUp
+1. Confirm internal playtest is scheduled for Sprint 2 (needed for Sprint 3 iteration)
+2. Update ClickUp to match
 ```
 
 ---
@@ -110,62 +89,68 @@ yes
 ```
 I'll run a sprint evaluation. Let me read the current state.
 
-[reads ValidationRoadmap.md, all pods/*_Backlog.md, roadmap.md]
+[reads planning/ValidationRoadmap.md, all planning/pods/*_Plan.md,
+ generated/roadmap.md, planning/product_targets.md]
 
 Which sprint are we evaluating?
 ```
 
 ### User:
 ```
-Sprint 23. We got playtest results back - 8 out of 10 players
-completed the base building tutorial in under 5 minutes.
-SHQ-1.1.1 is answered. Also, resource gathering feedback was
-mixed - players found it confusing without tooltips.
+Sprint 3. Governors is complete. Internal playtest showed players
+understood what governors do and felt invested in their choices.
+SHQ7 can be marked ANSWERED positive.
 ```
 
 ### Claude:
 ```
 Great data. Let me update the validation roadmap.
 
-## Validation Sprint Review - Sprint 23
+## Validation Sprint Review - Sprint 3
 
 ### Confidence Snapshot
 
 | Hypothesis | Previous | Current | Trend | Key Signal |
 |-----------|----------|---------|-------|------------|
-| WH-1: Core Loop | Low | Medium | + | SHQ-1.1.1 positive (80% tutorial completion) |
-| WH-2: Monetization | Low | Low | = | No new data |
-| WH-3: Retention | Low | Low | - | Resource gathering confusion is a concern |
+| WH-2: Empire | Low-Medium | Medium | + | SHQ7 answered positively (governor investment) |
+| WH-1: Battle | Medium | Medium | = | No new data |
+| WH-3: Monetization | Low | Low | = | No new data |
+| WH-4: Production | Low | Low | = | No new data |
 
 ### SHQ Updates
 
 | SHQ | Previous | New Status | Finding |
 |-----|----------|------------|---------|
-| SHQ-1.1.1 | IN PROGRESS | ANSWERED | 80% of players completed tutorial in <5 min |
-| SHQ-1.1.2 | NOT STARTED | IN PROGRESS | Mixed feedback - needs tooltips |
+| SHQ7 | ANSWERED ✅ | ANSWERED ✅ | Players articulate governor purpose, feel invested |
+
+Note: SHQ7 was previously marked ANSWERED in Systems Validation.
+This sprint's playtest with Governors feature provides additional
+confirming evidence for this SHQ.
 
 ### Alignment Check
 
 **Gaps**:
-- SHQ-1.1.2 depends on EMP-102 (resource gathering) which is BLOCKED
-- If EMP-102 stays blocked, we can't fully validate BHQ-1.1 this milestone
+- SHQ2 (empire strategy <-> tile conquest) still IN PROGRESS
+  - Territory Map VS (Sprint 4-5) should address this
+- SHQ3 answered ❌ (map -> hero progression) - no remediation plan yet
+  - This is cross-pod: may need Battle/Metagame input
 
-**Unvalidated Work**:
-- Battle pod Sprint 24 has BAT-050 (arena mode) with no tied SHQ.
-  Consider: should arena mode validate something?
+**Product Target Check**:
+- M&Ms success criterion "Empire strategy and tile conquest feel connected"
+  depends on Territory Map VS (starting next sprint)
 
 ### Decisions Needed
-1. Should we add tooltips to resource gathering (new task for Empire)?
-2. Should BAT-050 tie to a validation goal?
+1. SHQ3 failed - what's the design iteration plan? Which pods contribute?
+2. Should BHQ-E4 (instant gratification) get an SHQ before M&Ms ends?
 
-[updates ValidationRoadmap.md with sprint evaluation log]
+[updates planning/ValidationRoadmap.md with sprint evaluation log]
 ```
 
 ---
 
-## Example 3: Risk Evaluation Before Sprint Planning
+## Example 3: Risk Evaluation Before Milestone
 
-**Scenario**: Planning next sprint, want to check for risks.
+**Scenario**: M&Ms milestone is 4 sprints away, want a risk check.
 
 ### User:
 ```
@@ -174,208 +159,224 @@ Great data. Let me update the validation roadmap.
 
 ### Claude:
 ```
-Running risk evaluation across all documentation...
+Running risk evaluation...
 
-[reads all pods/*_Backlog.md, dependency_map.md, GlobalRules.md,
- ValidationRoadmap.md, features/*.md]
+[reads planning/product_targets.md, generated/roadmap.md,
+ planning/capacity.md, all planning/pods/*_Plan.md,
+ planning/ValidationRoadmap.md, planning/features/*.md]
 
 # Risk Evaluation Report
 
-Generated: 2026-03-18
-Scope: All Pods
+Generated: 2026-04-14
+Scope: Pre-Milestone (M&Ms)
+
+---
+
+## Target Health Check
+
+### Milestone Readiness (product_targets.md vs roadmap.md)
+
+| Must-Have | Pod | Status | Assessment |
+|-----------|-----|--------|------------|
+| Governors | Empire | COMPLETE | ✓ |
+| Territory Map VS | Empire | IN PROGRESS | On track |
+| Multiplayer foundation | [TBD] | NO POD ASSIGNED | MISSING |
+| Metagame depth feature | Metagame | [TBD] | MISSING |
+
+**M&Ms: 2/4 must-haves covered. 2 MISSING.**
+
+### Capacity Check
+
+| Pod | Available (eng-sprints) | Committed | Assessment |
+|-----|------------------------|-----------|------------|
+| Empire | 4 remaining | 3 (TMap VS + WM Upgrades) | OK |
+| Metagame | [TBD] | [TBD] | UNKNOWN |
+| Battle | [TBD] | [TBD] | UNKNOWN |
 
 ---
 
 ## Critical Risks
 
-### Risk: Empire Blocker Cascading to Metagame + Validation
+### Risk: M&Ms Missing Must-Have Features
 - **Impact**: Critical
 - **Probability**: High
-- **Affected Pods**: Empire, Metagame
-- **Description**: EMP-102 (resource gathering) is blocked by art assets.
-  Metagame's resource economy work depends on this. Additionally,
-  SHQ-1.1.2 can't be validated without it.
-- **Validation Impact**: BHQ-1.1 stalls, WH-1 confidence can't improve
-- **Recommended Action**: Escalate art asset dependency immediately.
-  Consider placeholder art to unblock.
+- **Description**: product_targets.md requires a multiplayer foundation
+  feature and a metagame depth feature for M&Ms. Neither is in any
+  pod plan. The milestone cannot achieve its goal without these.
+- **Recommended Action**: Immediately define which features satisfy
+  these targets and assign to pods. Update pod plans and capacity.
 
 ---
 
 ## High Risks
 
-### Risk: Battle Pod Building Without Validation
+### Risk: SHQ3 Failure Without Remediation
 - **Impact**: High
 - **Probability**: Medium
-- **Affected Pods**: Battle
-- **Description**: BAT-050 (arena mode) is planned for Sprint 24
-  with no tied SHQ. We'd be building without validating.
-- **Recommended Action**: Define what arena mode should prove
-  and add an SHQ before committing sprint work.
+- **Description**: SHQ3 (map -> hero progression) answered ❌.
+  This is cross-pod (Empire/Battle/Metagame) but no design
+  iteration plan exists. BHQ-E1 cannot fully validate without this.
+- **Recommended Action**: Schedule cross-pod design session.
+  Define remediation approach before M&Ms ends.
+
+### Risk: 4 Pod Plans Still Empty
+- **Impact**: High
+- **Probability**: High
+- **Description**: Metagame, Battle, Social Dynamics, and Dozer
+  pod plans have no features defined. Cannot assess capacity,
+  dependencies, or target coverage for these pods.
+- **Recommended Action**: Populate pod plans for at least M&Ms milestone.
 
 ---
 
-## Validation Health Check
+## Recommended Actions (Prioritized)
 
-| Hypothesis | Confidence | Trend | Concern |
-|-----------|-----------|-------|---------|
-| WH-1 | Medium | + | On track if EMP-102 unblocks |
-| WH-2 | Low | = | No testing started |
-| WH-3 | Low | - | Resource confusion signal |
-
-### Milestone 1 Readiness
-- 1/5 SHQs answered, 1 in progress, 3 not started
-- Status: AT RISK
-
----
-
-## Recommended Actions
-
-1. **Unblock EMP-102** - TODAY
-   - Owner: Empire pod lead
-   - Use placeholder art if needed
-
-2. **Add SHQ for BAT-050** - Before Sprint Planning
-   - Owner: Battle pod lead + product
-
-3. **Start WH-2 validation** - Sprint 24
-   - No SHQs are testing monetization yet
+1. **Define missing M&Ms must-have features** - TODAY
+   - Owner: Product leadership
+2. **Populate remaining pod plans** - This sprint
+   - Owner: Pod leads (Metagame, Battle, Social Dynamics, Dozer)
+3. **Plan SHQ3 remediation** - Before Territory Map VS starts
+   - Owner: Cross-pod (Empire + Battle + Metagame)
 ```
 
 ---
 
-## Example 4: Cross-Pod Impact Analysis
+## Example 4: Capacity & Priority Question
 
-**Scenario**: Metagame pod wants to change the resource economy model.
+**Scenario**: Considering pulling Empire's engineer to help Battle.
 
 ### User:
 ```
-We're thinking of overhauling the resource economy in Sprint 25. What's the impact?
+Can we move Empire's engineer to Battle for 2 sprints?
+What's the impact?
 ```
 
 ### Claude:
 ```
-Let me check dependencies and validation impact.
+Let me check capacity and downstream impact.
 
-[reads dependency_map.md, all pods/*_Backlog.md, ValidationRoadmap.md]
+[reads planning/capacity.md, planning/pods/Empire_Plan.md,
+ planning/pods/Battle_Plan.md, planning/features/*.md,
+ planning/product_targets.md]
 
-**Dependency Impact**:
+**Current allocation** (planning/capacity.md):
+- Empire has 1 engineer, committed for ~6 sprints in M&Ms
+- Remaining: Territory Map VS (2 spr) + WM Building Upgrades (1 spr)
+  + 1 flex sprint
 
-From dependency_map.md, resource economy touches:
-1. **Empire** - Resource gathering feeds into economy
-2. **Battle** - Battle rewards use economy system
-3. **Social Dynamics** - Trading/gifting uses economy
+**If we move 2 sprints to Battle:**
 
-**Sprint Conflicts**:
-- Empire Sprint 25: EMP-120 (resource storage) - would need rework
-- Battle Sprint 25: BAT-060 (battle rewards) - depends on economy API
+Impact on Empire:
+- Territory Map VS gets delayed by 2 sprints → pushes past M&Ms deadline
+- Territory Map VS is a product_targets.md MUST-HAVE for M&Ms
+- SHQ1 and SHQ2 cannot be validated without it
+- WM Building Upgrades would also slip to M&C
 
-**Validation Impact**:
-- SHQ-1.1.2 (resource gathering) - would need re-testing
-- BHQ-2.1 (monetization model) - economy changes directly affect this
+Impact on M&Ms milestone:
+- Success criterion "territory map proves scalable" → MISSED
+- Success criterion "empire strategy and tile conquest feel connected" → MISSED
 
-**Recommendations**:
-1. Coordinate with Empire and Battle before Sprint 25 planning
-2. Define the new economy API contract first
-3. Consider: does this overhaul warrant new SHQs?
-4. Suggest an architecture sync with all affected pods
+**Alternatives:**
+1. Move just 1 sprint (flex sprint) → Empire keeps all features but loses buffer
+2. Move the engineer AFTER Territory Map VS (Sprint 6-7) → Battle gets
+   help later but Empire stays on track
+3. Add a second engineer to Empire so Territory Map VS can still happen
+   → check if anyone is available in planning/capacity.md
+
+**Recommendation**: Option 2 is safest — move engineer to Battle for
+Sprints 6-7 after Empire's critical features complete. This preserves
+M&Ms must-haves while giving Battle 2 sprints of support.
 ```
 
 ---
 
-## Example 5: Notion to Feature Doc Conversion
+## Example 5: Creating a New Feature Doc
 
-**Scenario**: New feature designed in Notion, need to add to brain.
+**Scenario**: Territory Map VS is about to start, needs a feature doc.
 
 ### User:
 ```
-Convert this Notion doc to our feature format:
-
-[pastes Notion markdown export for "Alliance System"]
+Create a feature doc for Territory Map Vertical Slice based on
+what we know from the Empire plan.
 ```
 
 ### Claude:
 ```
-I'll convert this to features/alliance_system.md.
+Let me read the existing context.
 
-[maps Notion structure to feature doc schema]
+[reads planning/pods/Empire_Plan.md for scope/validation info,
+ planning/ValidationRoadmap.md for SHQ details,
+ planning/features/governors.md for template]
 
-Key mappings:
-- Notion "Overview" → Feature Doc "Overview"
-- Notion "User Stories" → "Requirements > Functional Requirements"
-- Notion "Technical Design" → "Architecture"
-- Added: "Dependencies", "Testing Strategy", "Risks"
+I'll create planning/features/territory_map_vs.md following the
+governors.md template. Here's what I can populate from existing docs:
 
-Gaps I found:
-1. No performance requirements
-2. No dependency on Social Dynamics pod mentioned (but alliances = social)
-3. No risks documented
+- Validation: SHQ1 (map at scale), SHQ2 (strategy <-> conquest)
+- Estimate: 2 sprints
+- Dependencies: May build on Governor system
+- Pod: Empire
 
-Should I:
-1. Create features/alliance_system.md?
-2. Add Social Dynamics dependency to dependency_map.md?
-3. Check if any SHQs should tie to alliance system validation?
+Gaps I need from you:
+1. Scope: What specifically does the VS prove? (performance? visuals? variety?)
+2. Design owner?
+3. Does it need UX/UI work or is it purely engineering?
+4. Art assets needed?
+
+[creates planning/features/territory_map_vs.md with known info,
+ [TBD] sections for gaps]
+[updates planning/pods/Empire_Plan.md feature doc link]
 ```
 
 ---
 
 ## Example 6: Milestone Validation Review
 
-**Scenario**: Reaching Milestone 1, time for full assessment.
+**Scenario**: M&Ms milestone boundary, full assessment.
 
 ### User:
 ```
 /validation-review
 
-We're at the Milestone 1 boundary. Let's do a full review.
+We're at the M&Ms milestone boundary. Full review.
 ```
 
 ### Claude:
 ```
 Running milestone review...
 
-[reads ValidationRoadmap.md, all feature work completed]
+[reads planning/ValidationRoadmap.md, all planning/pods/*_Plan.md,
+ generated/roadmap.md, planning/product_targets.md]
 
-## Milestone 1 Review
+## M&Ms Milestone Review
 
-### SHQ Scorecard
-- Answered: 3/5
-- In Progress: 1
-- Failed: 0
-- Not Started: 1
+### SHQ Scorecard (Empire-related)
+- SHQ1 (map at scale): ANSWERED ✅
+- SHQ2 (strategy <-> conquest): ANSWERED ✅
+- SHQ3 (map -> hero progression): ANSWERED ❌ (pre-existing)
+- SHQ7 (short/mid/long-term goals): ANSWERED ✅
 
-### What We Learned
-
-**WH-1 (Core Loop)**:
-- SHQ-1.1.1: ANSWERED - 80% tutorial completion (positive)
-- SHQ-1.1.2: ANSWERED - Resource gathering needs tooltips (mixed)
-- SHQ-1.1.3: IN PROGRESS - Combat engagement data pending
-
-**WH-2 (Monetization)**:
-- SHQ-2.1.1: ANSWERED - Players willing to pay for cosmetics (positive)
-
-**WH-3 (Retention)**:
-- SHQ-3.1.1: NOT STARTED - Blocked by social features delay
+### Success Criteria Check (vs planning/product_targets.md)
+- [x] Territory map proves scalable
+- [x] Empire strategy and tile conquest feel connected
+- [ ] Players can engage with multiplayer foundations → [depends on other pods]
+- [ ] At least one metagame depth system is playable → [depends on Metagame pod]
 
 ### Confidence Update
 
 | Hypothesis | Pre-Milestone | Post-Milestone | Change |
 |-----------|---------------|----------------|--------|
-| WH-1 | Medium | Medium-High | + (2/3 positive signals) |
-| WH-2 | Low | Medium | + (cosmetics signal strong) |
-| WH-3 | Low | Low | = (no data yet - concern) |
+| WH-2: Empire | Low-Medium | Medium | + (3/4 SHQs positive) |
 
-### Recommended Milestone 2 SHQs
+### Key Learnings
+- Governor system validated as a goal vector (SHQ7 ✅)
+- Territory map scales well technically (SHQ1 ✅)
+- Strategy/conquest connection works (SHQ2 ✅)
+- Map -> hero progression FAILED (SHQ3 ❌) — needs design rethink
 
-| ID | Question | Parent BHQ | Pod Work Required |
-|----|----------|-----------|-------------------|
-| SHQ-1.1.4 | Do players return after first session? | BHQ-1.1 | Analytics (Dozer) |
-| SHQ-2.1.2 | Will players spend on gameplay advantages? | BHQ-2.1 | Metagame store |
-| SHQ-3.1.1 | Do alliance features increase DAU? | BHQ-3.1 | Social Dynamics |
-| SHQ-3.1.2 | Does social pressure drive retention? | BHQ-3.1 | Social Dynamics |
-
-### Key Decision
-WH-3 has zero data after Milestone 1. Recommend prioritizing
-Social Dynamics work in Milestone 2 or consider revising WH-3.
+### Recommendations for Beta Launch Prep
+1. SHQ3 remediation plan must be defined — cross-pod design work
+2. Define SHQs for upcoming milestones
+3. Populate remaining pod plans before M&C begins
 ```
 
 ---
@@ -385,7 +386,7 @@ Social Dynamics work in Milestone 2 or consider revising WH-3.
 ### 1. Read Before Writing
 Always let Claude read current docs before making changes:
 ```
-"Before we update, read the Empire backlog and dependency map"
+"Before we update, read the Empire plan and capacity file"
 ```
 
 ### 2. Check Validation Alignment
@@ -394,24 +395,25 @@ For new features, always ask:
 "Does this feature tie to any SHQs? Should it?"
 ```
 
-### 3. Let Skills Guide You
-Skills ask the right questions:
+### 3. Ask Capacity Questions
+The brain can now answer resource questions:
 ```
-/roadmap-update       # Updates backlogs + Gantt
-/validation-review    # Evaluates hypotheses
-/risk-evaluation      # Scans for all risk types
+"Can we afford to add a feature to Empire this milestone?"
+"What if we move someone from Social Dynamics to Metagame?"
 ```
 
-### 4. Review Diffs
+### 4. Let Skills Guide You
+Skills ask the right questions:
+```
+/roadmap-update       # Updates pod plans + consolidated roadmap
+/validation-review    # Evaluates hypotheses
+/risk-evaluation      # Targets vs plans vs resources
+```
+
+### 5. Review Diffs
 Always review what Claude changes before committing:
 ```
 "Show me the diff before I commit"
-```
-
-### 5. Iterate on Skills
-Skills are just markdown files - customize them:
-```
-"Update /risk-evaluation to weight validation risks higher"
 ```
 
 ---
@@ -419,34 +421,16 @@ Skills are just markdown files - customize them:
 ## Anti-Patterns to Avoid
 
 **Don't: Build without validating**
-```
-"Add BAT-050 to Sprint 24"
-```
-Does it tie to an SHQ? If not, why are we building it?
+Does the feature tie to an SHQ? If not, why are we building it?
 
-**Do: Connect features to validation**
-```
-"/roadmap-update - add BAT-050 to Sprint 24, ties to SHQ-2.1.1"
-```
+**Don't: Plan features without a feature doc**
+If it doesn't have a `planning/features/*.md` file, the estimate and approach are guesses.
 
----
+**Don't: Ignore product targets**
+`planning/product_targets.md` defines what must ship. If your pod plan doesn't cover a must-have, `/risk-evaluation` will catch it.
 
-**Don't: Update one roadmap and forget the other**
+**Don't: Scatter capacity info**
+All staffing lives in `planning/capacity.md`. Don't put headcount in pod plans.
 
-Feature Roadmap and Validation Roadmap are connected. If you shift feature timelines, check if SHQ timelines are affected.
-
-**Do: Use `/risk-evaluation` to catch alignment gaps**
-
----
-
-**Don't: Skip dependency checks**
-```
-"Move EMP-102 to backlog"
-```
-Might break Metagame's plan AND an SHQ.
-
-**Do: Ask for impact**
-```
-"What happens if we defer EMP-102?"
-```
-Claude checks dependencies, pod backlogs, AND validation roadmap.
+**Do: Use `/risk-evaluation` regularly**
+It compares targets vs plans vs resources — catches gaps you won't see by reading one file.

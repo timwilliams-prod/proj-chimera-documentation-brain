@@ -61,46 +61,14 @@
             "id": "c5e7a66ff89a6626",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "GlobalRules.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "GlobalRules"
-            }
-          },
-          {
-            "id": "c4cb926a7e926f63",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "dependency_map.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "dependency_map"
-            }
-          },
-          {
-            "id": "93a61a124a2c8a8b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "ValidationRoadmap.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "ValidationRoadmap"
+              "title": "New tab"
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -262,41 +230,43 @@
       "bases:Create new base": false
     }
   },
-  "active": "93a61a124a2c8a8b",
+  "active": "c5e7a66ff89a6626",
   "lastOpenFiles": [
-    "QUICK_START.md.tmp.18080.1773927716251",
-    "QUICK_START.md.tmp.18080.1773927696717",
-    "QUICK_START.md.tmp.18080.1773927692132",
-    "QUICK_START.md.tmp.18080.1773927689679",
-    "README.md.tmp.18080.1773927672235",
-    "README.md.tmp.18080.1773927665760",
+    "planning/pods/SocialDynamics_Plan.md.tmp.18080.1773932549786",
+    "QUICK_START.md.tmp.18080.1773932279357",
+    "QUICK_START.md.tmp.18080.1773932276504",
+    "QUICK_START.md.tmp.18080.1773932273890",
+    "QUICK_START.md.tmp.18080.1773932271282",
+    "QUICK_START.md.tmp.18080.1773932266347",
+    "QUICK_START.md.tmp.18080.1773932259754",
+    "README.md.tmp.18080.1773932241071",
+    "README.md.tmp.18080.1773932231312",
+    "README.md.tmp.18080.1773932220012",
+    "README.md.tmp.18080.1773932214338",
+    "reference/README.md",
+    "generated/roadmap.md",
+    "planning/features/combat_system.md",
+    "planning/features/governors.md",
+    "dependency_map.md",
+    "ValidationRoadmap.md",
+    "planning/pods/Dozer_Plan.md",
+    "planning/pods/SocialDynamics_Plan.md",
+    "planning/pods/Battle_Plan.md",
+    "planning/pods/Metagame_Plan.md",
+    "planning/pods/Empire_Plan.md",
+    "planning/dependency_map.md",
+    "planning/capacity.md",
+    "planning/GlobalRules.md",
+    "planning/ValidationRoadmap.md",
+    "planning/product_targets.md",
     "product_targets.md",
     "capacity.md",
     "features/governors.md",
-    "roadmap.md.tmp.6784.1773869022797",
     "pods/Dozer_Plan.md",
     "pods/SocialDynamics_Plan.md",
     "pods/Metagame_Plan.md",
     "pods/Battle_Plan.md",
     "pods/Empire_Backlog.md",
-    "pods/Empire_Plan.md",
-    "pods/Empire_Plan.md.tmp.6784.1773868588918",
-    "README.md",
-    "ValidationRoadmap.md",
-    "Lotus Productionomicon - Validation Roadmap.csv",
-    "QUICK_START.md",
-    "dependency_map.md",
-    "GlobalRules.md",
-    "pods/Battle_Backlog.md",
-    "features/combat_system.md",
-    "roadmap.md",
-    "roadmap.md.tmp.6784.1773861170356",
-    "GlobalRules.md.tmp.6784.1773861147895",
-    "pods/Dozer_Backlog.md",
-    "pods/SocialDynamics_Backlog.md",
-    "pods/Metagame_Backlog.md",
-    "Pod_Backlog.md",
-    "INGESTION_GUIDE.md",
-    "EXAMPLES.md"
+    "pods/Empire_Plan.md"
   ]
 }

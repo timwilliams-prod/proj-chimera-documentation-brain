@@ -45,7 +45,7 @@ Cross-project constraints, standards, and principles that apply to all pods and 
 - **Retros**: End of sprint, action items tracked
 
 ### Validation Process
-- **Winning Hypotheses**: 3x top-level product hypotheses (see `ValidationRoadmap.md`)
+- **Winning Hypotheses**: 4x top-level product hypotheses (see `planning/ValidationRoadmap.md`)
 - **BHQs**: Broken down into testable Big Hairy Questions per hypothesis
 - **SHQs**: 3-5 Small Hairy Questions defined per milestone
 - **Sprint Evaluation**: Confidence levels reviewed every sprint via `/validation-review`
@@ -79,5 +79,5 @@ Cross-project constraints, standards, and principles that apply to all pods and 
 
 ## Notes
 - Update this file when cross-project decisions are made
-- Pod-specific rules go in pod backlog files (`pods/*_Backlog.md`)
+- Pod-specific rules go in pod plan files (`planning/pods/*_Plan.md`)
 - Exceptions require architecture team approval

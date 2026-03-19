@@ -4,7 +4,8 @@ Last Updated: 2026-03-19
 Pod Lead: Diana Vasilescu
 
 > **What this file tracks**: Feature priorities per milestone and validation alignment.
-> **What lives elsewhere**: Feature details in `features/*.md`. Staffing in `capacity.md`. Sprint execution in ClickUp.
+> **What lives elsewhere**: Feature details in `planning/features/*.md`. Staffing in `planning/capacity.md`. Sprint execution in ClickUp.
+> For the full validation hierarchy, see `planning/ValidationRoadmap.md`.
 
 ---
 
@@ -12,20 +13,23 @@ Pod Lead: Diana Vasilescu
 
 The Empire pod is primarily validating **WH-2: Empire Hypothesis** - that we can retain better than traditional mobile 4X by anchoring early progression in intuitive, visual exploration on the map layer.
 
-### Key BHQs This Pod Owns
+### BHQs This Pod Contributes To
 
-| BHQ | Question | Status |
-|-----|----------|--------|
-| BHQ-E1 | Can we make the civ-like grid intuitive, scalable, and will players be motivated to explore? | NOT YET TESTED |
-| BHQ-E2 | Can we create sharp return motivations that feel organic and not punishing? | TESTING |
-| BHQ-E3 | Can Empire progression remain compelling long-term ("one more turn" on mobile)? | NOT YET TESTED |
-| BHQ-E4 | Can we increase instant gratification when the player takes actions? | NOT YET TESTED |
+Empire features contribute to these BHQs (full details in `planning/ValidationRoadmap.md`).
+Note: some BHQs are cross-pod — Empire contributes but doesn't solely own them.
+
+| BHQ | Question | Status | Cross-Pod? |
+|-----|----------|--------|------------|
+| BHQ-E1 | Can we make the civ-like grid intuitive, scalable, and will players be motivated to explore? | NOT YET TESTED | No |
+| BHQ-E2 | Can we create sharp return motivations that feel organic and not punishing? | TESTING | Potentially (metagame hooks) |
+| BHQ-E3 | Can Empire progression remain compelling long-term ("one more turn" on mobile)? | NOT YET TESTED | Yes (connects to Metagame) |
+| BHQ-E4 | Can we increase instant gratification when the player takes actions? | NOT YET TESTED | Yes (Battle + Empire) |
 
 ### Active SHQ Gaps
 
 - **SHQ2** (empire strategy <-> tile conquest seamlessness) - IN PROGRESS
-- **SHQ3** (map -> hero progression) - ANSWERED with a negative result. Design iteration needed.
-- **BHQ-E4** has no SHQs defined yet. Needs attention.
+- **SHQ3** (map -> hero progression) - ANSWERED negative. May need cross-pod input (Battle/Metagame).
+- **BHQ-E4** has no SHQs defined yet. Needs attention — likely requires Battle pod input too.
 
 ---
 
@@ -37,10 +41,10 @@ The Empire pod is primarily validating **WH-2: Empire Hypothesis** - that we can
 
 | # | Feature | Estimate | Status | Feature Doc |
 |---|---------|----------|--------|-------------|
-| 1 | Governors | 3 sprints | IN PROGRESS | [`features/governors.md`](../features/governors.md) |
-| 2 | Territory Map Vertical Slice | 2 sprints | NOT STARTED | `features/territory_map_vs.md` [TBD] |
-| 3 | WM Support for Building Upgrades | 1 sprint | NOT STARTED | `features/wm_building_upgrades.md` [TBD] |
-| - | Map Content (Design/Art Track) | Ongoing | IN PROGRESS | `features/map_content.md` [TBD] |
+| 1 | Governors | 3 sprints | IN PROGRESS | [`planning/features/governors.md`](../features/governors.md) |
+| 2 | Territory Map Vertical Slice | 2 sprints | NOT STARTED | `planning/features/territory_map_vs.md` [TBD] |
+| 3 | WM Support for Building Upgrades | 1 sprint | NOT STARTED | `planning/features/wm_building_upgrades.md` [TBD] |
+| - | Map Content (Design/Art Track) | Ongoing | IN PROGRESS | `planning/features/map_content.md` [TBD] |
 
 **Flex**: ~1 sprint buffer for risk/iteration.
 
@@ -61,7 +65,7 @@ Sprint 6:    WM Building Upgrades
 Sprint 7:    Flex / risk buffer / iteration
 ```
 
-Map Content runs in parallel on design/art (see `capacity.md`).
+Map Content runs in parallel on design/art (see `planning/capacity.md`).
 
 ---
 
@@ -73,9 +77,9 @@ Map Content runs in parallel on design/art (see `capacity.md`).
 
 | # | Feature | Estimate | Status | Feature Doc |
 |---|---------|----------|--------|-------------|
-| - | Map Content (Design/Art Track) | Ongoing | CONTINUES | `features/map_content.md` [TBD] |
+| - | Map Content (Design/Art Track) | Ongoing | CONTINUES | `planning/features/map_content.md` [TBD] |
 
-No Empire engineering features planned. Engineering capacity may flex to other pods (see `capacity.md`).
+No Empire engineering features planned. Engineering capacity may flex to other pods (see `planning/capacity.md`).
 
 ---
 
@@ -87,11 +91,11 @@ No Empire engineering features planned. Engineering capacity may flex to other p
 
 | # | Feature | Estimate | Status | Feature Doc |
 |---|---------|----------|--------|-------------|
-| 1 | World Map Vertical Slice | ~1 sprint | NOT STARTED | `features/world_map_vs.md` [TBD] |
-| 2 | World Map Zoom Filtering & LOD | ~1 sprint | NOT STARTED | `features/wm_zoom_lod.md` [TBD] |
-| 3 | Conquest Guide Full Screen | ~0.5 sprint | NOT STARTED | `features/conquest_guide.md` [TBD] |
-| 4 | Barrier & Story Shard Iterations | ~0.5 sprint | NOT STARTED | `features/barrier_story_iterations.md` [TBD] |
-| - | Map Content (Design/Art Track) | Ongoing | NOT STARTED | `features/map_content.md` [TBD] |
+| 1 | World Map Vertical Slice | ~1 sprint | NOT STARTED | `planning/features/world_map_vs.md` [TBD] |
+| 2 | World Map Zoom Filtering & LOD | ~1 sprint | NOT STARTED | `planning/features/wm_zoom_lod.md` [TBD] |
+| 3 | Conquest Guide Full Screen | ~0.5 sprint | NOT STARTED | `planning/features/conquest_guide.md` [TBD] |
+| 4 | Barrier & Story Shard Iterations | ~0.5 sprint | NOT STARTED | `planning/features/barrier_story_iterations.md` [TBD] |
+| - | Map Content (Design/Art Track) | Ongoing | NOT STARTED | `planning/features/map_content.md` [TBD] |
 
 ### Validation Alignment
 

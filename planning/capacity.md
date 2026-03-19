@@ -4,7 +4,7 @@ Last Updated: 2026-03-19
 
 > Staffing allocations by discipline and role across milestones.
 > People move between pods - this file is the single view of where everyone is.
-> For what features are prioritized, see `pods/*_Plan.md`. For feature cost details, see `features/*.md`.
+> For what features are prioritized, see `planning/pods/*_Plan.md`. For feature cost details, see `planning/features/*.md`.
 
 ---
 
@@ -13,7 +13,7 @@ Last Updated: 2026-03-19
 - **Allocations are approximate** - sprint-level precision where known, ranges where not
 - **Notes capture intent**, not commitments ("expected to support Dozer after M&Ms")
 - Update this file when people move, join, or when milestone plans change
-- Cross-reference with feature estimates in `features/*.md` to check feasibility
+- Cross-reference with feature estimates in `planning/features/*.md` to check feasibility
 
 ---
 
