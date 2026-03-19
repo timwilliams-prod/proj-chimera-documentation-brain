@@ -3,7 +3,7 @@
 Last Updated: 2026-03-19
 Status: IN PROGRESS
 Pod: Empire
-Design Owner: [TBD]
+Design Owner: [Diana Vasilescu]
 ClickUp: [Epic link]
 
 ---
