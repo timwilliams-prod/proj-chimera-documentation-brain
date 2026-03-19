@@ -18,6 +18,14 @@ gantt
     axisFormat %b '%y
     tickInterval 1month
 
+    section Milestones
+    Sys Validation - Mar 30    :crit, milestone, 2026-03-30, 0d
+    M&M - Jun 23               :crit, milestone, 2026-06-23, 0d
+    Beta Prep - Jul 21         :crit, milestone, 2026-07-21, 0d
+    M&C - Oct 13               :crit, milestone, 2026-10-13, 0d
+    Live Ops & Social - Feb 2  :crit, milestone, 2027-02-02, 0d
+    Soft Launch - May 30       :crit, milestone, 2027-05-30, 0d
+
     section M&Ms - Pipeline A
     UI Foundation              :active, ma1, 2026-03-18, 84d
 
@@ -50,12 +58,6 @@ gantt
     section Soft Launch
     5 features at 2x ENG       :ms, 2027-02-03, 42d
 
-    section Milestones
-    M&M - Jun 23               :crit, milestone, 2026-06-23, 0d
-    Beta Prep - Jul 21         :crit, milestone, 2026-07-21, 0d
-    M&C - Oct 13               :crit, milestone, 2026-10-13, 0d
-    Live Ops & Social - Feb 2  :crit, milestone, 2027-02-02, 0d
-    Soft Launch - May 30       :crit, milestone, 2027-05-30, 0d
 ```
 
 ---

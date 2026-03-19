@@ -42,6 +42,14 @@ gantt
     axisFormat %b '%y
     tickInterval 2week
 
+    section Milestones
+    Sys Validation - Mar 30   :crit, milestone, 2026-03-30, 0d
+    M&M - Jun 23              :crit, milestone, 2026-06-23, 0d
+    Beta Prep - Jul 21        :crit, milestone, 2026-07-21, 0d
+    M&C - Oct 13              :crit, milestone, 2026-10-13, 0d
+    Live Ops & Social - Feb 2 :crit, milestone, 2027-02-02, 0d
+    Soft Launch - May 30      :crit, milestone, 2027-05-30, 0d
+
     section M&Ms (ends Jun 23)
     Governors                 :active,  emp1, 2026-03-18, 42d
     Territory Map VS          :         emp2, after emp1, 28d
@@ -60,12 +68,6 @@ gantt
     section Continuous
     Map Content               :active,  emp_content, 2026-03-18, 490d
 
-    section Milestones
-    M&M - Jun 23              :crit, milestone, 2026-06-23, 0d
-    Beta Prep - Jul 21        :crit, milestone, 2026-07-21, 0d
-    M&C - Oct 13              :crit, milestone, 2026-10-13, 0d
-    Live Ops & Social - Feb 2 :crit, milestone, 2027-02-02, 0d
-    Soft Launch - May 30      :crit, milestone, 2027-05-30, 0d
 ```
 
 ---

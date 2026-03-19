@@ -9,12 +9,13 @@ Pod Lead: [TBD]
 
 ---
 
-## Strategy: Two Parallel Tracks
+## Strategy: Parallel Tracks
 
-Social Dynamics runs two parallel tracks during M&Ms:
+Social Dynamics runs multiple parallel tracks during M&Ms:
 
 1. **Multiplayer AI Prototype** -- Playtesting and iterating on the AI-driven prototype throughout M&Ms. This is our active playtest vehicle until the real client is ready.
 2. **Multiplayer Maps Build-Up** -- Engineering builds the real multiplayer map phase by phase (Phases 1-10, see below).
+3. **Networking** -- Multiplayer networking infrastructure running in parallel during M&Ms.
 
 **Switchover Goal**: Get the in-client version functional enough to replace the AI prototype for playtesting during M&Ms.
 **Player Release Goal**: Ship multiplayer to players during / at the end of M&C.
@@ -33,6 +34,14 @@ gantt
     axisFormat %b '%y
     tickInterval 2week
 
+    section Milestones
+    Sys Validation - Mar 30   :crit, milestone, 2026-03-30, 0d
+    M&M - Jun 23              :crit, milestone, 2026-06-23, 0d
+    Beta Prep - Jul 21        :crit, milestone, 2026-07-21, 0d
+    M&C - Oct 13              :crit, milestone, 2026-10-13, 0d
+    Live Ops & Social - Feb 2 :crit, milestone, 2027-02-02, 0d
+    Soft Launch - May 30      :crit, milestone, 2027-05-30, 0d
+
     section Track 1: AI Prototype
     Playtesting & Iteration          :active,  ai1, 2026-03-19, 2026-06-23
 
@@ -47,15 +56,13 @@ gantt
     P8 - Clarity of State            :         sd8, after sd7, 14d
     P9 - More Design Depth           :         sd9, after sd8, 14d
     P10 - Preparing for Rollout      :         sd10, after sd9, 14d
+
+    section Track 3: Networking
+    Multiplayer Networking           :active,  net1, 2026-03-19, 2026-06-23
+
+    section Additional Features
     Ravager's Reef                   :         sd_rr, after sd10, 42d
     Battlepass                       :         sd_bp, after sd_rr, 28d
-
-    section Milestones
-    M&M - Jun 23              :crit, milestone, 2026-06-23, 0d
-    Beta Prep - Jul 21        :crit, milestone, 2026-07-21, 0d
-    M&C - Oct 13              :crit, milestone, 2026-10-13, 0d
-    Live Ops & Social - Feb 2 :crit, milestone, 2027-02-02, 0d
-    Soft Launch - May 30      :crit, milestone, 2027-05-30, 0d
 ```
 
 > Gantt durations are estimates. Phases 7-10 compress with additional resources. Actual timelines TBD as breakdowns are finalized.
