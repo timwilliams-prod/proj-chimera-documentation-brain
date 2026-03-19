@@ -11,63 +11,6 @@ Last Updated: 2026-03-19
 
 ---
 
-## Consolidated Feature List by Milestone
-
-### M&Ms (ends Jun 23, 2026 - ~7 sprints)
-
-| Pod | Feature | Estimate | Status | Feature Doc |
-|-----|---------|----------|--------|-------------|
-| Empire | Governors | 3 sprints | IN PROGRESS | [`planning/features/governors.md`](../planning/features/governors.md) |
-| Empire | Territory Map Vertical Slice | 2 sprints | NOT STARTED | `planning/features/territory_map_vs.md` [TBD] |
-| Empire | WM Support for Building Upgrades | 1 sprint | NOT STARTED | `planning/features/wm_building_upgrades.md` [TBD] |
-| Empire | Map Content (Design/Art) | Ongoing | IN PROGRESS | `planning/features/map_content.md` [TBD] |
-| Metagame | [TBD] | | | |
-| Battle | [TBD] | | | |
-| Social Dynamics | [TBD] | | | |
-| Dozer | [TBD] | | | |
-
-**Target check**: See `planning/product_targets.md` M&Ms section for must-have features and success criteria.
-
----
-
-### Beta Launch Prep (ends Jul 21, 2026 - 2 sprints)
-
-| Pod | Feature | Estimate | Status | Feature Doc |
-|-----|---------|----------|--------|-------------|
-| Empire | Map Content (Design/Art) | Ongoing | CONTINUES | |
-| [TBD] | | | | |
-
----
-
-### M&C (ends Oct 13, 2026 - 6 sprints)
-
-| Pod | Feature | Estimate | Status | Feature Doc |
-|-----|---------|----------|--------|-------------|
-| Empire | World Map Vertical Slice | ~1 sprint | NOT STARTED | `planning/features/world_map_vs.md` [TBD] |
-| Empire | World Map Zoom Filtering & LOD | ~1 sprint | NOT STARTED | `planning/features/wm_zoom_lod.md` [TBD] |
-| Empire | Conquest Guide Full Screen | ~0.5 sprint | NOT STARTED | `planning/features/conquest_guide.md` [TBD] |
-| Empire | Barrier & Story Shard Iterations | ~0.5 sprint | NOT STARTED | `planning/features/barrier_story_iterations.md` [TBD] |
-| Empire | Map Content (Design/Art) | Ongoing | NOT STARTED | |
-| [TBD] | | | | |
-
----
-
-### Live Ops & Social (ends Feb 2, 2027 - 8 sprints)
-
-| Pod | Feature | Estimate | Status | Feature Doc |
-|-----|---------|----------|--------|-------------|
-| [TBD - awaiting feature definitions across all pods] | | | | |
-
----
-
-### Soft Launch / UA Scale (ends May 30, 2027 - ~8 sprints)
-
-| Pod | Feature | Estimate | Status | Feature Doc |
-|-----|---------|----------|--------|-------------|
-| [TBD - awaiting feature definitions across all pods] | | | | |
-
----
-
 ## High-Level Gantt
 
 ```mermaid
@@ -84,7 +27,7 @@ gantt
     Live Ops & Social         :milestone, ms4, 2027-02-02, 0d
     Soft Launch               :milestone, ms5, 2027-05-30, 0d
 
-    section Empire (1 eng, sequential)
+    section Empire
     Governors                 :active,  emp1, 2026-03-18, 42d
     Territory Map VS          :         emp2, after emp1, 28d
     WM Building Upgrades      :         emp3, after emp2, 14d
@@ -109,17 +52,93 @@ gantt
 
 ---
 
-## Per-Pod Plan Files
+## Pods
 
-Detailed feature priorities and validation alignment per pod:
+### Empire
 
-| Pod | Plan File | Lead |
-|-----|-----------|------|
-| Empire | [`planning/pods/Empire_Plan.md`](../planning/pods/Empire_Plan.md) | Diana Vasilescu |
-| Metagame | [`planning/pods/Metagame_Plan.md`](../planning/pods/Metagame_Plan.md) | [TBD] |
-| Battle | [`planning/pods/Battle_Plan.md`](../planning/pods/Battle_Plan.md) | [TBD] |
-| Social Dynamics | [`planning/pods/SocialDynamics_Plan.md`](../planning/pods/SocialDynamics_Plan.md) | [TBD] |
-| Dozer | [`planning/pods/Dozer_Plan.md`](../planning/pods/Dozer_Plan.md) | [TBD] |
+**Pod Lead**: Diana Vasilescu | **Producer**: Brann Livesay
+**Plan**: [`planning/pods/Empire_Plan.md`](../planning/pods/Empire_Plan.md)
+
+**M&Ms Validation Focus**: Validating **WH-2 (Empire Hypothesis)** - retention through intuitive, visual map exploration.
+
+| Key BHQ | Key SHQs for M&Ms | Status |
+|---------|-------------------|--------|
+| BHQ-E1: Intuitive map exploration | SHQ1 (map at scale), SHQ2 (strategy <-> conquest) | SHQ2 IN PROGRESS |
+| BHQ-E3: Long-term progression | SHQ7 (short/mid/long-term goals) | Planning |
+| BHQ-E4: Instant gratification | No SHQs defined | Gap |
+
+**M&Ms Features**:
+
+| # | Feature | Estimate | Status |
+|---|---------|----------|--------|
+| 1 | Governors | 3 sprints | IN PROGRESS |
+| 2 | Territory Map Vertical Slice | 2 sprints | NOT STARTED |
+| 3 | WM Support for Building Upgrades | 1 sprint | NOT STARTED |
+| - | Map Content (Design/Art) | Ongoing | IN PROGRESS |
+
+---
+
+### Metagame
+
+**Pod Lead**: Leonard Perez | **Producer**: Tim Williams
+**Plan**: [`planning/pods/Metagame_Plan.md`](../planning/pods/Metagame_Plan.md)
+
+**M&Ms Validation Focus**: TBD - features and SHQ alignment not yet defined.
+
+| Key BHQ | Key SHQs for M&Ms | Status |
+|---------|-------------------|--------|
+| BHQ-E3: Long-term progression (cross-pod) | SHQ7 (short/mid/long-term goals) | Contributes alongside Empire |
+| BHQ-M1: Hero collectability | SHQ10-13 (hero value, attachment, agency, assets) | NOT STARTED |
+
+**M&Ms Features**: [TBD - awaiting feature definitions]
+
+---
+
+### Battle
+
+**Pod Lead**: Lincoln Li | **Producer**: Thorben Novais
+**Plan**: [`planning/pods/Battle_Plan.md`](../planning/pods/Battle_Plan.md)
+
+**M&Ms Validation Focus**: TBD - features and SHQ alignment not yet defined.
+
+| Key BHQ | Key SHQs for M&Ms | Status |
+|---------|-------------------|--------|
+| BHQ-B1: Fun & sticky gameplay | SHQ23 (battle depth over 3 days) | ANSWERED |
+| BHQ-B4: Scalable battle content | SHQ27 (scalable battle building), SHQ28 (hero/unit pipeline) | ANSWERED |
+| BHQ-E4: Instant gratification (cross-pod) | No SHQs defined | Gap |
+
+**M&Ms Features**: [TBD - awaiting feature definitions]
+
+---
+
+### Social Dynamics
+
+**Pod Lead**: Paul Flores | **Producer**: Tim Williams
+**Plan**: [`planning/pods/SocialDynamics_Plan.md`](../planning/pods/SocialDynamics_Plan.md)
+
+**M&Ms Validation Focus**: TBD - features and SHQ alignment not yet defined.
+
+| Key BHQ | Key SHQs for M&Ms | Status |
+|---------|-------------------|--------|
+| BHQ-M2: PvE to social pipeline | No SHQs until post-Systems Validation | Future milestone |
+| BHQ-M4: Multiplayer motivations | SHQ18-22 (paper/prototype multiplayer designs) | NOT STARTED |
+
+**M&Ms Features**: [TBD - awaiting feature definitions]
+
+---
+
+### Dozer
+
+**Pod Lead**: Derek Gallant (eng lead) | **Producer**: -
+**Plan**: [`planning/pods/Dozer_Plan.md`](../planning/pods/Dozer_Plan.md)
+
+**M&Ms Validation Focus**: Infrastructure and tooling supporting WH-4 (Production Hypothesis).
+
+| Key BHQ | Key SHQs for M&Ms | Status |
+|---------|-------------------|--------|
+| WH-4: Production | Content pipeline scalability, technical stability | NOT STARTED |
+
+**M&Ms Features**: [TBD - awaiting feature definitions]
 
 ---
 
@@ -139,5 +158,6 @@ Detailed feature priorities and validation alignment per pod:
 
 | Date | Changed By | Summary |
 |------|-----------|---------|
+| 2026-03-19 | Tim / Claude | Rearranged: Gantt first, pod sections with validation summaries, legend/history at bottom |
 | 2026-03-19 | Tim / Claude | Restructured as consolidated operational view; milestone definitions moved to product_targets.md |
 | 2026-03-18 | Tim / Claude | Initial milestone definitions, Empire M&Ms + M&C features |

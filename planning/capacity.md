@@ -30,16 +30,16 @@ Next Milestone: M&Ms (starts ~3/31, ends Jun 23, 2026)
 
 ---
 
-## Pod Roster (Quick Reference)
+## Pod Leadership Summary
 
-| Pod | Producer | Design Lead | Engineers | Other |
-|-----|----------|-------------|-----------|-------|
-| Empire | Brann Livesay | Diana Vasilescu | Gabriel Arruda, Henrique De Lima, Marcos Loures (client) | Elise Cole, Jacob Siegel (design), Yura Rusin (UX), Marcos Teles (tech art), Laura Santana (QA) |
-| Metagame | Tim Williams | Leonard Perez | Guilherme Quizzini (client), Dan Dupuis (eng lead) | Chris Fidalgo (design), Kevin Ligon (UX lead), Miguel Duran (UI art), Hugo Hideo (QA) |
-| Battle | Thorben Novais | Lincoln Li | Jota Oliveira (client) | Nathan Hajek, Dylan Jeffery, Vishaal Gupta (design), Julio Scarabelli (QA), Ben Clair, Felipe Chaves, Tony Bonilla, Vinicius (art) |
-| Social Dynamics | Tim Williams | Paul Flores | Randy Pasion (client), Garrett Eidsvig, Bruno Bacelar (backend) | |
-| Dozer | - | - | Derek Gallant (eng lead), Bruno Freitas | Randy Pasion, Garrett Eidsvig (partial - see risks) |
-| Art | Brann Livesay | - | - | Kevin Griffith (art dir), Brendan Cheatham (assoc art dir), Lawrence Steele (sound), Danny, Alessandro, Pedro, Guilherme, Vinod Rams, Thiago |
+| Pod | Producer | Design Lead | Eng Lead | QA POC |
+|-----|----------|-------------|----------|--------|
+| Empire | Brann Livesay | Diana Vasilescu | - | Laura Santana |
+| Metagame | Tim Williams | Leonard Perez | Dan Dupuis | Hugo Hideo |
+| Battle | Thorben Novais | Lincoln Li | - | Julio Scarabelli |
+| Social Dynamics | Tim Williams | Paul Flores | - | - |
+| Dozer | - | - | Derek Gallant | - |
+| Art | Brann Livesay | - | - | - |
 
 ---
 
@@ -59,16 +59,6 @@ Next Milestone: M&Ms (starts ~3/31, ends Jun 23, 2026)
 | Derek Gallant | Engineering Lead | Dozer | Dozer | [TBD] | [TBD] | |
 | Bruno Freitas | Engineer | Dozer | Dozer | [TBD] | [TBD] | |
 | Marcos Teles | Tech Artist | Empire | Empire | [TBD] | [TBD] | |
-
-### Engineering Capacity Summary
-
-| Pod | Current Eng Count | M&Ms | Notes |
-|-----|-------------------|------|-------|
-| Empire | 3 client + 1 tech art | [TBD] | 3 client engineers - can parallelize features |
-| Metagame | 1 lead + 1 client | [TBD] | |
-| Battle | 1 client | [TBD] | Single engineer - features are sequential |
-| Social Dynamics | 1 client + 2 backend | [TBD] | Randy & Garrett have Dozer split (see risks) |
-| Dozer | 1 lead + 1 eng | [TBD] | Also pulls partial from Randy & Garrett |
 
 ---
 
