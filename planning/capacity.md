@@ -34,33 +34,33 @@ Next Milestone: M&Ms (starts ~3/31, ends Jun 23, 2026)
 
 ## Pod Leadership Summary
 
-| Pod | Producer | Design Lead | Eng Lead | QA POC |
-|-----|----------|-------------|----------|--------|
-| Empire | Brann Livesay | Diana Vasilescu | Dan Dupuis | Laura Santana |
-| Metagame | Tim Williams | Leonard Perez | Dan Dupuis | Hugo Hideo |
-| Battle | Thorben Novais | Lincoln Li | Jota Oliveira | Julio Scarabelli |
-| Social Dynamics | Tim Williams | Paul Flores | Derek Gallant | - |
-| Dozer | - | - | Derek Gallant | - |
-| Art | Brann Livesay | - | - | - |
+| Pod             | Producer       | Design Lead     | Eng Lead      | QA POC           |
+| --------------- | -------------- | --------------- | ------------- | ---------------- |
+| Empire          | Brann Livesay  | Diana Vasilescu | Dan Dupuis    | Laura Santana    |
+| Metagame        | Tim Williams   | Leonard Perez   | Dan Dupuis    | Hugo Hideo       |
+| Battle          | Thorben Novais | Lincoln Li      | Jota Oliveira | Julio Scarabelli |
+| Social Dynamics | Tim Williams   | Paul Flores     | Derek Gallant | -                |
+| Dozer           | -              | -               | Derek Gallant | -                |
+| Art             | Brann Livesay  | -               | -             | -                |
 
 ---
 
 ## Engineering
 
-| Person | Role | Pod (Current) | M&Ms (7 spr) | M&C (6 spr) | Notes |
-|--------|------|---------------|---------------|----|-------|
-| Gabriel Arruda | Client Engineer | Empire | Empire | [TBD] | |
-| Henrique De Lima | Client Engineer | Empire | Empire | [TBD] | |
-| Marcos Loures | Client Engineer | Empire | Empire | [TBD] | |
-| Dan Dupuis | Engineering Lead | Metagame | Metagame | [TBD] | |
-| Guilherme Quizzini | Client Engineer | Metagame | Metagame | [TBD] | |
-| Jota Oliveira | Client Engineer | Battle | Battle | [TBD] | |
-| Randy Pasion | Client Engineer | Social Dynamics | [TBD] | [TBD] | Also responsible for build pipeline (Dozer). Feature work at risk of interruption. |
-| Garrett Eidsvig | Backend Engineer | Social Dynamics | [TBD] | [TBD] | Also responsible for networking/infrastructure (Dozer). Feature work at risk of interruption. |
-| Bruno Bacelar | Backend Engineer | Social Dynamics | [TBD] | [TBD] | |
-| Derek Gallant | Engineering Lead | Dozer | Dozer | [TBD] | |
-| Bruno Freitas | Engineer | Dozer | Dozer | [TBD] | |
-| Marcos Teles | Tech Artist | Empire | Empire | [TBD] | |
+| Person             | Role             | Pod (Current)   | M&Ms (7 spr) | M&C (6 spr) | Notes                                                                                         |
+| ------------------ | ---------------- | --------------- | ------------ | ----------- | --------------------------------------------------------------------------------------------- |
+| Gabriel Arruda     | Client Engineer  | Empire          | Empire       | [TBD]       |                                                                                               |
+| Henrique De Lima   | Client Engineer  | Empire          | Empire       | [TBD]       |                                                                                               |
+| Marcos Loures      | Client Engineer  | Empire          | Empire       | [TBD]       |                                                                                               |
+| Dan Dupuis         | Engineering Lead | Metagame        | Metagame     | [TBD]       |                                                                                               |
+| Guilherme Quizzini | Client Engineer  | Metagame        | Metagame     | [TBD]       |                                                                                               |
+| Jota Oliveira      | Client Engineer  | Battle          | Battle       | [TBD]       |                                                                                               |
+| Randy Pasion       | Client Engineer  | Social Dynamics | [TBD]        | [TBD]       | Also responsible for build pipeline (Dozer). Feature work at risk of interruption.            |
+| Garrett Eidsvig    | Backend Engineer | Social Dynamics | [TBD]        | [TBD]       | Also responsible for networking/infrastructure (Dozer). Feature work at risk of interruption. |
+| Bruno Bacelar      | Backend Engineer | Social Dynamics | [TBD]        | [TBD]       |                                                                                               |
+| Derek Gallant      | Engineering Lead | Dozer           | Dozer        | [TBD]       |                                                                                               |
+| Bruno Freitas      | Engineer         | Dozer           | Dozer        | [TBD]       |                                                                                               |
+| Marcos Teles       | Tech Artist      | Empire          | Empire       | [TBD]       |                                                                                               |
 
 ---
 

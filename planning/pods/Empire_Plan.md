@@ -75,16 +75,16 @@ gantt
 
 All Empire features across milestones, ordered by priority within each milestone.
 
-| # | Feature | Milestone | Estimate | Status | Related SHQs | What It Proves |
-|---|---------|-----------|----------|--------|-------------|----------------|
-| 1 | [Governors](../features/governors.md) | M&Ms | 3 sprints | IN PROGRESS | SHQ7 (short/mid/long-term goals) | Long-term goal vector within Empire; meaningful project investment |
-| 2 | [Territory Map VS](../features/territory_map_vs.md) | M&Ms | 2 sprints | NOT STARTED | SHQ1 (map at scale), SHQ2 (strategy <-> conquest) | Two map layers feel connected; seamless strategic flow |
-| 3 | [WM Building Upgrades](../features/wm_building_upgrades.md) | M&Ms | 1 sprint | NOT STARTED | - | World map supports empire investment visibility |
-| 4 | [Map Content](../features/map_content.md) | Ongoing | Ongoing | IN PROGRESS | SHQ1 (high visual bar, variety) | Content pipeline validates production capacity at scale |
-| 5 | [World Map VS](../features/world_map_vs.md) | M&C | ~1 sprint | NOT STARTED | [TBD] | [TBD - map features to SHQs] |
-| 6 | [WM Zoom Filtering & LOD](../features/wm_zoom_lod.md) | M&C | ~1 sprint | NOT STARTED | [TBD] | [TBD] |
-| 7 | [Conquest Guide Full Screen](../features/conquest_guide.md) | M&C | ~0.5 sprint | NOT STARTED | [TBD] | [TBD] |
-| 8 | [Barrier & Story Shard Iterations](../features/barrier_story_iterations.md) | M&C | ~0.5 sprint | NOT STARTED | [TBD] | [TBD] |
+| #   | Feature                                                                     | Milestone | Estimate    | Status      | Related SHQs                                      | What It Proves                                                     |
+| --- | --------------------------------------------------------------------------- | --------- | ----------- | ----------- | ------------------------------------------------- | ------------------------------------------------------------------ |
+| 1   | [Governors](../features/governors.md)                                       | M&Ms      | 3 sprints   | IN PROGRESS | SHQ7 (short/mid/long-term goals)                  | Long-term goal vector within Empire; meaningful project investment |
+| 2   | [Territory Map VS](../features/territory_map_vs.md)                         | M&Ms      | 2 sprints   | NOT STARTED | SHQ1 (map at scale), SHQ2 (strategy <-> conquest) | Two map layers feel connected; seamless strategic flow             |
+| 3   | [WM Building Upgrades](../features/wm_building_upgrades.md)                 | M&Ms      | 1 sprint    | NOT STARTED | -                                                 | World map supports empire investment visibility                    |
+| 4   | [Map Content](../features/map_content.md)                                   | Ongoing   | Ongoing     | IN PROGRESS | SHQ1 (high visual bar, variety)                   | Content pipeline validates production capacity at scale            |
+| 5   | [World Map VS](../features/world_map_vs.md)                                 | M&C       | ~1 sprint   | NOT STARTED | [TBD]                                             | [TBD - map features to SHQs]                                       |
+| 6   | [WM Zoom Filtering & LOD](../features/wm_zoom_lod.md)                       | M&C       | ~1 sprint   | NOT STARTED | [TBD]                                             | [TBD]                                                              |
+| 7   | [Conquest Guide Full Screen](../features/conquest_guide.md)                 | M&C       | ~0.5 sprint | NOT STARTED | [TBD]                                             | [TBD]                                                              |
+| 8   | [Barrier & Story Shard Iterations](../features/barrier_story_iterations.md) | M&C       | ~0.5 sprint | NOT STARTED | [TBD]                                             | [TBD]                                                              |
 
 > Feature docs marked as links may not exist yet — create with `planning/features/governors.md` as template.
 
