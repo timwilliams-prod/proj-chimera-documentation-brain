@@ -79,7 +79,7 @@ Say I'm building a "Mission Command Center" to manage my cluster of agents - I'l
 - 2026-03-19: Moving daily briefings to leverage task status
 ```
 
-When I start a fresh conversation and ask "what's next for us", the LLM loads this context and gives me a grounded answer -- not a guess. If a decision changes, I update the file, and every future conversation reflects it. And the LLM knows about this file and helps you keep it updated.
+When I start a fresh conversation and ask "what's next for us", the LLM loads this context and gives me a grounded answer -- not a guess. If a decision changes, I update the file (my Openclaw agents do this for me automatically), and every future conversation reflects it.
 
 ---
 
