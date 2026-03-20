@@ -27,7 +27,7 @@ Session 9: *confidently uses wrong dates in a plan*
 
 ---
 
-## Peronsal Project: Openclaw, Exploring a solution
+## Personal Project: Openclaw, Exploring a solution
 
 Tools like [OpenClaw](https://openclaw.ai) give you something most LLM interfaces don't: **a file system the LLM can read and write to, with memory you fully control.**
 

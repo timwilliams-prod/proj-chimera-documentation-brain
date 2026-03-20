@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "reference/llm_brain_presentation.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -42,7 +42,7 @@
               "type": "markdown",
               "state": {
                 "file": "planning/pods/Empire_Plan.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -56,25 +56,11 @@
               "type": "markdown",
               "state": {
                 "file": "generated/roadmap.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
               "title": "roadmap"
-            }
-          },
-          {
-            "id": "a1577ddf0e3bc12d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "USE_CASES.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "USE_CASES"
             }
           },
           {
@@ -83,12 +69,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "GETTING_STARTED_CLAUDE.md",
+                "file": "planning/pods/SocialDynamics_Plan.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "GETTING_STARTED_CLAUDE"
+              "title": "SocialDynamics_Plan"
+            }
+          },
+          {
+            "id": "efdc479cb3deada0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "planning/pods/Battle_Plan.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Battle_Plan"
             }
           },
           {
@@ -103,20 +103,6 @@
               },
               "icon": "lucide-file",
               "title": "capacity"
-            }
-          },
-          {
-            "id": "efdc479cb3deada0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "reference/Walkthrough Notes.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Walkthrough Notes"
             }
           },
           {
@@ -146,8 +132,23 @@
               "icon": "lucide-file",
               "title": "dependency_map"
             }
+          },
+          {
+            "id": "a1577ddf0e3bc12d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "USE_CASES.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "USE_CASES"
+            }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -309,19 +310,23 @@
       "bases:Create new base": false
     }
   },
-  "active": "32d804acf79abbfc",
+  "active": "c5e7a66ff89a6626",
   "lastOpenFiles": [
-    "reference/INGESTION_GUIDE.md",
-    "reference/llm_brain_presentation.md",
-    "reference/Walkthrough Notes.md",
-    "planning/dependency_map.md",
     "planning/pods/Battle_Plan.md",
-    "planning/capacity.md",
-    "planning/pods/Empire_Plan.md",
-    "GETTING_STARTED_CLAUDE.md",
     "generated/roadmap.md",
-    "USE_CASES.md",
+    "planning/pods/Dozer_Plan.md",
+    "planning/pods/Battle_Plan.md.tmp.5428.1774037063935",
+    "reference/Walkthrough Notes.md",
+    "planning/capacity.md",
+    "planning/dependency_map.md",
+    "planning/pods/Metagame_Plan.md",
+    "planning/pods/SocialDynamics_Plan.md",
+    "GETTING_STARTED_CLAUDE.md",
     "EXAMPLES.md",
+    "planning/pods/Empire_Plan.md",
+    "reference/llm_brain_presentation.md",
+    "USE_CASES.md",
+    "reference/INGESTION_GUIDE.md",
     "Untitled.md",
     "README.md",
     "QUICK_START.md",
@@ -335,17 +340,12 @@
     "USE_CASES.md.tmp.5432.1774013713469",
     "USE_CASES.md.tmp.5432.1774013697584",
     "USE_CASES.md.tmp.5432.1774013690656",
-    "USE_CASES.md.tmp.5432.1774013690631",
     "reference/visualization_examples.md",
     "reference/README.md",
     "planning/features/combat_system.md",
     "planning/features/governors.md",
     "dependency_map.md",
     "ValidationRoadmap.md",
-    "planning/pods/Dozer_Plan.md",
-    "planning/pods/SocialDynamics_Plan.md",
-    "planning/pods/Metagame_Plan.md",
-    "planning/GlobalRules.md",
-    "planning/ValidationRoadmap.md"
+    "planning/GlobalRules.md"
   ]
 }
