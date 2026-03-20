@@ -83,14 +83,14 @@ S6 ┃ UI Foundation                           S6 ┃ Passive Bonus Tiles (1 spr
 S7 ┃ (buffer)                                S7 ┃ (buffer)
 ```
 
-| # | Feature | Sprints | Pipeline | Notes |
-|---|---------|---------|----------|-------|
-| 1 | UI Foundation | 6 | A | Foundation work, Hero Info, Hero Leveling, Gear, Badging, Tutorials/Narrative |
-| 2 | Building Upgrades | 1 | B | |
-| 3 | Empire Progression Tree | 1 | B | |
-| 4 | Global Combat Research Tree | 2 | B | |
-| 5 | Hero Gacha v1 | 1 | B | |
-| 6 | Passive Bonus Tiles | 1 | B | |
+| #   | Feature                     | Sprints | Pipeline | Notes                                                                         |
+| --- | --------------------------- | ------- | -------- | ----------------------------------------------------------------------------- |
+| 1   | UI Foundation               | 6       | A        | Foundation work, Hero Info, Hero Leveling, Gear, Badging, Tutorials/Narrative |
+| 2   | Building Upgrades           | 1       | B        |                                                                               |
+| 3   | Empire Progression Tree     | 1       | B        |                                                                               |
+| 4   | Global Combat Research Tree | 2       | B        |                                                                               |
+| 5   | Hero Gacha v1               | 1       | B        |                                                                               |
+| 6   | Passive Bonus Tiles         | 1       | B        |                                                                               |
 
 ---
 

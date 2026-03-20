@@ -1,6 +1,6 @@
 # Team Capacity
 
-Last Updated: 2026-03-19
+Last Updated: 2026-03-20
 Current Milestone: Systems Validation (final sprint, ends 3/30)
 Next Milestone: M&Ms (starts ~3/31, ends Jun 23, 2026)
 
@@ -22,13 +22,13 @@ Next Milestone: M&Ms (starts ~3/31, ends Jun 23, 2026)
 
 ## Leadership
 
-| Person | Role | Notes |
-|--------|------|-------|
-| James Fielding | Game Director | |
-| Holly Mellor | Executive Producer | |
-| Kevin Griffith | Art Director | |
-| Derek Gallant | Tech Director | |
-| Hafiz Kassam | QA Lead | |
+| Person         | Role               | Notes |
+| -------------- | ------------------ | ----- |
+| James Fielding | Game Director      |       |
+| Holly Mellor   | Executive Producer |       |
+| Kevin Griffith | Art Director       |       |
+| Derek Gallant  | Tech Director      |       |
+| Hafiz Kassam   | QA Lead            |       |
 
 ---
 
@@ -47,20 +47,21 @@ Next Milestone: M&Ms (starts ~3/31, ends Jun 23, 2026)
 
 ## Engineering
 
-| Person             | Role             | Pod (Current)   | M&Ms (7 spr) | M&C (6 spr) | Notes                                                                                         |
-| ------------------ | ---------------- | --------------- | ------------ | ----------- | --------------------------------------------------------------------------------------------- |
-| Gabriel Arruda     | Client Engineer  | Empire          | Empire       | [TBD]       |                                                                                               |
-| Henrique De Lima   | Client Engineer  | Empire          | Empire       | [TBD]       |                                                                                               |
-| Marcos Loures      | Client Engineer  | Empire          | Empire       | [TBD]       |                                                                                               |
-| Dan Dupuis         | Engineering Lead | Metagame        | Metagame     | [TBD]       |                                                                                               |
-| Guilherme Quizzini | Client Engineer  | Metagame        | Metagame     | [TBD]       |                                                                                               |
-| Jota Oliveira      | Client Engineer  | Battle          | Battle       | [TBD]       |                                                                                               |
-| Randy Pasion       | Client Engineer  | Social Dynamics | [TBD]        | [TBD]       | Also responsible for build pipeline (Dozer). Feature work at risk of interruption.            |
-| Garrett Eidsvig    | Backend Engineer | Social Dynamics | [TBD]        | [TBD]       | Also responsible for networking/infrastructure (Dozer). Feature work at risk of interruption. |
-| Bruno Bacelar      | Backend Engineer | Social Dynamics | [TBD]        | [TBD]       |                                                                                               |
-| Derek Gallant      | Engineering Lead | Dozer           | Dozer        | [TBD]       |                                                                                               |
-| Bruno Freitas      | Engineer         | Dozer           | Dozer        | [TBD]       |                                                                                               |
-| Marcos Teles       | Tech Artist      | Empire          | Empire       | [TBD]       |                                                                                               |
+| Person             | Role             | Pod (Current)   | M&Ms (7 spr)    | M&C (6 spr) | Notes                                                                                         |
+| ------------------ | ---------------- | --------------- | --------------- | ----------- | --------------------------------------------------------------------------------------------- |
+| Gabriel Arruda     | Client Engineer  | Empire          | Empire          | [TBD]       |                                                                                               |
+| Henrique De Lima   | Client Engineer  | Empire          | Empire          | [TBD]       |                                                                                               |
+| Marcos Loures      | Client Engineer  | Empire          | Social Dynamics | [TBD]       | Moving from Empire to Social Dynamics for M&Ms                                                |
+| Dan Dupuis         | Engineering Lead | Metagame        | Metagame        | [TBD]       |                                                                                               |
+| Guilherme Quizzini | Client Engineer  | Metagame        | Metagame        | [TBD]       |                                                                                               |
+| Jota Oliveira      | Client Engineer  | Battle          | Battle          | [TBD]       |                                                                                               |
+| Tiago Costa        | Client Engineer  | -               | Social Dynamics | [TBD]       | New hire. First milestone is M&Ms.                                                            |
+| Randy Pasion       | Client Engineer  | Social Dynamics | Social Dynamics | [TBD]       | Also responsible for build pipeline (Dozer). Feature work at risk of interruption.            |
+| Garrett Eidsvig    | Backend Engineer | Social Dynamics | Social Dynamics | [TBD]       | Also responsible for networking/infrastructure (Dozer). Feature work at risk of interruption. |
+| Bruno Bacelar      | Backend Engineer | Social Dynamics | Social Dynamics | [TBD]       |                                                                                               |
+| Derek Gallant      | Engineering Lead | Dozer           | Dozer           | [TBD]       |                                                                                               |
+| Bruno Freitas      | Engineer         | Dozer           | Dozer           | [TBD]       |                                                                                               |
+| Marcos Teles       | Tech Artist      | Empire          | Empire          | [TBD]       |                                                                                               |
 
 ---
 
@@ -139,7 +140,8 @@ Next Milestone: M&Ms (starts ~3/31, ends Jun 23, 2026)
 | Randy Pasion split: Social Dynamics + Dozer (build pipeline) | Any feature work assigned to Randy is at risk of interruption from build pipeline operational issues | Social Dynamics, Dozer | All features depending on Randy should carry schedule risk buffer |
 | Garrett Eidsvig split: Social Dynamics + Dozer (networking/infra) | Any feature work assigned to Garrett is at risk of interruption from networking/infrastructure issues | Social Dynamics, Dozer | All features depending on Garrett should carry schedule risk buffer |
 | Battle has 1 client engineer (Jota) | Features are sequential - no parallelism, delays cascade | Battle | Large design team (4) relative to engineering (1) |
-| Social Dynamics effective engineering capacity is reduced | 2 of 3 engineers (Randy, Garrett) have Dozer obligations | Social Dynamics | Bruno Bacelar is the only fully-dedicated backend engineer |
+| Empire loses 1 engineer for M&Ms (Marcos Loures -> Social Dynamics) | Empire drops from 3 to 2 client engineers. Governors (3 sprints, IN PROGRESS) and Territory Map VS (2 sprints) must complete with reduced capacity. | Empire | Flex sprint absorbs some risk but Territory Map VS compression is possible |
+| Social Dynamics: Randy/Garrett Dozer split | 2 of 5 engineers (Randy, Garrett) have Dozer obligations. Feature work at risk of interruption. | Social Dynamics, Dozer | Tiago Costa (new) and Marcos Loures (from Empire) are fully dedicated |
 | Tim Williams produces 2 pods | Attention split between Metagame and Social Dynamics | Metagame, Social Dynamics | |
 | Brann Livesay produces 2 pods | Attention split between Empire and Art | Empire, Art | |
 
@@ -149,5 +151,6 @@ Next Milestone: M&Ms (starts ~3/31, ends Jun 23, 2026)
 
 | Date | Change | Reason |
 |------|--------|--------|
+| 2026-03-20 | M&Ms staffing: Marcos Loures Empire -> Social Dynamics. Tiago Costa (new) added to Social Dynamics. Randy, Garrett, Bruno Bacelar confirmed Social Dynamics for M&Ms. Updated staffing risks. | Social Dynamics ramp-up for multiplayer build-out |
 | 2026-03-19 | Full team roster populated with real staffing data | Moving from placeholder to actual team |
 | 2026-03-19 | Initial capacity file created | Restructuring brain for better separation of concerns |

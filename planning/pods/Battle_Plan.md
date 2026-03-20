@@ -68,16 +68,16 @@ gantt
 
 All Battle features across milestones, ordered by priority within each milestone.
 
-| #   | Feature                        | Milestone | Estimate  | Status      | Related SHQs | What It Proves                                     |
-| --- | ------------------------------ | --------- | --------- | ----------- | ------------ | -------------------------------------------------- |
-| 1   | Battle HUD Beta Overhaul       | M&Ms      | 3 sprints | NOT STARTED | [TBD]        | Combat interface meets beta quality bar            |
-| 2   | Obstacles                      | M&Ms      | 1 sprint  | NOT STARTED | [TBD]        | Environmental tactics add depth                    |
-| 3   | Actor System Overhaul          | M&Ms      | 1 sprint  | NOT STARTED | [TBD]        | Performance and maintainability for scale          |
-| 4   | Pathfinding & AI Improvements  | M&Ms      | 1 sprint  | NOT STARTED | [TBD]        | AI behavior feels intelligent and responsive       |
-| 5   | Battle Server Validation Client| M&Ms      | 1 sprint  | NOT STARTED | [TBD]        | Server-authoritative combat foundation             |
-| 6   | Pool Management                | M&Ms      | 1 sprint  | NOT STARTED | [TBD]        | Memory optimization for long sessions              |
-| 7   | Battle Content                 | Ongoing   | Ongoing   | IN PROGRESS | [TBD]        | Content pipeline validates production capacity     |
-| 8   | Unit Content                   | Ongoing   | Ongoing   | IN PROGRESS | [TBD]        | Unit variety pipeline validates art/balance pace   |
+| #   | Feature                         | Milestone | Estimate  | Status      | Related SHQs | What It Proves                                   |
+| --- | ------------------------------- | --------- | --------- | ----------- | ------------ | ------------------------------------------------ |
+| 1   | Battle HUD Beta Overhaul        | M&Ms      | 3 sprints | NOT STARTED | [TBD]        | Combat interface meets beta quality bar          |
+| 2   | Obstacles                       | M&Ms      | 1 sprint  | NOT STARTED | [TBD]        | Environmental tactics add depth                  |
+| 3   | Actor System Overhaul           | M&Ms      | 1 sprint  | NOT STARTED | [TBD]        | Performance and maintainability for scale        |
+| 4   | Pathfinding & AI Improvements   | M&Ms      | 1 sprint  | NOT STARTED | [TBD]        | AI behavior feels intelligent and responsive     |
+| 5   | Battle Server Validation Client | M&Ms      | 1 sprint  | NOT STARTED | [TBD]        | Server-authoritative combat foundation           |
+| 6   | Pool Management                 | M&Ms      | 1 sprint  | NOT STARTED | [TBD]        | Memory optimization for long sessions            |
+| 7   | Battle Content                  | Ongoing   | Ongoing   | IN PROGRESS | [TBD]        | Content pipeline validates production capacity   |
+| 8   | Unit Content                    | Ongoing   | Ongoing   | IN PROGRESS | [TBD]        | Unit variety pipeline validates art/balance pace |
 
 > Feature docs may not exist yet — create as needed.
 

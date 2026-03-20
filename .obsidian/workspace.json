@@ -50,17 +50,45 @@
             }
           },
           {
-            "id": "c5e7a66ff89a6626",
+            "id": "712f5d1f17629dd8",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "generated/roadmap.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
               "title": "roadmap"
+            }
+          },
+          {
+            "id": "a52774762bce0c3d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "planning/capacity.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "capacity"
+            }
+          },
+          {
+            "id": "c5e7a66ff89a6626",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "GETTING_STARTED_CLAUDE.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "GETTING_STARTED_CLAUDE"
             }
           },
           {
@@ -89,20 +117,6 @@
               },
               "icon": "lucide-file",
               "title": "Battle_Plan"
-            }
-          },
-          {
-            "id": "a52774762bce0c3d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "planning/capacity.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "capacity"
             }
           },
           {
@@ -146,9 +160,37 @@
               "icon": "lucide-file",
               "title": "USE_CASES"
             }
+          },
+          {
+            "id": "9e7d67604ccb46db",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "planning/pods/Metagame_Plan.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Metagame_Plan"
+            }
+          },
+          {
+            "id": "bdaa0665c0df0b52",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "planning/product_targets.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "product_targets"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 12
       }
     ],
     "direction": "vertical"
@@ -205,7 +247,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 293.5
+    "width": 293.5,
+    "collapsed": true
   },
   "right": {
     "id": "81d2c05b4a46e97f",
@@ -310,22 +353,29 @@
       "bases:Create new base": false
     }
   },
-  "active": "c5e7a66ff89a6626",
+  "active": "bdaa0665c0df0b52",
   "lastOpenFiles": [
-    "planning/pods/Battle_Plan.md",
+    "planning/capacity.md",
+    "planning/product_targets.md.tmp.5428.1774041021013",
+    "planning/product_targets.md.tmp.5428.1774041017741",
+    "planning/product_targets.md.tmp.5428.1774041009301",
+    "planning/capacity.md.tmp.5428.1774041006883",
+    "planning/capacity.md.tmp.5428.1774040991916",
+    "planning/product_targets.md",
+    "GETTING_STARTED_CLAUDE.md",
     "generated/roadmap.md",
+    "planning/pods/Metagame_Plan.md",
+    "USE_CASES.md",
+    "planning/pods/Battle_Plan.md",
+    "planning/pods/Art_Plan.md",
+    "EXAMPLES.md",
     "planning/pods/Dozer_Plan.md",
     "planning/pods/Battle_Plan.md.tmp.5428.1774037063935",
     "reference/Walkthrough Notes.md",
-    "planning/capacity.md",
     "planning/dependency_map.md",
-    "planning/pods/Metagame_Plan.md",
     "planning/pods/SocialDynamics_Plan.md",
-    "GETTING_STARTED_CLAUDE.md",
-    "EXAMPLES.md",
     "planning/pods/Empire_Plan.md",
     "reference/llm_brain_presentation.md",
-    "USE_CASES.md",
     "reference/INGESTION_GUIDE.md",
     "Untitled.md",
     "README.md",
@@ -335,17 +385,10 @@
     "GETTING_STARTED_CLAUDE.md.tmp.5432.1774014559736",
     "GETTING_STARTED_CLAUDE.md.tmp.5432.1774014202670",
     "Generated Presentation LLM Prompts.md",
-    "USE_CASES.md.tmp.5432.1774013720269",
-    "USE_CASES.md.tmp.5432.1774013713520",
-    "USE_CASES.md.tmp.5432.1774013713469",
-    "USE_CASES.md.tmp.5432.1774013697584",
-    "USE_CASES.md.tmp.5432.1774013690656",
     "reference/visualization_examples.md",
     "reference/README.md",
     "planning/features/combat_system.md",
     "planning/features/governors.md",
-    "dependency_map.md",
-    "ValidationRoadmap.md",
-    "planning/GlobalRules.md"
+    "dependency_map.md"
   ]
 }

@@ -1,6 +1,6 @@
 # Product Targets
 
-Last Updated: 2026-03-19
+Last Updated: 2026-03-20
 
 > **What this file is**: The stable, leadership-authored definition of what each milestone must achieve.
 > This is the benchmark that plans are measured against.
@@ -30,12 +30,13 @@ Last Updated: 2026-03-19
 
 ### Must-Have Features
 
-| Feature | Pod | Why It's Required |
-|---------|-----|-------------------|
-| Governors | Empire | Long-term goal vector for Empire layer (validates SHQ7) |
-| Territory Map Vertical Slice | Empire | Prove map works at scale + strategy/conquest connection (SHQ1, SHQ2) |
-| [TBD - multiplayer foundation feature] | [TBD] | Multiplayer must be functional for M&Ms milestone to mean anything |
-| [TBD - metagame depth feature] | Metagame | Meta layer needs to connect to Empire + Battle |
+| Feature                                | Pod      | Why It's Required                                                                                              |
+| -------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| Governors                              | Empire   | Long-term goal vector for Empire layer (validates SHQ7)                                                        |
+| Territory Map Vertical Slice           | Empire   | Prove map works at scale + strategy/conquest connection (SHQ1, SHQ2)                                           |
+| Battle HUD Beta Overhaul               | Battle   | Combat interface must meet beta quality bar; gates all battle content and validates BHQ-B2 (intuitive actions) |
+| [TBD - multiplayer foundation feature] | [TBD]    | Multiplayer must be functional for M&Ms milestone to mean anything                                             |
+| [TBD - metagame depth feature]         | Metagame | Meta layer needs to connect to Empire + Battle                                                                 |
 
 ### Nice-to-Have Features
 
@@ -188,4 +189,5 @@ planning/capacity.md           "Do we have the people?"
 
 | Date | Change | Author |
 |------|--------|--------|
+| 2026-03-20 | Added Battle HUD Beta Overhaul as M&Ms must-have | Tim / Claude |
 | 2026-03-19 | Initial product targets from existing milestone definitions | Tim / Claude |
