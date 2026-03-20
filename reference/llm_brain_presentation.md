@@ -27,7 +27,7 @@ Session 9: *confidently uses wrong dates in a plan*
 
 ---
 
-## The Fix: Controlled Memory with Tools Like OpenClaw
+## Exploring a solution: OpenClaw
 
 Tools like [OpenClaw](https://openclaw.ai) give you something most LLM interfaces don't: **a file system the LLM can read and write to, with memory you fully control.**
 
@@ -39,7 +39,7 @@ This means:
 
 ### The Multi-Layered Brain
 
-I've been building an OpenClaw cluster, and I'm building a layered memory system where different types of context load at different times:
+I've been building an OpenClaw cluster, and I've built a layered memory system where different types of context load at different times:
 
 ```
 L1 - BRAIN: Always Loaded
@@ -63,25 +63,23 @@ L3 - VAULT: Deep Reference, On Demand
 
 **Why this matters**: The LLM always knows the basics (L1), can pull in details when needed (L2), and can dig into raw data for complex questions (L3). No context bloat. No drift. 
 
-**OpenClaw Bonus**: Weekly jobs are trivial to schedule a trimming, moving bloat from L1 down to L2/L3. This keeps your context useful while your agent's memory grows.
+### Example: Project Memory in Action
 
-### Example: Project Memory in Action -> Lotus 
-
-Say I have a folder `memory/projects/` with narrative about what we've been doing and why:
+Say I'm building a "Mission Command Center" to manage my cluster of agents - I'll have a file in L2:`memory/projects/mission-command-center.md`:
 
 ```markdown
-# Project: Multiplayer Maps
+# Project: Mission Command Center
 ## Current State (March 2026)
-- Phase 1 infrastructure wrapping up (Randy + Garrett)
-- AI prototype being used for playtesting while real client builds up
-- Target: switch playtesting to real client during M&Ms
-- Target: ship to players by end of M&C
+- Phase 1 infrastructure deployed
+- Phase 2 backend and data populated
+- Phase 3 UI built and deployed
+- Target: Iterate on Task UI, then continue expanding MCC functionality with Task UI
 ## Key Decisions
-- 2026-03-15: Split into parallel tracks (AI prototype + real build-up)
-- 2026-03-19: All 10 phases must complete by M&C end, will add resources
+- 2026-03-15: Going with a web-based task/workflow engine 
+- 2026-03-19: Moving daily briefings to leverage task status
 ```
 
-When I start a fresh conversation and ask "what should Social Dynamics focus on next sprint?", the LLM loads this context and gives me a grounded answer -- not a guess. If a decision changes, I update the file, and every future conversation reflects it.
+When I start a fresh conversation and ask "what's next for us", the LLM loads this context and gives me a grounded answer -- not a guess. If a decision changes, I update the file, and every future conversation reflects it. And the LLM knows about this file and helps you keep it updated.
 
 ---
 
