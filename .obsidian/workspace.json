@@ -147,8 +147,7 @@
               "title": "dependency_map"
             }
           }
-        ],
-        "currentTab": 7
+        ]
       }
     ],
     "direction": "vertical"
@@ -310,18 +309,19 @@
       "bases:Create new base": false
     }
   },
-  "active": "efdc479cb3deada0",
+  "active": "32d804acf79abbfc",
   "lastOpenFiles": [
+    "reference/INGESTION_GUIDE.md",
+    "reference/llm_brain_presentation.md",
+    "reference/Walkthrough Notes.md",
     "planning/dependency_map.md",
     "planning/pods/Battle_Plan.md",
     "planning/capacity.md",
     "planning/pods/Empire_Plan.md",
     "GETTING_STARTED_CLAUDE.md",
-    "reference/Walkthrough Notes.md",
     "generated/roadmap.md",
     "USE_CASES.md",
     "EXAMPLES.md",
-    "reference/llm_brain_presentation.md",
     "Untitled.md",
     "README.md",
     "QUICK_START.md",
@@ -346,7 +346,6 @@
     "planning/pods/SocialDynamics_Plan.md",
     "planning/pods/Metagame_Plan.md",
     "planning/GlobalRules.md",
-    "planning/ValidationRoadmap.md",
-    "planning/product_targets.md"
+    "planning/ValidationRoadmap.md"
   ]
 }

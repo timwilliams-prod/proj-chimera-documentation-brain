@@ -39,7 +39,8 @@ This means:
 
 ### The Multi-Layered Brain
 
-With my OpenClaw cluster I've built a layered memory system where different types of context load at different times. **Why this matters**: The LLM always knows the basics (L1), can pull in details when needed (L2), and can dig into raw data for complex questions (L3). No context bloat. No drift.
+With my OpenClaw cluster I've built a layered memory system where different types of context load at different times. 
+**Why this matters**: The LLM always knows the basics (L1), can pull in details when needed (L2), and can dig into raw data for complex questions (L3). No context bloat. No drift.
 
 ```
 L1 - BRAIN: Always Loaded
