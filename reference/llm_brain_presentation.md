@@ -132,7 +132,7 @@ Here are real examples from this week:
 
 ### Visual Roadmaps, Auto-Generated
 
-Every pod plan has a Mermaid Gantt chart that renders right in VS Code. When plans change, the charts update with the plan -- no separate slide deck to maintain.
+Every pod plan has a Mermaid Gantt chart that renders right in github/VS Code. When plans change, the charts update with the plan -- no separate slide deck to maintain.
 
 ```mermaid
 gantt
