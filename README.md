@@ -32,7 +32,8 @@ lotusDocumentationBrain/
 │   │   ├── Metagame_Plan.md
 │   │   ├── Battle_Plan.md
 │   │   ├── SocialDynamics_Plan.md
-│   │   └── Dozer_Plan.md
+│   │   ├── Dozer_Plan.md
+│   │   └── Art_Plan.md
 │   └── features/                   # Feature specs (cost, approach, goals)
 │       ├── governors.md
 │       └── [feature_name].md

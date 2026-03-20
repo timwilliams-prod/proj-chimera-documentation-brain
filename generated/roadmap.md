@@ -74,6 +74,16 @@ gantt
 
     section Dozer
     TBD                       :         doz1, 2026-03-18, 98d
+
+    section Art
+    Character Assets          :active,  art1, 2026-03-18, 98d
+    Environment Art           :active,  art2, 2026-03-18, 98d
+    UI/UX Assets              :active,  art3, 2026-03-18, 98d
+    VFX & Animation           :         art4, 2026-03-31, 84d
+    Beta Polish               :         art_bp, 2026-06-24, 28d
+    Hero Assets Expansion     :         art5, 2026-07-22, 84d
+    Monetization Assets       :         art6, 2026-07-22, 84d
+    Pipeline Scaling          :         art7, 2026-07-22, 84d
 ```
 
 ---
@@ -222,6 +232,32 @@ gantt
 
 ---
 
+### Art
+
+**Pod Lead**: [TBD] | **Producer**: [TBD]
+**Plan**: [`planning/pods/Art_Plan.md`](../planning/pods/Art_Plan.md)
+
+**M&Ms Validation Focus**: Visual quality bar and art pipeline scalability supporting all pods.
+
+| Key BHQ | Key SHQs for M&Ms | Status |
+|---------|-------------------|--------|
+| Art pipeline efficiency | Rapid iteration without sacrificing quality | NOT YET TESTED |
+| Visual consistency | Cross-pod aesthetic alignment | TESTING |
+| Production scalability | Long-term content production capacity | NOT YET TESTED |
+
+**M&Ms Features** (Cross-pod support):
+
+| # | Feature | Status |
+|---|---------|--------|
+| 1 | Character Assets (Heroes & Units) | IN PROGRESS |
+| 2 | Environment Art (Map tiles, buildings) | IN PROGRESS |
+| 3 | UI/UX Assets (Interface elements) | IN PROGRESS |
+| 4 | VFX & Animation (Combat effects) | NOT STARTED |
+| - | Art Style Guide (Continuous) | IN PROGRESS |
+| - | Art Tool Development (Continuous) | IN PROGRESS |
+
+---
+
 ## Legend
 
 | Visual | Meaning |
@@ -238,6 +274,7 @@ gantt
 
 | Date | Changed By | Summary |
 |------|-----------|---------|
+| 2026-03-20 | Brann / Claude | **Added Art Pod**: Created Art_Plan.md with cross-pod art production priorities (Character Assets, Environment Art, UI/UX Assets, VFX & Animation). Added Art pod section to consolidated roadmap with M&Ms, Beta Prep, and M&C features. Art supports all pods with visual assets and pipeline development. |
 | 2026-03-20 | Brann / Claude | Added Battle pod M&Ms features: 6 features (Battle HUD Beta Overhaul, Obstacles, Actor System Overhaul, Pathfinding & AI, Battle Server Validation, Pool Management). Added Battle Content and Unit Content ongoing tracks. **Capacity warning**: 9 eng-sprints for 7-sprint milestone - Pool Management deferred to M&C. |
 | 2026-03-19 | Tim / Claude | Added Social Dynamics features (3 tracks, 10 phases, P1-P10 + Ravager's Reef + Battlepass). Added System Validation milestone (Mar 30) across all roadmaps. |
 | 2026-03-19 | Tim / Claude | Added full Metagame feature plan across all milestones (M&Ms through Soft Launch). Updated milestone markers with crit styling and dates. Added Empire Beta Prep gap to Gantt. |
