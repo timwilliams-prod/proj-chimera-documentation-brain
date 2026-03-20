@@ -41,7 +41,23 @@ Claude Code is a command-line tool that lets Claude read, edit, and reason about
 
 ---
 
-## Step 3: Set Up Your Working Directory
+## Step 3: Connect to the Fortis AI Gateway
+
+Fortis provides an AI Gateway that gives you unlimited access to the latest models from Anthropic and Google. You must be on your **Fortis-provided hardware** for this to work.
+
+Open a terminal and run:
+
+```bash
+fortis-ai-gateway login
+```
+
+That's it — once authenticated, Claude Code will route through the gateway automatically.
+
+> **Not working?** Check the [internal Notion doc](https://www.notion.so/Agentic-Coding-28c3f0b3b6ab80c29673c65e83affd68) for troubleshooting and access requests.
+
+---
+
+## Step 4: Set Up Your Working Directory
 
 Pick a folder where you want to work. Example:
 
@@ -61,7 +77,7 @@ cd %USERPROFILE%\ClaudeWorkspace
 
 ---
 
-## Step 4: Clone This Repo
+## Step 5: Clone This Repo
 
 ```bash
 git clone https://github.com/timwilliams-prod/proj-chimera-documentation-brain.git
@@ -72,7 +88,7 @@ You now have the full documentation brain on your machine.
 
 ---
 
-## Step 5: Start Your First Conversation
+## Step 6: Start Your First Conversation
 
 From inside the repo folder, just type:
 
