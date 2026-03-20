@@ -1,6 +1,6 @@
 # Feature Roadmap
 
-Last Updated: 2026-03-19
+Last Updated: 2026-03-20
 
 > **This is the operational view** - what we're actually building and when, consolidated from all pod plans.
 > For milestone targets and success criteria, see `planning/product_targets.md`.
@@ -53,7 +53,16 @@ gantt
     Soft Launch - 5 features   :meta_sl, 2027-02-03, 42d
 
     section Battle
-    TBD                       :         bat1, 2026-03-18, 98d
+    Battle HUD Beta Overhaul  :active,  bat1, 2026-03-31, 42d
+    Obstacles                 :         bat2, after bat1, 14d
+    Actor System Overhaul     :         bat3, after bat2, 14d
+    Pathfinding & AI          :         bat4, after bat3, 14d
+    Battle Server Validation  :         bat5, after bat4, 14d
+    Beta Prep                 :         bat_bp, after bat5, 28d
+    Pool Management           :         bat6, after bat_bp, 14d
+    M&C - TBD                 :         bat_mc, after bat6, 56d
+    Battle Content            :active,  bat_content, 2026-03-18, 434d
+    Unit Content              :active,  bat_units, 2026-03-18, 434d
 
     section Social Dynamics
     AI Prototype Playtesting   :active,  soc_ai, 2026-03-19, 2026-06-23
@@ -139,7 +148,7 @@ gantt
 **Pod Lead**: Lincoln Li | **Producer**: Thorben Novais
 **Plan**: [`planning/pods/Battle_Plan.md`](../planning/pods/Battle_Plan.md)
 
-**M&Ms Validation Focus**: TBD - features and SHQ alignment not yet defined.
+**M&Ms Validation Focus**: Validating combat engagement, tactical depth, and battle systems quality bar for beta.
 
 | Key BHQ | Key SHQs for M&Ms | Status |
 |---------|-------------------|--------|
@@ -147,7 +156,20 @@ gantt
 | BHQ-B4: Scalable battle content | SHQ27 (scalable battle building), SHQ28 (hero/unit pipeline) | ANSWERED |
 | BHQ-E4: Instant gratification (cross-pod) | No SHQs defined | Gap |
 
-**M&Ms Features**: [TBD - awaiting feature definitions]
+**M&Ms Features** (1x ENG: Jota):
+
+⚠️ **CAPACITY WARNING**: 6 features totaling 9 sprints for 7-sprint milestone. Pool Management deferred to M&C.
+
+| # | Feature | Estimate | Status |
+|---|---------|----------|--------|
+| 1 | Battle HUD Beta Overhaul | 3 sprints | NOT STARTED |
+| 2 | Obstacles | 1 sprint | NOT STARTED |
+| 3 | Actor System Overhaul | 1 sprint | NOT STARTED |
+| 4 | Pathfinding & AI Improvements | 1 sprint | NOT STARTED |
+| 5 | Battle Server Validation Client | 1 sprint | NOT STARTED |
+| 6 | Pool Management | 1 sprint | DEFERRED to M&C |
+| - | Battle Content (Design/Art) | Ongoing | IN PROGRESS |
+| - | Unit Content (Design/Art) | Ongoing | IN PROGRESS |
 
 ---
 
@@ -216,6 +238,7 @@ gantt
 
 | Date | Changed By | Summary |
 |------|-----------|---------|
+| 2026-03-20 | Brann / Claude | Added Battle pod M&Ms features: 6 features (Battle HUD Beta Overhaul, Obstacles, Actor System Overhaul, Pathfinding & AI, Battle Server Validation, Pool Management). Added Battle Content and Unit Content ongoing tracks. **Capacity warning**: 9 eng-sprints for 7-sprint milestone - Pool Management deferred to M&C. |
 | 2026-03-19 | Tim / Claude | Added Social Dynamics features (3 tracks, 10 phases, P1-P10 + Ravager's Reef + Battlepass). Added System Validation milestone (Mar 30) across all roadmaps. |
 | 2026-03-19 | Tim / Claude | Added full Metagame feature plan across all milestones (M&Ms through Soft Launch). Updated milestone markers with crit styling and dates. Added Empire Beta Prep gap to Gantt. |
 | 2026-03-19 | Tim / Claude | Rearranged: Gantt first, pod sections with validation summaries, legend/history at bottom |
