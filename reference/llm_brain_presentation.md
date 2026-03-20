@@ -39,30 +39,33 @@ This means:
 
 ### The Multi-Layered Brain
 
-I've been building a layered system where different types of context load at different times:
+I've been building an OpenClaw cluster, and I'm building a layered memory system where different types of context load at different times:
 
 ```
-Level 1 - Always Loaded (every conversation)
-├── Identity & role ("you are helping with game production")
-├── Key memories (project structure, team, preferences)
-├── Schedule & current milestone
-└── Core rules & constraints
+L1 - BRAIN: Always Loaded
+├── SOUL - Personality, Voice, Values
+├── AGENTS - Role, Rules, Lane
+├── HEARTBEAT - Standing recurring checks
+├── TOOLS - Agent-specific commands and workarounds
+└── MEMORY - What's active now
 
-Level 2 - Indexed & Loaded On Demand
-├── Pod plans, feature docs, roadmaps
-├── Capacity & staffing data
-├── Validation hypotheses & progress
-└── Loaded when a question touches that area
+L2 - MEMORY: Indexed & Searched Semantically
+├── DAILY NOTES: Session summary, decisions, completed work, corrections
+├── CONTACTS: People & Relationships
+├── PROJECTS: Narrative history per project
+└── DECISIONS: Cross-cutting choices & trade-offs
 
-Level 3 - Manual / Deep Reference
-├── Raw data exports (CSVs, Notion dumps)
-├── Historical context & decision logs
+L3 - VAULT: Deep Reference, On Demand
+├── SOPs, Frameworks, Playbooks, Research
+├── Burns no context unless needed
 └── Searched when doing deep analysis
 ```
 
-**Why this matters**: The LLM always knows the basics (L1), can pull in details when needed (L2), and can dig into raw data for complex questions (L3). No context bloat. No drift.
+**Why this matters**: The LLM always knows the basics (L1), can pull in details when needed (L2), and can dig into raw data for complex questions (L3). No context bloat. No drift. 
 
-### Example: Project Memory in Action
+**OpenClaw Bonus**: Weekly jobs are trivial to schedule a trimming, moving bloat from L1 down to L2/L3. This keeps your context useful while your agent's memory grows.
+
+### Example: Project Memory in Action -> Lotus 
 
 Say I have a folder `memory/projects/` with narrative about what we've been doing and why:
 
