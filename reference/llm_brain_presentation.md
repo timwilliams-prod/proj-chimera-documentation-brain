@@ -27,7 +27,7 @@ Session 9: *confidently uses wrong dates in a plan*
 
 ---
 
-## Exploring a solution: OpenClaw
+## Peronsal Project: Openclaw, Exploring a solution
 
 Tools like [OpenClaw](https://openclaw.ai) give you something most LLM interfaces don't: **a file system the LLM can read and write to, with memory you fully control.**
 
@@ -39,7 +39,7 @@ This means:
 
 ### The Multi-Layered Brain
 
-I've been building an OpenClaw cluster, and I've built a layered memory system where different types of context load at different times:
+With my OpenClaw cluster I've built a layered memory system where different types of context load at different times:
 
 ```
 L1 - BRAIN: Always Loaded
@@ -83,9 +83,9 @@ When I start a fresh conversation and ask "what's next for us", the LLM loads th
 
 ---
 
-## What I Built: An LLM-friendly Documentation Brain for Lotus
+## Extracting Learnings: An LLM-friendly Documentation Brain for Game Development
 
-I took this approach and applied it to our production planning. The result is a structured set of markdown files that give the LLM (and us) a complete, organized view of our project.
+I took this approach and applied it to our design & production planning. The result is a structured set of markdown files that give the LLM (and us) a complete, organized view of our project.
 
 ### The Structure
 
