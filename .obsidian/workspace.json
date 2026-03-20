@@ -228,6 +228,12 @@
   },
   "active": "03c4d1acd5efc143",
   "lastOpenFiles": [
+    "USE_CASES.md.tmp.5432.1774013720269",
+    "USE_CASES.md.tmp.5432.1774013713520",
+    "USE_CASES.md.tmp.5432.1774013713469",
+    "USE_CASES.md.tmp.5432.1774013697584",
+    "USE_CASES.md.tmp.5432.1774013690656",
+    "USE_CASES.md.tmp.5432.1774013690631",
     "USE_CASES.md",
     "USE_CASES.md.tmp.5432.1774012600479",
     "Generated Presentation LLM Prompts.md",
@@ -238,11 +244,6 @@
     "planning/GlobalRules.md.tmp.15848.1773954656806",
     "generated/roadmap.md.tmp.15848.1773950419326",
     "generated/roadmap.md.tmp.15848.1773950397112",
-    "planning/pods/SocialDynamics_Plan.md.tmp.15848.1773950120750",
-    "planning/pods/Empire_Plan.md.tmp.15848.1773950105052",
-    "planning/ValidationRoadmap.md.tmp.23408.1773943776665",
-    "planning/ValidationRoadmap.md.tmp.23408.1773943758129",
-    "planning/ValidationRoadmap.md.tmp.23408.1773942640536",
     "QUICK_START.md",
     "EXAMPLES.md",
     "reference/README.md",
@@ -262,7 +263,6 @@
     "planning/ValidationRoadmap.md",
     "planning/product_targets.md",
     "product_targets.md",
-    "capacity.md",
-    "features/governors.md"
+    "capacity.md"
   ]
 }

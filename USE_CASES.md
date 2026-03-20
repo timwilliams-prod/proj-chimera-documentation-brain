@@ -9,6 +9,7 @@ This document tracks the ways the Documentation Brain can be leveraged, what's b
 | Status | Meaning |
 |--------|---------|
 | **Active** | Built and in use |
+| **In Progress** | V1 exists, needs iteration and real usage |
 | **Prototyping** | Actively being explored |
 | **Planned** | Defined, not yet started |
 | **Idea** | Needs scoping before committing |
@@ -18,7 +19,8 @@ This document tracks the ways the Documentation Brain can be leveraged, what's b
 ## 1. Data Ingestion & Sync
 
 ### 1a. Notion Ingestion
-**Status:** Planned
+- **Status:** Planned
+
 **Goal:** Pull design docs from Notion into the brain as structured markdown, either as periodic snapshots (archival) or live-sync.
 
 **Key Questions:**
@@ -30,7 +32,8 @@ This document tracks the ways the Documentation Brain can be leveraged, what's b
 _None yet._
 
 ### 1b. ClickUp Ingestion
-**Status:** Planned
+- **Status:** Planned
+
 **Goal:** Pull task data, estimates, statuses, and sprint structures from ClickUp into the brain.
 
 **Key Questions:**
@@ -43,7 +46,8 @@ _None yet._
 _None yet._
 
 ### 1c. Slack Ingestion
-**Status:** Idea
+- **Status:** Idea
+
 **Goal:** Capture decisions, context, and design discussions from Slack channels into the brain — either as searchable archive or distilled summaries.
 
 **Key Questions:**
@@ -59,9 +63,9 @@ _None yet._
 
 ## 2. AI-Assisted Documentation Authoring
 
-**Status:** Planned
-**Skill:** To be built as a Claude slash command
-**Primary Users:** Designers
+- **Status:** Planned
+- **Skill:** To be built as a Claude slash command
+- **Primary Users:** Designers
 
 **Goal:** Designers describe what they want a doc to cover — goals, must-include topics, examples, rough ideas. Claude then:
 1. Asks clarifying questions and surfaces logic conflicts
@@ -82,7 +86,8 @@ _None yet._
 
 ## 3. Change Log Generation
 
-**Status:** Planned
+- **Status:** Planned
+
 **Goal:** Generate change logs at two levels of audience and detail.
 
 ### 3a. Internal Playtest Notes
@@ -108,7 +113,8 @@ _None yet._
 
 ## 4. Custom Documentation Navigator (Web UI)
 
-**Status:** Idea
+- **Status:** Idea
+
 **Goal:** A web interface (built with Claude) where any team member can query the brain conversationally.
 
 **Example Queries:**
@@ -136,7 +142,8 @@ _None yet._
 
 ## 5. Effort & Task Estimation
 
-**Status:** Planned
+- **Status:** Planned
+
 **Goal:** Use brain context + historical data to improve estimation accuracy and catch dependency risks.
 
 **Capabilities:**
@@ -156,10 +163,10 @@ _None yet._
 
 ---
 
-## 6. Risk & Gap Analysis _(Active)_
+## 6. Risk & Gap Analysis
 
-**Status:** Active
-**Skill:** `/risk-evaluation`
+- **Status:** In Progress
+- **Skill:** `/risk-evaluation`
 
 **What It Does Today:**
 - Compares product targets vs pod plans vs capacity
@@ -172,10 +179,10 @@ _None yet._
 
 ---
 
-## 7. Validation Tracking _(Active)_
+## 7. Validation Tracking
 
-**Status:** Active
-**Skill:** `/validation-review`
+- **Status:** In Progress
+- **Skill:** `/validation-review`
 
 **What It Does Today:**
 - Evaluates validation roadmap progress per sprint/milestone
@@ -183,60 +190,95 @@ _None yet._
 
 ---
 
-## 8. Additional Use Cases to Explore
+## 8. Roadmap Generation
 
-### 8a. Sprint Retrospective Analysis
-**Status:** Idea
+- **Status:** Active
+- **Skill:** `/roadmap-update`
+
+**What It Does Today:**
+- Consolidates pod plans into a unified roadmap view
+- Generates `generated/roadmap.md` with high-level Gantt + per-pod sections
+
+---
+
+## 9. Roadmap Options
+
+- **Status:** Active
+- **Skill:** `/roadmap-options`
+
+**What It Does Today:**
+- Generates N roadmap scenarios for comparison
+- Outputs to `generated/roadmap_options.md` (disposable, overwritten each run)
+- Useful for exploring trade-offs before committing to a plan
+
+---
+
+## 10. Additional Use Cases to Explore
+
+### 10a. Sprint Retrospective Analysis
+- **Status:** Idea
+
 **Goal:** Ingest retro notes + sprint metrics to identify recurring themes, track whether action items actually get addressed, and surface patterns across pods.
 
-### 8b. New Team Member Onboarding
-**Status:** Idea
+### 10b. New Team Member Onboarding
+- **Status:** Idea
+
 **Goal:** Generate role-specific onboarding packets. A new Battle pod designer gets a different brain dump than a new Metagame engineer. Pull relevant docs, current state, key contacts, and active work into a personalized guide.
 
-### 8c. Cross-Pod Impact Analysis
-**Status:** Idea
+### 10c. Cross-Pod Impact Analysis
+- **Status:** Idea
+
 **Goal:** When a feature changes scope or timeline, automatically trace downstream effects across pods via the dependency map. "If Governors slips 2 sprints, what else moves?"
 
-### 8d. Design Review Preparation
-**Status:** Idea
+### 10d. Design Review Preparation
+- **Status:** Idea
+
 **Goal:** Before a design review, auto-generate a briefing doc: the feature's current spec, open questions, validation alignment, related features, and potential conflicts with other in-flight work.
 
-### 8e. Meeting Intelligence
-**Status:** Idea
+### 10e. Meeting Intelligence
+- **Status:** Idea
+
 **Goal:** Ingest meeting notes/transcripts (from Slack, Notion, or recordings). Extract decisions, action items, and open questions. Track whether decisions get reflected in documentation and plans.
 
-### 8f. Player Feedback Routing & Analysis
-**Status:** Idea
+### 10f. Player Feedback Routing & Analysis
+- **Status:** Idea
+
 **Goal:** Ingest player feedback (from Discord, surveys, playtest reports). Categorize by feature area, severity, and frequency. Route to relevant pods. Track whether high-frequency issues get addressed in upcoming sprints.
 
-### 8g. Balance & Tuning Documentation
-**Status:** Idea
+### 10g. Balance & Tuning Documentation
+- **Status:** Idea
+
 **Goal:** Maintain a living document of game balance decisions — why values are set the way they are, what was tried before, what the design intent is. Prevents the "why is this number 7?" problem when the original designer is unavailable.
 
-### 8h. Competitive Intelligence Tracking
-**Status:** Idea
+### 10h. Competitive Intelligence Tracking
+- **Status:** Idea
+
 **Goal:** Maintain structured notes on competitor games' features, updates, and market moves. When designing a feature, surface what competitors have done in the same space.
 
-### 8i. QA Test Case Generation
-**Status:** Idea
+### 10i. QA Test Case Generation
+- **Status:** Idea
+
 **Goal:** From a feature spec, auto-generate test cases covering happy paths, edge cases, and cross-feature interactions. Particularly useful for features that touch multiple systems.
 
-### 8j. Live Ops Event Planning
-**Status:** Idea
+### 10j. Live Ops Event Planning
+- **Status:** Idea
+
 **Goal:** Track event templates, past event performance, and content requirements. When planning a new event, surface what worked before, what content is available, and what needs to be created.
 
-### 8k. Localization Readiness Tracking
-**Status:** Idea
+### 10k. Localization Readiness Tracking
+- **Status:** Idea
+
 **Goal:** Flag new or changed player-facing strings across features. Track what needs translation, what's been sent out, and what's blocking release in specific regions.
 
-### 8l. Technical Debt Visibility
-**Status:** Idea
+### 10l. Technical Debt Visibility
+- **Status:** Idea
+
 **Goal:** Ingest and track tech debt items alongside feature work. Surface when planned features will be complicated by known debt, and when debt paydown would unblock multiple features.
 
 ---
 
 ## How to Use This Document
 
-- **Adding a new use case:** Add it under Section 8 as an Idea. Once scoped, promote it to its own numbered section.
+- **Adding a new use case:** Add it under Section 10 as an Idea. Once scoped, promote it to its own numbered section.
 - **Updating status:** Change the Status tag and add dated entries under Learnings.
 - **After prototyping:** Record what worked, what didn't, and any architectural decisions made.
