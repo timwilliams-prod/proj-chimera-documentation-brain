@@ -48,8 +48,23 @@
               "icon": "lucide-file",
               "title": "QUICK_START"
             }
+          },
+          {
+            "id": "03c4d1acd5efc143",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Generated Presentation LLM Prompts.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Generated Presentation LLM Prompts"
+            }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -211,8 +226,12 @@
       "bases:Create new base": false
     }
   },
-  "active": "32d804acf79abbfc",
+  "active": "03c4d1acd5efc143",
   "lastOpenFiles": [
+    "USE_CASES.md",
+    "USE_CASES.md.tmp.5432.1774012600479",
+    "Generated Presentation LLM Prompts.md",
+    "README.md",
     "reference/llm_brain_presentation.md",
     "reference/llm_brain_presentation.md.tmp.15848.1773955977096",
     "reference/visualization_examples.md",
@@ -224,7 +243,6 @@
     "planning/ValidationRoadmap.md.tmp.23408.1773943776665",
     "planning/ValidationRoadmap.md.tmp.23408.1773943758129",
     "planning/ValidationRoadmap.md.tmp.23408.1773942640536",
-    "planning/features/governors.md.tmp.23408.1773940886098",
     "QUICK_START.md",
     "EXAMPLES.md",
     "reference/README.md",
@@ -245,9 +263,6 @@
     "planning/product_targets.md",
     "product_targets.md",
     "capacity.md",
-    "features/governors.md",
-    "pods/Dozer_Plan.md",
-    "pods/SocialDynamics_Plan.md",
-    "pods/Metagame_Plan.md"
+    "features/governors.md"
   ]
 }
