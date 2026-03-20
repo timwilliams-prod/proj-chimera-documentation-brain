@@ -214,6 +214,7 @@
   },
   "active": "c5e7a66ff89a6626",
   "lastOpenFiles": [
+    "GETTING_STARTED_CLAUDE.md.tmp.5432.1774014559736",
     "GETTING_STARTED_CLAUDE.md",
     "GETTING_STARTED_CLAUDE.md.tmp.5432.1774014202670",
     "Generated Presentation LLM Prompts.md",
@@ -248,7 +249,6 @@
     "planning/GlobalRules.md",
     "planning/ValidationRoadmap.md",
     "planning/product_targets.md",
-    "product_targets.md",
-    "capacity.md"
+    "product_targets.md"
   ]
 }

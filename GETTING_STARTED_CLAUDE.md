@@ -4,13 +4,20 @@ A no-nonsense guide to getting Claude Code running with this documentation brain
 
 ---
 
-## Step 1: Install Git for Windows
+## Step 1: Install Git
 
+**Windows:**
 1. Download from [git-scm.com/downloads/win](https://git-scm.com/downloads/win)
 2. Run the installer — **defaults are fine for everything**
-3. Verify it worked: open a terminal and type `git --version`
 
-> **Which terminal?** You can use Windows Terminal, Command Prompt, or PowerShell. Any of them work.
+**Mac:**
+1. Open Terminal and run `git --version`
+2. If Git isn't installed, macOS will prompt you to install Command Line Tools — click Install
+3. Alternatively, install via [Homebrew](https://brew.sh/): `brew install git`
+
+**Verify (both):** Open a terminal and type `git --version`
+
+> **Which terminal?** On Windows: Windows Terminal, Command Prompt, or PowerShell. On Mac: Terminal (built in) or [iTerm2](https://iterm2.com/).
 
 ---
 
@@ -24,6 +31,7 @@ A no-nonsense guide to getting Claude Code running with this documentation brain
 Claude Code is a command-line tool that lets Claude read, edit, and reason about files on your machine.
 
 1. Install Node.js if you don't have it: [nodejs.org](https://nodejs.org/) (LTS version)
+   - **Mac alternative:** `brew install node`
 2. Open a terminal and run:
    ```
    npm install -g @anthropic-ai/claude-code
@@ -37,10 +45,19 @@ Claude Code is a command-line tool that lets Claude read, edit, and reason about
 
 Pick a folder where you want to work. Example:
 
+**Mac / Git Bash:**
 ```bash
 mkdir ~/ClaudeWorkspace
 cd ~/ClaudeWorkspace
 ```
+
+**Windows (Command Prompt / PowerShell):**
+```
+mkdir %USERPROFILE%\ClaudeWorkspace
+cd %USERPROFILE%\ClaudeWorkspace
+```
+
+> `~/` is shorthand for your home folder. On Windows that's typically `C:\Users\YourName\`.
 
 ---
 
@@ -79,8 +96,9 @@ You don't need to be a terminal expert. Here's everything you'll actually use:
 |---------|-------------|
 | `cd folder-name` | Move into a folder |
 | `cd ..` | Move up one folder |
-| `cd ~/ClaudeWorkspace/proj-chimera-documentation-brain` | Jump straight to the repo |
-| `ls` | List files in current folder |
+| `cd ~/ClaudeWorkspace/proj-chimera-documentation-brain` | Jump straight to the repo (Mac / Git Bash) |
+| `ls` | List files in current folder (Mac / Git Bash / PowerShell) |
+| `dir` | List files in current folder (Command Prompt) |
 | `pwd` | Show what folder you're in |
 
 ### Claude Code
