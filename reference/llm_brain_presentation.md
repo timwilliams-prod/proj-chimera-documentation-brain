@@ -85,7 +85,7 @@ When I start a fresh conversation and ask "what should Social Dynamics focus on 
 
 ---
 
-## What I Built: A Documentation Brain for Lotus
+## What I Built: An LLM-friendly Documentation Brain for Lotus
 
 I took this approach and applied it to our production planning. The result is a structured set of markdown files that give the LLM (and us) a complete, organized view of our project.
 
@@ -121,7 +121,7 @@ lotusDocumentationBrain/
 Here are real examples from this week:
 
 **"Update the Social Dynamics plan with these phases"**
-> I described the phased multiplayer build-up. The LLM read the existing plan, restructured it with 10 phases across 3 parallel tracks, generated a Gantt chart, and updated milestone breakdowns -- all consistent with our dates, staffing, and targets.
+> I described the phased multiplayer build-up. The LLM read the existing plan, restructured it with 10 phases across 3 parallel tracks, generated a Gantt chart, and updated milestone breakdowns -- all consistent with our dates, capacity, and priorities.
 
 **"Are we on track for M&Ms?"** (`/risk-evaluation`)
 > The LLM reads product targets (must-haves), the roadmap (what's planned), and capacity (who's available). It compares all three and flags gaps -- like a must-have feature with no pod assigned, or a pod that's overcommitted.
@@ -130,20 +130,49 @@ Here are real examples from this week:
 > It reads capacity, both pod plans, and feature estimates. It tells you what Empire gains (accelerates Territory Map VS by ~1 sprint) and what Battle loses (their single engineer, so everything stops).
 
 **"Generate 3 roadmap options for M&C"** (`/roadmap-options`)
-> It creates multiple scenarios with different trade-offs, each with its own Gantt chart and risk analysis, side by side for comparison.
+> It creates multiple scenarios with different trade-offs, each with its own Gantt chart and risk analysis, side by side for comparison. Just tell it what options you want to see.
 
 ### Visual Roadmaps, Auto-Generated
 
 Every pod plan has a Mermaid Gantt chart that renders right in VS Code. When plans change, the charts update with the plan -- no separate slide deck to maintain.
 
-```
-Social Dynamics Example:
+```mermaid
+gantt
+    title Social Dynamics - Multiplayer Build-Up
+    dateFormat YYYY-MM-DD
+    axisFormat %b '%y
+    tickInterval 2week
 
-    Milestones    ◆ Sys Val   ◆ M&M           ◆ Beta    ◆ M&C
-    AI Prototype  ████████████████████████████
-    MP Maps       ██ P1 ██ P2 ████ P3 ███ P4 ██ P5 █ P6 ██ P7 █ P8 █ P9 █ P10
-    Networking    ████████████████████████████
-    Add'l Feat    ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ Reef ░░ BP
+    section Milestones
+    Sys Validation - Mar 30   :crit, milestone, 2026-03-30, 0d
+    M&M - Jun 23              :crit, milestone, 2026-06-23, 0d
+    Beta Prep - Jul 21        :crit, milestone, 2026-07-21, 0d
+    M&C - Oct 13              :crit, milestone, 2026-10-13, 0d
+    Live Ops & Social - Feb 2 :crit, milestone, 2027-02-02, 0d
+    Soft Launch - May 30      :crit, milestone, 2027-05-30, 0d
+
+    section Track 1: AI Prototype
+    Playtesting & Iteration          :active,  ai1, 2026-03-19, 2026-06-23
+
+    section Track 2: Multiplayer Maps
+    P1 - Infrastructure & Foundation :active,  sd1, 2026-03-19, 2026-03-30
+    P2 - Map Foundation              :         sd2, after sd1, 30d
+    P3 - Basic Game Logic            :         sd3, after sd2, 42d
+    P4 - Heroes on Map              :         sd4, after sd3, 28d
+    P5 - Interesting Tiles           :         sd5, after sd4, 21d
+    P6 - Initial Rollout             :         sd6, after sd5, 14d
+    P7 - Dynamic Experience          :         sd7, after sd6, 21d
+    P8 - Clarity of State            :         sd8, after sd7, 14d
+    P9 - More Design Depth           :         sd9, after sd8, 14d
+    P10 - Preparing for Rollout      :         sd10, after sd9, 14d
+
+    section Track 3: Networking
+    Multiplayer Networking           :active,  net1, 2026-03-19, 2026-06-23
+
+    section Additional Features
+    Ravager's Reef                   :         sd_rr, after sd10, 42d
+    Battlepass                       :         sd_bp, after sd_rr, 28d
+
 ```
 
 ### Skills = Repeatable Workflows
@@ -190,7 +219,7 @@ After that, maintenance is a few minutes per sprint -- mostly status updates and
 
 - This doesn't replace Notion or ClickUp -- sprint execution still lives there
 - This doesn't require everyone to use Claude Code -- the markdown files are useful on their own
-- This isn't a rigid process -- it's a structured way to organize what we already track
+- This isn't a rigid process -- it's a structured way to organize what we already track in the format LLMs work best with
 
 ---
 
