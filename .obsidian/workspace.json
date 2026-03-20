@@ -48,23 +48,9 @@
               "icon": "lucide-file",
               "title": "QUICK_START"
             }
-          },
-          {
-            "id": "03c4d1acd5efc143",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Generated Presentation LLM Prompts.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Generated Presentation LLM Prompts"
-            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -226,8 +212,11 @@
       "bases:Create new base": false
     }
   },
-  "active": "03c4d1acd5efc143",
+  "active": "c5e7a66ff89a6626",
   "lastOpenFiles": [
+    "GETTING_STARTED_CLAUDE.md",
+    "GETTING_STARTED_CLAUDE.md.tmp.5432.1774014202670",
+    "Generated Presentation LLM Prompts.md",
     "USE_CASES.md.tmp.5432.1774013720269",
     "USE_CASES.md.tmp.5432.1774013713520",
     "USE_CASES.md.tmp.5432.1774013713469",
@@ -236,14 +225,11 @@
     "USE_CASES.md.tmp.5432.1774013690631",
     "USE_CASES.md",
     "USE_CASES.md.tmp.5432.1774012600479",
-    "Generated Presentation LLM Prompts.md",
     "README.md",
     "reference/llm_brain_presentation.md",
     "reference/llm_brain_presentation.md.tmp.15848.1773955977096",
     "reference/visualization_examples.md",
     "planning/GlobalRules.md.tmp.15848.1773954656806",
-    "generated/roadmap.md.tmp.15848.1773950419326",
-    "generated/roadmap.md.tmp.15848.1773950397112",
     "QUICK_START.md",
     "EXAMPLES.md",
     "reference/README.md",
