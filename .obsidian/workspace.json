@@ -355,6 +355,15 @@
   },
   "active": "bdaa0665c0df0b52",
   "lastOpenFiles": [
+    "planning/designer_queue/designerQueue.md.tmp.2272.1774285213480",
+    "planning/designer_queue/designers.md",
+    "planning/designer_queue/designerQueue.md",
+    "planning/designer_queue/designerQueue.md.tmp.2272.1774284252837",
+    "planning/designer_queue/raw_input",
+    "planning/designer_queue/output",
+    "planning/designer_queue/clean_input",
+    "planning/designer_queue",
+    "recordings.md",
     "planning/capacity.md",
     "planning/product_targets.md.tmp.5428.1774041021013",
     "planning/product_targets.md.tmp.5428.1774041017741",
@@ -370,7 +379,6 @@
     "planning/pods/Art_Plan.md",
     "EXAMPLES.md",
     "planning/pods/Dozer_Plan.md",
-    "planning/pods/Battle_Plan.md.tmp.5428.1774037063935",
     "reference/Walkthrough Notes.md",
     "planning/dependency_map.md",
     "planning/pods/SocialDynamics_Plan.md",
@@ -380,15 +388,8 @@
     "Untitled.md",
     "README.md",
     "QUICK_START.md",
-    "GETTING_STARTED_CLAUDE.md.tmp.2712.1774015490122",
-    "GETTING_STARTED_CLAUDE.md.tmp.2712.1774015482222",
-    "GETTING_STARTED_CLAUDE.md.tmp.5432.1774014559736",
-    "GETTING_STARTED_CLAUDE.md.tmp.5432.1774014202670",
     "Generated Presentation LLM Prompts.md",
     "reference/visualization_examples.md",
-    "reference/README.md",
-    "planning/features/combat_system.md",
-    "planning/features/governors.md",
-    "dependency_map.md"
+    "reference/README.md"
   ]
 }
