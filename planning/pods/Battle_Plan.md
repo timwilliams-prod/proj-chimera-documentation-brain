@@ -43,11 +43,11 @@ gantt
     Soft Launch - May 30      :crit, milestone, 2027-05-30, 0d
 
     section M&Ms (ends Jun 23)
-    Battle HUD Beta Overhaul  :active,  bat1, 2026-03-31, 42d
-    Obstacles                 :         bat2, after bat1, 14d
-    Actor System Overhaul     :         bat3, after bat2, 14d
-    Pathfinding & AI          :         bat4, after bat3, 14d
-    Battle Server Validation  :         bat5, after bat4, 14d
+    Battle HUD Beta Overhaul  :active,  bat1, 2026-03-31, 56d
+    Obstacles                 :active,  bat2, 2026-03-31, 14d
+    Actor System Overhaul     :active,  bat3, 2026-03-31, 28d
+    Pathfinding & AI          :active,  bat4, 2026-03-31, 28d
+    Battle Server Validation  :         bat5, after bat4, 28d
     Pool Management           :         bat6, after bat5, 14d
 
     section Beta Prep (ends Jul 21)
@@ -70,11 +70,11 @@ All Battle features across milestones, ordered by priority within each milestone
 
 | #   | Feature                         | Milestone | Estimate  | Status      | Related SHQs | What It Proves                                   |
 | --- | ------------------------------- | --------- | --------- | ----------- | ------------ | ------------------------------------------------ |
-| 1   | Battle HUD Beta Overhaul        | M&Ms      | 3 sprints | NOT STARTED | [TBD]        | Combat interface meets beta quality bar          |
+| 1   | Battle HUD Beta Overhaul        | M&Ms      | 4 sprints | NOT STARTED | [TBD]        | Combat interface meets beta quality bar          |
 | 2   | Obstacles                       | M&Ms      | 1 sprint  | NOT STARTED | [TBD]        | Environmental tactics add depth                  |
-| 3   | Actor System Overhaul           | M&Ms      | 1 sprint  | NOT STARTED | [TBD]        | Performance and maintainability for scale        |
-| 4   | Pathfinding & AI Improvements   | M&Ms      | 1 sprint  | NOT STARTED | [TBD]        | AI behavior feels intelligent and responsive     |
-| 5   | Battle Server Validation Client | M&Ms      | 1 sprint  | NOT STARTED | [TBD]        | Server-authoritative combat foundation           |
+| 3   | Actor System Overhaul           | M&Ms      | 2 sprints | NOT STARTED | [TBD]        | Performance and maintainability for scale        |
+| 4   | Pathfinding & AI Improvements   | M&Ms      | 2 sprints | NOT STARTED | [TBD]        | AI behavior feels intelligent and responsive     |
+| 5   | Battle Server Validation Client | M&Ms      | 2 sprints | NOT STARTED | [TBD]        | Server-authoritative combat foundation           |
 | 6   | Pool Management                 | M&Ms      | 1 sprint  | NOT STARTED | [TBD]        | Memory optimization for long sessions            |
 | 7   | Battle Content                  | Ongoing   | Ongoing   | IN PROGRESS | [TBD]        | Content pipeline validates production capacity   |
 | 8   | Unit Content                    | Ongoing   | Ongoing   | IN PROGRESS | [TBD]        | Unit variety pipeline validates art/balance pace |
@@ -89,14 +89,15 @@ All Battle features across milestones, ordered by priority within each milestone
 
 **Ends**: Jun 23, 2026 | **Sprints**: ~7 | **Capacity**: 1x ENG (Jota)
 
-**⚠️ CAPACITY WARNING**: 6 features totaling 9 sprints scheduled for 7-sprint milestone. Requires compression or deferral.
+**⚠️ CAPACITY WARNING**: 6 features totaling 12 sprints scheduled for 7-sprint milestone. Requires compression or deferral.
 
 ```
-Sprint 1-3:  Battle HUD Beta Overhaul
-Sprint 4:    Obstacles
-Sprint 5:    Actor System Overhaul
-Sprint 6:    Pathfinding & AI Improvements
-Sprint 7:    Battle Server Validation Client (defer Pool Management to M&C)
+Sprint 1:    Battle HUD Beta Overhaul, Obstacles, Actor System Overhaul, Pathfinding & AI (all start)
+Sprint 2:    Battle HUD Beta Overhaul, Actor System Overhaul, Pathfinding & AI
+Sprint 3:    Battle HUD Beta Overhaul, Battle Server Validation (start)
+Sprint 4:    Battle HUD Beta Overhaul, Battle Server Validation
+Sprint 5:    Pool Management
+Sprint 6-7:  [TBD - capacity buffer or defer to M&C]
 ```
 
 Battle Content and Unit Content run in parallel on design/art track (see `planning/capacity.md`).
