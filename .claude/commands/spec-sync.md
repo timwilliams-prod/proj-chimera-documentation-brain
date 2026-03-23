@@ -47,16 +47,15 @@ Parse `planning/feature_registry.md` to build the working inventory. For each ro
 
 | Field | Source |
 |-------|--------|
-| Feature name | Registry |
+| Feature name | Registry (link text) |
 | Pod | Registry |
-| Milestone | Registry (section header) |
-| Priority | Registry (Must-Have / Nice-to-Have) |
+| Milestone | Registry |
 | Notion ID | Registry (may be blank) |
-| Expected spec file | Registry |
+| Expected spec file | Registry (link target from the Feature column hyperlink) |
 | Spec exists? | Check `planning/features/` |
 | Why it's required | `product_targets.md` |
 
-Skip rows that are still `[TBD - ...]` placeholders — note them in the summary but don't try to sync them.
+Skip rows with blank Feature names (milestone header rows) — note them in the summary but don't try to sync them.
 
 ### 3. Fetch from Notion
 
