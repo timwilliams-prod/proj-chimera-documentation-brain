@@ -22,7 +22,8 @@
       "Bash(mkdir -p \"C:/Users/TimWilliams/ClaudeWorkspace/lotusDocumentationBrain/.claude/commands\")",
       "Bash(mv \"C:/Users/TimWilliams/ClaudeWorkspace/lotusDocumentationBrain/.claude/skills/\"*.md \"C:/Users/TimWilliams/ClaudeWorkspace/lotusDocumentationBrain/.claude/commands/\")",
       "Bash(claude mcp:*)",
-      "WebFetch(domain:www.notion.so)"
+      "WebFetch(domain:www.notion.so)",
+      "mcp__notion__notion-fetch"
     ]
   }
 }
