@@ -188,9 +188,19 @@
               "icon": "lucide-file",
               "title": "product_targets"
             }
+          },
+          {
+            "id": "e10c81db4b65cad6",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
           }
         ],
-        "currentTab": 12
+        "currentTab": 13
       }
     ],
     "direction": "vertical"
@@ -353,8 +363,11 @@
       "bases:Create new base": false
     }
   },
-  "active": "bdaa0665c0df0b52",
+  "active": "e10c81db4b65cad6",
   "lastOpenFiles": [
+    "USE_CASES.md.tmp.4608.1774295633507",
+    "planning/TechnicalDebt.md",
+    "planning/product_targets.md",
     "planning/designer_queue/designerQueue.md.tmp.2272.1774285213480",
     "planning/designer_queue/designers.md",
     "planning/designer_queue/designerQueue.md",
@@ -369,8 +382,6 @@
     "planning/product_targets.md.tmp.5428.1774041017741",
     "planning/product_targets.md.tmp.5428.1774041009301",
     "planning/capacity.md.tmp.5428.1774041006883",
-    "planning/capacity.md.tmp.5428.1774040991916",
-    "planning/product_targets.md",
     "GETTING_STARTED_CLAUDE.md",
     "generated/roadmap.md",
     "planning/pods/Metagame_Plan.md",
@@ -389,7 +400,6 @@
     "README.md",
     "QUICK_START.md",
     "Generated Presentation LLM Prompts.md",
-    "reference/visualization_examples.md",
-    "reference/README.md"
+    "reference/visualization_examples.md"
   ]
 }

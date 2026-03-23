@@ -63,8 +63,8 @@ _None yet._
 
 ## 2. AI-Assisted Documentation Authoring
 
-- **Status:** Planned
-- **Skill:** To be built as a Claude slash command
+- **Status:** Active
+- **Skill:** `/doc-author`
 - **Primary Users:** Designers
 
 **Goal:** Designers describe what they want a doc to cover — goals, must-include topics, examples, rough ideas. Claude then:
@@ -231,7 +231,8 @@ _None yet._
 **Goal:** When a feature changes scope or timeline, automatically trace downstream effects across pods via the dependency map. "If Governors slips 2 sprints, what else moves?"
 
 ### 10d. Design Review Preparation
-- **Status:** Idea
+- **Status:** Active
+- **Skill:** `/feature-review-prep`
 
 **Goal:** Before a design review, auto-generate a briefing doc: the feature's current spec, open questions, validation alignment, related features, and potential conflicts with other in-flight work.
 
@@ -271,7 +272,8 @@ _None yet._
 **Goal:** Flag new or changed player-facing strings across features. Track what needs translation, what's been sent out, and what's blocking release in specific regions.
 
 ### 10l. Technical Debt Visibility
-- **Status:** Idea
+- **Status:** Active
+- **Skill:** `/tech-debt`
 
 **Goal:** Ingest and track tech debt items alongside feature work. Surface when planned features will be complicated by known debt, and when debt paydown would unblock multiple features.
 
