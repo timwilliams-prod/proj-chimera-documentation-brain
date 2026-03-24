@@ -183,8 +183,12 @@
       "bases:Create new base": false
     }
   },
-  "active": "efdc479cb3deada0",
+  "active": "0305ddcaaa9d2852",
   "lastOpenFiles": [
+    "generated/roadmap_apps_script.js.tmp.3648.1774382028153",
+    "generated/roadmap_apps_script.js",
+    "generated/roadmap_for_sheets.tsv",
+    "generated/roadmap_sheet.py",
     "generated/reports/channel_digest_2026-03-24.md",
     "generated/reports/sprint_summary_xenial_xeruses.md",
     "planning/dependency_map.md",
@@ -210,16 +214,12 @@
     "planning/features/login_flow_optimization.md",
     "planning/features/ui_stability_performance.md",
     "planning/features/notifications.md",
-    "planning/features/inbox_admin_comms.md",
     "planning/features/achievements.md.tmp.12364.1774376016852",
     "planning/features/shop.md.tmp.12364.1774375962259",
     "planning/features/troop_recruiting.md.tmp.12364.1774375928755",
     "planning/features/hero_ranking_up.md.tmp.12364.1774375892060",
     "planning/features/gear.md.tmp.12364.1774375891994",
     "planning/features/passive_bonus_tiles.md.tmp.12364.1774375687691",
-    "planning/feature_registry.md.tmp.12364.1774375416236",
-    "planning/feature_registry.md.tmp.12364.1774375412724",
-    "generated/reports",
-    "project-charter.md.tmp.11488.1774363703447"
+    "planning/feature_registry.md.tmp.12364.1774375416236"
   ]
 }

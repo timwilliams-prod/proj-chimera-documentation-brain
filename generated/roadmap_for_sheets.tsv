@@ -1,0 +1,111 @@
+LOTUS FEATURE ROADMAP																																	
+				"M&Ms
+(Mar 31 – Jun 23)"						"Beta Launch Prep
+(Jun 23 – Jul 21)"		"M&C
+(Jul 21 – Oct 13)"						"Live Ops & Social
+(Oct 13 – Feb 2)"								"Soft Launch
+(Feb 2 – May 30)"							
+				S1	S2	S3	S4	S5	S6	S7	S8	S9	S10	S11	S12	S13	S14	S15	S16	S17	S18	S19	S20	S21	S22	S23	S24	S25	S26	S27	S28	S29	S30
+Pod	Feature	Est.	Status	3/31 – 4/13	4/14 – 4/27	4/28 – 5/11	5/12 – 5/25	5/26 – 6/8	6/9 – 6/22	6/23 – 7/6	7/7 – 7/20	7/21 – 8/3	8/4 – 8/17	8/18 – 8/31	9/1 – 9/14	9/15 – 9/28	9/29 – 10/12	10/13 – 10/26	10/27 – 11/9	11/10 – 11/23	11/24 – 12/7	12/8 – 12/21	12/22 – 1/4	1/5 – 1/18	1/19 – 2/1	2/2 – 2/15	2/16 – 3/1	3/2 – 3/15	3/16 – 3/29	3/30 – 4/12	4/13 – 4/26	4/27 – 5/10	5/11 – 5/29
+	Dev Phase			Iteration & Refinement	Iteration & Refinement	Iteration & Refinement	Iteration & Refinement	Iteration & Refinement	Iteration & Refinement	Polish	Polish	Iteration & Refinement	Iteration & Refinement	Iteration & Refinement	Iteration & Refinement	Iteration & Refinement	Iteration & Refinement	Iteration & Refinement	Iteration & Refinement	Iteration & Refinement	Iteration & Refinement	Iteration & Refinement	Iteration & Refinement	Iteration & Refinement	Iteration & Refinement	Scale	Scale	Scale	Scale	Scale	Scale	Scale	Scale
+	Validation			SHQ validation, internal playtesting, super user testing						Beta quality bar, stability		D0-D7 retention, D0-D1 conversion, LTV baseline						D0-D14 retention, D0-D14 LTV								D0-D30 retention, D0-D30 LTV, UA metrics							
+																																	
+EMPIRE																																	
+	Pod Lead: Diana Vasilescu | Producer: Brann Livesay | Eng: Gabriel, Henrique, Marcos T. | Design: Diana, Elise, Jacob																																
+	Governors	3 spr	IN PROGRESS	■	■	■																											
+	Territory Map Vertical Slice	2 spr	NOT STARTED				■	■																									
+	WM Building Upgrades	1 spr	NOT STARTED						■																								
+	Flex / Beta Prep	3 spr	NOT STARTED							■	■	■																					
+	World Map Vertical Slice	1 spr	NOT STARTED										■																				
+	WM Zoom & LOD	1 spr	NOT STARTED											■																			
+	Conquest Guide Full Screen	0.5 spr	NOT STARTED												■																		
+	Barrier & Story Iterations	0.5 spr	NOT STARTED												■																		
+	Map Content (Design/Art)	Ongoing	IN PROGRESS	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–
+																																	
+METAGAME																																	
+	Pod Lead: Leonard Perez | Producer: Tim Williams | Eng: Dan Dupuis, Guilherme Q. | Design: Leonard, Chris F. | UX: Kevin L., Yura R. | UI: Miguel D.																																
+	— M&Ms: Pipeline A (UI Foundation) —																																
+	UI Foundation	6 spr	IN PROGRESS	■	■	■	■	■	■																								
+	— M&Ms: Pipeline B (Systems) —																																
+	Building Upgrades	1 spr	NOT STARTED	■																													
+	Empire Progression Tree	1 spr	NOT STARTED		■																												
+	Global Combat Research Tree	2 spr	NOT STARTED			■	■																										
+	Hero Gacha v1	1 spr	NOT STARTED					■																									
+	Passive Bonus Tiles	1 spr	NOT STARTED						■																								
+	— Beta Prep —																																
+	Beta Prep / Polish	2 spr	NOT STARTED							■	■																						
+	— M&C: Pipeline A (5 features) —																																
+	Main Menu UX/UI	1 spr	NOT STARTED									■																					
+	Dungeons v2	1 spr	NOT STARTED										■																				
+	Timed Objectives	1 spr	NOT STARTED											■																			
+	End Level Reward Screen	1 spr	NOT STARTED												■																		
+	Academies	1 spr	NOT STARTED													■																	
+	— M&C: Pipeline B (4 features) —																																
+	Hero Ranking Up	1 spr	NOT STARTED									■																					
+	Shop	1 spr	NOT STARTED										■																				
+	Hero Gacha v2	1 spr	NOT STARTED											■																			
+	Timed PvE Live Ops Maps	1 spr	NOT STARTED												■																		
+	— Live Ops (10 features) —																																
+	Live Ops Features (10 items TBD)	5 spr	NOT STARTED															■	■	■	■	■											
+	— Soft Launch (5 features) —																																
+	Soft Launch Features (5 items TBD)	3 spr	NOT STARTED																							■	■	■					
+																																	
+BATTLE																																	
+	Pod Lead: Lincoln Li | Producer: Thorben Novais | Eng: Jota Oliveira (1x) | Design: Lincoln, Nathan, Dylan, Vishaal																																
+	⚠️ CAPACITY: 1 client eng (Jota). All features sequential. 9 eng-sprints for 6+2 sprint window.																																
+	Battle HUD Beta Overhaul	3 spr	NOT STARTED	■	■	■																											
+	Obstacles	1 spr	NOT STARTED				■																										
+	Actor System Overhaul	1 spr	NOT STARTED					■																									
+	Pathfinding & AI Improvements	1 spr	NOT STARTED						■																								
+	Battle Server Validation	1 spr	NOT STARTED							■																							
+	Beta Prep / Polish	1 spr	NOT STARTED								■																						
+	Pool Management (deferred from M&Ms)	1 spr	DEFERRED									■																					
+	M&C Battle Features (TBD)	4 spr	NOT STARTED										■	■	■	■																	
+	Battle Content (Design/Art)	Ongoing	IN PROGRESS	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–
+	Unit Content (Design/Art)	Ongoing	IN PROGRESS	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–	–
+																																	
+SOCIAL DYNAMICS																																	
+	Pod Lead: Paul Flores | Producer: Tim Williams | Eng: Randy, Garrett, Bruno B., Tiago (new), Marcos L. (from Empire)																																
+	⚠️ RISK: Randy & Garrett split with Dozer ops. Tiago is new hire.																																
+	— Track 1: Multiplayer Maps (P1-P10) —																																
+	P1: Infrastructure & Foundation	~1 spr	IN PROGRESS	■																													
+	P2: Map Foundation	~2 spr	NOT STARTED		■	■																											
+	P3: Basic Game Logic (6 features)	~2 spr	NOT STARTED				■	■																									
+	P4-P6: Heroes, Tiles, Initial Rollout	~2 spr	NOT STARTED						■	■	■																						
+	P7-P10: Map Completion	6 spr	NOT STARTED									■	■	■	■	■	■																
+	— Track 2: Parallel Streams —																																
+	Multiplayer Networking	~6 spr	IN PROGRESS	■	■	■	■	■	■																								
+	AI Prototype Playtesting	~6 spr	IN PROGRESS	◆	◆	◆	◆	◆	◆																								
+	— Post-M&C Features —																																
+	Ravager's Reef	3 spr	NOT STARTED															■	■	■													
+	Battlepass	2 spr	NOT STARTED																		■	■											
+																																	
+DOZER																																	
+	Eng Lead: Derek Gallant | Eng: Bruno Freitas | Randy & Garrett (partial)																																
+	Infrastructure & Tooling (TBD)	~7 spr	NOT STARTED	■	■	■	■	■	■	■																							
+	Content Pipeline Scaling	TBD	NOT STARTED									?	?	?	?	?	?																
+	UA / Analytics Instrumentation	TBD	NOT STARTED																							?	?	?	?	?	?	?	?
+																																	
+ART																																	
+	Art Director: Kevin Griffith | Assoc AD: Brendan Cheatham | Producer: Brann Livesay																																
+	Character Assets (Heroes & Units)	7 spr	IN PROGRESS	■	■	■	■	■	■	■																							
+	Environment Art (Map tiles, buildings)	7 spr	IN PROGRESS	■	■	■	■	■	■	■																							
+	UI/UX Assets	7 spr	IN PROGRESS	■	■	■	■	■	■	■																							
+	VFX & Animation	6 spr	NOT STARTED	■	■	■	■	■	■																								
+	Beta Polish	2 spr	NOT STARTED							■	■																						
+	Hero Assets Expansion	6 spr	NOT STARTED									■	■	■	■	■	■																
+	Monetization Assets	6 spr	NOT STARTED									■	■	■	■	■	■																
+	Pipeline Scaling	6 spr	NOT STARTED									■	■	■	■	■	■																
+																																	
+KEY DATES & VALIDATION																																	
+																																	
+	Milestone End Dates								🏁 M&Ms END		🏁 Beta Prep END						🏁 M&C END								🏁 Live Ops END								🏁 Soft Launch END
+	Key SHQs Under Test			SHQ2, SHQ7, SHQ1								SHQ10-13, SHQ16						SHQ18-22															
+	Winning Hypotheses Focus			WH-2 (Empire)				WH-1 (Battle)				WH-3 (Monetization)						WH-2, WH-3								WH-4 (Production)							
+																																	
+LEGEND																																	
+	■ = Scheduled work																																
+	– = Ongoing/continuous																																
+	◆ = Parallel prototype track																																
+	? = TBD / Not yet scoped																																
+	⚠️ = Capacity or schedule risk																																
