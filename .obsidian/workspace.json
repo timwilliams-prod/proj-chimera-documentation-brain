@@ -185,6 +185,12 @@
   },
   "active": "0305ddcaaa9d2852",
   "lastOpenFiles": [
+    "generated/sprint_plans/sprint_26_yodel_yaks.md",
+    "generated/sprint_plans",
+    "project-charter.md.tmp.3648.1774384875531",
+    "project-charter.md.tmp.3648.1774384866426",
+    "project-charter.md.tmp.3648.1774384862609",
+    "planning/sprint_rules.md",
     "generated/roadmap_sheet_data.json",
     "generated/roadmap_sheet_template.js",
     "generated/roadmap_apps_script.js.tmp.3648.1774382028153",
@@ -214,12 +220,6 @@
     "planning/features/battle_designing_tools.md",
     "planning/features/growthbook_integration.md",
     "planning/features/login_flow_optimization.md",
-    "planning/features/ui_stability_performance.md",
-    "planning/features/notifications.md",
-    "planning/features/achievements.md.tmp.12364.1774376016852",
-    "planning/features/shop.md.tmp.12364.1774375962259",
-    "planning/features/troop_recruiting.md.tmp.12364.1774375928755",
-    "planning/features/hero_ranking_up.md.tmp.12364.1774375892060",
-    "planning/features/gear.md.tmp.12364.1774375891994"
+    "planning/features/ui_stability_performance.md"
   ]
 }
