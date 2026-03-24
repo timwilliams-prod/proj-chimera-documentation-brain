@@ -185,6 +185,8 @@
   },
   "active": "0305ddcaaa9d2852",
   "lastOpenFiles": [
+    "generated/roadmap_sheet_data.json",
+    "generated/roadmap_sheet_template.js",
     "generated/roadmap_apps_script.js.tmp.3648.1774382028153",
     "generated/roadmap_apps_script.js",
     "generated/roadmap_for_sheets.tsv",
@@ -218,8 +220,6 @@
     "planning/features/shop.md.tmp.12364.1774375962259",
     "planning/features/troop_recruiting.md.tmp.12364.1774375928755",
     "planning/features/hero_ranking_up.md.tmp.12364.1774375892060",
-    "planning/features/gear.md.tmp.12364.1774375891994",
-    "planning/features/passive_bonus_tiles.md.tmp.12364.1774375687691",
-    "planning/feature_registry.md.tmp.12364.1774375416236"
+    "planning/features/gear.md.tmp.12364.1774375891994"
   ]
 }
