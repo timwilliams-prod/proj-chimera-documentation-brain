@@ -185,6 +185,7 @@
   },
   "active": "efdc479cb3deada0",
   "lastOpenFiles": [
+    "generated/reports/channel_digest_2026-03-24.md",
     "generated/reports/sprint_summary_xenial_xeruses.md",
     "planning/dependency_map.md",
     "USE_CASES.md",
@@ -210,7 +211,6 @@
     "planning/features/ui_stability_performance.md",
     "planning/features/notifications.md",
     "planning/features/inbox_admin_comms.md",
-    "planning/features/tutorial_expansion.md",
     "planning/features/achievements.md.tmp.12364.1774376016852",
     "planning/features/shop.md.tmp.12364.1774375962259",
     "planning/features/troop_recruiting.md.tmp.12364.1774375928755",
