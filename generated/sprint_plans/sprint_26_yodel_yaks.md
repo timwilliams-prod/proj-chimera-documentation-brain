@@ -1,6 +1,10 @@
 ---
 Sprint: Yodel Yaks 26
 Dates: 3/31 - 4/14
+Working Days: 9 (after Good Friday holiday)
+Holidays:
+  - Good Friday (Apr 3) — Fortis-wide studio closure
+  - Easter Monday (Apr 6) — Canadian statutory holiday (affects some staff)
 Milestone: M&Ms (Multiplayer & Meta) — Sprint 1 of ~7
 Mode: Preview
 Generated: 2026-03-24
@@ -10,19 +14,13 @@ Generated: 2026-03-24
 
 **Milestone**: M&Ms (Multiplayer & Meta) — ends Jun 23, 2026
 **Sprint 1 of ~7** in this milestone. This is the kickoff sprint for M&Ms.
+**Working Days**: 9 (10 weekdays minus Good Friday Apr 3)
 **ClickUp List**: `901326453291` (currently empty — no tasks added yet)
 
----
+### Studio Holidays
 
-## PTO
-
-**Google Calendar auth expired** — unable to pull PTO automatically. Please reauthorize:
-```
-! gcloud auth login
-```
-Or re-authorize the Google Workspace MCP connection, then re-run.
-
-**Action needed**: Confirm PTO for the team before Kickoff.
+- **Good Friday (Apr 3)**: Fortis-wide closure. All staff off.
+- **Easter Monday (Apr 6)**: Canadian statutory holiday. Hafiz Kassam (QA Lead) confirmed out. Other Canadian staff may also observe — confirm at kickoff.
 
 ---
 
@@ -32,26 +30,41 @@ Or re-authorize the Google Workspace MCP connection, then re-run.
 **QA**: Laura Santana | **UX**: Yura Rusin
 
 ### Sprint Goals
-- Continue **Governors** engineering (Sprint 1 of 3 for M&Ms) — validates SHQ7 (short/mid/long-term goals)
-- Continue **Map Content** pipeline (ongoing, design/art track) — validates SHQ1
+- Continue **Governors** engineering (Sprint 1 of 3 for M&Ms) — validates SHQ7
+- Start **Governors UX** — UI needed by Sprint 2
+- Continue **Map Content** pipeline (design/art track) — validates SHQ1
 
-### Planned Work
+### Individual Breakdown
 
-| Task | Discipline | Assignee | Est | Priority | Notes |
-|------|-----------|----------|-----|----------|-------|
-| Governors - Engineering (continued) | Eng | Gabriel Arruda | Full sprint | P1 | Sprint 1 of 3. Spec: `planning/features/governors.md` |
-| Governors - Engineering (continued) | Eng | Henrique De Lima | Full sprint | P1 | Tutorial architecture may carry over from S25 |
-| Governors - UX Design | UX | Yura Rusin | ~5 days | P1 | Governors UI needed by Sprint 2 per capacity notes |
-| Governors - Design (continued) | Design | Diana Vasilescu | Full sprint | P1 | CHI-36224 still "to do" in S25 — may carry over |
-| Map Content | Design/Art | Jacob Siegel, Elise Cole | Ongoing | P2 | Continuous pipeline |
+| Assignee | Discipline | Avail Days | Priorities | Notes |
+|----------|-----------|------------|------------|-------|
+| Gabriel Arruda | Eng | 9 | 1. Governors engineering | Sprint 1 of 3. Spec: `planning/features/governors.md` |
+| Henrique De Lima | Eng | 9 | 1. Governors engineering 2. Tutorial arch carry-over | Partial appts 4/1, 4/8 (~1.5 hrs). S25 carry-over risk on tutorial architecture (CHI-36213, CHI-36212) |
+| Diana Vasilescu | Design | 9 | 1. Governors design | CHI-36224 still "to do" in S25 — may carry over. Out 4/14 (S27 start) |
+| Yura Rusin | UX | 9 | 1. Governors UX wireframes/flows | Critical timing — UI needed by Sprint 2. Partial appts 4/6, 4/7 (~1 hr each) |
+| Jacob Siegel | Design | **4** | 1. Map Content | **Out 3/31-4/7** (5 days PTO). Only available 4/8-4/10, 4/13 |
+| Elise Cole | Design | 9 | 1. Map Content 2. Tuning carry-over | May need to solo-cover Map Content while Jacob is out |
+| Laura Santana | QA | 9 | 1. Governors QA (when ready) 2. S25 bug verification | |
 
-### Carry-Over Risk (from Sprint 25)
+### ClickUp Ticket Summary
+
+- **SHQ 07: Clear short/mid/long-term goals** (Epic, existing — CHI-34289)
+  - Governors - Backend & Data (Phase 1 parent task, proposed)
+    - Governors - Engineering (Gabriel)
+    - Governors - Engineering (Henrique)
+    - Governors - UX Design (Yura)
+    - Governors - Design (Diana)
+- **Standalone**
+  - Map Content - Sprint 26 (ongoing, proposed)
+
+### Carry-Over Risk
 - **Diana Vasilescu**: Governors Design (CHI-36224) — still "to do" in S25
 - **Henrique De Lima**: Tutorial Architecture tasks (CHI-36213, CHI-36212) — 1 in progress, 1 to do, both urgent
 
 ### Open Questions
-- [ ] Will Henrique's tutorial architecture work complete this sprint, or will it carry into S26?
-- [ ] Is Governors engineering on track for the 3-sprint estimate, or do we need to adjust?
+- [ ] Will Henrique's tutorial architecture work complete in S25, or will it carry into S26?
+- [ ] Is Governors engineering on track for the 3-sprint estimate?
+- [ ] Jacob out 5 of 9 days — can Elise solo-cover Map Content?
 
 ---
 
@@ -65,23 +78,39 @@ Or re-authorize the Google Workspace MCP connection, then re-run.
 - Complete **Building Upgrades** (Pipeline B, 1 sprint) — Guilherme Quizzini
 - Support metagame systems depth for M&Ms validation
 
-### Planned Work
+### Individual Breakdown
 
-| Task | Discipline | Assignee | Est | Priority | Notes |
-|------|-----------|----------|-----|----------|-------|
-| UI Foundation - Engineering | Eng | Dan Dupuis | Full sprint | P1 | Pipeline A. Hero Info, Hero Leveling, Gear, Badging, Tutorials/Narrative |
-| Building Upgrades - Engineering | Eng | Guilherme Quizzini | Full sprint | P2 | Pipeline B. 1-sprint feature |
-| UI Foundation - UX Design | UX | Kevin Ligon | ~5 days | P1 | Foundation wireframes/flows |
-| UI Foundation - UI Art | UI Art | Miguel Duran | ~5 days | P2 | Interface elements for UI Foundation |
+| Assignee | Discipline | Avail Days | Priorities | Notes |
+|----------|-----------|------------|------------|-------|
+| Dan Dupuis | Eng Lead | 9 | 1. UI Foundation (Pipeline A) | Hero Info, Hero Leveling, Gear, Badging, Tutorials/Narrative. Also Empire eng lead — Governors may need oversight |
+| Guilherme Quizzini | Eng | 9 | 1. Building Upgrades (Pipeline B) | 1-sprint feature, should complete this sprint |
+| Leonard Perez | Design | 9 | 1. UI Foundation design direction 2. Building Upgrades design support | |
+| Christopher Fidalgo | Design | 9 | 1. S25 carry-over (tuning/design tasks) 2. Metagame design support | **10 tasks in S25**, many still "to do" — heavy carry-over likely |
+| Kevin Ligon | UX | 9 | 1. UI Foundation wireframes/flows | Foundation UX for metagame screens |
+| Miguel Duran | UI Art | 9 | 1. UI Foundation art 2. Elemental swaps carry-over | S25 carry-over: CHI-36195 still "to do". Shared resource with Empire (Governors UI) |
+| Hugo Hideo | QA | 9 | 1. Building Upgrades QA (end of sprint) 2. S25 verification | |
 
-### Carry-Over Risk (from Sprint 25)
-- **Christopher Fidalgo**: 10 tasks in S25, many still "to do" — heavy carry-over likely. Chris does design/tuning work that feeds into Metagame features.
+### ClickUp Ticket Summary
+
+- **SHQ 07: Clear short/mid/long-term goals** (Epic, existing — also Empire)
+  - Building Upgrades (proposed, 1 sprint)
+    - Building Upgrades - Engineering (Guilherme)
+    - Building Upgrades - QA (Hugo)
+- **No SHQ mapped yet**
+  - UI Foundation - Sprint 1 (proposed)
+    - UI Foundation - Engineering (Dan)
+    - UI Foundation - UX Design (Kevin)
+    - UI Foundation - UI Art (Miguel)
+
+### Carry-Over Risk
+- **Christopher Fidalgo**: 10 tasks in S25, many still "to do" — heavy carry-over likely
 - **Miguel Duran**: UI Art assets for elemental swaps (CHI-36195) still "to do"
 
 ### Open Questions
 - [ ] Chris Fidalgo carry-over: which of his 10 S25 tasks are must-finish vs deferrable?
 - [ ] Building Upgrades spec — does one exist? If not, what's the design source?
 - [ ] UI Foundation scope for Sprint 1: which sub-features (Hero Info, Leveling, Gear, etc.) are first?
+- [ ] Should UI Foundation be mapped to an SHQ? Currently no validation link.
 
 ---
 
@@ -94,21 +123,42 @@ Or re-authorize the Google Workspace MCP connection, then re-run.
 - Start **Battle HUD Beta Overhaul** (Sprint 1 of ~4) — must-have for M&Ms, validates BHQ-B2
 - Design work begins on **Obstacles**, **Actor System Overhaul**, **Pathfinding & AI** in parallel
 
-### Planned Work
+### Individual Breakdown
 
-| Task | Discipline | Assignee | Est | Priority | Notes |
-|------|-----------|----------|-----|----------|-------|
-| Battle HUD Beta Overhaul - Engineering | Eng | Jota Oliveira | Full sprint | P1 | Must-have. Sprint 1 of ~4. Single engineer — critical path |
-| Battle HUD Beta Overhaul - Design | Design | Lincoln Li | Full sprint | P1 | HUD design direction |
-| Obstacles - Design | Design | Nathan Hajek | ~5 days | P3 | Design prep for future sprint |
-| Battle Content | Design/Art | Dylan Jeffery, Vishaal Gupta | Ongoing | P2 | Continuous pipeline |
-| Unit Content | Art | Ben Clair, Felipe Chaves, Tony Bonilla, Vinicius | Ongoing | P2 | Continuous pipeline |
+| Assignee | Discipline | Avail Days | Priorities | Notes |
+|----------|-----------|------------|------------|-------|
+| Jota Oliveira | Eng | **8** | 1. Battle HUD Beta Overhaul | **Out 3/31** (misses kickoff day). Solo engineer — critical path. Starts 4/1. |
+| Lincoln Li | Design Lead | 9 | 1. Battle HUD design direction 2. Coordinate design prep for future features | Partial — gymnastics 4/2, 4/9 (1 hr each) |
+| Nathan Hajek | Design | 9 | 1. Obstacles design prep 2. Battle Content support | Front-loading design for future sprint |
+| Dylan Jeffery | Design | 9 | 1. Battle Content pipeline | Ongoing |
+| Vishaal Gupta | Design | **8** | 1. Battle Content pipeline 2. Unit balance | **Out 4/2** (1 day) + recurring appts |
+| Julio Scarabelli | QA | 9 | 1. S25 bug verification 2. Battle HUD QA prep | 4/3 is studio holiday anyway |
+| Ben Clair | Art | 9 | 1. Unit Content art | Partial appt 3/31 (1 hr) |
+| Felipe Chaves | Art | 9 | 1. Unit Content art | |
+| Tony Bonilla | Art | 9 | 1. Unit Content art | |
+| Vinicius | Art | 9 | 1. Unit Content art | |
+
+### ClickUp Ticket Summary
+
+- **SHQ (TBD): Battle interface beta quality** (Epic needs creation)
+  - Battle HUD Beta Overhaul - Phase 1 (proposed)
+    - Battle HUD Beta Overhaul - Engineering (Jota)
+    - Battle HUD Beta Overhaul - Design (Lincoln)
+- **Standalone**
+  - Obstacles - Design Prep (proposed, Nathan)
+  - Battle Content - Sprint 26 (ongoing)
+  - Unit Content - Sprint 26 (ongoing)
+
+### Carry-Over Risk
+- None identified from S25 for Battle core team.
 
 ### Open Questions
-- [ ] Battle HUD Beta Overhaul: Is 4 sprints realistic with 1 engineer? Roadmap shows 56 days (4 sprints) but plan says 3 sprints. Clarify estimate.
+- [ ] Battle HUD estimate: Is it 3 sprints or 4? (Plan says 3, Gantt shows 56d/4 sprints)
+- [ ] Jota misses kickoff day — any setup/planning needed 3/31 without him?
 - [ ] Which Battle features can have design work front-loaded while Jota is on HUD?
+- [ ] Battle HUD needs an SHQ Epic — should one be created, or does it map to an existing one?
 
-> **Capacity Warning**: Battle has 1 client engineer (Jota). 6 features totaling ~9 eng-sprints in a 7-sprint milestone. Pool Management already deferred to M&C. Any delay cascades through the entire Battle schedule.
+> **Capacity Warning**: Battle has 1 client engineer (Jota) with only 8 available days this sprint. 6 features totaling ~9 eng-sprints in a 7-sprint milestone. Pool Management already deferred to M&C.
 
 ---
 
@@ -120,26 +170,42 @@ Or re-authorize the Google Workspace MCP connection, then re-run.
 - Wrap **Phase 1** (Infrastructure & Foundation, ETA 3/30) — any overflow lands here
 - Start **Phase 2** (Map Foundation, ~1 month) — core multiplayer map build-up
 - Continue **AI Prototype Playtesting** and **Multiplayer Networking** tracks
-- Validates SHQ 18-22 (multiplayer paper/prototype designs)
 
-### Planned Work
+### Individual Breakdown
 
-| Task | Discipline | Assignee | Est | Priority | Notes |
-|------|-----------|----------|-----|----------|-------|
-| P1 wrap-up (if needed) | Eng | Randy Pasion | ~2 days | P1 | Messaging infra, game instance container |
-| P2: Map Foundation - Engineering | Eng | Randy Pasion | Remainder | P1 | Start after P1 wrap |
-| P2: Map Foundation - Engineering | Eng | Garrett Eidsvig | Full sprint | P1 | Real multiplayer infrastructure |
-| P2: Map Foundation - Engineering | Eng | Marcos Loures | Full sprint | P1 | Moving from Empire to Social Dynamics |
-| P2: Map Foundation - Engineering | Eng | Tiago Costa | Full sprint | P2 | New hire, first milestone |
-| Multiplayer Networking | Eng | Bruno Bacelar | Full sprint | P1 | Parallel track |
-| AI Prototype Playtesting | Design | Paul Flores | Ongoing | P1 | Parallel playtesting track |
+| Assignee | Discipline | Avail Days | Priorities | Notes |
+|----------|-----------|------------|------------|-------|
+| Randy Pasion | Eng | **6** | 1. P1 wrap-up (3/31 only) 2. P2: Map Foundation (after PTO) | **Out 4/1-4/6** (3 days). Also Dozer split risk. Available: 3/31, 4/7-4/10, 4/13 |
+| Garrett Eidsvig | Eng | 9 | 1. P2: Map Foundation - multiplayer infrastructure | Dozer split risk — feature work may be interrupted |
+| Marcos Loures | Eng | 9 | 1. P2: Map Foundation | Transitioning from Empire. Needs clean handoff. |
+| Tiago Costa | Eng | 9 | 1. P2: Map Foundation | New hire, first milestone. May need ramp-up. |
+| Bruno Bacelar | Eng | 9 | 1. Multiplayer Networking | Parallel track, dedicated |
+| Paul Flores | Design | 9 | 1. AI Prototype Playtesting 2. P2 design direction | |
+
+### ClickUp Ticket Summary
+
+- **SHQ 16: Shared multiplayer maps exciting & replayable** (Epic, existing — CHI-34296)
+  - Multiplayer Maps - Phase 2: Map Foundation (proposed)
+    - P2: Map Foundation - Engineering (Randy, after PTO)
+    - P2: Map Foundation - Engineering (Garrett)
+    - P2: Map Foundation - Engineering (Marcos)
+    - P2: Map Foundation - Engineering (Tiago)
+- **SHQ 18-22: Multiplayer prototype designs** (Epics, existing)
+  - Multiplayer Networking - Sprint 26 (proposed, Bruno)
+  - AI Prototype Playtesting - Sprint 26 (proposed, Paul)
+- **Standalone**
+  - P1 Infrastructure wrap-up (proposed, Randy — 3/31 only)
+
+### Carry-Over Risk
+- **Phase 1**: ETA was 3/30. If not complete, overflow hits Randy's single available day (3/31) before his PTO.
 
 ### Open Questions
-- [ ] Marcos Loures transition: Is his Empire handoff clean, or will he carry Empire work into S26?
-- [ ] Tiago Costa onboarding: Does he need ramp-up time, or is he ready to contribute to P2 immediately?
-- [ ] Phase 2 engineering breakdown: Is there a detailed task list, or does this need a scoping spike?
+- [ ] Randy out 4/1-4/6 and has Dozer split — is P1 wrap-up realistic on 3/31 alone?
+- [ ] Marcos Loures transition: Is his Empire handoff clean?
+- [ ] Tiago Costa onboarding: Ready for P2 contribution, or needs ramp?
+- [ ] Phase 2 engineering breakdown: Detailed task list, or needs a scoping spike?
 
-> **Staffing Risk**: Randy Pasion and Garrett Eidsvig have Dozer split responsibilities. Feature work at risk of interruption from build pipeline / networking issues.
+> **Staffing Risk**: Randy only 6 available days + Dozer split. Garrett also has Dozer split. 2 of 5 engineers at risk of interruption.
 
 ---
 
@@ -148,15 +214,19 @@ Or re-authorize the Google Workspace MCP connection, then re-run.
 **Eng Lead**: Derek Gallant | **Eng**: Bruno Freitas
 
 ### Sprint Goals
-- No planned feature work defined yet for M&Ms
 - Infrastructure support and build pipeline maintenance
+- No planned feature work defined yet for M&Ms
 
-### Planned Work
+### Individual Breakdown
 
-| Task | Discipline | Assignee | Est | Priority | Notes |
-|------|-----------|----------|-----|----------|-------|
-| Infrastructure & build pipeline | Eng | Derek Gallant | As needed | P3 | |
-| Infrastructure support | Eng | Bruno Freitas | As needed | P3 | |
+| Assignee | Discipline | Avail Days | Priorities | Notes |
+|----------|-----------|------------|------------|-------|
+| Derek Gallant | Eng Lead | 9 | 1. Infrastructure support 2. Build pipeline | Also Social Dynamics eng lead |
+| Bruno Freitas | Eng | 9 | 1. Infrastructure support | |
+
+### ClickUp Ticket Summary
+
+- No tickets proposed — Dozer M&Ms plan is TBD.
 
 ### Open Questions
 - [ ] Should Dozer features be defined for M&Ms? Pod plan is entirely TBD.
@@ -173,74 +243,96 @@ Or re-authorize the Google Workspace MCP connection, then re-run.
 - Start **VFX & Animation** track (new for M&Ms)
 - Cross-pod asset delivery for Governors, Battle HUD, UI Foundation
 
-### Planned Work
+### Individual Breakdown
 
-| Task | Discipline | Assignee | Est | Priority | Notes |
-|------|-----------|----------|-----|----------|-------|
-| Character Assets | Art | Art team (multiple) | Ongoing | P2 | Heroes & units |
-| Environment Art | Art | Art team (multiple) | Ongoing | P2 | Map tiles, buildings, terrain |
-| UI/UX Assets | Art | Art team (multiple) | Ongoing | P2 | Interface elements |
-| VFX & Animation | Art | TBD | Starting | P3 | Combat effects, skill anims — new track |
-| Sound Design | Audio | Lawrence Steele | Ongoing | P3 | |
+| Assignee | Discipline | Avail Days | Priorities | Notes |
+|----------|-----------|------------|------------|-------|
+| Kevin Griffith | Art Director | 9 | 1. Cross-pod art direction 2. Art pipeline oversight | |
+| Brendan Cheatham | Assoc. AD | 9 | 1. Cross-pod art direction | |
+| Pedro Sarraf | Art | **3** | 1. Current assignments (3/31-4/2 only) | **Out 4/3-4/21** (6 working days). Only available first 3 days. Extends into S27. |
+| Vinod Rams | Art | **8** | 1. Art assignments | **Out 3/31** (1 day) |
+| Danny | Art | 9 | 1. Art assignments | |
+| Alessandro | Art | 9 | 1. Art assignments | |
+| Guilherme (Art) | Art | 9 | 1. Art assignments | |
+| Thiago | Art | 9 | 1. Art assignments | |
+| Lawrence Steele | Audio | 9 | 1. Sound design | |
+
+### ClickUp Ticket Summary
+
+- Art tasks are typically tracked per-pod request rather than as standalone SHQ items. No new Epics proposed.
+- **Standalone**
+  - VFX & Animation - Sprint 26 kickoff (proposed, assignee TBD)
+  - Character Assets - Sprint 26 (ongoing)
+  - Environment Art - Sprint 26 (ongoing)
+  - UI/UX Assets - Sprint 26 (ongoing)
 
 ### Open Questions
-- [ ] VFX & Animation: Who is assigned? This track starts this sprint but no assignee is defined.
-- [ ] Art priorities: Which pod's asset requests take precedence if there's contention? (Governors UI vs Battle HUD vs UI Foundation all need art this sprint)
+- [ ] Pedro out 6 of 9 days — who covers his art assignments?
+- [ ] VFX & Animation: Who is assigned to start this track?
+- [ ] Art priorities: Governors UI vs Battle HUD vs UI Foundation — which gets art first?
 
 ---
 
 ## Cross-Pod & Dependencies
 
 ### Key Handoffs This Sprint
-- **Marcos Loures**: Transitioning from Empire to Social Dynamics. Needs clean handoff of any Empire work.
-- **Dan Dupuis**: Engineering Lead for both Empire and Metagame. Metagame Pipeline A (UI Foundation) is his primary focus, but Governors may need his oversight as eng lead.
+- **Marcos Loures**: Transitioning from Empire to Social Dynamics. Needs clean handoff.
+- **Dan Dupuis**: Eng Lead for both Empire and Metagame. UI Foundation (Metagame Pipeline A) is primary, but Governors may need oversight.
 
 ### Shared Resource Conflicts
-- **Miguel Duran** (UI Artist): Metagame UI Foundation and Empire Governors both need UI art. S25 carry-over already pending.
+- **Miguel Duran** (UI Artist): Metagame UI Foundation and Empire Governors both need UI art. S25 carry-over pending.
 - **Yura Rusin** (UX): Governors UI needed by Sprint 2 — must start now.
 
 ### Milestone Context
-- This is **Sprint 1 of M&Ms**. The milestone transition from Systems Validation is happening.
-- M&Ms success criteria require: multiplayer foundations, territory map at scale, empire strategy connection, metagame depth.
+- **Sprint 1 of M&Ms**. Milestone transition from Systems Validation.
+- M&Ms success criteria: multiplayer foundations, territory map at scale, empire strategy connection, metagame depth.
 - Key SHQs entering active testing: SHQ7 (Governors), SHQ1/SHQ2 (Territory Map — upcoming), SHQ18-22 (Multiplayer prototypes).
 
 ---
 
 ## Capacity Summary
 
-| Person | Pod | Available Days | Notes |
-|--------|-----|---------------|-------|
-| Gabriel Arruda | Empire | 10 | |
-| Henrique De Lima | Empire | 10 | S25 carry-over risk (tutorial arch) |
-| Diana Vasilescu | Empire | 10 | S25 carry-over risk (Governors Design) |
-| Yura Rusin | Empire | 10 | Governors UI — critical timing |
-| Jacob Siegel | Empire | 10 | Map Content |
-| Elise Cole | Empire | 10 | Map Content / tuning |
-| Dan Dupuis | Metagame | 10 | Eng Lead, UI Foundation Pipeline A |
-| Guilherme Quizzini | Metagame | 10 | Building Upgrades Pipeline B |
-| Leonard Perez | Metagame | 10 | Design Lead |
-| Christopher Fidalgo | Metagame | 10 | Heavy S25 carry-over (10 tasks) |
-| Kevin Ligon | Metagame | 10 | UX Lead |
-| Miguel Duran | Metagame | 10 | UI Art — shared resource |
-| Jota Oliveira | Battle | 10 | Solo engineer — critical path |
-| Lincoln Li | Battle | 10 | Design Lead |
-| Nathan Hajek | Battle | 10 | |
-| Dylan Jeffery | Battle | 10 | Battle Content |
-| Vishaal Gupta | Battle | 10 | |
-| Marcos Loures | Social Dynamics | 10 | Transitioning from Empire |
-| Tiago Costa | Social Dynamics | 10 | New hire |
-| Randy Pasion | Social Dynamics | 10 | Dozer split risk |
-| Garrett Eidsvig | Social Dynamics | 10 | Dozer split risk |
-| Bruno Bacelar | Social Dynamics | 10 | Networking track |
-| Derek Gallant | Dozer | 10 | Eng Lead |
-| Bruno Freitas | Dozer | 10 | |
-| Kevin Griffith | Art | 10 | Art Director |
-| Brendan Cheatham | Art | 10 | Assoc. Art Director |
-| Laura Santana | QA (Empire) | 10 | |
-| Hugo Hideo | QA (Metagame) | 10 | |
-| Julio Scarabelli | QA (Battle) | 10 | |
+**Total Working Days**: 9 (Good Friday Apr 3 is Fortis-wide studio closure)
+**Easter Monday (Apr 6)**: Canadian holiday — Hafiz Kassam confirmed out; others TBD.
 
-> **Note**: PTO data unavailable — all days shown as 10. Update after Google Calendar reauthorization.
+| Person | Pod | Avail Days | PTO/Notes |
+|--------|-----|-----------|-----------|
+| Gabriel Arruda | Empire | 9 | |
+| Henrique De Lima | Empire | 9 | Partial appts 4/1, 4/8 |
+| Diana Vasilescu | Empire | 9 | Out 4/14 (S27 boundary) |
+| Yura Rusin | Empire | 9 | Partial appts 4/6, 4/7 |
+| Jacob Siegel | Empire | **4** | Out 3/31-4/7 |
+| Elise Cole | Empire | 9 | |
+| Laura Santana | QA (Empire) | 9 | |
+| Dan Dupuis | Metagame | 9 | |
+| Guilherme Quizzini | Metagame | 9 | |
+| Leonard Perez | Metagame | 9 | |
+| Christopher Fidalgo | Metagame | 9 | Heavy S25 carry-over |
+| Kevin Ligon | Metagame | 9 | |
+| Miguel Duran | Metagame | 9 | Shared resource |
+| Hugo Hideo | QA (Metagame) | 9 | |
+| Jota Oliveira | Battle | **8** | Out 3/31. Solo engineer. |
+| Lincoln Li | Battle | 9 | Partial appts |
+| Nathan Hajek | Battle | 9 | |
+| Dylan Jeffery | Battle | 9 | |
+| Vishaal Gupta | Battle | **8** | Out 4/2 |
+| Julio Scarabelli | QA (Battle) | 9 | |
+| Randy Pasion | Social Dynamics | **6** | Out 4/1-4/6 + Dozer split |
+| Garrett Eidsvig | Social Dynamics | 9 | Dozer split risk |
+| Marcos Loures | Social Dynamics | 9 | Transitioning from Empire |
+| Tiago Costa | Social Dynamics | 9 | New hire |
+| Bruno Bacelar | Social Dynamics | 9 | |
+| Paul Flores | Social Dynamics | 9 | |
+| Derek Gallant | Dozer | 9 | |
+| Bruno Freitas | Dozer | 9 | |
+| Kevin Griffith | Art | 9 | |
+| Brendan Cheatham | Art | 9 | |
+| Pedro Sarraf | Art | **3** | Out 4/3-4/21 |
+| Vinod Rams | Art | **8** | Out 3/31 |
+| Danny | Art | 9 | |
+| Alessandro | Art | 9 | |
+| Lawrence Steele | Art (Audio) | 9 | |
+| Hafiz Kassam | QA (Lead) | **8** | Easter Monday 4/6 |
 
 ---
 
@@ -249,7 +341,6 @@ Or re-authorize the Google Workspace MCP connection, then re-run.
 | SHQ | Status | Owner | Relevant This Sprint? |
 |-----|--------|-------|----------------------|
 | SHQ 02 | Complete | Tim Williams | No — already answered |
-| SHQ 03 | In Progress | Tim Williams | Background — answered negative |
 | SHQ 04 | In Progress | Tim Williams | Yes — Empire territory visualization |
 | SHQ 05 | In Progress | Tim Williams | Yes — session-to-session goals |
 | SHQ 07 | Discussion | Tim Williams | Yes — Governors directly validates this |
@@ -257,20 +348,24 @@ Or re-authorize the Google Workspace MCP connection, then re-run.
 | SHQ 16 | In Progress | Tim Williams | Yes — multiplayer maps (Social Dynamics) |
 | SHQ 18-22 | In Progress / Discussion | Unassigned | Yes — multiplayer prototype designs |
 | SHQ 23 | In Progress | Thorben Novais | Background — battle depth |
-| SHQ 24 | Discussion | Thorben Novais | Background — art clarity |
 
 ---
 
 ## Summary of Open Questions for Kickoff
 
-1. **PTO**: Reauthorize Google Calendar and confirm who's out 3/31-4/14
+1. **Easter Monday**: Which Canadian staff observe this beyond Hafiz?
 2. **Chris Fidalgo carry-over**: Which of his 10 S25 tasks must finish vs defer?
 3. **Henrique Lima carry-over**: Will tutorial architecture complete in S25?
 4. **Diana Vasilescu carry-over**: Will Governors Design (CHI-36224) complete in S25?
-5. **Battle HUD estimate**: Is it 3 sprints or 4? (Plan says 3, Gantt shows 56d/4 sprints)
-6. **Social Dynamics P2 breakdown**: Detailed engineering task list for Map Foundation?
-7. **Marcos Loures handoff**: Clean Empire → Social Dynamics transition?
-8. **Tiago Costa onboarding**: Ready for P2 contribution, or needs ramp?
-9. **VFX & Animation assignee**: Who starts this Art track?
-10. **Art priority conflicts**: Governors vs Battle HUD vs UI Foundation — which gets art first?
-11. **Dozer features**: Should M&Ms infrastructure work be defined and tracked?
+5. **Jacob out 5 of 9 days**: Can Elise solo-cover Map Content?
+6. **Battle HUD estimate**: 3 sprints or 4?
+7. **Jota misses kickoff**: Setup/planning needed 3/31 without him?
+8. **Randy out + Dozer split**: P1 wrap-up realistic on 3/31 alone?
+9. **Social Dynamics P2 breakdown**: Detailed task list or scoping spike?
+10. **Marcos Loures handoff**: Clean Empire -> Social Dynamics transition?
+11. **Tiago Costa onboarding**: Ready for P2, or needs ramp?
+12. **Pedro out 6 of 9 days**: Who covers his art assignments?
+13. **VFX & Animation assignee**: Who starts this track?
+14. **Art priority conflicts**: Governors vs Battle HUD vs UI Foundation?
+15. **UI Foundation SHQ mapping**: Should this be linked to a validation question?
+16. **Battle HUD SHQ**: Needs an Epic — create new or map to existing?

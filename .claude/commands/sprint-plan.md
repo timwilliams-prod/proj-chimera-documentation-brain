@@ -68,6 +68,12 @@ Read the **Lotus OOO** calendar for the sprint's 2-week window:
 - Use `calendar_listEvents` with the sprint start and end dates
 - Extract: who is out, which days, total days missed
 
+Calculate **total working days** for the sprint:
+- Count weekdays (Mon-Fri) in the sprint date range
+- Subtract any **studio-wide holidays** (e.g., Good Friday, company holidays)
+- Look for calendar events containing "Fortis Wide Holiday", "Studio Closed", "Company Holiday", or similar — these affect everyone
+- Also note **regional holidays** (e.g., Easter Monday for Canadian staff) — these affect a subset of the team
+
 Flag anyone with:
 - **3+ days out**: Reduced capacity — note in their section
 - **Full sprint out**: Unavailable — do not assign work
@@ -99,17 +105,33 @@ Generate the sprint plan organized by pod. Each pod section includes:
 ### Sprint Goals
 - [1-3 high-level goals for this pod this sprint, connected to milestone/SHQ]
 
-### PTO
-- [Person]: [dates] ([N] days)
+### Individual Breakdown
 
-### Planned Work
-| Task | Discipline | Assignee | Est | Priority | Notes |
-|------|-----------|----------|-----|----------|-------|
-| [Feature] - UX Design | UX | [Name] | [days] | [P1-P4] | [SHQ ref, dependency, etc.] |
-| [Feature] - Engineering | Eng | [Name] | [days] | [P1-P4] | |
-| [Feature] - QA | QA | [Name] | [days] | [P3] | |
+List EVERY person assigned to this pod (from capacity.md). Include their PTO inline in the Notes column — no separate PTO section.
 
-### Carry-Over (if any)
+| Assignee | Discipline | Avail Days | Priorities | Notes |
+|----------|-----------|------------|------------|-------|
+| [Name] | Eng | [9 - PTO] | 1. [Primary focus] 2. [Secondary] | [PTO dates, carry-over, risks] |
+| [Name] | Design | [9 - PTO] | 1. [Primary focus] | |
+| [Name] | QA | [9 - PTO] | 1. [Primary focus] | |
+
+The **Priorities** column lists that person's individual priorities in order of importance, relative to each other. This is what each person should focus on first, second, etc.
+
+### ClickUp Ticket Summary
+
+Hierarchical view of what will be created in ClickUp at Kickoff. Mirrors the SHQ → Parent Task → Child Task structure.
+
+- **SHQ XX: [Question]** (Epic, existing)
+  - [Feature] - [Phase] (Parent task)
+    - [Feature] - UX Design
+    - [Feature] - Engineering
+    - [Feature] - QA
+- **Standalone / No SHQ**
+  - [Task name]
+
+In Preview mode, mark items as (proposed) or (confirmed). In Kickoff mode, this is the definitive list.
+
+### Carry-Over Risk (if any)
 - [Task from previous sprint that didn't finish] — [status, what's left]
 
 ### Open Questions (Preview mode only)
@@ -127,9 +149,12 @@ Generate the sprint plan organized by pod. Each pod section includes:
 #### Capacity Summary:
 ```markdown
 ## Capacity Summary
+
+**Total Working Days**: [N] (after [holiday name] on [date])
+
 | Person | Pod | Available Days | Assigned Days | Load |
 |--------|-----|---------------|---------------|------|
-| [Name] | [Pod] | [10 - PTO days] | [sum of estimates] | [OK / Heavy / Over] |
+| [Name] | [Pod] | [working days - PTO days] | [sum of estimates] | [OK / Heavy / Over] |
 ```
 
 ### 6. Scaffold ClickUp Tasks (Kickoff Mode Only)
@@ -161,6 +186,8 @@ Include a metadata header:
 ---
 Sprint: [Name] [Number]
 Dates: [Start] - [End]
+Working Days: [N] (after holidays)
+Holidays: [list any studio-wide or regional holidays in the sprint window]
 Milestone: [Current milestone]
 Mode: [Preview | Kickoff]
 Generated: [Date]
