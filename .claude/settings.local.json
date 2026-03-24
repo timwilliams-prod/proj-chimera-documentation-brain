@@ -28,7 +28,9 @@
       "mcp__notion__notion-query-data-sources",
       "mcp__clickup__clickup_get_workspace_hierarchy",
       "mcp__clickup__clickup_search",
-      "mcp__clickup__clickup_filter_tasks"
+      "mcp__clickup__clickup_filter_tasks",
+      "mcp__plugin_slack_slack__slack_search_channels",
+      "mcp__plugin_slack_slack__slack_read_channel"
     ]
   }
 }
