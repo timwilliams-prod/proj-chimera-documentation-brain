@@ -25,7 +25,10 @@
       "WebFetch(domain:www.notion.so)",
       "mcp__notion__notion-fetch",
       "mcp__notion__notion-search",
-      "mcp__notion__notion-query-data-sources"
+      "mcp__notion__notion-query-data-sources",
+      "mcp__clickup__clickup_get_workspace_hierarchy",
+      "mcp__clickup__clickup_search",
+      "mcp__clickup__clickup_filter_tasks"
     ]
   }
 }
