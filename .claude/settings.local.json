@@ -24,7 +24,8 @@
       "Bash(claude mcp:*)",
       "WebFetch(domain:www.notion.so)",
       "mcp__notion__notion-fetch",
-      "mcp__notion__notion-search"
+      "mcp__notion__notion-search",
+      "mcp__notion__notion-query-data-sources"
     ]
   }
 }

@@ -181,26 +181,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "planning/product_targets.md",
+                "file": "planning/features/building_upgrades_wm.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "product_targets"
-            }
-          },
-          {
-            "id": "e10c81db4b65cad6",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
+              "title": "building_upgrades_wm"
             }
           }
         ],
-        "currentTab": 13
+        "currentTab": 12
       }
     ],
     "direction": "vertical"
@@ -362,43 +352,43 @@
       "bases:Create new base": false
     }
   },
-  "active": "e10c81db4b65cad6",
+  "active": "bdaa0665c0df0b52",
   "lastOpenFiles": [
+    "planning/features/player_journey.md",
+    "planning/features/devops.md",
+    "planning/features/security.md",
+    "planning/features/performance_optimization.md",
+    "planning/features/battlepass.md",
+    "planning/features/ravagers_reef.md",
+    "planning/features/unit_content_pipeline.md",
+    "planning/features/actor_system.md",
+    "planning/features/unit_designing_tools.md",
+    "planning/features/pathfinding.md",
+    "planning/features/obstacles.md",
+    "planning/features/wombo_combo.md",
+    "planning/features/battle_content_pipeline.md",
+    "planning/features/battle_designing_tools.md",
+    "planning/features/growthbook_integration.md",
+    "planning/features/login_flow_optimization.md",
+    "planning/features/ui_stability_performance.md",
+    "planning/features/notifications.md",
+    "planning/features/inbox_admin_comms.md",
+    "planning/features/tutorial_expansion.md",
+    "planning/features/empire_summary.md",
+    "planning/features/interstitials.md",
+    "planning/features/end_level_reward_screen.md",
+    "planning/features/live_events.md",
+    "planning/features/achievements.md",
+    "planning/features/achievements.md.tmp.12364.1774376016852",
+    "planning/features/daily_quests.md",
+    "planning/features/shop.md.tmp.12364.1774375962259",
+    "planning/features/troop_recruiting.md.tmp.12364.1774375928755",
+    "planning/features/hero_ranking_up.md.tmp.12364.1774375892060",
+    "planning/features/gear.md.tmp.12364.1774375891994",
+    "planning/features/passive_bonus_tiles.md.tmp.12364.1774375687691",
+    "planning/feature_registry.md.tmp.12364.1774375416236",
+    "planning/feature_registry.md.tmp.12364.1774375412724",
     "generated/reports",
-    "project-charter.md",
-    "project-charter.md.tmp.11488.1774363703447",
-    "reference/skill_evaluation_risk_eval_roadmap_update.md",
-    "reference/skill_evaluation_pulse_check_qvr.md",
-    "reference/skill_evaluation_pulse_check_qvr.md.tmp.11488.1774362880337",
-    "brain-template/reference",
-    "brain-template/generated",
-    "brain-template/planning/designer_queue/designer_queue.md",
-    "brain-template/planning/designer_queue",
-    "brain-template/planning/teams",
-    "brain-template/planning/features",
-    "brain-template/planning/validation_roadmap.md",
-    "brain-template/planning/feature_registry.md",
-    "brain-template/planning/capacity.md",
-    "brain-template/planning/product_targets.md",
-    "brain-template/planning",
-    "brain-template/EXAMPLES.md",
-    "brain-template/ONBOARDING.md",
-    "brain-template/ONBOARDING.md.tmp.19620.1774311847886",
-    "brain-template/project-charter.md",
-    "brain-template/README.md",
-    "brain-template",
-    "planning/feature_registry.md",
-    "planning/TechnicalDebt.md",
-    "planning/product_targets.md",
-    "planning/designer_queue/designers.md",
-    "planning/designer_queue/designerQueue.md",
-    "recordings.md",
-    "planning/capacity.md",
-    "GETTING_STARTED_CLAUDE.md",
-    "generated/roadmap.md",
-    "planning/pods/Metagame_Plan.md",
-    "USE_CASES.md",
-    "planning/pods/Battle_Plan.md",
-    "planning/pods/Art_Plan.md"
+    "project-charter.md.tmp.11488.1774363703447"
   ]
 }
