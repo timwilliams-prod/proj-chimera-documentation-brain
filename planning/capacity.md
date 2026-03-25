@@ -1,8 +1,8 @@
 # Team Capacity
 
 Last Updated: 2026-03-20
-Current Milestone: Systems Validation (final sprint, ends 3/30)
-Next Milestone: M&Ms (starts ~3/31, ends Jun 23, 2026)
+Current Milestone: Systems Validation (final sprint, ends 3/30/2026)
+Next Milestone: M&Ms (starts ~3/31/2026, ends Jun 23, 2026)
 
 > Staffing allocations by discipline and role across milestones.
 > People move between pods - this file is the single view of where everyone is.
@@ -98,17 +98,17 @@ Next Milestone: M&Ms (starts ~3/31, ends Jun 23, 2026)
 |--------|------|---------------|---------------|----|-------|
 | Kevin Griffith | Art Director | Art | Art | Art | Cross-pod leadership |
 | Brendan Cheatham | Associate Art Director | Art | Art | Art | Cross-pod leadership |
-| Lawrence Steele | Sound Engineer | Art | Art | Art | |
-| Danny | Artist | Art | [TBD] | [TBD] | |
-| Alessandro | Artist | Art | [TBD] | [TBD] | |
-| Pedro | Artist | Art | [TBD] | [TBD] | |
-| Guilherme | Artist | Art | [TBD] | [TBD] | |
-| Vinod Rams | Artist | Art | [TBD] | [TBD] | |
-| Thiago | Artist | Art | [TBD] | [TBD] | |
-| Ben Clair | Artist | Battle | Battle | [TBD] | |
-| Felipe Chaves | Artist | Battle | Battle | [TBD] | |
-| Tony Bonilla | Artist | Battle | Battle | [TBD] | |
-| Vinicius | Artist | Battle | Battle | [TBD] | |
+| Lawrence Steele | Sound Engineer | Art | Audio Foundation | Art | |
+| Danny Oliveira | Senior Technical Artist | Battle | Hero Content | [TBD] | |
+| Alessandro Oliveira | VFX | Battle | Hero Content | [TBD] | |
+| Pedro Sarraf | Lead Technical Artist | Art | Territory Map Vertical Slice | [TBD] | |
+| Guilherme Lascasas | 2D Environment Concept | Empire | Territory Map Vertical Slice | [TBD] | |
+| Vinod Rams | Lead 2D Concept | Battle | Hero Content | [TBD] | |
+| Thiago Saraiva | Senior 3D | Empire | Territory Map Vertical Slice | [TBD] | |
+| Ben Clair | Senior Technical Artist | Battle | Hero Content | [TBD] | |
+| Felipe Chaves | Staff 3D Character | Battle | Hero Content | [TBD] | |
+| Tony Bonilla | Lead Animator | Battle | Hero Content | [TBD] | |
+| Vini Muniz | Character Concept Artist | Battle | Hero Content | [TBD] | |
 
 ---
 
