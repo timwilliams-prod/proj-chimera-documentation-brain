@@ -70,18 +70,18 @@ When a feature spans multiple sprints, break it into phases:
 
 ```
 Epic: SHQ7 - Clear Short/Mid/Long-term Goals
-  Subtask: Governors - Backend & Data (Sprint 26)
-    Child: Set up governor data models
-    Child: Governor assignment API
-    Child: Governor progression logic
-  Subtask: Governors - UI Implementation (Sprint 27)
-    Child: Governor selection screen
-    Child: Governor detail panel
-    Child: Governor effects display
-  Subtask: Governors - Experience Polish (Sprint 28)
-    Child: Governor onboarding tutorial
-    Child: Governor tooltip polish
-    Child: QA - Governors full pass
+  Parent Task: Governors - Backend & Data (Sprint 26)
+    Child Task: Set up governor data models
+    Child Task: Governor assignment API
+    Child Task: Governor progression logic
+  Parent Task: Governors - UI Implementation (Sprint 27)
+    Child Task: Governor selection screen
+    Child Task: Governor detail panel
+    Child Task: Governor effects display
+  Parent Task: Governors - Experience Polish (Sprint 28)
+    Child Task: Governor onboarding tutorial
+    Child Task: Governor tooltip polish
+    Child Task: QA - Governors full pass
 ```
 
 ---
