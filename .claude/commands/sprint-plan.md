@@ -61,7 +61,59 @@ Read ALL of these to understand what should be in this sprint:
 - `planning/dependency_map.md` — Cross-pod dependencies that affect sequencing
 - `planning/ValidationRoadmap.md` — Active SHQs to connect work to validation
 
-### 3. Pull PTO from Google Calendar
+### 3. Check Pod Plan Sprint Plans Sections
+
+Each pod plan (`planning/pods/*_Plan.md`) has a **Sprint Plans** section that contains lightweight per-sprint summaries (goals, key assignments, risks). This section is the bridge between milestone-level planning and sprint-level execution.
+
+#### If the Sprint Plans section exists:
+- **Use it as primary input** for that pod's sprint plan. The goals, assignments, and risks listed there represent the producer/lead's intent.
+- Cross-reference against ClickUp state, PTO, and capacity to validate and enrich.
+- Flag any conflicts between the Sprint Plans section and ClickUp reality (e.g., a person assigned work but fully on PTO, a feature marked "NOT STARTED" that has ClickUp tasks already in progress).
+
+#### If the Sprint Plans section is missing:
+- **Create it** by inferring from the pod's Feature Priorities, Milestone Breakdown, and the consolidated roadmap.
+- Use the following template and populate with your best assessment:
+
+```markdown
+## Sprint Plans
+
+> Skill-maintained by `/sprint-plan`. Updated with user approval.
+> Shows current + next sprint. Full details in `generated/sprint_plans/`.
+
+### Sprint [N]: [Name] ([dates]) — CURRENT
+
+**Goals**:
+- [1-3 goals inferred from roadmap, feature priorities, and milestone breakdown]
+
+**Key Assignments**:
+
+| Person | Focus | Notes |
+|--------|-------|-------|
+| [Name] | [Feature/work] | [Context from capacity.md, ClickUp, or roadmap] |
+
+**Risks & Awareness**:
+- [Inferred risks: PTO, capacity, dependencies, missing specs]
+
+### Sprint [N+1]: [Name] ([dates]) — NEXT
+
+**Goals**:
+- [Projected from roadmap/priorities]
+
+**Risks & Awareness**:
+- [Projected risks]
+```
+
+- Present the proposed Sprint Plans section to the user and ask for approval before writing it to the pod plan.
+
+#### Feature context enrichment:
+When a Sprint Plans section references a feature (e.g., "Governors engineering"), pull relevant context to include in the generated sprint plan:
+- **Feature spec**: Link to `planning/features/[feature].md` if it exists. Note key info (SHQs, estimate, status).
+- **ClickUp state**: Search for existing tasks related to this feature. Note task IDs, statuses, carry-over items.
+- **Validation link**: Which SHQ/BHQ this work contributes to.
+
+This enrichment goes into the full `generated/sprint_plans/` output, not back into the pod plan section (which stays lightweight).
+
+### 4. Pull PTO from Google Calendar
 
 Read the **Lotus OOO** calendar for the sprint's 2-week window:
 - Calendar ID: `c_3992c42a3903831f4100bc114a0b4758274a26d5a31f749f5aaacc140caeddc7@group.calendar.google.com`
@@ -79,7 +131,7 @@ Flag anyone with:
 - **Full sprint out**: Unavailable — do not assign work
 - **Key person out during critical phase**: Risk flag (e.g., only engineer on a pod out during their feature's sprint)
 
-### 4. Check ClickUp State
+### 5. Check ClickUp State
 
 #### For Preview Mode:
 - Pull tasks from the **current sprint list** to identify carry-over risks (tasks still open that might not finish)
@@ -93,7 +145,7 @@ Flag anyone with:
 
 Use `clickup_search` with `space_ids: ["38562126"]` to search within Lotus only. For list-specific queries, use `clickup_filter_tasks` with the list ID.
 
-### 5. Build the Sprint Plan
+### 6. Build the Sprint Plan
 
 Generate the sprint plan organized by pod. Each pod section includes:
 
@@ -157,7 +209,7 @@ In Preview mode, mark items as (proposed) or (confirmed). In Kickoff mode, this 
 | [Name] | [Pod] | [working days - PTO days] | [sum of estimates] | [OK / Heavy / Over] |
 ```
 
-### 6. Scaffold ClickUp Tasks (Kickoff Mode Only)
+### 7. Scaffold ClickUp Tasks (Kickoff Mode Only)
 
 For each planned work item, apply the scaffolding rules from `planning/sprint_rules.md`:
 
@@ -175,9 +227,31 @@ When confirmed, for each task:
 2. Add to the Sprint list using `clickup_add_task_to_list`
 3. If there's a parent Epic, set the parent relationship
 
-### 7. Write Sprint Plan File
+### 8. Update Pod Plan Sprint Plans Sections
 
-Save the sprint plan to `generated/sprint_plans/sprint_[number]_[name].md`.
+After generating the full sprint plan, update the Sprint Plans section in each pod plan file.
+
+#### Rolling window logic:
+- The section always shows **current sprint + next sprint** only.
+- When generating a plan for a new sprint:
+  - The sprint that was "NEXT" becomes "CURRENT"
+  - A new "NEXT" sprint is projected from roadmap/priorities
+  - Any sprint that was "CURRENT" (now past) is dropped from the section
+
+#### What to write:
+- **Goals**: High-level, feature-oriented, with SHQ/validation links
+- **Key Assignments**: Person, focus, and key context (PTO, carry-over, phase info). Lighter than the full sprint plan — no Avail Days column.
+- **Risks & Awareness**: PTO impacts, capacity risks, carry-over, dependency issues, missing specs
+
+#### Writing rules:
+- **Always ask for user approval** before writing to pod plan files (they're in `planning/`, which is human-authored).
+- Present each pod's proposed Sprint Plans update and get confirmation.
+- If the user modifies the content, incorporate their changes.
+- Update the `Last Updated` date at the top of the pod plan file.
+
+### 9. Write Sprint Plan File
+
+Save the full sprint plan to `generated/sprint_plans/sprint_[number]_[name].md`.
 
 Example: `generated/sprint_plans/sprint_27_zany_zebras.md`
 
@@ -194,7 +268,7 @@ Generated: [Date]
 ---
 ```
 
-### 8. Summary
+### 10. Summary
 
 Report to the user:
 - **Mode**: Preview or Kickoff
@@ -202,6 +276,7 @@ Report to the user:
 - **Milestone**: Which milestone, how far through it
 - **PTO impact**: Who's out, capacity effect
 - **Key risks**: Overloaded people, missing specs, dependency conflicts
+- **Pod plan updates**: Which pod plans had Sprint Plans sections created or updated
 - **Preview only**: Open questions that need answers before kickoff
 - **Kickoff only**: How many ClickUp tasks created/updated, any gaps
 
@@ -240,3 +315,4 @@ When creating ClickUp tasks, follow these rules strictly:
 - Preview mode is intentionally lighter — it's a conversation starter, not a contract.
 - Kickoff mode is heavier — it produces the actual execution plan and creates real tasks.
 - Always check for an existing sprint plan file before writing — if one exists for the same sprint, update it rather than creating a duplicate.
+- Pod plan Sprint Plans sections are the lightweight "intent" layer. The generated sprint plan file is the detailed "execution" layer.

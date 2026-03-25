@@ -1,27 +1,11 @@
 # Social Dynamics Pod Plan
 
-Last Updated: 2026-03-19
+Last Updated: 2026-03-25
 Pod Lead: [TBD]
 
 > **What this file tracks**: Feature priorities per milestone and validation alignment.
 > **What lives elsewhere**: Feature details in `planning/features/*.md`. Staffing in `planning/capacity.md`. Sprint execution in ClickUp.
 > For the full validation hierarchy, see `planning/ValidationRoadmap.md`.
-
----
-
-## Strategy: Parallel Tracks
-
-Social Dynamics runs multiple parallel tracks during M&Ms:
-
-1. **Multiplayer AI Prototype** -- Playtesting and iterating on the AI-driven prototype throughout M&Ms. This is our active playtest vehicle until the real client is ready.
-2. **Multiplayer Maps Build-Up** -- Engineering builds the real multiplayer map phase by phase (Phases 1-10, see below).
-3. **Networking** -- Multiplayer networking infrastructure running in parallel during M&Ms.
-
-**Switchover Goal**: Get the in-client version functional enough to replace the AI prototype for playtesting during M&Ms.
-**Player Release Goal**: Ship multiplayer to players during / at the end of M&C.
-**All phases (1-10) target completion by end of M&C** (Oct 13, 2026). Later phases assume additional resources beyond the initial 2 engineers.
-
-**Staffing**: 2 client engineers (Randy, Garrett) across M&Ms and M&C. Additional resources expected for later phases.
 
 ---
 
@@ -66,6 +50,22 @@ gantt
 ```
 
 > Gantt durations are estimates. Phases 7-10 compress with additional resources. Actual timelines TBD as breakdowns are finalized.
+
+---
+
+## Strategy: Parallel Tracks
+
+Social Dynamics runs multiple parallel tracks during M&Ms:
+
+1. **Multiplayer AI Prototype** -- Playtesting and iterating on the AI-driven prototype throughout M&Ms. This is our active playtest vehicle until the real client is ready.
+2. **Multiplayer Maps Build-Up** -- Engineering builds the real multiplayer map phase by phase (Phases 1-10, see below).
+3. **Networking** -- Multiplayer networking infrastructure running in parallel during M&Ms.
+
+**Switchover Goal**: Get the in-client version functional enough to replace the AI prototype for playtesting during M&Ms.
+**Player Release Goal**: Ship multiplayer to players during / at the end of M&C.
+**All phases (1-10) target completion by end of M&C** (Oct 13, 2026). Later phases assume additional resources beyond the initial 2 engineers.
+
+**Staffing**: 2 client engineers (Randy, Garrett) across M&Ms and M&C. Additional resources expected for later phases.
 
 ---
 
@@ -164,6 +164,50 @@ gantt
 |---------|----------|--------|
 | Ravager's Reef | 3 sprints | NOT STARTED |
 | Battlepass | 2 sprints | NOT STARTED |
+
+---
+
+## Sprint Plans
+
+> Skill-maintained by `/sprint-plan`. Updated with user approval.
+> Shows current + next sprint. Full details in `generated/sprint_plans/`.
+
+### Sprint 26: Yodel Yaks (3/31 - 4/14) — CURRENT
+
+**Goals**:
+- Wrap **Phase 1** (Infrastructure & Foundation, ETA was 3/30) — any overflow lands here
+- Start **Phase 2** (Map Foundation) — core multiplayer map build-up begins
+- Continue **AI Prototype Playtesting** and **Multiplayer Networking** tracks
+
+**Key Assignments**:
+
+| Person | Focus | Notes |
+|--------|-------|-------|
+| Randy Pasion | P1 wrap-up (3/31 only), then P2: Map Foundation | Out 4/1-4/6 (3 days PTO). 6 avail days. Dozer split risk. |
+| Garrett Eidsvig | P2: Map Foundation - multiplayer infrastructure | Dozer split risk — feature work may be interrupted |
+| Marcos Loures | P2: Map Foundation | Transitioning from Empire — needs clean handoff |
+| Tiago Costa | P2: Map Foundation | New hire, first milestone. May need ramp-up time. |
+| Bruno Bacelar | Multiplayer Networking | Parallel track, dedicated |
+| Paul Flores | AI Prototype Playtesting + P2 design direction | |
+
+**Risks & Awareness**:
+- **Phase 1 overflow**: ETA was 3/30. If not complete, overflow hits Randy's single available day (3/31) before his PTO.
+- Randy only 6 available days + Dozer split. Garrett also has Dozer split. 2 of 5 engineers at risk of interruption.
+- Marcos Loures transitioning from Empire — is handoff clean?
+- Tiago Costa onboarding — ready for P2 contribution, or needs ramp?
+- Phase 2 engineering breakdown: detailed task list needed, or scoping spike first?
+
+### Sprint 27: Zany Zebras (4/14 - 4/28) — NEXT
+
+**Goals**:
+- Continue **Phase 2** (Map Foundation)
+- Continue **AI Prototype Playtesting** and **Networking** tracks
+- Assess switchover readiness: is in-client version approaching playtest-viable?
+
+**Risks & Awareness**:
+- Randy/Garrett Dozer split continues
+- Phase 2 is ~1 month — should be mid-way through by end of S27
+- If P1 overflow consumed S26 time, P2 timeline compresses
 
 ---
 

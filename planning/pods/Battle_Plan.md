@@ -1,27 +1,11 @@
 # Battle Pod Plan
 
-Last Updated: 2026-03-20
+Last Updated: 2026-03-25
 Pod Lead: Lincoln Li
 
 > **What this file tracks**: Feature priorities per milestone and validation alignment.
 > **What lives elsewhere**: Feature details in `planning/features/*.md`. Staffing in `planning/capacity.md`. Sprint execution in ClickUp.
 > For the full validation hierarchy, see `planning/ValidationRoadmap.md`.
-
----
-
-## Validation Focus
-
-The Battle pod is primarily validating combat engagement, unit variety, and tactical depth.
-
-### BHQs This Pod Contributes To
-
-Battle features contribute to these BHQs (full details in `planning/ValidationRoadmap.md`).
-
-| BHQ | Question | Status | Cross-Pod? |
-|-----|----------|--------|------------|
-| [TBD] | Does combat feel engaging and skill-expressive? | TESTING | No |
-| [TBD] | Does unit variety create meaningful tactical choices? | NOT YET TESTED | Yes (connects to Metagame) |
-| [TBD] | Can we balance accessibility with depth? | NOT YET TESTED | No |
 
 ---
 
@@ -64,6 +48,22 @@ gantt
 
 ---
 
+## Validation Focus
+
+The Battle pod is primarily validating combat engagement, unit variety, and tactical depth.
+
+### BHQs This Pod Contributes To
+
+Battle features contribute to these BHQs (full details in `planning/ValidationRoadmap.md`).
+
+| BHQ | Question | Status | Cross-Pod? |
+|-----|----------|--------|------------|
+| [TBD] | Does combat feel engaging and skill-expressive? | TESTING | No |
+| [TBD] | Does unit variety create meaningful tactical choices? | NOT YET TESTED | Yes (connects to Metagame) |
+| [TBD] | Can we balance accessibility with depth? | NOT YET TESTED | No |
+
+---
+
 ## Feature Priorities
 
 All Battle features across milestones, ordered by priority within each milestone.
@@ -83,13 +83,57 @@ All Battle features across milestones, ordered by priority within each milestone
 
 ---
 
+## Sprint Plans
+
+> Skill-maintained by `/sprint-plan`. Updated with user approval.
+> Shows current + next sprint. Full details in `generated/sprint_plans/`.
+
+### Sprint 26: Yodel Yaks (3/31 - 4/14) — CURRENT
+
+**Goals**:
+- Start **Battle HUD Beta Overhaul** (Sprint 1 of ~4) — must-have for M&Ms beta quality
+- Front-load design work on **Obstacles**, **Actor System Overhaul**, **Pathfinding & AI** while Jota focuses on HUD
+- Continue **Battle Content** and **Unit Content** pipelines
+
+**Key Assignments**:
+
+| Person | Focus | Notes |
+|--------|-------|-------|
+| Jota Oliveira | Battle HUD Beta Overhaul | Solo engineer, out 3/31 (starts 4/1). 8 avail days. Critical path. |
+| Lincoln Li | Battle HUD design direction | Also coordinating design prep for future features |
+| Nathan Hajek | Obstacles design prep | Front-loading design for future sprint |
+| Dylan Jeffery | Battle Content pipeline | Ongoing |
+| Vishaal Gupta | Battle Content + unit balance | Out 4/2 (1 day) |
+| Julio Scarabelli | S25 bug verification + HUD QA prep | |
+| Ben Clair, Felipe Chaves, Tony Bonilla, Vinicius | Unit Content art | Ongoing |
+
+**Risks & Awareness**:
+- **Solo engineer**: Jota is the only client engineer. All features are sequential — any delay cascades.
+- Jota misses kickoff day (3/31) — setup/planning needed without him?
+- 6 features totaling ~12 eng-sprints in a 7-sprint milestone. Pool Management already deferred to M&C.
+- Battle HUD estimate unclear: plan says 3 sprints, Gantt shows 4. Needs clarification.
+- Battle HUD needs an SHQ Epic — should one be created or mapped to existing?
+
+### Sprint 27: Zany Zebras (4/14 - 4/28) — NEXT
+
+**Goals**:
+- Continue **Battle HUD Beta Overhaul** (Sprint 2 of ~4)
+- Continue design prep for upcoming features (Obstacles, Actor System)
+- Continue content pipelines
+
+**Risks & Awareness**:
+- Still solo engineer (Jota) — no capacity flexibility
+- If HUD runs long, downstream features compress further
+
+---
+
 ## Milestone Breakdown
 
 ### M&Ms (Multiplayer & Meta)
 
 **Ends**: Jun 23, 2026 | **Sprints**: ~7 | **Capacity**: 1x ENG (Jota)
 
-**⚠️ CAPACITY WARNING**: 6 features totaling 12 sprints scheduled for 7-sprint milestone. Requires compression or deferral.
+**CAPACITY WARNING**: 6 features totaling 12 sprints scheduled for 7-sprint milestone. Requires compression or deferral.
 
 ```
 Sprint 1:    Battle HUD Beta Overhaul, Obstacles, Actor System Overhaul, Pathfinding & AI (all start)

@@ -75,7 +75,7 @@ lotusDocumentationBrain/
     GlobalRules.md                Project-wide constraints and standards
     TechnicalDebt.md              Tech debt ledger (owned by Engineering Leads)
     sprint_rules.md               Task scaffolding rules for ClickUp (drives /sprint-plan)
-    pods/                         Per-pod plans (priorities, validation focus)
+    pods/                         Per-pod plans (priorities, validation focus, sprint plans)
       Empire_Plan.md
       Metagame_Plan.md
       Battle_Plan.md
@@ -119,6 +119,7 @@ Every piece of information has ONE authoritative home. Other files reference it,
 | Validation hypotheses & questions | `planning/ValidationRoadmap.md` | Question ID (e.g., SHQ7) |
 | Feature scope, cost, approach | `planning/features/*.md` | Feature name + link |
 | Pod priorities & validation focus | `planning/pods/*_Plan.md` | Pod name |
+| Pod sprint-level intent (current + next) | `planning/pods/*_Plan.md` (Sprint Plans section) | Sprint name, skill-maintained |
 | Feature-to-source mapping | `planning/feature_registry.md` | Feature name |
 | Cross-project constraints | `planning/GlobalRules.md` | Rule name |
 | Technical debt items | `planning/TechnicalDebt.md` | Item ID (e.g., TD-001) |
@@ -328,7 +329,7 @@ Skills are slash commands (`.claude/commands/*.md`) that automate common workflo
 | `/new-skill` | Guide creation of new skills | Existing skills, charter | .claude/commands/ |
 | `/generatePulseCheckReport` | Monthly executive Pulse Check report | product_targets, capacity, pod plans, ValidationRoadmap | Report |
 | `/generate_qvr_report` | Quarterly Validation Review report | product_targets, capacity, ValidationRoadmap, pod plans | Report |
-| `/sprint-plan` | Sprint planning (Preview/Kickoff modes) | product_targets, pod plans, capacity, sprint_rules, roadmap, Google Calendar, ClickUp | generated/sprint_plans/, ClickUp tasks (Kickoff) |
+| `/sprint-plan` | Sprint planning (Preview/Kickoff modes) | product_targets, pod plans, capacity, sprint_rules, roadmap, Google Calendar, ClickUp | generated/sprint_plans/, pods/*_Plan.md (Sprint Plans section), ClickUp tasks (Kickoff) |
 | `/sprint-risks` | Interactive sprint risk triage | ClickUp sprint tasks, product_targets, pod plans, Slack | Report (copy/paste) |
 | `/roadmap-sheet` | Generate Google Sheets roadmap script | product_targets, pod plans, capacity, roadmap | generated/roadmap_apps_script.js |
 
@@ -383,3 +384,4 @@ When operating in this brain:
 | Date | Change | Author |
 |------|--------|--------|
 | 2026-03-24 | Initial Lotus project charter created from brain-template | Tim / Claude |
+| 2026-03-25 | Added Sprint Plans section to pod plans; documented in charter | Tim / Claude |

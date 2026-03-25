@@ -1,27 +1,11 @@
 # Art Pod Plan
 
-Last Updated: 2026-03-20
+Last Updated: 2026-03-25
 Pod Lead: [TBD]
 
 > **What this file tracks**: Art production priorities per milestone and pipeline capacity.
 > **What lives elsewhere**: Feature details in `planning/features/*.md`. Staffing in `planning/capacity.md`. Sprint execution in ClickUp.
 > For the full validation hierarchy, see `planning/ValidationRoadmap.md`.
-
----
-
-## Validation Focus
-
-The Art pod supports all other pods by delivering high-quality visual assets that validate the aesthetic bar, scalability of art pipelines, and cross-pod content production capacity.
-
-### BHQs This Pod Contributes To
-
-Art production contributes to these BHQs across all pods (full details in `planning/ValidationRoadmap.md`).
-
-| BHQ | Question | Status | Cross-Pod? |
-|-----|----------|--------|------------|
-| [TBD] | Does our art pipeline support rapid iteration without sacrificing quality? | NOT YET TESTED | Yes (all pods) |
-| [TBD] | Can we maintain visual consistency across Empire, Battle, and Metagame systems? | TESTING | Yes (all pods) |
-| [TBD] | Is our art scalable for long-term content production? | NOT YET TESTED | Yes (all pods) |
 
 ---
 
@@ -64,6 +48,22 @@ gantt
 
 ---
 
+## Validation Focus
+
+The Art pod supports all other pods by delivering high-quality visual assets that validate the aesthetic bar, scalability of art pipelines, and cross-pod content production capacity.
+
+### BHQs This Pod Contributes To
+
+Art production contributes to these BHQs across all pods (full details in `planning/ValidationRoadmap.md`).
+
+| BHQ | Question | Status | Cross-Pod? |
+|-----|----------|--------|------------|
+| [TBD] | Does our art pipeline support rapid iteration without sacrificing quality? | NOT YET TESTED | Yes (all pods) |
+| [TBD] | Can we maintain visual consistency across Empire, Battle, and Metagame systems? | TESTING | Yes (all pods) |
+| [TBD] | Is our art scalable for long-term content production? | NOT YET TESTED | Yes (all pods) |
+
+---
+
 ## Feature Priorities
 
 All Art features across milestones, ordered by priority within each milestone.
@@ -82,6 +82,51 @@ All Art features across milestones, ordered by priority within each milestone.
 | 10  | Art Tool Development           | Ongoing   | Ongoing   | IN PROGRESS | [TBD]        | Tooling efficiency validates production hypothesis |
 
 > Feature docs may not exist yet — create as needed.
+
+---
+
+## Sprint Plans
+
+> Skill-maintained by `/sprint-plan`. Updated with user approval.
+> Shows current + next sprint. Full details in `generated/sprint_plans/`.
+
+### Sprint 26: Yodel Yaks (3/31 - 4/14) — CURRENT
+
+**Goals**:
+- Continue **Character Assets**, **Environment Art**, **UI/UX Assets** pipelines
+- Start **VFX & Animation** track (new for M&Ms)
+- Cross-pod asset delivery for Governors (Empire), Battle HUD (Battle), UI Foundation (Metagame)
+
+**Key Assignments**:
+
+| Person | Focus | Notes |
+|--------|-------|-------|
+| Kevin Griffith | Cross-pod art direction + pipeline oversight | Art Director |
+| Brendan Cheatham | Cross-pod art direction | Assoc. Art Director |
+| Pedro Sarraf | Current assignments (3/31-4/2 only) | Out 4/3-4/21 — only available first 3 days. Extends into S27. |
+| Vinod Rams | Art assignments | Out 3/31 (1 day) |
+| Danny | Art assignments | |
+| Alessandro | Art assignments | |
+| Guilherme (Art) | Art assignments | |
+| Thiago | Art assignments | |
+| Lawrence Steele | Sound design | Audio |
+
+**Risks & Awareness**:
+- Pedro Sarraf out 6 of 9 days — who covers his assignments?
+- VFX & Animation: assignee TBD — who starts this track?
+- Art priority conflicts: Governors UI vs Battle HUD vs UI Foundation — which gets art resources first?
+- Good Friday (Apr 3) studio closure
+
+### Sprint 27: Zany Zebras (4/14 - 4/28) — NEXT
+
+**Goals**:
+- Continue all active art pipelines
+- VFX & Animation ramp-up
+- Cross-pod delivery continues (Governors UI, Battle HUD, UI Foundation)
+
+**Risks & Awareness**:
+- Pedro Sarraf PTO extends through 4/21 — reduced capacity continues through first week
+- Art priority conflicts likely to intensify as Governors UI implementation starts
 
 ---
 
