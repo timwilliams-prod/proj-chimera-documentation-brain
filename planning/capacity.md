@@ -50,9 +50,9 @@ Next Milestone: M&Ms (starts ~3/31/2026, ends Jun 23, 2026)
 | Person             | Role             | Pod (Current)   | M&Ms (7 spr)    | M&C (6 spr) | Notes                                                                                         |
 | ------------------ | ---------------- | --------------- | --------------- | ----------- | --------------------------------------------------------------------------------------------- |
 | Gabriel Arruda     | Client Engineer  | Empire          | Empire          | [TBD]       |                                                                                               |
-| Henrique De Lima   | Client Engineer  | Empire          | Empire          | [TBD]       |                                                                                               |
+| Henrique De Lima   | Client Engineer  | Empire          | Metagame          | [TBD]       |                                                                                               |
 | Marcos Loures      | Client Engineer  | Empire          | Social Dynamics | [TBD]       | Moving from Empire to Social Dynamics for M&Ms                                                |
-| Dan Dupuis         | Engineering Lead | Metagame        | Metagame        | [TBD]       |                                                                                               |
+| Dan Dupuis         | Engineering Lead | Metagame        | Metagame        | [TBD]       | Eng Lead for Meta Vertical, planning 0 capacity                                                                                              |
 | Guilherme Quizzini | Client Engineer  | Metagame        | Metagame        | [TBD]       |                                                                                               |
 | Jota Oliveira      | Client Engineer  | Battle          | Battle          | [TBD]       |                                                                                               |
 | Tiago Costa        | Client Engineer  | -               | Social Dynamics | [TBD]       | New hire. First milestone is M&Ms.                                                            |
