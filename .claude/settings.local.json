@@ -33,7 +33,8 @@
       "mcp__plugin_slack_slack__slack_read_channel",
       "mcp__clickup__clickup_get_task",
       "mcp__google-workspace__sheets_getRange",
-      "mcp__google-workspace__calendar_listEvents"
+      "mcp__google-workspace__calendar_listEvents",
+      "Bash(mcp list-tools:*)"
     ]
   }
 }

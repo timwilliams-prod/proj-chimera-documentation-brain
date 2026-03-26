@@ -98,17 +98,17 @@ Next Milestone: M&Ms (starts ~3/31/2026, ends Jun 23, 2026)
 |--------|------|---------------|---------------|----|-------|
 | Kevin Griffith | Art Director | Art | Art | Art | Cross-pod leadership |
 | Brendan Cheatham | Associate Art Director | Art | Art | Art | Cross-pod leadership |
-| Lawrence Steele | Sound Engineer | Art | Audio Foundation | Art | |
-| Danny Oliveira | Senior Technical Artist | Battle | Hero Content | [TBD] | |
-| Alessandro Oliveira | VFX | Battle | Hero Content | [TBD] | |
-| Pedro Sarraf | Lead Technical Artist | Art | Territory Map Vertical Slice | [TBD] | |
-| Guilherme Lascasas | 2D Environment Concept | Empire | Territory Map Vertical Slice | [TBD] | |
-| Vinod Rams | Lead 2D Concept | Battle | Hero Content | [TBD] | |
-| Thiago Saraiva | Senior 3D | Empire | Territory Map Vertical Slice | [TBD] | |
-| Ben Clair | Senior Technical Artist | Battle | Hero Content | [TBD] | |
-| Felipe Chaves | Staff 3D Character | Battle | Hero Content | [TBD] | |
-| Tony Bonilla | Lead Animator | Battle | Hero Content | [TBD] | |
-| Vini Muniz | Character Concept Artist | Battle | Hero Content | [TBD] | |
+| Lawrence Steele | Sound Engineer | Art | Art | Art | |
+| Danny Oliveira | Senior Technical Artist | Battle | Battle | [TBD] | |
+| Alessandro Oliveira | VFX | Battle | Battle | [TBD] | |
+| Pedro Sarraf | Lead Technical Artist | Art | Art | [TBD] | |
+| Guilherme Lascasas | 2D Environment Concept | Empire | Empire | [TBD] | |
+| Vinod Rams | Lead 2D Concept | Battle | Battle | [TBD] | |
+| Thiago Saraiva | Senior 3D | Empire | Empire | [TBD] | |
+| Ben Clair | Senior Technical Artist | Battle | Battle | [TBD] | |
+| Felipe Chaves | Staff 3D Character | Battle | Battle | [TBD] | |
+| Tony Bonilla | Lead Animator | Battle | Battle | [TBD] | |
+| Vini Muniz | Character Concept Artist | Battle | Battle | [TBD] | |
 
 ---
 
