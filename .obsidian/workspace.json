@@ -185,6 +185,8 @@
   },
   "active": "efdc479cb3deada0",
   "lastOpenFiles": [
+    "generated/presentation_working_with_llms.md",
+    "API_SETUP_GUIDE.md",
     "project-charter.md.tmp.21948.1774474119624",
     "project-charter.md.tmp.21948.1774474115473",
     "project-charter.md.tmp.21948.1774474107912",
@@ -198,7 +200,6 @@
     "planning/sprint_rules.md",
     "generated/roadmap_sheet_data.json",
     "generated/roadmap_sheet_template.js",
-    "generated/roadmap_apps_script.js.tmp.3648.1774382028153",
     "generated/reports/channel_digest_2026-03-24.md",
     "generated/reports/sprint_summary_xenial_xeruses.md",
     "planning/dependency_map.md",
@@ -219,7 +220,6 @@
     "planning/features/obstacles.md",
     "planning/features/wombo_combo.md",
     "planning/features/battle_content_pipeline.md",
-    "planning/features/battle_designing_tools.md",
-    "planning/features/growthbook_integration.md"
+    "planning/features/battle_designing_tools.md"
   ]
 }
