@@ -134,7 +134,7 @@ Generated: 2026-03-24
 | Vishaal Gupta | Design | **8** | 1. Battle Content pipeline 2. Unit balance | **Out 4/2** (1 day) + recurring appts |
 | Julio Scarabelli | QA | 9 | 1. S25 bug verification 2. Battle HUD QA prep | 4/3 is studio holiday anyway |
 | Ben Clair | Art | 9 | 1. Unit Content art | Partial appt 3/31 (1 hr) |
-| Felipe Chaves | Art | 9 | 1. Unit Content art | |
+| Felipe Chaves | Art | 9 | 1. Trench Knight 3D | |
 | Tony Bonilla | Art | 9 | 1. Unit Content art | |
 | Vinicius | Art | 9 | 1. Unit Content art | |
 | Alessandro | Art | 9 | 1. Battle VFXs | |
