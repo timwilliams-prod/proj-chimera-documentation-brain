@@ -22,20 +22,23 @@ This talk covers five practical lessons from building real systems on top of LLM
 
 Think of LLMs on two axes:
 
-```
-Intelligence (reasoning depth)
-     ^
-     |
-     |        Opus 4          GPT-4o         Gemini Ultra
-     |           *               *               *
-     |
-     |     Sonnet 4         GPT-4o-mini
-     |        *                 *
-     |
-     |  Haiku 4          Gemini Flash       Llama 3.1 8B
-     |     *                 *                  *
-     +-------------------------------------------->
-                    Speed / Cost efficiency
+```mermaid
+quadrantChart
+    title Model Landscape
+    x-axis "Slower / More Expensive" --> "Faster / Cheaper"
+    y-axis "Lower Intelligence" --> "Higher Intelligence"
+    quadrant-1 "Fast & Smart (rare)"
+    quadrant-2 "Frontier"
+    quadrant-3 "Budget"
+    quadrant-4 "Workhorses"
+    Opus 4: [0.15, 0.90]
+    GPT-4o: [0.40, 0.85]
+    Gemini Ultra: [0.50, 0.88]
+    Sonnet 4: [0.30, 0.65]
+    GPT-4o-mini: [0.55, 0.60]
+    Haiku 4: [0.45, 0.35]
+    Gemini Flash: [0.70, 0.32]
+    Llama 3.1 8B: [0.85, 0.25]
 ```
 
 ### Key Insight: "Model" Is Not Monolithic
@@ -85,13 +88,13 @@ Everything the model can see when it generates a response:
 
 ### Context Problems Are Output Problems
 
-| You See... | The Real Problem Is... |
-|------------|----------------------|
-| Hallucinated details | Missing context — it filled the gap with plausible fiction |
-| Generic/vague answers | Too little specific context — it had nothing concrete to ground on |
-| Contradictory outputs | Conflicting context — two documents disagree and the model picked one |
-| Ignoring your instructions | Buried context — critical instructions lost in noise |
-| Outdated information | Stale context — the model is working from old data |
+| You See...                 | The Real Problem Is...                                                |
+| -------------------------- | --------------------------------------------------------------------- |
+| Hallucinated details       | Missing context — it filled the gap with plausible fiction            |
+| Generic/vague answers      | Too little specific context — it had nothing concrete to ground on    |
+| Contradictory outputs      | Conflicting context — two documents disagree and the model picked one |
+| Ignoring your instructions | Buried context — critical instructions lost in noise                  |
+| Outdated information       | Stale context — the model is working from old data                    |
 
 ### Practical Techniques
 
@@ -128,17 +131,12 @@ More context isn't always better. Irrelevant context dilutes the signal. A model
 
 **Retrieval-Augmented Generation**: Instead of relying on what the model was trained on, you retrieve relevant data at query time and inject it into the context.
 
-```
-User Query
-    |
-    v
-[Retrieve relevant docs/data]  <-- Your knowledge base
-    |
-    v
-[Augment the prompt with retrieved context]
-    |
-    v
-[Generate response grounded in YOUR data]
+```mermaid
+flowchart TD
+    A["User Query"] --> B["Retrieve relevant docs/data"]
+    KB[("Your Knowledge Base")] -.-> B
+    B --> C["Augment the prompt with retrieved context"]
+    C --> D["Generate response grounded in YOUR data"]
 ```
 
 ### Why RAG Matters
@@ -168,14 +166,16 @@ This isn't just retrieval — it's a **repeatable analytical workflow** powered 
 
 ### The Spectrum of RAG Sophistication
 
-```
-Simple                                                    Complex
-  |                                                          |
-  Copy/paste       Chat with       Structured       Agent with
-  into prompt      your docs       skills/commands   tool access
-  |                |               |                 |
-  "Here's my       Vector search   Curated files +   Can query DBs,
-   doc, help"      over corpus     scripted prompts   call APIs, act
+```mermaid
+flowchart LR
+    A["<strong>Copy/paste into prompt</strong><br/><em>Here's my doc, help</em>"] --> B["<strong>Chat with your docs</strong><br/><em>Vector search over corpus</em>"]
+    B --> C["<strong>Structured skills/commands</strong><br/><em>Curated files + scripted prompts</em>"]
+    C --> D["<strong>Agent with tool access</strong><br/><em>Can query DBs, call APIs, act</em>"]
+
+    style A fill:#e8f4fd,stroke:#4a90d9
+    style B fill:#d4edda,stroke:#50b356
+    style C fill:#fff3cd,stroke:#e6a23c
+    style D fill:#f8d7da,stroke:#d94a4a
 ```
 
 ### Practical Tips
@@ -193,25 +193,26 @@ Simple                                                    Complex
 
 ### The Iron Triangle of LLMs
 
-```
-        Intelligence
-           /\
-          /  \
-         /    \
-        /      \
-       /________\
-    Speed      Cost
+```mermaid
+graph TD
+    I["Intelligence"] --- S["Speed"]
+    S --- C["Cost"]
+    C --- I
+
+    style I fill:#4a90d9,color:#fff,stroke:#2a6fb5
+    style S fill:#50b356,color:#fff,stroke:#3a8a40
+    style C fill:#e6a23c,color:#fff,stroke:#c4882a
 ```
 
 You can optimize for two. The third suffers. Always.
 
 ### Real Numbers (Approximate, mid-2026)
 
-| Model Tier | Input Cost (per 1M tokens) | Output Cost (per 1M tokens) | Relative Speed | Relative Intelligence |
-|------------|---------------------------|----------------------------|----------------|----------------------|
-| Frontier (Opus, GPT-4o) | $10-15 | $30-75 | Slow | Highest |
-| Mid-tier (Sonnet, 4o-mini) | $3 | $15 | Medium | High |
-| Fast (Haiku, Flash) | $0.25-0.80 | $1-5 | Fast | Good |
+| Model Tier                 | Input Cost (per 1M tokens) | Output Cost (per 1M tokens) | Relative Speed | Relative Intelligence |
+| -------------------------- | -------------------------- | --------------------------- | -------------- | --------------------- |
+| Frontier (Opus, GPT-4o)    | $10-15                     | $30-75                      | Slow           | Highest               |
+| Mid-tier (Sonnet, 4o-mini) | $3                         | $15                         | Medium         | High                  |
+| Fast (Haiku, Flash)        | $0.25-0.80                 | $1-5                        | Fast           | Good                  |
 
 > Speaker note: These numbers shift constantly. The principle is stable: there's always a 10-50x cost difference between tiers, and you should be intentional about when you're paying for the premium.
 
@@ -226,17 +227,17 @@ Then reserve your expensive model budget for the tasks that actually need it.
 
 Smart systems don't use one model — they route:
 
-```
-User request
-     |
-     v
-[Classifier / Router]  (small model, fast)
-     |
-     +-- Simple question --> Haiku/Flash
-     |
-     +-- Code review --> Sonnet
-     |
-     +-- Complex analysis --> Opus
+```mermaid
+flowchart TD
+    A["User Request"] --> B["Classifier / Router<br/><em>small model, fast</em>"]
+    B -->|"Simple question"| C["Haiku / Flash"]
+    B -->|"Code review"| D["Sonnet"]
+    B -->|"Complex analysis"| E["Opus"]
+
+    style B fill:#f0f0f0,stroke:#666
+    style C fill:#d4edda,stroke:#50b356
+    style D fill:#fff3cd,stroke:#e6a23c
+    style E fill:#f8d7da,stroke:#d94a4a
 ```
 
 ### The Hidden Costs
@@ -258,13 +259,17 @@ Token price isn't the whole story:
 
 The trajectory is clear: models are becoming **agents** — not just answering questions, but taking actions.
 
-```
-2023: "Summarize this document"          (pure text in, text out)
-2024: "Read these 5 files and compare"   (retrieval + reasoning)
-2025: "Read our docs, check ClickUp,     (tools + multi-step reasoning)
-       query Notion, and surface risks"
-2026: "Plan the next sprint, scaffold    (autonomous workflows with
-       tasks, and flag blockers"           human-in-the-loop approval)
+```mermaid
+timeline
+    title LLM Capability Evolution
+    2023 : Summarize this document
+         : Pure text in, text out
+    2024 : Read these 5 files and compare
+         : Retrieval + reasoning
+    2025 : Read docs, check ClickUp, query Notion, surface risks
+         : Tools + multi-step reasoning
+    2026 : Plan the next sprint, scaffold tasks, flag blockers
+         : Autonomous workflows with human-in-the-loop
 ```
 
 ### Tool Use: The Multiplier
@@ -282,25 +287,22 @@ An LLM with tools isn't just smarter — it's **capable in fundamentally differe
 
 ### The Agent Pattern
 
-```
-        [Goal]
-          |
-          v
-    [Plan steps]
-          |
-    +-----+-----+
-    |     |     |
-    v     v     v
-  [Act] [Act] [Act]    <-- Use tools (read files, call APIs, search)
-    |     |     |
-    v     v     v
-  [Observe results]
-          |
-          v
-    [Adjust plan]
-          |
-          v
-    [Continue or complete]
+```mermaid
+flowchart TD
+    G["Goal"] --> P["Plan Steps"]
+    P --> A1["Act<br/><em>read files</em>"]
+    P --> A2["Act<br/><em>call APIs</em>"]
+    P --> A3["Act<br/><em>search</em>"]
+    A1 --> O["Observe Results"]
+    A2 --> O
+    A3 --> O
+    O --> AD["Adjust Plan"]
+    AD --> D{"Done?"}
+    D -->|"No"| P
+    D -->|"Yes"| C["Complete"]
+
+    style G fill:#4a90d9,color:#fff
+    style C fill:#50b356,color:#fff
 ```
 
 **Critical principle: Human-in-the-loop.**
