@@ -137,6 +137,9 @@ Generated: 2026-03-24
 | Felipe Chaves | Art | 9 | 1. Unit Content art | |
 | Tony Bonilla | Art | 9 | 1. Unit Content art | |
 | Vinicius | Art | 9 | 1. Unit Content art | |
+| Alessandro | Art | 9 | 1. Battle VFXs | |
+| Danny | Art | 9 | 1. Battle VFXs | |
+| Vinod Rams | Art | **8** | 1. Concepts for Merrin | **Out 3/31** (1 day) |
 
 ### ClickUp Ticket Summary
 
@@ -250,9 +253,6 @@ Generated: 2026-03-24
 | Kevin Griffith | Art Director | 9 | 1. Cross-pod art direction 2. Art pipeline oversight | |
 | Brendan Cheatham | Assoc. AD | 9 | 1. Cross-pod art direction | |
 | Pedro Sarraf | Art | **3** | 1. Current assignments (3/31-4/2 only) | **Out 4/3-4/21** (6 working days). Only available first 3 days. Extends into S27. |
-| Vinod Rams | Art | **8** | 1. Art assignments | **Out 3/31** (1 day) |
-| Danny | Art | 9 | 1. Art assignments | |
-| Alessandro | Art | 9 | 1. Art assignments | |
 | Guilherme (Art) | Art | 9 | 1. Art assignments | |
 | Thiago | Art | 9 | 1. Art assignments | |
 | Lawrence Steele | Audio | 9 | 1. Sound design | |
@@ -317,6 +317,9 @@ Generated: 2026-03-24
 | Dylan Jeffery | Battle | 9 | |
 | Vishaal Gupta | Battle | **8** | Out 4/2 |
 | Julio Scarabelli | QA (Battle) | 9 | |
+| Alessandro | Battle (Art) | 9 | Battle VFXs |
+| Danny | Battle (Art) | 9 | Battle VFXs |
+| Vinod Rams | Battle (Art) | **8** | Out 3/31, Merrin concepts |
 | Randy Pasion | Social Dynamics | **6** | Out 4/1-4/6 + Dozer split |
 | Garrett Eidsvig | Social Dynamics | 9 | Dozer split risk |
 | Marcos Loures | Social Dynamics | 9 | Transitioning from Empire |
@@ -328,9 +331,6 @@ Generated: 2026-03-24
 | Kevin Griffith | Art | 9 | |
 | Brendan Cheatham | Art | 9 | |
 | Pedro Sarraf | Art | **3** | Out 4/3-4/21 |
-| Vinod Rams | Art | **8** | Out 3/31 |
-| Danny | Art | 9 | |
-| Alessandro | Art | 9 | |
 | Lawrence Steele | Art (Audio) | 9 | |
 | Hafiz Kassam | QA (Lead) | **8** | Easter Monday 4/6 |
 
