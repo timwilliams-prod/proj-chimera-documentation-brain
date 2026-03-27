@@ -92,8 +92,6 @@ gantt
     M3 Spend Depth - 0/1 +4 M&Ms          :active, 2025-10-07, 2026-10-13
     M4 MP Motivations - 0/5              :2025-10-07, 2026-10-13
 
-    section WH-4 Production
-    Content, Tech, Ads - 0/4              :2025-10-07, 2026-03-15
 ```
 
 **Legend**: Green (done) = all SHQs answered positively | Blue (active) = in progress or mixed results | Red (crit) = gap or deferred | Gray = not started
@@ -369,28 +367,6 @@ gantt
 ---
 ---
 
-### WH-4: Production Hypothesis
-
-**Statement**: We can keep players engaged through the live operation of the game utilizing a toolset that allows us to: create key content (heroes, troops, battles, maps) that is scalable, efficient, reliable, and at quality; make broad, iterative changes rapidly and in parallel; deploy updates quickly while maintaining stability; and analyze player behavior clearly and comprehensively.
-
-**Status**: NOT YET VALIDATED
-**Current Confidence**: Low
-**Confidence Trend**: =
-
-#### SHQs (Systems Validation)
-
-This hypothesis is validated primarily through production-level questions rather than player-facing BHQs.
-
-| Milestone | SHQ | Status |
-|-----------|-----|--------|
-| Systems Validation | What ad creatives are effective (CTR, install rates, etc)? | NOT STARTED |
-| Systems Validation | Can we effectively and scalably build our content? | NOT STARTED |
-| Systems Validation | What are our content targets for our various launches? | NOT STARTED |
-| Systems Validation | Will our servers catch fire? | NOT STARTED |
-
----
----
-
 ## SHQs by Milestone
 
 ### Milestone: Core Experience (July 7, 2025 - Closed Beta Test)
@@ -471,12 +447,8 @@ This hypothesis is validated primarily through production-level questions rather
 | SHQ26 | Is the player motivated to collect specific and varied heroes and troops against each planned game mode (Dungeons, XP farm, Conquest, etc)? | BHQ-B3 | NOT STARTED | |
 | SHQ27 | Can we effectively and scalably build battles across all game modes? | BHQ-B4 | NOT STARTED | |
 | SHQ28 | Are we confident in our pipeline hero/unit production? Can we prove it with animation requirements and get a full understanding on how long it takes to build a hero/unit for long term planning? | BHQ-B4 | NOT STARTED | |
-| - | What ad creatives are effective (CTR, install rates, etc)? | WH-4 (Production) | NOT STARTED | |
-| - | Can we effectively and scalably build our content? | WH-4 (Production) | NOT STARTED | |
-| - | What are our content targets for our various launches? | WH-4 (Production) | NOT STARTED | |
-| - | Will our servers catch fire? | WH-4 (Production) | NOT STARTED | |
 
-**Systems Validation Summary**: 0/29 SHQs answered. Heavy milestone with Empire (SHQ1-9), Monetization hero/multiplayer paper designs (SHQ10-22), Battle depth (SHQ23-28), and Production readiness.
+**Systems Validation Summary**: 0/25 SHQs answered. Heavy milestone with Empire (SHQ1-9), Monetization hero/multiplayer paper designs (SHQ10-22), Battle depth (SHQ23-28). Production items moved to `planning/product_targets.md`.
 
 ---
 
@@ -535,7 +507,7 @@ Track confidence changes sprint-over-sprint.
 | WH-1: Battle | - | Medium | + | Core Experience: 3/4 player-facing SHQs positive. Troop excitement ❌ is a gap. |
 | WH-2: Empire | - | Low-Medium | + | Holistic systems vision validated ✅. Map exploration untested. |
 | WH-3: Monetization | - | Low | = | No player-facing data yet. Paper designs pending in Systems Validation. |
-| WH-4: Production | - | Low | = | No data. All SHQs in Systems Validation milestone. |
+| ~~WH-4: Production~~ | - | - | - | Removed — items moved to product_targets.md as must-have features |
 
 #### Key Findings
 - Battle fundamentals are solid: players understand battle outcomes and hero skills
@@ -565,7 +537,6 @@ quadrantChart
     "WH-1 Battle": [0.35, 0.55]
     "WH-2 Empire": [0.15, 0.35]
     "WH-3 Monetization": [0.05, 0.20]
-    "WH-4 Production": [0.05, 0.15]
 ```
 
 ---
