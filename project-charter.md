@@ -207,7 +207,7 @@ When an LLM needs to understand the Lotus project, it should read files in this 
 Lotus uses a hierarchical validation model to ensure we're building the right thing:
 
 ```
-Winning Hypotheses (4)
+Winning Hypotheses (3)
   "We believe [core bet about the product]"
     |
     v
@@ -227,7 +227,8 @@ Sub-Hypothesis Questions (SHQs)
 | WH-1 | **Battle** — Compelling army battling centered on dramatic hero moments | Medium | + |
 | WH-2 | **Empire** — Retention via intuitive, visual map exploration | Low-Medium | + |
 | WH-3 | **Monetization** — Sustained spend via hero collection with social context | Low | = |
-| WH-4 | **Production** — Scalable content creation, rapid iteration, stable deployment | Low | = |
+
+> **Note**: WH-4 (Production) was removed as a formal hypothesis (2026-03-27). Production requirements are now tracked as must-have features in `planning/product_targets.md`.
 
 ### Key Rules
 
@@ -238,7 +239,7 @@ Sub-Hypothesis Questions (SHQs)
 - BHQs and SHQs are **NOT necessarily pod-specific** — many are cross-pod "cohesive product" questions that require contributions from multiple teams
 - `planning/ValidationRoadmap.md` is THE single source of truth for all validation content
 - Other files reference SHQs by ID; they don't duplicate validation details
-- Next available SHQ number: **29**
+- Next available SHQ number: **39**
 
 ---
 
