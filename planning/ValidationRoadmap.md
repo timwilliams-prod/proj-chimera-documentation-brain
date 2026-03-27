@@ -1,6 +1,6 @@
 # Validation Roadmap
 
-Last Updated: 2026-03-18
+Last Updated: 2026-03-27
 Last Evaluated: Sprint XX
 
 ---
@@ -76,12 +76,12 @@ gantt
 
     section WH-1 Battle
     B1 Fun and Sticky - 3/3 done          :done, 2025-04-01, 2026-03-15
-    B2 Intuitive Actions - 3/3 done       :done, 2025-04-01, 2026-03-15
-    B3 Keys and Locks - 5/6, 1 neg        :active, 2025-04-01, 2026-03-15
-    B4 Scalable Content - 3/3 done        :done, 2025-07-08, 2026-03-15
+    B2 Intuitive Actions - +2 M&Ms        :active, 2025-04-01, 2026-06-23
+    B3 Keys and Locks - 5/6 +2 M&Ms       :active, 2025-04-01, 2026-06-23
+    B4 Scalable Content - +2 M&Ms         :active, 2025-07-08, 2026-06-23
 
     section WH-2 Empire
-    E1 Map Exploration - 5/7, 1 neg 1 IP  :active, 2025-07-08, 2026-03-15
+    E1 Map Exploration - 5/7 +4 M&Ms      :active, 2025-07-08, 2026-06-23
     E2 Return Motivations - 6/6 done      :done, 2025-04-01, 2026-03-15
     E3 Long-Term Progression - 5/5 done   :done, 2025-07-08, 2026-03-15
     E4 Instant Gratification - NO SHQs    :crit, 2025-04-01, 2026-03-15
@@ -89,7 +89,7 @@ gantt
     section WH-3 Monetization
     M1 Hero Collectability - 0/5          :2025-07-08, 2026-03-15
     M2 PvE to Social - deferred           :crit, 2026-06-24, 2026-10-13
-    M3 Spend Depth - 0/1                  :2025-10-07, 2026-10-13
+    M3 Spend Depth - 0/1 +4 M&Ms          :active, 2025-10-07, 2026-10-13
     M4 MP Motivations - 0/5              :2025-10-07, 2026-10-13
 
     section WH-4 Production
@@ -155,6 +155,8 @@ gantt
 | Core Experience    | Can hero skills be articulated, and troop roles & counter systems understood?                      | ANSWERED ✅ |
 | Core Loop          | Does the player understand how WomboCombo builds up (baubles) and are they excited with its usage? | ANSWERED ✅ |
 | Systems Validation | SHQ24: Does our new art direction maintain the level of clarity necessary for this to be clear?    | ANSWERED ✅ |
+| M&Ms               | SHQ24: Does our new art direction maintain the level of clarity necessary for this to be clear? | IN PROGRESS |
+| M&Ms               | SHQ29: Does the HUD allow strategic planning (understanding the challenge) as well as tactical response (understanding who's turn it is and the result of their targeting choices)? | NOT STARTED |
 
 ---
 
@@ -170,6 +172,8 @@ gantt
 | Core Loop          | Do players utilize broad troop roles to support hero choices? Melee to protect ranged, etc. Do they appreciate their troops?                                     | ANSWERED ✅ |
 | Systems Validation | SHQ25: (paper) Does our GTM hero roster cover both the rarity spread necessary for monetization and the roles & mechanics spread necessary for broad collection? | ANSWERED ✅ |
 | Systems Validation | SHQ26: Is the player motivated to collect specific and varied heroes and troops against each planned game mode (Dungeons, XP farm, Conquest, etc)?               | ANSWERED ✅ |
+| M&Ms               | SHQ26: Is the player motivated to collect specific and varied heroes and troops against each planned game mode (Dungeons, XP farm, Conquest, etc)? | PENDING VALIDATION |
+| M&Ms               | SHQ30: Can players understand the role and abilities of all six starter heroes, and do player metagame progression choices vary per hero in support of that role? | NOT STARTED |
 
 > **Note**: The ❌ on troop excitement is a signal to watch. Hero presentation tested well (✅) but troops did not excite. This may require design iteration.
 
@@ -184,6 +188,8 @@ gantt
 | Core Loop          | Can we support a variety of level types with varied pacing, that keeps each battle in the first session feeling fresh and not repetitive?                                                                | ANSWERED ✅ |
 | Systems Validation | SHQ27: Can we effectively and scalably build battles across all game modes?                                                                                                                              | ANSWERED ✅ |
 | Systems Validation | SHQ28: Are we confident in our pipeline hero/unit production? Can we prove it with animation requirements and get a full understanding on how long it takes to build a hero/unit for long term planning? | ANSWERED ✅ |
+| M&Ms               | SHQ27: Can we establish an effective, scalable process for building battles across all game modes, with confidence on early, mid, and late game? | IN PROGRESS |
+| M&Ms               | SHQ28: Validate the unit production pipeline to ensure it works in practice and supports confident long-term projections. | IN PROGRESS |
 
 ---
 ---
@@ -231,6 +237,11 @@ gantt
 | Systems Validation | SHQ1: Have we identified the constraints for producing the map at scale: high visual bar, high performance, and high variety?                                                  | ANSWERED ✅  |
 | Systems Validation | SHQ2: Can we enable players to seamlessly move between high-level empire strategy and low level tile-to-tile conquest, without either layer feeling disconnected or secondary? | IN PROGRESS |
 | Systems Validation | SHQ3: Do players understand how map exploration fuels hero progression as well as army development?                                                                            | ANSWERED ❌  |
+| M&Ms               | SHQ1: Does the production pipeline successfully deliver diverse, high-quality territory maps at scale that feel unique and handcrafted to the player, while maintaining a modular workflow that meets internal time and resource constraints? | IN PROGRESS |
+| M&Ms               | SHQ31: Does the world map presentation allow the player to quickly form engagement goals for their session, across conquest, dungeons, roaming monsters, and empire management tasks? | NOT STARTED |
+| M&Ms               | SHQ32: Does the territory map remain highly functional and readable with real art, allowing players to clearly identify tile types, plan expansions, and make confident decisions without confusion or visual clutter? | NOT STARTED |
+| M&Ms               | SHQ33: Do narrative beats provide clear, motivating goals that drive players to explore the map and engage with key progression content? | NOT STARTED |
+| M&Ms               | SHQ34: Do we have a clear UX vision for how the player will engage and navigate between home empire, limited time maps (whirlpool), and multiplayer — with an understanding of how each supports their goals? | NOT STARTED |
 
 ---
 
@@ -336,6 +347,10 @@ gantt
 | Milestone | SHQ | Status |
 |-----------|-----|--------|
 | Systems Validation | SHQ16: Can we paper design shared multiplayer maps that feel exciting and offer long term replayability? | NOT STARTED |
+| M&Ms               | SHQ35: Do players understand and engage with vertical empire progression (buildings, research, governors, bonuses) as meaningful investments that increase power and unlock strategic options? | NOT STARTED |
+| M&Ms               | SHQ36: Are players motivated to return session to session across three days to pursue progression goals (heroes, empire, research) while engaging in varied game mechanics and game modes? | NOT STARTED |
+| M&Ms               | SHQ37: Do players face meaningful resource tension across systems that forces them to prioritise and delay investments, driving strategic decision making? | NOT STARTED |
+| M&Ms               | SHQ38: (Paper) Do we have confidence that the economy model provides sufficient depth and viable levers for future monetisation? | NOT STARTED |
 
 ---
 
@@ -461,7 +476,47 @@ This hypothesis is validated primarily through production-level questions rather
 | - | What are our content targets for our various launches? | WH-4 (Production) | NOT STARTED | |
 | - | Will our servers catch fire? | WH-4 (Production) | NOT STARTED | |
 
-**Systems Validation Summary**: 0/29 SHQs answered. Heavy milestone with Empire (SHQ1-9), Monetization hero/multiplayer paper designs (SHQ10-22), Battle depth (SHQ23-28), and Production readiness. Next SHQ number: 29.
+**Systems Validation Summary**: 0/29 SHQs answered. Heavy milestone with Empire (SHQ1-9), Monetization hero/multiplayer paper designs (SHQ10-22), Battle depth (SHQ23-28), and Production readiness.
+
+---
+
+### Milestone: Multiplayer & Meta (M&Ms) (June 23, 2026)
+
+**Dev Phase**: Iteration and Refinement
+**Goal**: Day 2-3: Home Empire territories (1-9) conquered; player pushes on vertical depth of upgrading buildings in the empire and farming dungeons for gear.
+**Validation**: [TBD]
+
+#### Battle Hypothesis SHQs (WH-1)
+
+| ID | SHQ | Parent BHQ | Status | Notes |
+|----|-----|-----------|--------|-------|
+| SHQ24 | Does our new art direction maintain the level of clarity necessary for this to be clear? | BHQ-B2 | IN PROGRESS | Continuing from SV |
+| SHQ26 | Is the player motivated to collect specific and varied heroes and troops against each planned game mode (Dungeons, XP farm, Conquest, etc)? | BHQ-B3 | PENDING VALIDATION | Continuing from SV |
+| SHQ27 | Can we establish an effective, scalable process for building battles across all game modes, with confidence on early, mid, and late game? | BHQ-B4 | IN PROGRESS | Reworded from SV |
+| SHQ28 | Validate the unit production pipeline to ensure it works in practice and supports confident long-term projections. | BHQ-B4 | IN PROGRESS | Reworded from SV |
+| SHQ29 | Does the HUD allow strategic planning (understanding the challenge) as well as tactical response (understanding who's turn it is and the result of their targeting choices)? | BHQ-B2 | NOT STARTED | New |
+| SHQ30 | Can players understand the role and abilities of all six starter heroes, and do player metagame progression choices vary per hero in support of that role? | BHQ-B3 | NOT STARTED | New |
+
+#### Empire Hypothesis SHQs (WH-2)
+
+| ID | SHQ | Parent BHQ | Status | Notes |
+|----|-----|-----------|--------|-------|
+| SHQ1 | Does the production pipeline successfully deliver diverse, high-quality territory maps at scale that feel unique and handcrafted to the player, while maintaining a modular workflow that meets internal time and resource constraints? | BHQ-E1 | IN PROGRESS | Reworded from SV |
+| SHQ31 | Does the world map presentation allow the player to quickly form engagement goals for their session, across conquest, dungeons, roaming monsters, and empire management tasks? | BHQ-E1 | NOT STARTED | New |
+| SHQ32 | Does the territory map remain highly functional and readable with real art, allowing players to clearly identify tile types, plan expansions, and make confident decisions without confusion or visual clutter? | BHQ-E1 | NOT STARTED | New |
+| SHQ33 | Do narrative beats provide clear, motivating goals that drive players to explore the map and engage with key progression content? | BHQ-E1 | NOT STARTED | New |
+| SHQ34 | Do we have a clear UX vision for how the player will engage and navigate between home empire, limited time maps (whirlpool), and multiplayer — with an understanding of how each supports their goals? | BHQ-E1 | NOT STARTED | New |
+
+#### Monetisation Hypothesis SHQs (WH-3)
+
+| ID | SHQ | Parent BHQ | Status | Notes |
+|----|-----|-----------|--------|-------|
+| SHQ35 | Do players understand and engage with vertical empire progression (buildings, research, governors, bonuses) as meaningful investments that increase power and unlock strategic options? | BHQ-M3 | NOT STARTED | New |
+| SHQ36 | Are players motivated to return session to session across three days to pursue progression goals (heroes, empire, research) while engaging in varied game mechanics and game modes? | BHQ-M3 | NOT STARTED | New |
+| SHQ37 | Do players face meaningful resource tension across systems that forces them to prioritise and delay investments, driving strategic decision making? | BHQ-M3 | NOT STARTED | New |
+| SHQ38 | (Paper) Do we have confidence that the economy model provides sufficient depth and viable levers for future monetisation? | BHQ-M3 | NOT STARTED | New |
+
+**M&Ms Summary**: 15 SHQs — 6 Battle, 5 Empire, 4 Monetisation. 5 continuing from SV (SHQ1, SHQ24, SHQ26, SHQ27, SHQ28), 10 new (SHQ29-38). Next SHQ number: **39**.
 
 ---
 
@@ -565,7 +620,7 @@ quadrantChart
 ### SHQ Numbering
 - Numbered SHQs (SHQ1-SHQ28+) are formally tracked in Systems Validation and later milestones
 - Core Experience and Core Loop SHQs are tracked by question text (predates formal numbering)
-- Next available SHQ number: **29**
+- Next available SHQ number: **39**
 
 ### How SHQs Connect to Feature Work
 Each SHQ should trace to specific work in the Feature Roadmap:
