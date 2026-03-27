@@ -31,14 +31,13 @@ gantt
     Obstacles                 :active,  bat2, 2026-03-31, 14d
     Actor System Overhaul     :active,  bat3, 2026-03-31, 28d
     Pathfinding & AI          :active,  bat4, 2026-03-31, 28d
-    Battle Server Validation  :         bat5, after bat4, 28d
-    Pool Management           :         bat6, after bat5, 14d
 
     section Beta Prep (ends Jul 21)
-    No eng features           :         bat_bp, after bat6, 28d
+    Pool Management           :         bat_bp, after bat4, 14d
 
     section M&C (ends Oct 13)
-    [TBD]                     :         bat_mc, after bat_bp, 84d
+    Battle Server Validation  :         bat5, after bat_bp, 28d
+    [TBD]                     :         bat_mc, after bat5, 70d
 
     section Continuous
     Battle Content            :active,  bat_content, 2026-03-18, 490d
@@ -74,8 +73,8 @@ All Battle features across milestones, ordered by priority within each milestone
 | 2   | Obstacles                       | M&Ms      | 1 sprint  | NOT STARTED | [TBD]        | Environmental tactics add depth                  |
 | 3   | Actor System Overhaul           | M&Ms      | 2 sprints | NOT STARTED | [TBD]        | Performance and maintainability for scale        |
 | 4   | Pathfinding & AI Improvements   | M&Ms      | 2 sprints | NOT STARTED | [TBD]        | AI behavior feels intelligent and responsive     |
-| 5   | Battle Server Validation Client | M&Ms      | 2 sprints | NOT STARTED | [TBD]        | Server-authoritative combat foundation           |
-| 6   | Pool Management                 | M&Ms      | 1 sprint  | NOT STARTED | [TBD]        | Memory optimization for long sessions            |
+| 5   | Battle Server Validation Client | M&C            | 2 sprints | NOT STARTED | [TBD]        | Server-authoritative combat foundation           |
+| 6   | Pool Management                 | Beta Prep      | 1 sprint  | NOT STARTED | [TBD]        | Memory optimization for long sessions            |
 | 7   | Battle Content                  | Ongoing   | Ongoing   | IN PROGRESS | [TBD]        | Content pipeline validates production capacity   |
 | 8   | Unit Content                    | Ongoing   | Ongoing   | IN PROGRESS | [TBD]        | Unit variety pipeline validates art/balance pace |
 
@@ -133,15 +132,14 @@ All Battle features across milestones, ordered by priority within each milestone
 
 **Ends**: Jun 23, 2026 | **Sprints**: ~7 | **Capacity**: 1x ENG (Jota)
 
-**CAPACITY WARNING**: 6 features totaling 12 sprints scheduled for 7-sprint milestone. Requires compression or deferral.
+**CAPACITY NOTE**: 4 features totaling 8 sprints scheduled for 7-sprint milestone. Feasible with tight execution.
 
 ```
 Sprint 1:    Battle HUD Beta Overhaul, Obstacles, Actor System Overhaul, Pathfinding & AI (all start)
 Sprint 2:    Battle HUD Beta Overhaul, Actor System Overhaul, Pathfinding & AI
-Sprint 3:    Battle HUD Beta Overhaul, Battle Server Validation (start)
-Sprint 4:    Battle HUD Beta Overhaul, Battle Server Validation
-Sprint 5:    Pool Management
-Sprint 6-7:  [TBD - capacity buffer or defer to M&C]
+Sprint 3-4:  Battle HUD Beta Overhaul continues
+Sprint 5:    Obstacles completes
+Sprint 6-7:  [Buffer for overruns or early M&C work]
 ```
 
 Battle Content and Unit Content run in parallel on design/art track (see `planning/capacity.md`).
@@ -154,7 +152,12 @@ Battle Content and Unit Content run in parallel on design/art track (see `planni
 
 **Ends**: Jul 21, 2026 | **Sprints**: 2 | **Flex**: -
 
-Battle Engineer will focus on build stability and bugfixing. Engineering capacity may flex to other pods (see `planning/capacity.md`).
+```
+Sprint 1:  Pool Management
+Sprint 2:  Build stability and bugfixing
+```
+
+Battle Engineer will work on Pool Management and build stability. Engineering capacity may flex to other pods (see `planning/capacity.md`).
 Battle Content and Unit Content continue on design/art track.
 
 ---
@@ -164,8 +167,8 @@ Battle Content and Unit Content continue on design/art track.
 **Ends**: Oct 13, 2026 | **Sprints**: 6 | **Flex**: [TBD]
 
 ```
-Sprint 1:    Pool Management (deferred from M&Ms)
-Sprint 2-6:  [TBD - awaiting feature definitions]
+Sprint 1-2:  Battle Server Validation Client
+Sprint 3-6:  [TBD - awaiting feature definitions]
 ```
 
 Battle Content and Unit Content continue. M&C validation alignment TBD.
