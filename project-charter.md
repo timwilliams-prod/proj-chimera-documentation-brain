@@ -333,6 +333,7 @@ Skills are slash commands (`.claude/commands/*.md`) that automate common workflo
 | `/sprint-plan` | Sprint planning (Preview/Kickoff modes) | product_targets, pod plans, capacity, sprint_rules, roadmap, Google Calendar, ClickUp | generated/sprint_plans/, pods/*_Plan.md (Sprint Plans section), ClickUp tasks (Kickoff) |
 | `/sprint-risks` | Interactive sprint risk triage | ClickUp sprint tasks, product_targets, pod plans, Slack | Report (copy/paste) |
 | `/roadmap-sheet` | Generate Google Sheets roadmap script | product_targets, pod plans, capacity, roadmap | generated/roadmap_apps_script.js |
+| `/generate_ms_plan` | Single-milestone focused plan (timeline, must-haves, SHQs, per-pod ops) | product_targets, pod plans, capacity, ValidationRoadmap, roadmap | generated/milestone_plans/ |
 
 ### Creating New Skills
 
