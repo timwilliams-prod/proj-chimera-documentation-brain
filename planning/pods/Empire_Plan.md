@@ -1,6 +1,6 @@
 # Empire Pod Plan
 
-Last Updated: 2026-03-25
+Last Updated: 2026-03-27
 Pod Lead: Diana Vasilescu
 
 > **What this file tracks**: Feature priorities per milestone and validation alignment.
@@ -27,19 +27,19 @@ gantt
     Soft Launch - May 30      :crit, milestone, 2027-05-30, 0d
 
     section M&Ms (ends Jun 23)
-    Governors                 :active,  emp1, 2026-03-18, 42d
-    Territory Map VS          :         emp2, after emp1, 28d
-    WM Building Upgrades      :         emp3, after emp2, 14d
-    Flex / Risk Buffer        :         emp_flex1, after emp3, 14d
+    Tutorial Node Migration    :active,  emp1, 2026-03-30, 14d
+    World Map Experience       :         emp2, after emp1, 42d
+    Territory Map Vertical Slice :       emp3, after emp2, 28d
+    Flex / Risk Buffer         :         emp_flex1, after emp3, 14d
 
     section Beta Prep (ends Jul 21)
-    No eng features           :         emp_bp, after emp_flex1, 28d
+    No eng features            :         emp_bp, after emp_flex1, 28d
 
     section M&C (ends Oct 13)
-    World Map VS              :         emp4, after emp_bp, 14d
-    WM Zoom Filtering & LOD   :         emp5, after emp4, 14d
-    Conquest Guide Full Screen :        emp6, after emp5, 7d
-    Barrier & Story Iterations :        emp7, after emp6, 7d
+    Governors                  :         emp4, after emp_bp, 42d
+    WM Building Upgrades       :         emp5, after emp4, 14d
+    WM Zoom Filtering & LOD    :         emp6, after emp5, 14d
+    Conquest Guide + Barriers  :         emp7, after emp6, 14d
 
     section Continuous
     Map Content               :active,  emp_content, 2026-03-18, 490d
@@ -75,16 +75,20 @@ Note: some BHQs are cross-pod — Empire contributes but doesn't solely own them
 
 All Empire features across milestones, ordered by priority within each milestone.
 
-| #   | Feature                                                                     | Milestone | Estimate    | Status      | Related SHQs                                      | What It Proves                                                     |
+| #   | Feature                                                                     | Milestone | Estimate    | Status      | SHQ or Effort                                     | Why this?                                                          |
 | --- | --------------------------------------------------------------------------- | --------- | ----------- | ----------- | ------------------------------------------------- | ------------------------------------------------------------------ |
-| 1   | [Governors](../features/governors.md)                                       | M&Ms      | 3 sprints   | IN PROGRESS | SHQ7 (short/mid/long-term goals)                  | Long-term goal vector within Empire; meaningful project investment |
-| 2   | [Territory Map VS](../features/territory_map_vs.md)                         | M&Ms      | 2 sprints   | NOT STARTED | SHQ1 (map at scale), SHQ2 (strategy <-> conquest) | Two map layers feel connected; seamless strategic flow             |
-| 3   | [WM Building Upgrades](../features/wm_building_upgrades.md)                 | M&Ms      | 1 sprint    | NOT STARTED | -                                                 | World map supports empire investment visibility                    |
+| 1   | Tutorial Node Migration                                                     | M&Ms      | 1 sprint    | NOT STARTED | Effort                                            | Needed for designer tooling & other priorities aren't ready for engineering yet |
+| 2   | [World Map Experience](../features/world_map_vs.md)                         | M&Ms      | 3 sprints   | NOT STARTED | [TBD]                                             | [TBD]                                                              |
+| 2a  | — Multiple Nodes per Territory                                              | M&Ms      | (sprint 1)  | NOT STARTED | [TBD]                                             | [TBD]                                                              |
+| 2b  | — Main Menu UX/UI Implementation                                            | M&Ms      | (sprint 2)  | NOT STARTED | [TBD]                                             | [TBD]                                                              |
+| 2c  | — World Map Experience Iterations                                           | M&Ms      | (sprint 3)  | NOT STARTED | [TBD]                                             | [TBD]                                                              |
+| 3   | [Territory Map Vertical Slice](../features/territory_map_vs.md)             | M&Ms      | 2 sprints   | NOT STARTED | SHQ1 (map at scale), SHQ2 (strategy <-> conquest) | Two map layers feel connected; seamless strategic flow             |
 | 4   | [Map Content](../features/map_content.md)                                   | Ongoing   | Ongoing     | IN PROGRESS | SHQ1 (high visual bar, variety)                   | Content pipeline validates production capacity at scale            |
-| 5   | [World Map VS](../features/world_map_vs.md)                                 | M&C       | ~1 sprint   | NOT STARTED | [TBD]                                             | [TBD - map features to SHQs]                                       |
-| 6   | [WM Zoom Filtering & LOD](../features/wm_zoom_lod.md)                       | M&C       | ~1 sprint   | NOT STARTED | [TBD]                                             | [TBD]                                                              |
-| 7   | [Conquest Guide Full Screen](../features/conquest_guide.md)                 | M&C       | ~0.5 sprint | NOT STARTED | [TBD]                                             | [TBD]                                                              |
-| 8   | [Barrier & Story Shard Iterations](../features/barrier_story_iterations.md) | M&C       | ~0.5 sprint | NOT STARTED | [TBD]                                             | [TBD]                                                              |
+| 5   | [Governors](../features/governors.md)                                       | M&C       | 3 sprints   | IN PROGRESS | SHQ7 (short/mid/long-term goals)                  | Long-term goal vector within Empire; meaningful project investment |
+| 6   | [WM Building Upgrades](../features/wm_building_upgrades.md)                 | M&C       | 1 sprint    | NOT STARTED | —                                                 | World map supports empire investment visibility                    |
+| 7   | [WM Zoom Filtering & LOD](../features/wm_zoom_lod.md)                      | M&C       | ~1 sprint   | NOT STARTED | [TBD]                                             | [TBD]                                                              |
+| 8   | [Conquest Guide Full Screen](../features/conquest_guide.md)                 | M&C       | ~0.5 sprint | NOT STARTED | [TBD]                                             | [TBD]                                                              |
+| 9   | [Barrier & Story Shard Iterations](../features/barrier_story_iterations.md) | M&C       | ~0.5 sprint | NOT STARTED | [TBD]                                             | [TBD]                                                              |
 
 > Feature docs marked as links may not exist yet — create with `planning/features/governors.md` as template.
 
@@ -98,39 +102,50 @@ All Empire features across milestones, ordered by priority within each milestone
 ### Sprint 26: Yodel Yaks (3/31 - 4/14) — CURRENT
 
 **Goals**:
-- Continue **Governors** engineering (Sprint 1 of 3) — validates SHQ7
-- Start **Governors UX** — UI deliverables needed by Sprint 2
-- Continue **Map Content** pipeline (design/art track) — validates SHQ1
+- **Tutorial Node Migration** engineering (Henrique, 1 sprint) — designer tooling enablement
+- Begin **World Map Experience** design/UX prep — front-loading for Sprint 27
+- Continue **Map Content** pipeline — validates SHQ1
 
 **Key Assignments**:
 
 | Person | Focus | Notes |
 |--------|-------|-------|
-| Gabriel Arruda | Governors engineering | Sprint 1 of 3. [Spec](../features/governors.md) |
-| Henrique De Lima | Governors engineering | Tutorial arch carry-over from S25 (CHI-36213, CHI-36212) |
-| Diana Vasilescu | Governors design | CHI-36224 still "to do" in S25 — carry-over risk |
-| Yura Rusin | Governors UX wireframes | Critical timing — UI needed by Sprint 2 |
+| Henrique De Lima | Tutorial Node Migration engineering | 1-sprint effort. S25 tutorial arch carry-over (CHI-36213, CHI-36212) feeds into this. |
+| Diana Vasilescu | World Map Experience design prep | Scoping "Multiple Nodes per Territory" for Sprint 27 eng start |
+| Yura Rusin | World Map Experience UX | UX flows for multiple nodes, world map interactions |
 | Jacob Siegel | Map Content | Out 3/31-4/7 (5 days PTO) — only available 4/8-4/13 |
-| Elise Cole | Map Content + tuning carry-over | Solo-covering Map Content while Jacob is out |
-| Laura Santana | Governors QA (when ready) | S25 bug verification in parallel |
+| Elise Cole | Map Content | Solo-covering while Jacob is out |
+| Laura Santana | Bug verification / Tutorial Node Migration QA | QA when engineering is ready |
 
 **Risks & Awareness**:
-- Jacob Siegel out 5 of 9 days — Elise solo-covering Map Content
-- Henrique may carry tutorial architecture work from S25
-- Diana's Governors Design task (CHI-36224) still "to do" in S25 — carry-over risk
-- Good Friday (Apr 3) studio closure; Easter Monday (Apr 6) may affect some staff
+- Jacob out 5 of 9 days — Elise solo-covering Map Content
+- Good Friday (Apr 3) studio closure
+- No ClickUp tasks exist yet for Tutorial Node Migration — scaffold at kickoff
+- WME design/UX prep must be far enough along for Henrique to start engineering Sprint 27
 
 ### Sprint 27: Zany Zebras (4/14 - 4/28) — NEXT
 
 **Goals**:
-- Continue **Governors** engineering (Sprint 2 of 3)
-- **Governors UI implementation** begins (depends on S26 UX completion)
+- Start **World Map Experience** engineering — "Multiple Nodes per Territory" (Sprint 1 of 3)
+- Continue **World Map Experience** design/UX
 - Continue **Map Content** pipeline
 
+**Key Assignments**:
+
+| Person | Focus | Notes |
+|--------|-------|-------|
+| Henrique De Lima | World Map Experience — Multiple Nodes per Territory | Sprint 1 of 3. Sole client engineer. |
+| Diana Vasilescu | World Map Experience design | Out 4/14 (sprint start day) |
+| Yura Rusin | World Map Experience UX | |
+| Jacob Siegel | Map Content | Full availability |
+| Elise Cole | Map Content + WME design support | |
+| Laura Santana | Tutorial Node Migration QA + bug verification | |
+
 **Risks & Awareness**:
-- Diana Vasilescu out 4/14 (sprint start day)
-- Governors UI depends on Yura completing UX wireframes in S26
-- Miguel Duran (shared UI artist) also needed by Metagame for UI Foundation
+- Diana out 4/14 (sprint start day)
+- Henrique is sole client engineer — no engineering parallelism
+- WME spec (`world_map_vs.md`) may need scope update for new sub-efforts
+- "Multiple Nodes per Territory" design readiness depends on Sprint 26 prep
 
 ---
 
@@ -141,9 +156,12 @@ All Empire features across milestones, ordered by priority within each milestone
 **Ends**: Jun 23, 2026 | **Sprints**: ~7 | **Flex**: 1 sprint buffer for risk/iteration
 
 ```
-Sprint 1-3:  Governors (IN PROGRESS)
-Sprint 4-5:  Territory Map VS
-Sprint 6:    WM Building Upgrades
+Sprint 1:    Tutorial Node Migration
+Sprint 2-4:  World Map Experience
+  Sprint 2:  Multiple Nodes per Territory
+  Sprint 3:  Main Menu UX/UI Implementation
+  Sprint 4:  World Map Experience Iterations
+Sprint 5-6:  Territory Map Vertical Slice
 Sprint 7:    Flex / risk buffer / iteration
 ```
 
@@ -165,10 +183,10 @@ Map Content continues on design/art track.
 **Ends**: Oct 13, 2026 | **Sprints**: 6 | **Flex**: [TBD]
 
 ```
-Sprint 1:    World Map VS
-Sprint 2:    WM Zoom Filtering & LOD
-Sprint 3:    Conquest Guide + Barrier & Story Iterations
-Sprint 4-6:  [TBD - awaiting feature definitions]
+Sprint 1-3:  Governors
+Sprint 4:    WM Building Upgrades
+Sprint 5:    WM Zoom Filtering & LOD
+Sprint 6:    Conquest Guide + Barrier & Story Iterations
 ```
 
 Map Content continues. M&C validation alignment TBD.

@@ -51,7 +51,7 @@ Next Milestone: M&Ms (starts ~3/31/2026, ends Jun 23, 2026)
 | ------------------ | ---------------- | --------------- | --------------- | ----------- | --------------------------------------------------------------------------------------------- |
 | Gabriel Arruda     | Client Engineer  | Empire          | Social Dynamics          | [TBD]       |                                                                                               |
 | Henrique De Lima   | Client Engineer  | Empire          | Empire          | [TBD]       |                                                                                               |
-| Marcos Loures      | Client Engineer  | Empire          | Metagame | [TBD]       | Moving from Empire to Social Dynamics for M&Ms                                                |
+| Marcos Loures      | Client Engineer  | Empire          | Metagame | [TBD]       | Moving from Empire to Metagame for M&Ms                                                       |
 | Dan Dupuis         | Engineering Lead | Metagame        | Metagame        | [TBD]       | Eng Lead for Meta Vertical, planning 0 capacity                                                                                              |
 | Guilherme Quizzini | Client Engineer  | Metagame        | Metagame        | [TBD]       |                                                                                               |
 | Jota Oliveira      | Client Engineer  | Battle          | Battle          | [TBD]       |                                                                                               |
