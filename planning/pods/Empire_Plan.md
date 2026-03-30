@@ -113,8 +113,8 @@ All Empire features across milestones, ordered by priority within each milestone
 | Henrique De Lima | Tutorial Node Migration engineering | 1-sprint effort. S25 tutorial arch carry-over (CHI-36213, CHI-36212) feeds into this. |
 | Diana Vasilescu | World Map Experience design prep | Scoping "Multiple Nodes per Territory" for Sprint 27 eng start |
 | Yura Rusin | World Map Experience UX | UX flows for multiple nodes, world map interactions |
-| Jacob Siegel | Map Content | Out 3/31-4/7 (5 days PTO) — only available 4/8-4/13 |
-| Elise Cole | Map Content | Solo-covering while Jacob is out |
+| Jacob Siegel | Map Content (T5 / T6 Iterations) | Out 3/31-4/7 (5 days PTO) — only available 4/8-4/13 |
+| Elise Cole | Consolidating source of truth for Narrative | Solo-covering while Jacob is out |
 | Laura Santana | Bug verification / Tutorial Node Migration QA | QA when engineering is ready |
 
 **Risks & Awareness**:
