@@ -1,7 +1,7 @@
 # Metagame Pod Plan
 
-Last Updated: 2026-03-25
-Pod Lead: [TBD]
+Last Updated: 2026-03-30
+Pod Lead: Leonard Perez
 
 > Feature-level planning per milestone. Sprint execution lives in ClickUp.
 > For the overall milestone timeline, see `generated/roadmap.md`.
@@ -9,7 +9,7 @@ Pod Lead: [TBD]
 
 ---
 
-## Roadmap View
+## Roadmap
 
 ```mermaid
 gantt
@@ -62,6 +62,57 @@ gantt
 
 ---
 
+## Validation Focus
+
+> M&Ms milestone SHQs. Full details in `planning/ValidationRoadmap.md`.
+
+### Battle (WH-1)
+
+| ID | Question | BHQ | Status |
+|----|----------|-----|--------|
+| SHQ24 | Does new art direction maintain clarity? | BHQ-B2 | IN PROGRESS |
+| SHQ26 | Are players motivated to collect heroes/troops per game mode? | BHQ-B3 | PENDING VALIDATION |
+| SHQ27 | Scalable battle-building across all game modes? | BHQ-B4 | IN PROGRESS |
+| SHQ28 | Unit production pipeline validated? | BHQ-B4 | IN PROGRESS |
+| SHQ29 | Does HUD allow strategic planning + tactical response? | BHQ-B2 | NOT STARTED |
+| SHQ30 | Do players understand starter heroes; do metagame progression choices vary per hero? | BHQ-B3 | NOT STARTED |
+
+### Empire (WH-2)
+
+| ID | Question | BHQ | Status |
+|----|----------|-----|--------|
+| SHQ1 | Map production pipeline at scale? | BHQ-E1 | IN PROGRESS |
+| SHQ31 | World map surfaces session engagement goals? | BHQ-E1 | NOT STARTED |
+| SHQ32 | Territory map readable with real art? | BHQ-E1 | NOT STARTED |
+| SHQ33 | Narrative beats drive map exploration? | BHQ-E1 | NOT STARTED |
+| SHQ34 | Clear UX vision for empire/whirlpool/MP navigation? | BHQ-E1 | NOT STARTED |
+
+### Monetisation (WH-3)
+
+| ID | Question | BHQ | Status |
+|----|----------|-----|--------|
+| SHQ35 | Do players engage with vertical empire progression as meaningful? | BHQ-M3 | NOT STARTED |
+| SHQ36 | Session-to-session return motivation across 3 days? | BHQ-M3 | NOT STARTED |
+| SHQ37 | Meaningful resource tension driving strategic decisions? | BHQ-M3 | NOT STARTED |
+| SHQ38 | (Paper) Economy model depth + monetisation levers? | BHQ-M3 | NOT STARTED |
+
+---
+
+## Feature Priorities
+
+> M&Ms features in priority order.
+
+| Priority | Feature | Sprints | Notes |
+|----------|---------|---------|-------|
+| 1 | UI Foundation | 6 | Foundation work, Hero Info, Leveling, Gear, Badging, Tutorials/Narrative |
+| 2 | Building Upgrades | 1 | |
+| 3 | Empire Progression Tree | 1 | |
+| 4 | Global Combat Research Tree | 2 | |
+| 5 | Hero Gacha v1 | 1 | |
+| 6 | Passive Bonus Tiles | 1 | |
+
+---
+
 ## Sprint Plans
 
 > Skill-maintained by `/sprint-plan`. Updated with user approval.
@@ -105,17 +156,22 @@ gantt
 
 ---
 
-## Milestone: Multiplayer & Meta (M&Ms)
+## Milestone Plans
 
-**Ends**: Jun 23, 2026 (~7 sprints available)
+### Multiplayer & Meta (M&Ms)
+
+**Ends**: Jun 23, 2026 (~7 sprints)
 **Capacity**: 2x ENG (parallel pipelines)
 
-### Features
+**Pipeline Assignments**:
 
-Two engineering pipelines run in parallel:
+| Pipeline | Engineer | Focus |
+|----------|----------|-------|
+| A | Guilherme Quizzini | UI Foundation (6 sprints) |
+| B | Tiago Costa | Sequential features (see below) |
 
 ```
-Pipeline A (dedicated):                      Pipeline B (sequential):
+Pipeline A (Guilherme Quizzini):             Pipeline B (Tiago Costa):
 ─────────────────────────────────────        ─────────────────────────────────────
 S1 ┃ UI Foundation                           S1 ┃ Building Upgrades (1 sprint)
 S2 ┃ UI Foundation                           S2 ┃ Empire Progression Tree (1 sprint)
@@ -126,33 +182,20 @@ S6 ┃ UI Foundation                           S6 ┃ Passive Bonus Tiles (1 spr
 S7 ┃ (buffer)                                S7 ┃ (buffer)
 ```
 
-| #   | Feature                     | Sprints | Pipeline | Notes                                                                         |
-| --- | --------------------------- | ------- | -------- | ----------------------------------------------------------------------------- |
-| 1   | UI Foundation               | 6       | A        | Foundation work, Hero Info, Hero Leveling, Gear, Badging, Tutorials/Narrative |
-| 2   | Building Upgrades           | 1       | B        |                                                                               |
-| 3   | Empire Progression Tree     | 1       | B        |                                                                               |
-| 4   | Global Combat Research Tree | 2       | B        |                                                                               |
-| 5   | Hero Gacha v1               | 1       | B        |                                                                               |
-| 6   | Passive Bonus Tiles         | 1       | B        |                                                                               |
-
 ---
 
-## Milestone: Beta Launch Prep
+### Beta Launch Prep
 
-**Ends**: Jul 21, 2026 (2 sprints available)
-
-### Features
+**Ends**: Jul 21, 2026 (2 sprints)
 
 No planned feature work. Stabilize, polish, and bugfix.
 
 ---
 
-## Milestone: Monetization & Conversion (M&C)
+### Monetization & Conversion (M&C)
 
-**Ends**: Oct 13, 2026 (6 sprints available)
+**Ends**: Oct 13, 2026 (6 sprints)
 **Capacity**: 2x ENG (parallel pipelines)
-
-### Features
 
 ```
 Pipeline A:                                  Pipeline B:
@@ -179,12 +222,10 @@ S6 ┃ (buffer)                               S6 ┃ (buffer)
 
 ---
 
-## Milestone: Live Ops & Social
+### Live Ops & Social
 
-**Ends**: Feb 2, 2027 (8 sprints available)
+**Ends**: Feb 2, 2027 (8 sprints)
 **Capacity**: [TBD — assumes 2x ENG continues]
-
-### Features
 
 | # | Feature | Sprints | Notes |
 |---|---------|---------|-------|
@@ -201,12 +242,10 @@ S6 ┃ (buffer)                               S6 ┃ (buffer)
 
 ---
 
-## Milestone: Soft Launch (UA Scale)
+### Soft Launch (UA Scale)
 
-**Ends**: May 30, 2027 (~8 sprints available)
+**Ends**: May 30, 2027 (~8 sprints)
 **Capacity**: [TBD — assumes 2x ENG continues]
-
-### Features
 
 | # | Feature | Sprints | Notes |
 |---|---------|---------|-------|
