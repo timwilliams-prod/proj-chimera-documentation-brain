@@ -1,8 +1,7 @@
 # Team Capacity
 
-Last Updated: 2026-03-20
-Current Milestone: Systems Validation (final sprint, ends 3/30/2026)
-Next Milestone: M&Ms (starts ~3/31/2026, ends Jun 23, 2026)
+Last Updated: 2026-03-30
+Current Milestone: M&Ms (Multiplayer & Meta, starts 3/31/2026, ends Jun 23, 2026)
 
 > Staffing allocations by discipline and role across milestones.
 > People move between pods - this file is the single view of where everyone is.
@@ -22,13 +21,13 @@ Next Milestone: M&Ms (starts ~3/31/2026, ends Jun 23, 2026)
 
 ## Leadership
 
-| Person         | Role               | Notes |
-| -------------- | ------------------ | ----- |
-| James Fielding | Game Director      |       |
-| Holly Mellor   | Executive Producer |       |
-| Kevin Griffith | Art Director       |       |
-| Derek Gallant  | Tech Director      |       |
-| Hafiz Kassam   | QA Lead            |       |
+| Person         | Country  | Role               | Notes |
+| -------------- | -------- | ------------------ | ----- |
+| James Fielding | USA      | Game Director      |       |
+| Holly Mellor   | USA      | Executive Producer |       |
+| Kevin Griffith | USA      | Art Director       |       |
+| Derek Gallant  | Canada   | Tech Director      |       |
+| Hafiz Kassam   | Canada   | QA Lead            |       |
 
 ---
 
@@ -47,90 +46,90 @@ Next Milestone: M&Ms (starts ~3/31/2026, ends Jun 23, 2026)
 
 ## Engineering
 
-| Person             | Role             | Pod (Current)   | M&Ms (7 spr)    | M&C (6 spr) | Notes                                                                                         |
-| ------------------ | ---------------- | --------------- | --------------- | ----------- | --------------------------------------------------------------------------------------------- |
-| Gabriel Arruda     | Client Engineer  | Empire          | Social Dynamics          | [TBD]       |                                                                                               |
-| Henrique De Lima   | Client Engineer  | Empire          | Empire          | [TBD]       |                                                                                               |
-| Marcos Loures      | Client Engineer  | Empire          | Social Dynamics | [TBD]       | Moving from Empire to Social Dynamics for M&Ms                                                       |
-| Dan Dupuis         | Engineering Lead | Metagame        | Metagame        | [TBD]       | Eng Lead for Meta Vertical, planning 0 capacity                                                                                              |
-| Guilherme Quizzini | Client Engineer  | Metagame        | Metagame        | [TBD]       |                                                                                               |
-| Jota Oliveira      | Client Engineer  | Battle          | Battle          | [TBD]       |                                                                                               |
-| Tiago Costa        | Client Engineer  | -               | Metagame | [TBD]       | New hire. First milestone is M&Ms.                                                            |
-| Randy Pasion       | Client Engineer  | Social Dynamics | Social Dynamics | [TBD]       | Also responsible for build pipeline (Dozer). Feature work at risk of interruption.            |
-| Garrett Eidsvig    | Backend Engineer | Social Dynamics | Social Dynamics | [TBD]       | Also responsible for networking/infrastructure (Dozer). Feature work at risk of interruption. |
-| Bruno Bacelar      | Backend Engineer | Social Dynamics | Social Dynamics | [TBD]       |                                                                                               |
-| Derek Gallant      | Engineering Lead | Dozer           | Dozer           | [TBD]       |                                                                                               |
-| Bruno Freitas      | Engineer         | Dozer           | Dozer           | [TBD]       |                                                                                               |
+| Person             | Country  | Role             | Pod (Current)   | M&Ms (7 spr)    | M&C (6 spr) | Notes                                                                                         |
+| ------------------ | -------- | ---------------- | --------------- | --------------- | ----------- | --------------------------------------------------------------------------------------------- |
+| Gabriel Arruda     | Brazil   | Client Engineer  | Empire          | Social Dynamics          | [TBD]       |                                                                                               |
+| Henrique De Lima   | Brazil   | Client Engineer  | Empire          | Empire          | [TBD]       |                                                                                               |
+| Marcos Loures      | Brazil   | Client Engineer  | Empire          | Social Dynamics | [TBD]       | Moving from Empire to Social Dynamics for M&Ms                                                       |
+| Dan Dupuis         | Canada   | Engineering Lead | Metagame        | Metagame        | [TBD]       | Eng Lead for Meta Vertical, planning 0 capacity                                                                                              |
+| Guilherme Quizzini | Brazil   | Client Engineer  | Metagame        | Metagame        | [TBD]       |                                                                                               |
+| Jota Oliveira      | Brazil   | Client Engineer  | Battle          | Battle          | [TBD]       |                                                                                               |
+| Tiago Costa        | Canada   | Client Engineer  | -               | Metagame | [TBD]       | New hire. First milestone is M&Ms. Listed as "Tiago Keller" in Notion.                        |
+| Randy Pasion       | USA      | Client Engineer  | Social Dynamics | Social Dynamics | [TBD]       | Also responsible for build pipeline (Dozer). Feature work at risk of interruption.            |
+| Garrett Eidsvig    | Canada   | Backend Engineer | Social Dynamics | Social Dynamics | [TBD]       | Also responsible for networking/infrastructure (Dozer). Feature work at risk of interruption. |
+| Bruno Bacelar      |          | Backend Engineer | Social Dynamics | Social Dynamics | [TBD]       |                                                                                               |
+| Derek Gallant      | Canada   | Engineering Lead | Dozer           | Dozer           | [TBD]       |                                                                                               |
+| Bruno Freitas      | Brazil   | Engineer         | Dozer           | Dozer           | [TBD]       |                                                                                               |
 
 
 ---
 
 ## Design
 
-| Person | Role | Pod (Current) | M&Ms (7 spr) | M&C (6 spr) | Notes |
-|--------|------|---------------|---------------|----|-------|
-| Diana Vasilescu | Design Lead | Empire | Empire | [TBD] | |
-| Elise Cole | Designer | Empire | Empire | [TBD] | |
-| Jacob Siegel | Designer | Empire | Empire | [TBD] | |
-| Leonard Perez | Design Lead | Metagame | Metagame | [TBD] | |
-| Chris Fidalgo | Designer | Metagame | Metagame | [TBD] | |
-| Lincoln Li | Design Lead | Battle | Battle | [TBD] | |
-| Nathan Hajek | Designer | Battle | Battle | [TBD] | |
-| Dylan Jeffery | Designer | Battle | Battle | [TBD] | |
-| Vishaal Gupta | Designer | Battle | Battle | [TBD] | |
-| Paul Flores | Design Lead | Social Dynamics | [TBD] | [TBD] | |
+| Person | Country | Role | Pod (Current) | M&Ms (7 spr) | M&C (6 spr) | Notes |
+|--------|---------|------|---------------|---------------|----|-------|
+| Diana Vasilescu | Romania | Design Lead | Empire | Empire | [TBD] | |
+| Elise Cole | Canada | Designer | Empire | Empire | [TBD] | |
+| Jacob Siegel | USA | Designer | Empire | Empire | [TBD] | |
+| Leonard Perez | USA | Design Lead | Metagame | Metagame | [TBD] | |
+| Chris Fidalgo | USA | Designer | Metagame | Metagame | [TBD] | |
+| Lincoln Li | USA | Design Lead | Battle | Battle | [TBD] | |
+| Nathan Hajek | USA | Designer | Battle | Battle | [TBD] | |
+| Dylan Jeffery | USA | Designer | Battle | Battle | [TBD] | |
+| Vishaal Gupta | Canada | Designer | Battle | Battle | [TBD] | |
+| Paul Flores | USA | Design Lead | Social Dynamics | [TBD] | [TBD] | |
 
 ---
 
 ## UX / UI
 
-| Person | Role | Pod (Current) | M&Ms (7 spr) | M&C (6 spr) | Notes |
-|--------|------|---------------|---------------|----|-------|
-| Kevin Ligon | UX Lead | Metagame | [TBD] | [TBD] | |
-| Yura Rusin | UX Designer | Empire | Empire | [TBD] | Governors UI needed by Sprint 2 of M&Ms |
-| Miguel Duran | UI Artist | Metagame | Metagame | [TBD] | |
+| Person | Country | Role | Pod (Current) | M&Ms (7 spr) | M&C (6 spr) | Notes |
+|--------|---------|------|---------------|---------------|----|-------|
+| Kevin Ligon | USA | UX Lead | Metagame | [TBD] | [TBD] | |
+| Yura Rusin | USA | UX Designer | Empire | Empire | [TBD] | WME UX needed for M&Ms |
+| Miguel Duran | USA | UI Artist | Metagame | Metagame | [TBD] | |
 
 ---
 
 ## Art
 
-| Person | Role | Pod (Current) | M&Ms (7 spr) | M&C (6 spr) | Notes |
-|--------|------|---------------|---------------|----|-------|
-| Kevin Griffith | Art Director | Art | Art | Art | Cross-pod leadership |
-| Brendan Cheatham | Associate Art Director | Art | Art | Art | Cross-pod leadership |
-| Lawrence Steele | Sound Engineer | Art | Art | Art | |
-| Danny Oliveira | Senior Technical Artist | Battle | Battle | [TBD] | |
-| Alessandro Oliveira | VFX | Battle | Battle | [TBD] | |
-| Pedro Sarraf | Lead Technical Artist | Art | Art | [TBD] | |
-| Guilherme Lascasas | 2D Environment Concept | Empire | Empire | [TBD] | |
-| Vinod Rams | Lead 2D Concept | Battle | Battle | [TBD] | |
-| Thiago Saraiva | Senior 3D | Empire | Empire | [TBD] | |
-| Ben Clair | Senior Technical Artist | Battle | Battle | [TBD] | |
-| Felipe Chaves | Staff 3D Character | Battle | Battle | [TBD] | |
-| Tony Bonilla | Lead Animator | Battle | Battle | [TBD] | |
-| Vini Muniz | Character Concept Artist | Battle | Battle | [TBD] | |
-| Marcos Teles       | Tech Artist      | Empire          | Empire          | [TBD]       |                                                                                               |
+| Person | Country | Role | Pod (Current) | M&Ms (7 spr) | M&C (6 spr) | Notes |
+|--------|---------|------|---------------|---------------|----|-------|
+| Kevin Griffith | USA | Art Director | Art | Art | Art | Cross-pod leadership |
+| Brendan Cheatham | Canada | Associate Art Director | Art | Art | Art | Cross-pod leadership |
+| Lawrence Steele | | Sound Engineer | Art | Art | Art | |
+| Danny Oliveira | | Senior Technical Artist | Battle | Battle | [TBD] | |
+| Alessandro Oliveira | | VFX | Battle | Battle | [TBD] | |
+| Pedro Sarraf | | Lead Technical Artist | Art | Art | [TBD] | |
+| Guilherme Lascasas | | 2D Environment Concept | Empire | Empire | [TBD] | |
+| Vinod Rams | | Lead 2D Concept | Battle | Battle | [TBD] | |
+| Thiago Saraiva | | Senior 3D | Empire | Empire | [TBD] | |
+| Ben Clair | USA | Senior Technical Artist | Battle | Battle | [TBD] | |
+| Felipe Chaves | Canada | Staff 3D Character | Battle | Battle | [TBD] | |
+| Tony Bonilla | USA | Lead Animator | Battle | Battle | [TBD] | |
+| Vini Muniz | | Character Concept Artist | Battle | Battle | [TBD] | |
+| Marcos Teles | Brazil | Tech Artist | Empire | Empire | [TBD] | |
 
 ---
 
 ## QA
 
-| Person | Role | Pod (Current) | M&Ms (7 spr) | M&C (6 spr) | Notes |
-|--------|------|---------------|---------------|----|-------|
-| Hafiz Kassam | QA Lead | Cross-pod | Cross-pod | Cross-pod | |
-| Laura Santana | QA | Empire | Empire | [TBD] | |
-| Hugo Hideo | QA | Metagame | Metagame | [TBD] | |
-| Julio Scarabelli | QA | Battle | Battle | [TBD] | |
+| Person | Country | Role | Pod (Current) | M&Ms (7 spr) | M&C (6 spr) | Notes |
+|--------|---------|------|---------------|---------------|----|-------|
+| Hafiz Kassam | Canada | QA Lead | Cross-pod | Cross-pod | Cross-pod | |
+| Laura Santana | Brazil | QA | Empire | Empire | [TBD] | |
+| Hugo Hideo | Brazil | QA | Metagame | Metagame | [TBD] | |
+| Julio Scarabelli | Brazil | QA | Battle | Battle | [TBD] | |
 
 ---
 
 ## Production
 
-| Person | Role | Pod(s) | Notes |
-|--------|------|--------|-------|
-| Tim Williams | Producer | Metagame, Social Dynamics | Two pods |
-| Brann Livesay | Producer | Empire, Art | Two pods |
-| Thorben Novais | Producer | Battle | |
+| Person | Country | Role | Pod(s) | Notes |
+|--------|---------|------|--------|-------|
+| Tim Williams | USA | Producer | Metagame, Social Dynamics | Two pods |
+| Brann Livesay | USA | Producer | Empire, Art | Two pods |
+| Thorben Novais | Brazil | Producer | Battle | |
 
 ---
 
@@ -152,6 +151,7 @@ Next Milestone: M&Ms (starts ~3/31/2026, ends Jun 23, 2026)
 
 | Date | Change | Reason |
 |------|--------|--------|
+| 2026-03-30 | Added Country column to all tables (sourced from Notion Team Members DB). Tiago Costa listed as "Tiago Keller" in Notion — verify correct name. Some art team members not in Notion DB — countries left blank. Updated milestone to M&Ms current. | Holiday-aware OOO evaluation |
 | 2026-03-20 | M&Ms staffing: Marcos Loures Empire -> Social Dynamics. Tiago Costa (new) added to Social Dynamics. Randy, Garrett, Bruno Bacelar confirmed Social Dynamics for M&Ms. Updated staffing risks. | Social Dynamics ramp-up for multiplayer build-out |
 | 2026-03-19 | Full team roster populated with real staffing data | Moving from placeholder to actual team |
 | 2026-03-19 | Initial capacity file created | Restructuring brain for better separation of concerns |
