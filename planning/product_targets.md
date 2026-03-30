@@ -35,12 +35,11 @@ Last Updated: 2026-03-27
 | Territory Map Vertical Slice           | Empire   | Prove map works at scale + strategy/conquest connection (SHQ1, SHQ2)                                           |
 | Battle HUD Beta Overhaul               | Battle   | Combat interface must meet beta quality bar; gates all battle content and validates BHQ-B2 (intuitive actions) |
 | Optimisation in Preparation for Beta   | Dozer    | Performance and stability must reach beta quality bar                                                           |
-| Narrative and Tutorial Pipeline/Tooling | Empire / Dozer | Designers need functional tooling to build tutorial and narrative content at scale                        |
+| Narrative and Tutorial Tooling | Empire | Designers need functional tooling to build tutorial and narrative content at scale                        |
 | Audio Tooling Foundation               | Art      | Audio pipeline must be established for content production                                                       |
 | UI Foundation                          | Metagame | Core UI systems and patterns needed for all feature UIs                                                         |
 | 6 Starter Heroes — Designed and Arted  | Battle / Art | Verify art direction with final hero assets; hero roster needed for all playtests                          |
 | Art Outsourcing Pipelines              | Art      | External art production must be validated for scale                                                              |
-| Tutorial Map Vertical Slice            | Empire   | Prove tutorial map flow works end-to-end                                                                        |
 | Reduction of FTUE Friction             | Cross-pod | First-time user experience must be smooth enough for external playtests                                        |
 | Overarching Tone/Emotion of Game       | Art / Empire | Narrative and art direction must come together to establish cohesive game identity                          |
 | Multiplayer Foundation Complete | Social Dynamics    | Multiplayer foundation must be at a point where we can internally playtest the mode by the end of the Milestone                    |
