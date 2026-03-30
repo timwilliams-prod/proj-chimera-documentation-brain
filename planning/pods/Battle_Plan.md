@@ -98,9 +98,12 @@ All Battle features across milestones, ordered by priority within each milestone
 
 | Person | Focus | Notes |
 |--------|-------|-------|
-| Jota Oliveira | Battle HUD Beta Overhaul | Solo engineer, out 3/31 (starts 4/1). 8 avail days. Critical path. |
+| Jota Oliveira | Battle HUD Beta Overhaul | Solo client engineer, out 3/31 (starts 4/1). 8 avail days. Critical path. |
+| Alessandro Oliveira | New VFXs | Starting this sprint |
+| Danny Oliveira | VFXs implementation and polish | Starting this sprint |
+| Vinod Rams | New unit concepts (Boss, Shared Assets for Heroes) | Starting this sprint |
 | Lincoln Li | Battle HUD design direction | Also coordinating design prep for future features |
-| Nathan Hajek | Obstacles design prep | Front-loading design for future sprint |
+| Nathan Hajek | Unit Design & Prototype (M&M) | |
 | Dylan Jeffery | Battle Content pipeline | Ongoing |
 | Vishaal Gupta | Battle Content + unit balance | Out 4/2 (1 day) |
 | Julio Scarabelli | S25 bug verification + HUD QA prep | |
