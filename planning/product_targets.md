@@ -43,7 +43,7 @@ Last Updated: 2026-03-27
 | Tutorial Map Vertical Slice            | Empire   | Prove tutorial map flow works end-to-end                                                                        |
 | Reduction of FTUE Friction             | Cross-pod | First-time user experience must be smooth enough for external playtests                                        |
 | Overarching Tone/Emotion of Game       | Art / Empire | Narrative and art direction must come together to establish cohesive game identity                          |
-| [TBD - multiplayer foundation feature] | [TBD]    | Multiplayer must be functional for M&Ms milestone to mean anything                                             |
+| Multiplayer Foundation Complete | Social Dynamics    | Multiplayer foundation must be at a point where we can internally playtest the mode by the end of the Milestone                    |
 
 ### Nice-to-Have Features
 
