@@ -98,7 +98,7 @@ All Battle features across milestones, ordered by priority within each milestone
 
 | Person | Focus | Notes |
 |--------|-------|-------|
-| Jota Oliveira | Battle HUD Beta Overhaul | Solo client engineer, out 3/31 (starts 4/1). 8 avail days. Critical path. |
+| Jota Oliveira | Actor System Overhaul, Pathfinding AI improvements | Solo client engineer, out 3/31 (starts 4/1). 8 avail days. Critical path. |
 | Alessandro Oliveira | New VFXs | Starting this sprint |
 | Danny Oliveira | VFXs implementation and polish | Starting this sprint |
 | Vinod Rams | New unit concepts (Boss, Shared Assets for Heroes) | Starting this sprint |
