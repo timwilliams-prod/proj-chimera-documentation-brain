@@ -1,6 +1,6 @@
 # Social Dynamics Pod Plan
 
-Last Updated: 2026-03-25
+Last Updated: 2026-03-30
 Pod Lead: [TBD]
 
 > **What this file tracks**: Feature priorities per milestone and validation alignment.
@@ -183,18 +183,17 @@ Social Dynamics runs multiple parallel tracks during M&Ms:
 
 | Person | Focus | Notes |
 |--------|-------|-------|
+| Gabriel Arruda | P2: Map Foundation | Transitioning from Empire — needs clean handoff |
 | Randy Pasion | P1 wrap-up (3/31 only), then P2: Map Foundation | Out 4/1-4/6 (3 days PTO). 6 avail days. Dozer split risk. |
 | Garrett Eidsvig | P2: Map Foundation - multiplayer infrastructure | Dozer split risk — feature work may be interrupted |
 | Marcos Loures | P2: Map Foundation | Transitioning from Empire — needs clean handoff |
-| Tiago Costa | P2: Map Foundation | New hire, first milestone. May need ramp-up time. |
 | Bruno Bacelar | Multiplayer Networking | Parallel track, dedicated |
 | Paul Flores | AI Prototype Playtesting + P2 design direction | |
 
 **Risks & Awareness**:
 - **Phase 1 overflow**: ETA was 3/30. If not complete, overflow hits Randy's single available day (3/31) before his PTO.
-- Randy only 6 available days + Dozer split. Garrett also has Dozer split. 2 of 5 engineers at risk of interruption.
-- Marcos Loures transitioning from Empire — is handoff clean?
-- Tiago Costa onboarding — ready for P2 contribution, or needs ramp?
+- Randy only 6 available days + Dozer split. Garrett also has Dozer split. 2 of 4 dedicated engineers at risk of interruption.
+- Gabriel Arruda and Marcos Loures transitioning from Empire — handoff readiness?
 - Phase 2 engineering breakdown: detailed task list needed, or scoping spike first?
 
 ### Sprint 27: Zany Zebras (4/14 - 4/28) — NEXT

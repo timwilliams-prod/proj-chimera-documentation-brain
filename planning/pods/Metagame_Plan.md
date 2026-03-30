@@ -129,30 +129,33 @@ gantt
 
 | Person | Focus | Notes |
 |--------|-------|-------|
-| Dan Dupuis | UI Foundation (Pipeline A) | Also Empire eng lead — Governors may need oversight |
-| Guilherme Quizzini | Building Upgrades (Pipeline B) | 1-sprint feature, should complete this sprint |
+| Guilherme Quizzini | UI Foundation (Pipeline A) | Dedicated to UI Foundation for the milestone (6 sprints) |
+| Tiago Costa | Building Upgrades (Pipeline B) | New hire, 1-sprint feature. May need ramp-up support. |
+| Dan Dupuis | UI Foundation oversight + architecture | Planning capacity. Also Empire eng lead. |
 | Leonard Perez | UI Foundation design + Building Upgrades support | |
-| Christopher Fidalgo | S25 carry-over + metagame design | 10 tasks in S25, many still "to do" — heavy carry-over |
+| Christopher Fidalgo | S25 carry-over + metagame design | 6 open S25 tasks — CHI-36250 (T5/T6 rewards) is high priority |
 | Kevin Ligon | UI Foundation UX wireframes | Foundation UX for metagame screens |
-| Miguel Duran | UI Foundation UI art | S25 carry-over (CHI-36195). Shared resource with Empire |
+| Miguel Duran | UI Foundation UI art | S25 carry-over: CHI-36195 (in progress). Shared resource with Empire. |
 | Hugo Hideo | Building Upgrades QA (end of sprint) | S25 verification in parallel |
 
 **Risks & Awareness**:
-- Christopher Fidalgo: 10 S25 tasks, many still "to do" — heavy carry-over likely
-- Miguel Duran: shared UI artist between Metagame and Empire (Governors UI)
-- Building Upgrades spec — does one exist? Design source needed
+- Christopher Fidalgo: 6 open S25 tasks — heavy carry-over
+- Miguel Duran: shared UI artist, S25 carry-over pending (CHI-36195)
+- Building Upgrades spec — does one exist? Design source needed for Tiago
+- Tiago is new hire — may need pairing/support
 - UI Foundation scope for Sprint 1: which sub-features come first needs definition
 - UI Foundation has no SHQ mapping — should it link to a validation question?
 
 ### Sprint 27: Zany Zebras (4/14 - 4/28) — NEXT
 
 **Goals**:
-- Continue **UI Foundation** (Pipeline A, Sprint 2 of 6)
-- Start **Empire Progression Tree** (Pipeline B, 1-sprint feature)
+- Continue **UI Foundation** (Pipeline A, Sprint 2 of 6) — Guilherme Quizzini
+- Start **Empire Progression Tree** (Pipeline B, 1-sprint feature) — Tiago Costa
 
 **Risks & Awareness**:
 - Chris Fidalgo carry-over may still be unresolved
-- Dan Dupuis split attention: UI Foundation + Empire Governors oversight
+- Dan Dupuis split attention: UI Foundation + Empire oversight
+- Tiago ramp-up: assess after Building Upgrades how he's settling in
 
 ---
 

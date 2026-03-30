@@ -1,6 +1,6 @@
 # Multiplayer & Meta (M&Ms) — Milestone Plan
 
-> Generated: 2026-03-27 by `/generate_ms_plan`
+> Generated: 2026-03-30 by `/generate_ms_plan`
 > Sources: product_targets.md, pod plans, ValidationRoadmap.md, capacity.md
 
 **Dates**: Mar 30 → Jun 23, 2026
@@ -23,15 +23,15 @@ gantt
     M&Ms End                     :crit, milestone, ms_end, 2026-06-23, 0d
 
     section Empire (1 ENG: Henrique)
-    Tutorial Node Migration      :active,  emp1, 2026-03-30, 14d
+    Tutorial Node Migration      :active,  emp1, 2026-03-31, 14d
     World Map Experience         :         emp2, after emp1, 42d
     Territory Map VS             :         emp3, after emp2, 28d
 
     section Metagame A (Guilherme)
-    UI Foundation                :active,  mA1, 2026-03-30, 84d
+    UI Foundation                :active,  mA1, 2026-03-31, 84d
 
     section Metagame B (Tiago)
-    Building Upgrades            :mB1, 2026-03-30, 14d
+    Building Upgrades            :mB1, 2026-03-31, 14d
     Empire Progression Tree      :mB2, after mB1, 14d
     Global Combat Research       :mB3, after mB2, 28d
     Hero Gacha v1                :mB4, after mB3, 14d
@@ -45,18 +45,18 @@ gantt
 
     section Social Dynamics (5 ENG)
     P1 Infrastructure            :done,    soc1, 2026-03-19, 2026-03-30
-    P2 Map Foundation            :         soc2, 2026-03-30, 30d
+    P2 Map Foundation            :         soc2, 2026-03-31, 30d
     P3 Basic Game Logic          :         soc3, after soc2, 42d
     P4 Heroes and Tiles          :         soc4, after soc3, 42d
-    Networking                   :active,  soc_net, 2026-03-30, 84d
-    AI Prototype                 :active,  soc_ai, 2026-03-30, 84d
+    Networking                   :active,  soc_net, 2026-03-31, 84d
+    AI Prototype                 :active,  soc_ai, 2026-03-31, 84d
 
     section Dozer (2 ENG)
     UI Framework V2              :active,  doz1, 2026-03-31, 28d
     Perf and Optimization        :active,  doz2, 2026-03-31, 84d
 
     section Art (Cross-Pod)
-    Character and Env Assets     :active,  art1, 2026-03-30, 84d
+    Character and Env Assets     :active,  art1, 2026-03-31, 84d
     VFX and Animation            :         art2, 2026-03-31, 84d
 ```
 
@@ -73,17 +73,16 @@ Features required for M&Ms to succeed (from `product_targets.md`):
 | 1 | Territory Map Vertical Slice | Empire | Territory Map VS | S30-S31 | ✅ Covered |
 | 2 | Battle HUD Beta Overhaul | Battle | Battle HUD Beta Overhaul | S26-S29 | ✅ Covered |
 | 3 | Optimisation in Preparation for Beta | Dozer | Performance/Optimization and Review | S26-S31 (ongoing) | ✅ Covered |
-| 4 | Narrative and Tutorial Pipeline/Tooling | Empire / Dozer | Tutorial Node Migration | S26 | ⚠️ Partial — enables designer tooling but doesn't deliver full pipeline |
+| 4 | Narrative and Tutorial Tooling | Empire | Tutorial Node Migration | S26 | ⚠️ Partial — enables tooling but doesn't deliver full pipeline |
 | 5 | Audio Tooling Foundation | Art | — | — | ❌ Gap — no pod feature defined |
 | 6 | UI Foundation | Metagame | UI Foundation (Pipeline A) | S26-S31 | ✅ Covered |
-| 7 | 6 Starter Heroes — Designed and Arted | Battle / Art | Character Assets (Art, ongoing) | S26-S31 | ⚠️ Partial — ongoing art work, no discrete deliverable defined |
+| 7 | 6 Starter Heroes — Designed and Arted | Battle / Art | Character Assets (Art, ongoing) | S26-S31 | ⚠️ Partial — ongoing art, no discrete deliverable defined |
 | 8 | Art Outsourcing Pipelines | Art | — | — | ❌ Gap — no pod feature defined |
-| 9 | Tutorial Map Vertical Slice | Empire | — | — | ❌ Gap — not in Empire pod plan |
-| 10 | Reduction of FTUE Friction | Cross-pod | — | — | ❌ Gap — no pod feature defined |
-| 11 | Overarching Tone/Emotion of Game | Art / Empire | — | — | ❌ Gap — no pod feature defined |
-| 12 | Multiplayer foundation (TBD) | Social Dynamics | P1-P6 Map Build-Up + Networking | S26-S31 | ✅ Covered |
+| 9 | Reduction of FTUE Friction | Cross-pod | — | — | ❌ Gap — no pod owner or feature defined |
+| 10 | Overarching Tone/Emotion of Game | Art / Empire | — | — | ❌ Gap — no pod feature defined |
+| 11 | Multiplayer Foundation Complete | Social Dynamics | P1-P6 Map Build-Up + Networking | S26-S31 | ✅ Covered |
 
-**Summary**: 4 of 12 must-haves fully covered, 2 partial, 5 gaps, 1 TBD placeholder.
+**Summary**: 5 of 11 must-haves fully covered, 2 partial, 4 gaps.
 
 ---
 
@@ -97,10 +96,10 @@ Features required for M&Ms to succeed (from `product_targets.md`):
 |-----|----------|----------------------|-------------------|--------|
 | SHQ24 | Does our art direction maintain clarity necessary for combat? | Battle HUD Overhaul, Character Assets | ~S28 (HUD mid-build) | IN PROGRESS |
 | SHQ29 | Does the HUD allow strategic planning and tactical response? | Battle HUD Beta Overhaul | ~S29 (HUD complete) | NOT STARTED |
-| SHQ26 | Are players motivated to collect varied heroes/troops per game mode? | Hero Gacha v1, Character Assets | ~S30 (Gacha built) | PENDING |
-| SHQ30 | Can players understand starter hero roles; do progression choices vary per hero? | 6 Starter Heroes, Hero Gacha v1 | ~S30 (Gacha built) | NOT STARTED |
 | SHQ27 | Can we establish scalable battle-building across all game modes? | Battle Content Pipeline | Ongoing | IN PROGRESS |
 | SHQ28 | Does the unit production pipeline work and support long-term projections? | Unit Content Pipeline | Ongoing | IN PROGRESS |
+| SHQ26 | Are players motivated to collect varied heroes/troops per game mode? | Hero Gacha v1, Character Assets | ~S30 (Gacha built) | PENDING VALIDATION |
+| SHQ30 | Can players understand starter hero roles; do progression choices vary per hero? | 6 Starter Heroes, Hero Gacha v1 | ~S30 (Gacha built) | NOT STARTED |
 
 ### WH-2: Empire — Retention via intuitive, visual map exploration
 
@@ -141,28 +140,29 @@ Features required for M&Ms to succeed (from `product_targets.md`):
 | S30 (5/26-6/9) | Territory Map VS (1/2) | Map Content | SHQ1, SHQ32 |
 | S31 (6/9-6/23) | Territory Map VS (2/2) | Map Content | SHQ1, SHQ32 |
 
-**Key risk**: Henrique is the sole client engineer — no parallelism, any delay cascades. WME design/UX must be ready before Henrique starts each sub-effort.
+**Key risk**: Henrique is the sole client engineer — no parallelism, any delay cascades. WME design/UX must be ready before Henrique starts each sub-effort. Zero buffer — 6 sprints of work in 6 sprints.
 
 ---
 
 ### Metagame
 
-**Engineering**: 2x parallel — Dan Dupuis (Pipeline A, eng lead, limited capacity), Guilherme Quizzini (Pipeline B), Tiago Costa (new hire — pipeline TBD)
+**Engineering**: 2x parallel — Guilherme Quizzini (Pipeline A: UI Foundation), Tiago Costa (Pipeline B: sequential features)
+**Eng Lead**: Dan Dupuis (planning capacity, oversight — also Empire eng lead)
 **Design**: Leonard Perez (lead), Chris Fidalgo
 **UX**: Kevin Ligon
 **UI Art**: Miguel Duran
 **QA**: Hugo Hideo
 
-| Sprint | Pipeline A (Dan/Tiago) | Pipeline B (Guilherme) | SHQs Under Test |
-|--------|----------------------|----------------------|-----------------|
-| S26 (3/31-4/14) | UI Foundation (1/6) | Building Upgrades | SHQ35, SHQ37 |
-| S27 (4/14-4/28) | UI Foundation (2/6) | Empire Progression Tree | SHQ35 |
-| S28 (4/28-5/12) | UI Foundation (3/6) | Global Combat Research (1/2) | SHQ37, SHQ38 |
-| S29 (5/12-5/26) | UI Foundation (4/6) | Global Combat Research (2/2) | SHQ37 |
-| S30 (5/26-6/9) | UI Foundation (5/6) | Hero Gacha v1 | SHQ26, SHQ30 |
-| S31 (6/9-6/23) | UI Foundation (6/6) | Passive Bonus Tiles | — |
+| Sprint | Pipeline A (Guilherme) | Pipeline B (Tiago) | Design / UX / Art | SHQs Under Test |
+|--------|----------------------|-------------------|-------------------|-----------------|
+| S26 (3/31-4/14) | UI Foundation (1/6) | Building Upgrades | Leonard: UI Foundation design. Kevin: UX wireframes. Miguel: UI art. | — |
+| S27 (4/14-4/28) | UI Foundation (2/6) | Empire Progression Tree | Leonard: design. Kevin: UX. Miguel: UI art. | SHQ35 |
+| S28 (4/28-5/12) | UI Foundation (3/6) | Global Combat Research (1/2) | Leonard: design. Kevin: UX. | SHQ35, SHQ37, SHQ38 |
+| S29 (5/12-5/26) | UI Foundation (4/6) | Global Combat Research (2/2) | Leonard: design. Kevin: UX. | SHQ37 |
+| S30 (5/26-6/9) | UI Foundation (5/6) | Hero Gacha v1 | Leonard: Gacha design. | SHQ26, SHQ30 |
+| S31 (6/9-6/23) | UI Foundation (6/6) | Passive Bonus Tiles | Polish pass. | SHQ36 |
 
-**Key risk**: Tiago Costa is a new hire — ramp-up time may affect Pipeline A velocity. Dan Dupuis has 0 planned eng capacity (eng lead role). Chris Fidalgo had heavy S25 carry-over.
+**Key risk**: Tiago Costa is a new hire — ramp-up time may affect Pipeline B velocity. Building Upgrades is his first feature. Dan Dupuis has 0 planned eng capacity (eng lead oversight only). Chris Fidalgo had 6 open S25 tasks — carry-over risk.
 
 ---
 
@@ -175,10 +175,10 @@ Features required for M&Ms to succeed (from `product_targets.md`):
 
 | Sprint | Engineering (Jota) | Design / Art | SHQs Under Test |
 |--------|-------------------|-------------|-----------------|
-| S26 (3/31-4/14) | HUD Beta Overhaul (1/4) | Obstacles design prep (Nathan). Content pipelines | SHQ24 |
+| S26 (3/31-4/14) | HUD Beta Overhaul (1/4) | Obstacles design prep (Nathan). Content pipelines. VFX start (Alessandro, Danny) | SHQ24 |
 | S27 (4/14-4/28) | HUD Beta Overhaul (2/4) | Actor System design prep. Content | SHQ24 |
 | S28 (4/28-5/12) | HUD Beta Overhaul (3/4) | Pathfinding design prep. Content | SHQ24, SHQ29 |
-| S29 (5/12-5/26) | HUD Beta Overhaul (4/4) | Content. HUD QA | SHQ24, SHQ29 |
+| S29 (5/12-5/26) | HUD Beta Overhaul (4/4) | Content. HUD QA (Julio) | SHQ24, SHQ29 |
 | S30 (5/26-6/9) | Obstacles | Content | SHQ27, SHQ28 |
 | S31 (6/9-6/23) | Actor System Overhaul (1/2) | Content | — |
 | ⚠️ Overflow → Beta Prep | Actor System (2/2) | | |
@@ -190,12 +190,14 @@ Features required for M&Ms to succeed (from `product_targets.md`):
 
 ### Social Dynamics
 
-**Engineering**: 5x — Gabriel Arruda, Marcos Loures (both from Empire), Randy Pasion, Garrett Eidsvig, Bruno Bacelar
+**Engineering**: 5x — Gabriel Arruda (from Empire), Marcos Loures (from Empire), Randy Pasion, Garrett Eidsvig, Bruno Bacelar
 **Design**: Paul Flores (lead)
 **QA**: —
 
-| Sprint | Engineering (5 ENG) | Parallel Tracks | SHQs Under Test |
-|--------|-------------------|-----------------|-----------------|
+> Tiago Costa was previously listed here but has been reassigned to Metagame Pipeline B.
+
+| Sprint | Engineering (4 client + 1 backend) | Parallel Tracks | SHQs Under Test |
+|--------|----------------------------------|-----------------|-----------------|
 | S26 (3/31-4/14) | P1 wrap-up → P2: Map Foundation start | Networking (Bruno B). AI Prototype (Paul) | — |
 | S27 (4/14-4/28) | P2: Map Foundation | Networking. AI Prototype | — |
 | S28 (4/28-5/12) | P2/P3: Map Foundation → Basic Game Logic | Networking. AI Prototype | SHQ18-22 (paper) |
@@ -203,7 +205,7 @@ Features required for M&Ms to succeed (from `product_targets.md`):
 | S30 (5/26-6/9) | P3/P4: Game Logic → Heroes on Map | Networking. Switchover target | — |
 | S31 (6/9-6/23) | P4: Heroes on Map / Interesting Tiles | Networking | — |
 
-**Key risk**: Randy and Garrett have Dozer split — feature work at risk of interruption (2 of 5 engineers). Gabriel and Marcos transitioning from Empire — handoff/ramp risk. Tiago Costa originally assigned here but moved to Metagame. Phase completion pace depends on engineering velocity with new team composition.
+**Key risk**: Randy and Garrett have Dozer split — feature work at risk of interruption (2 of 4 client engineers). Gabriel and Marcos transitioning from Empire — handoff/ramp risk. Phase completion pace depends on velocity with new team composition.
 
 ---
 
@@ -213,11 +215,11 @@ Features required for M&Ms to succeed (from `product_targets.md`):
 
 | Sprint | Derek Gallant | Bruno Freitas | Notes |
 |--------|-------------|---------------|-------|
-| S26 (3/31-4/14) | EKS deployment, UI Framework V2, MP support | Single Config Editor, Build Info/Logs | Derek also Social Dynamics eng lead |
+| S26 (3/31-4/14) | EKS deployment (Prod/Stage), UI Framework V2, MP support | Single Config Editor, Build Info/Logs | EKS critical for SD multiplayer |
 | S27 (4/14-4/28) | UI Framework V2, infrastructure | Infrastructure support | |
-| S28-S31 | Performance and Optimization | Performance and Optimization | Ongoing, reactive to issues |
+| S28-S31 | Performance and Optimization | Performance and Optimization | Ongoing, reactive |
 
-**Key risk**: Derek is split across Dozer and Social Dynamics eng lead. No discrete milestone deliverables beyond ongoing infrastructure — hard to measure progress.
+**Key risk**: Derek split across Dozer eng lead and Social Dynamics eng lead. EKS deployment is critical path for multiplayer readiness.
 
 ---
 
@@ -227,14 +229,14 @@ Features required for M&Ms to succeed (from `product_targets.md`):
 
 | Track | Key People | M&Ms Scope | Notes |
 |-------|-----------|-----------|-------|
-| Character Assets | Felipe Chaves, Vini Muniz, Tony Bonilla | Heroes and units for all pods | Ongoing |
+| Character Assets | Felipe Chaves, Vini Muniz, Tony Bonilla | Heroes and units for all pods | Ongoing. 6 Starter Heroes deliverable. |
 | Environment Art | Guilherme Lascasas, Thiago Saraiva | Map tiles, buildings, world map | Ongoing |
 | UI/UX Art | Miguel Duran | Interface elements for UI Foundation, WME | Shared with Metagame |
 | VFX and Animation | Danny Oliveira, Alessandro Oliveira, Ben Clair | Combat effects, skill animations | Starts M&Ms |
 | Tech Art | Pedro Sarraf, Marcos Teles | Pipeline tooling, shaders | Pedro out 4/3-4/21 |
-| Sound | Lawrence Steele | Audio implementation | |
+| Sound | Lawrence Steele | Audio implementation | Audio Tooling Foundation is a must-have gap |
 
-**Key risk**: Art is cross-pod support — priority conflicts between Battle HUD, UI Foundation, World Map Experience. Pedro Sarraf PTO (4/3-4/21) reduces tech art capacity for 3 weeks.
+**Key risk**: Cross-pod priority conflicts — Battle HUD vs UI Foundation vs World Map Experience for art resources. Pedro Sarraf PTO (4/3-4/21) reduces tech art capacity for 3 weeks.
 
 ---
 
@@ -248,41 +250,42 @@ Features required for M&Ms to succeed (from `product_targets.md`):
 | Map Content art for Territory Map VS | Art | Empire | S30-S31 | Low — art pipeline in place |
 | EKS deployment enables MP infrastructure | Dozer | Social Dynamics | S26 | High — critical path for MP |
 | Miguel Duran shared between Metagame UI and Empire | Art | Metagame, Empire | Throughout | Medium — priority conflicts |
+| Dan Dupuis eng lead for both Empire and Metagame | Shared | Empire, Metagame | Throughout | Medium — attention split |
 
 ---
 
 ## Gaps and Risks
 
-### Must-Have Gaps (5 of 12 not covered)
+### Must-Have Gaps (4 of 11 not covered)
 
 These must-have features from `product_targets.md` have **no matching pod feature**:
 
-1. **Audio Tooling Foundation** — No Art pod feature. Lawrence Steele (Sound) is staffed but no deliverable is defined.
+1. **Audio Tooling Foundation** — No Art pod feature defined. Lawrence Steele (Sound) is staffed but no deliverable scoped.
 2. **Art Outsourcing Pipelines** — No pod feature. External art production validation not planned.
-3. **Tutorial Map Vertical Slice** — Not in Empire pod plan. Related to Tutorial Node Migration but distinct.
-4. **Reduction of FTUE Friction** — Cross-pod effort with no owner or feature definition.
-5. **Overarching Tone/Emotion of Game** — Art/Empire cross-pod. No feature defined.
+3. **Reduction of FTUE Friction** — Cross-pod effort with no owner or feature definition.
+4. **Overarching Tone/Emotion of Game** — Art/Empire cross-pod. No feature defined.
 
 **Action needed**: These gaps need resolution — either add features to pod plans, assign ownership, or reclassify as not-must-have for M&Ms.
 
 ### Capacity Risks
 
-- **Battle**: 9 eng-sprints in 6 sprints (1 engineer). Actor System and Pathfinding **will overflow**. Only HUD + Obstacles complete within M&Ms.
-- **Empire**: 6 eng-sprints in 6 sprints (1 engineer). Fits but zero buffer — any delay cascades to Territory Map VS.
-- **Social Dynamics**: 5 engineers but 2 (Randy, Garrett) have Dozer split. Effective capacity ~3.5 engineers. New team composition (Gabriel, Marcos from Empire) needs ramp time.
-- **Metagame**: Dan Dupuis has 0 planned eng capacity as lead. Pipeline A (UI Foundation) depends on Tiago Costa (new hire) ramping effectively.
+- **Battle**: 9 eng-sprints in 6 sprints (1 engineer). Actor System Overhaul and Pathfinding & AI **will overflow** into Beta Prep/M&C. Only HUD + Obstacles complete within M&Ms.
+- **Empire**: 6 eng-sprints in 6 sprints (1 engineer). Fits but zero buffer — any delay cascades to Territory Map VS, which validates SHQ1 and SHQ32.
+- **Social Dynamics**: 4 client engineers but Randy and Garrett have Dozer split. Effective capacity ~2.5-3 dedicated client engineers. New team composition (Gabriel, Marcos from Empire) needs ramp time.
+- **Metagame**: Pipeline B depends on Tiago Costa (new hire) executing independently from sprint 1. Building Upgrades spec source unclear — risk of slow start.
 
 ### Validation Risks
 
 - **SHQ1, SHQ32** (map at scale, map readability): Testable only in S30-S31 — last two sprints. If Territory Map VS slips, these SHQs can't be tested within M&Ms.
 - **SHQ36** (session-to-session return): Requires multiple systems working together — hard to validate until late in milestone.
-- **SHQ26, SHQ30** (hero collection, starter hero roles): Depend on Hero Gacha v1 (S30) and character art. Late window.
+- **SHQ26, SHQ30** (hero collection, starter hero roles): Depend on Hero Gacha v1 (S30) and character art. Late testability window.
 - **SHQ18-22** (multiplayer designs): Paper/prototype validation only — no in-client testing during M&Ms.
 
 ### Open Questions
 
-- [ ] Who owns the 5 must-have gaps? Need pod assignments or decision to defer.
-- [ ] Tiago Costa: Pipeline A or B for Metagame? Sprint plan assigns Dan to A, but Dan has 0 capacity.
-- [ ] Battle HUD estimate: Pod plan says 4 sprints, some references say 3. Which is correct?
+- [ ] Who owns the 4 must-have gaps? Need pod assignments or decision to defer.
+- [ ] Battle feature sequencing: Sprint plan shows Jota on Actor System / Pathfinding first, but priority table lists HUD as #1. Which is the actual order?
 - [ ] Social Dynamics switchover target: When does in-client replace AI prototype for playtesting?
 - [ ] Art priority order: When Battle HUD, UI Foundation, and WME all need art, which goes first?
+- [ ] Building Upgrades spec: Does one exist? Tiago needs design direction for his first feature.
+- [ ] UI Foundation SHQ: Should this be mapped to a validation question?
