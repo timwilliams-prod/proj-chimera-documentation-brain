@@ -70,18 +70,12 @@ gantt
 
 | ID | Question | BHQ | Status |
 |----|----------|-----|--------|
-| SHQ24 | Does new art direction maintain clarity? | BHQ-B2 | IN PROGRESS |
-| SHQ26 | Are players motivated to collect heroes/troops per game mode? | BHQ-B3 | PENDING VALIDATION |
-| SHQ27 | Scalable battle-building across all game modes? | BHQ-B4 | IN PROGRESS |
-| SHQ28 | Unit production pipeline validated? | BHQ-B4 | IN PROGRESS |
-| SHQ29 | Does HUD allow strategic planning + tactical response? | BHQ-B2 | NOT STARTED |
 | SHQ30 | Do players understand starter heroes; do metagame progression choices vary per hero? | BHQ-B3 | NOT STARTED |
 
 ### Empire (WH-2)
 
 | ID | Question | BHQ | Status |
 |----|----------|-----|--------|
-| SHQ1 | Map production pipeline at scale? | BHQ-E1 | IN PROGRESS |
 | SHQ31 | World map surfaces session engagement goals? | BHQ-E1 | NOT STARTED |
 | SHQ32 | Territory map readable with real art? | BHQ-E1 | NOT STARTED |
 | SHQ33 | Narrative beats drive map exploration? | BHQ-E1 | NOT STARTED |
@@ -92,9 +86,6 @@ gantt
 | ID | Question | BHQ | Status |
 |----|----------|-----|--------|
 | SHQ35 | Do players engage with vertical empire progression as meaningful? | BHQ-M3 | NOT STARTED |
-| SHQ36 | Session-to-session return motivation across 3 days? | BHQ-M3 | NOT STARTED |
-| SHQ37 | Meaningful resource tension driving strategic decisions? | BHQ-M3 | NOT STARTED |
-| SHQ38 | (Paper) Economy model depth + monetisation levers? | BHQ-M3 | NOT STARTED |
 
 ---
 
@@ -109,7 +100,7 @@ gantt
 | 3 | Empire Progression Tree | 1 | |
 | 4 | Global Combat Research Tree | 2 | |
 | 5 | Hero Gacha v1 | 1 | |
-| 6 | Passive Bonus Tiles | 1 | |
+| 6 | Reduction of FTUE Friction | 2 | Design implementation and iterations |
 
 ---
 
@@ -133,7 +124,8 @@ gantt
 | Tiago Costa | Building Upgrades (Pipeline B) | New hire, 1-sprint feature. May need ramp-up support. |
 | Dan Dupuis | UI Foundation oversight + architecture | Planning capacity. Also Empire eng lead. |
 | Leonard Perez | UI Foundation design + Building Upgrades support | |
-| Christopher Fidalgo | S25 carry-over + metagame design | 6 open S25 tasks — CHI-36250 (T5/T6 rewards) is high priority |
+| Christopher Fidalgo | 1. S25 carry-over 
+2. Narrative/Tutorial Design | 6 open S25 tasks — CHI-36250 (T5/T6 rewards) is high priority |
 | Kevin Ligon | UI Foundation UX wireframes | Foundation UX for metagame screens |
 | Miguel Duran | UI Foundation UI art | S25 carry-over: CHI-36195 (in progress). Shared resource with Empire. |
 | Hugo Hideo | Building Upgrades QA (end of sprint) | S25 verification in parallel |
