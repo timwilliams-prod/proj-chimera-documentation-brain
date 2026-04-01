@@ -91,10 +91,10 @@ gantt
     E4 Instant Gratification - NO SHQs    :crit, 2025-04-01, 2026-03-15
 
     section WH-3 Monetization
-    M1 Hero Collectability - 0/5          :2025-07-08, 2026-03-15
+    M1 Hero Collectability - 2/5 SV done  :active, 2025-07-08, 2026-03-15
     M2 PvE to Social - deferred           :crit, 2026-06-24, 2026-10-13
-    M3 Spend Depth - 0/1 +4 M&Ms + 1 M4   :active, 2025-10-07, 2026-10-13
-    M4 MP Motivations - 0/5              :2025-10-07, 2026-10-13
+    M3 Spend Depth - 1/1 SV +4 M&Ms + 1 M4 :active, 2025-10-07, 2026-10-13
+    M4 MP Motivations - 5/5 SV done +1 M&Ms :active, 2025-10-07, 2026-10-13
 
 ```
 
@@ -158,7 +158,7 @@ gantt
 | Core Loop          | Does the player understand how WomboCombo builds up (baubles) and are they excited with its usage? | ANSWERED ✅ |
 | Systems Validation | SHQ3-24: Does our new art direction maintain the level of clarity necessary for this to be clear?    | ANSWERED ✅ |
 | M&Ms               | SHQ3-24: Does our new art direction maintain the level of clarity necessary for this to be clear? | IN PROGRESS |
-| M&Ms               | SHQ4-1: Does the HUD allow strategic planning (understanding the challenge) as well as tactical response (understanding who's turn it is and the result of their targeting choices)? | NOT STARTED |
+| M&Ms               | SHQ4-1: Does the HUD allow strategic planning (understanding the challenge) as well as tactical response (understanding who's turn it is and the result of their targeting choices)? | IN PROGRESS |
 
 ---
 
@@ -237,7 +237,7 @@ gantt
 | Core Loop          | Do players understand how to make their armies stronger, and are motivated to invest in empire to do so?                                                                       | ANSWERED ✅  |
 | Core Loop          | Are players making assumptions on our map presentation that draws parallels to traditional mobile 4x? (hopefully not)                                                          | ANSWERED ✅  |
 | Systems Validation | SHQ3-1: Have we identified the constraints for producing the map at scale: high visual bar, high performance, and high variety?                                                  | ANSWERED ✅  |
-| Systems Validation | SHQ3-2: Can we enable players to seamlessly move between high-level empire strategy and low level tile-to-tile conquest, without either layer feeling disconnected or secondary? | IN PROGRESS |
+| Systems Validation | SHQ3-2: Can we enable players to seamlessly move between high-level empire strategy and low level tile-to-tile conquest, without either layer feeling disconnected or secondary? | ANSWERED ✅ |
 | Systems Validation | SHQ3-3: Do players understand how map exploration fuels hero progression as well as army development?                                                                            | IN PROGRESS |
 | M&Ms               | SHQ3-1: Does the production pipeline successfully deliver diverse, high-quality territory maps at scale that feel unique and handcrafted to the player, while maintaining a modular workflow that meets internal time and resource constraints? | IN PROGRESS |
 | M&Ms               | SHQ4-3: Does the world map presentation allow the player to quickly form engagement goals for their session, across conquest, dungeons, roaming monsters, and empire management tasks? | NOT STARTED |
@@ -270,7 +270,7 @@ gantt
 | Milestone          | SHQ                                                                                                                                                                         | Status     |
 | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
 | Core Loop          | Can we create a sense of compounding investment in the empire to make players feel productive?                                                                              | ANSWERED ✅ |
-| Systems Validation | SHQ3-4: Can players easily visualize their empire's progression in a way that feels meaningful and intuitive?                                                                 | ANSWERED ✅ |
+| Systems Validation | SHQ3-4: Can players easily visualize their empire's progression in a way that feels meaningful and intuitive?                                                                 | ANSWERED ✅  |
 | Systems Validation | SHQ3-5: Can players seamlessly continue previous goals from session to session, staying engaged with their objectives?                                                        | IN PROGRESS |
 | Systems Validation | SHQ3-6: Do players feel compelled to explore different activity types early on and perceive meaningful connections between them, without feeling overwhelmed?                 | ANSWERED ✅ |
 | Systems Validation | SHQ3-7: Is there a clear sense of short-, mid-, and long-term goals that interconnect across verticals, with projects that feel meaningful for the different player profiles? | ANSWERED ✅ |
@@ -324,10 +324,10 @@ gantt
 | Milestone | SHQ | Status |
 |-----------|-----|--------|
 | Core Loop | Does the art style resonate with the target audience? Does it invoke a strong curiosity & desire to collect & connect with heroes? (not ingame) | NOT STARTED |
-| Systems Validation | SHQ3-10: Do players understand the value of new heroes they acquire and do they see use cases for trying them? | NOT STARTED |
+| Systems Validation | SHQ3-10: Do players understand the value of new heroes they acquire and do they see use cases for trying them? | ANSWERED ✅ |
 | Systems Validation | SHQ3-11: Do players get attached to favorite heroes and feel excited to focus on its progression? | IN PROGRESS |
 | Systems Validation | SHQ3-12: Do players feel they have enough agency in upgrading their favorite characters? | NOT STARTED |
-| Systems Validation | SHQ3-13: (in software) Real heroes, final assets: do they invoke curiosity, collectibility, and emotional attachment when compared to top CCRPGs? | NOT STARTED |
+| Systems Validation | SHQ3-13: (in software) Real heroes, final assets: do they invoke curiosity, collectibility, and emotional attachment when compared to top CCRPGs? | ANSWERED ✅ |
 
 ---
 
@@ -349,7 +349,7 @@ gantt
 
 | Milestone | SHQ | Status |
 |-----------|-----|--------|
-| Systems Validation | SHQ3-16: Can we paper design shared multiplayer maps that feel exciting and offer long term replayability? | NOT STARTED |
+| Systems Validation | SHQ3-16: Can we paper design shared multiplayer maps that feel exciting and offer long term replayability? | ANSWERED ✅ |
 | M&Ms               | SHQ4-7: Do players understand and engage with vertical empire progression (buildings, research, governors, bonuses) as meaningful investments that increase power and unlock strategic options? | NOT STARTED |
 | M&Ms               | SHQ4-8: Are players motivated to return session to session across three days to pursue progression goals (heroes, empire, research) while engaging in varied game mechanics and game modes? | NOT STARTED |
 | M&Ms               | SHQ4-9: Do players face meaningful resource tension across systems that forces them to prioritise and delay investments, driving strategic decision making? | NOT STARTED |
@@ -363,11 +363,11 @@ gantt
 
 | Milestone | SHQ | Status |
 |-----------|-----|--------|
-| Systems Validation | SHQ3-18: [paper / prototype] Do specific heroes and units shine and allow player to form deeper collection and progression goals? | NOT STARTED |
-| Systems Validation | SHQ3-19: [paper / prototype] Do our multiplayer game modes create a sense of building, investment & strategic planning? | NOT STARTED |
-| Systems Validation | SHQ3-20: [paper / prototype] Do our multiplayer modes provide enough dynamic strategic decisions that the player wants to play again and again? | NOT STARTED |
-| Systems Validation | SHQ3-21: [paper / prototype] Do we have confidence in viable monetization avenues from multiplayer game mechanics? | NOT STARTED |
-| Systems Validation | SHQ3-22: [paper] How can unlimited spend result in unlimited benefit without being bottlenecked by engagement? | NOT STARTED |
+| Systems Validation | SHQ3-18: [paper / prototype] Do specific heroes and units shine and allow player to form deeper collection and progression goals? | ANSWERED ✅ |
+| Systems Validation | SHQ3-19: [paper / prototype] Do our multiplayer game modes create a sense of building, investment & strategic planning? | ANSWERED ✅ |
+| Systems Validation | SHQ3-20: [paper / prototype] Do our multiplayer modes provide enough dynamic strategic decisions that the player wants to play again and again? | ANSWERED ✅ |
+| Systems Validation | SHQ3-21: [paper / prototype] Do we have confidence in viable monetization avenues from multiplayer game mechanics? | ANSWERED ✅ |
+| Systems Validation | SHQ3-22: [paper] How can unlimited spend result in unlimited benefit without being bottlenecked by engagement? | ANSWERED ✅ |
 | M&Ms               | SHQ4-12: Does multiplayer pacing encourage the player to login multiple times a day to take specific actions? | NOT STARTED |
 
 ---
@@ -401,22 +401,22 @@ gantt
 
 | SHQ | Parent BHQ | Status | Result |
 |-----|-----------|--------|--------|
-| Do playtesters enjoy the first 20 minutes of gameplay? Is there a sense of momentum and rewards that lead to short term goals? | BHQ-B1 | NOT STARTED | |
-| Does the player understand how WomboCombo builds up (baubles) and are they excited with its usage? | BHQ-B2 | NOT STARTED | |
-| Does the player understand the need for specific mechanics in battle, and is able to anticipate using the right skills at the right time? | BHQ-B3 | NOT STARTED | |
-| Do players utilize broad troop roles to support hero choices? Melee to protect ranged, etc. Do they appreciate their troops? | BHQ-B3 | NOT STARTED | |
-| Can we support a variety of level types with varied pacing, that keeps each battle in the first session feeling fresh and not repetitive? | BHQ-B4 | NOT STARTED | |
-| Do players feel surprise and delight in discovering a variety of tile types and rewards? | BHQ-E1 | NOT STARTED | |
-| Do players understand and are motivated to explore and expand their Empire? | BHQ-E1 | NOT STARTED | |
-| Do players understand how to make their armies stronger, and are motivated to invest in empire to do so? | BHQ-E1 | NOT STARTED | |
-| Are players making assumptions on our map presentation that draws parallels to traditional mobile 4x? (hopefully not) | BHQ-E1 | NOT STARTED | |
-| Does the player response to our first session raise our confidence that long term systems planning is compatible with the core loop early session experience? | BHQ-E2 | NOT STARTED | |
-| Does the player end sessions with in-progress projects that make them want to return to complete? (one more turn feel) | BHQ-E2 | NOT STARTED | |
-| Can we create a simple narrative hook that a broad audience understands and is compelled to progress against? | BHQ-E2 | NOT STARTED | |
-| Can we create a sense of compounding investment in the empire to make players feel productive? | BHQ-E3 | NOT STARTED | |
+| Do playtesters enjoy the first 20 minutes of gameplay? Is there a sense of momentum and rewards that lead to short term goals? | BHQ-B1 | ANSWERED ✅ | Validated |
+| Does the player understand how WomboCombo builds up (baubles) and are they excited with its usage? | BHQ-B2 | ANSWERED ✅ | Validated |
+| Does the player understand the need for specific mechanics in battle, and is able to anticipate using the right skills at the right time? | BHQ-B3 | ANSWERED ✅ | Validated |
+| Do players utilize broad troop roles to support hero choices? Melee to protect ranged, etc. Do they appreciate their troops? | BHQ-B3 | ANSWERED ✅ | Validated |
+| Can we support a variety of level types with varied pacing, that keeps each battle in the first session feeling fresh and not repetitive? | BHQ-B4 | ANSWERED ✅ | Validated |
+| Do players feel surprise and delight in discovering a variety of tile types and rewards? | BHQ-E1 | ANSWERED ✅ | Validated |
+| Do players understand and are motivated to explore and expand their Empire? | BHQ-E1 | ANSWERED ✅ | Validated |
+| Do players understand how to make their armies stronger, and are motivated to invest in empire to do so? | BHQ-E1 | ANSWERED ✅ | Validated |
+| Are players making assumptions on our map presentation that draws parallels to traditional mobile 4x? (hopefully not) | BHQ-E1 | ANSWERED ✅ | Validated |
+| Does the player response to our first session raise our confidence that long term systems planning is compatible with the core loop early session experience? | BHQ-E2 | ANSWERED ✅ | Validated |
+| Does the player end sessions with in-progress projects that make them want to return to complete? (one more turn feel) | BHQ-E2 | ANSWERED ✅ | Validated |
+| Can we create a simple narrative hook that a broad audience understands and is compelled to progress against? | BHQ-E2 | ANSWERED ✅ | Validated |
+| Can we create a sense of compounding investment in the empire to make players feel productive? | BHQ-E3 | ANSWERED ✅ | Validated |
 | Does the art style resonate with the target audience? Does it invoke a strong curiosity & desire to collect & connect with heroes? (not ingame) | BHQ-M1 | NOT STARTED | |
 
-**Core Loop Summary**: 0/14 SHQs answered. Heavy focus on first-session experience across Battle and Empire hypotheses, plus initial art style read for Monetization.
+**Core Loop Summary**: 13/14 SHQs answered positively. All Battle, Empire, and progression SHQs validated. Art style resonance (BHQ-M1) not yet started.
 
 ---
 
@@ -428,33 +428,33 @@ gantt
 
 | ID | SHQ | Parent BHQ | Status | Result |
 |----|-----|-----------|--------|--------|
-| SHQ3-1 | Have we identified the constraints for producing the map at scale: high visual bar, high performance, and high variety? | BHQ-E1 | NOT STARTED | |
-| SHQ3-2 | Can we enable players to seamlessly move between high-level empire strategy and low level tile-to-tile conquest, without either layer feeling disconnected or secondary? | BHQ-E1 | NOT STARTED | |
+| SHQ3-1 | Have we identified the constraints for producing the map at scale: high visual bar, high performance, and high variety? | BHQ-E1 | IN PROGRESS | ClickUp: in progress |
+| SHQ3-2 | Can we enable players to seamlessly move between high-level empire strategy and low level tile-to-tile conquest, without either layer feeling disconnected or secondary? | BHQ-E1 | ANSWERED ✅ | ClickUp: complete |
 | SHQ3-3 | Do players understand how map exploration fuels hero progression as well as army development? | BHQ-E1 | IN PROGRESS | ClickUp: in progress |
-| SHQ3-4 | Can players easily visualize their empire's progression in a way that feels meaningful and intuitive? | BHQ-E3 | NOT STARTED | |
+| SHQ3-4 | Can players easily visualize their empire's progression in a way that feels meaningful and intuitive? | BHQ-E3 | ANSWERED ✅ | ClickUp: complete |
 | SHQ3-5 | Can players seamlessly continue previous goals from session to session, staying engaged with their objectives? | BHQ-E3 | IN PROGRESS | ClickUp: in progress |
-| SHQ3-6 | Do players feel compelled to explore different activity types early on and perceive meaningful connections between them, without feeling overwhelmed? | BHQ-E3 | NOT STARTED | |
-| SHQ3-7 | Is there a clear sense of short-, mid-, and long-term goals that interconnect across verticals, with projects that feel meaningful for the different player profiles? | BHQ-E3 | NOT STARTED | |
+| SHQ3-6 | Do players feel compelled to explore different activity types early on and perceive meaningful connections between them, without feeling overwhelmed? | BHQ-E3 | ANSWERED ✅ | No ClickUp Epic |
+| SHQ3-7 | Is there a clear sense of short-, mid-, and long-term goals that interconnect across verticals, with projects that feel meaningful for the different player profiles? | BHQ-E3 | ANSWERED ✅ | No ClickUp Epic |
 | SHQ3-8 | Can we create progression opportunities to come back and finish the next session that are high-impact and time sensitive? | BHQ-E2 | IN PROGRESS | ClickUp: in progress |
-| SHQ3-9 | Does the map feel dynamic, leading players to adjust their priorities in ways that feel exciting and worthwhile? | BHQ-E2 | NOT STARTED | |
-| SHQ3-10 | Do players understand the value of new heroes they acquire and do they see use cases for trying them? | BHQ-M1 | NOT STARTED | |
+| SHQ3-9 | Does the map feel dynamic, leading players to adjust their priorities in ways that feel exciting and worthwhile? | BHQ-E2 | ANSWERED ✅ | No ClickUp Epic |
+| SHQ3-10 | Do players understand the value of new heroes they acquire and do they see use cases for trying them? | BHQ-M1 | ANSWERED ✅ | ClickUp: complete |
 | SHQ3-11 | Do players get attached to favorite heroes and feel excited to focus on its progression? | BHQ-M1 | IN PROGRESS | ClickUp: in progress |
-| SHQ3-12 | Do players feel they have enough agency in upgrading their favorite characters? | BHQ-M1 | NOT STARTED | |
-| SHQ3-13 | (in software) Real heroes, final assets: do they invoke curiosity, collectibility, and emotional attachment when compared to top CCRPGs? | BHQ-M1 | NOT STARTED | |
-| SHQ3-16 | Can we paper design shared multiplayer maps that feel exciting and offer long term replayability? | BHQ-M3 | NOT STARTED | |
-| SHQ3-18 | [paper / prototype] Do specific heroes and units shine and allow player to form deeper collection and progression goals? | BHQ-M4 | NOT STARTED | |
-| SHQ3-19 | [paper / prototype] Do our multiplayer game modes create a sense of building, investment & strategic planning? | BHQ-M4 | NOT STARTED | |
-| SHQ3-20 | [paper / prototype] Do our multiplayer modes provide enough dynamic strategic decisions that the player wants to play again and again? | BHQ-M4 | NOT STARTED | |
-| SHQ3-21 | [paper / prototype] Do we have confidence in viable monetization avenues from multiplayer game mechanics? | BHQ-M4 | NOT STARTED | |
-| SHQ3-22 | [paper] How can unlimited spend result in unlimited benefit without being bottlenecked by engagement? | BHQ-M4 | NOT STARTED | |
-| SHQ3-23 | Beyond initial stickiness, does depth of play in our battle mechanics remain interesting and engaging for the first three days? | BHQ-B1 | NOT STARTED | |
-| SHQ3-24 | Does our new art direction maintain the level of clarity necessary for this to be clear? | BHQ-B2 | NOT STARTED | |
-| SHQ3-25 | (paper) Does our GTM hero roster cover both the rarity spread necessary for monetization and the roles & mechanics spread necessary for broad collection? | BHQ-B3 | NOT STARTED | |
-| SHQ3-26 | Is the player motivated to collect specific and varied heroes and troops against each planned game mode (Dungeons, XP farm, Conquest, etc)? | BHQ-B3 | NOT STARTED | |
-| SHQ3-27 | Can we effectively and scalably build battles across all game modes? | BHQ-B4 | NOT STARTED | |
-| SHQ3-28 | Are we confident in our pipeline hero/unit production? Can we prove it with animation requirements and get a full understanding on how long it takes to build a hero/unit for long term planning? | BHQ-B4 | NOT STARTED | |
+| SHQ3-12 | Do players feel they have enough agency in upgrading their favorite characters? | BHQ-M1 | ANSWERED ✅ | No ClickUp Epic |
+| SHQ3-13 | (in software) Real heroes, final assets: do they invoke curiosity, collectibility, and emotional attachment when compared to top CCRPGs? | BHQ-M1 | ANSWERED ✅ | ClickUp: complete |
+| SHQ3-16 | Can we paper design shared multiplayer maps that feel exciting and offer long term replayability? | BHQ-M3 | ANSWERED ✅ | ClickUp: complete |
+| SHQ3-18 | [paper / prototype] Do specific heroes and units shine and allow player to form deeper collection and progression goals? | BHQ-M4 | ANSWERED ✅ | ClickUp: complete |
+| SHQ3-19 | [paper / prototype] Do our multiplayer game modes create a sense of building, investment & strategic planning? | BHQ-M4 | ANSWERED ✅ | ClickUp: complete |
+| SHQ3-20 | [paper / prototype] Do our multiplayer modes provide enough dynamic strategic decisions that the player wants to play again and again? | BHQ-M4 | ANSWERED ✅ | ClickUp: complete |
+| SHQ3-21 | [paper / prototype] Do we have confidence in viable monetization avenues from multiplayer game mechanics? | BHQ-M4 | ANSWERED ✅ | ClickUp: complete |
+| SHQ3-22 | [paper] How can unlimited spend result in unlimited benefit without being bottlenecked by engagement? | BHQ-M4 | ANSWERED ✅ | ClickUp: complete |
+| SHQ3-23 | Beyond initial stickiness, does depth of play in our battle mechanics remain interesting and engaging for the first three days? | BHQ-B1 | ANSWERED ✅ | ClickUp: complete |
+| SHQ3-24 | Does our new art direction maintain the level of clarity necessary for this to be clear? | BHQ-B2 | IN PROGRESS | ClickUp: in progress |
+| SHQ3-25 | (paper) Does our GTM hero roster cover both the rarity spread necessary for monetization and the roles & mechanics spread necessary for broad collection? | BHQ-B3 | ANSWERED ✅ | ClickUp: complete |
+| SHQ3-26 | Is the player motivated to collect specific and varied heroes and troops against each planned game mode (Dungeons, XP farm, Conquest, etc)? | BHQ-B3 | DISCUSSION | ClickUp: discussion |
+| SHQ3-27 | Can we effectively and scalably build battles across all game modes? | BHQ-B4 | IN PROGRESS | ClickUp: in progress |
+| SHQ3-28 | Are we confident in our pipeline hero/unit production? Can we prove it with animation requirements and get a full understanding on how long it takes to build a hero/unit for long term planning? | BHQ-B4 | IN PROGRESS | ClickUp: in progress |
 
-**Systems Validation Summary**: 4 SHQs in progress, 21 not started. Heavy milestone with Empire (SHQ3-1 through SHQ3-9), Monetization hero/multiplayer paper designs (SHQ3-10 through SHQ3-22), Battle depth (SHQ3-23 through SHQ3-28). Production items moved to `planning/product_targets.md`.
+**Systems Validation Summary**: 15 ANSWERED ✅, 7 IN PROGRESS, 1 DISCUSSION, 2 with no ClickUp Epic (SHQ3-6, SHQ3-7 — marked ANSWERED based on prior evaluations). Heavy milestone with Empire (SHQ3-1 through SHQ3-9), Monetization hero/multiplayer paper designs (SHQ3-10 through SHQ3-22), Battle depth (SHQ3-23 through SHQ3-28). Production items moved to `planning/product_targets.md`.
 
 ---
 
@@ -472,7 +472,7 @@ gantt
 | SHQ3-26 | Is the player motivated to collect specific and varied heroes and troops against each planned game mode (Dungeons, XP farm, Conquest, etc)? | BHQ-B3 | [CHI-34278](https://app.clickup.com/t/869b98a83) | PENDING VALIDATION | Continuing from SV |
 | SHQ3-27 | Can we establish an effective, scalable process for building battles across all game modes, with confidence on early, mid, and late game? | BHQ-B4 | [CHI-34279](https://app.clickup.com/t/869b98ac0) | IN PROGRESS | Reworded from SV |
 | SHQ3-28 | Validate the unit production pipeline to ensure it works in practice and supports confident long-term projections. | BHQ-B4 | [CHI-34280](https://app.clickup.com/t/869b98adn) | IN PROGRESS | Reworded from SV |
-| SHQ4-1 | Does the HUD allow strategic planning (understanding the challenge) as well as tactical response (understanding who's turn it is and the result of their targeting choices)? | BHQ-B2 | [CHI-36324](https://app.clickup.com/t/86aghvg71) | NOT STARTED | New |
+| SHQ4-1 | Does the HUD allow strategic planning (understanding the challenge) as well as tactical response (understanding who's turn it is and the result of their targeting choices)? | BHQ-B2 | [CHI-36324](https://app.clickup.com/t/86aghvg71) | IN PROGRESS | ClickUp: in progress |
 | SHQ4-2 | Can players understand the role and abilities of all six starter heroes, and do player metagame progression choices vary per hero in support of that role? | BHQ-B3 | [CHI-36325](https://app.clickup.com/t/86aghvga3) | NOT STARTED | New |
 
 #### Empire Hypothesis SHQs (WH-2)
@@ -513,10 +513,14 @@ Format: **SHQ[milestone]-[sequence]**
 **Resolved (2026-04-01):**
 - ClickUp SHQ 15 (CHI-36335) → Added as **SHQ4-11** (new question, not SHQ4-6)
 - ClickUp SHQ 16 (CHI-36336) → Added as **SHQ4-12** (new question under BHQ-M4)
-- SHQ3-3, SHQ3-5, SHQ3-8, SHQ3-11 → Brain statuses updated to IN PROGRESS (ClickUp authoritative)
+- Full status sync from ClickUp SHQ Tracker (32 entries including closed tasks):
+  - 12 SHQs updated to ANSWERED ✅ (complete in ClickUp): SHQ3-2, SHQ3-4, SHQ3-10, SHQ3-13, SHQ3-16, SHQ3-18 through SHQ3-22, SHQ3-23, SHQ3-25
+  - 9 SHQs confirmed IN PROGRESS: SHQ3-1, SHQ3-3, SHQ3-5, SHQ3-8, SHQ3-11, SHQ3-24, SHQ3-27, SHQ3-28, SHQ4-1
+  - 1 SHQ set to DISCUSSION: SHQ3-26
 
 **Still open:**
 - **SHQ4-6** (cross-mode UX vision) needs a ClickUp Epic created in the SHQ Tracker
+- **SHQ3-6, SHQ3-7, SHQ3-9, SHQ3-12** have no ClickUp Epic — marked ANSWERED ✅ based on prior evaluation, but should get Epics if re-evaluated
 - ClickUp task titles should be updated from milestone-local numbering (SHQ 01-16) to global format (SHQ3-X, SHQ4-X)
 
 ---
