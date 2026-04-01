@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "generated/milestone_plans/MMs_MilestonePlan.md",
+                "file": "planning/dependency_map.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "MMs_MilestonePlan"
+              "title": "dependency_map"
             }
           }
         ],
@@ -200,6 +200,7 @@
   },
   "active": "c6d15e3c2438c366",
   "lastOpenFiles": [
+    "generated/milestone_plans/MMs_MilestonePlan.md",
     "generated/presentation_working_with_llms_v2.md",
     "planning/capacity.md.tmp.1964.1774904484187",
     "planning/capacity.md.tmp.1964.1774904478473",
@@ -207,7 +208,6 @@
     "generated/milestone_plans/MMs_MilestonePlan.md.tmp.1964.1774902814629",
     "generated/presentation_working_with_llms.md",
     "project-charter.md.tmp.23532.1774650027064",
-    "generated/milestone_plans/MMs_MilestonePlan.md",
     "generated/milestone_plans",
     "generated/roadmap.md.tmp.23532.1774649093717",
     "project-charter.md.tmp.23532.1774648581776",
