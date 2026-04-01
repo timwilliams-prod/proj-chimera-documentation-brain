@@ -77,7 +77,7 @@ Current Milestone: M&Ms (Multiplayer & Meta, starts 3/31/2026, ends Jun 23, 2026
 | Nathan Hajek | USA | Designer | Battle | Battle | [TBD] | |
 | Dylan Jeffery | USA | Designer | Battle | Battle | [TBD] | |
 | Vishaal Gupta | Canada | Designer | Battle | Battle | [TBD] | |
-| Paul Flores | USA | Design Lead | Social Dynamics | [TBD] | [TBD] | |
+| Paul Flores | USA | Design Lead | Social Dynamics | Social Dynamics | [TBD] | |
 
 ---
 
@@ -85,7 +85,7 @@ Current Milestone: M&Ms (Multiplayer & Meta, starts 3/31/2026, ends Jun 23, 2026
 
 | Person | Country | Role | Pod (Current) | M&Ms (7 spr) | M&C (6 spr) | Notes |
 |--------|---------|------|---------------|---------------|----|-------|
-| Kevin Ligon | USA | UX Lead | Metagame | [TBD] | [TBD] | |
+| Kevin Ligon | USA | UX Lead | Metagame | Metagame | [TBD] | |
 | Yura Rusin | USA | UX Designer | Empire | Empire | [TBD] | WME UX needed for M&Ms |
 | Miguel Duran | USA | UI Artist | Metagame | Metagame | [TBD] | |
 
@@ -129,7 +129,7 @@ Current Milestone: M&Ms (Multiplayer & Meta, starts 3/31/2026, ends Jun 23, 2026
 |--------|---------|------|--------|-------|
 | Tim Williams | USA | Producer | Metagame, Social Dynamics | Two pods |
 | Brann Livesay | USA | Producer | Empire, Art | Two pods |
-| Thorben Novais | Brazil | Producer | Battle | |
+| Thorben Novais | Brazil | Producer | Battle, Dozer | Two pods |
 
 ---
 
@@ -144,6 +144,7 @@ Current Milestone: M&Ms (Multiplayer & Meta, starts 3/31/2026, ends Jun 23, 2026
 | Social Dynamics: Randy/Garrett Dozer split | 2 of 5 engineers (Randy, Garrett) have Dozer obligations. Feature work at risk of interruption. | Social Dynamics, Dozer | Tiago Costa (new) and Marcos Loures (from Empire) are fully dedicated |
 | Tim Williams produces 2 pods | Attention split between Metagame and Social Dynamics | Metagame, Social Dynamics | |
 | Brann Livesay produces 2 pods | Attention split between Empire and Art | Empire, Art | |
+| Thorben Novais produces 2 pods | Attention split between Battle and Dozer | Battle, Dozer | |
 
 ---
 
