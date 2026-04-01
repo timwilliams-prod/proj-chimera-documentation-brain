@@ -36,20 +36,13 @@ Last Updated: 2026-03-27
 | Battle HUD Beta Overhaul               | Battle   | Combat interface must meet beta quality bar; gates all battle content and validates BHQ-B2 (intuitive actions) |
 | Optimisation in Preparation for Beta   | Dozer    | Performance and stability must reach beta quality bar                                                           |
 | Narrative and Tutorial Tooling | Empire | Designers need functional tooling to build tutorial and narrative content at scale                        |
-| Audio Tooling Foundation               | Art      | Audio pipeline must be established for content production                                                       |
+| Audio Tooling Foundation               | Dozer      | Audio pipeline must be established for content production                                                       |
 | UI Foundation                          | Metagame | Core UI systems and patterns needed for all feature UIs                                                         |
 | 6 Starter Heroes — Designed and Arted  | Battle / Art | Verify art direction with final hero assets; hero roster needed for all playtests                          |
-| Art Outsourcing Pipelines              | Art      | External art production must be validated for scale                                                              |
+| Art Outsourcing Pipelines Established  | Art      | External art production must be validated for scale                                                              |
 | Reduction of FTUE Friction             | Cross-pod | First-time user experience must be smooth enough for external playtests                                        |
 | Overarching Tone/Emotion of Game       | Art / Empire | Narrative and art direction must come together to establish cohesive game identity                          |
 | Multiplayer Foundation Complete | Social Dynamics    | Multiplayer foundation must be at a point where we can internally playtest the mode by the end of the Milestone                    |
-
-### Nice-to-Have Features
-
-| Feature | Pod | Notes |
-|---------|-----|-------|
-| WM Support for Building Upgrades | Empire | Small scope, fits in buffer sprint |
-| [TBD] | | |
 
 ### Success Criteria
 
@@ -58,15 +51,6 @@ Last Updated: 2026-03-27
 - [ ] Empire strategy layer and tile-level conquest feel connected (SHQ2)
 - [ ] At least one metagame depth system is playable
 - [ ] Map content pipeline is validated at target production rate
-- [ ] [TBD - add specific metrics or playtest outcomes]
-
-### Validation Alignment
-
-| Key SHQ | Question | Must Be Answered? |
-|---------|----------|-------------------|
-| SHQ2 | Can players seamlessly move between empire strategy and tile conquest? | Yes - core to Empire hypothesis |
-| SHQ7 | Clear short/mid/long-term goals? | Yes - Governors should prove this |
-| SHQ1 | Map at scale constraints identified? | Yes - Territory Map VS |
 
 ---
 
@@ -117,14 +101,6 @@ Last Updated: 2026-03-27
 - [ ] World map provides social context for multiplayer
 - [ ] Hero collection feels compelling enough to drive spend intent
 - [ ] [TBD - specific conversion/monetization metrics]
-
-### Validation Alignment
-
-| Key SHQ | Question | Must Be Answered? |
-|---------|----------|-------------------|
-| SHQ10-13 | Hero collectability and attachment | Yes - core to Monetization hypothesis |
-| SHQ16 | Shared multiplayer maps exciting + replayable? | Yes |
-| [TBD] | | |
 
 ---
 
