@@ -15,7 +15,7 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ6 | Do players feel compelled to explore different activity types early on and perceive meaningful connections between them? | ANSWERED |
+| SHQ3-6 | Do players feel compelled to explore different activity types early on and perceive meaningful connections between them? | ANSWERED |
 
 **Parent BHQ**: BHQ-E1 - Civ-like grid has failed on mobile before. Can we make it intuitive, scalable, and will the player be motivated to explore?
 
@@ -120,4 +120,4 @@ Treasure Chests are interactable Territory Map objects with specific associated 
 - Notion Design Doc: https://www.notion.so/1e33f0b3b6ab80d2bc9af21288f47038
 - Versions: Treasure Chests V1 (Notion sub-page)
 - ClickUp Epic: [TBD]
-- Related: `planning/features/territory_map_vs.md`, `planning/ValidationRoadmap.md`
+- Related: `planning/features/territory_map_vs.md`, `planning/ValidationPlan.md`

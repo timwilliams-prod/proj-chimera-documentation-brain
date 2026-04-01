@@ -15,7 +15,7 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ7 | Is there a clear sense of short-, mid-, and long-term goals? | ANSWERED |
+| SHQ3-7 | Is there a clear sense of short-, mid-, and long-term goals? | ANSWERED |
 
 **Parent BHQ**: BHQ-E3 (long-term progression)
 
@@ -93,4 +93,4 @@ Full-screen conquest guide showing player progression, next targets, and strateg
 
 - Notion Design Doc: [TBD]
 - ClickUp Epic: [TBD]
-- Related: `planning/pods/Empire_Plan.md`, `planning/ValidationRoadmap.md`
+- Related: `planning/pods/Empire_Plan.md`, `planning/ValidationPlan.md`

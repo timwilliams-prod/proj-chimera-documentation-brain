@@ -93,4 +93,4 @@ Post-battle reward presentation. Loot display, XP gains, progression feedback, "
 
 - Notion Design Doc: [TBD]
 - ClickUp Epic: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

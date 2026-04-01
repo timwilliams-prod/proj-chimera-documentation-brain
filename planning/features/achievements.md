@@ -15,7 +15,7 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ7 | Is there a clear sense of short-, mid-, and long-term goals? | ANSWERED |
+| SHQ3-7 | Is there a clear sense of short-, mid-, and long-term goals? | ANSWERED |
 
 **Parent BHQ**: BHQ-E2 (return motivations), BHQ-E3 (long-term progression)
 
@@ -93,4 +93,4 @@ Achievement system tracking player milestones. Categories, progress tracking, re
 
 - Notion Design Doc: [TBD]
 - ClickUp Epic: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

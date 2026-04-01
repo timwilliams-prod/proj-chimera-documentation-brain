@@ -5,7 +5,7 @@ Pod Lead: [TBD]
 
 > **What this file tracks**: Feature priorities per milestone and validation alignment.
 > **What lives elsewhere**: Feature details in `planning/features/*.md`. Staffing in `planning/capacity.md`. Sprint execution in ClickUp.
-> For the full validation hierarchy, see `planning/ValidationRoadmap.md`.
+> For the full validation hierarchy, see `planning/ValidationPlan.md`.
 
 ---
 

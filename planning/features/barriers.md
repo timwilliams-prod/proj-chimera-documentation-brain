@@ -15,7 +15,7 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ6 | Do players feel compelled to explore different activity types early on and perceive meaningful connections between them? | ANSWERED |
+| SHQ3-6 | Do players feel compelled to explore different activity types early on and perceive meaningful connections between them? | ANSWERED |
 
 **Parent BHQ**: BHQ-E1 - Civ-like grid has failed on mobile before. Can we make it intuitive, scalable, and will the player be motivated to explore?
 
@@ -123,4 +123,4 @@ Examples: "Clear with the Red Key!" or "Blow it up with Dynamite!"
 - Notion Design Doc: https://www.notion.so/2313f0b3b6ab80178344c4cda3777cbd
 - Approvers: Nate Borges, Dan Dupuis, Leonard Perez
 - ClickUp Epic: [TBD]
-- Related: `planning/features/story_shards.md`, `planning/features/territory_map_vs.md`, `planning/ValidationRoadmap.md`
+- Related: `planning/features/story_shards.md`, `planning/features/territory_map_vs.md`, `planning/ValidationPlan.md`

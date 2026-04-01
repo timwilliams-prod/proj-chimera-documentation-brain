@@ -94,4 +94,4 @@ Advanced troop training facilities. Higher tier troops, specialized units, resea
 
 - Notion Design Doc: [TBD]
 - ClickUp Epic: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

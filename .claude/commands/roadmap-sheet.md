@@ -24,7 +24,7 @@ Read ALL of these files to build the latest roadmap data:
 - `planning/pods/Dozer_Plan.md` — Dozer features by milestone
 - `planning/pods/Art_Plan.md` — Art features by milestone
 - `planning/capacity.md` — Team staffing (for staffLine per pod)
-- `planning/ValidationRoadmap.md` — SHQ/BHQ statuses
+- `planning/ValidationPlan.md` — SHQ/BHQ statuses
 
 **Current data (for diffing):**
 - `generated/roadmap_sheet_data.json` — Current data file
@@ -77,7 +77,7 @@ Each pod entry needs:
 - `validationByMilestone`: Key validation focus per milestone start
 - `shqMarkers`: Which SHQs are being tested in each milestone
 - `whMarkers`: Which Winning Hypotheses are the focus
-- Pull from pod plan validation sections and `planning/ValidationRoadmap.md`
+- Pull from pod plan validation sections and `planning/ValidationPlan.md`
 
 #### Capacity Warnings
 - If a pod has more eng-sprints of work than available sprints, add a `"warning"` row

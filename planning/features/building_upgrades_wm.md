@@ -15,7 +15,7 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ2 | Can we enable players to seamlessly move between high-level empire strategy and low level tile-to-tile conquest? | IN PROGRESS |
+| SHQ3-2 | Can we enable players to seamlessly move between high-level empire strategy and low level tile-to-tile conquest? | IN PROGRESS |
 
 **Parent BHQ**: BHQ-E1 - Civ-like grid has failed on mobile before. Can we make it intuitive, scalable, and will the player be motivated to explore?
 
@@ -97,4 +97,4 @@ World Map layer support for building upgrade visualization and interaction. M&Ms
 
 - Notion Design Doc: [TBD]
 - ClickUp Epic: [TBD]
-- Related: `planning/pods/Empire_Plan.md`, `planning/ValidationRoadmap.md`
+- Related: `planning/pods/Empire_Plan.md`, `planning/ValidationPlan.md`

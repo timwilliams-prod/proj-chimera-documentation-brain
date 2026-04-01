@@ -15,8 +15,8 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ27 | Can we effectively and scalably build battles across all game modes? | ANSWERED |
-| SHQ28 | Are we confident in our pipeline hero/unit production? | ANSWERED |
+| SHQ3-27 | Can we effectively and scalably build battles across all game modes? | ANSWERED |
+| SHQ3-28 | Are we confident in our pipeline hero/unit production? | ANSWERED |
 
 **Parent BHQ**: WH-4 (Production — scalable content), BHQ-B4 (scalable battle content)
 
@@ -86,4 +86,4 @@ Tools and workflows for designing battle encounters. Level editing, enemy placem
 ## References
 
 - Notion Design Doc: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

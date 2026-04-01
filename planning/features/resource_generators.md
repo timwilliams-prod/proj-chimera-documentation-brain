@@ -15,7 +15,7 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ7 | Is there a clear sense of short-, mid-, and long-term goals that interconnect across verticals? | ANSWERED |
+| SHQ3-7 | Is there a clear sense of short-, mid-, and long-term goals that interconnect across verticals? | ANSWERED |
 
 **Parent BHQ**: BHQ-E3 (long-term progression)
 
@@ -95,4 +95,4 @@ Foundations/buildings on territory that generate resources (food, stone, etc.). 
 
 - Notion: Probable match (ID: 1f83f0b3-b6ab-8087-98d6-e2545a1d49c3)
 - ClickUp Epic: [TBD]
-- Related: `planning/features/governors.md`, `planning/ValidationRoadmap.md`
+- Related: `planning/features/governors.md`, `planning/ValidationPlan.md`

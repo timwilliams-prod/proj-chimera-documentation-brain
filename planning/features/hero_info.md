@@ -15,7 +15,7 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ13 | Do real heroes invoke curiosity, collectibility, and emotional attachment? | NOT STARTED |
+| SHQ3-13 | Do real heroes invoke curiosity, collectibility, and emotional attachment? | NOT STARTED |
 
 **Parent BHQ**: BHQ-M1 (hero collectability)
 
@@ -95,4 +95,4 @@ Detailed hero information screen. Stats, abilities, lore, progression path, equi
 
 - Notion Design Doc: [TBD]
 - ClickUp Epic: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

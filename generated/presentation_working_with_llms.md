@@ -111,7 +111,7 @@ Don't assume the model knows which file matters most. Tell it:
 **3. Reference, don't duplicate**
 
 Every duplicate is a potential contradiction. Use IDs and pointers:
-> "This feature contributes to SHQ7" is better than copying the full hypothesis text into every feature doc.
+> "This feature contributes to SHQ3-7" is better than copying the full hypothesis text into every feature doc.
 
 **4. Keep context fresh**
 

@@ -15,7 +15,7 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ8 | Can we create progression opportunities to come back that are high-impact and time sensitive? | ANSWERED |
+| SHQ3-8 | Can we create progression opportunities to come back that are high-impact and time sensitive? | ANSWERED |
 
 **Parent BHQ**: BHQ-E2 (return motivations)
 
@@ -93,4 +93,4 @@ Daily quest system. Refreshing objectives, milestone rewards, streak bonuses. M&
 
 - Notion Design Doc: [TBD]
 - ClickUp Epic: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

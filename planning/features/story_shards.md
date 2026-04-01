@@ -15,7 +15,7 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ6 | Do players feel compelled to explore different activity types early on and perceive meaningful connections? | ANSWERED |
+| SHQ3-6 | Do players feel compelled to explore different activity types early on and perceive meaningful connections? | ANSWERED |
 
 **Parent BHQ**: BHQ-E1 (tile variety), BHQ-E2 (narrative hooks)
 
@@ -96,4 +96,4 @@ Story moments on map tiles presenting meaningful choices with rewards. Player ag
 
 - Notion: Probable match (ID: 2653f0b3-b6ab-80e2-903b-f3334013090f)
 - ClickUp Epic: [TBD]
-- Related: `planning/features/passive_bonus_tiles.md`, `planning/ValidationRoadmap.md`
+- Related: `planning/features/passive_bonus_tiles.md`, `planning/ValidationPlan.md`

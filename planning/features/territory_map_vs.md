@@ -15,8 +15,8 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ1 | Have we identified the constraints for producing the map at scale: high visual bar, high performance, and high variety? | ANSWERED |
-| SHQ2 | Can we enable players to seamlessly move between high-level empire strategy and low level tile-to-tile conquest? | IN PROGRESS |
+| SHQ3-1 | Have we identified the constraints for producing the map at scale: high visual bar, high performance, and high variety? | ANSWERED |
+| SHQ3-2 | Can we enable players to seamlessly move between high-level empire strategy and low level tile-to-tile conquest? | IN PROGRESS |
 
 **Parent BHQ**: BHQ-E1 - Civ-like grid has failed on mobile before. Can we make it intuitive, scalable, and will the player be motivated to explore?
 
@@ -25,7 +25,7 @@
 ### Success Criteria
 
 - [ ] Territory map proves scalable (performance + visual quality + variety)
-- [ ] Empire strategy layer and tile-level conquest feel connected (SHQ2)
+- [ ] Empire strategy layer and tile-level conquest feel connected (SHQ3-2)
 - [ ] Map content pipeline is validated at target production rate
 - [ ] [TBD - specific performance targets and playtest outcomes]
 
@@ -105,4 +105,4 @@ End-to-end vertical slice of the territory map at target quality. Demonstrates s
 
 - Notion: Related page "Territory Map Visual Hierarchy Pass" (ID: 2983f0b3-b6ab-80e8-bfce-c81403e5869f)
 - ClickUp Epic: [TBD]
-- Related: `planning/pods/Empire_Plan.md`, `planning/ValidationRoadmap.md`
+- Related: `planning/pods/Empire_Plan.md`, `planning/ValidationPlan.md`

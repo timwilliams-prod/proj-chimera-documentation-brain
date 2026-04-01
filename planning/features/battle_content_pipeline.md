@@ -15,7 +15,7 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ27 | Can we effectively and scalably build battles across all game modes? | ANSWERED |
+| SHQ3-27 | Can we effectively and scalably build battles across all game modes? | ANSWERED |
 
 **Parent BHQ**: WH-4 (Production — scalable content), BHQ-B4
 
@@ -85,4 +85,4 @@ Pipeline for producing battle content at scale. Authoring, testing, QA, deployme
 ## References
 
 - Notion Design Doc: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

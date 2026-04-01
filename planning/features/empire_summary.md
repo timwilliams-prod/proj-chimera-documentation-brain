@@ -15,7 +15,7 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ4 | Can players easily visualize their empire's progression in a way that feels meaningful? | ANSWERED |
+| SHQ3-4 | Can players easily visualize their empire's progression in a way that feels meaningful? | ANSWERED |
 
 **Parent BHQ**: BHQ-E3 (long-term progression)
 
@@ -94,4 +94,4 @@ Summary screen showing empire state — territories, resources, governors, build
 
 - Notion Design Doc: [TBD]
 - ClickUp Epic: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

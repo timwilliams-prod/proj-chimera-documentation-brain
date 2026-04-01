@@ -94,4 +94,4 @@ Narrative-driven events on the territory map. Story beats, world-building, playe
 
 - Notion Design Doc: [TBD]
 - ClickUp Epic: [TBD]
-- Related: `planning/pods/Empire_Plan.md`, `planning/ValidationRoadmap.md`
+- Related: `planning/pods/Empire_Plan.md`, `planning/ValidationPlan.md`

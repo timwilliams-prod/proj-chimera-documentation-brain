@@ -25,7 +25,7 @@ You are synchronizing the project's **feature spec files** (`planning/features/*
 ### Context
 - `planning/capacity.md` — Designer ownership: "Pod Leadership Summary" table maps design leads to pods; "Design" section lists all designers by pod.
 - `planning/pods/*_Plan.md` — Pod plans (for validation alignment)
-- `planning/ValidationRoadmap.md` — SHQ/BHQ references for feature validation goals
+- `planning/ValidationPlan.md` — SHQ/BHQ references for feature validation goals
 
 ---
 
@@ -39,7 +39,7 @@ Read these files:
 3. `planning/product_targets.md` — Milestone context and "why it's required" for each feature
 4. `planning/capacity.md` — Who owns what (Pod Leadership Summary + Design section)
 5. `planning/designer_queue/designerQueue.md` — Existing open questions (to avoid duplicates)
-6. `planning/ValidationRoadmap.md` — SHQ/BHQ references for validation sections
+6. `planning/ValidationPlan.md` — SHQ/BHQ references for validation sections
 
 ### 2. Build Feature Inventory
 
@@ -112,9 +112,9 @@ Create the spec file using content from Notion, mapped to the template structure
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| [SHQ from product_targets.md or pod plan] | [Question text from ValidationRoadmap.md] | [Status] |
+| [SHQ from product_targets.md or pod plan] | [Question text from ValidationPlan.md] | [Status] |
 
-**Parent BHQ**: [From pod plan or ValidationRoadmap.md]
+**Parent BHQ**: [From pod plan or ValidationPlan.md]
 
 **What [Feature] Must Prove**: [Synthesized from product_targets "Why It's Required" + Notion description]
 
@@ -192,7 +192,7 @@ Create the spec file using content from Notion, mapped to the template structure
 
 - Notion Design Doc: [link to Notion page]
 - ClickUp Epic: [link if available]
-- Related: `planning/pods/[Pod]_Plan.md`, `planning/ValidationRoadmap.md`
+- Related: `planning/pods/[Pod]_Plan.md`, `planning/ValidationPlan.md`
 ```
 
 **Content mapping guidance**: Notion docs vary in structure (GDD, Brief, Feature Version, etc.). Extract whatever is available and map it to the closest spec section. Don't force content into sections it doesn't fit — mark remaining sections as TBD. The goal is to capture what Notion has, not to fabricate missing detail.
@@ -201,7 +201,7 @@ Create the spec file using content from Notion, mapped to the template structure
 
 Create a **stub spec** with the same template, but all content sections marked `[TBD - needs designer input]`. Populate only:
 - Feature name, pod, milestone (from registry)
-- Validation goals (from ValidationRoadmap.md / product_targets.md if traceable)
+- Validation goals (from ValidationPlan.md / product_targets.md if traceable)
 - Design owner (from capacity.md — the Design Lead for the feature's pod)
 
 ### 5. Compare Existing Specs Against Notion
@@ -334,7 +334,7 @@ Present to the user:
 
 ### Preserve Validation Goals
 - Always populate the "Why This Feature" section, even in stubs
-- Trace features to SHQs via product_targets.md and ValidationRoadmap.md
+- Trace features to SHQs via product_targets.md and ValidationPlan.md
 - If no SHQ link is obvious, flag it (feature work without validation alignment)
 
 ### Keep IDs Stable

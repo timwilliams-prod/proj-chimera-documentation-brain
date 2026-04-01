@@ -15,7 +15,7 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ28 | Are we confident in our pipeline hero/unit production? | ANSWERED |
+| SHQ3-28 | Are we confident in our pipeline hero/unit production? | ANSWERED |
 
 **Parent BHQ**: WH-4 (Production)
 
@@ -86,4 +86,4 @@ Pipeline for producing unit content. Model creation, rigging, animation, VFX, in
 ## References
 
 - Notion Design Doc: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

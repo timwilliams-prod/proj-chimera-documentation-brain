@@ -85,4 +85,4 @@ Battle environment obstacles. Destructible/indestructible objects, cover mechani
 ## References
 
 - Notion Design Doc: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

@@ -92,4 +92,4 @@ Pipeline for producing territory map content at scale. Authoring, review, QA, de
 
 - Notion Design Doc: [TBD]
 - ClickUp Epic: [TBD]
-- Related: `planning/pods/Empire_Plan.md`, `planning/ValidationRoadmap.md`
+- Related: `planning/pods/Empire_Plan.md`, `planning/ValidationPlan.md`

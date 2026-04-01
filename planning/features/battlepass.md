@@ -86,4 +86,4 @@ Seasonal battlepass system. Tiered reward tracks, free vs premium, progression m
 ## References
 
 - Notion Design Doc: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

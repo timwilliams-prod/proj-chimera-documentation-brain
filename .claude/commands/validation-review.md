@@ -9,7 +9,7 @@ You are helping evaluate and update the **Validation Roadmap** - the hypothesis-
 
 ## Project Structure
 
-- `planning/ValidationRoadmap.md` - The validation hierarchy and sprint evaluation log
+- `planning/ValidationPlan.md` - The validation hierarchy and sprint evaluation log
 - `planning/product_targets.md` - Milestone definitions and success criteria (check validation alignment)
 - `planning/pods/*_Plan.md` - Pod feature priorities (to check feature work alignment)
 - `generated/roadmap.md` - Consolidated feature list + Gantt (to cross-reference timelines)
@@ -21,7 +21,7 @@ You are helping evaluate and update the **Validation Roadmap** - the hypothesis-
 ## Your Task
 
 ### 1. Read Current State
-- Read `planning/ValidationRoadmap.md` for current hypothesis status, BHQs, SHQs
+- Read `planning/ValidationPlan.md` for current hypothesis status, BHQs, SHQs
 - Read `planning/product_targets.md` for milestone success criteria and must-have features
 - Read all `planning/pods/*_Plan.md` to understand what's being built and why (validation alignment sections)
 - Read `generated/roadmap.md` for the consolidated feature timeline
@@ -72,7 +72,7 @@ For each WH with updated BHQs:
 - Are feature docs' validation goals (top of each `planning/features/*.md`) consistent with SHQ status?
 
 #### e. Log the Sprint Evaluation
-Add a new entry to the Sprint Evaluation Log in `planning/ValidationRoadmap.md`.
+Add a new entry to the Sprint Evaluation Log in `planning/ValidationPlan.md`.
 
 ### 4. Milestone Review (At Milestone Boundaries)
 

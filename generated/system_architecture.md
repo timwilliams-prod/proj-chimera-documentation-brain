@@ -20,7 +20,7 @@ graph TB
         subgraph Planning["planning/ (Human-Authored, Authoritative)"]
             PT["product_targets.md<br/>WHAT we need"]
             CAP["capacity.md<br/>WHAT we have"]
-            VR["ValidationRoadmap.md<br/>WHAT we must prove"]
+            VR["ValidationPlan.md<br/>WHAT we must prove"]
             FR["feature_registry.md<br/>Feature-to-Source Map"]
             PP["pods/*_Plan.md<br/>Per-Pod Priorities"]
             FS["features/*.md<br/>Feature Specs"]
@@ -178,7 +178,7 @@ Most workflows are multi-skill chains:
 
 ### 6. Single Source of Truth, Reference by ID
 
-Nothing is duplicated. Features reference SHQs by ID (`SHQ7`), tech debt by ID (`TD-001`), pod leadership from `capacity.md`. If the same fact appears in two places, one is wrong -- the authoritative file wins.
+Nothing is duplicated. Features reference SHQs by ID (`SHQ3-7`), tech debt by ID (`TD-001`), pod leadership from `capacity.md`. If the same fact appears in two places, one is wrong -- the authoritative file wins.
 
 ### 7. Skill Design Principles
 
@@ -192,8 +192,8 @@ Nothing is duplicated. Features reference SHQs by ID (`SHQ7`), tech debt by ID (
 
 | Skill | Reads | Writes |
 |-------|-------|--------|
-| `/roadmap-update` | product_targets, pod plans, capacity, feature_registry, features/, ValidationRoadmap, TechnicalDebt | pods/, feature_registry, generated/roadmap.md |
-| `/risk-evaluation` | product_targets, roadmap, capacity, pod plans, ValidationRoadmap, feature_registry, TechnicalDebt | generated/reports/ |
+| `/roadmap-update` | product_targets, pod plans, capacity, feature_registry, features/, ValidationPlan, TechnicalDebt | pods/, feature_registry, generated/roadmap.md |
+| `/risk-evaluation` | product_targets, roadmap, capacity, pod plans, ValidationPlan, feature_registry, TechnicalDebt | generated/reports/ |
 | `/spec-sync` | feature_registry, features/, Notion (MCP) | features/, designer_queue |
 | `/sprint-plan` | product_targets, pod plans, capacity, sprint_rules, roadmap, Google Calendar, ClickUp | generated/sprint_plans/, pods/, ClickUp tasks |
 | `/sprint-risks` | ClickUp sprint tasks, product_targets, pod plans, Slack | Report (copy/paste) |
@@ -201,6 +201,6 @@ Nothing is duplicated. Features reference SHQs by ID (`SHQ7`), tech debt by ID (
 | `/designer-quiz` | designer_queue, capacity | raw_input/ |
 | `/queue-review` | raw_input/, features/ | clean_input/, output/, features/, designer_queue |
 | `/tech-debt` | TechnicalDebt, features/, capacity | TechnicalDebt |
-| `/feature-review-prep` | features/, pod plans, product_targets, ValidationRoadmap | generated/design_briefs/ |
+| `/feature-review-prep` | features/, pod plans, product_targets, ValidationPlan | generated/design_briefs/ |
 | `/roadmap-sheet` | product_targets, pod plans, capacity, roadmap | generated/roadmap_apps_script.js |
-| `/validation-review` | ValidationRoadmap, features/, pod plans, product_targets | Report (no file changes) |
+| `/validation-review` | ValidationPlan, features/, pod plans, product_targets | Report (no file changes) |

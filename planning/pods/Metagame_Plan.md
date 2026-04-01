@@ -5,7 +5,7 @@ Pod Lead: Leonard Perez
 
 > Feature-level planning per milestone. Sprint execution lives in ClickUp.
 > For the overall milestone timeline, see `generated/roadmap.md`.
-> For the full validation hierarchy, see `planning/ValidationRoadmap.md`.
+> For the full validation hierarchy, see `planning/ValidationPlan.md`.
 
 ---
 
@@ -64,28 +64,28 @@ gantt
 
 ## Validation Focus
 
-> M&Ms milestone SHQs. Full details in `planning/ValidationRoadmap.md`.
+> M&Ms milestone SHQs. Full details in `planning/ValidationPlan.md`.
 
 ### Battle (WH-1)
 
 | ID | Question | BHQ | Status |
 |----|----------|-----|--------|
-| SHQ30 | Do players understand starter heroes; do metagame progression choices vary per hero? | BHQ-B3 | NOT STARTED |
+| SHQ4-2 | Do players understand starter heroes; do metagame progression choices vary per hero? | BHQ-B3 | NOT STARTED |
 
 ### Empire (WH-2)
 
 | ID | Question | BHQ | Status |
 |----|----------|-----|--------|
-| SHQ31 | World map surfaces session engagement goals? | BHQ-E1 | NOT STARTED |
-| SHQ32 | Territory map readable with real art? | BHQ-E1 | NOT STARTED |
-| SHQ33 | Narrative beats drive map exploration? | BHQ-E1 | NOT STARTED |
-| SHQ34 | Clear UX vision for empire/whirlpool/MP navigation? | BHQ-E1 | NOT STARTED |
+| SHQ4-3 | World map surfaces session engagement goals? | BHQ-E1 | NOT STARTED |
+| SHQ4-4 | Territory map readable with real art? | BHQ-E1 | NOT STARTED |
+| SHQ4-5 | Narrative beats drive map exploration? | BHQ-E1 | NOT STARTED |
+| SHQ4-6 | Clear UX vision for empire/whirlpool/MP navigation? | BHQ-E1 | NOT STARTED |
 
 ### Monetisation (WH-3)
 
 | ID | Question | BHQ | Status |
 |----|----------|-----|--------|
-| SHQ35 | Do players engage with vertical empire progression as meaningful? | BHQ-M3 | NOT STARTED |
+| SHQ4-7 | Do players engage with vertical empire progression as meaningful? | BHQ-M3 | NOT STARTED |
 
 ---
 

@@ -15,9 +15,9 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ16 | Can we paper design shared multiplayer maps that feel exciting and offer long term replayability? | NOT STARTED |
-| SHQ19 | Do our multiplayer game modes create a sense of building, investment & strategic planning? | NOT STARTED |
-| SHQ20 | Do our multiplayer modes provide enough dynamic strategic decisions that the player wants to play again and again? | NOT STARTED |
+| SHQ3-16 | Can we paper design shared multiplayer maps that feel exciting and offer long term replayability? | NOT STARTED |
+| SHQ3-19 | Do our multiplayer game modes create a sense of building, investment & strategic planning? | NOT STARTED |
+| SHQ3-20 | Do our multiplayer modes provide enough dynamic strategic decisions that the player wants to play again and again? | NOT STARTED |
 
 **Parent BHQ**: BHQ-M2 (PvE to social context), BHQ-M4 (multiplayer heightens motivations)
 
@@ -103,4 +103,4 @@ Multiplayer map game mode where players compete on shared territory maps. Async/
 
 - Notion: Related "Multiplayer Implementation Strategy" (ID: 3053f0b3-b6ab-8061-8a24-cf9b7e85bfe4)
 - ClickUp Epic: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

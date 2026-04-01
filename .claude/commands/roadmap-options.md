@@ -15,7 +15,7 @@ Read these to understand current constraints:
 - `planning/features/*.md` - Feature estimates, discipline needs, dependencies
 - `planning/capacity.md` - Staffing by discipline and milestone
 - `planning/dependency_map.md` - What blocks what
-- `planning/ValidationRoadmap.md` - Which SHQs need feature work
+- `planning/ValidationPlan.md` - Which SHQs need feature work
 - `generated/roadmap.md` - Current canonical roadmap (the starting point)
 
 ---

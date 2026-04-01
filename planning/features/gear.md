@@ -15,7 +15,7 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ12 | Do players feel they have enough agency in upgrading their favorite characters? | NOT STARTED |
+| SHQ3-12 | Do players feel they have enough agency in upgrading their favorite characters? | NOT STARTED |
 
 **Parent BHQ**: BHQ-B3 (keys/locks), BHQ-M3 (spend depth)
 
@@ -95,4 +95,4 @@ Equipment system for heroes. Gear slots, stats, rarity, acquisition, upgrade pat
 
 - Notion: Related "Gear System: UI/UX walkthrough & examples" (2fe3f0b3-b6ab-8013-8945-d50fdf6edea8)
 - ClickUp Epic: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

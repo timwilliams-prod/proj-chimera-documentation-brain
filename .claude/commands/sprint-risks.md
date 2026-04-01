@@ -20,7 +20,7 @@ Read `planning/product_targets.md` to identify which milestone this sprint falls
 
 If this is a milestone-closing sprint, also read:
 - The relevant `planning/pods/*_Plan.md` files for milestone feature priorities
-- `planning/ValidationRoadmap.md` for active SHQs in scope
+- `planning/ValidationPlan.md` for active SHQs in scope
 
 ### 3. Pull All Sprint Tasks
 
@@ -48,7 +48,7 @@ Apply these filters to find items that are **at risk of not completing** this sp
 
 #### Milestone Risk (only if this is a milestone-closing sprint)
 - **Must-have features** from `product_targets.md` that have open tasks without clear path to completion
-- **SHQs** from `ValidationRoadmap.md` that this sprint should be closing out but aren't addressed
+- **SHQs** from `ValidationPlan.md` that this sprint should be closing out but aren't addressed
 
 **Important**: Do NOT flag items that are clearly on track (in progress with reasonable scope, in QA verify, low priority items). The goal is signal, not noise. Only surface genuine risks.
 

@@ -5,7 +5,7 @@ Pod Lead: Diana Vasilescu
 
 > **What this file tracks**: Feature priorities per milestone and validation alignment.
 > **What lives elsewhere**: Feature details in `planning/features/*.md`. Staffing in `planning/capacity.md`. Sprint execution in ClickUp.
-> For the full validation hierarchy, see `planning/ValidationRoadmap.md`.
+> For the full validation hierarchy, see `planning/ValidationPlan.md`.
 
 ---
 
@@ -54,7 +54,7 @@ The Empire pod is primarily validating **WH-2: Empire Hypothesis** - that we can
 
 ### BHQs This Pod Contributes To
 
-Empire features contribute to these BHQs (full details in `planning/ValidationRoadmap.md`).
+Empire features contribute to these BHQs (full details in `planning/ValidationPlan.md`).
 Note: some BHQs are cross-pod — Empire contributes but doesn't solely own them.
 
 | BHQ | Question | Status | Cross-Pod? |
@@ -65,8 +65,8 @@ Note: some BHQs are cross-pod — Empire contributes but doesn't solely own them
 
 ### Active SHQ Gaps
 
-- **SHQ2** (empire strategy <-> tile conquest seamlessness) - IN PROGRESS
-- **SHQ3** (map -> hero progression) - ANSWERED negative. May need cross-pod input (Battle/Metagame).
+- **SHQ3-2** (empire strategy <-> tile conquest seamlessness) - IN PROGRESS
+- **SHQ3-3** (map -> hero progression) - ANSWERED negative. May need cross-pod input (Battle/Metagame).
 - **BHQ-E4** has no SHQs defined yet. Needs attention — likely requires Battle pod input too.
 
 ---
@@ -82,9 +82,9 @@ All Empire features across milestones, ordered by priority within each milestone
 | 2a  | — Multiple Nodes per Territory                                              | M&Ms      | (sprint 1)  | NOT STARTED | [TBD]                                             | [TBD]                                                              |
 | 2b  | — Main Menu UX/UI Implementation                                            | M&Ms      | (sprint 2)  | NOT STARTED | [TBD]                                             | [TBD]                                                              |
 | 2c  | — World Map Experience Iterations                                           | M&Ms      | (sprint 3)  | NOT STARTED | [TBD]                                             | [TBD]                                                              |
-| 3   | [Territory Map Vertical Slice](../features/territory_map_vs.md)             | M&Ms      | 2 sprints   | NOT STARTED | SHQ1 (map at scale), SHQ2 (strategy <-> conquest) | Two map layers feel connected; seamless strategic flow             |
-| 4   | [Map Content](../features/map_content.md)                                   | Ongoing   | Ongoing     | IN PROGRESS | SHQ1 (high visual bar, variety)                   | Content pipeline validates production capacity at scale            |
-| 5   | [Governors](../features/governors.md)                                       | M&C       | 3 sprints   | IN PROGRESS | SHQ7 (short/mid/long-term goals)                  | Long-term goal vector within Empire; meaningful project investment |
+| 3   | [Territory Map Vertical Slice](../features/territory_map_vs.md)             | M&Ms      | 2 sprints   | NOT STARTED | SHQ3-1 (map at scale), SHQ3-2 (strategy <-> conquest) | Two map layers feel connected; seamless strategic flow             |
+| 4   | [Map Content](../features/map_content.md)                                   | Ongoing   | Ongoing     | IN PROGRESS | SHQ3-1 (high visual bar, variety)                   | Content pipeline validates production capacity at scale            |
+| 5   | [Governors](../features/governors.md)                                       | M&C       | 3 sprints   | IN PROGRESS | SHQ3-7 (short/mid/long-term goals)                  | Long-term goal vector within Empire; meaningful project investment |
 | 6   | [WM Building Upgrades](../features/wm_building_upgrades.md)                 | M&C       | 1 sprint    | NOT STARTED | —                                                 | World map supports empire investment visibility                    |
 | 7   | [WM Zoom Filtering & LOD](../features/wm_zoom_lod.md)                      | M&C       | ~1 sprint   | NOT STARTED | [TBD]                                             | [TBD]                                                              |
 | 8   | [Conquest Guide Full Screen](../features/conquest_guide.md)                 | M&C       | ~0.5 sprint | NOT STARTED | [TBD]                                             | [TBD]                                                              |
@@ -104,7 +104,7 @@ All Empire features across milestones, ordered by priority within each milestone
 **Goals**:
 - **Tutorial Node Migration** engineering (Henrique, 1 sprint) — designer tooling enablement
 - Begin **World Map Experience** design/UX prep — front-loading for Sprint 27
-- Continue **Map Content** pipeline — validates SHQ1
+- Continue **Map Content** pipeline — validates SHQ3-1
 
 **Key Assignments**:
 

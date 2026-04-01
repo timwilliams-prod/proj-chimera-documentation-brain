@@ -87,4 +87,4 @@ Live Ops multiplayer map/event. Themed multiplayer content with unique mechanics
 ## References
 
 - Notion Design Doc: [TBD]
-- Related: `planning/features/multiplayer_map.md`, `planning/ValidationRoadmap.md`
+- Related: `planning/features/multiplayer_map.md`, `planning/ValidationPlan.md`

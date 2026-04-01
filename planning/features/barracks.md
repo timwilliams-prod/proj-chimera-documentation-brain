@@ -95,4 +95,4 @@ Core site on territory map for training/recruiting troops. Visual priority level
 
 - Notion Design Doc: [TBD]
 - ClickUp Epic: [TBD]
-- Related: `planning/features/governors.md`, `planning/features/troop_recruiting.md`, `planning/ValidationRoadmap.md`
+- Related: `planning/features/governors.md`, `planning/features/troop_recruiting.md`, `planning/ValidationPlan.md`

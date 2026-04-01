@@ -15,7 +15,7 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ12 | Do players feel they have enough agency in upgrading their favorite characters? | NOT STARTED |
+| SHQ3-12 | Do players feel they have enough agency in upgrading their favorite characters? | NOT STARTED |
 
 **Parent BHQ**: BHQ-M1 (hero collectability), BHQ-E3 (long-term progression)
 
@@ -94,4 +94,4 @@ System for leveling heroes through XP. Stat growth, level caps, XP sources.
 
 - Notion Design Doc: [TBD]
 - ClickUp Epic: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

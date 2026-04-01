@@ -15,7 +15,7 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ26 | Is the player motivated to collect specific and varied heroes and troops against each planned game mode? | ANSWERED |
+| SHQ3-26 | Is the player motivated to collect specific and varied heroes and troops against each planned game mode? | ANSWERED |
 
 **Parent BHQ**: BHQ-B3 (keys/locks — heroes shine in different modes)
 
@@ -96,4 +96,4 @@ PvE dungeon game mode. Repeatable content with progression rewards, gear drops, 
 
 - Notion Design Doc: [TBD]
 - ClickUp Epic: [TBD]
-- Related: `planning/features/gear.md`, `planning/ValidationRoadmap.md`
+- Related: `planning/features/gear.md`, `planning/ValidationPlan.md`

@@ -5,7 +5,7 @@ Last Updated: 2026-03-27
 > **What this file is**: The stable, leadership-authored definition of what each milestone must achieve.
 > This is the benchmark that plans are measured against.
 > For what we're actually building (operational view), see `generated/roadmap.md`.
-> For why we're building it (validation), see `planning/ValidationRoadmap.md`.
+> For why we're building it (validation), see `planning/ValidationPlan.md`.
 
 ---
 
@@ -32,7 +32,7 @@ Last Updated: 2026-03-27
 
 | Feature                                | Pod      | Why It's Required                                                                                              |
 | -------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
-| Territory Map Vertical Slice           | Empire   | Prove map works at scale + strategy/conquest connection (SHQ1, SHQ2)                                           |
+| Territory Map Vertical Slice           | Empire   | Prove map works at scale + strategy/conquest connection (SHQ3-1, SHQ3-2)                                           |
 | Battle HUD Beta Overhaul               | Battle   | Combat interface must meet beta quality bar; gates all battle content and validates BHQ-B2 (intuitive actions) |
 | Optimisation in Preparation for Beta   | Dozer    | Performance and stability must reach beta quality bar                                                           |
 | Narrative and Tutorial Tooling | Empire | Designers need functional tooling to build tutorial and narrative content at scale                        |
@@ -48,7 +48,7 @@ Last Updated: 2026-03-27
 
 - [ ] Players can engage with multiplayer foundations in a playtest
 - [ ] Territory map proves scalable (performance + visual quality + variety)
-- [ ] Empire strategy layer and tile-level conquest feel connected (SHQ2)
+- [ ] Empire strategy layer and tile-level conquest feel connected (SHQ3-2)
 - [ ] At least one metagame depth system is playable
 - [ ] Map content pipeline is validated at target production rate
 
@@ -81,7 +81,7 @@ Last Updated: 2026-03-27
 
 | Feature | Pod | Why It's Required |
 |---------|-----|-------------------|
-| Governors                  | Empire   | Long-term goal vector for Empire layer (validates SHQ7). Moved from M&Ms. |
+| Governors                  | Empire   | Long-term goal vector for Empire layer (validates SHQ3-7). Moved from M&Ms. |
 | World Map Vertical Slice   | Empire   | World map layer needed for multiplayer context |
 | [TBD - monetization system] | Metagame | Core monetization hypothesis must be testable |
 | [TBD - conversion funnel] | [TBD] | Need to measure conversion |

@@ -5,7 +5,7 @@ Pod Lead: Lincoln Li
 
 > **What this file tracks**: Feature priorities per milestone and validation alignment.
 > **What lives elsewhere**: Feature details in `planning/features/*.md`. Staffing in `planning/capacity.md`. Sprint execution in ClickUp.
-> For the full validation hierarchy, see `planning/ValidationRoadmap.md`.
+> For the full validation hierarchy, see `planning/ValidationPlan.md`.
 
 ---
 
@@ -53,7 +53,7 @@ The Battle pod is primarily validating combat engagement, unit variety, and tact
 
 ### BHQs This Pod Contributes To
 
-Battle features contribute to these BHQs (full details in `planning/ValidationRoadmap.md`).
+Battle features contribute to these BHQs (full details in `planning/ValidationPlan.md`).
 
 | BHQ | Question | Status | Cross-Pod? |
 |-----|----------|--------|------------|

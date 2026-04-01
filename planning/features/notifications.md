@@ -15,7 +15,7 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ8 | Can we create progression opportunities to come back that are high-impact and time sensitive? | ANSWERED |
+| SHQ3-8 | Can we create progression opportunities to come back that are high-impact and time sensitive? | ANSWERED |
 
 **Parent BHQ**: BHQ-E2 (return motivations)
 
@@ -85,4 +85,4 @@ Push notification system. Configurable triggers, scheduling, deep links, opt-in 
 ## References
 
 - Notion Design Doc: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

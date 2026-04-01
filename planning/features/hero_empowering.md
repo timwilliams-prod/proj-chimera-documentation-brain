@@ -15,7 +15,7 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ18 | Do specific heroes and units shine and allow player to form deeper collection and progression goals? | NOT STARTED |
+| SHQ3-18 | Do specific heroes and units shine and allow player to form deeper collection and progression goals? | NOT STARTED |
 
 **Parent BHQ**: BHQ-M3 (spend depth), BHQ-E3 (long-term progression)
 
@@ -93,4 +93,4 @@ Late-game hero power progression beyond max rank. Endgame investment sink. Live 
 
 - Notion Design Doc: [TBD]
 - ClickUp Epic: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

@@ -85,4 +85,4 @@ In-game inbox system for admin comms, rewards, announcements. Push notification 
 ## References
 
 - Notion Design Doc: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

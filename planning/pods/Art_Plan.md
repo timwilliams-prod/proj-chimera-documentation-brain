@@ -5,7 +5,7 @@ Pod Lead: [TBD]
 
 > **What this file tracks**: Art production priorities per milestone and pipeline capacity.
 > **What lives elsewhere**: Feature details in `planning/features/*.md`. Staffing in `planning/capacity.md`. Sprint execution in ClickUp.
-> For the full validation hierarchy, see `planning/ValidationRoadmap.md`.
+> For the full validation hierarchy, see `planning/ValidationPlan.md`.
 
 ---
 
@@ -54,7 +54,7 @@ The Art pod supports all other pods by delivering high-quality visual assets tha
 
 ### BHQs This Pod Contributes To
 
-Art production contributes to these BHQs across all pods (full details in `planning/ValidationRoadmap.md`).
+Art production contributes to these BHQs across all pods (full details in `planning/ValidationPlan.md`).
 
 | BHQ | Question | Status | Cross-Pod? |
 |-----|----------|--------|------------|

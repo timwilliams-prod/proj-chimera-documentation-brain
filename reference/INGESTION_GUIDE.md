@@ -32,7 +32,7 @@ The fastest way to get started - let Claude convert your Notion/ClickUp data int
 For Winning Hypotheses, BHQs, and SHQs:
 
 ```
-I need to update planning/ValidationRoadmap.md with hypotheses from Notion.
+I need to update planning/ValidationPlan.md with hypotheses from Notion.
 
 Here's what we have:
 - WH-1: [paste from Notion]
@@ -40,7 +40,7 @@ Here's what we have:
 - SHQs: [paste]
 ```
 
-Claude will structure them into the ValidationRoadmap.md schema. Remember: BHQs and SHQs can be cross-pod — don't force them into a single pod's ownership.
+Claude will structure them into the ValidationPlan.md schema. Remember: BHQs and SHQs can be cross-pod — don't force them into a single pod's ownership.
 
 #### From ClickUp (Task Status → Pod Plans)
 
@@ -212,9 +212,9 @@ jobs:
 | Risks | `## Risks` |
 | Open Questions | `## Open Questions` |
 
-### Notion → Validation Roadmap (`planning/ValidationRoadmap.md`)
+### Notion → Validation Roadmap (`planning/ValidationPlan.md`)
 
-| Notion Field | ValidationRoadmap Section |
+| Notion Field | ValidationPlan Section |
 |--------------|--------------------------|
 | Winning Hypothesis | `### WH-X: [Name]` |
 | BHQ | `##### BHQ-X.X: [Question]` |
@@ -222,7 +222,7 @@ jobs:
 | Test Method | `How We Test` field |
 | Success Criteria | `Success Criteria` field |
 
-Note: BHQs/SHQs are cross-pod. Don't assign them to a single pod — they belong in the ValidationRoadmap, and pod plans reference them by ID.
+Note: BHQs/SHQs are cross-pod. Don't assign them to a single pod — they belong in the ValidationPlan, and pod plans reference them by ID.
 
 ### ClickUp → Pod Plans (`planning/pods/*_Plan.md`)
 
@@ -242,7 +242,7 @@ Note: Pod plans track features/boulders, not individual tasks. ClickUp handles t
 │ Notion   │ ─────────────→  │  planning/features/*.md       │
 │ (Design) │   Manual/Script │  (feature specs)              │
 │          │                 │                                │
-│          │ ─────────────→  │  planning/ValidationRoadmap.md │
+│          │ ─────────────→  │  planning/ValidationPlan.md │
 │          │   Manual        │  (hypotheses, BHQs, SHQs)     │
 └──────────┘                 └───────────────────────────────┘
                                         ↓

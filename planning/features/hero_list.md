@@ -15,8 +15,8 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ10 | Do players understand the value of new heroes they acquire and do they see use cases for trying them? | NOT STARTED |
-| SHQ11 | Do players get attached to favorite heroes and feel excited to focus on its progression? | NOT STARTED |
+| SHQ3-10 | Do players understand the value of new heroes they acquire and do they see use cases for trying them? | NOT STARTED |
+| SHQ3-11 | Do players get attached to favorite heroes and feel excited to focus on its progression? | NOT STARTED |
 
 **Parent BHQ**: BHQ-M1 (hero collectability)
 
@@ -95,4 +95,4 @@ UI screen showing player's hero roster. Collection view, sorting, filtering, her
 
 - Notion: Related "Hero: Starter 6 List" (2b13f0b3-b6ab-80c3-8f7b-f51e13618459)
 - ClickUp Epic: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

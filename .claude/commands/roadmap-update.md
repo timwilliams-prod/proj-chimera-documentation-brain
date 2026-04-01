@@ -24,7 +24,7 @@ You are helping update the project's **Feature Roadmap** - both the feature plan
 ### Reference
 - `planning/dependency_map.md` - Pod and feature dependencies
 - `planning/GlobalRules.md` - Cross-project constraints
-- `planning/ValidationRoadmap.md` - Validation hypotheses and SHQs
+- `planning/ValidationPlan.md` - Validation hypotheses and SHQs
 - `planning/TechnicalDebt.md` - Active tech debt items
 
 ---
@@ -57,7 +57,7 @@ Ask the user for:
 - **Check capacity**: Does `planning/capacity.md` support the planned work? Flag overallocation.
 - **Check dependencies**: Will changes break dependent pods or features?
 - **Check targets**: Do changes affect must-have features in `planning/product_targets.md`? Flag if a must-have is being cut or delayed.
-- **Check validation**: Do changes affect SHQs in `planning/ValidationRoadmap.md`? When pulling validation info, check that SHQ statuses in the pod plan match the statuses in `planning/ValidationRoadmap.md`. If they differ, use the ValidationRoadmap as authoritative and flag the discrepancy. (Mention if so, but don't update ValidationRoadmap here.)
+- **Check validation**: Do changes affect SHQs in `planning/ValidationPlan.md`? When pulling validation info, check that SHQ statuses in the pod plan match the statuses in `planning/ValidationPlan.md`. If they differ, use the ValidationPlan as authoritative and flag the discrepancy. (Mention if so, but don't update ValidationPlan here.)
 - **Check tech debt**: Do any planned features depend on systems with active debt items in `planning/TechnicalDebt.md`? Flag if so.
 - Flag risks if you spot them
 
@@ -133,7 +133,7 @@ For each pod, generate a section with this structure:
 | P2 | Map Foundation | NOT STARTED |
 ```
 
-**Validation data**: Pull validation info from the pod's plan file (Validation Focus / Validation Alignment sections). Cross-check SHQ statuses against `planning/ValidationRoadmap.md` — use the ValidationRoadmap as authoritative if there's a conflict.
+**Validation data**: Pull validation info from the pod's plan file (Validation Focus / Validation Alignment sections). Cross-check SHQ statuses against `planning/ValidationPlan.md` — use the ValidationPlan as authoritative if there's a conflict.
 
 If the pod plan has no features defined yet, show `[TBD - awaiting feature definitions]`.
 
@@ -259,5 +259,5 @@ Then show the updated Gantt inline for review before committing.
 - Pod leadership comes from `planning/capacity.md` Pod Leadership Summary — don't hardcode names in the roadmap
 - The Gantt is a communication tool - optimize for clarity, not completeness
 - Preserve multi-milestone feature definitions from pod plans during regeneration
-- Use ValidationRoadmap.md as authoritative for SHQ statuses, not pod plans
+- Use ValidationPlan.md as authoritative for SHQ statuses, not pod plans
 - Check TechnicalDebt.md when features touch affected systems

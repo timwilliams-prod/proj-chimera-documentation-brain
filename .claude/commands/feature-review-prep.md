@@ -12,7 +12,7 @@ You are generating a **design review briefing** for a single feature, giving des
 ### Sources (read only)
 - `planning/features/*.md` - Feature specs (the primary source for the target feature + related features)
 - `planning/product_targets.md` - Is this feature in milestone targets? What's expected?
-- `planning/ValidationRoadmap.md` - SHQ/BHQ alignment
+- `planning/ValidationPlan.md` - SHQ/BHQ alignment
 - `planning/pods/*_Plan.md` - Pod priorities and validation focus
 - `planning/dependency_map.md` - Dependencies and cross-pod impacts
 - `planning/capacity.md` - Design ownership, pod assignments
@@ -41,7 +41,7 @@ Read these files to build the briefing:
 
 1. **Target feature spec** (`planning/features/[feature].md`) — The core document
 2. `planning/product_targets.md` — Milestone context and expectations
-3. `planning/ValidationRoadmap.md` — Validation alignment details
+3. `planning/ValidationPlan.md` — Validation alignment details
 4. `planning/pods/[relevant_pod]_Plan.md` — Pod-level priority context
 5. `planning/dependency_map.md` — Dependency relationships
 6. `planning/designer_queue/designerQueue.md` — Open questions assigned to this feature

@@ -17,7 +17,7 @@ generated/roadmap.md                -> CONSOLIDATED view of what all pods are bu
 ```
 
 **Supporting files**:
-- `planning/ValidationRoadmap.md` - Are we building the right thing? (Hypotheses -> BHQs -> SHQs)
+- `planning/ValidationPlan.md` - Are we building the right thing? (Hypotheses -> BHQs -> SHQs)
 - `planning/dependency_map.md` - Pod and feature dependencies
 - `planning/GlobalRules.md` - Cross-project constraints
 
@@ -136,7 +136,7 @@ Copy the pattern from `planning/features/governors.md`:
 | Feature starts/completes | Pod plan status, feature doc status |
 | People move between pods | `planning/capacity.md` |
 | Design changes | Feature doc scope/estimate |
-| Sprint evaluation | `planning/ValidationRoadmap.md` via `/validation-review` |
+| Sprint evaluation | `planning/ValidationPlan.md` via `/validation-review` |
 | Milestone boundary | All of the above + full validation review + target assessment |
 
 ---

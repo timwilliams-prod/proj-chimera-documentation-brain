@@ -92,7 +92,7 @@ I took this approach and applied it to our design & production planning. The res
 lotusDocumentationBrain/
 ├── planning/
 │   ├── product_targets.md        # What each milestone MUST achieve
-│   ├── ValidationRoadmap.md      # Are we building the right thing?
+│   ├── ValidationPlan.md      # Are we building the right thing?
 │   ├── capacity.md               # Where are our people?
 │   ├── pods/
 │   │   ├── Empire_Plan.md        # Pod priorities + validation alignment

@@ -28,7 +28,7 @@ Read ALL of these:
 
 - `planning/product_targets.md` — Must-have features and success criteria for this milestone
 - `planning/capacity.md` — Team staffing for this milestone (use the milestone column)
-- `planning/ValidationRoadmap.md` — SHQs targeted at this milestone
+- `planning/ValidationPlan.md` — SHQs targeted at this milestone
 - `planning/pods/Empire_Plan.md` — Empire features for this milestone
 - `planning/pods/Metagame_Plan.md` — Metagame features
 - `planning/pods/Battle_Plan.md` — Battle features
@@ -61,7 +61,7 @@ Examples: `MMs_MilestonePlan.md`, `MC_MilestonePlan.md`, `BetaPrep_MilestonePlan
 # [Full Milestone Name] — Milestone Plan
 
 > Generated: [date] by `/generate_ms_plan`
-> Sources: product_targets.md, pod plans, ValidationRoadmap.md, capacity.md
+> Sources: product_targets.md, pod plans, ValidationPlan.md, capacity.md
 
 **Dates**: [start] → [end]
 **Sprints**: [N] ([sprint numbers and names if known])
@@ -112,7 +112,7 @@ A table showing every SHQ targeted at this milestone, organized by Winning Hypot
 
 | SHQ | Question | Validating Feature(s) | Earliest Testable | Status |
 |-----|----------|----------------------|-------------------|--------|
-| SHQ29 | [short question] | Battle HUD Overhaul | ~S29 | NOT STARTED |
+| SHQ4-1 | [short question] | Battle HUD Overhaul | ~S29 | NOT STARTED |
 ```
 
 **Earliest Testable**: The sprint when the feature is far enough along to start evaluating the SHQ. This is when meaningful test data becomes available — not necessarily when the feature ships.
@@ -186,7 +186,7 @@ Only include dependencies relevant to THIS milestone.
 - This is a **generated** file — it lives in `generated/milestone_plans/` and can be regenerated at any time
 - Pod plans (`planning/pods/*_Plan.md`) are the source of truth for feature priorities
 - `product_targets.md` is the source of truth for must-have features
-- `ValidationRoadmap.md` is the source of truth for SHQs
+- `ValidationPlan.md` is the source of truth for SHQs
 - `capacity.md` is the source of truth for staffing
 - If a pod has no features defined for this milestone, include it with "[TBD — awaiting feature definitions]"
 - The Gantt should make capacity risks VISUALLY obvious — if features overflow the milestone boundary, they'll extend past the end marker

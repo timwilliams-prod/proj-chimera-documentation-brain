@@ -85,4 +85,4 @@ Expanded tutorial system for features added after Core Loop. Contextual tutorial
 ## References
 
 - Notion Design Doc: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

@@ -84,4 +84,4 @@ Unit pathfinding system for battles. Navigation mesh, obstacle avoidance, format
 ## References
 
 - Notion Design Doc: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

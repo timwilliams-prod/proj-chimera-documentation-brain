@@ -40,7 +40,7 @@ Cross-project constraints, standards, and principles that apply to all pods and 
 - **Planning**: Sprint planning every 2 weeks
 
 ### Validation Process
-- **Winning Hypotheses**: 4x top-level product hypotheses (see `planning/ValidationRoadmap.md`)
+- **Winning Hypotheses**: 4x top-level product hypotheses (see `planning/ValidationPlan.md`)
 - **BHQs**: Broken down into testable Big Hairy Questions per hypothesis
 - **SHQs**: 3-5 Small Hairy Questions defined per milestone
 - **Sprint Evaluation**: Confidence levels reviewed every sprint via `/validation-review`

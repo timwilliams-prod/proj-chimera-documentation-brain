@@ -85,4 +85,4 @@ Core runtime system for heroes and units in battle. Entity management, component
 ## References
 
 - Notion: Related "[Approved] Characters: Hero & Unit Stats [DD]" (2b23f0b3-b6ab-8038-b7f5-e69d20896859)
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

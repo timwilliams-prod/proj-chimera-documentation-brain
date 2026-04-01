@@ -20,7 +20,7 @@ Before creating any skill, internalize these. They are the result of hard-won de
 |-------------|-------------------|----------------------|
 | Milestone goals & must-have features | `planning/product_targets.md` | Pod plans, feature docs, new files |
 | Team staffing, roles, pod assignments | `planning/capacity.md` | Separate people/ownership files |
-| Validation hypotheses, BHQs, SHQs | `planning/ValidationRoadmap.md` | Feature docs (reference by ID only) |
+| Validation hypotheses, BHQs, SHQs | `planning/ValidationPlan.md` | Feature docs (reference by ID only) |
 | Feature scope, cost, approach | `planning/features/*.md` | Pod plans (summary only) |
 | Pod priorities & validation alignment | `planning/pods/*_Plan.md` | Roadmap (consolidated, not duplicated) |
 | Cross-project constraints | `planning/GlobalRules.md` | Pod plans or feature docs |
@@ -36,7 +36,7 @@ Before creating any skill, internalize these. They are the result of hard-won de
 
 ### 3. Reference, Don't Duplicate
 
-- SHQs are referenced by ID (`SHQ7`), not copied in full.
+- SHQs are referenced by ID (`SHQ3-7`), not copied in full.
 - Features are referenced by name and link, not re-described.
 - If a skill needs to display information from another file, it reads and summarizes — it doesn't create a copy.
 
@@ -99,7 +99,7 @@ For the proposed skill, evaluate each item. **Flag any violations before proceed
 #### Data Authority
 - [ ] Does the skill need ownership/people data? -> It must read `planning/capacity.md`, not create a new file.
 - [ ] Does the skill need the feature list? -> It must read `planning/product_targets.md`.
-- [ ] Does the skill need validation info? -> It must reference `planning/ValidationRoadmap.md` by SHQ/BHQ ID.
+- [ ] Does the skill need validation info? -> It must reference `planning/ValidationPlan.md` by SHQ/BHQ ID.
 - [ ] Does the skill create a new "source of truth" file? -> **RED FLAG**. Can this data live in an existing file instead?
 
 #### File Impact

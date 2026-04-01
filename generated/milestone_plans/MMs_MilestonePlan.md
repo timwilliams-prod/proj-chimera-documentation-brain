@@ -1,7 +1,7 @@
 # Multiplayer & Meta (M&Ms) — Milestone Plan
 
 > Generated: 2026-03-30 by `/generate_ms_plan`
-> Sources: product_targets.md, pod plans, ValidationRoadmap.md, capacity.md
+> Sources: product_targets.md, pod plans, ValidationPlan.md, capacity.md
 
 **Dates**: Mar 30 → Jun 23, 2026
 **Sprints**: 6 (S26 Yodel Yaks → S31)
@@ -94,31 +94,31 @@ Features required for M&Ms to succeed (from `product_targets.md`):
 
 | SHQ | Question | Validating Feature(s) | Earliest Testable | Status |
 |-----|----------|----------------------|-------------------|--------|
-| SHQ24 | Does our art direction maintain clarity necessary for combat? | Battle HUD Overhaul, Character Assets | ~S28 (HUD mid-build) | IN PROGRESS |
-| SHQ29 | Does the HUD allow strategic planning and tactical response? | Battle HUD Beta Overhaul | ~S29 (HUD complete) | NOT STARTED |
-| SHQ27 | Can we establish scalable battle-building across all game modes? | Battle Content Pipeline | Ongoing | IN PROGRESS |
-| SHQ28 | Does the unit production pipeline work and support long-term projections? | Unit Content Pipeline | Ongoing | IN PROGRESS |
-| SHQ26 | Are players motivated to collect varied heroes/troops per game mode? | Hero Gacha v1, Character Assets | ~S30 (Gacha built) | PENDING VALIDATION |
-| SHQ30 | Can players understand starter hero roles; do progression choices vary per hero? | 6 Starter Heroes, Hero Gacha v1 | ~S30 (Gacha built) | NOT STARTED |
+| SHQ3-24 | Does our art direction maintain clarity necessary for combat? | Battle HUD Overhaul, Character Assets | ~S28 (HUD mid-build) | IN PROGRESS |
+| SHQ4-1 | Does the HUD allow strategic planning and tactical response? | Battle HUD Beta Overhaul | ~S29 (HUD complete) | NOT STARTED |
+| SHQ3-27 | Can we establish scalable battle-building across all game modes? | Battle Content Pipeline | Ongoing | IN PROGRESS |
+| SHQ3-28 | Does the unit production pipeline work and support long-term projections? | Unit Content Pipeline | Ongoing | IN PROGRESS |
+| SHQ3-26 | Are players motivated to collect varied heroes/troops per game mode? | Hero Gacha v1, Character Assets | ~S30 (Gacha built) | PENDING VALIDATION |
+| SHQ4-2 | Can players understand starter hero roles; do progression choices vary per hero? | 6 Starter Heroes, Hero Gacha v1 | ~S30 (Gacha built) | NOT STARTED |
 
 ### WH-2: Empire — Retention via intuitive, visual map exploration
 
 | SHQ | Question | Validating Feature(s) | Earliest Testable | Status |
 |-----|----------|----------------------|-------------------|--------|
-| SHQ1 | Does the map pipeline deliver diverse, high-quality maps at scale? | Territory Map VS, Map Content | ~S31 (TMVS complete) | IN PROGRESS |
-| SHQ31 | Does the world map let players quickly form session engagement goals? | World Map Experience | ~S29 (WME complete) | NOT STARTED |
-| SHQ32 | Does the territory map remain functional and readable with real art? | Territory Map VS | ~S31 (TMVS complete) | NOT STARTED |
-| SHQ33 | Do narrative beats drive players to explore and engage with progression? | Tutorial Node Migration, Map Content | ~S27 (Tutorial done) | NOT STARTED |
-| SHQ34 | Do we have a clear UX vision for navigating between empire, events, and MP? | World Map Experience | ~S29 (WME complete) | NOT STARTED |
+| SHQ3-1 | Does the map pipeline deliver diverse, high-quality maps at scale? | Territory Map VS, Map Content | ~S31 (TMVS complete) | IN PROGRESS |
+| SHQ4-3 | Does the world map let players quickly form session engagement goals? | World Map Experience | ~S29 (WME complete) | NOT STARTED |
+| SHQ4-4 | Does the territory map remain functional and readable with real art? | Territory Map VS | ~S31 (TMVS complete) | NOT STARTED |
+| SHQ4-5 | Do narrative beats drive players to explore and engage with progression? | Tutorial Node Migration, Map Content | ~S27 (Tutorial done) | NOT STARTED |
+| SHQ4-6 | Do we have a clear UX vision for navigating between empire, events, and MP? | World Map Experience | ~S29 (WME complete) | NOT STARTED |
 
 ### WH-3: Monetisation — Sustained spend via hero collection with social context
 
 | SHQ | Question | Validating Feature(s) | Earliest Testable | Status |
 |-----|----------|----------------------|-------------------|--------|
-| SHQ35 | Do players engage with vertical empire progression as meaningful investment? | Building Upgrades, Empire Progression Tree | ~S28 (both built) | NOT STARTED |
-| SHQ36 | Are players motivated to return session-to-session over 3 days? | Multiple systems (cross-pod) | ~S30 (enough depth) | NOT STARTED |
-| SHQ37 | Do players face meaningful resource tension forcing strategic prioritisation? | Global Combat Research, Building Upgrades | ~S29 (Research built) | NOT STARTED |
-| SHQ38 | Do we have confidence the economy model supports future monetisation? | Paper design exercise | ~S28 (enough systems) | NOT STARTED |
+| SHQ4-7 | Do players engage with vertical empire progression as meaningful investment? | Building Upgrades, Empire Progression Tree | ~S28 (both built) | NOT STARTED |
+| SHQ4-8 | Are players motivated to return session-to-session over 3 days? | Multiple systems (cross-pod) | ~S30 (enough depth) | NOT STARTED |
+| SHQ4-9 | Do players face meaningful resource tension forcing strategic prioritisation? | Global Combat Research, Building Upgrades | ~S29 (Research built) | NOT STARTED |
+| SHQ4-10 | Do we have confidence the economy model supports future monetisation? | Paper design exercise | ~S28 (enough systems) | NOT STARTED |
 
 ---
 
@@ -133,12 +133,12 @@ Features required for M&Ms to succeed (from `product_targets.md`):
 
 | Sprint | Engineering (Henrique) | Design / Art | SHQs Under Test |
 |--------|----------------------|-------------|-----------------|
-| S26 (3/31-4/14) | Tutorial Node Migration | WME design prep (Diana, Yura). Map Content (Elise; Jacob out 3/31-4/7) | SHQ33 |
-| S27 (4/14-4/28) | WME: Multiple Nodes per Territory (1/3) | WME UX (Yura). Map Content (Elise, Jacob) | SHQ31, SHQ34 |
-| S28 (4/28-5/12) | WME: Main Menu UX/UI (2/3) | TMVS design prep. Map Content | SHQ31, SHQ34 |
-| S29 (5/12-5/26) | WME: Iterations (3/3) | TMVS design. Map Content | SHQ31, SHQ34 |
-| S30 (5/26-6/9) | Territory Map VS (1/2) | Map Content | SHQ1, SHQ32 |
-| S31 (6/9-6/23) | Territory Map VS (2/2) | Map Content | SHQ1, SHQ32 |
+| S26 (3/31-4/14) | Tutorial Node Migration | WME design prep (Diana, Yura). Map Content (Elise; Jacob out 3/31-4/7) | SHQ4-5 |
+| S27 (4/14-4/28) | WME: Multiple Nodes per Territory (1/3) | WME UX (Yura). Map Content (Elise, Jacob) | SHQ4-3, SHQ4-6 |
+| S28 (4/28-5/12) | WME: Main Menu UX/UI (2/3) | TMVS design prep. Map Content | SHQ4-3, SHQ4-6 |
+| S29 (5/12-5/26) | WME: Iterations (3/3) | TMVS design. Map Content | SHQ4-3, SHQ4-6 |
+| S30 (5/26-6/9) | Territory Map VS (1/2) | Map Content | SHQ3-1, SHQ4-4 |
+| S31 (6/9-6/23) | Territory Map VS (2/2) | Map Content | SHQ3-1, SHQ4-4 |
 
 **Key risk**: Henrique is the sole client engineer — no parallelism, any delay cascades. WME design/UX must be ready before Henrique starts each sub-effort. Zero buffer — 6 sprints of work in 6 sprints.
 
@@ -156,11 +156,11 @@ Features required for M&Ms to succeed (from `product_targets.md`):
 | Sprint | Pipeline A (Guilherme) | Pipeline B (Tiago) | Design / UX / Art | SHQs Under Test |
 |--------|----------------------|-------------------|-------------------|-----------------|
 | S26 (3/31-4/14) | UI Foundation (1/6) | Building Upgrades | Leonard: UI Foundation design. Kevin: UX wireframes. Miguel: UI art. | — |
-| S27 (4/14-4/28) | UI Foundation (2/6) | Empire Progression Tree | Leonard: design. Kevin: UX. Miguel: UI art. | SHQ35 |
-| S28 (4/28-5/12) | UI Foundation (3/6) | Global Combat Research (1/2) | Leonard: design. Kevin: UX. | SHQ35, SHQ37, SHQ38 |
-| S29 (5/12-5/26) | UI Foundation (4/6) | Global Combat Research (2/2) | Leonard: design. Kevin: UX. | SHQ37 |
-| S30 (5/26-6/9) | UI Foundation (5/6) | Hero Gacha v1 | Leonard: Gacha design. | SHQ26, SHQ30 |
-| S31 (6/9-6/23) | UI Foundation (6/6) | Passive Bonus Tiles | Polish pass. | SHQ36 |
+| S27 (4/14-4/28) | UI Foundation (2/6) | Empire Progression Tree | Leonard: design. Kevin: UX. Miguel: UI art. | SHQ4-7 |
+| S28 (4/28-5/12) | UI Foundation (3/6) | Global Combat Research (1/2) | Leonard: design. Kevin: UX. | SHQ4-7, SHQ4-9, SHQ4-10 |
+| S29 (5/12-5/26) | UI Foundation (4/6) | Global Combat Research (2/2) | Leonard: design. Kevin: UX. | SHQ4-9 |
+| S30 (5/26-6/9) | UI Foundation (5/6) | Hero Gacha v1 | Leonard: Gacha design. | SHQ3-26, SHQ4-2 |
+| S31 (6/9-6/23) | UI Foundation (6/6) | Passive Bonus Tiles | Polish pass. | SHQ4-8 |
 
 **Key risk**: Tiago Costa is a new hire — ramp-up time may affect Pipeline B velocity. Building Upgrades is his first feature. Dan Dupuis has 0 planned eng capacity (eng lead oversight only). Chris Fidalgo had 6 open S25 tasks — carry-over risk.
 
@@ -175,11 +175,11 @@ Features required for M&Ms to succeed (from `product_targets.md`):
 
 | Sprint | Engineering (Jota) | Design / Art | SHQs Under Test |
 |--------|-------------------|-------------|-----------------|
-| S26 (3/31-4/14) | HUD Beta Overhaul (1/4) | Obstacles design prep (Nathan). Content pipelines. VFX start (Alessandro, Danny) | SHQ24 |
-| S27 (4/14-4/28) | HUD Beta Overhaul (2/4) | Actor System design prep. Content | SHQ24 |
-| S28 (4/28-5/12) | HUD Beta Overhaul (3/4) | Pathfinding design prep. Content | SHQ24, SHQ29 |
-| S29 (5/12-5/26) | HUD Beta Overhaul (4/4) | Content. HUD QA (Julio) | SHQ24, SHQ29 |
-| S30 (5/26-6/9) | Obstacles | Content | SHQ27, SHQ28 |
+| S26 (3/31-4/14) | HUD Beta Overhaul (1/4) | Obstacles design prep (Nathan). Content pipelines. VFX start (Alessandro, Danny) | SHQ3-24 |
+| S27 (4/14-4/28) | HUD Beta Overhaul (2/4) | Actor System design prep. Content | SHQ3-24 |
+| S28 (4/28-5/12) | HUD Beta Overhaul (3/4) | Pathfinding design prep. Content | SHQ3-24, SHQ4-1 |
+| S29 (5/12-5/26) | HUD Beta Overhaul (4/4) | Content. HUD QA (Julio) | SHQ3-24, SHQ4-1 |
+| S30 (5/26-6/9) | Obstacles | Content | SHQ3-27, SHQ3-28 |
 | S31 (6/9-6/23) | Actor System Overhaul (1/2) | Content | — |
 | ⚠️ Overflow → Beta Prep | Actor System (2/2) | | |
 | ⚠️ Overflow → Beta Prep/M&C | Pathfinding and AI (2 sprints) | | |
@@ -200,7 +200,7 @@ Features required for M&Ms to succeed (from `product_targets.md`):
 |--------|----------------------------------|-----------------|-----------------|
 | S26 (3/31-4/14) | P1 wrap-up → P2: Map Foundation start | Networking (Bruno B). AI Prototype (Paul) | — |
 | S27 (4/14-4/28) | P2: Map Foundation | Networking. AI Prototype | — |
-| S28 (4/28-5/12) | P2/P3: Map Foundation → Basic Game Logic | Networking. AI Prototype | SHQ18-22 (paper) |
+| S28 (4/28-5/12) | P2/P3: Map Foundation → Basic Game Logic | Networking. AI Prototype | SHQ3-18 through SHQ3-22 (paper) |
 | S29 (5/12-5/26) | P3: Basic Game Logic | Networking. Switchover assessment | — |
 | S30 (5/26-6/9) | P3/P4: Game Logic → Heroes on Map | Networking. Switchover target | — |
 | S31 (6/9-6/23) | P4: Heroes on Map / Interesting Tiles | Networking | — |
@@ -270,16 +270,16 @@ These must-have features from `product_targets.md` have **no matching pod featur
 ### Capacity Risks
 
 - **Battle**: 9 eng-sprints in 6 sprints (1 engineer). Actor System Overhaul and Pathfinding & AI **will overflow** into Beta Prep/M&C. Only HUD + Obstacles complete within M&Ms.
-- **Empire**: 6 eng-sprints in 6 sprints (1 engineer). Fits but zero buffer — any delay cascades to Territory Map VS, which validates SHQ1 and SHQ32.
+- **Empire**: 6 eng-sprints in 6 sprints (1 engineer). Fits but zero buffer — any delay cascades to Territory Map VS, which validates SHQ3-1 and SHQ4-4.
 - **Social Dynamics**: 4 client engineers but Randy and Garrett have Dozer split. Effective capacity ~2.5-3 dedicated client engineers. New team composition (Gabriel, Marcos from Empire) needs ramp time.
 - **Metagame**: Pipeline B depends on Tiago Costa (new hire) executing independently from sprint 1. Building Upgrades spec source unclear — risk of slow start.
 
 ### Validation Risks
 
-- **SHQ1, SHQ32** (map at scale, map readability): Testable only in S30-S31 — last two sprints. If Territory Map VS slips, these SHQs can't be tested within M&Ms.
-- **SHQ36** (session-to-session return): Requires multiple systems working together — hard to validate until late in milestone.
-- **SHQ26, SHQ30** (hero collection, starter hero roles): Depend on Hero Gacha v1 (S30) and character art. Late testability window.
-- **SHQ18-22** (multiplayer designs): Paper/prototype validation only — no in-client testing during M&Ms.
+- **SHQ3-1, SHQ4-4** (map at scale, map readability): Testable only in S30-S31 — last two sprints. If Territory Map VS slips, these SHQs can't be tested within M&Ms.
+- **SHQ4-8** (session-to-session return): Requires multiple systems working together — hard to validate until late in milestone.
+- **SHQ3-26, SHQ4-2** (hero collection, starter hero roles): Depend on Hero Gacha v1 (S30) and character art. Late testability window.
+- **SHQ3-18 through SHQ3-22** (multiplayer designs): Paper/prototype validation only — no in-client testing during M&Ms.
 
 ### Open Questions
 

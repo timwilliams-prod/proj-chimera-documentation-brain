@@ -42,7 +42,7 @@ Checking against product_targets.md...
 Checking capacity.md...
 - 1 engineer on Empire, 4 sprints remaining - sufficient for remaining features
 
-No validation impact - SHQ7 still depends on Governors completing all 3 sprints.
+No validation impact - SHQ3-7 still depends on Governors completing all 3 sprints.
 
 Proceed with update?
 ```
@@ -89,7 +89,7 @@ yes
 ```
 I'll run a sprint evaluation. Let me read the current state.
 
-[reads planning/ValidationRoadmap.md, all planning/pods/*_Plan.md,
+[reads planning/ValidationPlan.md, all planning/pods/*_Plan.md,
  generated/roadmap.md, planning/product_targets.md]
 
 Which sprint are we evaluating?
@@ -99,7 +99,7 @@ Which sprint are we evaluating?
 ```
 Sprint 3. Governors is complete. Internal playtest showed players
 understood what governors do and felt invested in their choices.
-SHQ7 can be marked ANSWERED positive.
+SHQ3-7 can be marked ANSWERED positive.
 ```
 
 ### Claude:
@@ -112,7 +112,7 @@ Great data. Let me update the validation roadmap.
 
 | Hypothesis | Previous | Current | Trend | Key Signal |
 |-----------|----------|---------|-------|------------|
-| WH-2: Empire | Low-Medium | Medium | + | SHQ7 answered positively (governor investment) |
+| WH-2: Empire | Low-Medium | Medium | + | SHQ3-7 answered positively (governor investment) |
 | WH-1: Battle | Medium | Medium | = | No new data |
 | WH-3: Monetization | Low | Low | = | No new data |
 | WH-4: Production | Low | Low | = | No new data |
@@ -121,18 +121,18 @@ Great data. Let me update the validation roadmap.
 
 | SHQ | Previous | New Status | Finding |
 |-----|----------|------------|---------|
-| SHQ7 | ANSWERED ✅ | ANSWERED ✅ | Players articulate governor purpose, feel invested |
+| SHQ3-7 | ANSWERED ✅ | ANSWERED ✅ | Players articulate governor purpose, feel invested |
 
-Note: SHQ7 was previously marked ANSWERED in Systems Validation.
+Note: SHQ3-7 was previously marked ANSWERED in Systems Validation.
 This sprint's playtest with Governors feature provides additional
 confirming evidence for this SHQ.
 
 ### Alignment Check
 
 **Gaps**:
-- SHQ2 (empire strategy <-> tile conquest) still IN PROGRESS
+- SHQ3-2 (empire strategy <-> tile conquest) still IN PROGRESS
   - Territory Map VS (Sprint 4-5) should address this
-- SHQ3 answered ❌ (map -> hero progression) - no remediation plan yet
+- SHQ3-3 answered ❌ (map -> hero progression) - no remediation plan yet
   - This is cross-pod: may need Battle/Metagame input
 
 **Product Target Check**:
@@ -140,10 +140,10 @@ confirming evidence for this SHQ.
   depends on Territory Map VS (starting next sprint)
 
 ### Decisions Needed
-1. SHQ3 failed - what's the design iteration plan? Which pods contribute?
+1. SHQ3-3 failed - what's the design iteration plan? Which pods contribute?
 2. Should BHQ-E4 (instant gratification) get an SHQ before M&Ms ends?
 
-[updates planning/ValidationRoadmap.md with sprint evaluation log]
+[updates planning/ValidationPlan.md with sprint evaluation log]
 ```
 
 ---
@@ -163,7 +163,7 @@ Running risk evaluation...
 
 [reads planning/product_targets.md, generated/roadmap.md,
  planning/capacity.md, all planning/pods/*_Plan.md,
- planning/ValidationRoadmap.md, planning/features/*.md]
+ planning/ValidationPlan.md, planning/features/*.md]
 
 # Risk Evaluation Report
 
@@ -210,10 +210,10 @@ Scope: Pre-Milestone (M&Ms)
 
 ## High Risks
 
-### Risk: SHQ3 Failure Without Remediation
+### Risk: SHQ3-3 Failure Without Remediation
 - **Impact**: High
 - **Probability**: Medium
-- **Description**: SHQ3 (map -> hero progression) answered ❌.
+- **Description**: SHQ3-3 (map -> hero progression) answered ❌.
   This is cross-pod (Empire/Battle/Metagame) but no design
   iteration plan exists. BHQ-E1 cannot fully validate without this.
 - **Recommended Action**: Schedule cross-pod design session.
@@ -235,7 +235,7 @@ Scope: Pre-Milestone (M&Ms)
    - Owner: Product leadership
 2. **Populate remaining pod plans** - This sprint
    - Owner: Pod leads (Metagame, Battle, Social Dynamics, Dozer)
-3. **Plan SHQ3 remediation** - Before Territory Map VS starts
+3. **Plan SHQ3-3 remediation** - Before Territory Map VS starts
    - Owner: Cross-pod (Empire + Battle + Metagame)
 ```
 
@@ -269,7 +269,7 @@ Let me check capacity and downstream impact.
 Impact on Empire:
 - Territory Map VS gets delayed by 2 sprints → pushes past M&Ms deadline
 - Territory Map VS is a product_targets.md MUST-HAVE for M&Ms
-- SHQ1 and SHQ2 cannot be validated without it
+- SHQ3-1 and SHQ3-2 cannot be validated without it
 - WM Building Upgrades would also slip to M&C
 
 Impact on M&Ms milestone:
@@ -305,13 +305,13 @@ what we know from the Empire plan.
 Let me read the existing context.
 
 [reads planning/pods/Empire_Plan.md for scope/validation info,
- planning/ValidationRoadmap.md for SHQ details,
+ planning/ValidationPlan.md for SHQ details,
  planning/features/governors.md for template]
 
 I'll create planning/features/territory_map_vs.md following the
 governors.md template. Here's what I can populate from existing docs:
 
-- Validation: SHQ1 (map at scale), SHQ2 (strategy <-> conquest)
+- Validation: SHQ3-1 (map at scale), SHQ3-2 (strategy <-> conquest)
 - Estimate: 2 sprints
 - Dependencies: May build on Governor system
 - Pod: Empire
@@ -344,16 +344,16 @@ We're at the M&Ms milestone boundary. Full review.
 ```
 Running milestone review...
 
-[reads planning/ValidationRoadmap.md, all planning/pods/*_Plan.md,
+[reads planning/ValidationPlan.md, all planning/pods/*_Plan.md,
  generated/roadmap.md, planning/product_targets.md]
 
 ## M&Ms Milestone Review
 
 ### SHQ Scorecard (Empire-related)
-- SHQ1 (map at scale): ANSWERED ✅
-- SHQ2 (strategy <-> conquest): ANSWERED ✅
-- SHQ3 (map -> hero progression): ANSWERED ❌ (pre-existing)
-- SHQ7 (short/mid/long-term goals): ANSWERED ✅
+- SHQ3-1 (map at scale): ANSWERED ✅
+- SHQ3-2 (strategy <-> conquest): ANSWERED ✅
+- SHQ3-3 (map -> hero progression): ANSWERED ❌ (pre-existing)
+- SHQ3-7 (short/mid/long-term goals): ANSWERED ✅
 
 ### Success Criteria Check (vs planning/product_targets.md)
 - [x] Territory map proves scalable
@@ -368,13 +368,13 @@ Running milestone review...
 | WH-2: Empire | Low-Medium | Medium | + (3/4 SHQs positive) |
 
 ### Key Learnings
-- Governor system validated as a goal vector (SHQ7 ✅)
-- Territory map scales well technically (SHQ1 ✅)
-- Strategy/conquest connection works (SHQ2 ✅)
-- Map -> hero progression FAILED (SHQ3 ❌) — needs design rethink
+- Governor system validated as a goal vector (SHQ3-7 ✅)
+- Territory map scales well technically (SHQ3-1 ✅)
+- Strategy/conquest connection works (SHQ3-2 ✅)
+- Map -> hero progression FAILED (SHQ3-3 ❌) — needs design rethink
 
 ### Recommendations for Beta Launch Prep
-1. SHQ3 remediation plan must be defined — cross-pod design work
+1. SHQ3-3 remediation plan must be defined — cross-pod design work
 2. Define SHQs for upcoming milestones
 3. Populate remaining pod plans before M&C begins
 ```

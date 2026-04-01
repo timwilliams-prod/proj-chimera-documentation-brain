@@ -84,4 +84,4 @@ Optimize first-time and returning user login flow. Load times, account creation,
 ## References
 
 - Notion Design Doc: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

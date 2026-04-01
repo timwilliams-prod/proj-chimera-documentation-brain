@@ -15,7 +15,7 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ26 | Is the player motivated to collect specific and varied heroes and troops against each planned game mode? | ANSWERED |
+| SHQ3-26 | Is the player motivated to collect specific and varied heroes and troops against each planned game mode? | ANSWERED |
 
 **Parent BHQ**: BHQ-B3 (keys/locks — troops as keys)
 
@@ -94,4 +94,4 @@ System for unlocking new troop types and recruiting units. Barracks interaction,
 
 - Notion Design Doc: [TBD]
 - ClickUp Epic: [TBD]
-- Related: `planning/features/barracks.md`, `planning/ValidationRoadmap.md`
+- Related: `planning/features/barracks.md`, `planning/ValidationPlan.md`

@@ -5,7 +5,7 @@ Last Updated: 2026-03-24 (spec-sync run)
 > **What this file is**: The authoritative mapping of features to their Notion source documents and local spec files.
 > `/spec-sync` reads this file to know which features need specs and where to pull design content from.
 > For milestone goals, success criteria, and "why it's required" context, see `planning/product_targets.md`.
-> For validation hypotheses, see `planning/ValidationRoadmap.md`.
+> For validation hypotheses, see `planning/ValidationPlan.md`.
 
 ---
 

@@ -15,7 +15,7 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ1 | Have we identified the constraints for producing the map at scale? | ANSWERED |
+| SHQ3-1 | Have we identified the constraints for producing the map at scale? | ANSWERED |
 
 **Parent BHQ**: BHQ-E1 (scalable map)
 
@@ -92,4 +92,4 @@ Performance optimization for world map at scale. Level-of-detail system for zoom
 
 - Notion Design Doc: [TBD]
 - ClickUp Epic: [TBD]
-- Related: `planning/features/world_map_vs.md`, `planning/ValidationRoadmap.md`
+- Related: `planning/features/world_map_vs.md`, `planning/ValidationPlan.md`

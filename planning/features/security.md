@@ -83,4 +83,4 @@ Security infrastructure. Anti-cheat, server validation, data encryption, exploit
 ## References
 
 - Notion Design Doc: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

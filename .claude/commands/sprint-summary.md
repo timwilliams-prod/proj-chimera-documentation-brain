@@ -50,7 +50,7 @@ For each task, capture: ID, custom_id, name, status, priority, assignees, tags.
 
 Read these files:
 - `planning/product_targets.md` — must-have features and success criteria for the active milestone
-- `planning/ValidationRoadmap.md` — SHQs being validated in the active milestone (scan the milestone's SHQ table)
+- `planning/ValidationPlan.md` — SHQs being validated in the active milestone (scan the milestone's SHQ table)
 - Relevant `planning/pods/*_Plan.md` files — feature priorities for the active milestone
 - `planning/TechnicalDebt.md` — check if any sprint work addresses active debt items
 
@@ -63,7 +63,7 @@ Tasks that clearly map to:
 - A **must-have feature** in `product_targets.md`
 - An **active SHQ** being validated this milestone
 - A **pod plan feature** prioritized for this milestone
-- The milestone's **player journey goal** (from `ValidationRoadmap.md`)
+- The milestone's **player journey goal** (from `ValidationPlan.md`)
 - A **success criterion** for the milestone
 
 For each task, note WHICH goal it supports.
@@ -106,7 +106,7 @@ Output the report in the format below. Also save to `generated/reports/sprint_su
 
 **Sprint**: [Name] [Number] ([date range])
 **Milestone**: [Active milestone name] (ends [date])
-**Player Journey Goal**: [From ValidationRoadmap.md milestone table]
+**Player Journey Goal**: [From ValidationPlan.md milestone table]
 **Generated**: [Today's date]
 
 ---
@@ -200,5 +200,5 @@ Output the report in the format below. Also save to `generated/reports/sprint_su
 - The goal is NOT to say "these tasks are bad." It's to make alignment visible so the team can make conscious prioritization decisions.
 - Tasks in Bucket 3 may be perfectly valid (bug fixes, hygiene) — the point is transparency about what's advancing goals vs what isn't.
 - If the sprint is at a milestone boundary, assess tasks against BOTH the closing milestone and prep for the next one.
-- When assessing SHQ coverage, use the ValidationRoadmap.md milestone SHQ table, not the full SHQ list.
+- When assessing SHQ coverage, use the ValidationPlan.md milestone SHQ table, not the full SHQ list.
 - Reference task URLs from ClickUp results so readers can click through.

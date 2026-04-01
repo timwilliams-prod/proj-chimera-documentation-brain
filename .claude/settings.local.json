@@ -34,7 +34,10 @@
       "mcp__clickup__clickup_get_task",
       "mcp__google-workspace__sheets_getRange",
       "mcp__google-workspace__calendar_listEvents",
-      "Bash(mcp list-tools:*)"
+      "Bash(mcp list-tools:*)",
+      "Bash(xargs grep:*)",
+      "Bash(xargs -0 sed -i 's/ValidationRoadmap/ValidationPlan/g')",
+      "Bash(xargs -0 perl -pi -e 's/SHQ18-22/SHQ3-18 through SHQ3-22/g; s/SHQ23-28/SHQ3-23 through SHQ3-28/g; s/SHQ10-13/SHQ3-10 through SHQ3-13/g; s/SHQ29-38/SHQ4-1 through SHQ4-10/g; s/SHQ1-9/SHQ3-1 through SHQ3-9/g;')"
     ]
   }
 }

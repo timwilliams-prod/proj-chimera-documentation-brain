@@ -15,7 +15,7 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ12 | Do players feel they have enough agency in upgrading their favorite characters? | NOT STARTED |
+| SHQ3-12 | Do players feel they have enough agency in upgrading their favorite characters? | NOT STARTED |
 
 **Parent BHQ**: BHQ-M3 (spend depth)
 
@@ -95,4 +95,4 @@ System for increasing hero rarity/rank. Shard requirements, rank milestones, pow
 
 - Notion Design Doc: [TBD]
 - ClickUp Epic: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

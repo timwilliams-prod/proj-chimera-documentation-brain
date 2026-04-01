@@ -15,7 +15,7 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ9 | Does the map feel dynamic, leading players to adjust their priorities in ways that feel exciting? | ANSWERED |
+| SHQ3-9 | Does the map feel dynamic, leading players to adjust their priorities in ways that feel exciting? | ANSWERED |
 
 **Parent BHQ**: BHQ-E1 (exploration motivation), BHQ-E2 (dynamic map)
 
@@ -94,4 +94,4 @@ Zeppelin is a roaming element on the territory/world map. Provides discovery, re
 
 - Notion: Referenced in "Player Journey World Map Exploration" (2fd3f0b3-b6ab-8021-9159-d8e4e8dabe29)
 - ClickUp Epic: [TBD]
-- Related: `planning/pods/Empire_Plan.md`, `planning/ValidationRoadmap.md`
+- Related: `planning/pods/Empire_Plan.md`, `planning/ValidationPlan.md`

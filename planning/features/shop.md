@@ -15,7 +15,7 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ22 | How can unlimited spend result in unlimited benefit without being bottlenecked by engagement? | NOT STARTED |
+| SHQ3-22 | How can unlimited spend result in unlimited benefit without being bottlenecked by engagement? | NOT STARTED |
 
 **Parent BHQ**: BHQ-M3 (spend depth), WH-3 (Monetization)
 
@@ -94,4 +94,4 @@ In-game store. Premium currency purchases, bundles, special offers, IAP integrat
 
 - Notion Design Doc: [TBD]
 - ClickUp Epic: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

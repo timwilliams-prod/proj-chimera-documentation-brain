@@ -8,7 +8,7 @@ You are performing a risk evaluation across the project documentation to identif
 
 ### Benchmark (what we need to achieve)
 - `planning/product_targets.md` - Milestone definitions, must-have features, success criteria
-- `planning/ValidationRoadmap.md` - Winning Hypotheses, BHQs, SHQs
+- `planning/ValidationPlan.md` - Winning Hypotheses, BHQs, SHQs
 
 ### Plans (what we're actually doing)
 - `planning/pods/*_Plan.md` - Per-pod feature priorities by milestone
@@ -33,7 +33,7 @@ Read these files in order:
 2. `generated/roadmap.md` - What are we actually building? (consolidated view)
 3. `planning/capacity.md` - Do we have the people?
 4. All `planning/pods/*_Plan.md` - Detailed priorities per pod
-5. `planning/ValidationRoadmap.md` - Are we validating the right things?
+5. `planning/ValidationPlan.md` - Are we validating the right things?
 6. `planning/dependency_map.md` - What depends on what?
 7. `planning/feature_registry.md` - Which features have specs? Which are missing or stubs?
 8. `planning/TechnicalDebt.md` - Active debt items that could affect planned work
@@ -77,8 +77,8 @@ Scan for these risk patterns:
 - Declining confidence trends on Winning Hypotheses
 - Milestone approaching with SHQs still NOT STARTED
 - Product targets that don't trace to validation goals
-- Internal inconsistencies between BHQ-level and milestone-level SHQ statuses in ValidationRoadmap.md
-- Stale "Last Updated" or "Last Evaluated" timestamps in ValidationRoadmap.md
+- Internal inconsistencies between BHQ-level and milestone-level SHQ statuses in ValidationPlan.md
+- Stale "Last Updated" or "Last Evaluated" timestamps in ValidationPlan.md
 
 #### Tech Debt Risks (planning/TechnicalDebt.md)
 - Active debt items that affect in-progress or upcoming features
@@ -271,7 +271,7 @@ Recommend re-running:
 **Quick Scan** (default): Product targets + roadmap + capacity
 **Deep Dive**: Include all feature docs, check pre-conditions and open questions
 **Pre-Milestone**: Comprehensive check including success criteria readiness
-**Validation Focus**: Deep check on planning/ValidationRoadmap alignment with feature work
+**Validation Focus**: Deep check on planning/ValidationPlan alignment with feature work
 **Capacity Focus**: Deep check on staffing vs commitments across all pods
 
 ---
@@ -286,4 +286,4 @@ Recommend re-running:
 - Always check validation alignment: are we building AND validating, or just building?
 - Cross-check feature_registry.md: features that aren't registered can't be synced or tracked
 - Check TechnicalDebt.md: features built on known debt carry compounding risk
-- If ValidationRoadmap.md has internal contradictions (BHQ vs milestone statuses), flag as a validation risk
+- If ValidationPlan.md has internal contradictions (BHQ vs milestone statuses), flag as a validation risk

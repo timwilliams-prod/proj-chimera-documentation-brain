@@ -91,4 +91,4 @@ Rewarded ads, interstitial placement, ad mediation integration, frequency caps. 
 
 - Notion Design Doc: [TBD]
 - ClickUp Epic: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

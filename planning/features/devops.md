@@ -83,4 +83,4 @@ DevOps infrastructure. CI/CD pipelines, build automation, deployment, monitoring
 ## References
 
 - Notion Design Doc: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

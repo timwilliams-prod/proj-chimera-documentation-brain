@@ -14,7 +14,7 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ7 | Is there a clear sense of short-, mid-, and long-term goals that interconnect across verticals, with projects that feel meaningful for the different player profiles? | Planning |
+| SHQ3-7 | Is there a clear sense of short-, mid-, and long-term goals that interconnect across verticals, with projects that feel meaningful for the different player profiles? | Planning |
 
 **Parent BHQ**: BHQ-E3 - Can our Empire progression systems remain compelling in the long term?
 
@@ -162,4 +162,4 @@ Sprint 3: Governors Experience Iterations (Engineering + Design review)
 - Notion Design Doc: [link]
 - ClickUp Epic: [link]
 - `reference/Empire_Multiplayer_Monetization_Vision.pdf` — Pages 8-9 ("Cities & Governors" section), page 4 (overview), page 12 (world map management)
-- Related: `planning/pods/Empire_Plan.md` (priority context), `planning/ValidationRoadmap.md` (SHQ7)
+- Related: `planning/pods/Empire_Plan.md` (priority context), `planning/ValidationPlan.md` (SHQ3-7)

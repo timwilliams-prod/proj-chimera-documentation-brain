@@ -32,7 +32,7 @@ Generated: 2026-03-30
 ### Sprint Goals
 - **Tutorial Node Migration** engineering (Henrique, 1-sprint effort) — designer tooling enablement
 - Begin **World Map Experience** design/UX prep — front-loading for Sprint 27 eng start
-- Continue **Map Content** pipeline — validates SHQ1
+- Continue **Map Content** pipeline — validates SHQ3-1
 
 ### Individual Breakdown
 
@@ -283,7 +283,7 @@ Generated: 2026-03-30
 ### Milestone Context
 - **Sprint 1 of M&Ms**. Milestone transition from Systems Validation.
 - M&Ms success criteria: multiplayer foundations, territory map at scale, empire strategy connection, metagame depth.
-- Key SHQs entering active testing: SHQ1/SHQ2 (Territory Map — future sprints), SHQ16 (Multiplayer maps), SHQ18-22 (Multiplayer prototypes).
+- Key SHQs entering active testing: SHQ3-1/SHQ3-2 (Territory Map — future sprints), SHQ3-16 (Multiplayer maps), SHQ3-18 through SHQ3-22 (Multiplayer prototypes).
 
 ---
 

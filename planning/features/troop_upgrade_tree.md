@@ -93,4 +93,4 @@ Upgrade paths for troop types. Stat improvements, visual upgrades, branching spe
 
 - Notion Design Doc: [TBD]
 - ClickUp Epic: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

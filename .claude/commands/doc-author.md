@@ -11,7 +11,7 @@ You are an **AI-assisted documentation author** that helps designers create or e
 
 ### Authoritative Sources (read for cross-referencing)
 - `planning/product_targets.md` - Canonical feature list by milestone (determines if feature is "approved and in scope")
-- `planning/ValidationRoadmap.md` - SHQ/BHQ references for validation goals
+- `planning/ValidationPlan.md` - SHQ/BHQ references for validation goals
 - `planning/capacity.md` - Designer ownership (Pod Leadership Summary + Design section) and discipline availability
 - `planning/pods/*_Plan.md` - Pod priorities and validation focus
 - `planning/dependency_map.md` - Pod and feature dependencies
@@ -54,7 +54,7 @@ Tell the designer which mode you're in and why.
 
 Read these files to build your understanding before the interview:
 
-1. `planning/ValidationRoadmap.md` — Find relevant SHQs/BHQs for this feature
+1. `planning/ValidationPlan.md` — Find relevant SHQs/BHQs for this feature
 2. `planning/pods/*_Plan.md` — Read the relevant pod plan for priority context
 3. `planning/dependency_map.md` — Check for known dependencies
 4. `planning/GlobalRules.md` — Note any constraints that apply
@@ -75,7 +75,7 @@ Walk the designer through each section of the spec template. For each section:
 #### Interview Flow:
 
 **a. Why This Feature (Validation Goals)**
-- Which SHQs/BHQs does this feature contribute to? (Surface candidates from ValidationRoadmap.md)
+- Which SHQs/BHQs does this feature contribute to? (Surface candidates from ValidationPlan.md)
 - What must this feature prove?
 - What are the success criteria? How would you know this feature is working?
 
@@ -185,9 +185,9 @@ Use this structure for all new feature specs. In Expand mode, match this structu
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| [SHQ ID] | [Question text from ValidationRoadmap.md] | [Status] |
+| [SHQ ID] | [Question text from ValidationPlan.md] | [Status] |
 
-**Parent BHQ**: [BHQ ID and name from ValidationRoadmap.md]
+**Parent BHQ**: [BHQ ID and name from ValidationPlan.md]
 
 **What [Feature] Must Prove**: [Synthesized validation statement — why does this feature matter for our hypotheses?]
 
@@ -276,7 +276,7 @@ Use this structure for all new feature specs. In Expand mode, match this structu
 
 - Notion Design Doc: [link]
 - ClickUp Epic: [link]
-- Related: `planning/pods/[Pod]_Plan.md`, `planning/ValidationRoadmap.md`
+- Related: `planning/pods/[Pod]_Plan.md`, `planning/ValidationPlan.md`
 ```
 
 ---
@@ -297,7 +297,7 @@ Use this structure for all new feature specs. In Expand mode, match this structu
 - If no SHQ clearly maps, note that and suggest the feature may need validation alignment
 
 ### Cross-Reference, Don't Duplicate
-- Reference SHQs by ID, don't copy the full text from ValidationRoadmap.md
+- Reference SHQs by ID, don't copy the full text from ValidationPlan.md
 - Reference dependency details by pointing to dependency_map.md, don't recreate the map
 - Link to pod plans, don't summarize them
 

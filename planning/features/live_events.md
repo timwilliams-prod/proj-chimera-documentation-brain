@@ -93,4 +93,4 @@ Time-limited event system. Themed content drops, leaderboards, exclusive rewards
 
 - Notion Design Doc: [TBD]
 - ClickUp Epic: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

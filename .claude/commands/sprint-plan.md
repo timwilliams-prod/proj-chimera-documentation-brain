@@ -59,7 +59,7 @@ Read ALL of these to understand what should be in this sprint:
 **Read if they exist**:
 - Previous sprint plan (`generated/sprint_plans/`) — For continuity, carry-over items
 - `planning/dependency_map.md` — Cross-pod dependencies that affect sequencing
-- `planning/ValidationRoadmap.md` — Active SHQs to connect work to validation
+- `planning/ValidationPlan.md` — Active SHQs to connect work to validation
 
 ### 3. Check Pod Plan Sprint Plans Sections
 

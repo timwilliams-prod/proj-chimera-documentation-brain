@@ -83,4 +83,4 @@ UI performance optimization pass. Frame rate targets, memory management, load ti
 ## References
 
 - Notion Design Doc: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

@@ -83,4 +83,4 @@ Cross-pod player journey design. Onboarding flow, progression pacing, feature un
 ## References
 
 - Notion Design Doc: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

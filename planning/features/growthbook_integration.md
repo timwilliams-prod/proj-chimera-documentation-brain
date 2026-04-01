@@ -83,4 +83,4 @@ Feature flagging and A/B testing platform integration. Experiment management, ro
 ## References
 
 - Notion Design Doc: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

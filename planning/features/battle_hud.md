@@ -15,7 +15,7 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ24 | Does our new art direction maintain the level of clarity necessary for this to be clear? | ANSWERED |
+| SHQ3-24 | Does our new art direction maintain the level of clarity necessary for this to be clear? | ANSWERED |
 
 **Parent BHQ**: BHQ-B2 - Are in-game actions taken by the player intuitive, quick to visually understand, and satisfying to execute?
 
@@ -101,4 +101,4 @@ Complete overhaul of the battle HUD for beta quality. Covers health bars, abilit
 
 - Notion Design Doc: [TBD]
 - ClickUp Epic: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

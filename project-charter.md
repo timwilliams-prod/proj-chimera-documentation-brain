@@ -69,7 +69,8 @@ lotusDocumentationBrain/
   planning/                       Human-authored sources of truth
     product_targets.md            Milestone goals, must-have features, success criteria
     capacity.md                   Team staffing by discipline across milestones
-    ValidationRoadmap.md          Winning Hypotheses -> BHQs -> SHQs
+    ValidationPlan.md          SHQ definitions + ClickUp linkage (plan)
+    operating_cadence.md        Maintenance rhythms + staleness rules
     feature_registry.md           Feature-to-source mapping (drives /spec-sync)
     dependency_map.md             Cross-pod and cross-feature dependencies
     GlobalRules.md                Project-wide constraints and standards
@@ -116,7 +117,8 @@ Every piece of information has ONE authoritative home. Other files reference it,
 |-------------|-------------------|---------------|
 | Milestone goals & must-have features | `planning/product_targets.md` | Feature name |
 | Team staffing, roles, pod leadership | `planning/capacity.md` | Person/role name |
-| Validation hypotheses & questions | `planning/ValidationRoadmap.md` | Question ID (e.g., SHQ7) |
+| Validation hypotheses & questions | `planning/ValidationPlan.md` | Question ID (e.g., SHQ3-7) |
+| Operating cadence & staleness rules | `planning/operating_cadence.md` | Cadence name |
 | Feature scope, cost, approach | `planning/features/*.md` | Feature name + link |
 | Pod priorities & validation focus | `planning/pods/*_Plan.md` | Pod name |
 | Pod sprint-level intent (current + next) | `planning/pods/*_Plan.md` (Sprint Plans section) | Sprint name, skill-maintained |
@@ -155,7 +157,7 @@ Most analysis skills (risk evaluation, roadmap options, validation review) compa
 
 ### 4. Reference, Don't Duplicate
 
-- Validation questions are referenced by ID (`SHQ7`), not copied in full
+- Validation questions are referenced by ID (`SHQ3-7`), not copied in full
 - Features are referenced by name and link, not re-described
 - Pod leadership is pulled from `capacity.md`, not hardcoded in other files
 - If a skill needs to display information from another file, it reads and summarizes — it doesn't create a copy
@@ -168,17 +170,88 @@ Most analysis skills (risk evaluation, roadmap options, validation review) compa
 
 ---
 
+## Communication Artifacts & System Architecture
+
+The brain produces **4 communication artifacts** that serve different audiences. Understanding this system is critical — if the maintenance cadences lapse, the artifacts become unreliable.
+
+| Artifact | Question It Answers | Source File | Type |
+|----------|-------------------|-------------|------|
+| **Milestone Targets** | "What does success look like?" | `planning/product_targets.md` | Human-authored, stable |
+| **Validation Roadmap** | "Are we proving the right things?" | `generated/validation_roadmap.md` | Generated from ValidationPlan + ClickUp |
+| **Feature Roadmap** | "What are we building & when?" | `generated/roadmap.md` | Generated from pod plans |
+| **Milestone Checkpoint** | "What are we targeting this month?" | Generated (TBD) | Generated from sprint evals + targets |
+
+### Data Flow
+
+```mermaid
+graph TD
+    subgraph "SOURCE (planning/)"
+        PT["product_targets.md<br/>Milestone must-haves"]
+        VP["ValidationPlan.md<br/>SHQ definitions + ClickUp IDs"]
+        PP["pods/*_Plan.md<br/>Pod features + priorities"]
+        CAP["capacity.md<br/>Staffing"]
+    end
+
+    subgraph "EXTERNAL"
+        CU["ClickUp SHQ Tracker<br/>Epic statuses"]
+    end
+
+    subgraph "GENERATED"
+        VR["validation_roadmap.md<br/>Validation Roadmap"]
+        FR["roadmap.md<br/>Feature Roadmap"]
+        MC["Milestone Checkpoint"]
+    end
+
+    VP --> VR
+    CU --> VR
+    PP --> FR
+    CAP --> FR
+    VR --> MC
+    FR --> MC
+    PT --> MC
+```
+
+### The Dependency Chain
+
+The whole system depends on this chain being intact:
+
+```
+SHQ (defined in ValidationPlan.md)
+  → ClickUp Epic (tracked in SHQ Tracker list)
+    → Sprint tasks (assigned to sprint lists)
+      → Sprint evaluation (status pulled each sprint)
+        → Validation Roadmap (generated/validation_roadmap.md)
+          → Milestone Checkpoint (generated monthly)
+```
+
+**If any link breaks**: SHQs without ClickUp Epics can't be evaluated. Features without ClickUp tasks can't be tracked. Sprint evaluations that don't run make milestone checkpoints unreliable.
+
+### Staleness Detection
+
+Skills check whether their source data is fresh before running. Each `planning/` file has a `Last Updated: YYYY-MM-DD` header. If a file is stale, the skill warns but does not block.
+
+| File | Stale After | Impact If Stale |
+|------|-------------|----------------|
+| `ValidationPlan.md` (Last Evaluated) | 3 weeks | Validation Roadmap shows outdated SHQ statuses |
+| `pods/*_Plan.md` | 5 weeks | Feature Roadmap shows stale priorities |
+| `generated/validation_roadmap.md` | 3 weeks | Milestone Checkpoints can't reflect current progress |
+| `generated/roadmap.md` | 5 weeks | Risk evaluations compare against outdated plans |
+
+**Full cadence details**: See `planning/operating_cadence.md`.
+
+---
+
 ## File Relationships
 
 ```mermaid
 graph TD
     PT[product_targets.md<br/>Milestone Goals] --> FR[feature_registry.md<br/>Feature Mapping]
     FR --> FS[features/*.md<br/>Feature Specs]
-    VR[ValidationRoadmap.md<br/>Hypotheses & Questions] --> FS
-    VR --> PP[pods/*_Plan.md<br/>Pod Plans]
+    VP[ValidationPlan.md<br/>SHQ Definitions] --> FS
+    VP --> PP[pods/*_Plan.md<br/>Pod Plans]
     CAP[capacity.md<br/>Staffing] --> FS
     CAP --> PP
-    CAP --> RD[generated/roadmap.md<br/>Consolidated Roadmap]
+    CAP --> RD[generated/roadmap.md<br/>Feature Roadmap]
     PP --> RD
     FS --> DQ[designer_queue/<br/>Open Questions]
     TD[TechnicalDebt.md<br/>Debt Ledger] --> FS
@@ -194,11 +267,12 @@ When an LLM needs to understand the Lotus project, it should read files in this 
 1. `project-charter.md` — Architecture and rules (this file)
 2. `planning/product_targets.md` — What we're trying to achieve
 3. `planning/capacity.md` — Who's available and where
-4. `planning/ValidationRoadmap.md` — What we're trying to prove
+4. `planning/ValidationPlan.md` — What we're trying to prove (SHQ definitions + ClickUp linkage)
 5. `planning/feature_registry.md` — What features exist and where their docs are
 6. `planning/pods/*_Plan.md` — What each pod is building
 7. `planning/features/*.md` — Detail on specific features (read on demand)
 8. `planning/TechnicalDebt.md` — Known debt affecting planned work
+9. `planning/operating_cadence.md` — Maintenance rhythms and staleness rules
 
 ---
 
@@ -237,9 +311,10 @@ Sub-Hypothesis Questions (SHQs)
 - **SHQs** are specific — they can be answered by building and testing specific features
 - Features reference SHQs by ID in their "Why This Feature" section
 - BHQs and SHQs are **NOT necessarily pod-specific** — many are cross-pod "cohesive product" questions that require contributions from multiple teams
-- `planning/ValidationRoadmap.md` is THE single source of truth for all validation content
+- `planning/ValidationPlan.md` is THE single source of truth for validation definitions (SHQs, BHQs, WHs) and ClickUp linkage
 - Other files reference SHQs by ID; they don't duplicate validation details
-- Next available SHQ number: **39**
+- SHQ numbering: **SHQ[milestone]-[sequence]** (e.g., SHQ3-7 = 7th SHQ from Systems Validation)
+- Next available: **SHQ4-13** (M&Ms) or **SHQ6-1** (new milestone)
 
 ---
 
@@ -317,23 +392,23 @@ Skills are slash commands (`.claude/commands/*.md`) that automate common workflo
 
 | Skill | Purpose | Reads | Writes |
 |-------|---------|-------|--------|
-| `/roadmap-update` | Update pod plans, regenerate roadmap | product_targets, pod plans, capacity, feature_registry, features/, dependency_map, ValidationRoadmap, TechnicalDebt | pods/, feature_registry, generated/roadmap.md |
-| `/risk-evaluation` | Compare targets vs plans vs resources | product_targets, roadmap, capacity, pod plans, ValidationRoadmap, feature_registry, TechnicalDebt, features/ | generated/reports/ |
+| `/roadmap-update` | Update pod plans, regenerate roadmap | product_targets, pod plans, capacity, feature_registry, features/, dependency_map, ValidationPlan, TechnicalDebt | pods/, feature_registry, generated/roadmap.md |
+| `/risk-evaluation` | Compare targets vs plans vs resources | product_targets, roadmap, capacity, pod plans, ValidationPlan, feature_registry, TechnicalDebt, features/ | generated/reports/ |
 | `/roadmap-options` | Generate alternative roadmap scenarios | pod plans, capacity, targets, dependencies | generated/roadmap_options.md |
-| `/validation-review` | Evaluate validation progress | ValidationRoadmap, features/, pod plans, product_targets | Report (no file changes) |
+| `/validation-review` | Evaluate validation progress | ValidationPlan, features/, pod plans, product_targets | Report (no file changes) |
 | `/spec-sync` | Sync feature registry + Notion to local specs | feature_registry, features/, Notion (via MCP) | features/, designer_queue |
 | `/doc-author` | Interactive spec authoring | features/, all planning files | features/ |
 | `/designer-quiz` | Collect designer answers to open questions | designer_queue, capacity | raw_input/ |
 | `/queue-review` | Validate and apply designer answers | raw_input/, features/ | clean_input/, output/, features/, designer_queue |
-| `/feature-review-prep` | Single-feature design review briefing | features/, pod plans, product_targets, ValidationRoadmap | generated/design_briefs/ |
+| `/feature-review-prep` | Single-feature design review briefing | features/, pod plans, product_targets, ValidationPlan | generated/design_briefs/ |
 | `/tech-debt` | Manage technical debt ledger | TechnicalDebt, features/, capacity | TechnicalDebt |
 | `/new-skill` | Guide creation of new skills | Existing skills, charter | .claude/commands/ |
-| `/generatePulseCheckReport` | Monthly executive Pulse Check report | product_targets, capacity, pod plans, ValidationRoadmap | Report |
-| `/generate_qvr_report` | Quarterly Validation Review report | product_targets, capacity, ValidationRoadmap, pod plans | Report |
+| `/generatePulseCheckReport` | Monthly executive Pulse Check report | product_targets, capacity, pod plans, ValidationPlan | Report |
+| `/generate_qvr_report` | Quarterly Validation Review report | product_targets, capacity, ValidationPlan, pod plans | Report |
 | `/sprint-plan` | Sprint planning (Preview/Kickoff modes) | product_targets, pod plans, capacity, sprint_rules, roadmap, Google Calendar, ClickUp | generated/sprint_plans/, pods/*_Plan.md (Sprint Plans section), ClickUp tasks (Kickoff) |
 | `/sprint-risks` | Interactive sprint risk triage | ClickUp sprint tasks, product_targets, pod plans, Slack | Report (copy/paste) |
 | `/roadmap-sheet` | Generate Google Sheets roadmap script | product_targets, pod plans, capacity, roadmap | generated/roadmap_apps_script.js |
-| `/generate_ms_plan` | Single-milestone focused plan (timeline, must-haves, SHQs, per-pod ops) | product_targets, pod plans, capacity, ValidationRoadmap, roadmap | generated/milestone_plans/ |
+| `/generate_ms_plan` | Single-milestone focused plan (timeline, must-haves, SHQs, per-pod ops) | product_targets, pod plans, capacity, ValidationPlan, roadmap | generated/milestone_plans/ |
 
 ### Creating New Skills
 

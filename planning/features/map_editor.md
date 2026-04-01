@@ -15,7 +15,7 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ1 | Have we identified the constraints for producing the map at scale? | ANSWERED |
+| SHQ3-1 | Have we identified the constraints for producing the map at scale? | ANSWERED |
 
 **Parent BHQ**: BHQ-E1 (map scalability), WH-4 (Production — scalable content creation)
 
@@ -93,4 +93,4 @@ Tools and workflows for designing territory maps. Tile placement, property editi
 
 - Notion: Probable match (ID: 1b33f0b3-b6ab-8045-a53e-e8052c7de5d9)
 - ClickUp Epic: [TBD]
-- Related: `planning/pods/Empire_Plan.md`, `planning/ValidationRoadmap.md`
+- Related: `planning/pods/Empire_Plan.md`, `planning/ValidationPlan.md`

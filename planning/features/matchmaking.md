@@ -15,7 +15,7 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ20 | Do our multiplayer modes provide enough dynamic strategic decisions that the player wants to play again and again? | NOT STARTED |
+| SHQ3-20 | Do our multiplayer modes provide enough dynamic strategic decisions that the player wants to play again and again? | NOT STARTED |
 
 **Parent BHQ**: BHQ-M4 - Does our multiplayer heighten motivations of strategic planning, building, and showing off progression?
 
@@ -97,4 +97,4 @@ Player matching system for multiplayer modes. Skill-based or progression-based m
 
 - Notion Design Doc: [TBD]
 - ClickUp Epic: [TBD]
-- Related: `planning/features/multiplayer_map.md`, `planning/ValidationRoadmap.md`
+- Related: `planning/features/multiplayer_map.md`, `planning/ValidationPlan.md`

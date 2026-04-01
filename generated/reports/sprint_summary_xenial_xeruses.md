@@ -60,11 +60,11 @@ The SV milestone doesn't have explicit must-have features in `product_targets.md
 
 | SHQ | Sprint Tasks | Coverage |
 |-----|-------------|----------|
-| SHQ2 (empire strategy <-> tile conquest) | Tutorial: Conquest Guide | Partial |
-| SHQ6 (explore activity types, not overwhelmed) | Shorten Gear Tutorial, Tutorial architecture | Partial |
-| SHQ7 (short/mid/long-term goals) | Governors Design (M&Ms prep) | Forward prep |
-| SHQ23-28 (battle depth, content pipeline) | No direct tasks | Gap — but these may be validated via playtest data, not sprint tasks |
-| SHQ10-13 (hero collectability) | Manual Hero Progression (complete) | Partial |
+| SHQ3-2 (empire strategy <-> tile conquest) | Tutorial: Conquest Guide | Partial |
+| SHQ3-6 (explore activity types, not overwhelmed) | Shorten Gear Tutorial, Tutorial architecture | Partial |
+| SHQ3-7 (short/mid/long-term goals) | Governors Design (M&Ms prep) | Forward prep |
+| SHQ3-23 through SHQ3-28 (battle depth, content pipeline) | No direct tasks | Gap — but these may be validated via playtest data, not sprint tasks |
+| SHQ3-10 through SHQ3-13 (hero collectability) | Manual Hero Progression (complete) | Partial |
 
 ---
 
@@ -76,13 +76,13 @@ The SV milestone doesn't have explicit must-have features in `product_targets.md
 |------|-----|--------|----------|----------|----------|
 | Tutorial Architecture -> Orchestration/State Tracking | [CHI-36213](https://app.clickup.com/t/86aga1m3a) | in progress | urgent | Henrique Lima | SV FTUE goal — gates all tutorial content |
 | Tutorial Architecture -> Triggering | [CHI-36212](https://app.clickup.com/t/86aga1j5p) | to do | urgent | Henrique Lima | SV FTUE goal — gates all tutorial content |
-| Governors Design | [CHI-36224](https://app.clickup.com/t/86agavtva) | to do | - | Diana Vasilescu | M&Ms must-have #1, SHQ7 |
-| Tutorial: Conquest Guide | [CHI-36251](https://app.clickup.com/t/86agcpugc) | qa verify | high | Christopher Fidalgo | SV FTUE + SHQ2 (map exploration) |
+| Governors Design | [CHI-36224](https://app.clickup.com/t/86agavtva) | to do | - | Diana Vasilescu | M&Ms must-have #1, SHQ3-7 |
+| Tutorial: Conquest Guide | [CHI-36251](https://app.clickup.com/t/86agcpugc) | qa verify | high | Christopher Fidalgo | SV FTUE + SHQ3-2 (map exploration) |
 | Align gear system progression for max 16 | [CHI-36226](https://app.clickup.com/t/86agaz8f0) | qa verify | high | Christopher Fidalgo | SV "hero to soft-cap" goal |
 | Enter T5 & T6 rewards | [CHI-36250](https://app.clickup.com/t/86agcpt61) | to do | high | Christopher Fidalgo | SV content completeness for playtest |
 | Create end of experience gear set | [CHI-36239](https://app.clickup.com/t/86agb8p16) | to do | high | Christopher Fidalgo | SV progression ceiling definition |
 | Enter gear sell values | [CHI-36217](https://app.clickup.com/t/86aga42ch) | qa verify | high | Christopher Fidalgo | SV economy coherence |
-| Shorten Gear Tutorial | [CHI-36218](https://app.clickup.com/t/86aga42v8) | to do | high | Christopher Fidalgo | SV FTUE polish, SHQ6 (not overwhelming) |
+| Shorten Gear Tutorial | [CHI-36218](https://app.clickup.com/t/86aga42v8) | to do | high | Christopher Fidalgo | SV FTUE polish, SHQ3-6 (not overwhelming) |
 | Remove story tokens from T2, T3 fights | [CHI-36228](https://app.clickup.com/t/86agb20ur) | qa verify | high | Christopher Fidalgo | SV reward clarity |
 | Update UI Art assets for new elemental swaps | [CHI-36195](https://app.clickup.com/t/86ag99p2y) | to do | high | Miguel Duran | SV visual quality bar (BHQ-B2) |
 | Manual Hero Progression | [CHI-35630](https://app.clickup.com/t/86afk7wz2) | complete | - | Thorben / Tim | SV "hero to soft-cap" — cross-pod |

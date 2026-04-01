@@ -59,7 +59,7 @@ gantt
 
 Best for: comparing items on two dimensions, prioritization matrices, confidence vs evidence.
 
-**Currently used in**: ValidationRoadmap.md (hypothesis confidence).
+**Currently used in**: ValidationPlan.md (hypothesis confidence).
 
 ```mermaid
 quadrantChart

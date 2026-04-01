@@ -44,7 +44,7 @@ For each message, capture:
 
 Read these files for cross-referencing:
 - `planning/product_targets.md` — current milestone goals
-- `planning/ValidationRoadmap.md` — active SHQs and validation goals
+- `planning/ValidationPlan.md` — active SHQs and validation goals
 - Relevant `planning/pods/*_Plan.md` files — for channels being digested
 - Relevant `planning/features/*.md` — if specific features are being discussed
 - `planning/TechnicalDebt.md` — if engineering issues are mentioned
@@ -96,7 +96,7 @@ Tasks that may need updates or creation based on Slack activity:
 
 Compare what people are saying/assuming in Slack against what the documentation says. Look for:
 
-- **Incorrect assumptions**: Someone states something as fact that contradicts a feature doc, pod plan, or ValidationRoadmap
+- **Incorrect assumptions**: Someone states something as fact that contradicts a feature doc, pod plan, or ValidationPlan
 - **Stale information**: Someone references old designs or deprecated systems
 - **Naming conflicts**: Different terms for the same thing (e.g., "bot factory" vs "barracks")
 - **Scope creep signals**: Discussions that expand beyond what's in the feature spec

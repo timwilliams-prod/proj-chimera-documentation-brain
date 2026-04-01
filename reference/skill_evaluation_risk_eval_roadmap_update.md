@@ -69,7 +69,7 @@ Add a new risk pattern:
 
 ### 3. Add internal consistency checking
 
-The ValidationRoadmap currently has contradictions: BHQ sections show SHQs as "ANSWERED" but the milestone-level SHQ tables still show "NOT STARTED." The skill should catch this.
+The ValidationPlan currently has contradictions: BHQ sections show SHQs as "ANSWERED" but the milestone-level SHQ tables still show "NOT STARTED." The skill should catch this.
 
 **Recommendation**: Add under **Validation Risks**:
 ```
@@ -225,13 +225,13 @@ When updating the roadmap, features may depend on or conflict with active tech d
 
 ### 8. Add stale validation data warning
 
-The ValidationRoadmap has internal inconsistencies. When the roadmap-update skill pulls validation info for pod sections, it could propagate stale data.
+The ValidationPlan has internal inconsistencies. When the roadmap-update skill pulls validation info for pod sections, it could propagate stale data.
 
 **Recommendation**: Add to Step 6b:
 ```
 When pulling validation info, check that the SHQ statuses in the pod plan match
-the statuses in `planning/ValidationRoadmap.md`. If they differ, use the
-ValidationRoadmap as authoritative and flag the discrepancy.
+the statuses in `planning/ValidationPlan.md`. If they differ, use the
+ValidationPlan as authoritative and flag the discrepancy.
 ```
 
 ### 9. Add graceful degradation for missing pod plans
@@ -254,7 +254,7 @@ and include a placeholder section in the regenerated roadmap with "[Awaiting Pod
 |---|-------|--------|-----------|
 | 1 | Both | Add `feature_registry.md` to read/update flow | Charter architecture requires it; registry is already drifting (only Empire features registered) |
 | 2 | `/roadmap-update` | Multi-milestone feature display | Metagame data will be lost on next regeneration |
-| 3 | `/risk-evaluation` | Add internal consistency checking | ValidationRoadmap already has contradictions that should be caught |
+| 3 | `/risk-evaluation` | Add internal consistency checking | ValidationPlan already has contradictions that should be caught |
 
 ## Medium Priority (next refinement pass)
 
@@ -285,7 +285,7 @@ The `brain-template/project-charter.md` uses slightly different naming conventio
 | Charter Name | Our Brain Name |
 |-------------|---------------|
 | `teams/` | `planning/pods/` |
-| `validation_roadmap.md` | `ValidationRoadmap.md` |
+| `validation_roadmap.md` | `ValidationPlan.md` |
 | `global_rules.md` | `GlobalRules.md` |
 | `*_plan.md` | `*_Plan.md` |
 

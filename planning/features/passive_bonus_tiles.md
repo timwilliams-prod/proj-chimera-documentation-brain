@@ -15,7 +15,7 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ6 | Do players feel compelled to explore different activity types early on and perceive meaningful connections between them? | ANSWERED |
+| SHQ3-6 | Do players feel compelled to explore different activity types early on and perceive meaningful connections between them? | ANSWERED |
 
 **Parent BHQ**: BHQ-E1 (exploration motivation), BHQ-E3 (long-term progression — hero stats via map)
 
@@ -119,4 +119,4 @@ Passive bonus tiles provide permanent percentage stat increases to heroes throug
 
 - Notion Design Doc: https://www.notion.so/2333f0b3b6ab80d1b07bc9767cb903b0
 - ClickUp Epic: [TBD]
-- Related: `planning/features/story_shards.md`, `planning/features/territory_map_vs.md`, `planning/ValidationRoadmap.md`
+- Related: `planning/features/story_shards.md`, `planning/features/territory_map_vs.md`, `planning/ValidationPlan.md`

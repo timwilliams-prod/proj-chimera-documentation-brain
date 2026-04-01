@@ -92,4 +92,4 @@ Interstitial screens between game sessions. Offers, progression summaries, engag
 
 - Notion Design Doc: [TBD]
 - ClickUp Epic: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

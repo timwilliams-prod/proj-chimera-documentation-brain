@@ -15,7 +15,7 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ13 | Do real heroes invoke curiosity, collectibility, and emotional attachment? | NOT STARTED |
+| SHQ3-13 | Do real heroes invoke curiosity, collectibility, and emotional attachment? | NOT STARTED |
 
 **Parent BHQ**: BHQ-M1 (hero collectability), BHQ-M3 (spend depth/monetization)
 
@@ -95,4 +95,4 @@ System for acquiring new heroes. Summon pools, pity systems, premium currency in
 
 - Notion Design Doc: [TBD]
 - ClickUp Epic: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

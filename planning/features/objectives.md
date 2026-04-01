@@ -15,7 +15,7 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ7 | Is there a clear sense of short-, mid-, and long-term goals that interconnect across verticals? | ANSWERED |
+| SHQ3-7 | Is there a clear sense of short-, mid-, and long-term goals that interconnect across verticals? | ANSWERED |
 
 **Parent BHQ**: BHQ-E2 (return motivations), BHQ-E3 (long-term progression)
 
@@ -94,4 +94,4 @@ Player-facing objectives system on the territory map. Track progress, show rewar
 
 - Notion Design Doc: [TBD]
 - ClickUp Epic: [TBD]
-- Related: `planning/pods/Empire_Plan.md`, `planning/ValidationRoadmap.md`
+- Related: `planning/pods/Empire_Plan.md`, `planning/ValidationPlan.md`

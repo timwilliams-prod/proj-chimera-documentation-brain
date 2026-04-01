@@ -87,4 +87,4 @@ Combo system where hero abilities chain together for dramatic combined attacks. 
 ## References
 
 - Notion Design Doc: [TBD]
-- Related: `planning/ValidationRoadmap.md`
+- Related: `planning/ValidationPlan.md`

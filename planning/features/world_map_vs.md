@@ -15,8 +15,8 @@
 
 | SHQ | Question | Status |
 |-----|----------|--------|
-| SHQ2 | Can we enable players to seamlessly move between high-level empire strategy and low level tile-to-tile conquest? | IN PROGRESS |
-| SHQ16 | Can we paper design shared multiplayer maps that feel exciting and offer long term replayability? | NOT STARTED |
+| SHQ3-2 | Can we enable players to seamlessly move between high-level empire strategy and low level tile-to-tile conquest? | IN PROGRESS |
+| SHQ3-16 | Can we paper design shared multiplayer maps that feel exciting and offer long term replayability? | NOT STARTED |
 
 **Parent BHQ**: BHQ-E1 (map exploration), BHQ-M2 (PvE to social context)
 
@@ -97,4 +97,4 @@ End-to-end vertical slice of the world map connecting territories and game modes
 
 - Notion: Related "World Map - SV2" (ID: 2c33f0b3-b6ab-8092-a76e-d090cd920af2)
 - ClickUp Epic: [TBD]
-- Related: `planning/pods/Empire_Plan.md`, `planning/ValidationRoadmap.md`
+- Related: `planning/pods/Empire_Plan.md`, `planning/ValidationPlan.md`

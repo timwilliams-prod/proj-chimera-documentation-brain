@@ -69,7 +69,7 @@ When a feature spans multiple sprints, break it into phases:
 ### Example Structure
 
 ```
-Epic: SHQ7 - Clear Short/Mid/Long-term Goals
+Epic: SHQ3-7 - Clear Short/Mid/Long-term Goals
   Parent Task: Governors - Backend & Data (Sprint 26)
     Child Task: Set up governor data models
     Child Task: Governor assignment API
