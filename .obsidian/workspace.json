@@ -34,9 +34,23 @@
               "icon": "lucide-file",
               "title": "dependency_map"
             }
+          },
+          {
+            "id": "4775894cb4e2831c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "generated/sprint_plans/sprint_27_zany_zebras.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "sprint_27_zany_zebras"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -198,8 +212,13 @@
       "bases:Create new base": false
     }
   },
-  "active": "c6d15e3c2438c366",
+  "active": "4775894cb4e2831c",
   "lastOpenFiles": [
+    "generated/sprint_plans/sprint_26_yodel_yaks.md",
+    "generated/sprint_plans/sprint_27_zany_zebras.md",
+    "generated/sprint_plans/sprint_27_zany_zebras.md.tmp.1568.1775486741761",
+    "generated/presentation_working_with_llms.md",
+    "planning/dependency_map.md",
     "planning/ValidationPlan.md.tmp.18368.1775076278827",
     "planning/ValidationPlan.md.tmp.18368.1775073899197",
     "planning/ValidationPlan.md.tmp.18368.1775073885428",
@@ -209,22 +228,17 @@
     "project-charter.md.tmp.18368.1775072737899",
     "planning/ValidationPlan.md.tmp.18368.1775072724344",
     "planning/ValidationPlan.md.tmp.18368.1775072711555",
-    "planning/ValidationPlan.md.tmp.18368.1775072594541",
-    "planning/ValidationPlan.md.tmp.18368.1775072577497",
     "planning/deleteMe-OldValidationRoadmap.md",
     "planning/operating_cadence.md",
     "planning/ValidationPlan.md",
     "generated/milestone_plans/MMs_MilestonePlan.md",
     "generated/presentation_working_with_llms_v2.md",
-    "generated/presentation_working_with_llms.md",
     "generated/system_architecture.md",
-    "generated/sprint_plans/sprint_26_yodel_yaks.md",
     "API_SETUP_GUIDE.md",
     "planning/pods/Battle_Plan.md",
     "planning/sprint_rules.md",
     "generated/reports/channel_digest_2026-03-24.md",
     "generated/reports/sprint_summary_xenial_xeruses.md",
-    "planning/dependency_map.md",
     "USE_CASES.md",
     "planning/pods/Metagame_Plan.md",
     "planning/feature_registry.md",
