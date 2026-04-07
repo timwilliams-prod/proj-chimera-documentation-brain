@@ -84,11 +84,14 @@ From `ValidationPlan.md`:
 
 ### 7. Build Roadmap Boulders (Panel 5)
 
-From `generated/roadmap.md` and pod plans, create **boulder-level** entries (not individual tasks):
-- Group related features into boulders (e.g., "Empire M&Ms Features" covers Tutorial + World Map + Territory Map)
-- Each boulder needs: `name`, `pod`, `start` (YYYY-MM-DD), `end` (YYYY-MM-DD), `status` (active/future), `details` (short description)
+From `generated/roadmap.md` and pod plans, create feature-level entries:
+- Show **individual features** where they appear as separate items in pod plans (e.g., "Tutorial Migration", "World Map Experience", "Territory Map VS" — NOT one merged "Empire M&Ms Features" bar)
+- Sequential features in the same pod should appear as separate adjacent bars in the same swim lane — the template handles stacking automatically
+- Only group into a single bar when there are many small items that would be unreadable individually (e.g., "Metagame M&C Features" for 9 small features)
+- Ongoing/parallel tracks (like "Map Content Pipeline", "Battle Content") are fine as single bars
+- Each entry needs: `name`, `pod`, `start` (YYYY-MM-DD), `end` (YYYY-MM-DD), `status` (active/future), `details` (short description)
 - Use consistent feature names from the brain (feature_registry, pod plans)
-- Keep it to ~15-20 boulders max for readability
+- Target ~20-30 entries for good readability
 
 Also build:
 - `milestones`: array of `{ name, date }` for milestone markers
