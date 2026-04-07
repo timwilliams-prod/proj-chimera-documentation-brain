@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "reference/pod_plan_structure_options.md",
+                "file": "planning/operating_cadence.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "pod_plan_structure_options"
+              "title": "operating_cadence"
             }
           },
           {
@@ -228,8 +228,14 @@
   },
   "active": "4775894cb4e2831c",
   "lastOpenFiles": [
-    "reference/llm_brain_presentation.md",
+    "generated/dashboard/index.html",
+    "generated/dashboard/dashboard_data.js",
+    "generated/dashboard",
+    "planning/features/production_dashboard.md.tmp.1568.1775601326073",
+    "planning/features/production_dashboard.md",
+    "planning/features/production_dashboard.md.tmp.1568.1775600843092",
     "reference/pod_plan_structure_options.md",
+    "reference/llm_brain_presentation.md",
     "reference/pod_plan_structure_options.md.tmp.1568.1775597297697",
     "reference/visualization_examples.md",
     "generated/sprint_plans/sprint_27_zany_zebras.md",
@@ -241,10 +247,6 @@
     "planning/ValidationPlan.md.tmp.18368.1775073899197",
     "planning/ValidationPlan.md.tmp.18368.1775073885428",
     "planning/ValidationPlan.md.tmp.18368.1775073833018",
-    "planning/ValidationPlan.md.tmp.18368.1775073822826",
-    "planning/ValidationPlan.md.tmp.18368.1775073819406",
-    "project-charter.md.tmp.18368.1775072737899",
-    "planning/ValidationPlan.md.tmp.18368.1775072724344",
     "planning/deleteMe-OldValidationRoadmap.md",
     "planning/operating_cadence.md",
     "planning/ValidationPlan.md",
@@ -261,8 +263,6 @@
     "planning/feature_registry.md",
     "planning/features/pathfinding.md",
     "planning/features/building_upgrades_wm.md",
-    "planning/features/player_journey.md",
-    "planning/features/devops.md",
-    "planning/features/security.md"
+    "planning/features/player_journey.md"
   ]
 }
