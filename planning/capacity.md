@@ -5,7 +5,7 @@ Current Milestone: M&Ms (Multiplayer & Meta, starts 3/31/2026, ends Jun 23, 2026
 
 > Staffing allocations by discipline and role across milestones.
 > People move between pods - this file is the single view of where everyone is.
-> For what features are prioritized, see `planning/pods/*_Plan.md`. For feature cost details, see `planning/features/*.md`.
+> For what features are prioritized, see `planning/pods/{pod}/features.md`. For feature cost details, see `planning/features/*.md`.
 
 ---
 

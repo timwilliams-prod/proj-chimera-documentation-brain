@@ -45,7 +45,12 @@ const DASHBOARD_DATA = {
     end_date: "2026-04-14",
     totals: { total: 6, open: 4, in_progress: 1, complete: 1, blocked: 0 },
     by_pod: [
-      { pod: "Empire", total: 6, open: 4, in_progress: 1, complete: 1, blocked: 0 }
+      { pod: "Empire", total: 6, open: 4, in_progress: 1, complete: 1, blocked: 0 },
+      { pod: "Metagame", total: 0, open: 0, in_progress: 0, complete: 0, blocked: 0 },
+      { pod: "Battle", total: 0, open: 0, in_progress: 0, complete: 0, blocked: 0 },
+      { pod: "Social Dynamics", total: 0, open: 0, in_progress: 0, complete: 0, blocked: 0 },
+      { pod: "Dozer", total: 0, open: 0, in_progress: 0, complete: 0, blocked: 0 },
+      { pod: "Art", total: 0, open: 0, in_progress: 0, complete: 0, blocked: 0 }
     ],
     data_source: "ClickUp live — 2026-04-07. Note: only 6 tasks scaffolded in sprint list. Other pod tasks may not be in ClickUp yet."
   },

@@ -51,7 +51,8 @@ For each task, capture: ID, custom_id, name, status, priority, assignees, tags.
 Read these files:
 - `planning/product_targets.md` — must-have features and success criteria for the active milestone
 - `planning/ValidationPlan.md` — SHQs being validated in the active milestone (scan the milestone's SHQ table)
-- Relevant `planning/pods/*_Plan.md` files — feature priorities for the active milestone
+- Relevant `planning/pods/{pod}/features.md` files — feature priorities for the active milestone
+- Relevant `planning/pods/{pod}/validation.md` files (if they exist) — validation alignment
 - `planning/TechnicalDebt.md` — check if any sprint work addresses active debt items
 
 ### 5. Categorize Each Task

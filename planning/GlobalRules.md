@@ -59,5 +59,5 @@ Cross-project constraints, standards, and principles that apply to all pods and 
 
 ## Notes
 - Update this file when cross-project decisions are made
-- Pod-specific rules go in pod plan files (`planning/pods/*_Plan.md`)
+- Pod-specific rules go in pod feature files (`planning/pods/{pod}/features.md`)
 - Exceptions require architecture team approval

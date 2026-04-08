@@ -2,7 +2,7 @@
 
 You are generating a **sprint plan** that bridges strategic planning (this brain) with execution (ClickUp). This skill has two modes depending on where you are in the sprint cycle.
 
-> **Architecture**: Brain planning docs + Google Calendar PTO + ClickUp tasks → Sprint plan markdown + ClickUp task scaffolding.
+> **Architecture**: Brain planning docs + Google Calendar PTO + ClickUp tasks → Sprint plan markdown + `sprint_data.js` (dashboard) + ClickUp task scaffolding.
 
 ---
 
@@ -48,70 +48,36 @@ Read ALL of these to understand what should be in this sprint:
 - `planning/product_targets.md` — Milestone goals and must-have features
 - `planning/capacity.md` — Team roster and pod assignments
 - `planning/sprint_rules.md` — Task scaffolding rules, naming conventions, discipline flow
-- `planning/pods/Empire_Plan.md` — Empire priorities for current milestone
-- `planning/pods/Metagame_Plan.md` — Metagame priorities
-- `planning/pods/Battle_Plan.md` — Battle priorities
-- `planning/pods/SocialDynamics_Plan.md` — Social Dynamics priorities
-- `planning/pods/Dozer_Plan.md` — Dozer priorities
-- `planning/pods/Art_Plan.md` — Art priorities
+- `planning/pods/empire/features.md` — Empire feature priorities (ranked backlog)
+- `planning/pods/empire/milestone_{ms}.md` — Empire sprint allocation for current milestone
+- `planning/pods/metagame/features.md` — Metagame feature priorities
+- `planning/pods/metagame/milestone_{ms}.md` — Metagame sprint allocation for current milestone
+- `planning/pods/battle/features.md` — Battle feature priorities
+- `planning/pods/battle/milestone_{ms}.md` — Battle sprint allocation for current milestone
+- `planning/pods/social_dynamics/features.md` — Social Dynamics feature priorities
+- `planning/pods/social_dynamics/milestone_{ms}.md` — Social Dynamics sprint allocation for current milestone
+- `planning/pods/dozer/features.md` — Dozer feature priorities
+- `planning/pods/dozer/milestone_{ms}.md` — Dozer sprint allocation for current milestone
+- `planning/pods/art/features.md` — Art feature priorities
+- `planning/pods/art/milestone_{ms}.md` — Art sprint allocation for current milestone
 - `generated/roadmap.md` — Consolidated roadmap (which features are scheduled when)
+
+Replace `{ms}` with the milestone short name for the current milestone (e.g., `milestone_mms.md` for M&Ms, `milestone_mc.md` for M&C).
 
 **Read if they exist**:
 - Previous sprint plan (`generated/sprint_plans/`) — For continuity, carry-over items
 - `planning/dependency_map.md` — Cross-pod dependencies that affect sequencing
 - `planning/ValidationPlan.md` — Active SHQs to connect work to validation
 
-### 3. Check Pod Plan Sprint Plans Sections
+### 3. Cross-Reference Pod Data with Context
 
-Each pod plan (`planning/pods/*_Plan.md`) has a **Sprint Plans** section that contains lightweight per-sprint summaries (goals, key assignments, risks). This section is the bridge between milestone-level planning and sprint-level execution.
+For each pod, combine the feature priorities (`features.md`) and milestone sprint allocation (`milestone_{ms}.md`) to understand what work is planned for this sprint window. Then enrich with additional context:
 
-#### If the Sprint Plans section exists:
-- **Use it as primary input** for that pod's sprint plan. The goals, assignments, and risks listed there represent the producer/lead's intent.
-- Cross-reference against ClickUp state, PTO, and capacity to validate and enrich.
-- Flag any conflicts between the Sprint Plans section and ClickUp reality (e.g., a person assigned work but fully on PTO, a feature marked "NOT STARTED" that has ClickUp tasks already in progress).
-
-#### If the Sprint Plans section is missing:
-- **Create it** by inferring from the pod's Feature Priorities, Milestone Breakdown, and the consolidated roadmap.
-- Use the following template and populate with your best assessment:
-
-```markdown
-## Sprint Plans
-
-> Skill-maintained by `/sprint-plan`. Updated with user approval.
-> Shows current + next sprint. Full details in `generated/sprint_plans/`.
-
-### Sprint [N]: [Name] ([dates]) — CURRENT
-
-**Goals**:
-- [1-3 goals inferred from roadmap, feature priorities, and milestone breakdown]
-
-**Key Assignments**:
-
-| Person | Focus | Notes |
-|--------|-------|-------|
-| [Name] | [Feature/work] | [Context from capacity.md, ClickUp, or roadmap] |
-
-**Risks & Awareness**:
-- [Inferred risks: PTO, capacity, dependencies, missing specs]
-
-### Sprint [N+1]: [Name] ([dates]) — NEXT
-
-**Goals**:
-- [Projected from roadmap/priorities]
-
-**Risks & Awareness**:
-- [Projected risks]
-```
-
-- Present the proposed Sprint Plans section to the user and ask for approval before writing it to the pod plan.
-
-#### Feature context enrichment:
-When a Sprint Plans section references a feature (e.g., "Governors engineering"), pull relevant context to include in the generated sprint plan:
 - **Feature spec**: Link to `planning/features/[feature].md` if it exists. Note key info (SHQs, estimate, status).
-- **ClickUp state**: Search for existing tasks related to this feature. Note task IDs, statuses, carry-over items.
-- **Validation link**: Which SHQ/BHQ this work contributes to.
-
-This enrichment goes into the full `generated/sprint_plans/` output, not back into the pod plan section (which stays lightweight).
+- **Validation alignment**: Read `planning/pods/{pod}/validation.md` (where it exists) to understand which SHQs/BHQs this pod's work contributes to.
+- **ClickUp state**: Search for existing tasks related to planned features. Note task IDs, statuses, carry-over items.
+- Cross-reference against ClickUp state, PTO, and capacity to validate and enrich.
+- Flag any conflicts between pod plans and ClickUp reality (e.g., a person assigned work but fully on PTO, a feature marked "NOT STARTED" that has ClickUp tasks already in progress).
 
 ### 4. Pull PTO from Google Calendar
 
@@ -227,29 +193,7 @@ When confirmed, for each task:
 2. Add to the Sprint list using `clickup_add_task_to_list`
 3. If there's a parent Epic, set the parent relationship
 
-### 8. Update Pod Plan Sprint Plans Sections
-
-After generating the full sprint plan, update the Sprint Plans section in each pod plan file.
-
-#### Rolling window logic:
-- The section always shows **current sprint + next sprint** only.
-- When generating a plan for a new sprint:
-  - The sprint that was "NEXT" becomes "CURRENT"
-  - A new "NEXT" sprint is projected from roadmap/priorities
-  - Any sprint that was "CURRENT" (now past) is dropped from the section
-
-#### What to write:
-- **Goals**: High-level, feature-oriented, with SHQ/validation links
-- **Key Assignments**: Person, focus, and key context (PTO, carry-over, phase info). Lighter than the full sprint plan — no Avail Days column.
-- **Risks & Awareness**: PTO impacts, capacity risks, carry-over, dependency issues, missing specs
-
-#### Writing rules:
-- **Always ask for user approval** before writing to pod plan files (they're in `planning/`, which is human-authored).
-- Present each pod's proposed Sprint Plans update and get confirmation.
-- If the user modifies the content, incorporate their changes.
-- Update the `Last Updated` date at the top of the pod plan file.
-
-### 9. Write Sprint Plan File
+### 8. Write Sprint Plan File
 
 Save the full sprint plan to `generated/sprint_plans/sprint_[number]_[name].md`.
 
@@ -268,6 +212,65 @@ Generated: [Date]
 ---
 ```
 
+### 9. Generate Sprint Dashboard Data
+
+Generate a versioned sprint data file and update the manifest for the sprint view dashboard.
+
+**File structure:**
+- `generated/dashboard/sprints/sprint_[N].js` — Per-sprint data file (e.g., `sprint_27.js`)
+- `generated/dashboard/sprint_manifest.js` — Index of all available sprints + which is current
+
+**After writing the sprint data file**, update `sprint_manifest.js`:
+1. Read the existing manifest
+2. If an entry for this sprint number already exists, update it (mode, dates, etc.)
+3. If not, append a new entry
+4. Set `SPRINT_CURRENT` to this sprint's number
+
+Manifest format:
+```javascript
+const SPRINT_MANIFEST = [
+  { number: 27, name: "Zany Zebras", file: "sprints/sprint_27.js", dates: "Apr 14 - Apr 28", mode: "Preview" }
+];
+const SPRINT_CURRENT = 27;
+```
+
+Structure the sprint data as a `SPRINT_DATA` const with:
+
+```javascript
+const SPRINT_DATA = {
+  meta: {
+    sprint_name, sprint_number, start_date, end_date, working_days,
+    holidays: [], milestone, milestone_end, milestone_sprint, milestone_sprint_total,
+    mode: "Preview|Kickoff", generated: "YYYY-MM-DD",
+    clickup_list: "list_id", data_notes: "sourcing info"
+  },
+  pods: [
+    {
+      name, lead, producer, eng_summary,
+      goals: [{ text, shqs: [] }],
+      people: [{ name, discipline, avail, total, priorities: [], notes, flags: [] }],
+      carry_over: [{ id, name, assignee, status, confirmed }],
+      open_questions: [{ text, resolved, answer }],
+      risks: []
+    }
+  ],
+  cross_pod: { handoffs: [], shared_resources: [], notes: [] },
+  summary: {
+    top_risks: [],
+    open_questions: [{ text, resolved }]
+  }
+};
+```
+
+Key mappings:
+- `avail`: working days minus PTO days for that person
+- `total`: total working days in the sprint (same for everyone, before PTO)
+- `flags`: array from `["sole-eng", "carry-over", "pto", "new-hire", "split", "shared"]`
+- `carry_over.confirmed`: true if verified against ClickUp (not just assumed from previous plan)
+- Include ALL people from `capacity.md` assigned to each pod, not just engineers
+
+The data file is consumed by `sprint.html` which supports View/Edit modes. Editable fields (goals, priorities, notes, open questions) can be modified inline and exported as `sprint_edits_[N].json` for the skill to apply back. The HTML loads `sprint_manifest.js` and dynamically loads the selected sprint's data file. A dropdown in the header lets users switch between sprints.
+
 ### 10. Summary
 
 Report to the user:
@@ -276,7 +279,6 @@ Report to the user:
 - **Milestone**: Which milestone, how far through it
 - **PTO impact**: Who's out, capacity effect
 - **Key risks**: Overloaded people, missing specs, dependency conflicts
-- **Pod plan updates**: Which pod plans had Sprint Plans sections created or updated
 - **Preview only**: Open questions that need answers before kickoff
 - **Kickoff only**: How many ClickUp tasks created/updated, any gaps
 
@@ -315,4 +317,5 @@ When creating ClickUp tasks, follow these rules strictly:
 - Preview mode is intentionally lighter — it's a conversation starter, not a contract.
 - Kickoff mode is heavier — it produces the actual execution plan and creates real tasks.
 - Always check for an existing sprint plan file before writing — if one exists for the same sprint, update it rather than creating a duplicate.
-- Pod plan Sprint Plans sections are the lightweight "intent" layer. The generated sprint plan file is the detailed "execution" layer.
+- Pod feature priorities live in `planning/pods/{pod}/features.md`, milestone sprint allocations in `planning/pods/{pod}/milestone_{ms}.md`, and validation alignment in `planning/pods/{pod}/validation.md`.
+- Sprint plans are generated output only — they live entirely in `generated/sprint_plans/`. This skill does NOT write to pod plan files in `planning/pods/`.

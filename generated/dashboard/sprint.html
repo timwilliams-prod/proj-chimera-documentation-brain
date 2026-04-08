@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sprint Plan</title>
+  <style>
+    :root {
+      --bg: #1a1a2e;
+      --bg-panel: #16213e;
+      --bg-card: #0f3460;
+      --bg-row-alt: #1a2744;
+      --text: #e0e0e0;
+      --text-dim: #8899aa;
+      --text-bright: #ffffff;
+      --border: #2a3a5e;
+      --accent: #53a8ff;
+
+      --pod-empire: #4A9EFF;
+      --pod-metagame: #FF8C42;
+      --pod-battle: #FF4444;
+      --pod-social: #44BB77;
+      --pod-dozer: #AA77FF;
+      --pod-art: #FFD700;
+
+      --status-green: #22c55e;
+      --status-yellow: #eab308;
+      --status-red: #ef4444;
+      --status-blue: #3b82f6;
+      --status-gray: #6b7280;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 24px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    code, .mono { font-family: 'Cascadia Code', 'Fira Code', Consolas, monospace; }
+
+    /* ── Header ── */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--border);
+    }
+    .header-left h1 { font-size: 26px; color: var(--text-bright); margin-bottom: 2px; }
+    .header-left .subtitle { color: var(--text-dim); font-size: 13px; }
+    .header-right { text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+    .milestone-name { font-size: 18px; color: var(--accent); font-weight: 600; }
+    .milestone-bar-wrap { display: flex; align-items: center; gap: 8px; }
+    .milestone-bar { width: 120px; height: 6px; background: rgba(107,114,128,0.3); border-radius: 3px; overflow: hidden; }
+    .milestone-bar-fill { height: 100%; background: var(--accent); border-radius: 3px; transition: width 0.3s; }
+    .milestone-meta { font-size: 12px; color: var(--text-dim); }
+    .header-actions { display: flex; gap: 8px; align-items: center; margin-top: 4px; }
+
+    .pill {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .pill-green { background: rgba(34,197,94,0.2); color: var(--status-green); }
+    .pill-yellow { background: rgba(234,179,8,0.2); color: var(--status-yellow); }
+    .pill-red { background: rgba(239,68,68,0.2); color: var(--status-red); }
+    .pill-blue { background: rgba(59,130,246,0.2); color: var(--status-blue); }
+    .pill-gray { background: rgba(107,114,128,0.2); color: var(--status-gray); }
+
+    .edit-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 5px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .edit-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .edit-btn.active { background: var(--accent); color: #111; border-color: var(--accent); }
+
+    .stale-warning {
+      background: rgba(234,179,8,0.15);
+      border: 1px solid var(--status-yellow);
+      color: var(--status-yellow);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      margin-top: 6px;
+    }
+
+    /* ── Panels ── */
+    .panel {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 20px;
+    }
+    .panel-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-bright);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* ── Pod Section ── */
+    .pod-section {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 20px;
+    }
+    .pod-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
+    .pod-name { font-size: 20px; font-weight: 700; color: var(--text-bright); }
+    .pod-meta { font-size: 12px; color: var(--text-dim); margin-top: 2px; }
+    .pod-eng-summary { font-size: 12px; color: var(--text-dim); text-align: right; max-width: 300px; }
+
+    .section-label {
+      font-size: 11px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      margin-top: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-label:first-of-type { margin-top: 0; }
+
+    /* ── Goals ── */
+    .goals-list { list-style: none; counter-reset: goal; }
+    .goals-list li {
+      counter-increment: goal;
+      padding: 4px 0;
+      font-size: 14px;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+    .goals-list li::before {
+      content: counter(goal) ".";
+      color: var(--text-dim);
+      font-weight: 600;
+      min-width: 18px;
+      flex-shrink: 0;
+    }
+    .goal-text { flex: 1; }
+    .shq-badge {
+      display: inline-block;
+      padding: 0 6px;
+      border-radius: 3px;
+      font-size: 10px;
+      font-weight: 600;
+      background: rgba(83,168,255,0.15);
+      color: var(--accent);
+      margin-left: 4px;
+      flex-shrink: 0;
+    }
+
+    /* ── People Table ── */
+    .people-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .people-table th {
+      text-align: left;
+      padding: 6px 10px;
+      border-bottom: 2px solid var(--border);
+      color: var(--text-dim);
+      font-weight: 500;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .people-table td {
+      padding: 8px 10px;
+      border-bottom: 1px solid rgba(42,58,94,0.4);
+      vertical-align: top;
+    }
+    .people-table tr:hover td { background: rgba(83,168,255,0.04); }
+    .people-table .col-name { width: 18%; }
+    .people-table .col-cap { width: 10%; }
+    .people-table .col-pri { width: 36%; }
+    .people-table .col-notes { width: 36%; }
+
+    .person-name { font-weight: 600; color: var(--text-bright); font-size: 13px; }
+    .person-disc { font-size: 11px; color: var(--text-dim); }
+
+    /* ── Flags ── */
+    .flag {
+      display: inline-block;
+      padding: 0 5px;
+      border-radius: 3px;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      margin-left: 3px;
+      vertical-align: middle;
+    }
+    .flag-sole-eng { background: rgba(239,68,68,0.2); color: var(--status-red); }
+    .flag-carry-over { background: rgba(234,179,8,0.2); color: var(--status-yellow); }
+    .flag-pto { background: rgba(255,140,66,0.2); color: #FF8C42; }
+    .flag-new-hire { background: rgba(59,130,246,0.2); color: var(--status-blue); }
+    .flag-split { background: rgba(170,119,255,0.2); color: #AA77FF; }
+    .flag-shared { background: rgba(107,114,128,0.2); color: var(--status-gray); }
+
+    /* ── Capacity Bar ── */
+    .cap-wrap { display: flex; align-items: center; gap: 6px; }
+    .cap-bar { width: 60px; height: 6px; background: rgba(107,114,128,0.25); border-radius: 3px; overflow: hidden; flex-shrink: 0; }
+    .cap-bar-fill { height: 100%; border-radius: 3px; }
+    .cap-text { font-size: 12px; color: var(--text-dim); white-space: nowrap; }
+
+    /* ── Priorities ── */
+    .priorities-list { list-style: none; counter-reset: pri; margin: 0; }
+    .priorities-list li {
+      counter-increment: pri;
+      padding: 1px 0;
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+    .priorities-list li::before {
+      content: counter(pri) ".";
+      color: var(--text-dim);
+      font-size: 11px;
+      min-width: 14px;
+      flex-shrink: 0;
+    }
+    .priority-text { flex: 1; }
+
+    /* ── Carry-Over ── */
+    .carry-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 0;
+      font-size: 13px;
+    }
+    .carry-id {
+      font-family: 'Cascadia Code', 'Fira Code', Consolas, monospace;
+      font-size: 11px;
+      color: var(--accent);
+      background: rgba(83,168,255,0.1);
+      padding: 1px 6px;
+      border-radius: 3px;
+    }
+    .carry-status { font-size: 11px; }
+    .carry-confirmed { font-size: 10px; color: var(--status-green); }
+
+    /* ── Open Questions ── */
+    .oq-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 5px 0;
+      font-size: 13px;
+      border-bottom: 1px solid rgba(42,58,94,0.3);
+    }
+    .oq-item:last-child { border-bottom: none; }
+    .oq-icon {
+      width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+      border-radius: 3px;
+    }
+    .oq-item.resolved .oq-icon { color: var(--status-green); }
+    .oq-item:not(.resolved) .oq-icon { color: var(--status-yellow); }
+    .oq-item.resolved .oq-text { color: var(--text-dim); }
+    .oq-arrow { color: var(--text-dim); flex-shrink: 0; }
+    .oq-answer { color: var(--text-dim); font-size: 12px; }
+    .oq-answer-input {
+      display: none;
+      font-size: 12px;
+      color: var(--text);
+      min-height: 16px;
+      flex: 1;
+    }
+
+    /* ── Risks ── */
+    .risk-item {
+      padding: 3px 0;
+      font-size: 13px;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+    .risk-icon { color: var(--status-yellow); flex-shrink: 0; font-size: 12px; }
+
+    /* ── Summary Panel ── */
+    .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 800px) { .summary-grid { grid-template-columns: 1fr; } }
+    .summary-col h3 { font-size: 13px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+
+    /* ── Cross-Pod ── */
+    .crossp-item { padding: 3px 0; font-size: 13px; display: flex; align-items: baseline; gap: 6px; }
+    .crossp-icon { color: var(--accent); flex-shrink: 0; font-size: 11px; }
+
+    /* ── Capacity Summary ── */
+    .cap-summary-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .cap-summary-table th {
+      text-align: left; padding: 6px 10px;
+      border-bottom: 2px solid var(--border);
+      color: var(--text-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .cap-summary-table td { padding: 5px 10px; border-bottom: 1px solid rgba(42,58,94,0.3); }
+    .cap-summary-table tr:hover td { background: rgba(83,168,255,0.04); }
+
+    /* ── Edit Mode ── */
+    .edit-mode .editable {
+      outline: 1px dashed rgba(83,168,255,0.4);
+      border-radius: 2px;
+      padding: 1px 3px;
+      margin: -1px -3px;
+      min-height: 1em;
+    }
+    .edit-mode .editable:focus {
+      outline: 2px solid var(--accent);
+      background: rgba(83,168,255,0.08);
+    }
+    .edit-mode .oq-icon { cursor: pointer; }
+    .edit-mode .oq-icon:hover { background: rgba(83,168,255,0.15); }
+    .edit-mode .oq-answer-input { display: block; }
+    .edit-mode .oq-answer-display { display: none; }
+    .add-btn {
+      display: none;
+      font-size: 12px;
+      color: var(--accent);
+      cursor: pointer;
+      padding: 3px 0;
+      opacity: 0.7;
+    }
+    .add-btn:hover { opacity: 1; }
+    .edit-mode .add-btn { display: inline-block; }
+    .remove-btn {
+      display: none;
+      font-size: 11px;
+      color: var(--status-red);
+      cursor: pointer;
+      opacity: 0.5;
+      margin-left: 4px;
+    }
+    .remove-btn:hover { opacity: 1; }
+    .edit-mode .remove-btn { display: inline; }
+
+    /* ── Edit Toolbar ── */
+    .edit-toolbar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--bg-card);
+      border-top: 2px solid var(--accent);
+      padding: 10px 24px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.4);
+    }
+    .edit-toolbar.visible { display: flex; }
+    .edit-toolbar .toolbar-left { display: flex; align-items: center; gap: 12px; }
+    .edit-toolbar .toolbar-right { display: flex; align-items: center; gap: 10px; }
+    .toolbar-label { font-size: 13px; font-weight: 600; color: var(--accent); }
+    .change-indicator { font-size: 12px; color: var(--text-dim); }
+    .save-btn {
+      background: var(--status-green);
+      color: #111;
+      border: none;
+      padding: 6px 18px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .save-btn:hover { filter: brightness(1.1); }
+    .reset-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .reset-btn:hover { border-color: var(--status-red); color: var(--status-red); }
+
+    .no-data-message {
+      text-align: center;
+      color: var(--text-dim);
+      padding: 48px;
+      font-size: 16px;
+    }
+
+    /* ── Sprint Switcher ── */
+    .sprint-switcher {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .sprint-switcher label {
+      font-size: 12px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .sprint-select {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-family: inherit;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      padding-right: 26px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%238899aa'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 8px center;
+    }
+    .sprint-select:hover { border-color: var(--accent); }
+    .sprint-select:focus { outline: none; border-color: var(--accent); }
+    .sprint-mode-badge { margin-left: 2px; }
+
+    /* ── Nav Bar ── */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-link {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 13px;
+      padding: 4px 12px;
+      border-radius: 6px;
+      transition: all 0.15s;
+    }
+    .nav-link:hover { color: var(--text-bright); background: rgba(83,168,255,0.1); }
+    .nav-link.active { color: var(--accent); background: rgba(83,168,255,0.15); font-weight: 600; }
+    .nav-repo { font-size: 12px; }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 12px;
+      padding: 16px 0 40px 0;
+    }
+
+    /* ── Print ── */
+    @media print {
+      body { background: #fff; color: #111; padding: 12px; }
+      .top-nav { display: none; }
+      .panel, .pod-section { border-color: #ccc; }
+      .edit-toolbar { display: none !important; }
+      .edit-btn { display: none; }
+      .add-btn, .remove-btn { display: none !important; }
+      :root {
+        --bg: #fff; --bg-panel: #f8f8f8; --bg-card: #f0f0f0;
+        --text: #111; --text-dim: #555; --text-bright: #000; --border: #ccc;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <span class="nav-brand">Lotus Tools</span>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Production Dashboard</a>
+      <a href="sprint.html" class="nav-link active">Sprint Plan</a>
+    </div>
+    <a href="https://github.com/timwilliams-prod/proj-chimera-documentation-brain/tree/main" class="nav-link nav-repo" target="_blank" rel="noopener">GitHub &nearr;</a>
+  </nav>
+
+  <div id="app"></div>
+
+  <div id="edit-toolbar" class="edit-toolbar">
+    <div class="toolbar-left">
+      <span class="toolbar-label">Edit Mode</span>
+      <span id="change-indicator" class="change-indicator">No changes</span>
+    </div>
+    <div style="flex:1; text-align:center;">
+      <span style="font-size:12px; color:var(--text-dim);">After saving: move <code>sprint_edits.json</code> to <code>generated/dashboard/</code> and ask Claude Code to apply the changes to the sprint plan.</span>
+    </div>
+    <div class="toolbar-right">
+      <span style="font-size: 11px; color: var(--text-dim);">Ctrl+S to save &middot; Esc to exit</span>
+      <button class="reset-btn" onclick="resetEdits()">Reset</button>
+      <button class="save-btn" onclick="saveEdits()">Save Changes</button>
+    </div>
+  </div>
+
+  <script src="sprint_manifest.js"></script>
+  <script>
+    // ─── Sprint Loader ───
+    let SPRINT_DATA;
+    let activeSprint = null;
+
+    function getSprintParam() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('sprint') ? parseInt(params.get('sprint')) : null;
+    }
+
+    function loadSprint(number) {
+      const entry = SPRINT_MANIFEST.find(s => s.number === number);
+      if (!entry) {
+        document.getElementById('app').innerHTML =
+          `<div class="no-data-message">Sprint ${number} not found in manifest.</div>`;
+        return;
+      }
+
+      // Remove previous sprint script if any
+      const old = document.getElementById('sprint-data-script');
+      if (old) old.remove();
+      SPRINT_DATA = undefined;
+
+      const script = document.createElement('script');
+      script.id = 'sprint-data-script';
+      script.src = entry.file;
+      script.onload = () => {
+        activeSprint = number;
+        // Exit edit mode on sprint switch
+        if (editMode) { toggleEditMode(); }
+        hasChanges = false;
+        render();
+        // Update URL without reload
+        const url = new URL(window.location);
+        if (number === SPRINT_CURRENT) { url.searchParams.delete('sprint'); }
+        else { url.searchParams.set('sprint', number); }
+        history.replaceState(null, '', url);
+      };
+      script.onerror = () => {
+        document.getElementById('app').innerHTML =
+          `<div class="no-data-message">Failed to load <code>${entry.file}</code>.<br>Run <code>/sprint-plan</code> to generate it.</div>`;
+      };
+      document.body.appendChild(script);
+    }
+
+    // ─── Constants ───
+    const POD_COLORS = {
+      'Empire': 'var(--pod-empire)', 'Metagame': 'var(--pod-metagame)',
+      'Battle': 'var(--pod-battle)', 'Social Dynamics': 'var(--pod-social)',
+      'Dozer': 'var(--pod-dozer)', 'Art': 'var(--pod-art)'
+    };
+    const POD_COLORS_HEX = {
+      'Empire': '#4A9EFF', 'Metagame': '#FF8C42', 'Battle': '#FF4444',
+      'Social Dynamics': '#44BB77', 'Dozer': '#AA77FF', 'Art': '#FFD700'
+    };
+    const FLAG_CONFIG = {
+      'sole-eng':   { label: 'SOLE ENG',   cls: 'flag-sole-eng' },
+      'carry-over': { label: 'CARRY-OVER', cls: 'flag-carry-over' },
+      'pto':        { label: 'PTO',         cls: 'flag-pto' },
+      'new-hire':   { label: 'NEW',         cls: 'flag-new-hire' },
+      'split':      { label: 'SPLIT',       cls: 'flag-split' },
+      'shared':     { label: 'SHARED',      cls: 'flag-shared' }
+    };
+
+    // ─── State ───
+    let editMode = false;
+    let hasChanges = false;
+
+    // ─── Utilities ───
+    function formatDate(s) {
+      const d = new Date(s + 'T00:00:00');
+      return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    }
+    function shortDate(s) {
+      const d = new Date(s + 'T00:00:00');
+      return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    }
+    function daysBetween(a, b) {
+      return Math.round((new Date(b + 'T00:00:00') - new Date(a + 'T00:00:00')) / 86400000);
+    }
+
+    function flagBadges(flags) {
+      return flags.map(f => {
+        const c = FLAG_CONFIG[f];
+        return c ? `<span class="flag ${c.cls}">${c.label}</span>` : '';
+      }).join('');
+    }
+
+    function capacityBar(avail, total) {
+      const pct = total > 0 ? (avail / total) * 100 : 0;
+      let color = 'var(--status-green)';
+      if (pct < 50) color = 'var(--status-red)';
+      else if (pct < 80) color = 'var(--status-yellow)';
+      return `
+        <div class="cap-wrap">
+          <div class="cap-bar"><div class="cap-bar-fill" style="width:${pct}%;background:${color}"></div></div>
+          <span class="cap-text">${avail}/${total}d</span>
+        </div>
+      `;
+    }
+
+    function statusPill(status) {
+      const map = {
+        'in_progress': ['In Progress', 'pill-blue'], 'to_do': ['To Do', 'pill-gray'],
+        'complete': ['Complete', 'pill-green'], 'blocked': ['Blocked', 'pill-red'],
+      };
+      const [label, cls] = map[status] || [status, 'pill-gray'];
+      return `<span class="pill ${cls}">${label}</span>`;
+    }
+
+    function esc(str) {
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    // ─── Render: Header ───
+    function renderSprintSwitcher() {
+      if (typeof SPRINT_MANIFEST === 'undefined' || SPRINT_MANIFEST.length <= 1) return '';
+      const options = SPRINT_MANIFEST.slice().sort((a, b) => b.number - a.number).map(s => {
+        const sel = s.number === activeSprint ? 'selected' : '';
+        const current = s.number === SPRINT_CURRENT ? ' (current)' : '';
+        return `<option value="${s.number}" ${sel}>S${s.number}: ${esc(s.name)}${current}</option>`;
+      }).join('');
+      return `
+        <div class="sprint-switcher">
+          <label>Sprint</label>
+          <select class="sprint-select" onchange="loadSprint(parseInt(this.value))">${options}</select>
+        </div>
+      `;
+    }
+
+    function renderHeader() {
+      const m = SPRINT_DATA.meta;
+      const msPct = (m.milestone_sprint / m.milestone_sprint_total) * 100;
+
+      let stale = '';
+      const genDate = new Date(m.generated + 'T00:00:00');
+      const now = new Date();
+      const age = Math.round((now - genDate) / 86400000);
+      if (age >= 3) {
+        stale = `<div class="stale-warning">Sprint data is ${age} days old. Run <code>/sprint-plan</code> to refresh.</div>`;
+      }
+
+      return `
+        <div class="header">
+          <div class="header-left">
+            <h1>Sprint ${m.sprint_number}: ${m.sprint_name}</h1>
+            <div class="subtitle">${shortDate(m.start_date)} &mdash; ${shortDate(m.end_date)} &middot; ${m.working_days} working days${m.holidays.length ? ' &middot; ' + esc(m.holidays.join(', ')) : ''}</div>
+            <div class="subtitle" style="margin-top:2px">Generated ${m.generated} &middot; <span style="color:var(--text-dim)">${esc(m.data_notes)}</span></div>
+            ${stale}
+          </div>
+          <div class="header-right">
+            <div class="milestone-name">${esc(m.milestone)}</div>
+            <div class="milestone-bar-wrap">
+              <div class="milestone-bar"><div class="milestone-bar-fill" style="width:${msPct}%"></div></div>
+              <span class="milestone-meta">Sprint ${m.milestone_sprint} of ${m.milestone_sprint_total}</span>
+            </div>
+            <div class="header-actions">
+              ${renderSprintSwitcher()}
+              <span class="pill pill-${m.mode === 'Preview' ? 'yellow' : 'green'}">${m.mode}</span>
+              <button id="edit-toggle" class="edit-btn" onclick="toggleEditMode()">&#9998; Edit</button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // ─── Render: Summary ───
+    function renderSummary() {
+      const s = SPRINT_DATA.summary;
+      const unresolvedCount = s.open_questions.filter(q => !q.resolved).length;
+
+      const risks = s.top_risks.map(r =>
+        `<div class="risk-item"><span class="risk-icon">&#9888;</span><span>${esc(r)}</span></div>`
+      ).join('');
+
+      const questions = s.open_questions.map(q => `
+        <div class="oq-item ${q.resolved ? 'resolved' : ''}">
+          <span class="oq-icon">${q.resolved ? '&#10003;' : '&#9675;'}</span>
+          <span class="oq-text">${esc(q.text)}</span>
+        </div>
+      `).join('');
+
+      return `
+        <div class="panel">
+          <div class="panel-title">Sprint Overview
+            <span class="pill pill-red">${s.top_risks.length} risks</span>
+            <span class="pill pill-${unresolvedCount > 0 ? 'yellow' : 'green'}">${unresolvedCount} open questions</span>
+          </div>
+          <div class="summary-grid">
+            <div class="summary-col"><h3>Top Risks</h3>${risks}</div>
+            <div class="summary-col"><h3>Open Questions</h3>${questions}</div>
+          </div>
+        </div>
+      `;
+    }
+
+    // ─── Render: Pod Section ───
+    function renderPod(pod) {
+      const color = POD_COLORS_HEX[pod.name] || '#888';
+
+      // Goals
+      const goalsHtml = pod.goals.map((g, i) => {
+        const shqs = g.shqs.map(s => `<span class="shq-badge">${s}</span>`).join('');
+        return `
+          <li class="goal-item">
+            <span class="goal-text editable" contenteditable="false" data-field="goal" data-idx="${i}">${esc(g.text)}</span>
+            ${shqs}
+            <span class="remove-btn" onclick="removeItem(this)" title="Remove">&times;</span>
+          </li>`;
+      }).join('');
+
+      // People
+      const peopleRows = pod.people.map(p => {
+        const flags = flagBadges(p.flags);
+        const cap = capacityBar(p.avail, p.total);
+        const priorities = p.priorities.map((pr, j) => `
+          <li>
+            <span class="priority-text editable" contenteditable="false" data-field="priority" data-idx="${j}">${esc(pr)}</span>
+            <span class="remove-btn" onclick="removeItem(this)" title="Remove">&times;</span>
+          </li>
+        `).join('');
+
+        return `
+          <tr data-person="${esc(p.name)}">
+            <td class="col-name">
+              <div class="person-name">${esc(p.name)} ${flags}</div>
+              <div class="person-disc">${esc(p.discipline)}</div>
+            </td>
+            <td class="col-cap">${cap}</td>
+            <td class="col-pri">
+              <ol class="priorities-list">${priorities}</ol>
+              <span class="add-btn" onclick="addPriority(this)">+ Add priority</span>
+            </td>
+            <td class="col-notes">
+              <span class="notes-text editable" contenteditable="false" data-field="notes">${esc(p.notes)}</span>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      // Carry-over
+      let carryHtml = '';
+      if (pod.carry_over.length > 0) {
+        const items = pod.carry_over.map(c => `
+          <div class="carry-item">
+            <span class="carry-id">${esc(c.id)}</span>
+            <span>${esc(c.name)}</span>
+            ${statusPill(c.status)}
+            <span style="color:var(--text-dim);font-size:12px">${esc(c.assignee)}</span>
+            ${c.confirmed ? '<span class="carry-confirmed">&#10003; confirmed</span>' : ''}
+          </div>
+        `).join('');
+        carryHtml = `<div class="section-label">Carry-Over</div>${items}`;
+      }
+
+      // Open questions
+      let oqHtml = '';
+      if (pod.open_questions.length > 0) {
+        const items = pod.open_questions.map((q, i) => `
+          <div class="oq-item ${q.resolved ? 'resolved' : ''}" data-oq-idx="${i}">
+            <span class="oq-icon" onclick="toggleOQ(this)">${q.resolved ? '&#10003;' : '&#9675;'}</span>
+            <span class="oq-text editable" contenteditable="false" data-field="oq-text" data-idx="${i}">${esc(q.text)}</span>
+            ${q.resolved && q.answer ? `<span class="oq-arrow">&rarr;</span><span class="oq-answer-display">${esc(q.answer)}</span>` : ''}
+            <span class="oq-answer-input editable" contenteditable="false" data-field="oq-answer" data-idx="${i}">${esc(q.answer || '')}</span>
+          </div>
+        `).join('');
+        const unresolvedCount = pod.open_questions.filter(q => !q.resolved).length;
+        oqHtml = `
+          <div class="section-label">Open Questions <span class="pill pill-${unresolvedCount > 0 ? 'yellow' : 'green'}" style="font-size:10px">${unresolvedCount} open</span></div>
+          ${items}
+          <span class="add-btn" onclick="addQuestion(this)">+ Add question</span>
+        `;
+      }
+
+      // Risks
+      let risksHtml = '';
+      if (pod.risks.length > 0) {
+        const items = pod.risks.map(r =>
+          `<div class="risk-item"><span class="risk-icon">&#9888;</span><span>${esc(r)}</span></div>`
+        ).join('');
+        risksHtml = `<div class="section-label">Risks</div>${items}`;
+      }
+
+      return `
+        <div class="pod-section" data-pod-section="${esc(pod.name)}" style="border-left-color: ${color}">
+          <div class="pod-header">
+            <div>
+              <div class="pod-name">${esc(pod.name)}</div>
+              <div class="pod-meta">${pod.lead ? 'Design: ' + esc(pod.lead) : ''}${pod.producer ? ' &middot; Producer: ' + esc(pod.producer) : ''}</div>
+            </div>
+            <div class="pod-eng-summary">${esc(pod.eng_summary)}</div>
+          </div>
+          <div class="section-label">Sprint Goals</div>
+          <ol class="goals-list">${goalsHtml}</ol>
+          <span class="add-btn" onclick="addGoal(this)">+ Add goal</span>
+
+          <div class="section-label" style="margin-top:16px">Team</div>
+          <table class="people-table">
+            <thead><tr>
+              <th class="col-name">Name</th>
+              <th class="col-cap">Capacity</th>
+              <th class="col-pri">Priorities</th>
+              <th class="col-notes">Notes</th>
+            </tr></thead>
+            <tbody>${peopleRows}</tbody>
+          </table>
+
+          ${carryHtml}
+          ${oqHtml}
+          ${risksHtml}
+        </div>
+      `;
+    }
+
+    // ─── Render: Cross-Pod ───
+    function renderCrossPod() {
+      const cp = SPRINT_DATA.cross_pod;
+
+      const handoffs = cp.handoffs.map(h =>
+        `<div class="crossp-item"><span class="crossp-icon">&#8594;</span><span>${esc(h)}</span></div>`
+      ).join('');
+      const shared = cp.shared_resources.map(s =>
+        `<div class="crossp-item"><span class="crossp-icon">&#8644;</span><span>${esc(s)}</span></div>`
+      ).join('');
+      const notes = cp.notes.map(n =>
+        `<div class="crossp-item"><span class="crossp-icon">&#9679;</span><span>${esc(n)}</span></div>`
+      ).join('');
+
+      return `
+        <div class="panel">
+          <div class="panel-title">Cross-Pod Dependencies</div>
+          <div class="summary-grid">
+            <div class="summary-col">
+              <h3>Handoffs</h3>
+              ${handoffs}
+            </div>
+            <div class="summary-col">
+              <h3>Shared Resources</h3>
+              ${shared}
+            </div>
+          </div>
+          ${notes ? '<div style="margin-top:12px"><h3 style="font-size:13px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">Notes</h3>' + notes + '</div>' : ''}
+        </div>
+      `;
+    }
+
+    // ─── Render: Capacity Summary ───
+    function renderCapacity() {
+      const allPeople = [];
+      SPRINT_DATA.pods.forEach(pod => {
+        pod.people.forEach(p => {
+          allPeople.push({ ...p, pod: pod.name });
+        });
+      });
+
+      // Sort: most impacted (lowest avail %) first
+      allPeople.sort((a, b) => (a.avail / a.total) - (b.avail / b.total));
+
+      const rows = allPeople.map(p => {
+        const pct = p.total > 0 ? (p.avail / p.total) * 100 : 0;
+        let loadColor = 'var(--status-green)';
+        let loadLabel = 'OK';
+        if (pct < 50) { loadColor = 'var(--status-red)'; loadLabel = 'Low'; }
+        else if (pct < 80) { loadColor = 'var(--status-yellow)'; loadLabel = 'Reduced'; }
+        const podColor = POD_COLORS_HEX[p.pod] || '#888';
+
+        return `
+          <tr>
+            <td><span class="person-name" style="font-size:12px">${esc(p.name)}</span> ${flagBadges(p.flags)}</td>
+            <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${podColor};margin-right:5px;vertical-align:middle"></span>${esc(p.pod)}</td>
+            <td>${esc(p.discipline)}</td>
+            <td>${capacityBar(p.avail, p.total)}</td>
+            <td><span style="color:${loadColor};font-size:12px;font-weight:600">${loadLabel}</span></td>
+            <td style="font-size:12px;color:var(--text-dim)">${esc(p.priorities[0] || '')}</td>
+          </tr>
+        `;
+      }).join('');
+
+      return `
+        <div class="panel">
+          <div class="panel-title">Capacity Summary
+            <span class="pill pill-gray">${allPeople.length} people</span>
+          </div>
+          <table class="cap-summary-table">
+            <thead><tr>
+              <th>Name</th><th>Pod</th><th>Discipline</th><th>Available</th><th>Load</th><th>Top Priority</th>
+            </tr></thead>
+            <tbody>${rows}</tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    // ─── Main Render ───
+    function render() {
+      if (typeof SPRINT_DATA === 'undefined') {
+        document.getElementById('app').innerHTML =
+          '<div class="no-data-message">No sprint data loaded.<br>Run <code>/sprint-plan</code> to generate <code>sprint_data.js</code>.</div>';
+        return;
+      }
+
+      document.title = `Sprint ${SPRINT_DATA.meta.sprint_number}: ${SPRINT_DATA.meta.sprint_name}`;
+
+      const pods = SPRINT_DATA.pods.map(p => renderPod(p)).join('');
+
+      document.getElementById('app').innerHTML = [
+        renderHeader(),
+        renderSummary(),
+        pods,
+        renderCrossPod(),
+        renderCapacity(),
+        '<div class="footer">Sprint Plan &middot; Generated by <code>/sprint-plan</code></div>'
+      ].join('');
+    }
+
+    // ─── Edit Mode ───
+    function toggleEditMode() {
+      editMode = !editMode;
+      document.body.classList.toggle('edit-mode', editMode);
+      document.getElementById('edit-toolbar').classList.toggle('visible', editMode);
+
+      const btn = document.getElementById('edit-toggle');
+      btn.classList.toggle('active', editMode);
+      btn.innerHTML = editMode ? '&#10003; Editing' : '&#9998; Edit';
+
+      // Toggle contenteditable on all .editable elements
+      document.querySelectorAll('.editable').forEach(el => {
+        el.contentEditable = editMode ? 'true' : 'false';
+      });
+
+      if (!editMode) {
+        hasChanges = false;
+        document.getElementById('change-indicator').textContent = 'No changes';
+      }
+    }
+
+    function markChanged() {
+      if (!hasChanges) {
+        hasChanges = true;
+        document.getElementById('change-indicator').textContent = '\u25cf Unsaved changes';
+        document.getElementById('change-indicator').style.color = 'var(--status-yellow)';
+      }
+    }
+
+    function toggleOQ(iconEl) {
+      if (!editMode) return;
+      const item = iconEl.closest('.oq-item');
+      const isResolved = item.classList.toggle('resolved');
+      iconEl.innerHTML = isResolved ? '&#10003;' : '&#9675;';
+      markChanged();
+    }
+
+    function addPriority(btn) {
+      const ol = btn.previousElementSibling;
+      const li = document.createElement('li');
+      li.innerHTML = '<span class="priority-text editable" contenteditable="true" data-field="priority">New priority</span><span class="remove-btn" onclick="removeItem(this)" title="Remove">&times;</span>';
+      ol.appendChild(li);
+      const text = li.querySelector('.priority-text');
+      text.focus();
+      // Select all text for easy replacement
+      const range = document.createRange();
+      range.selectNodeContents(text);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      markChanged();
+    }
+
+    function addGoal(btn) {
+      const ol = btn.previousElementSibling;
+      const li = document.createElement('li');
+      li.className = 'goal-item';
+      li.innerHTML = '<span class="goal-text editable" contenteditable="true" data-field="goal">New goal</span><span class="remove-btn" onclick="removeItem(this)" title="Remove">&times;</span>';
+      ol.appendChild(li);
+      const text = li.querySelector('.goal-text');
+      text.focus();
+      const range = document.createRange();
+      range.selectNodeContents(text);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      markChanged();
+    }
+
+    function addQuestion(btn) {
+      const container = btn.parentElement;
+      const div = document.createElement('div');
+      div.className = 'oq-item';
+      div.innerHTML = `
+        <span class="oq-icon" onclick="toggleOQ(this)">&#9675;</span>
+        <span class="oq-text editable" contenteditable="true" data-field="oq-text">New question</span>
+        <span class="oq-answer-input editable" contenteditable="true" data-field="oq-answer"></span>
+      `;
+      container.insertBefore(div, btn);
+      const text = div.querySelector('.oq-text');
+      text.focus();
+      const range = document.createRange();
+      range.selectNodeContents(text);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      markChanged();
+    }
+
+    function removeItem(btn) {
+      if (!editMode) return;
+      const item = btn.closest('li') || btn.closest('.oq-item');
+      if (item) { item.remove(); markChanged(); }
+    }
+
+    // ─── Collect & Save ───
+    function collectEdits() {
+      const edits = {
+        sprint: SPRINT_DATA.meta.sprint_name + ' ' + SPRINT_DATA.meta.sprint_number,
+        edited_at: new Date().toISOString(),
+        pods: {}
+      };
+
+      document.querySelectorAll('[data-pod-section]').forEach(section => {
+        const podName = section.dataset.podSection;
+        const podEdits = { goals: [], people: {}, open_questions: [] };
+
+        // Goals
+        section.querySelectorAll('.goal-item').forEach(li => {
+          const text = li.querySelector('.goal-text')?.textContent.trim() || '';
+          const shqEls = li.querySelectorAll('.shq-badge');
+          const shqs = Array.from(shqEls).map(el => el.textContent.trim());
+          if (text) podEdits.goals.push({ text, shqs });
+        });
+
+        // People
+        section.querySelectorAll('[data-person]').forEach(row => {
+          const name = row.dataset.person;
+          const priorities = [];
+          row.querySelectorAll('.priority-text').forEach(el => {
+            const t = el.textContent.trim();
+            if (t && t !== 'New priority') priorities.push(t);
+          });
+          const notes = row.querySelector('.notes-text')?.textContent.trim() || '';
+          podEdits.people[name] = { priorities, notes };
+        });
+
+        // Open questions
+        section.querySelectorAll('.oq-item').forEach(item => {
+          const resolved = item.classList.contains('resolved');
+          const text = item.querySelector('.oq-text')?.textContent.trim() || '';
+          const answerEl = item.querySelector('.oq-answer-input') || item.querySelector('.oq-answer-display');
+          const answer = answerEl?.textContent.trim() || '';
+          if (text && text !== 'New question') podEdits.open_questions.push({ text, resolved, answer });
+        });
+
+        edits.pods[podName] = podEdits;
+      });
+
+      return edits;
+    }
+
+    function saveEdits() {
+      const edits = collectEdits();
+      const json = JSON.stringify(edits, null, 2);
+      const blob = new Blob([json], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `sprint_edits_${SPRINT_DATA.meta.sprint_number}.json`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      hasChanges = false;
+      document.getElementById('change-indicator').textContent = '\u2713 Saved';
+      document.getElementById('change-indicator').style.color = 'var(--status-green)';
+    }
+
+    function resetEdits() {
+      if (hasChanges && !confirm('Discard all changes and reload from data?')) return;
+      editMode = false;
+      document.body.classList.remove('edit-mode');
+      document.getElementById('edit-toolbar').classList.remove('visible');
+      hasChanges = false;
+      render();
+    }
+
+    // ─── Event Listeners ───
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && editMode) {
+        toggleEditMode();
+      }
+      if (e.key === 's' && (e.ctrlKey || e.metaKey) && editMode) {
+        e.preventDefault();
+        saveEdits();
+      }
+    });
+
+    document.getElementById('app').addEventListener('input', () => {
+      if (editMode) markChanged();
+    });
+
+    // ─── Init ───
+    if (typeof SPRINT_MANIFEST !== 'undefined' && SPRINT_MANIFEST.length > 0) {
+      const requested = getSprintParam();
+      const target = requested && SPRINT_MANIFEST.find(s => s.number === requested)
+        ? requested
+        : SPRINT_CURRENT;
+      loadSprint(target);
+    } else {
+      document.getElementById('app').innerHTML =
+        '<div class="no-data-message">No sprint manifest found.<br>Run <code>/sprint-plan</code> to generate sprint data.</div>';
+    }
+  </script>
+</body>
+</html>

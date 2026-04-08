@@ -22,7 +22,7 @@ Read these files to gather data for each panel:
 |------|----------|
 | `planning/product_targets.md` | Panel 1 (Milestone Goals) |
 | `planning/ValidationPlan.md` | Panel 1 (status of SHQs tied to must-haves), Panel 4 (Validation) |
-| `planning/pods/*_Plan.md` (all 6) | Panel 1 (must-have feature status), Panel 5 (Roadmap boulders) |
+| `planning/pods/{pod}/features.md` (all 6 pods) | Panel 1 (must-have feature status), Panel 5 (Roadmap boulders) |
 | `generated/roadmap.md` | Panel 5 (Roadmap timeline data) |
 | `planning/operating_cadence.md` | Panel 3 (staleness thresholds) |
 | `planning/capacity.md` | Context (team info) |
@@ -69,7 +69,7 @@ For each artifact file, extract the `Last Updated` date. Use these staleness thr
 | File Pattern | Stale After | Suggested Action |
 |-------------|-------------|------------------|
 | `ValidationPlan.md` (use `Last Evaluated` date if present, else `Last Updated`) | 21 days | `/validation-review` |
-| `pods/*_Plan.md` | 35 days | `/roadmap-update` |
+| `pods/{pod}/features.md` | 35 days | `/roadmap-update` |
 | `capacity.md` | null (event-driven) | `Review if staffing changed` |
 | `product_targets.md` | null (event-driven) | `Review at milestone boundary` |
 | `generated/roadmap.md` | 35 days | `/roadmap-update` |

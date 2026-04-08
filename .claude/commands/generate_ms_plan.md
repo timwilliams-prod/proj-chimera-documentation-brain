@@ -29,12 +29,14 @@ Read ALL of these:
 - `planning/product_targets.md` — Must-have features and success criteria for this milestone
 - `planning/capacity.md` — Team staffing for this milestone (use the milestone column)
 - `planning/ValidationPlan.md` — SHQs targeted at this milestone
-- `planning/pods/Empire_Plan.md` — Empire features for this milestone
-- `planning/pods/Metagame_Plan.md` — Metagame features
-- `planning/pods/Battle_Plan.md` — Battle features
-- `planning/pods/SocialDynamics_Plan.md` — Social Dynamics features
-- `planning/pods/Dozer_Plan.md` — Dozer features
-- `planning/pods/Art_Plan.md` — Art features
+- `planning/pods/empire/features.md` + `planning/pods/empire/milestone_{ms}.md` — Empire features and sprint allocation for this milestone
+- `planning/pods/metagame/features.md` + `planning/pods/metagame/milestone_{ms}.md` — Metagame features and sprint allocation
+- `planning/pods/battle/features.md` + `planning/pods/battle/milestone_{ms}.md` — Battle features and sprint allocation
+- `planning/pods/social_dynamics/features.md` + `planning/pods/social_dynamics/milestone_{ms}.md` — Social Dynamics features and sprint allocation
+- `planning/pods/dozer/features.md` + `planning/pods/dozer/milestone_{ms}.md` — Dozer features and sprint allocation
+- `planning/pods/art/features.md` + `planning/pods/art/milestone_{ms}.md` — Art features and sprint allocation
+
+Replace `{ms}` with the milestone short name (e.g., `milestone_mms.md` for M&Ms, `milestone_mc.md` for M&C, `milestone_beta_prep.md` for Beta Prep, `milestone_live_ops.md` for Live Ops, `milestone_soft_launch.md` for Soft Launch).
 - `generated/roadmap.md` — Consolidated view for cross-reference
 
 ### 2. Determine Sprint Window
@@ -184,7 +186,7 @@ Only include dependencies relevant to THIS milestone.
 ## Notes
 
 - This is a **generated** file — it lives in `generated/milestone_plans/` and can be regenerated at any time
-- Pod plans (`planning/pods/*_Plan.md`) are the source of truth for feature priorities
+- Pod feature files (`planning/pods/{pod}/features.md`) are the source of truth for feature priorities
 - `product_targets.md` is the source of truth for must-have features
 - `ValidationPlan.md` is the source of truth for SHQs
 - `capacity.md` is the source of truth for staffing

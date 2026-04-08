@@ -13,7 +13,7 @@ You are running an **interactive quiz session** for a game designer, asking them
 - `planning/capacity.md` - Designer ownership: "Pod Leadership Summary" maps design leads to pods; "Design" section lists all designers and their pod assignments
 - `planning/designer_queue/raw_input/` - Where raw answers are saved (this skill writes here)
 - `planning/features/*.md` - Feature specs (for context when asking questions)
-- `planning/pods/*_Plan.md` - Pod plans (for context)
+- `planning/pods/{pod}/features.md` - Pod feature priorities (for context)
 
 ---
 

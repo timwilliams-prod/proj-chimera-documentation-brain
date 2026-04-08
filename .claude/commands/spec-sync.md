@@ -24,7 +24,8 @@ You are synchronizing the project's **feature spec files** (`planning/features/*
 
 ### Context
 - `planning/capacity.md` — Designer ownership: "Pod Leadership Summary" table maps design leads to pods; "Design" section lists all designers by pod.
-- `planning/pods/*_Plan.md` — Pod plans (for validation alignment)
+- `planning/pods/{pod}/features.md` — Pod feature priorities
+- `planning/pods/{pod}/validation.md` — Pod validation alignment (if it exists)
 - `planning/ValidationPlan.md` — SHQ/BHQ references for feature validation goals
 
 ---
@@ -192,7 +193,7 @@ Create the spec file using content from Notion, mapped to the template structure
 
 - Notion Design Doc: [link to Notion page]
 - ClickUp Epic: [link if available]
-- Related: `planning/pods/[Pod]_Plan.md`, `planning/ValidationPlan.md`
+- Related: `planning/pods/[pod]/features.md`, `planning/ValidationPlan.md`
 ```
 
 **Content mapping guidance**: Notion docs vary in structure (GDD, Brief, Feature Version, etc.). Extract whatever is available and map it to the closest spec section. Don't force content into sections it doesn't fit — mark remaining sections as TBD. The goal is to capture what Notion has, not to fabricate missing detail.

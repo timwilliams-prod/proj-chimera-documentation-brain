@@ -27,13 +27,13 @@ lotusDocumentationBrain/
 │   ├── GlobalRules.md              # Cross-project constraints & standards
 │   ├── capacity.md                 # Team staffing by discipline & milestone
 │   ├── dependency_map.md           # How pods and features overlap
-│   ├── pods/                       # Per-pod priorities & validation alignment
-│   │   ├── Empire_Plan.md
-│   │   ├── Metagame_Plan.md
-│   │   ├── Battle_Plan.md
-│   │   ├── SocialDynamics_Plan.md
-│   │   ├── Dozer_Plan.md
-│   │   └── Art_Plan.md
+│   ├── pods/                       # Per-pod folders (priorities, milestones, validation)
+│   │   ├── empire/                 # features.md, milestone_mms.md, milestone_mc.md, validation.md
+│   │   ├── metagame/               # features.md, milestone_mms.md, milestone_mc.md, validation.md
+│   │   ├── battle/                 # features.md, milestone_mms.md, validation.md
+│   │   ├── social_dynamics/        # features.md, milestone_mms.md, validation.md
+│   │   ├── dozer/                  # features.md, milestone_mms.md
+│   │   └── art/                    # features.md, milestone_mms.md
 │   └── features/                   # Feature specs (cost, approach, goals)
 │       ├── governors.md
 │       └── [feature_name].md
@@ -57,7 +57,7 @@ This brain separates concerns into three layers that answer different questions:
 | Question | File | Example |
 |----------|------|---------|
 | What must each milestone achieve? | `planning/product_targets.md` | "M&Ms must deliver multiplayer foundations + territory map scalability proof" |
-| What are the priorities and validation goals per pod? | `planning/pods/*_Plan.md` | "Empire's #1 priority in M&Ms is Governors, which validates SHQ3-7" |
+| What are the priorities and validation goals per pod? | `planning/pods/{pod}/features.md` | "Empire's #1 priority in M&Ms is Governors, which validates SHQ3-7" |
 | What does a feature cost and how do we build it? | `planning/features/*.md` | "Governors = 3 sprints: backend, UI, iteration. Needs UX handoff by Sprint 2" |
 | What's the full picture of what we're building? | `generated/roadmap.md` | Consolidated feature list + Gantt across all pods (generated from pod plans) |
 | Where are our people? | `planning/capacity.md` | "Backend engineer on Empire for ~6 sprints, then moves to Dozer" |
@@ -76,10 +76,10 @@ This separation means you can ask an LLM:
 - **Update When**: Milestone goals change (rarely). This is the stable benchmark.
 - **Used By**: Risk evaluation (compares plans against targets), pod leads (for prioritization context)
 
-### planning/pods/*_Plan.md (one per pod)
-- **Purpose**: Feature priorities per milestone and validation alignment
-- **Contains**: Ordered priority lists, SHQ connections, sprint allocation, Gantt chart
-- **Does NOT contain**: Detailed feature specs or staffing (those live in `planning/features/` and `planning/capacity.md`)
+### planning/pods/{pod}/ (one folder per pod)
+- **Purpose**: Feature priorities, milestone plans, and validation alignment
+- **Contains**: `features.md` (ranked backlog), `milestone_{ms}.md` (sprint allocation per milestone), `validation.md` (BHQ/SHQ alignment)
+- **Does NOT contain**: Detailed feature specs or staffing (those live in `planning/features/` and `planning/capacity.md`), sprint plans (those live in `generated/sprint_plans/`), or Gantt charts (those live in `generated/roadmap.md`)
 - **Update When**: Priorities shift, features complete, milestone planning
 
 ### planning/features/*.md (one per feature)
@@ -160,7 +160,7 @@ Notion is source of truth for **design documentation**:
 ### From ClickUp
 ClickUp is source of truth for **tasks and progress**:
 - Sprint execution -> ClickUp (not tracked here)
-- Feature status -> `planning/pods/*_Plan.md` (high-level status only)
+- Feature status -> `planning/pods/{pod}/features.md` (high-level status only)
 
 **Strategy**: Start manual (skills handle formatting). Automate later. See `INGESTION_GUIDE.md`.
 
@@ -178,7 +178,7 @@ ClickUp is source of truth for **tasks and progress**:
 | File | Frequency | Time |
 |------|-----------|------|
 | `planning/product_targets.md` | Milestone planning / when goals change (rare) | 15 min |
-| `planning/pods/*_Plan.md` | Sprint planning + when priorities shift | 5-10 min |
+| `planning/pods/{pod}/features.md` | Sprint planning + when priorities shift | 5-10 min |
 | `planning/features/*.md` | When design changes or estimates revise | 15 min |
 | `planning/capacity.md` | Milestone planning + when people move | 10 min |
 | `planning/ValidationPlan.md` | Every sprint evaluation | 15-20 min |
@@ -191,7 +191,7 @@ ClickUp is source of truth for **tasks and progress**:
 ## Getting Started
 
 1. **Review `planning/ValidationPlan.md`** - understand the hypotheses driving everything
-2. **Read a pod plan** (e.g., `planning/pods/Empire_Plan.md`) - see priorities and validation alignment
+2. **Read a pod's features** (e.g., `planning/pods/empire/features.md`) - see priorities and validation alignment
 3. **Read a feature doc** (e.g., `planning/features/governors.md`) - see cost, approach, and goals
 4. **Check `planning/capacity.md`** - see where people are allocated
 5. **Try the skills** - `/roadmap-update`, `/validation-review`, `/risk-evaluation`

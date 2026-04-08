@@ -19,7 +19,8 @@ Extract: sprint name, number, date range, list ID, and how many work days remain
 Read `planning/product_targets.md` to identify which milestone this sprint falls within. Note whether this is the final sprint of a milestone (milestone wrap-up mode).
 
 If this is a milestone-closing sprint, also read:
-- The relevant `planning/pods/*_Plan.md` files for milestone feature priorities
+- The relevant `planning/pods/{pod}/features.md` files for milestone feature priorities
+- The relevant `planning/pods/{pod}/validation.md` files (if they exist) for validation alignment
 - `planning/ValidationPlan.md` for active SHQs in scope
 
 ### 3. Pull All Sprint Tasks

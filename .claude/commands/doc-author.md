@@ -13,7 +13,8 @@ You are an **AI-assisted documentation author** that helps designers create or e
 - `planning/product_targets.md` - Canonical feature list by milestone (determines if feature is "approved and in scope")
 - `planning/ValidationPlan.md` - SHQ/BHQ references for validation goals
 - `planning/capacity.md` - Designer ownership (Pod Leadership Summary + Design section) and discipline availability
-- `planning/pods/*_Plan.md` - Pod priorities and validation focus
+- `planning/pods/{pod}/features.md` - Pod feature priorities
+- `planning/pods/{pod}/validation.md` - Pod validation focus (if it exists)
 - `planning/dependency_map.md` - Pod and feature dependencies
 - `planning/GlobalRules.md` - Cross-project constraints
 
@@ -55,7 +56,8 @@ Tell the designer which mode you're in and why.
 Read these files to build your understanding before the interview:
 
 1. `planning/ValidationPlan.md` — Find relevant SHQs/BHQs for this feature
-2. `planning/pods/*_Plan.md` — Read the relevant pod plan for priority context
+2. `planning/pods/{pod}/features.md` — Read the relevant pod's feature priorities
+2b. `planning/pods/{pod}/validation.md` — Read the relevant pod's validation alignment (if it exists)
 3. `planning/dependency_map.md` — Check for known dependencies
 4. `planning/GlobalRules.md` — Note any constraints that apply
 5. Other `planning/features/*.md` — Scan for related features (scope overlap, shared systems)
@@ -276,7 +278,7 @@ Use this structure for all new feature specs. In Expand mode, match this structu
 
 - Notion Design Doc: [link]
 - ClickUp Epic: [link]
-- Related: `planning/pods/[Pod]_Plan.md`, `planning/ValidationPlan.md`
+- Related: `planning/pods/[pod]/features.md`, `planning/ValidationPlan.md`
 ```
 
 ---

@@ -45,7 +45,8 @@ For each message, capture:
 Read these files for cross-referencing:
 - `planning/product_targets.md` — current milestone goals
 - `planning/ValidationPlan.md` — active SHQs and validation goals
-- Relevant `planning/pods/*_Plan.md` files — for channels being digested
+- Relevant `planning/pods/{pod}/features.md` files — feature priorities for channels being digested
+- Relevant `planning/pods/{pod}/validation.md` files (if they exist) — validation alignment for channels being digested
 - Relevant `planning/features/*.md` — if specific features are being discussed
 - `planning/TechnicalDebt.md` — if engineering issues are mentioned
 

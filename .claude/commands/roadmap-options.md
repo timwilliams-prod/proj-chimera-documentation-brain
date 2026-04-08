@@ -11,7 +11,8 @@ You are helping the team explore **alternative roadmap scenarios** - generating 
 
 Read these to understand current constraints:
 - `planning/product_targets.md` - Milestone must-haves and success criteria
-- `planning/pods/*_Plan.md` - Current pod priorities (the baseline)
+- `planning/pods/{pod}/features.md` - Current pod feature priorities (the baseline)
+- `planning/pods/{pod}/milestone_{ms}.md` - Current pod milestone sprint allocations
 - `planning/features/*.md` - Feature estimates, discipline needs, dependencies
 - `planning/capacity.md` - Staffing by discipline and milestone
 - `planning/dependency_map.md` - What blocks what
@@ -23,7 +24,7 @@ Read these to understand current constraints:
 ## Your Task
 
 ### 1. Read Current State
-- Read ALL pod plans to understand the baseline
+- Read ALL pod `features.md` and `milestone_*.md` files from `planning/pods/{pod}/` to understand the baseline
 - Read `planning/product_targets.md` for constraints (must-haves are non-negotiable unless user says otherwise)
 - Read `planning/capacity.md` for staffing constraints
 - Read `planning/dependency_map.md` for sequencing constraints

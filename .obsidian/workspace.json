@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "planning/operating_cadence.md",
+                "file": "reference/pod_plan_structure_options.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "operating_cadence"
+              "title": "pod_plan_structure_options"
             }
           },
           {
@@ -62,9 +62,37 @@
               "icon": "lucide-file",
               "title": "visualization_examples"
             }
+          },
+          {
+            "id": "16ca1e05caad6b15",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "planning/pods/empire/milestone_mms.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "milestone_mms"
+            }
+          },
+          {
+            "id": "38fc166341ab2af3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "generated/sprint_plans/sprint_27_zany_zebras.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "sprint_27_zany_zebras"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -121,7 +149,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 293.5
+    "width": 293.5,
+    "collapsed": true
   },
   "right": {
     "id": "81d2c05b4a46e97f",
@@ -226,43 +255,43 @@
       "bases:Create new base": false
     }
   },
-  "active": "4775894cb4e2831c",
+  "active": "38fc166341ab2af3",
   "lastOpenFiles": [
-    "generated/dashboard/dashboard_data.js.tmp.1568.1775602937881",
-    "generated/dashboard/dashboard_data.js.tmp.1568.1775602644188",
-    "generated/dashboard/index.html.tmp.1568.1775602608601",
-    "generated/dashboard/index.html",
-    "generated/dashboard/dashboard_data.js",
-    "generated/dashboard",
-    "planning/features/production_dashboard.md.tmp.1568.1775601326073",
-    "planning/features/production_dashboard.md",
-    "planning/features/production_dashboard.md.tmp.1568.1775600843092",
+    "generated/dashboard/sprint_manifest.js.tmp.1568.1775659272595",
+    "generated/dashboard/sprints/sprint_27.js.tmp.1568.1775659223805",
+    "generated/sprint_plans/sprint_26_yodel_yaks.md.tmp.1568.1775659126560",
+    "generated/sprint_plans/sprint_27_zany_zebras.md.tmp.1568.1775659093416",
+    "generated/dashboard/sprints/sprint_26.js",
+    "generated/dashboard/sprints/sprint_26.js.tmp.1568.1775658986260",
+    "generated/dashboard/sprint.html.tmp.1568.1775658572883",
+    "generated/dashboard/sprint.html.tmp.1568.1775658565266",
+    "generated/dashboard/sprint.html.tmp.1568.1775658556501",
+    "generated/dashboard/sprint.html.tmp.1568.1775658535210",
+    "generated/dashboard/sprint_manifest.js",
+    "planning/pods/empire/milestone_mms.md",
+    "generated/reports/risk_eval_2026-04-07.md",
+    "planning/pods/empire/milestone_mc.md",
+    "planning/pods/empire/features.md",
+    "planning/pods/empire/validation.md",
     "reference/pod_plan_structure_options.md",
-    "reference/llm_brain_presentation.md",
-    "reference/pod_plan_structure_options.md.tmp.1568.1775597297697",
-    "reference/visualization_examples.md",
-    "generated/sprint_plans/sprint_27_zany_zebras.md",
-    "generated/sprint_plans/sprint_26_yodel_yaks.md",
-    "generated/sprint_plans/sprint_27_zany_zebras.md.tmp.1568.1775486741761",
-    "generated/presentation_working_with_llms.md",
-    "planning/dependency_map.md",
-    "planning/ValidationPlan.md.tmp.18368.1775076278827",
-    "planning/deleteMe-OldValidationRoadmap.md",
+    "planning/pods/art/milestone_mms.md",
+    "planning/pods/art/features.md",
+    "planning/pods/dozer/milestone_mms.md",
+    "planning/pods/dozer/features.md",
+    "planning/pods/social_dynamics/validation.md",
+    "planning/pods/social_dynamics/milestone_mms.md",
+    "planning/pods/social_dynamics/features.md",
+    "planning/pods/battle/validation.md",
+    "planning/pods/battle/milestone_mms.md",
+    "planning/pods/battle/features.md",
+    "planning/pods/metagame/validation.md",
+    "planning/pods/metagame/milestone_mc.md",
+    "planning/pods/metagame/milestone_mms.md",
+    "planning/pods/metagame/features.md",
+    "reference/skill_evaluation_pulse_check_qvr.md",
+    "reference/skill_evaluation_risk_eval_roadmap_update.md",
     "planning/operating_cadence.md",
-    "planning/ValidationPlan.md",
-    "generated/milestone_plans/MMs_MilestonePlan.md",
-    "generated/presentation_working_with_llms_v2.md",
-    "generated/system_architecture.md",
-    "API_SETUP_GUIDE.md",
-    "planning/pods/Battle_Plan.md",
-    "planning/sprint_rules.md",
-    "generated/reports/channel_digest_2026-03-24.md",
-    "generated/reports/sprint_summary_xenial_xeruses.md",
-    "USE_CASES.md",
-    "planning/pods/Metagame_Plan.md",
-    "planning/feature_registry.md",
-    "planning/features/pathfinding.md",
-    "planning/features/building_upgrades_wm.md",
-    "planning/features/player_journey.md"
+    "planning/features/production_dashboard.md",
+    "reference/llm_brain_presentation.md"
   ]
 }

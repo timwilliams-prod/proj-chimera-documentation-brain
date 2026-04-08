@@ -17,7 +17,7 @@ You are managing **technical debt visibility** — helping engineering leads tra
 - `planning/features/*.md` - Feature specs (to analyze debt-feature interactions)
 - `planning/dependency_map.md` - Dependencies (to trace debt impact across pods/systems)
 - `planning/product_targets.md` - Milestone targets (to assess debt impact on must-haves)
-- `planning/pods/*_Plan.md` - Pod plans (to check if debt paydown is scheduled)
+- `planning/pods/{pod}/features.md` - Pod feature priorities (to check if debt paydown is scheduled)
 - `planning/capacity.md` - Engineering staffing (to assess paydown feasibility)
 
 ---
@@ -42,7 +42,7 @@ Read these files:
 2. All `planning/features/*.md` — Planned feature work
 3. `planning/dependency_map.md` — System dependencies
 4. `planning/product_targets.md` — Must-have features by milestone
-5. `planning/pods/*_Plan.md` — Pod plans and priorities
+5. `planning/pods/{pod}/features.md` for each pod — Pod feature priorities
 
 If `planning/TechnicalDebt.md` doesn't exist, tell the user: "No tech debt ledger found. Run this skill in Editor mode first to create it and add debt items."
 

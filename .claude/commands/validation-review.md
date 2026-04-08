@@ -11,7 +11,8 @@ You are helping evaluate and update the **Validation Roadmap** - the hypothesis-
 
 - `planning/ValidationPlan.md` - The validation hierarchy and sprint evaluation log
 - `planning/product_targets.md` - Milestone definitions and success criteria (check validation alignment)
-- `planning/pods/*_Plan.md` - Pod feature priorities (to check feature work alignment)
+- `planning/pods/{pod}/features.md` - Pod feature priorities (to check feature work alignment)
+- `planning/pods/{pod}/validation.md` - Pod validation alignment (not all pods have this; dozer and art don't)
 - `generated/roadmap.md` - Consolidated feature list + Gantt (to cross-reference timelines)
 - `planning/features/*.md` - Feature docs with validation goals at top (for detailed context)
 - `planning/capacity.md` - Team staffing (to check if validation work is resourced)
@@ -23,7 +24,8 @@ You are helping evaluate and update the **Validation Roadmap** - the hypothesis-
 ### 1. Read Current State
 - Read `planning/ValidationPlan.md` for current hypothesis status, BHQs, SHQs
 - Read `planning/product_targets.md` for milestone success criteria and must-have features
-- Read all `planning/pods/*_Plan.md` to understand what's being built and why (validation alignment sections)
+- Read all pod `validation.md` files from `planning/pods/{pod}/validation.md` to understand validation alignment (skip dozer and art — they don't have one)
+- Read all pod `features.md` files from `planning/pods/{pod}/features.md` to understand what's being built
 - Read `generated/roadmap.md` for the consolidated feature timeline
 - Read relevant `planning/features/*.md` for validation goals (top of each feature doc)
 - Read `planning/capacity.md` if checking whether validation work is resourced
@@ -159,7 +161,7 @@ Deeper assessment:
 ### Validation-Feature Alignment
 Every SHQ should trace to feature work:
 ```
-SHQ → Feature Doc → Pod Plan → Consolidated Roadmap
+SHQ → Feature Doc → Pod features.md → Consolidated Roadmap
 ```
 
 If an SHQ has no feature path, flag it as a gap.

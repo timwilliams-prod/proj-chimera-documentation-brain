@@ -11,8 +11,10 @@ You are performing a risk evaluation across the project documentation to identif
 - `planning/ValidationPlan.md` - Winning Hypotheses, BHQs, SHQs
 
 ### Plans (what we're actually doing)
-- `planning/pods/*_Plan.md` - Per-pod feature priorities by milestone
-- `generated/roadmap.md` - Consolidated feature list + Gantt (generated from pod plans)
+- `planning/pods/{pod}/features.md` - Per-pod feature priorities (ranked backlog)
+- `planning/pods/{pod}/milestone_{ms}.md` - Per-pod milestone sprint allocation
+- `planning/pods/{pod}/validation.md` - Per-pod BHQ/SHQ alignment (not all pods have this; dozer and art don't)
+- `generated/roadmap.md` - Consolidated feature list + Gantt (generated from pod folders)
 - `planning/features/*.md` - Feature specs with estimates, discipline needs, implementation approach
 - `planning/feature_registry.md` - Feature-to-source mapping, spec status tracking
 
@@ -32,7 +34,7 @@ Read these files in order:
 1. `planning/product_targets.md` - What must each milestone achieve?
 2. `generated/roadmap.md` - What are we actually building? (consolidated view)
 3. `planning/capacity.md` - Do we have the people?
-4. All `planning/pods/*_Plan.md` - Detailed priorities per pod
+4. All pod folders - Read `features.md` and `milestone_*.md` from each `planning/pods/{pod}/` for detailed priorities per pod. Also read `validation.md` where it exists (skip dozer and art).
 5. `planning/ValidationPlan.md` - Are we validating the right things?
 6. `planning/dependency_map.md` - What depends on what?
 7. `planning/feature_registry.md` - Which features have specs? Which are missing or stubs?
@@ -46,7 +48,7 @@ Read these files in order:
 Scan for these risk patterns:
 
 #### Target Gaps (product_targets.md vs generated/roadmap.md)
-- Must-have features that aren't in any pod plan
+- Must-have features that aren't in any pod's `features.md`
 - Must-have features that are planned but at risk (blocked, understaffed, late in milestone)
 - Success criteria that no feature work addresses
 - Milestone targets with no clear path to achievement
@@ -90,7 +92,7 @@ Scan for these risk patterns:
 - Features with heavy [TBD] sections (scope not defined)
 - Missing design owners on features
 - Open questions in feature docs that could change scope
-- Features in pod plans or product_targets that aren't in `planning/feature_registry.md`
+- Features in pod `features.md` files or product_targets that aren't in `planning/feature_registry.md`
 - Features in the registry with "Needs Spec" status that start within 2 sprints
 - Missing or empty planning files (see Graceful Degradation above)
 
@@ -218,7 +220,7 @@ For top 3-5 risks, suggest specific actions:
 
 | Issue | Count | Details |
 |-------|-------|---------|
-| Features in pod plans but not in registry | [N] | [List] |
+| Features in pod folders but not in registry | [N] | [List] |
 | Registry entries with "Needs Spec" starting within 2 sprints | [N] | [List] |
 | Registry entries missing Notion IDs | [N] | [List] |
 

@@ -17,12 +17,12 @@ Read ALL of these files to build the latest roadmap data:
 
 **Planning sources (authoritative):**
 - `planning/product_targets.md` — Milestone definitions, dates, must-have features
-- `planning/pods/Empire_Plan.md` — Empire features by milestone
-- `planning/pods/Metagame_Plan.md` — Metagame features by milestone
-- `planning/pods/Battle_Plan.md` — Battle features by milestone
-- `planning/pods/SocialDynamics_Plan.md` — Social Dynamics features by milestone
-- `planning/pods/Dozer_Plan.md` — Dozer features by milestone
-- `planning/pods/Art_Plan.md` — Art features by milestone
+- `planning/pods/empire/features.md` — Empire feature priorities
+- `planning/pods/metagame/features.md` — Metagame feature priorities
+- `planning/pods/battle/features.md` — Battle feature priorities
+- `planning/pods/social_dynamics/features.md` — Social Dynamics feature priorities
+- `planning/pods/dozer/features.md` — Dozer feature priorities
+- `planning/pods/art/features.md` — Art feature priorities
 - `planning/capacity.md` — Team staffing (for staffLine per pod)
 - `planning/ValidationPlan.md` — SHQ/BHQ statuses
 
@@ -63,7 +63,7 @@ Each pod entry needs:
 - Use the Gantt chart in `generated/roadmap.md` as the primary source for scheduling (it has dependency chains)
 
 #### Statuses
-- Pull current status from pod plan files
+- Pull current status from pod `features.md` files
 - Valid values: `"IN PROGRESS"`, `"NOT STARTED"`, `"DEFERRED"`, `"Ongoing"`
 
 #### Work Types
@@ -77,7 +77,7 @@ Each pod entry needs:
 - `validationByMilestone`: Key validation focus per milestone start
 - `shqMarkers`: Which SHQs are being tested in each milestone
 - `whMarkers`: Which Winning Hypotheses are the focus
-- Pull from pod plan validation sections and `planning/ValidationPlan.md`
+- Pull from pod `validation.md` files (where they exist) and `planning/ValidationPlan.md`
 
 #### Capacity Warnings
 - If a pod has more eng-sprints of work than available sprints, add a `"warning"` row

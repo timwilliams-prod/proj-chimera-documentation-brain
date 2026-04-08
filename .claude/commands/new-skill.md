@@ -22,7 +22,8 @@ Before creating any skill, internalize these. They are the result of hard-won de
 | Team staffing, roles, pod assignments | `planning/capacity.md` | Separate people/ownership files |
 | Validation hypotheses, BHQs, SHQs | `planning/ValidationPlan.md` | Feature docs (reference by ID only) |
 | Feature scope, cost, approach | `planning/features/*.md` | Pod plans (summary only) |
-| Pod priorities & validation alignment | `planning/pods/*_Plan.md` | Roadmap (consolidated, not duplicated) |
+| Pod feature priorities | `planning/pods/{pod}/features.md` | Roadmap (consolidated, not duplicated) |
+| Pod validation alignment | `planning/pods/{pod}/validation.md` | Roadmap (consolidated, not duplicated) |
 | Cross-project constraints | `planning/GlobalRules.md` | Pod plans or feature docs |
 
 **Test**: If the new skill needs ownership/people data, it reads `planning/capacity.md`. If it needs the feature list, it reads `planning/product_targets.md`. It does NOT create a new file to track the same information.
@@ -50,7 +51,7 @@ Before creating any skill, internalize these. They are the result of hard-won de
 
 Many skills compare these three:
 - `planning/product_targets.md` = WHAT we need
-- `generated/roadmap.md` (consolidated from `planning/pods/*_Plan.md`) = WHAT we're building
+- `generated/roadmap.md` (consolidated from `planning/pods/{pod}/features.md`) = WHAT we're building
 - `planning/capacity.md` = WHAT we have
 
 New skills should plug into this triangle, not create parallel tracking.
@@ -58,7 +59,7 @@ New skills should plug into this triangle, not create parallel tracking.
 ### 6. Template Compliance
 
 - Feature docs follow the template in `planning/features/governors.md`.
-- Pod plans follow the pattern in existing `planning/pods/*_Plan.md` files.
+- Pod plans follow the pattern in existing `planning/pods/{pod}/` folders (features.md, validation.md, milestone files).
 - New skills should follow the structure of existing skills (see Skill Template below).
 
 ---

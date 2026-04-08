@@ -76,13 +76,13 @@ lotusDocumentationBrain/
     GlobalRules.md                Project-wide constraints and standards
     TechnicalDebt.md              Tech debt ledger (owned by Engineering Leads)
     sprint_rules.md               Task scaffolding rules for ClickUp (drives /sprint-plan)
-    pods/                         Per-pod plans (priorities, validation focus, sprint plans)
-      Empire_Plan.md
-      Metagame_Plan.md
-      Battle_Plan.md
-      SocialDynamics_Plan.md
-      Dozer_Plan.md
-      Art_Plan.md
+    pods/                         Per-pod folders (priorities, milestones, validation)
+      empire/                     features.md, milestone_mms.md, milestone_mc.md, validation.md
+      metagame/                   features.md, milestone_mms.md, milestone_mc.md, validation.md
+      battle/                     features.md, milestone_mms.md, validation.md
+      social_dynamics/            features.md, milestone_mms.md, validation.md
+      dozer/                      features.md, milestone_mms.md
+      art/                        features.md, milestone_mms.md
     features/                     Feature specs (one per feature)
       governors.md                Current template / reference spec
       [feature].md
@@ -120,8 +120,9 @@ Every piece of information has ONE authoritative home. Other files reference it,
 | Validation hypotheses & questions | `planning/ValidationPlan.md` | Question ID (e.g., SHQ3-7) |
 | Operating cadence & staleness rules | `planning/operating_cadence.md` | Cadence name |
 | Feature scope, cost, approach | `planning/features/*.md` | Feature name + link |
-| Pod priorities & validation focus | `planning/pods/*_Plan.md` | Pod name |
-| Pod sprint-level intent (current + next) | `planning/pods/*_Plan.md` (Sprint Plans section) | Sprint name, skill-maintained |
+| Pod feature priorities & backlog | `planning/pods/{pod}/features.md` | Pod name |
+| Pod milestone sprint allocation | `planning/pods/{pod}/milestone_{ms}.md` | Pod + milestone |
+| Pod validation alignment | `planning/pods/{pod}/validation.md` (if exists) | Pod name |
 | Feature-to-source mapping | `planning/feature_registry.md` | Feature name |
 | Cross-project constraints | `planning/GlobalRules.md` | Rule name |
 | Technical debt items | `planning/TechnicalDebt.md` | Item ID (e.g., TD-001) |
@@ -188,7 +189,7 @@ graph TD
     subgraph "SOURCE (planning/)"
         PT["product_targets.md<br/>Milestone must-haves"]
         VP["ValidationPlan.md<br/>SHQ definitions + ClickUp IDs"]
-        PP["pods/*_Plan.md<br/>Pod features + priorities"]
+        PP["pods/{pod}/features.md<br/>Pod Features"]
         CAP["capacity.md<br/>Staffing"]
     end
 
@@ -233,7 +234,7 @@ Skills check whether their source data is fresh before running. Each `planning/`
 | File | Stale After | Impact If Stale |
 |------|-------------|----------------|
 | `ValidationPlan.md` (Last Evaluated) | 3 weeks | Validation Roadmap shows outdated SHQ statuses |
-| `pods/*_Plan.md` | 5 weeks | Feature Roadmap shows stale priorities |
+| `pods/{pod}/features.md` | 5 weeks | Feature Roadmap shows stale priorities |
 | `generated/validation_roadmap.md` | 3 weeks | Milestone Checkpoints can't reflect current progress |
 | `generated/roadmap.md` | 5 weeks | Risk evaluations compare against outdated plans |
 
@@ -248,11 +249,11 @@ graph TD
     PT[product_targets.md<br/>Milestone Goals] --> FR[feature_registry.md<br/>Feature Mapping]
     FR --> FS[features/*.md<br/>Feature Specs]
     VP[ValidationPlan.md<br/>SHQ Definitions] --> FS
-    VP --> PP[pods/*_Plan.md<br/>Pod Plans]
+    VP --> PV["pods/{pod}/validation.md<br/>Pod Validation"]
     CAP[capacity.md<br/>Staffing] --> FS
-    CAP --> PP
+    CAP --> PF["pods/{pod}/features.md<br/>Pod Features"]
     CAP --> RD[generated/roadmap.md<br/>Feature Roadmap]
-    PP --> RD
+    PF --> RD
     FS --> DQ[designer_queue/<br/>Open Questions]
     TD[TechnicalDebt.md<br/>Debt Ledger] --> FS
 
@@ -269,7 +270,7 @@ When an LLM needs to understand the Lotus project, it should read files in this 
 3. `planning/capacity.md` — Who's available and where
 4. `planning/ValidationPlan.md` — What we're trying to prove (SHQ definitions + ClickUp linkage)
 5. `planning/feature_registry.md` — What features exist and where their docs are
-6. `planning/pods/*_Plan.md` — What each pod is building
+6. `planning/pods/{pod}/features.md` — What each pod is building (ranked backlog)
 7. `planning/features/*.md` — Detail on specific features (read on demand)
 8. `planning/TechnicalDebt.md` — Known debt affecting planned work
 9. `planning/operating_cadence.md` — Maintenance rhythms and staleness rules
@@ -344,7 +345,7 @@ Key sections (in order):
 - `/risk-evaluation` checks the registry for gaps (unregistered features, missing specs)
 
 When adding a new feature to the brain:
-1. Add it to the pod plan (`planning/pods/*_Plan.md`)
+1. Add it to the pod's feature list (`planning/pods/{pod}/features.md`)
 2. Add it to the feature registry (`planning/feature_registry.md`)
 3. Create the spec (`planning/features/*.md`) — via `/doc-author`, `/spec-sync`, or manually
 
@@ -392,7 +393,7 @@ Skills are slash commands (`.claude/commands/*.md`) that automate common workflo
 
 | Skill | Purpose | Reads | Writes |
 |-------|---------|-------|--------|
-| `/roadmap-update` | Update pod plans, regenerate roadmap | product_targets, pod plans, capacity, feature_registry, features/, dependency_map, ValidationPlan, TechnicalDebt | pods/, feature_registry, generated/roadmap.md |
+| `/roadmap-update` | Update pod features, regenerate roadmap | product_targets, pod features, capacity, feature_registry, features/, dependency_map, ValidationPlan, TechnicalDebt | pods/{pod}/features.md, feature_registry, generated/roadmap.md |
 | `/risk-evaluation` | Compare targets vs plans vs resources | product_targets, roadmap, capacity, pod plans, ValidationPlan, feature_registry, TechnicalDebt, features/ | generated/reports/ |
 | `/roadmap-options` | Generate alternative roadmap scenarios | pod plans, capacity, targets, dependencies | generated/roadmap_options.md |
 | `/validation-review` | Evaluate validation progress | ValidationPlan, features/, pod plans, product_targets | Report (no file changes) |
@@ -405,7 +406,7 @@ Skills are slash commands (`.claude/commands/*.md`) that automate common workflo
 | `/new-skill` | Guide creation of new skills | Existing skills, charter | .claude/commands/ |
 | `/generatePulseCheckReport` | Monthly executive Pulse Check report | product_targets, capacity, pod plans, ValidationPlan | Report |
 | `/generate_qvr_report` | Quarterly Validation Review report | product_targets, capacity, ValidationPlan, pod plans | Report |
-| `/sprint-plan` | Sprint planning (Preview/Kickoff modes) | product_targets, pod plans, capacity, sprint_rules, roadmap, Google Calendar, ClickUp | generated/sprint_plans/, pods/*_Plan.md (Sprint Plans section), ClickUp tasks (Kickoff) |
+| `/sprint-plan` | Sprint planning (Preview/Kickoff modes) | product_targets, pod features + milestones, capacity, sprint_rules, roadmap, Google Calendar, ClickUp | generated/sprint_plans/, ClickUp tasks (Kickoff) |
 | `/sprint-risks` | Interactive sprint risk triage | ClickUp sprint tasks, product_targets, pod plans, Slack | Report (copy/paste) |
 | `/roadmap-sheet` | Generate Google Sheets roadmap script | product_targets, pod plans, capacity, roadmap | generated/roadmap_apps_script.js |
 | `/generate_ms_plan` | Single-milestone focused plan (timeline, must-haves, SHQs, per-pod ops) | product_targets, pod plans, capacity, ValidationPlan, roadmap | generated/milestone_plans/ |

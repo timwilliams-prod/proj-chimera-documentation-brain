@@ -43,7 +43,7 @@ Milestone Targets (stable, per-milestone)
 |----------------------|------------------------|---------------------|
 | SHQ statuses not evaluated | Validation Roadmap, Milestone Checkpoints | Can't tell leadership whether we're proving the right things |
 | SHQs not linked to ClickUp Epics | Validation Roadmap | Sprint evaluation can't pull actual progress — SHQ status is guesswork |
-| Pod plans not updated | Feature Roadmap, Sprint Plans | Roadmap shows stale feature order; sprint plans don't reflect current priorities |
+| Pod features not updated | Feature Roadmap, Sprint Plans | Roadmap shows stale feature order; sprint plans don't reflect current priorities |
 | Capacity not updated | Risk Evaluation, Sprint Plans | Overcommitting or undercommitting people; staffing gaps invisible |
 
 ---
@@ -76,8 +76,8 @@ Each sprint, the following should happen. Order matters — earlier steps feed l
 | **What** | Plan next sprint's work based on pod plans, capacity, ClickUp state, and PTO calendar |
 | **Who** | Producers + pod leads |
 | **Skill** | `/sprint-plan` (Preview mode mid-sprint, Kickoff mode at sprint start) |
-| **Reads** | Pod plans, capacity, sprint_rules, roadmap, Google Calendar, ClickUp |
-| **Produces** | `generated/sprint_plans/`, pod plan Sprint Plans sections, ClickUp tasks (Kickoff) |
+| **Reads** | Pod features + milestones (`planning/pods/{pod}/`), capacity, sprint_rules, roadmap, Google Calendar, ClickUp |
+| **Produces** | `generated/sprint_plans/`, ClickUp tasks (Kickoff) |
 | **Dependencies** | Validation evaluation should be current (skill will warn if stale) |
 
 ### 3. Sprint Risk Triage (as needed)
@@ -111,9 +111,9 @@ Each sprint, the following should happen. Order matters — earlier steps feed l
 | **What** | Pod leads update their pod plans with any priority changes. Regenerate the Feature Roadmap. |
 | **Who** | Tim + pod leads |
 | **Skill** | `/roadmap-update` |
-| **Reads** | Pod plans, capacity, product_targets, feature_registry, dependency_map, ValidationPlan, TechnicalDebt |
-| **Produces** | Updated pod plans, `generated/roadmap.md`, feature_registry updates |
-| **Freshness** | Pod plans stale after **5 weeks**. |
+| **Reads** | Pod features (`planning/pods/{pod}/features.md`), capacity, product_targets, feature_registry, dependency_map, ValidationPlan, TechnicalDebt |
+| **Produces** | Updated pod features, `generated/roadmap.md`, feature_registry updates |
+| **Freshness** | Pod features stale after **5 weeks**. |
 
 ### 3. Risk Evaluation
 
@@ -122,7 +122,7 @@ Each sprint, the following should happen. Order matters — earlier steps feed l
 | **What** | Compare targets vs plans vs resources. Surface gaps, overcommits, and validation risks. |
 | **Who** | Tim |
 | **Skill** | `/risk-evaluation` |
-| **Reads** | product_targets, roadmap, capacity, pod plans, ValidationPlan, feature_registry, TechnicalDebt |
+| **Reads** | product_targets, roadmap, capacity, pod features + milestones, ValidationPlan, feature_registry, TechnicalDebt |
 | **Produces** | `generated/reports/` |
 
 ---
@@ -165,7 +165,7 @@ Skills check the freshness of their dependencies before running. If a dependency
 | File | Expected Update Frequency | Stale After | Checked By |
 |------|--------------------------|-------------|------------|
 | `ValidationPlan.md` (Last Evaluated) | Every sprint (2 weeks) | 3 weeks | `/sprint-plan`, `/validation-review` |
-| `pods/*_Plan.md` | Monthly or when plans change | 5 weeks | `/roadmap-update`, `/risk-evaluation` |
+| `pods/{pod}/features.md` | Monthly or when plans change | 5 weeks | `/roadmap-update`, `/risk-evaluation` |
 | `capacity.md` | When staffing changes | N/A (event-driven) | `/sprint-plan`, `/risk-evaluation` |
 | `product_targets.md` | Per milestone | N/A (event-driven) | `/risk-evaluation` |
 | `generated/roadmap.md` | After any pod plan change | 5 weeks | `/risk-evaluation`, `/sprint-plan` |
@@ -205,7 +205,7 @@ For producers and pod leads — the minimum you need to know:
 - [ ] Run `/sprint-risks` if any tasks look at risk
 
 ### Every Month (2 sprints)
-- [ ] Pod leads: update your pod plan if priorities changed
+- [ ] Pod leads: update your pod features (`planning/pods/{pod}/features.md`) if priorities changed
 - [ ] Run `/roadmap-update` — regenerate the Feature Roadmap
 - [ ] Run `/risk-evaluation` — check targets vs plans vs resources
 - [ ] Generate Milestone Checkpoint (TBD skill)

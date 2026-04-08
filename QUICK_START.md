@@ -10,7 +10,7 @@ This brain separates concerns:
 
 ```
 planning/product_targets.md         -> WHAT must each milestone achieve? (stable benchmark)
-planning/pods/Empire_Plan.md        -> WHAT to build and WHY per pod (priorities + validation)
+planning/pods/empire/features.md    -> WHAT to build and WHY per pod (ranked backlog + validation)
 planning/features/governors.md      -> HOW MUCH it costs and HOW to build it (specs + approach)
 planning/capacity.md                -> WHO is available WHERE (staffing across milestones)
 generated/roadmap.md                -> CONSOLIDATED view of what all pods are building (generated)
@@ -38,15 +38,15 @@ This is the stable benchmark everything else is measured against.
 
 ---
 
-## Step 3: Read a Pod Plan (3 min)
+## Step 3: Read a Pod Folder (3 min)
 
-Open `planning/pods/Empire_Plan.md` to see the pattern:
+Open `planning/pods/empire/` to see the pattern:
 
-1. **Validation Focus** - Which hypotheses and BHQs this pod owns
-2. **Feature Priorities** - Ordered list per milestone with links to feature docs
-3. **Validation Alignment** - How each feature connects to SHQs
-4. **Sprint Allocation** - High-level sequence of features
-5. **Gantt Chart** - Visual timeline
+1. **`features.md`** - Ranked backlog with inline metadata (milestone, estimate, status, SHQ links)
+2. **`milestone_mms.md`** - Sprint allocation for the M&Ms milestone
+3. **`validation.md`** - Which BHQs/SHQs this pod contributes to
+
+Sprint plans live in `generated/sprint_plans/`. Gantt lives in `generated/roadmap.md`.
 
 ---
 

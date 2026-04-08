@@ -459,6 +459,35 @@
       background: rgba(42, 58, 94, 0.3);
     }
 
+    /* ── Nav Bar ── */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-link {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 13px;
+      padding: 4px 12px;
+      border-radius: 6px;
+      transition: all 0.15s;
+    }
+    .nav-link:hover { color: var(--text-bright); background: rgba(83,168,255,0.1); }
+    .nav-link.active { color: var(--accent); background: rgba(83,168,255,0.15); font-weight: 600; }
+    .nav-repo { font-size: 12px; }
+
     /* ── Footer ── */
     .footer {
       text-align: center;
@@ -470,6 +499,7 @@
     /* ── Print ── */
     @media print {
       body { background: #fff; color: #111; padding: 12px; }
+      .top-nav { display: none; }
       .panel { border-color: #ccc; }
       .header { border-bottom-color: #ccc; }
       :root {
@@ -485,6 +515,15 @@
   </style>
 </head>
 <body>
+
+  <nav class="top-nav">
+    <span class="nav-brand">Lotus Tools</span>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link active">Production Dashboard</a>
+      <a href="sprint.html" class="nav-link">Sprint Plan</a>
+    </div>
+    <a href="https://github.com/timwilliams-prod/proj-chimera-documentation-brain/tree/main" class="nav-link nav-repo" target="_blank" rel="noopener">GitHub &nearr;</a>
+  </nav>
 
   <div id="app"></div>
 
