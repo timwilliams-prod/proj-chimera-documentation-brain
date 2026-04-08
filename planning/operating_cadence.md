@@ -156,6 +156,56 @@ Each sprint, the following should happen. Order matters — earlier steps feed l
 
 ---
 
+## Quarterly Cadence (QVR Cycle)
+
+QVRs (Quarterly Validation Reviews) are aligned to calendar quarters. Between QVRs, monthly Pulse Checks track progress against quarterly goals.
+
+### Calendar
+
+| Quarter | Dates | QVR (Start) | Pulse Checks (Monthly) | QVR (End) |
+|---------|-------|-------------|----------------------|-----------|
+| Q1 | Jan - Mar | Early Jan | Late Jan, Late Feb | Late Mar |
+| Q2 | Apr - Jun | Early Apr | Late Apr, Late May | Late Jun |
+| Q3 | Jul - Sep | Early Jul | Late Jul, Late Aug | Late Sep |
+| Q4 | Oct - Dec | Early Oct | Late Oct, Late Nov | Late Dec |
+
+### QVR (Start of Quarter)
+
+| | |
+|---|---|
+| **What** | Review previous quarter's goals. Set new quarterly goals. Executive stakeholders make CRAPS decision (Continue/Reset/Advance/Pivot/Sunset). |
+| **Who** | Holly, James, Tim, executive stakeholders |
+| **Skill** | `/generate_qvr_report` (generates review report for outgoing quarter) |
+| **Reads** | `planning/qvr/q{N}_{year}_goals.md`, all Pulse Checks from outgoing quarter, ValidationPlan, product_targets, capacity |
+| **Produces** | `generated/reports/qvr_reports/qvr_q{N}_{year}.md`, new quarter's goals file |
+| **Prep** | Distribute report **48 hours** before the QVR meeting |
+
+### Monthly Pulse Check
+
+| | |
+|---|---|
+| **What** | Monthly check-in on quarterly goal progress. Surface blockers, get executive assistance, maintain accountability. |
+| **Who** | Tim, Holly, James |
+| **Skill** | `/generatePulseCheckReport` |
+| **Reads** | `planning/qvr/q{N}_{year}_goals.md`, product_targets, capacity, ValidationPlan, recent risk evaluations, sprint plans |
+| **Produces** | `generated/reports/pulse_checks/pulse_check_YYYY-MM.md`, updates to QVR goals file |
+| **Prep** | Distribute report **48 hours** before the Pulse Check meeting |
+
+### File Structure
+
+```
+planning/qvr/
+  q2_2026_goals.md          # QVR goals for current quarter (human-authored)
+
+generated/reports/
+  pulse_checks/
+    pulse_check_2026-04.md   # Monthly Pulse Check reports (generated)
+  qvr_reports/
+    qvr_q2_2026.md           # End-of-quarter QVR reports (generated)
+```
+
+---
+
 ## Staleness Detection
 
 Skills check the freshness of their dependencies before running. If a dependency is stale, the skill **warns but does not block** — you may have good reasons to proceed.
@@ -210,10 +260,19 @@ For producers and pod leads — the minimum you need to know:
 - [ ] Run `/risk-evaluation` — check targets vs plans vs resources
 - [ ] Generate Milestone Checkpoint (TBD skill)
 
+### Every Month (Pulse Check)
+- [ ] Run `/generatePulseCheckReport` — monthly progress against QVR goals
+- [ ] Review and add qualitative context (morale, 1:1 feedback)
+- [ ] Distribute to Holly/James **48 hours** before the Pulse Check meeting
+
+### Every Quarter (QVR)
+- [ ] Run `/generate_qvr_report` — evaluate outgoing quarter's goals
+- [ ] Set new quarter's goals in `planning/qvr/q{N}_{year}_goals.md`
+- [ ] Distribute report **48 hours** before the QVR meeting
+
 ### At Milestone End
 - [ ] Run `/validation-review` in milestone mode — full BHQ assessment
 - [ ] Review milestone success criteria in `product_targets.md`
-- [ ] Run `/generatePulseCheckReport` for leadership
 
 ---
 

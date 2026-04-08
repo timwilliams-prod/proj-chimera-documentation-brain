@@ -1,164 +1,285 @@
-> **Instructions (delete before sharing):**
-> Pulse Checks are monthly check-ins with your Executive Stakeholder to discuss your progress towards your quarterly goals. A successful Pulse Check is one where you are able to get assistance to unblock and support your team to accomplish your quarterly goal and where your Executive Stakeholder has a clear understanding of how your team is progressing towards it.
-> You’ll find callouts like these throughout the template. These are instructional and should be deleted before distribution.
-> Please plan on distributing this 48 hours before your Pulse Check to allow your Executive Stakeholder enough time to read and consider.
+# Pulse Check Report Skill
+
+You are generating a **monthly Pulse Check report** that helps Holly (Executive Producer) and James (Game Director) understand team progress against quarterly QVR goals.
+
+> **Architecture**: QVR Goals + Brain planning docs + ClickUp state + recent reports --> Pulse Check markdown report
 
 ---
 
-## Executive Summary
+## Context
 
-> **Instructions (delete before sharing):**
-> Summarize what’s happened since your last QVR or Pulse Check. This should be a couple short paragraphs that help contextualize the information below.
-> Finish with a one to two sentence summary of whether your confidence in the game has increased or decreased over that timeframe and why.
+Pulse Checks are **monthly check-ins** between the Lotus team and executive stakeholders. They happen between QVRs (Quarterly Validation Reviews). The report should be distributed **48 hours before** the meeting.
 
----
-
-## Agenda
-
-> **Instructions (delete before sharing):**
-> Pre-populate your agenda with the key discussion points you want to hit. This is your meeting, guide the discussion towards what’s most critical for your team’s success.
-
-1. Resolve open comments
-2. Open Agenda Items
-   - Item 1
-   - Item 2
-   - Item 3
-3. Confirm next steps (if any)
+**Audience**: Holly Mellor (EP), James Fielding (GD), executive stakeholders
+**Tone**: Executive-level — concise, honest, forward-looking. Lead with status, follow with context.
 
 ---
 
-## Quarter / Team Size
+## Your Task
 
-**[Quarter_Start_Date] - [Quarter_End_Date]**
+### 1. Determine Report Context
 
-**Total Team Size:**
-- Full-Time:
-- Embedded:
-- Contractors:
+Figure out:
+- **Which quarter**: Check today's date against calendar quarters (Q1: Jan-Mar, Q2: Apr-Jun, Q3: Jul-Sep, Q4: Oct-Dec)
+- **Which month in the quarter**: 1st, 2nd, or 3rd month (affects framing — early = setting pace, mid = course corrections, late = closing out)
+- **Active milestone**: From `planning/product_targets.md`
+- **Previous Pulse Check**: Check `generated/reports/pulse_checks/` for the most recent report
 
-**Monthly Burn Rate:** $Xk USD
+### 2. Read Source Files
 
-> (In Notion, this section also includes a “View of Games Portfolio” database view.)
+Read ALL of these:
+
+| File | Used For |
+|------|----------|
+| `planning/qvr/q{N}_{year}_goals.md` | **Primary** — the goals being evaluated |
+| `planning/product_targets.md` | Milestone context, must-have features |
+| `planning/capacity.md` | Team size, staffing, open roles, known risks |
+| `planning/ValidationPlan.md` | Validation progress (WH confidence, SHQ status) |
+| `generated/roadmap.md` | Feature delivery status |
+| `planning/pods/*/features.md` | Per-pod feature progress |
+| `planning/dependency_map.md` | Cross-pod blockers |
+| `planning/TechnicalDebt.md` | Active debt items affecting delivery |
+
+**Also check**:
+- `generated/reports/risk_eval_*.md` — Most recent risk evaluation
+- `generated/reports/pulse_checks/` — Previous Pulse Check for delta comparison
+- `generated/sprint_plans/` — Recent sprint plans for velocity context
+
+**If QVR goals file doesn't exist**: Warn the user that goals haven't been set for this quarter. Offer to help populate them. Still generate the report using milestone targets as a proxy for goals.
+
+### 3. Check ClickUp State
+
+Pull current sprint data for velocity context:
+- Use the Sprints folder (`90124992719`) to find the current sprint list
+- Get task counts by status and pod
+- Note any blocked tasks
+
+Check SHQ Tracker (`901324723345`) for validation progress:
+- Epic statuses for active SHQs
+
+**If ClickUp is unavailable**: Note it in the report and continue with brain-file data only.
+
+### 4. Generate the Report
+
+The report has **6 sections**. Generate each one:
 
 ---
 
-# Team Status
+#### Section 1: Executive Summary
 
+2-3 paragraphs summarizing:
+- What happened since the last Pulse Check (or QVR if this is the first)
+- Key wins and key concerns
+- Overall confidence in the game — has it increased or decreased, and why?
+
+End with a clear signal: "Confidence is [stable / increasing / decreasing] because [reason]."
+
+---
+
+#### Section 2: Goal Summary
+
+A quick-reference table of all QVR goals and their current status.
+
+```markdown
+## Goal Summary
+
+| # | Goal | Status | Confidence | Notes |
+|---|------|--------|------------|-------|
+| 1 | [Goal title] | On Track / At Risk / Completed / Will Not Complete | [Brief signal] |
+| 2 | [Goal title] | ... | | |
+| 3 | [Goal title] | ... | | |
+```
+
+If no QVR goals are set, use milestone must-haves from `product_targets.md` as proxy goals and note this clearly.
+
+---
+
+#### Section 3: Goal Breakdown / Notes
+
+For each goal, provide a detailed status update:
+
+```markdown
+## Goal Breakdown
+
+### [Status Icon] Goal 1: [Title]
+**Status**: [On Track / At Risk / Completed / Will Not Complete]
+
+**Progress Since Last Check**:
+- [What was accomplished]
+- [What moved forward]
+
+**Current State**:
+- [Where things stand right now]
+- [Reference specific features, SHQs, or ClickUp tasks]
+
+**Blockers / Risks** (if At Risk or Will Not Complete):
+- [What's blocking progress]
+- [What assistance is needed]
+
+**Next Steps**:
+- [What needs to happen before next check-in]
+```
+
+Use these status icons:
+- On Track: `[ON TRACK]`
+- At Risk: `[AT RISK]`
+- Completed: `[COMPLETED]`
+- Will Not Complete: `[WILL NOT COMPLETE]`
+
+Cross-reference each goal against:
+- Relevant must-have features from `product_targets.md`
+- Pod plan progress from `planning/pods/*/features.md`
+- Validation progress from `ValidationPlan.md` (which SHQs relate to this goal?)
+- Risk evaluation findings from `generated/reports/risk_eval_*.md`
+
+---
+
+#### Section 4: Team Size Summary
+
+```markdown
+## Team Size
+
+**Current Team**: [N] people
+- Full-Time: [N]
+- Embedded: [N]
+- Contractors: [N]
+
+### Staffing by Discipline
+
+| Discipline | Count | Notes |
+|-----------|-------|-------|
+| Engineering | [N] | |
+| Design | [N] | |
+| UX/UI | [N] | |
+| Art | [N] | |
+| QA | [N] | |
+| Production | [N] | |
+| Leadership | [N] | |
+
+### Proposed Changes / Open Roles
+
+| Role | Status | Pod | Impact | Timeline |
+|------|--------|-----|--------|----------|
+| [Role] | Open / Interviewing / Offer Out / Filled | [Pod] | [What this enables or blocks] | [Expected fill date] |
+
+### Notable Team Changes (Since Last Check)
+- [New hires, departures, transfers, role changes]
+```
+
+Source this from `planning/capacity.md`. If there are no open roles or changes, say so explicitly ("No open roles or team changes this period").
+
+---
+
+#### Section 5: Team Health Summary
+
+```markdown
 ## Team Health
 
-> **Instructions (delete before sharing):**
-> Give an update on how your team is doing. This could be updates on morale, team reorganizations, leadership changes, or health surveys.
-> Highlight any wins your team has had from a “how we work” perspective. What is helping them achieve success?
+### Overall Assessment
+[1-2 paragraphs on team morale, workload, and effectiveness]
+
+### Highlights
+- [Wins — what's working well from a "how we work" perspective]
+- [Process improvements that are paying off]
+
+### Concerns
+- [Workload issues — anyone overloaded?]
+- [Morale signals — anything concerning?]
+- [Process friction — what's slowing people down?]
+```
+
+Source this from:
+- `planning/capacity.md` — Known staffing risks (split responsibilities, single points of failure)
+- Recent sprint plans — Are people consistently overloaded?
+- Risk evaluation — Capacity risks flagged
+- Note: This section will always be partially qualitative. Flag where you're inferring vs. where you have data. Prompt the user to add context the skill can't see (morale signals, 1:1 feedback, etc.).
 
 ---
 
-## Team Changes and Open Role Statuses
+#### Section 6: Blockers, Risks, Needs & Asks
 
-> **Instructions (delete before sharing):**
-> If you have any open roles that are high priority, list them here with their status.
-> If you have any notable team changes (transfers, exits, new hires, etc.) add them here as well.
+```markdown
+## Blockers, Risks, Needs & Asks
 
----
+### Active Blockers
+- [Things currently preventing progress — be specific]
 
-# Quarter’s Expected Outcomes
+### Top Risks
+- [From risk evaluation + sprint plan analysis]
+- [Timeline risks, capacity risks, dependency risks]
 
-> **Instructions (delete before sharing):**
-> The expectations that your team and your executive stakeholders set together are below. For each action item, duplicate one of the following statuses, place it under the action item, and add details as necessary. I’ve seeded the first one for you to get the feel for it.
-> “On Track” means you expect to complete this item either by the end of the quarter or by it’s target date.
-> “At Risk” means you could complete this item in time but there are blockers that need to be resolved. Be sure and list the blockers and any assistance needed.
-> “Completed” means this is done.
-> “Will Not Complete” means you do not expect your team to complete this by the end of the quarter or by its target date.
+### Needs & Asks
+- [Specific requests for executive stakeholders]
+- [Include expected costs, benefits, alternatives where applicable]
+- [These become action items for Holly/James]
 
-### :arrows_counterclockwise: On Track: Top Line
-- Details
+### Open Questions
+- [Unresolved questions that need executive input]
+```
 
-### :warning: At Risk: Top Line
-- Details
+Source blockers and risks from:
+- `generated/reports/risk_eval_*.md` — Most recent risk evaluation
+- Sprint plans — Carry-over risks, blocked tasks
+- `planning/TechnicalDebt.md` — Debt items affecting delivery
+- `planning/dependency_map.md` — Cross-pod blocking dependencies
 
-### :white_check_mark: Completed: Top Line
-- Details
-
-### :red_circle: Will Not Complete: Top Line
-- Details
-
----
-
-## :star: :arrows_counterclockwise: [Mon 2026] Goals of QVR January 15th 2026 :star:
-
-**Deliverables for the quarter**
-1. :white_check_mark: Input Topic Here
+For Needs & Asks: Look for signals in risk evaluation (staffing gaps, scope pressure) and surface them as actionable requests.
 
 ---
 
-## :white_check_mark: Input Topic Here
+### 5. Write the Report
 
-Topic description.
+Save to `generated/reports/pulse_checks/pulse_check_YYYY-MM.md`.
 
-### :white_check_mark: [Mon 2026] Input Update Here
-- (Add update details)
+Include a metadata header:
+
+```markdown
+---
+Quarter: Q[N] [Year]
+Month: [Month Name] [Year]
+Active Milestone: [Name]
+QVR Goals Source: planning/qvr/q[N]_[year]_goals.md
+Previous Pulse Check: [date or "None"]
+Generated: [Date]
+---
+```
+
+### 6. Update QVR Goals File
+
+After generating the report, update the monthly status in `planning/qvr/q{N}_{year}_goals.md`:
+- Fill in the current month's row in each goal's Monthly Updates table
+- Update each goal's Status field if it changed
+
+### 7. Report to User
+
+Summarize:
+- Quarter and month context
+- Goal statuses at a glance
+- Key risks or blockers that need attention before the Pulse Check meeting
+- Any data gaps (missing files, stale data, no ClickUp connection)
+- Remind user to review and add qualitative context (morale, 1:1 feedback, stakeholder conversations) before distributing
 
 ---
 
-# Other Topics
+## Handling Missing Data
 
-## :arrows_counterclockwise: Input Topic Here
-
-### :white_check_mark: [Mon 2025] Input Update Here
-- We have made initial progress with identifying key content buckets and a target asset count for each category.
-- [Content Roadmap](https://docs.google.com/spreadsheets/d/156hViBsjoRMKy-j9kW5oZbeKFTWWEKo4wARHXVpY70E/edit?gid=1255840764#gid=1255840764) viewable here. **[WORK IN PROGRESS]**
-- Current plan has outsourcing ramp to produce 5 characters per month (in addition to support on environments and other assets).
-- Next steps:
-  - Refine estimates for each stage of content development.
-  - Continue AI exploration to research how much we can optimize each step.
-  - Build a scaleable plan to evaluate internal and outsourcing resource options.
+| If missing... | Behavior |
+|---------------|----------|
+| QVR goals file | Warn user. Use milestone must-haves as proxy goals. Offer to help set goals. |
+| ClickUp unavailable | Note in report. Use brain-file data only. |
+| No previous Pulse Check | Note "First Pulse Check of quarter" in exec summary. |
+| Risk evaluation stale (>30 days) | Flag staleness. Suggest running `/risk-evaluation` first. |
+| Capacity file stale | Flag. Suggest reviewing if staffing changed. |
 
 ---
 
-# Blockers & Risks to Progress
+## Notes
 
-## Timeline Risk
-
-> **Instructions (delete before sharing):**
-> Are there any significant risks or blockers that you see that could impact your team over the next 1-2 quarters? For each, what would the impact be? What resolutions do you recommend?
-
----
-
-## Iteration Cycle Time Monthly Report
-
-> Reference the linked database view below for **Lotus**. Set filters to **Game = Lotus** and the relevant **Month**.
-> - **What improved (since last month / last check-in):** What changed in the build–measure–learn loop that reduced cycle time, removed waiting, or increased throughput? Call out 1–2 concrete examples.
-> - **Biggest bottleneck (this month):** What is the single biggest constraint stretching ICT right now, and where in the cycle it shows up?
-> - **Next change to try (next month):** What is one specific process or workflow change you will test to reduce ICT, and what outcome do you expect to see next month?
-
-> (In Notion, this section includes a “View of ICT Monthly Report” database view.)
-
----
-
-# Notable Changes
-
-> **Instructions (delete before sharing):**
-> Are you changing anything about your goals or plans for the quarter? If so, highlight them here with the rationale for why.
-
----
-
-# Needs & Asks
-
-> **Instructions (delete before sharing):**
-> We want your teams to be able to move as quickly and efficiently as possible. If you need anything to do that, clearly lay out any requests you have for your Executive Stakeholder below. This includes unlocking additional headcount, clarification on something, or removing an organizational blocker.
-> For each item, if it makes sense, include the expected costs, benefits, and risks for it as well any other alternatives you’ve considered. These become action items for your Executive Stakeholder that Jing and I will hold them accountable for.
-
----
-
-# Active Action Items
-
-- (List action items here)
-
----
-
-# Appendix
-
----
-
-## Meeting Notes
-
-> (In Notion, there is a meeting-notes block at the bottom. If you want this in Markdown, paste notes/transcript content here.)
+- Pulse Checks happen **monthly** — roughly at the end of each calendar month
+- The report is a **preparation document** — Holly/James read it before the meeting, not during
+- Keep the tone **honest and direct** — executives value clarity over optimism
+- If a goal is At Risk, always include what assistance is needed (that's the point of the Pulse Check)
+- The "Needs & Asks" section is critical — these become action items for executive stakeholders
+- Don't include an Agenda section — the meeting agenda is managed separately
+- Cross-reference with ValidationPlan.md to connect feature progress to validation outcomes
+- Previous Pulse Check reports in `generated/reports/pulse_checks/` provide continuity — reference them for deltas

@@ -20,9 +20,11 @@ const FILES_DATA = {
         { path: "planning/dependency_map.md", label: "Dependency Map", desc: "Cross-pod dependencies and shared resources" },
         { path: "planning/feature_registry.md", label: "Feature Registry", desc: "Feature-to-Notion mapping, spec status tracking" },
         { path: "planning/GlobalRules.md", label: "Global Rules", desc: "Cross-project standards, pods, process" },
-        { path: "planning/operating_cadence.md", label: "Operating Cadence", desc: "Sprint/monthly/milestone rhythms, staleness rules" },
+        { path: "planning/operating_cadence.md", label: "Operating Cadence", desc: "Sprint/monthly/milestone/quarterly rhythms, staleness rules" },
         { path: "planning/sprint_rules.md", label: "Sprint Rules", desc: "Task scaffolding, discipline flow, naming conventions" },
-        { path: "planning/TechnicalDebt.md", label: "Technical Debt", desc: "Active debt ledger, owned by Engineering Leads" }
+        { path: "planning/TechnicalDebt.md", label: "Technical Debt", desc: "Active debt ledger, owned by Engineering Leads" },
+        { path: "planning/qvr/q1_2026_goals.md", label: "QVR Goals — Q1 2026", desc: "Quarterly goals for Jan-Mar 2026 (closed)" },
+        { path: "planning/qvr/q2_2026_goals.md", label: "QVR Goals — Q2 2026", desc: "Quarterly goals for Apr-Jun 2026" }
       ]
     },
 
@@ -201,6 +203,14 @@ const FILES_DATA = {
             { path: "generated/reports/channel_digest_2026-03-24.md", label: "Channel Digest (Mar 24)", desc: "Slack channel summary" },
             { path: "generated/reports/spec_sync_2026-03-24.md", label: "Spec Sync (Mar 24)", desc: "Feature registry sync report" }
           ]
+        },
+        {
+          name: "Pulse Checks",
+          files: []
+        },
+        {
+          name: "QVR Reports",
+          files: []
         }
       ]
     },

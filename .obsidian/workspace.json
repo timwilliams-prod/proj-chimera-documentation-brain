@@ -257,17 +257,18 @@
   },
   "active": "38fc166341ab2af3",
   "lastOpenFiles": [
+    "planning/qvr/q1_2026_goals.md",
+    "generated/dashboard/files_data.js.tmp.1568.1775672520633",
+    "generated/dashboard/files_data.js.tmp.1568.1775672512813",
+    "planning/operating_cadence.md.tmp.1568.1775672491933",
+    "planning/qvr/q2_2026_goals.md",
+    "generated/reports/qvr_reports",
+    "generated/reports/pulse_checks",
+    "planning/qvr",
     "generated/dashboard/sprint.html.tmp.1568.1775670399953",
     "generated/dashboard/files.html",
     "generated/dashboard/files_data.js",
     "generated/dashboard/files_data.js.tmp.1568.1775670328747",
-    "generated/dashboard/sprints/sprint_27.js.tmp.1568.1775659635694",
-    "generated/dashboard/sprints/sprint_26.js.tmp.1568.1775659627744",
-    "generated/dashboard/sprint.html.tmp.1568.1775659617521",
-    "generated/dashboard/sprint_manifest.js.tmp.1568.1775659272595",
-    "generated/dashboard/sprints/sprint_27.js.tmp.1568.1775659223805",
-    "generated/sprint_plans/sprint_26_yodel_yaks.md.tmp.1568.1775659126560",
-    "generated/sprint_plans/sprint_27_zany_zebras.md.tmp.1568.1775659093416",
     "planning/pods/empire/milestone_mms.md",
     "generated/reports/risk_eval_2026-04-07.md",
     "planning/pods/empire/milestone_mc.md",
@@ -291,7 +292,6 @@
     "reference/skill_evaluation_pulse_check_qvr.md",
     "reference/skill_evaluation_risk_eval_roadmap_update.md",
     "planning/operating_cadence.md",
-    "planning/features/production_dashboard.md",
-    "reference/llm_brain_presentation.md"
+    "planning/features/production_dashboard.md"
   ]
 }
