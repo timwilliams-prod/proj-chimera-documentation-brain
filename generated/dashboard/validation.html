@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validation Check-in - Lotus Tools</title>
+  <style>
+    :root {
+      --bg: #1a1a2e;
+      --bg-panel: #16213e;
+      --bg-card: #0f3460;
+      --bg-row-alt: #1a2744;
+      --text: #e0e0e0;
+      --text-dim: #8899aa;
+      --text-bright: #ffffff;
+      --border: #2a3a5e;
+      --accent: #53a8ff;
+
+      --green: #22c55e;
+      --green-bg: rgba(34,197,94,0.12);
+      --green-border: rgba(34,197,94,0.3);
+      --yellow: #eab308;
+      --yellow-bg: rgba(234,179,8,0.12);
+      --yellow-border: rgba(234,179,8,0.3);
+      --red: #ef4444;
+      --red-bg: rgba(239,68,68,0.12);
+      --red-border: rgba(239,68,68,0.3);
+      --blue: #53a8ff;
+      --blue-bg: rgba(83,168,255,0.12);
+      --blue-border: rgba(83,168,255,0.3);
+      --purple: #a78bfa;
+      --purple-bg: rgba(167,139,250,0.12);
+      --purple-border: rgba(167,139,250,0.3);
+      --gray: #6b7280;
+      --gray-bg: rgba(107,114,128,0.12);
+      --gray-border: rgba(107,114,128,0.3);
+
+      --wh-battle: #FF4444;
+      --wh-empire: #4A9EFF;
+      --wh-monetization: #FFD700;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    code, .mono { font-family: 'Cascadia Code', 'Fira Code', Consolas, monospace; }
+
+    /* ── Nav Bar ── */
+    .top-nav { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; margin-bottom: 16px; border-bottom: 1px solid var(--border); }
+    .nav-brand { font-size: 13px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-link { color: var(--text-dim); text-decoration: none; font-size: 13px; padding: 4px 12px; border-radius: 6px; transition: all 0.15s; }
+    .nav-link:hover { color: var(--text-bright); background: rgba(83,168,255,0.1); }
+    .nav-link.active { color: var(--accent); background: rgba(83,168,255,0.15); font-weight: 600; }
+    .nav-repo { font-size: 12px; }
+
+    /* ── Header ── */
+    .header { margin-bottom: 20px; padding-bottom: 16px; border-bottom: 2px solid var(--border); display: flex; align-items: flex-start; justify-content: space-between; }
+    .header-left h1 { font-size: 26px; color: var(--text-bright); margin-bottom: 4px; }
+    .header .subtitle { color: var(--text-dim); font-size: 13px; }
+    .header-actions { display: flex; gap: 8px; align-items: center; }
+
+    /* ── Buttons ── */
+    .btn {
+      padding: 6px 14px; border-radius: 6px; font-size: 13px; font-family: inherit;
+      cursor: pointer; border: 1px solid var(--border); transition: all 0.15s;
+    }
+    .btn-default { background: var(--bg-card); color: var(--text); }
+    .btn-default:hover { border-color: var(--accent); color: var(--text-bright); }
+    .btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .btn-primary:hover { background: #4090ee; }
+    .btn-save { background: #22c55e; color: #fff; border-color: #22c55e; }
+    .btn-save:hover { background: #1da850; }
+
+    /* ── Edit Toolbar ── */
+    .edit-toolbar {
+      display: none;
+      background: var(--bg-panel);
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      padding: 10px 16px;
+      margin-bottom: 16px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .edit-toolbar.visible { display: flex; }
+    .edit-toolbar-note { font-size: 12px; color: var(--text-dim); }
+
+    /* ── Confidence Summary ── */
+    .confidence-bar {
+      display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap;
+    }
+    .confidence-card {
+      flex: 1; min-width: 280px;
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      border-top: 3px solid var(--accent);
+    }
+    .confidence-card h3 { font-size: 14px; font-weight: 600; color: var(--text-bright); margin-bottom: 8px; }
+    .confidence-card .wh-label { font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+    .confidence-row { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
+    .confidence-level { font-size: 20px; font-weight: 700; color: var(--text-bright); }
+    .confidence-trend { font-size: 18px; font-weight: 700; }
+    .trend-up { color: var(--green); }
+    .trend-flat { color: var(--yellow); }
+    .trend-down { color: var(--red); }
+    .confidence-stats { font-size: 12px; color: var(--text-dim); margin-top: 6px; }
+
+    /* ── BHQ Sections ── */
+    .bhq-section {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .bhq-header {
+      display: flex; align-items: center; gap: 10px;
+      padding: 12px 16px;
+      cursor: pointer; user-select: none;
+      transition: background 0.1s;
+    }
+    .bhq-header:hover { background: rgba(83,168,255,0.04); }
+    .bhq-arrow { color: var(--text-dim); font-size: 10px; transition: transform 0.2s; width: 14px; }
+    .bhq-section.collapsed .bhq-arrow { transform: rotate(-90deg); }
+    .bhq-section.collapsed .bhq-body { display: none; }
+    .bhq-id { font-size: 12px; font-weight: 700; color: var(--accent); font-family: 'Cascadia Code', monospace; }
+    .bhq-question { font-size: 14px; color: var(--text-bright); font-weight: 500; flex: 1; }
+    .bhq-status-badge {
+      font-size: 11px; font-weight: 600; padding: 2px 8px;
+      border-radius: 10px; white-space: nowrap;
+    }
+    .bhq-body { padding: 0 16px 12px; }
+
+    /* ── SHQ Rows ── */
+    .shq-row {
+      display: flex; flex-direction: column;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 8px;
+      background: var(--bg-card);
+      transition: border-color 0.15s;
+    }
+    .shq-row:hover { border-color: var(--accent); }
+    .shq-row:last-child { margin-bottom: 0; }
+    .shq-top { display: flex; align-items: flex-start; gap: 10px; }
+    .shq-id {
+      font-size: 12px; font-weight: 700; color: var(--accent);
+      font-family: 'Cascadia Code', monospace;
+      min-width: 64px; flex-shrink: 0; padding-top: 1px;
+    }
+    .shq-content { flex: 1; }
+    .shq-question { font-size: 13px; color: var(--text-bright); margin-bottom: 4px; }
+    .shq-notes { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
+    .shq-notes em { color: var(--text-dim); }
+    .shq-milestone-tag {
+      font-size: 10px; padding: 1px 6px; border-radius: 3px;
+      background: var(--gray-bg); color: var(--gray); border: 1px solid var(--gray-border);
+      margin-left: 4px;
+    }
+    .shq-milestone-tag.current { background: var(--blue-bg); color: var(--blue); border-color: var(--blue-border); }
+
+    .status-badge {
+      font-size: 11px; font-weight: 600; padding: 2px 8px;
+      border-radius: 10px; white-space: nowrap; flex-shrink: 0;
+    }
+    .status-answered-yes { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+    .status-answered-no { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
+    .status-in-progress { background: var(--blue-bg); color: var(--blue); border: 1px solid var(--blue-border); }
+    .status-not-started { background: var(--gray-bg); color: var(--gray); border: 1px solid var(--gray-border); }
+    .status-pending { background: var(--yellow-bg); color: var(--yellow); border: 1px solid var(--yellow-border); }
+    .status-discussion { background: var(--purple-bg); color: var(--purple); border: 1px solid var(--purple-border); }
+
+    /* ── Feedback ── */
+    .shq-feedback { margin-top: 8px; display: none; }
+    .edit-mode .shq-feedback { display: block; }
+    .shq-feedback textarea {
+      width: 100%; min-height: 60px; padding: 8px 10px;
+      background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
+      color: var(--text); font-size: 13px; font-family: inherit;
+      resize: vertical; outline: none; line-height: 1.5;
+    }
+    .shq-feedback textarea:focus { border-color: var(--accent); }
+    .shq-feedback textarea::placeholder { color: var(--text-dim); }
+    .shq-feedback label {
+      display: block; font-size: 11px; color: var(--text-dim);
+      text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; font-weight: 600;
+    }
+    .shq-status-select {
+      background: var(--bg); border: 1px solid var(--border); border-radius: 4px;
+      color: var(--text); font-size: 12px; padding: 3px 6px; font-family: inherit;
+      outline: none; margin-top: 4px; display: none;
+    }
+    .edit-mode .shq-status-select { display: inline-block; }
+    .edit-mode .shq-status-readonly { display: none; }
+
+    /* ── WH Group ── */
+    .wh-group { margin-bottom: 24px; }
+    .wh-group-header {
+      display: flex; align-items: center; gap: 10px;
+      padding: 8px 0; margin-bottom: 8px;
+      border-bottom: 2px solid var(--border);
+    }
+    .wh-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .wh-group-title { font-size: 16px; font-weight: 700; color: var(--text-bright); }
+    .wh-group-subtitle { font-size: 12px; color: var(--text-dim); }
+
+    /* ── Confidence Edit ── */
+    .confidence-edit { display: none; margin-top: 8px; }
+    .edit-mode .confidence-edit { display: flex; gap: 8px; align-items: center; }
+    .confidence-edit select {
+      background: var(--bg); border: 1px solid var(--border); border-radius: 4px;
+      color: var(--text); font-size: 12px; padding: 3px 6px; font-family: inherit; outline: none;
+    }
+    .confidence-edit label { font-size: 11px; color: var(--text-dim); }
+
+    /* ── Footer ── */
+    .footer { text-align: center; color: var(--text-dim); font-size: 12px; padding: 16px 0; }
+
+    /* ── Print ── */
+    @media print {
+      body { background: #fff; color: #111; padding: 12px; }
+      .top-nav, .header-actions, .edit-toolbar, .shq-feedback, .confidence-edit, .shq-status-select { display: none !important; }
+      .bhq-section.collapsed .bhq-body { display: block !important; }
+      :root { --bg: #fff; --bg-panel: #f8f8f8; --bg-card: #f0f0f0; --text: #111; --text-dim: #555; --text-bright: #000; --border: #ccc; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <span class="nav-brand">Lotus Tools</span>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Production Dashboard</a>
+      <a href="sprint.html" class="nav-link">Sprint Plan</a>
+      <a href="validation.html" class="nav-link active">Validation</a>
+      <a href="files.html" class="nav-link">Files</a>
+    </div>
+    <a href="https://github.com/timwilliams-prod/proj-chimera-documentation-brain/tree/main" class="nav-link nav-repo" target="_blank" rel="noopener">GitHub &nearr;</a>
+  </nav>
+
+  <div id="app"></div>
+
+  <script src="validation_data.js"></script>
+  <script>
+    let editMode = false;
+
+    function esc(str) {
+      const d = document.createElement('div');
+      d.textContent = str || '';
+      return d.innerHTML;
+    }
+
+    function statusLabel(s) {
+      const map = {
+        'answered_yes': 'Answered +',
+        'answered_no': 'Answered -',
+        'in_progress': 'In Progress',
+        'not_started': 'Not Started',
+        'pending': 'Pending',
+        'discussion': 'Discussion'
+      };
+      return map[s] || s;
+    }
+
+    function statusClass(s) {
+      return 'status-' + (s || 'not-started').replace('_', '-');
+    }
+
+    function trendIcon(t) {
+      if (t === '++') return '<span class="confidence-trend trend-up">&#9650;&#9650;</span>';
+      if (t === '+') return '<span class="confidence-trend trend-up">&#9650;</span>';
+      if (t === '=') return '<span class="confidence-trend trend-flat">&#9644;</span>';
+      if (t === '-') return '<span class="confidence-trend trend-down">&#9660;</span>';
+      if (t === '--') return '<span class="confidence-trend trend-down">&#9660;&#9660;</span>';
+      return '';
+    }
+
+    function whColor(id) {
+      if (id === 'WH-1') return 'var(--wh-battle)';
+      if (id === 'WH-2') return 'var(--wh-empire)';
+      if (id === 'WH-3') return 'var(--wh-monetization)';
+      return 'var(--accent)';
+    }
+
+    function toggleBhq(el) {
+      el.closest('.bhq-section').classList.toggle('collapsed');
+    }
+
+    function toggleEdit() {
+      editMode = !editMode;
+      document.getElementById('app').classList.toggle('edit-mode', editMode);
+      document.getElementById('edit-toolbar').classList.toggle('visible', editMode);
+      document.getElementById('btn-edit').textContent = editMode ? 'View Mode' : 'Edit Mode';
+    }
+
+    function collectEdits() {
+      const edits = { generated: new Date().toISOString().split('T')[0], shqs: [], confidence: [] };
+
+      // Collect SHQ feedback
+      document.querySelectorAll('.shq-row[data-shq-id]').forEach(row => {
+        const id = row.dataset.shqId;
+        const textarea = row.querySelector('textarea');
+        const select = row.querySelector('.shq-status-select');
+        const feedback = textarea ? textarea.value.trim() : '';
+        const newStatus = select ? select.value : '';
+        if (feedback || newStatus) {
+          const entry = { id };
+          if (feedback) entry.feedback = feedback;
+          if (newStatus) entry.new_status = newStatus;
+          edits.shqs.push(entry);
+        }
+      });
+
+      // Collect confidence changes
+      document.querySelectorAll('.confidence-card[data-wh-id]').forEach(card => {
+        const id = card.dataset.whId;
+        const confSel = card.querySelector('.conf-level-select');
+        const trendSel = card.querySelector('.conf-trend-select');
+        if (confSel || trendSel) {
+          edits.confidence.push({
+            id,
+            confidence: confSel ? confSel.value : '',
+            trend: trendSel ? trendSel.value : ''
+          });
+        }
+      });
+
+      return edits;
+    }
+
+    function saveEdits() {
+      const edits = collectEdits();
+      if (edits.shqs.length === 0 && edits.confidence.length === 0) {
+        alert('No feedback entered yet.');
+        return;
+      }
+
+      // Build markdown
+      let md = `# Validation Check-in — ${VALIDATION_DATA.meta.current_milestone}\n\n`;
+      md += `**Date**: ${edits.generated}\n`;
+      md += `**Evaluator**: [Your name]\n\n`;
+      md += `---\n\n`;
+
+      if (edits.confidence.length > 0) {
+        md += `## Confidence Updates\n\n`;
+        edits.confidence.forEach(c => {
+          md += `### ${c.id}\n`;
+          md += `- **Confidence**: ${c.confidence}\n`;
+          md += `- **Trend**: ${c.trend}\n\n`;
+        });
+        md += `---\n\n`;
+      }
+
+      if (edits.shqs.length > 0) {
+        md += `## SHQ Feedback\n\n`;
+        // Group by status change vs feedback only
+        const statusChanges = edits.shqs.filter(s => s.new_status);
+        const feedbackOnly = edits.shqs.filter(s => !s.new_status && s.feedback);
+
+        if (statusChanges.length > 0) {
+          md += `### Status Changes\n\n`;
+          md += `| SHQ | New Status | Feedback |\n`;
+          md += `|-----|-----------|----------|\n`;
+          statusChanges.forEach(s => {
+            md += `| ${s.id} | ${statusLabel(s.new_status)} | ${s.feedback || ''} |\n`;
+          });
+          md += `\n`;
+        }
+
+        if (feedbackOnly.length > 0) {
+          md += `### Observations & Notes\n\n`;
+          feedbackOnly.forEach(s => {
+            md += `#### ${s.id}\n${s.feedback}\n\n`;
+          });
+        }
+      }
+
+      md += `---\n\n`;
+      md += `> Apply this check-in by running: \`/validation-review\` and providing this file as input,\n`;
+      md += `> or paste the contents into Claude Code.\n`;
+
+      // Download
+      const blob = new Blob([md], { type: 'text/markdown' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `validation_checkin_${edits.generated}.md`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function render() {
+      const d = VALIDATION_DATA;
+      if (!d) {
+        document.getElementById('app').innerHTML = '<p>No validation data loaded.</p>';
+        return;
+      }
+
+      const m = d.meta;
+
+      // Confidence cards
+      const confCards = d.hypotheses.map(wh => {
+        const color = whColor(wh.id);
+        const totalShqs = wh.bhqs.reduce((n, b) => n + b.shqs.length, 0);
+        const answeredShqs = wh.bhqs.reduce((n, b) => n + b.shqs.filter(s => s.status === 'answered_yes' || s.status === 'answered_no').length, 0);
+        const inProgressShqs = wh.bhqs.reduce((n, b) => n + b.shqs.filter(s => s.status === 'in_progress').length, 0);
+
+        return `
+          <div class="confidence-card" style="border-top-color:${color}" data-wh-id="${esc(wh.id)}">
+            <div class="wh-label">${esc(wh.id)}</div>
+            <h3>${esc(wh.name)}</h3>
+            <div class="confidence-row">
+              <span class="confidence-level shq-status-readonly">${esc(wh.confidence)}</span>
+              ${trendIcon(wh.trend)}
+            </div>
+            <div class="confidence-stats">${answeredShqs} answered &middot; ${inProgressShqs} in progress &middot; ${totalShqs - answeredShqs - inProgressShqs} remaining</div>
+            <div class="confidence-edit">
+              <label>Confidence:</label>
+              <select class="conf-level-select">
+                ${['Low','Low-Medium','Medium','Medium-High','High'].map(l => `<option value="${l}" ${l===wh.confidence?'selected':''}>${l}</option>`).join('')}
+              </select>
+              <label>Trend:</label>
+              <select class="conf-trend-select">
+                ${['++','+','=','-','--'].map(t => `<option value="${t}" ${t===wh.trend?'selected':''}>${t}</option>`).join('')}
+              </select>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      // WH groups with BHQs
+      const whGroups = d.hypotheses.map(wh => {
+        const color = whColor(wh.id);
+
+        const bhqSections = wh.bhqs.map(bhq => {
+          const bhqAnswered = bhq.shqs.filter(s => s.status === 'answered_yes' || s.status === 'answered_no').length;
+          const bhqTotal = bhq.shqs.length;
+
+          const shqRows = bhq.shqs.map(shq => {
+            const isCurrent = shq.milestone === m.current_milestone;
+            const msTag = shq.milestone !== m.current_milestone
+              ? `<span class="shq-milestone-tag">${esc(shq.milestone)}</span>`
+              : `<span class="shq-milestone-tag current">${esc(shq.milestone)}</span>`;
+
+            const statusOpts = ['answered_yes','answered_no','in_progress','not_started','pending','discussion']
+              .map(s => `<option value="${s}" ${s===shq.status?'selected':''}>${statusLabel(s)}</option>`)
+              .join('');
+
+            return `
+              <div class="shq-row" data-shq-id="${esc(shq.id)}">
+                <div class="shq-top">
+                  <span class="shq-id">${esc(shq.id)}</span>
+                  <div class="shq-content">
+                    <div class="shq-question">${esc(shq.question)} ${msTag}</div>
+                    ${shq.notes ? `<div class="shq-notes"><em>${esc(shq.notes)}</em></div>` : ''}
+                    ${shq.result ? `<div class="shq-notes">Result: ${esc(shq.result)}</div>` : ''}
+                  </div>
+                  <span class="status-badge ${statusClass(shq.status)} shq-status-readonly">${statusLabel(shq.status)}</span>
+                  <select class="shq-status-select">${statusOpts}</select>
+                </div>
+                <div class="shq-feedback">
+                  <label>Feedback / Findings</label>
+                  <textarea placeholder="What did we learn? Any status change? Evidence from playtests, ClickUp, or design reviews..."></textarea>
+                </div>
+              </div>
+            `;
+          }).join('');
+
+          return `
+            <div class="bhq-section">
+              <div class="bhq-header" onclick="toggleBhq(this)">
+                <span class="bhq-arrow">&#9660;</span>
+                <span class="bhq-id">${esc(bhq.id)}</span>
+                <span class="bhq-question">${esc(bhq.question)}</span>
+                <span class="bhq-status-badge" style="background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-border)">${bhqAnswered}/${bhqTotal}</span>
+              </div>
+              <div class="bhq-body">${shqRows}</div>
+            </div>
+          `;
+        }).join('');
+
+        return `
+          <div class="wh-group">
+            <div class="wh-group-header">
+              <span class="wh-dot" style="background:${color}"></span>
+              <span class="wh-group-title">${esc(wh.id)}: ${esc(wh.name)}</span>
+              <span class="wh-group-subtitle">${esc(wh.status)}</span>
+            </div>
+            ${bhqSections}
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('app').innerHTML = `
+        <div class="header">
+          <div class="header-left">
+            <h1>Validation Check-in</h1>
+            <div class="subtitle">
+              ${esc(m.current_milestone)} &middot;
+              Last evaluated: ${esc(m.last_evaluated)} &middot;
+              Data from ValidationPlan.md + ClickUp SHQ Tracker
+            </div>
+          </div>
+          <div class="header-actions">
+            <button class="btn btn-default" id="btn-edit" onclick="toggleEdit()">Edit Mode</button>
+          </div>
+        </div>
+
+        <div class="edit-toolbar" id="edit-toolbar">
+          <div>
+            <strong style="color:var(--accent)">Editing</strong>
+            <span class="edit-toolbar-note"> &mdash; Update statuses and add feedback for each SHQ. Save downloads a .md file to feed back to Claude Code.</span>
+          </div>
+          <button class="btn btn-save" onclick="saveEdits()">Save Check-in (.md)</button>
+        </div>
+
+        <div class="confidence-bar">${confCards}</div>
+
+        ${whGroups}
+
+        <div class="footer">
+          Data generated ${esc(m.generated)} from ValidationPlan.md &middot;
+          Regenerate with /validation-review
+        </div>
+      `;
+    }
+
+    render();
+  </script>
+</body>
+</html>
