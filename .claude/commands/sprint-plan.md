@@ -234,7 +234,7 @@ const SPRINT_MANIFEST = [
 const SPRINT_CURRENT = 27;
 ```
 
-Structure the sprint data as a `SPRINT_DATA` const with:
+Structure the sprint data using `var SPRINT_DATA` (**must be `var`**, not `const` — multiple sprint files are loaded sequentially and `const` would throw a redeclaration error):
 
 ```javascript
 const SPRINT_DATA = {

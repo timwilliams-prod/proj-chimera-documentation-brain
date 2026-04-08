@@ -524,10 +524,34 @@
   </div>
 
   <script src="sprint_manifest.js"></script>
+  <!--
+    Sprint data files are loaded via static script tags below.
+    Each file sets const SPRINT_DATA, so we capture each into SPRINT_CACHE
+    immediately after loading. The last one loaded wins for SPRINT_DATA,
+    but we don't rely on that — loadSprint() pulls from the cache.
+  -->
+  <script>
+    // Pre-init: cache to store each sprint's data after its script loads
+    const SPRINT_CACHE = {};
+  </script>
+  <script>
+    // Immediately write script tags for all manifest entries.
+    // Each sprint file declares const SPRINT_DATA, so we wrap each load
+    // with a capture script that copies it into SPRINT_CACHE.
+    if (typeof SPRINT_MANIFEST !== 'undefined') {
+      SPRINT_MANIFEST.forEach(entry => {
+        document.write(`<script src="${entry.file}"><\/script>`);
+        document.write(`<script>if(typeof SPRINT_DATA!=='undefined'){SPRINT_CACHE[${entry.number}]=SPRINT_DATA;}<\/script>`);
+      });
+    }
+  </script>
   <script>
     // ─── Sprint Loader ───
-    let SPRINT_DATA;
     let activeSprint = null;
+
+    // Re-declare SPRINT_DATA as let so loadSprint can reassign it
+    // (the const from the last loaded file is now captured in SPRINT_CACHE)
+    var SPRINT_DATA;
 
     function getSprintParam() {
       const params = new URLSearchParams(window.location.search);
@@ -535,38 +559,27 @@
     }
 
     function loadSprint(number) {
-      const entry = SPRINT_MANIFEST.find(s => s.number === number);
-      if (!entry) {
+      if (!SPRINT_CACHE[number]) {
         document.getElementById('app').innerHTML =
-          `<div class="no-data-message">Sprint ${number} not found in manifest.</div>`;
+          `<div class="no-data-message">Sprint ${number} not found.<br>Run <code>/sprint-plan</code> to generate it.</div>`;
         return;
       }
 
-      // Remove previous sprint script if any
-      const old = document.getElementById('sprint-data-script');
-      if (old) old.remove();
-      SPRINT_DATA = undefined;
+      SPRINT_DATA = SPRINT_CACHE[number];
+      activeSprint = number;
 
-      const script = document.createElement('script');
-      script.id = 'sprint-data-script';
-      script.src = entry.file;
-      script.onload = () => {
-        activeSprint = number;
-        // Exit edit mode on sprint switch
-        if (editMode) { toggleEditMode(); }
-        hasChanges = false;
-        render();
-        // Update URL without reload
+      // Exit edit mode on sprint switch
+      if (editMode) { toggleEditMode(); }
+      hasChanges = false;
+      render();
+
+      // Update URL without reload
+      try {
         const url = new URL(window.location);
         if (number === SPRINT_CURRENT) { url.searchParams.delete('sprint'); }
         else { url.searchParams.set('sprint', number); }
         history.replaceState(null, '', url);
-      };
-      script.onerror = () => {
-        document.getElementById('app').innerHTML =
-          `<div class="no-data-message">Failed to load <code>${entry.file}</code>.<br>Run <code>/sprint-plan</code> to generate it.</div>`;
-      };
-      document.body.appendChild(script);
+      } catch(e) { /* file:// may not support URL constructor */ }
     }
 
     // ─── Constants ───
