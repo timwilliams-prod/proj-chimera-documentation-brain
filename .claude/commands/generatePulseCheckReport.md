@@ -229,7 +229,7 @@ For Needs & Asks: Look for signals in risk evaluation (staffing gaps, scope pres
 
 ### 5. Write the Report
 
-Save to `generated/reports/pulse_checks/pulse_check_YYYY-MM.md`.
+Save the markdown report to `generated/reports/pulse_checks/pulse_check_YYYY-MM.md`.
 
 Include a metadata header:
 
@@ -243,6 +243,58 @@ Previous Pulse Check: [date or "None"]
 Generated: [Date]
 ---
 ```
+
+### 5b. Generate Pulse Check Dashboard Data
+
+Also generate `generated/reports/pulse_checks/pulse_check_data.js` for the HTML viewer at `generated/reports/pulse_checks/index.html`.
+
+The data file drives a standalone web page with collapsible goal breakdowns. Structure:
+
+```javascript
+const PULSE_CHECK_DATA = {
+  meta: {
+    quarter, month, milestone, goals_source, previous_pulse_check, generated
+  },
+  executive_summary: "...", // HTML string — paragraphs, confidence signal div
+  goals: [
+    {
+      number: 1,
+      title: "...",
+      status: "on_track|at_risk|completed|will_not_complete|no_plan",
+      confidence: "...",
+      summary_notes: "...",
+      breakdown: "..." // HTML string — h4 headers, ul/li, p tags. This is the collapsible detail.
+    }
+  ],
+  team_size: {
+    total: N,
+    disciplines: [{ name, count, notes }],
+    changes: ["<strong>Name</strong> — description"],
+    open_roles: [{ role, status, pod, impact, timeline }]
+  },
+  team_health: {
+    assessment: "...",
+    highlights: ["..."],
+    concerns: ["..."],
+    note: "..." // italic note about qualitative context
+  },
+  blockers_risks: {
+    blockers: ["..."],
+    risks: ["..."],
+    needs_asks: [{ title, detail, ask }],
+    open_questions: ["..."]
+  },
+  data_sources: [{ source, date, notes }]
+};
+```
+
+Key formatting rules:
+- `executive_summary` and `breakdown` fields contain HTML (use `<p>`, `<ul>`, `<li>`, `<h4>`)
+- Use `<strong>` for emphasis in list items
+- Use `&mdash;` for em dashes, `&rarr;` for arrows
+- End the executive summary with a `<div class="confidence-signal">` block
+- The `breakdown` HTML uses `<h4>` for sub-headers like "Progress This Month", "Current State", "Next Steps"
+- For At Risk goals, include a `<div class="action-needed">` block in the breakdown
 
 ### 6. Update QVR Goals File
 
