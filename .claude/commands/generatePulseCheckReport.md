@@ -246,12 +246,16 @@ Generated: [Date]
 
 ### 5b. Generate Pulse Check Dashboard Data
 
-Also generate `generated/reports/pulse_checks/pulse_check_data.js` for the HTML viewer at `generated/reports/pulse_checks/index.html`.
+Generate `generated/reports/pulse_checks/pulse_check_YYYY-MM_data.js` for the HTML viewer at `generated/reports/pulse_checks/index.html`.
 
-The data file drives a standalone web page with collapsible goal breakdowns. Structure:
+**File naming**: Each report gets its own data file named `pulse_check_YYYY-MM_data.js` (e.g., `pulse_check_2026-04_data.js`). Use `window.PULSE_CHECK_DATA = { ... }` (not `const`) so reports can be loaded dynamically.
+
+**Also update the index**: After writing the data file, update `generated/reports/pulse_checks/pulse_check_index.js` — add an entry for the new report at the top of the `PULSE_CHECK_INDEX` array (most recent first). Each entry has: `{ id, quarter, month, month_short, milestone, generated, file, note }`. If the index file doesn't exist, create it.
+
+The data file drives a standalone web page with collapsible goal breakdowns and a report picker to switch between months/quarters. Structure:
 
 ```javascript
-const PULSE_CHECK_DATA = {
+window.PULSE_CHECK_DATA = {
   meta: {
     quarter, month, milestone, goals_source, previous_pulse_check, generated
   },

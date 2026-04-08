@@ -205,7 +205,9 @@ const DASHBOARD_DATA = {
       { name: "Sys Val", date: "2026-03-30" },
       { name: "M&Ms", date: "2026-06-23" },
       { name: "Beta Prep", date: "2026-07-21" },
-      { name: "M&C", date: "2026-10-13" }
+      { name: "M&C", date: "2026-10-13" },
+      { name: "Live Ops", date: "2027-02-02" },
+      { name: "Soft Launch", date: "2027-05-30" }
     ],
     sprints: [
       { name: "S25", start: "2026-03-17", end: "2026-03-31" },

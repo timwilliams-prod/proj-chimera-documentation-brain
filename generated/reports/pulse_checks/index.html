@@ -44,6 +44,79 @@
       padding: 32px 24px;
     }
 
+    /* ── Report Picker ── */
+    .report-picker {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .picker-label {
+      font-size: 13px;
+      color: var(--text-dim);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+    }
+    .picker-quarters {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .quarter-group {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .quarter-label {
+      font-size: 12px;
+      color: var(--text-dim);
+      font-weight: 600;
+      padding-right: 2px;
+      white-space: nowrap;
+    }
+    .month-chip {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      padding: 4px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .month-chip:hover {
+      color: var(--text-bright);
+      border-color: var(--accent);
+    }
+    .month-chip.active {
+      background: var(--accent-dim);
+      color: var(--accent);
+      border-color: var(--accent);
+      font-weight: 600;
+    }
+    .quarter-divider {
+      width: 1px;
+      height: 24px;
+      background: var(--border-light);
+      margin: 0 6px;
+      flex-shrink: 0;
+    }
+    .picker-note {
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-left: auto;
+      font-style: italic;
+    }
+
     /* ── Header ── */
     .page-header {
       margin-bottom: 32px;
@@ -390,9 +463,24 @@
       gap: 8px;
     }
 
+    /* ── Loading ── */
+    .loading {
+      text-align: center;
+      color: var(--text-dim);
+      padding: 60px 20px;
+      font-size: 14px;
+    }
+    .load-error {
+      text-align: center;
+      color: var(--red);
+      padding: 60px 20px;
+      font-size: 14px;
+    }
+
     /* ── Print ── */
     @media print {
       body { background: #fff; color: #111; padding: 12px; max-width: none; }
+      .report-picker { display: none; }
       .section { border-color: #ddd; background: #fff; }
       .goal-card { border-color: #ddd; }
       .goal-card-header { background: #f5f5f5; }
@@ -408,10 +496,16 @@
 </head>
 <body>
 
+  <div id="picker"></div>
   <div id="app"></div>
 
-  <script src="pulse_check_data.js"></script>
+  <script src="pulse_check_index.js"></script>
   <script>
+    // ── State ──
+    let currentReportId = null;
+    const loadedScripts = {};
+
+    // ── Helpers ──
     function esc(str) {
       const d = document.createElement('div');
       d.textContent = str || '';
@@ -451,10 +545,84 @@
       });
     }
 
+    // ── Picker ──
+    function renderPicker() {
+      if (!window.PULSE_CHECK_INDEX || PULSE_CHECK_INDEX.length === 0) {
+        document.getElementById('picker').innerHTML = '';
+        return;
+      }
+
+      // Group by quarter
+      const quarters = {};
+      PULSE_CHECK_INDEX.forEach(entry => {
+        if (!quarters[entry.quarter]) quarters[entry.quarter] = [];
+        quarters[entry.quarter].push(entry);
+      });
+
+      // Sort quarters descending (most recent first)
+      const sortedQuarters = Object.keys(quarters).sort().reverse();
+
+      let html = '<div class="report-picker"><span class="picker-label">Report</span><div class="picker-quarters">';
+
+      sortedQuarters.forEach((q, qi) => {
+        if (qi > 0) html += '<span class="quarter-divider"></span>';
+        html += `<div class="quarter-group"><span class="quarter-label">${esc(q)}:</span>`;
+        quarters[q].forEach(entry => {
+          html += `<button class="month-chip" data-id="${esc(entry.id)}" onclick="loadReport('${esc(entry.id)}')" title="${esc(entry.month)} — ${esc(entry.milestone)}${entry.note ? ' (' + esc(entry.note) + ')' : ''}">${esc(entry.month_short)}</button>`;
+        });
+        html += '</div>';
+      });
+
+      html += '</div></div>';
+      document.getElementById('picker').innerHTML = html;
+    }
+
+    function updatePickerActive() {
+      document.querySelectorAll('.month-chip').forEach(c => {
+        c.classList.toggle('active', c.dataset.id === currentReportId);
+      });
+    }
+
+    // ── Report Loading ──
+    function loadReport(id) {
+      currentReportId = id;
+      updatePickerActive();
+
+      // If already loaded, just re-render
+      if (loadedScripts[id]) {
+        window.PULSE_CHECK_DATA = loadedScripts[id];
+        render();
+        return;
+      }
+
+      // Show loading state
+      document.getElementById('app').innerHTML = '<div class="loading">Loading report...</div>';
+
+      // Find the entry
+      const entry = PULSE_CHECK_INDEX.find(r => r.id === id);
+      if (!entry) {
+        document.getElementById('app').innerHTML = '<div class="load-error">Report not found in index.</div>';
+        return;
+      }
+
+      // Dynamically load the data file
+      const script = document.createElement('script');
+      script.src = entry.file;
+      script.onload = () => {
+        loadedScripts[id] = window.PULSE_CHECK_DATA;
+        render();
+      };
+      script.onerror = () => {
+        document.getElementById('app').innerHTML = `<div class="load-error">Failed to load <code>${esc(entry.file)}</code>. Make sure the data file exists.</div>`;
+      };
+      document.head.appendChild(script);
+    }
+
+    // ── Render Report ──
     function render() {
-      const d = PULSE_CHECK_DATA;
+      const d = window.PULSE_CHECK_DATA;
       if (!d) {
-        document.getElementById('app').innerHTML = '<p>No pulse check data loaded.</p>';
+        document.getElementById('app').innerHTML = '<div class="loading">Select a report above.</div>';
         return;
       }
 
@@ -658,7 +826,13 @@
       `;
     }
 
-    render();
+    // ── Init ──
+    renderPicker();
+    if (PULSE_CHECK_INDEX.length > 0) {
+      loadReport(PULSE_CHECK_INDEX[0].id);
+    } else {
+      document.getElementById('app').innerHTML = '<div class="loading">No Pulse Check reports found. Run <code>/generatePulseCheckReport</code> to create one.</div>';
+    }
   </script>
 </body>
 </html>

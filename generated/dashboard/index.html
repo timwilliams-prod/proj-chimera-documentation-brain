@@ -521,6 +521,7 @@
     <div class="nav-links">
       <a href="index.html" class="nav-link active">Production Dashboard</a>
       <a href="sprint.html" class="nav-link">Sprint Plan</a>
+      <a href="roadmap.html" class="nav-link">Roadmap</a>
       <a href="validation.html" class="nav-link">Validation</a>
       <a href="files.html" class="nav-link">Files</a>
     </div>
@@ -849,24 +850,30 @@
     // ── Panel 5: Feature Roadmap ──
     function renderRoadmap() {
       const r = DASHBOARD_DATA.roadmap;
-      const tlStart = new Date(r.timeline_start + 'T00:00:00');
-      const tlEnd = new Date(r.timeline_end + 'T00:00:00');
-      const totalDays = daysBetween(r.timeline_start, r.timeline_end);
+      // Filter to current milestone window
+      const _msEnd = DASHBOARD_DATA.milestone.end_date;
+      const _msIdx = r.milestones.findIndex(ms => ms.date === _msEnd);
+      const _msStart = _msIdx > 0 ? r.milestones[_msIdx - 1].date : r.timeline_start;
+      const msSprints = r.sprints.filter(s => s.end > _msStart && s.start <= _msEnd);
+      const msBoulders = r.boulders.filter(b => b.end > _msStart && b.start < _msEnd);
+      const _tlStart = msSprints.length > 0 ? msSprints[0].start : _msStart;
+      const _tlEnd = msSprints.length > 0 ? msSprints[msSprints.length - 1].end : _msEnd;
+      const totalDays = daysBetween(_tlStart, _tlEnd);
 
       function pct(dateStr) {
-        const d = daysBetween(r.timeline_start, dateStr);
+        const d = daysBetween(_tlStart, dateStr);
         return Math.max(0, Math.min(100, (d / totalDays) * 100));
       }
 
       // Sprint columns
-      const sprintCols = r.sprints.map(s => {
+      const sprintCols = msSprints.map(s => {
         const today = new Date().toISOString().slice(0, 10);
         const isCurrent = today >= s.start && today < s.end;
         return `<div class="roadmap-sprint-col ${isCurrent ? 'current' : ''}">${s.name}</div>`;
       }).join('');
 
       // Sprint gridlines
-      const gridlines = r.sprints.map(s => {
+      const gridlines = msSprints.map(s => {
         const left = pct(s.start);
         return `<div class="sprint-gridline" style="left: ${left}%;"></div>`;
       }).join('');
@@ -891,7 +898,7 @@
       // Pod rows with boulders
       const podRows = r.pods.map(pod => {
         const podColor = POD_COLORS_HEX[pod] || '#888888';
-        const podBoulders = r.boulders.filter(b => b.pod === pod);
+        const podBoulders = msBoulders.filter(b => b.pod === pod);
 
         // Stack overlapping boulders into lanes
         const lanes = [];
@@ -949,7 +956,7 @@
 
       return `
         <div class="panel">
-          <div class="panel-title">Feature Roadmap</div>
+          <div class="panel-title">Milestone Roadmap &mdash; ${DASHBOARD_DATA.milestone.name}</div>
           <div class="roadmap-container">
             <div class="roadmap-grid">
               <div class="roadmap-header">

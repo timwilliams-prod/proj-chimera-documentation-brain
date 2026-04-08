@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roadmap - Lotus Tools</title>
+  <style>
+    :root {
+      --bg: #1a1a2e;
+      --bg-panel: #16213e;
+      --bg-card: #0f3460;
+      --bg-row-alt: #1a2744;
+      --text: #e0e0e0;
+      --text-dim: #8899aa;
+      --text-bright: #ffffff;
+      --border: #2a3a5e;
+      --accent: #53a8ff;
+
+      --pod-empire: #4A9EFF;
+      --pod-metagame: #FF8C42;
+      --pod-battle: #FF4444;
+      --pod-social: #44BB77;
+      --pod-dozer: #AA77FF;
+      --pod-art: #FFD700;
+
+      --ms-mms: #4A9EFF;
+      --ms-beta: #eab308;
+      --ms-mc: #22c55e;
+      --ms-liveops: #AA77FF;
+      --ms-softlaunch: #FF8C42;
+      --ms-sysval: #6b7280;
+
+      --status-green: #22c55e;
+      --status-yellow: #eab308;
+      --status-red: #ef4444;
+      --status-gray: #6b7280;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 24px;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    code, .mono { font-family: 'Cascadia Code', 'Fira Code', Consolas, monospace; }
+
+    /* -- Nav Bar -- */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-link {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 13px;
+      padding: 4px 12px;
+      border-radius: 6px;
+      transition: all 0.15s;
+    }
+    .nav-link:hover { color: var(--text-bright); background: rgba(83,168,255,0.1); }
+    .nav-link.active { color: var(--accent); background: rgba(83,168,255,0.15); font-weight: 600; }
+    .nav-repo { font-size: 12px; }
+
+    /* -- Header -- */
+    .header {
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--border);
+    }
+    .header h1 { font-size: 26px; color: var(--text-bright); margin-bottom: 4px; }
+    .header .subtitle { color: var(--text-dim); font-size: 13px; }
+
+    /* -- Panel -- */
+    .panel {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .panel-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-bright);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* -- Legend -- */
+    .legend {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+    .legend-swatch {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    /* -- Roadmap -- */
+    .roadmap-container {
+      overflow-x: auto;
+      position: relative;
+      padding-bottom: 8px;
+    }
+    .roadmap-grid {
+      position: relative;
+      min-width: 1200px;
+    }
+
+    /* Month header */
+    .roadmap-header {
+      display: flex;
+      border-bottom: 2px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--bg-panel);
+    }
+    .roadmap-label-col {
+      width: 140px;
+      min-width: 140px;
+      flex-shrink: 0;
+      padding: 6px 8px;
+      font-size: 12px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+    }
+    .roadmap-timeline-area {
+      flex: 1;
+      position: relative;
+    }
+    .roadmap-months {
+      display: flex;
+      width: 100%;
+    }
+    .roadmap-month-col {
+      flex: 1;
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-dim);
+      padding: 6px 2px;
+      border-left: 1px solid rgba(42, 58, 94, 0.3);
+    }
+    .roadmap-month-col.current {
+      background: rgba(83, 168, 255, 0.08);
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* Milestone band row */
+    .milestone-band-row {
+      display: flex;
+      border-bottom: 1px solid var(--border);
+    }
+    .milestone-band-track {
+      flex: 1;
+      position: relative;
+      height: 28px;
+    }
+    .milestone-band {
+      position: absolute;
+      top: 3px;
+      height: 22px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 600;
+      color: #111;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .milestone-band.active-ms {
+      outline: 2px solid var(--text-bright);
+      outline-offset: 1px;
+    }
+
+    /* Pod rows */
+    .roadmap-body { position: relative; }
+    .roadmap-row {
+      display: flex;
+      min-height: 52px;
+      border-bottom: 1px solid rgba(42, 58, 94, 0.3);
+    }
+    .roadmap-row:nth-child(even) { background: rgba(15, 52, 96, 0.15); }
+    .roadmap-pod-label {
+      width: 140px;
+      min-width: 140px;
+      flex-shrink: 0;
+      padding: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+    }
+    .roadmap-pod-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 8px;
+      flex-shrink: 0;
+    }
+    .roadmap-track {
+      flex: 1;
+      position: relative;
+      min-height: 52px;
+    }
+
+    /* Boulder bars */
+    .boulder-bar {
+      position: absolute;
+      height: 22px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      padding: 0 8px;
+      font-size: 11px;
+      font-weight: 500;
+      color: #111;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      cursor: default;
+      z-index: 2;
+    }
+    .boulder-bar.future { opacity: 0.5; }
+    .boulder-bar:hover {
+      opacity: 1;
+      z-index: 5;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+    .boulder-tooltip {
+      display: none;
+      position: absolute;
+      bottom: calc(100% + 6px);
+      left: 0;
+      background: #1a1a2e;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 12px;
+      color: var(--text);
+      white-space: normal;
+      min-width: 200px;
+      max-width: 320px;
+      z-index: 100;
+      pointer-events: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+    .boulder-bar:hover .boulder-tooltip { display: block; }
+    .tooltip-title { font-weight: 600; color: var(--text-bright); margin-bottom: 4px; }
+    .tooltip-detail { color: var(--text-dim); }
+
+    /* Gridlines and markers */
+    .month-gridlines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .month-gridline {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: rgba(42, 58, 94, 0.3);
+    }
+    .today-marker {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--status-red);
+      z-index: 3;
+      pointer-events: none;
+    }
+    .today-marker::before {
+      content: 'TODAY';
+      position: absolute;
+      top: -20px;
+      left: -16px;
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--status-red);
+      letter-spacing: 0.5px;
+    }
+    .milestone-marker {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 0;
+      z-index: 1;
+      pointer-events: none;
+      border-left: 2px dashed rgba(255, 255, 255, 0.25);
+    }
+    .milestone-marker-label {
+      position: absolute;
+      top: -18px;
+      font-size: 10px;
+      color: var(--text-dim);
+      white-space: nowrap;
+      transform: translateX(-50%);
+    }
+
+    /* -- Footer -- */
+    .footer {
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 12px;
+      padding: 16px 0;
+    }
+
+    /* -- Print -- */
+    @media print {
+      body { background: #fff; color: #111; padding: 12px; }
+      .top-nav { display: none; }
+      .panel { border-color: #ccc; }
+      :root {
+        --bg: #fff; --bg-panel: #f8f8f8; --bg-card: #f0f0f0;
+        --text: #111; --text-dim: #555; --text-bright: #000; --border: #ccc;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <span class="nav-brand">Lotus Tools</span>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Production Dashboard</a>
+      <a href="sprint.html" class="nav-link">Sprint Plan</a>
+      <a href="roadmap.html" class="nav-link active">Roadmap</a>
+      <a href="validation.html" class="nav-link">Validation</a>
+      <a href="files.html" class="nav-link">Files</a>
+    </div>
+    <a href="https://github.com/timwilliams-prod/proj-chimera-documentation-brain/tree/main" class="nav-link nav-repo" target="_blank" rel="noopener">GitHub &nearr;</a>
+  </nav>
+
+  <div id="app"></div>
+
+  <script src="dashboard_data.js"></script>
+  <script>
+    // -- Config --
+    const POD_COLORS_HEX = {
+      'Empire': '#4A9EFF',
+      'Metagame': '#FF8C42',
+      'Battle': '#FF4444',
+      'Social Dynamics': '#44BB77',
+      'Dozer': '#AA77FF',
+      'Art': '#FFD700'
+    };
+
+    const MS_COLORS = {
+      'Sys Val': '#6b7280',
+      'M&Ms': '#4A9EFF',
+      'Beta Prep': '#eab308',
+      'M&C': '#22c55e',
+      'Live Ops': '#AA77FF',
+      'Soft Launch': '#FF8C42'
+    };
+
+    // -- Utilities --
+    function daysBetween(a, b) {
+      return Math.round((new Date(b) - new Date(a)) / 86400000);
+    }
+
+    function formatDate(dateStr) {
+      const d = new Date(dateStr + 'T00:00:00');
+      return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    }
+
+    function generateMonths(startDate, endDate) {
+      const months = [];
+      const start = new Date(startDate + 'T00:00:00');
+      const end = new Date(endDate + 'T00:00:00');
+      let current = new Date(start.getFullYear(), start.getMonth(), 1);
+
+      while (current <= end) {
+        const y = current.getFullYear();
+        const m = current.getMonth();
+        const mStart = `${y}-${String(m + 1).padStart(2, '0')}-01`;
+        const nextMonth = new Date(y, m + 1, 1);
+        const lastDay = new Date(nextMonth - 1);
+        const mEnd = `${lastDay.getFullYear()}-${String(lastDay.getMonth() + 1).padStart(2, '0')}-${String(lastDay.getDate()).padStart(2, '0')}`;
+        const label = current.toLocaleDateString('en-US', { month: 'short' }) + " '" + String(y).slice(2);
+        months.push({ label, start: mStart, end: mEnd });
+        current.setMonth(current.getMonth() + 1);
+      }
+      return months;
+    }
+
+    // Build milestone periods from the milestones array
+    function buildMilestonePeriods(milestones, tlStart, tlEnd) {
+      const periods = [];
+      for (let i = 0; i < milestones.length; i++) {
+        const msStart = i === 0 ? tlStart : milestones[i - 1].date;
+        const msEnd = milestones[i].date;
+        periods.push({ name: milestones[i].name, start: msStart, end: msEnd });
+      }
+      return periods;
+    }
+
+    // -- Render --
+    function render() {
+      const r = DASHBOARD_DATA.roadmap;
+      const todayStr = new Date().toISOString().slice(0, 10);
+
+      // Timeline bounds: from first data to last milestone (+ buffer)
+      const lastMs = r.milestones[r.milestones.length - 1];
+      const tlStart = r.timeline_start;
+      const tlEnd = lastMs.date;
+
+      // Generate month columns
+      const months = generateMonths(tlStart, tlEnd);
+      const chartStart = months[0].start;
+      const chartEnd = months[months.length - 1].end;
+      const totalDays = daysBetween(chartStart, chartEnd);
+
+      function pct(dateStr) {
+        const d = daysBetween(chartStart, dateStr);
+        return Math.max(0, Math.min(100, (d / totalDays) * 100));
+      }
+
+      // Month columns
+      const monthCols = months.map(m => {
+        const isCurrent = todayStr >= m.start && todayStr <= m.end;
+        return `<div class="roadmap-month-col ${isCurrent ? 'current' : ''}">${m.label}</div>`;
+      }).join('');
+
+      // Month gridlines
+      const gridlines = months.map(m => {
+        const left = pct(m.start);
+        return `<div class="month-gridline" style="left: ${left}%;"></div>`;
+      }).join('');
+
+      // Milestone periods
+      const msPeriods = buildMilestonePeriods(r.milestones, chartStart, chartEnd);
+      const currentMsName = DASHBOARD_DATA.milestone.name;
+
+      const msBands = msPeriods.map(ms => {
+        const left = pct(ms.start);
+        const right = pct(ms.end);
+        const width = right - left;
+        const color = MS_COLORS[ms.name] || '#888';
+        const isActive = currentMsName.includes(ms.name);
+        return `<div class="milestone-band ${isActive ? 'active-ms' : ''}"
+                     style="left: ${left}%; width: ${width}%; background: ${color};">
+                  ${ms.name}
+                </div>`;
+      }).join('');
+
+      // Milestone boundary markers (dashed lines in pod area)
+      const msMarkers = r.milestones.map(ms => {
+        const left = pct(ms.date);
+        if (left <= 0 || left >= 100) return '';
+        return `<div class="milestone-marker" style="left: ${left}%;"></div>`;
+      }).join('');
+
+      // Today marker
+      const todayLeft = pct(todayStr);
+      const todayMarker = (todayLeft > 0 && todayLeft < 100)
+        ? `<div class="today-marker" style="left: ${todayLeft}%;"></div>`
+        : '';
+
+      // Pod rows
+      const podRows = r.pods.map(pod => {
+        const podColor = POD_COLORS_HEX[pod] || '#888';
+        const podBoulders = r.boulders.filter(b => b.pod === pod);
+
+        // Stack overlapping boulders into lanes
+        const lanes = [];
+        podBoulders.forEach(b => {
+          let placed = false;
+          for (let i = 0; i < lanes.length; i++) {
+            const last = lanes[i][lanes[i].length - 1];
+            if (b.start >= last.end) {
+              lanes[i].push(b);
+              placed = true;
+              break;
+            }
+          }
+          if (!placed) lanes.push([b]);
+        });
+
+        const rowHeight = Math.max(1, lanes.length) * 30 + 12;
+
+        const boulderHtml = lanes.map((lane, laneIdx) => {
+          return lane.map(b => {
+            const left = pct(b.start);
+            const right = pct(b.end);
+            const width = right - left;
+            const top = 6 + laneIdx * 30;
+
+            return `
+              <div class="boulder-bar ${b.status === 'future' ? 'future' : ''}"
+                   style="left: ${left}%; width: ${width}%; top: ${top}px; background: ${podColor};">
+                ${b.name}
+                <div class="boulder-tooltip">
+                  <div class="tooltip-title">${b.name}</div>
+                  <div class="tooltip-detail">${formatDate(b.start)} - ${formatDate(b.end)}</div>
+                  <div class="tooltip-detail" style="margin-top: 4px;">${b.details}</div>
+                </div>
+              </div>
+            `;
+          }).join('');
+        }).join('');
+
+        return `
+          <div class="roadmap-row" style="min-height: ${rowHeight}px;">
+            <div class="roadmap-pod-label">
+              <div class="roadmap-pod-dot" style="background: ${podColor};"></div>
+              ${pod}
+            </div>
+            <div class="roadmap-track">
+              <div class="month-gridlines">${gridlines}</div>
+              ${msMarkers}
+              ${todayMarker}
+              ${boulderHtml}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      // Pod legend
+      const podLegend = r.pods.map(pod => {
+        const color = POD_COLORS_HEX[pod] || '#888';
+        return `<div class="legend-item"><div class="legend-swatch" style="background:${color}"></div>${pod}</div>`;
+      }).join('');
+
+      // Milestone legend
+      const msLegend = Object.entries(MS_COLORS).map(([name, color]) => {
+        return `<div class="legend-item"><div class="legend-swatch" style="background:${color}"></div>${name}</div>`;
+      }).join('');
+
+      // Boulder count
+      const boulderCount = r.boulders.length;
+
+      // Assemble
+      const genDate = new Date(DASHBOARD_DATA.generated_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+      document.getElementById('app').innerHTML = `
+        <div class="header">
+          <h1>Full Roadmap</h1>
+          <div class="subtitle">${formatDate(tlStart)} through ${formatDate(tlEnd)} &middot; ${boulderCount} features across ${r.pods.length} pods &middot; Data from ${genDate}</div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title">Feature Roadmap &mdash; M&Ms to Soft Launch</div>
+
+          <div class="legend" style="margin-bottom: 8px;">
+            <span style="font-size: 11px; color: var(--text-dim); margin-right: 4px; font-weight: 600;">MILESTONES:</span>
+            ${msLegend}
+          </div>
+          <div class="legend">
+            <span style="font-size: 11px; color: var(--text-dim); margin-right: 4px; font-weight: 600;">PODS:</span>
+            ${podLegend}
+            <div class="legend-item" style="margin-left: 12px;"><div class="legend-swatch" style="opacity:0.5; background: #888; border: 1px dashed #aaa;"></div>Future (unstarted)</div>
+          </div>
+
+          <div class="roadmap-container">
+            <div class="roadmap-grid">
+              <!-- Month header -->
+              <div class="roadmap-header">
+                <div class="roadmap-label-col">Pod</div>
+                <div class="roadmap-timeline-area">
+                  <div class="roadmap-months">${monthCols}</div>
+                </div>
+              </div>
+
+              <!-- Milestone band -->
+              <div class="milestone-band-row">
+                <div class="roadmap-label-col" style="font-size: 11px; display: flex; align-items: center;">Milestone</div>
+                <div class="milestone-band-track">${msBands}</div>
+              </div>
+
+              <!-- Pod rows -->
+              <div class="roadmap-body">
+                ${podRows}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer">Lotus Full Roadmap &middot; Generated by <code>/production-dashboard</code></div>
+      `;
+    }
+
+    render();
+  </script>
+</body>
+</html>
