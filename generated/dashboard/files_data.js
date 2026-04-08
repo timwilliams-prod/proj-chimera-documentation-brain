@@ -206,7 +206,10 @@ const FILES_DATA = {
         },
         {
           name: "Pulse Checks",
-          files: []
+          files: [
+            { path: "generated/reports/pulse_checks/pulse_check_2026-04.md", label: "Pulse Check — April 2026", desc: "Q2 Month 1 — M&Ms must-haves as proxy goals" },
+            { path: "generated/reports/pulse_checks/pulse_check_2026-03.md", label: "Pulse Check — March 2026", desc: "Q1 Month 3 — closing out Systems Validation" }
+          ]
         },
         {
           name: "QVR Reports",

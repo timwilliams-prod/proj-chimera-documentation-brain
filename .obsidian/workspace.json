@@ -257,6 +257,10 @@
   },
   "active": "38fc166341ab2af3",
   "lastOpenFiles": [
+    "generated/dashboard/files_data.js.tmp.1568.1775673719183",
+    "generated/reports/pulse_checks/pulse_check_2026-03.md",
+    "generated/reports/pulse_checks/pulse_check_2026-03.md.tmp.1568.1775673713275",
+    "generated/reports/pulse_checks/pulse_check_2026-04.md",
     "planning/qvr/q1_2026_goals.md",
     "generated/dashboard/files_data.js.tmp.1568.1775672520633",
     "generated/dashboard/files_data.js.tmp.1568.1775672512813",
@@ -268,7 +272,6 @@
     "generated/dashboard/sprint.html.tmp.1568.1775670399953",
     "generated/dashboard/files.html",
     "generated/dashboard/files_data.js",
-    "generated/dashboard/files_data.js.tmp.1568.1775670328747",
     "planning/pods/empire/milestone_mms.md",
     "generated/reports/risk_eval_2026-04-07.md",
     "planning/pods/empire/milestone_mc.md",
@@ -289,9 +292,6 @@
     "planning/pods/metagame/milestone_mc.md",
     "planning/pods/metagame/milestone_mms.md",
     "planning/pods/metagame/features.md",
-    "reference/skill_evaluation_pulse_check_qvr.md",
-    "reference/skill_evaluation_risk_eval_roadmap_update.md",
-    "planning/operating_cadence.md",
-    "planning/features/production_dashboard.md"
+    "reference/skill_evaluation_pulse_check_qvr.md"
   ]
 }
