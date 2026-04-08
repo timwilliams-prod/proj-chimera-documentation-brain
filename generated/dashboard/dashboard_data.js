@@ -232,7 +232,7 @@ const DASHBOARD_DATA = {
       { name: "Tutorial Migration", pod: "Empire", start: "2026-03-30", end: "2026-04-13", status: "active", details: "Tutorial Node Migration — 1 sprint (Henrique)" },
       { name: "World Map Experience", pod: "Empire", start: "2026-04-13", end: "2026-05-25", status: "future", details: "3 sub-efforts: Multiple Nodes, Main Menu UX, Iterations — 3 sprints" },
       { name: "Territory Map VS", pod: "Empire", start: "2026-05-25", end: "2026-06-22", status: "future", details: "Territory Map Vertical Slice — 2 sprints (SHQ3-1, SHQ3-2)" },
-      { name: "Map Content Pipeline", pod: "Empire", start: "2026-03-18", end: "2026-10-13", status: "active", details: "Ongoing design/art map content production (SHQ3-1)" },
+      { name: "Map Content Pipeline", pod: "Empire", start: "2026-03-18", end: "2027-05-30", status: "active", details: "Ongoing design/art map content production (SHQ3-1)" },
       { name: "Governors", pod: "Empire", start: "2026-07-22", end: "2026-09-02", status: "future", details: "Governor system — 3 sprints (M&C, SHQ3-7)" },
       { name: "Empire M&C Features", pod: "Empire", start: "2026-09-02", end: "2026-10-13", status: "future", details: "WM Upgrades, Zoom/LOD, Conquest Guide — 3 features" },
 
@@ -242,6 +242,8 @@ const DASHBOARD_DATA = {
       { name: "Combat Research", pod: "Metagame", start: "2026-04-15", end: "2026-05-13", status: "future", details: "Global Combat Research Tree — 2 sprints" },
       { name: "Gacha & Passive Tiles", pod: "Metagame", start: "2026-05-13", end: "2026-06-10", status: "future", details: "Hero Gacha v1 + Passive Bonus Tiles — 2 sprints" },
       { name: "Metagame M&C Features", pod: "Metagame", start: "2026-07-22", end: "2026-10-14", status: "future", details: "9 features across 2 pipelines: Menu, Dungeons v2, Shop, Hero Gacha v2, etc." },
+      { name: "Metagame LO&S Features", pod: "Metagame", start: "2026-10-14", end: "2027-02-02", status: "future", details: "10 features: Mobile Extractors, Command Center, Daily Quests, Achievements, Hero Empowering/Upgrading, Ad Monetization, Live Events, Tutorial Expansion, Interstitials" },
+      { name: "Metagame SL Features", pod: "Metagame", start: "2027-02-02", end: "2027-05-30", status: "future", details: "5 features: Inbox & Admin Comms, Notifications, UI Stability & Performance, Growthbook Integration, Login Flow Optimization" },
 
       // Battle
       { name: "Battle HUD Overhaul", pod: "Battle", start: "2026-03-31", end: "2026-05-26", status: "active", details: "Beta quality combat interface — 4 sprints (Jota, solo eng)" },
@@ -249,12 +251,15 @@ const DASHBOARD_DATA = {
       { name: "Actor System Overhaul", pod: "Battle", start: "2026-06-09", end: "2026-07-07", status: "future", details: "Actor system rebuild — 2 sprints" },
       { name: "Pathfinding & AI", pod: "Battle", start: "2026-07-07", end: "2026-08-04", status: "future", details: "Pathfinding & AI improvements — 2 sprints" },
       { name: "Pool & Server Validation", pod: "Battle", start: "2026-08-04", end: "2026-09-15", status: "future", details: "Pool Management (1 sprint) + Battle Server Validation (2 sprints)" },
-      { name: "Battle Content", pod: "Battle", start: "2026-03-18", end: "2026-10-13", status: "active", details: "Ongoing battle & unit content production" },
+      { name: "Battle Content", pod: "Battle", start: "2026-03-18", end: "2027-05-30", status: "active", details: "Ongoing battle content production" },
+      { name: "Unit Content Pipeline", pod: "Battle", start: "2026-03-18", end: "2027-05-30", status: "active", details: "Ongoing unit production: models, rigging, animation, VFX (SHQ3-28)" },
 
       // Social Dynamics
       { name: "P1-P6 Map Build-Up", pod: "Social Dynamics", start: "2026-03-19", end: "2026-07-20", status: "active", details: "Multiplayer map phases 1-6 (Gabriel, Marcos, Randy, Garrett)" },
       { name: "Multiplayer Networking", pod: "Social Dynamics", start: "2026-03-19", end: "2026-06-23", status: "active", details: "Network infrastructure — parallel track (Bruno Bacelar)" },
       { name: "P7-P10 Map Completion", pod: "Social Dynamics", start: "2026-07-20", end: "2026-10-12", status: "future", details: "Multiplayer map phases 7-10 + additional resources" },
+      { name: "Ravager's Reef", pod: "Social Dynamics", start: "2026-10-13", end: "2026-11-24", status: "future", details: "New map region — 3 sprints" },
+      { name: "Battlepass", pod: "Social Dynamics", start: "2026-11-24", end: "2027-01-05", status: "future", details: "Battlepass system — 2 sprints" },
 
       // Dozer
       { name: "UI Framework V2", pod: "Dozer", start: "2026-03-31", end: "2026-04-28", status: "active", details: "Cross-pod UI support — 2 sprints (Derek)" },
@@ -264,7 +269,9 @@ const DASHBOARD_DATA = {
       { name: "M&Ms Art Production", pod: "Art", start: "2026-03-18", end: "2026-06-24", status: "active", details: "Characters, Environments, UI/UX assets" },
       { name: "VFX & Animation", pod: "Art", start: "2026-03-31", end: "2026-06-23", status: "active", details: "Combat effects and animations" },
       { name: "Beta Polish", pod: "Art", start: "2026-06-24", end: "2026-07-22", status: "future", details: "Polish & beta quality pass — 2 sprints" },
-      { name: "M&C Art Production", pod: "Art", start: "2026-07-22", end: "2026-10-14", status: "future", details: "Hero expansion, monetization assets, pipeline scaling" }
+      { name: "M&C Art Production", pod: "Art", start: "2026-07-22", end: "2026-10-14", status: "future", details: "Hero expansion, monetization assets, pipeline scaling" },
+      { name: "LO&S Art Production", pod: "Art", start: "2026-10-14", end: "2027-02-02", status: "future", details: "Live Ops content assets, hero expansion continuation" },
+      { name: "SL Art Production", pod: "Art", start: "2027-02-02", end: "2027-05-30", status: "future", details: "Soft Launch polish, UA creative assets" }
     ]
   }
 };
