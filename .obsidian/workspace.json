@@ -83,12 +83,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "generated/sprint_plans/sprint_27_zany_zebras.md",
+                "file": "planning/contentTargets.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "sprint_27_zany_zebras"
+              "title": "contentTargets"
             }
           }
         ],
@@ -257,6 +257,8 @@
   },
   "active": "38fc166341ab2af3",
   "lastOpenFiles": [
+    "planning/contentTargets.md.tmp.26068.1775758154134",
+    "generated/sprint_plans/sprint_27_zany_zebras.md",
     "generated/dashboard/sprints/sprint_27.js.tmp.26068.1775750741140",
     "generated/dashboard/sprints/sprint_27.js.tmp.26068.1775750717714",
     "generated/dashboard/sprints/sprint_27.js.tmp.26068.1775750703967",
@@ -267,7 +269,6 @@
     "generated/sprint_plans/sprint_27_zany_zebras.md.tmp.26068.1775750630511",
     "generated/sprint_plans/sprint_27_zany_zebras.md.tmp.26068.1775750600960",
     "generated/roadmap.md.tmp.26068.1775750395473",
-    "generated/roadmap.md.tmp.26068.1775750388191",
     "planning/contentTargets.md",
     "generated/reports/pulse_checks/pulse_check_2026-03.md",
     "generated/reports/pulse_checks/pulse_check_2026-04.md",
@@ -291,7 +292,6 @@
     "planning/pods/battle/features.md",
     "planning/pods/metagame/validation.md",
     "planning/pods/metagame/milestone_mc.md",
-    "planning/pods/metagame/milestone_mms.md",
-    "planning/pods/metagame/features.md"
+    "planning/pods/metagame/milestone_mms.md"
   ]
 }

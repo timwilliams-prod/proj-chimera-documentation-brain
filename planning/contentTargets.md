@@ -93,11 +93,17 @@ The full hero roster across all rarities and roles.
 - **Target**: 53 unique heroes
 - **Milestone**: Ongoing across all milestones (6 starter heroes by M&Ms, roster expands through Soft Launch)
 
-### Troops (9x unique, 4 tiers, 6 skins each)
+### Troops (5 types, 4 tiers, 6 skins each)
 
-Core troop types with tiered visual progression and skin variety.
+Five troop types: **Ranged**, **Melee**, **Siege**, **Flyer**, **Charger**. Produced via three consolidated factories:
 
-- **Target**: 9 unique troops × 4 tiers × 6 skins = 216 total troop variants
+| Factory | Troop Types | Description |
+|---------|------------|-------------|
+| **Melee Factory** | Melee, Charger | Anything that hits melee — melee bots, chargers |
+| **Ranged Factory** | Ranged, Flyer | Anything with ranged attacks — ranged bots, ranged flyers |
+| **Siege Factory** | Siege | Anything that bombards an area |
+
+- **Target**: 5 unique troop types × 4 tiers × 6 skins = 120 total troop variants
 - **Milestone**: Ongoing, pipeline validated during M&Ms (SHQ3-28)
 
 ### Bosses (6x)
