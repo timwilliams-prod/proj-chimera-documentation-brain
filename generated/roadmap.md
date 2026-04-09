@@ -37,7 +37,8 @@ gantt
     WM Vertical Slice          :         emp6, after emp5, 14d
     Conquest Guide Full Screen :         emp7, after emp6, 28d
     Experience Iterations      :crit,    emp8, after emp7, 14d
-    Map Content Pipeline       :active,  emp_content, 2026-03-18, 490d
+    Territory Maps (14x)       :active,  emp_tm, 2026-03-18, 2026-10-13
+    Live Ops Maps (8x)         :         emp_lm, 2026-10-14, 2027-02-02
 
     section Metagame
     UI Foundation              :active, meta_a, 2026-03-18, 84d
@@ -51,7 +52,9 @@ gantt
     Obstacles + Actor System   :         bat2, after bat1, 42d
     Pathfinding & AI           :         bat4, after bat2, 28d
     Pool + Server Validation   :         bat5, after bat4, 42d
-    Battle & Unit Content      :active,  bat_content, 2026-03-18, 490d
+    Conquest + Dungeon Battles :active,  bat_cb, 2026-03-18, 2026-10-13
+    Live Ops Battles (90x)     :         bat_lb, 2026-10-14, 2027-02-02
+    Unit Production (53+216)   :active,  bat_units, 2026-03-18, 2027-05-30
 
     section Social Dynamics
     P1-P6 Map Build-Up         :active,  soc1, 2026-03-19, 2026-07-20
@@ -106,7 +109,14 @@ gantt
 | 4 | Conquest Guide Full Screen | 2 sprints | NOT STARTED |
 | 5 | Experience Iterations | 1 sprint | NOT STARTED |
 
-**Map Content**: Moved to [`planning/contentTargets.md`](../planning/contentTargets.md) — 1x World Map (ongoing), 14x Territory Maps (target by M&C), 8x Live Ops Maps (starting Live Ops & Social milestone).
+**Content Targets** (see [`planning/contentTargets.md`](../planning/contentTargets.md)):
+
+| Content | Target | Deadline | Status |
+|---------|--------|----------|--------|
+| World Map | 1x (ongoing updates every milestone) | M&Ms initial, then continuous | IN PROGRESS |
+| Territory Maps | 14x | By end of M&C (Oct 13, 2026) | IN PROGRESS |
+| Live Ops Maps | 8x | Starting Live Ops & Social (Oct 2026 → Feb 2027) | NOT STARTED |
+| Map Visuals & Biomes | As many as possible | No firm target | IN PROGRESS |
 
 ---
 
@@ -172,8 +182,19 @@ gantt
 | 2 | Obstacles | 1 sprint | NOT STARTED |
 | 3 | Actor System Overhaul | 2 sprints | NOT STARTED |
 | 4 | Pathfinding & AI Improvements | 2 sprints | NOT STARTED |
-| - | Battle Content (Design/Art) | Ongoing | IN PROGRESS |
-| - | Unit Content (Design/Art) | Ongoing | IN PROGRESS |
+**Content Targets** (see [`planning/contentTargets.md`](../planning/contentTargets.md)):
+
+| Content | Target | Deadline | Status |
+|---------|--------|----------|--------|
+| Conquest Battles — Narrative | 10x unique | With territory maps (by M&C) | IN PROGRESS |
+| Conquest Battles — Systemic | 9x templates × ~21 configs = ~189 | With territory maps (by M&C) | IN PROGRESS |
+| Dungeon Boss Battles | 3x bosses × 25 floors = 75 encounters | M&C (with Dungeons feature) | NOT STARTED |
+| Dungeon Encounter Battles | 5x encounters × 20 floors = 100 encounters | M&C (with Dungeons feature) | NOT STARTED |
+| Live Ops Battles | 90x initial pool → ongoing cadence | Starting Live Ops & Social | NOT STARTED |
+| Heroes | 53 unique | Ongoing (6 starters by M&Ms) | IN PROGRESS |
+| Troops | 9 unique × 4 tiers × 6 skins = 216 variants | Ongoing (SHQ3-28) | IN PROGRESS |
+| Bosses | 6 total (3 dungeon + 3 roaming monster) | M&C | NOT STARTED |
+| Battlefields (3D envs) | As many as possible | No firm target | IN PROGRESS |
 
 **Beta Prep Features**:
 

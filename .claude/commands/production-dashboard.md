@@ -23,6 +23,7 @@ Read these files to gather data for each panel:
 | `planning/product_targets.md` | Panel 1 (Milestone Goals) |
 | `planning/ValidationPlan.md` | Panel 1 (status of SHQs tied to must-haves), Panel 4 (Validation) |
 | `planning/pods/{pod}/features.md` (all 6 pods) | Panel 1 (must-have feature status), Panel 5 (Roadmap boulders) |
+| `planning/contentTargets.md` | Panel 5 (Content pipeline boulders — phased by milestone) |
 | `generated/roadmap.md` | Panel 5 (Roadmap timeline data) |
 | `planning/operating_cadence.md` | Panel 3 (staleness thresholds) |
 | `planning/capacity.md` | Context (team info) |
@@ -84,14 +85,40 @@ From `ValidationPlan.md`:
 
 ### 7. Build Roadmap Boulders (Panel 5)
 
-From `generated/roadmap.md` and pod plans, create feature-level entries:
+From `generated/roadmap.md`, pod plans, and `planning/contentTargets.md`, create feature-level entries:
 - Show **individual features** where they appear as separate items in pod plans (e.g., "Tutorial Migration", "World Map Experience", "Territory Map VS" — NOT one merged "Empire M&Ms Features" bar)
 - Sequential features in the same pod should appear as separate adjacent bars in the same swim lane — the template handles stacking automatically
 - Only group into a single bar when there are many small items that would be unreadable individually (e.g., "Metagame M&C Features" for 9 small features)
-- Ongoing/parallel tracks (like "Map Content Pipeline", "Battle Content") are fine as single bars
 - Each entry needs: `name`, `pod`, `start` (YYYY-MM-DD), `end` (YYYY-MM-DD), `status` (active/future), `details` (short description)
 - Use consistent feature names from the brain (feature_registry, pod plans)
 - Target ~20-30 entries for good readability
+
+#### Content Pipeline Boulders
+
+Content production has specific quantity targets and milestone deadlines defined in `planning/contentTargets.md`. **Break content into milestone-phased bars** rather than single "ongoing" bars, so producers can see when each content phase must wrap up and the next phase begins.
+
+For each content category in `contentTargets.md`:
+- Create a separate boulder for each milestone-bounded phase
+- Include the quantity target in the boulder name (e.g., "Territory Maps (14x)")
+- Use the milestone deadline from `contentTargets.md` as the end date
+- If a content type transitions from a fixed target to an ongoing cadence (e.g., Live Ops Battles → ongoing after initial pool), note "→ ongoing cadence" in the details
+- Content with "as many as we can get" targets and no milestone deadline (e.g., Battlefields, Biomes) can be shown as a single bar spanning the project, or omitted if the chart is too crowded
+
+Example content boulders for Empire maps:
+```javascript
+{ name: "Territory Maps (14x)", pod: "Empire", start: "2026-03-18", end: "2026-10-13", status: "active", details: "14 territory maps — target completion by M&C" },
+{ name: "Live Ops Maps (8x)", pod: "Empire", start: "2026-10-14", end: "2027-02-02", status: "future", details: "8 live ops maps — aligned with live event schedule" },
+```
+
+Example content boulders for Battle:
+```javascript
+{ name: "Conquest Battles (10+189)", pod: "Battle", start: "2026-03-18", end: "2026-10-13", status: "active", details: "10 unique + 9 systemic (×21 configs) — with territory maps" },
+{ name: "Dungeon Battles (175)", pod: "Battle", start: "2026-07-22", end: "2026-10-13", status: "future", details: "3 bosses ×25 floors + 5 encounters ×20 floors — aligned with Dungeons M&C" },
+{ name: "Live Ops Battles (90x)", pod: "Battle", start: "2026-10-14", end: "2027-02-02", status: "future", details: "Initial pool of 90 → ongoing cadence" },
+{ name: "Unit Production (53 heroes, 216 troop variants)", pod: "Battle", start: "2026-03-18", end: "2027-05-30", status: "active", details: "53 heroes, 9 troops ×4 tiers ×6 skins, 6 bosses" },
+```
+
+The key principle: **if `contentTargets.md` specifies a milestone deadline for a content category, that deadline should be visible as the end of a bar in the roadmap**, so a producer can see at a glance whether a content track needs to wrap up before a milestone.
 
 Also build:
 - `milestones`: array of `{ name, date }` for milestone markers

@@ -238,8 +238,9 @@ const DASHBOARD_DATA = {
       { name: "WM Vertical Slice", pod: "Empire", start: "2026-09-16", end: "2026-09-30", status: "future", details: "World Map Vertical Slice — ~1 sprint" },
       { name: "Conquest Guide", pod: "Empire", start: "2026-09-30", end: "2026-10-28", status: "future", details: "Conquest Guide Full Screen — 2 sprints. Supports conquest territory/world maps & live ops maps. ⚠️ Overflows M&C by 2 weeks" },
       { name: "Experience Iterations", pod: "Empire", start: "2026-10-28", end: "2026-11-11", status: "future", details: "Barrier & story shard experience iterations — 1 sprint. ⚠️ Overflows M&C by 4 weeks" },
-      // Empire — ongoing
-      { name: "Map Content Pipeline", pod: "Empire", start: "2026-03-18", end: "2027-05-30", status: "active", details: "1x World Map (ongoing), 14x Territory Maps (by M&C), 8x Live Ops Maps (starting LO&S)" },
+      // Empire — content pipelines (phased from contentTargets.md)
+      { name: "Territory Maps (14x)", pod: "Empire", start: "2026-03-18", end: "2026-10-13", status: "active", details: "14 territory maps — target completion by end of M&C. World Map (1x) updated continuously alongside." },
+      { name: "Live Ops Maps (8x)", pod: "Empire", start: "2026-10-14", end: "2027-02-02", status: "future", details: "8 live ops maps — starting Live Ops & Social, aligned with live event schedule" },
 
       // Metagame
       { name: "UI Foundation", pod: "Metagame", start: "2026-03-18", end: "2026-06-10", status: "active", details: "Core UI systems and patterns — 6 sprints (Guilherme)" },
@@ -254,7 +255,10 @@ const DASHBOARD_DATA = {
       { name: "Actor System Overhaul", pod: "Battle", start: "2026-06-09", end: "2026-07-07", status: "future", details: "Actor system rebuild — 2 sprints" },
       { name: "Pathfinding & AI", pod: "Battle", start: "2026-07-07", end: "2026-08-04", status: "future", details: "Pathfinding & AI improvements — 2 sprints" },
       { name: "Pool & Server Validation", pod: "Battle", start: "2026-08-04", end: "2026-09-15", status: "future", details: "Pool Management (1 sprint) + Battle Server Validation (2 sprints)" },
-      { name: "Battle Content", pod: "Battle", start: "2026-03-18", end: "2027-05-30", status: "active", details: "Ongoing battle + unit content production" },
+      // Battle — content pipelines (phased from contentTargets.md)
+      { name: "Conquest + Dungeon Battles", pod: "Battle", start: "2026-03-18", end: "2026-10-13", status: "active", details: "10 unique + 189 systemic conquest configs + 175 dungeon encounters — by M&C" },
+      { name: "Live Ops Battles (90x)", pod: "Battle", start: "2026-10-14", end: "2027-02-02", status: "future", details: "90 initial pool → ongoing cadence after Live Ops & Social" },
+      { name: "Unit Production", pod: "Battle", start: "2026-03-18", end: "2027-05-30", status: "active", details: "53 heroes, 9 troops ×4 tiers ×6 skins (216 variants), 6 bosses" },
 
       // Social Dynamics
       { name: "P1-P6 Map Build-Up", pod: "Social Dynamics", start: "2026-03-19", end: "2026-07-20", status: "active", details: "Multiplayer map phases 1-6 (Gabriel, Marcos, Randy, Garrett)" },
