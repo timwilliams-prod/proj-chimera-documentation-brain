@@ -1,6 +1,6 @@
 # Feature Roadmap
 
-Last Updated: 2026-03-27
+Last Updated: 2026-04-09
 
 > **This is the operational view** - what we're actually building and when, consolidated from all pod plans.
 > For milestone targets and success criteria, see `planning/product_targets.md`.
@@ -29,38 +29,34 @@ gantt
     Soft Launch - May 30      :crit, milestone, 2027-05-30, 0d
 
     section Empire
-    Tutorial Node Migration    :active,  emp1, 2026-03-30, 14d
+    Narrative & Tutorial Tooling :active,  emp1, 2026-03-30, 14d
     World Map Experience       :         emp2, after emp1, 42d
     Territory Map VS           :         emp3, after emp2, 28d
-    Governors (M&C)            :         emp4, 2026-07-22, 42d
-    M&C - 3 features           :         emp5, after emp4, 42d
-    Map Content                :active,  emp_content, 2026-03-18, 490d
+    Governors (M&C)            :active,  emp4, 2026-07-22, 42d
+    WM Building Upgrades       :         emp5, after emp4, 14d
+    WM Vertical Slice          :         emp6, after emp5, 14d
+    Conquest Guide Full Screen :         emp7, after emp6, 28d
+    Experience Iterations      :crit,    emp8, after emp7, 14d
+    Map Content Pipeline       :active,  emp_content, 2026-03-18, 490d
 
     section Metagame
     UI Foundation              :active, meta_a, 2026-03-18, 84d
-    Building Upgrades          :meta1, 2026-03-18, 14d
-    Empire Progression Tree    :meta2, after meta1, 14d
-    Global Combat Research     :meta3, after meta2, 28d
-    Hero Gacha v1              :meta4, after meta3, 14d
-    Passive Bonus Tiles        :meta5, after meta4, 14d
-    M&C - 9 features           :meta_mc, 2026-07-22, 84d
-    Live Ops - 10 features     :meta_lo, 2026-10-14, 70d
-    Soft Launch - 5 features   :meta_sl, 2027-02-03, 42d
+    Pipeline B (5 features)    :        meta_b, 2026-03-18, 84d
+    M&C - 9 features           :        meta_mc, 2026-07-22, 84d
+    Live Ops - 10 features     :        meta_lo, 2026-10-14, 112d
+    Soft Launch - 5 features   :        meta_sl, 2027-02-03, 112d
 
     section Battle
     Battle HUD Beta Overhaul   :active,  bat1, 2026-03-31, 56d
-    Obstacles                  :         bat2, after bat1, 14d
-    Actor System Overhaul      :         bat3, after bat2, 28d
-    Pathfinding & AI           :         bat4, after bat3, 28d
-    Pool Management            :         bat_bp, after bat4, 14d
-    Battle Server Validation   :         bat5, after bat_bp, 28d
+    Obstacles + Actor System   :         bat2, after bat1, 42d
+    Pathfinding & AI           :         bat4, after bat2, 28d
+    Pool + Server Validation   :         bat5, after bat4, 42d
     Battle & Unit Content      :active,  bat_content, 2026-03-18, 490d
 
     section Social Dynamics
-    AI Prototype Playtesting   :active,  soc_ai, 2026-03-19, 2026-06-23
     P1-P6 Map Build-Up         :active,  soc1, 2026-03-19, 2026-07-20
-    P7-P10 Map Completion      :         soc2, after soc1, 84d
     Multiplayer Networking     :active,  soc_net, 2026-03-19, 2026-06-23
+    P7-P10 Map Completion      :         soc2, after soc1, 84d
     Ravager's Reef             :         soc_rr, after soc2, 42d
     Battlepass                 :         soc_bp, after soc_rr, 28d
 
@@ -82,38 +78,42 @@ gantt
 ### Empire
 
 **Pod Lead**: Diana Vasilescu | **Producer**: Brann Livesay | **Eng Lead**: Dan Dupuis
-**Plan**: [`planning/pods/Empire_Plan.md`](../planning/pods/Empire_Plan.md)
+**Pod Folder**: [`planning/pods/empire/`](../planning/pods/empire/)
 
 **M&Ms Validation Focus**: Validating **WH-2 (Empire Hypothesis)** — map exploration, map readability, and cross-mode UX vision. New M&Ms SHQs focus on world map goal-setting, territory map clarity, narrative direction, and navigation UX.
 
 | Key BHQ | Key SHQs for M&Ms | Status |
 |---------|-------------------|--------|
-| BHQ-E1: Intuitive map exploration | SHQ3-1 (map at scale), SHQ4-3 (session goals via world map), SHQ4-4 (territory map readability), SHQ4-5 (narrative goals), SHQ4-6 (cross-mode UX vision) | SHQ3-1 IN PROGRESS, SHQ31-34 NOT STARTED |
+| BHQ-E1: Intuitive map exploration | SHQ3-1 (map at scale), SHQ4-3 (session goals via world map), SHQ4-4 (territory map readability), SHQ4-5 (narrative goals), SHQ4-6 (cross-mode UX vision), SHQ4-11 (map objectives clarity) | SHQ3-1 IN PROGRESS, rest NOT STARTED |
 
 **M&Ms Features** (1x ENG: Henrique De Lima):
 
 | # | Feature | Estimate | Status |
 |---|---------|----------|--------|
-| 1 | Tutorial Node Migration | 1 sprint | NOT STARTED |
+| 1 | Narrative and Tutorial Tooling | 1 sprint | IN PROGRESS |
 | 2 | World Map Experience (3 sub-efforts) | 3 sprints | NOT STARTED |
 | 3 | Territory Map Vertical Slice | 2 sprints | NOT STARTED |
-| - | Map Content (Design/Art) | Ongoing | IN PROGRESS |
 
-**M&C Features**:
+**M&C Features** (1x ENG: Henrique De Lima):
+
+> **CAPACITY WARNING**: 5 features totaling **8 eng-sprints** for a 6-sprint milestone with 1 engineer. Conquest Guide Full Screen and Experience Iterations overflow M&C by ~2 sprints into Live Ops & Social. Consider: (a) starting Governors earlier if M&Ms eng finishes ahead of schedule, (b) pulling in additional eng capacity for M&C, or (c) deferring Experience Iterations.
 
 | # | Feature | Estimate | Status |
 |---|---------|----------|--------|
-| 1 | Governors | 3 sprints | IN PROGRESS |
+| 1 | Governors | 3 sprints | IN PROGRESS (design) |
 | 2 | WM Building Upgrades | 1 sprint | NOT STARTED |
-| 3 | WM Zoom Filtering & LOD | ~1 sprint | NOT STARTED |
-| 4 | Conquest Guide + Barrier & Story Iterations | ~1 sprint | NOT STARTED |
+| 3 | World Map Vertical Slice | ~1 sprint | NOT STARTED |
+| 4 | Conquest Guide Full Screen | 2 sprints | NOT STARTED |
+| 5 | Experience Iterations | 1 sprint | NOT STARTED |
+
+**Map Content**: Moved to [`planning/contentTargets.md`](../planning/contentTargets.md) — 1x World Map (ongoing), 14x Territory Maps (target by M&C), 8x Live Ops Maps (starting Live Ops & Social milestone).
 
 ---
 
 ### Metagame
 
 **Pod Lead**: Leonard Perez | **Producer**: Tim Williams | **Eng Lead**: Dan Dupuis
-**Plan**: [`planning/pods/Metagame_Plan.md`](../planning/pods/Metagame_Plan.md)
+**Pod Folder**: [`planning/pods/metagame/`](../planning/pods/metagame/)
 
 **M&Ms Validation Focus**: Building the systems and UI layers that support empire progression depth and hero investment. M&Ms SHQs under Monetisation hypothesis (BHQ-M3) test whether progression systems drive meaningful engagement and future spend potential.
 
@@ -152,23 +152,23 @@ gantt
 ### Battle
 
 **Pod Lead**: Lincoln Li | **Producer**: Thorben Novais | **Eng Lead**: Jota Oliveira
-**Plan**: [`planning/pods/Battle_Plan.md`](../planning/pods/Battle_Plan.md)
+**Pod Folder**: [`planning/pods/battle/`](../planning/pods/battle/)
 
 **M&Ms Validation Focus**: Validating combat engagement, tactical depth, hero role clarity, and battle systems quality bar for beta. New M&Ms SHQs focus on HUD supporting strategic+tactical play and hero role differentiation.
 
 | Key BHQ | Key SHQs for M&Ms | Status |
 |---------|-------------------|--------|
-| BHQ-B2: Intuitive actions | SHQ3-24 (art clarity for combat), SHQ4-1 (HUD strategic + tactical) | SHQ3-24 IN PROGRESS, SHQ4-1 NOT STARTED |
+| BHQ-B2: Intuitive actions | SHQ3-24 (art clarity for combat), SHQ4-1 (HUD strategic + tactical) | SHQ3-24 IN PROGRESS, SHQ4-1 IN PROGRESS |
 | BHQ-B3: Hero/troop variety | SHQ3-26 (hero/troop collection motivation), SHQ4-2 (starter hero role clarity) | SHQ3-26 PENDING, SHQ4-2 NOT STARTED |
 | BHQ-B4: Scalable battle content | SHQ3-27 (scalable battle building), SHQ3-28 (unit pipeline) | IN PROGRESS |
 
 **M&Ms Features** (1x ENG: Jota):
 
-⚠️ **CAPACITY WARNING**: 4 features totaling 9 eng-sprints for ~7-sprint milestone. Features shown sequentially — engineering is single-threaded. Pathfinding & AI may overflow into Beta Prep.
+> **CAPACITY WARNING**: 4 features totaling 9 eng-sprints for ~7-sprint milestone. Features shown sequentially — engineering is single-threaded. Pathfinding & AI may overflow into Beta Prep.
 
 | # | Feature | Estimate | Status |
 |---|---------|----------|--------|
-| 1 | Battle HUD Beta Overhaul | 4 sprints | NOT STARTED |
+| 1 | Battle HUD Beta Overhaul | 4 sprints | IN PROGRESS |
 | 2 | Obstacles | 1 sprint | NOT STARTED |
 | 3 | Actor System Overhaul | 2 sprints | NOT STARTED |
 | 4 | Pathfinding & AI Improvements | 2 sprints | NOT STARTED |
@@ -192,7 +192,7 @@ gantt
 ### Social Dynamics
 
 **Pod Lead**: Paul Flores | **Producer**: Tim Williams | **Eng Lead**: Derek Gallant
-**Plan**: [`planning/pods/SocialDynamics_Plan.md`](../planning/pods/SocialDynamics_Plan.md)
+**Pod Folder**: [`planning/pods/social_dynamics/`](../planning/pods/social_dynamics/)
 
 **M&Ms Validation Focus**: Building multiplayer map foundations via phased build-up (P1-P10), with AI prototype playtesting in parallel until in-client switchover.
 
@@ -210,12 +210,11 @@ gantt
 
 | Phase | Feature | Status |
 |-------|---------|--------|
-| P1 | Infrastructure & Foundation (ETA 3/30) | IN PROGRESS |
-| P2 | Map Foundation (~1 month) | NOT STARTED |
+| P1 | Infrastructure & Foundation (ETA 3/30) | COMPLETE |
+| P2 | Map Foundation (~1 month) | IN PROGRESS |
 | P3 | Basic Game Logic (6 features) | NOT STARTED |
 | P4+ | Heroes on Map, Interesting Tiles, Initial Rollout | NOT STARTED |
 | - | Multiplayer Networking (parallel) | IN PROGRESS |
-| - | AI Prototype Playtesting (parallel) | IN PROGRESS |
 
 **Post-M&C Features**:
 
@@ -229,7 +228,7 @@ gantt
 ### Dozer
 
 **Eng Lead**: Derek Gallant | **Producer**: - | **Pod Lead**: -
-**Plan**: [`planning/pods/Dozer_Plan.md`](../planning/pods/Dozer_Plan.md)
+**Pod Folder**: [`planning/pods/dozer/`](../planning/pods/dozer/)
 
 **M&Ms Focus**: Infrastructure, UI framework support, and performance optimization to meet beta quality bar.
 
@@ -250,7 +249,7 @@ gantt
 ### Art
 
 **Art Director**: Kevin Griffith | **Producer**: Brann Livesay | **Eng Lead**: -
-**Plan**: [`planning/pods/Art_Plan.md`](../planning/pods/Art_Plan.md)
+**Pod Folder**: [`planning/pods/art/`](../planning/pods/art/)
 
 **M&Ms Validation Focus**: Visual quality bar and art pipeline scalability supporting all pods.
 
@@ -293,7 +292,8 @@ gantt
 
 | Date | Changed By | Summary |
 |------|-----------|---------|
-| 2026-03-27 | Tim / Claude | **Major update**: Empire M&Ms reprioritized (Tutorial Node Migration → World Map Experience → Territory Map VS). Governors moved to M&C. Empire capacity: Henrique De Lima sole client eng (Gabriel Arruda → Social Dynamics, Marcos Loures → Social Dynamics). Tiago Costa (new) → Metagame. WH-4 (Production) removed — Dozer now shows actual features (UI Framework V2, Performance). 15 M&Ms SHQs added to ValidationPlan (SHQ4-1 through SHQ4-10 new). Updated product_targets.md with 9 new M&Ms must-haves. |
+| 2026-04-09 | Tim / Claude | **Empire M&C update**: "WM Zoom Filtering & LOD" renamed to "World Map Vertical Slice" (~1 sprint). "Conquest Guide Full Screen" expanded to 2 sprints (supporting conquest territory/world maps & live ops maps). "Barrier & Story Shard Iterations" renamed to "Experience Iterations" (1 sprint, experience iterations only). Map Content split to `planning/contentTargets.md` with explicit targets: 1x World Map (ongoing), 14x Territory Maps (by M&C), 8x Live Ops Maps (starting Live Ops & Social). **Empire M&C now 8 eng-sprints in 6-sprint milestone — overflow risk flagged.** Feature registry updated. Social Dynamics P1 marked COMPLETE, P2 IN PROGRESS. Pod folder links updated. |
+| 2026-03-27 | Tim / Claude | **Major update**: Empire M&Ms reprioritized (Tutorial Node Migration -> World Map Experience -> Territory Map VS). Governors moved to M&C. Empire capacity: Henrique De Lima sole client eng (Gabriel Arruda -> Social Dynamics, Marcos Loures -> Social Dynamics). Tiago Costa (new) -> Metagame. WH-4 (Production) removed — Dozer now shows actual features (UI Framework V2, Performance). 15 M&Ms SHQs added to ValidationPlan (SHQ4-1 through SHQ4-10 new). Updated product_targets.md with 9 new M&Ms must-haves. |
 | 2026-03-20 | Brann / Claude | **Added Art Pod**: Created Art_Plan.md with cross-pod art production priorities (Character Assets, Environment Art, UI/UX Assets, VFX & Animation). Added Art pod section to consolidated roadmap with M&Ms, Beta Prep, and M&C features. Art supports all pods with visual assets and pipeline development. |
 | 2026-03-20 | Brann / Claude | Added Battle pod M&Ms features: 6 features (Battle HUD Beta Overhaul, Obstacles, Actor System Overhaul, Pathfinding & AI, Battle Server Validation, Pool Management). Added Battle Content and Unit Content ongoing tracks. **Capacity warning**: 9 eng-sprints for 7-sprint milestone - Pool Management deferred to M&C. |
 | 2026-03-19 | Tim / Claude | Added Social Dynamics features (3 tracks, 10 phases, P1-P10 + Ravager's Reef + Battlepass). Added System Validation milestone (Mar 30) across all roadmaps. |

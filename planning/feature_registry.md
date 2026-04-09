@@ -1,6 +1,6 @@
 # Feature Registry
 
-Last Updated: 2026-03-24 (spec-sync run)
+Last Updated: 2026-04-09 (roadmap-update: Empire feature renames)
 
 > **What this file is**: The authoritative mapping of features to their Notion source documents and local spec files.
 > `/spec-sync` reads this file to know which features need specs and where to pull design content from.
@@ -44,7 +44,7 @@ Map experiences built on a hex grid. Territory Maps are the tile-level gameplay;
 | [Treasure Chests](features/treasure_chests.md) | Core Experience | 1e33f0b3-b6ab-80d2-bc9a-f21288f47038 | Has Spec |
 | [Narrative Events](features/narrative_events.md) | Core Experience | | Stub Only |
 | [Story Shards](features/story_shards.md) | Core Experience | | Stub Only |
-| [Barrier & Story Shard Iterations](features/barrier_story_shard.md) | M&C | | Stub Only |
+| [Experience Iterations](features/experience_iterations.md) | M&C | | Stub Only |
 | [Map Content (final targets)](features/map_content_final.md) | Soft Launch | | Stub Only |
 
 **Foundations & Buildings**
@@ -59,8 +59,8 @@ Map experiences built on a hex grid. Territory Maps are the tile-level gameplay;
 
 | Feature | Milestone | Notion ID | Status |
 |---------|-----------|-----------|--------|
-| [World Map Vertical Slice](features/world_map_vs.md) | M&C | | Stub Only |
-| [World Map Zoom & LOD](features/world_map_zoom_lod.md) | M&C | | Stub Only |
+| [World Map Experience](features/world_map_vs.md) | M&Ms | | Stub Only |
+| [World Map Vertical Slice](features/wm_vertical_slice.md) | M&C | | Stub Only |
 | [Conquest Guide Full Screen](features/conquest_guide_fs.md) | M&C | | Stub Only |
 
 **Empire Progression**

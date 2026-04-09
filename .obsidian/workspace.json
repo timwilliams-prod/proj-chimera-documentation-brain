@@ -257,6 +257,9 @@
   },
   "active": "38fc166341ab2af3",
   "lastOpenFiles": [
+    "planning/feature_registry.md.tmp.26068.1775742897358",
+    "planning/feature_registry.md.tmp.26068.1775742747512",
+    "planning/contentTargets.md",
     "generated/dashboard/roadmap.html.tmp.1568.1775677966676",
     "generated/dashboard/dashboard_data.js.tmp.1568.1775677963540",
     "generated/dashboard/dashboard_data.js.tmp.1568.1775677959045",
@@ -266,8 +269,6 @@
     "generated/dashboard/roadmap.html",
     "generated/dashboard/index.html.tmp.1568.1775676607541",
     "generated/reports/pulse_checks/pulse_check_2026-04_data.js",
-    "generated/reports/pulse_checks/pulse_check_2026-03_data.js",
-    "generated/reports/pulse_checks/pulse_check_index.js",
     "generated/reports/pulse_checks/pulse_check_2026-03.md",
     "generated/reports/pulse_checks/pulse_check_2026-04.md",
     "planning/qvr/q1_2026_goals.md",
@@ -291,7 +292,6 @@
     "planning/pods/metagame/validation.md",
     "planning/pods/metagame/milestone_mc.md",
     "planning/pods/metagame/milestone_mms.md",
-    "planning/pods/metagame/features.md",
-    "reference/skill_evaluation_pulse_check_qvr.md"
+    "planning/pods/metagame/features.md"
   ]
 }

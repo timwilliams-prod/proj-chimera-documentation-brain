@@ -1,6 +1,6 @@
 # Empire Features
 
-Last Updated: 2026-04-08
+Last Updated: 2026-04-09
 Pod Lead: Diana Vasilescu
 
 > Ranked backlog of all Empire features. Rank is global priority — #1 is always the most important thing.
@@ -19,17 +19,18 @@ Pod Lead: Diana Vasilescu
 3. **[Territory Map Vertical Slice](../../features/territory_map_vs.md)** — M&Ms, 2 sprints, NOT STARTED → SHQ3-1, SHQ3-2
    Two map layers feel connected; seamless strategic flow.
 
-4. **[Map Content](../../features/map_content.md)** — Ongoing, IN PROGRESS → SHQ3-1
-   Design/art track. Validates production capacity at scale.
-
-5. **[Governors](../../features/governors.md)** — M&C, 3 sprints, IN PROGRESS → SHQ3-7
+4. **[Governors](../../features/governors.md)** — M&C, 3 sprints, IN PROGRESS → SHQ3-7
    Long-term goal vector within Empire; meaningful project investment.
 
-6. **[WM Building Upgrades](../../features/wm_building_upgrades.md)** — M&C, 1 sprint, NOT STARTED
+5. **[WM Building Upgrades](../../features/wm_building_upgrades.md)** — M&C, 1 sprint, NOT STARTED
    World map supports empire investment visibility.
 
-7. **[WM Zoom Filtering & LOD](../../features/wm_zoom_lod.md)** — M&C, ~1 sprint, NOT STARTED
+6. **[World Map Vertical Slice](../../features/wm_vertical_slice.md)** — M&C, ~1 sprint, NOT STARTED
 
-8. **[Conquest Guide Full Screen](../../features/conquest_guide.md)** — M&C, ~0.5 sprint, NOT STARTED
+7. **[Conquest Guide Full Screen](../../features/conquest_guide.md)** — M&C, 2 sprints, NOT STARTED
+   Supporting conquest territory/world maps & live ops maps.
 
-9. **[Barrier & Story Shard Iterations](../../features/barrier_story_iterations.md)** — M&C, ~0.5 sprint, NOT STARTED
+8. **[Experience Iterations](../../features/experience_iterations.md)** — M&C, 1 sprint, NOT STARTED
+   Barrier & story shard experience iterations.
+
+> **Map Content** has been moved to [planning/contentTargets.md](../../contentTargets.md) — see that file for World Map, Territory Map, and Live Ops Map production targets.
