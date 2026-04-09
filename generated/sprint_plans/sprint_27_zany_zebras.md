@@ -5,7 +5,7 @@ Working Days: 10 (no studio-wide holidays)
 Holidays: April 21 — Tiradentes (Brazil regional, affects BR team members)
 Milestone: M&Ms (Multiplayer & Meta) — Sprint 2 of ~7
 Mode: Preview
-Generated: 2026-04-08
+Generated: 2026-04-09 (updated — Empire M&Ms resequence)
 ---
 
 # Sprint 27: Zany Zebras — PREVIEW
@@ -15,7 +15,8 @@ Generated: 2026-04-08
 **Working Days**: 10 (no studio-wide holidays in this window)
 **ClickUp List**: `901326453323`
 
-> **Data freshness**: PTO from Google Calendar pull on 4/8. ClickUp data refreshed 4/8. ZZ sprint list is empty (no pre-staged tasks).
+> **Data freshness**: PTO from Google Calendar pull on 4/8. ClickUp data refreshed 4/9. ZZ sprint list is empty (no pre-staged tasks).
+> **Updated 4/9**: Empire M&Ms resequenced — Tutorial Node Migration expanded to 2 sprints (S26-S27). WME eng start pushed to S28.
 
 ### Regional Holidays
 - **April 21 (Tuesday) — Tiradentes**: Brazil national holiday. Affects BR-based team members: Henrique De Lima, Jota Oliveira, Laura Santana, Hugo Hideo, Julio Scarabelli, Bruno Freitas, Marcos Teles, Marcos Loures, Gabriel Arruda, Guilherme Quizzini, Thiago Saraiva, Guilherme Lascasas, Pedro Sarraf (already OOO), Danny Oliveira, Alessandro Oliveira, Bruno Bacelar, Thorben Novais, Felipe Chaves. Each loses 1 working day.
@@ -51,47 +52,48 @@ Generated: 2026-04-08
 **QA**: Laura Santana | **UX**: Yura Rusin
 
 ### Sprint Goals
-- Start **World Map Experience** engineering — "Multiple Nodes per Territory" (Sprint 1 of 3, SHQ3-1/SHQ3-2)
-- Continue **World Map Experience** design/UX iteration
+- Continue **Tutorial Node Migration** engineering (Sprint 2 of 2) — complete tutorial architecture and migration work
+- Continue **World Map Experience** design/UX prep — maturing UX exploration for S28 eng start (SHQ4-3, SHQ4-4)
 - Continue **Map Content** pipeline (SHQ3-1)
 
 ### Individual Breakdown
 
 | Assignee         | Discipline | Avail Days | Priorities                                             | Notes                                                                                                                       |
 | ---------------- | ---------- | ---------- | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
-| Henrique De Lima | Eng        | **9**      | 1. Clear Tutorial Arch carry-over (CHI-36213, CHI-36212) 2. World Map Experience — Multiple Nodes per Territory | **Brazil holiday 4/21 = 9 days**. Sole client engineer. Partial appts 4/15, 4/22. Must finish carry-over before starting WME. |
-| Diana Vasilescu  | Design     | 9          | 1. World Map Experience design iteration               | Out 4/14 (sprint start day). Scoping should be complete from S26 prep.                                                      |
-| Yura Rusin       | UX         | 10         | 1. World Map Experience UX                             | Multiple partial appts (4/14, 4/16, 4/21, 4/22, 4/28). Continuing UX flows from S26.                                       |
+| Henrique De Lima | Eng        | **9**      | 1. Tutorial Node Migration (Sprint 2 of 2) — complete CHI-36213, CHI-36212, continue tutorial eng | **Brazil holiday 4/21 = 9 days**. Sole client engineer. Partial appts 4/15, 4/22. Full sprint on Tutorial. WME eng starts S28. |
+| Diana Vasilescu  | Design     | 9          | 1. World Map Experience design prep (UX exploration for S28 eng start) | Out 4/14 (sprint start day). Extra sprint for UX exploration — use this time to mature WME design.                              |
+| Yura Rusin       | UX         | 10         | 1. World Map Experience UX exploration                 | Multiple partial appts (4/14, 4/16, 4/21, 4/22, 4/28). Extended UX runway — WME eng starts S28 not S27.                     |
 | Jacob Siegel     | Design     | 10         | 1. Map Content (T5/T6 iterations)  2. ZZ Player Journey/CG Revisions (CHI-36411) | Partial appt 4/14.                                                                        |
 | Elise Cole       | Design     | 10         | 1. Map Content 2. ZZ Player Journey/CG Revisions (CHI-36411) 3. WME design support |                                                                                          |
 | Laura Santana    | QA         | **9**      | 1. Tutorial Node Migration QA 2. Bug verification      | **Brazil holiday 4/21 = 9 days**. Tutorial Node Migration QA when S26 engineering wraps.                                    |
 
 ### ClickUp Ticket Summary
 
-- **SHQ3-1 / SHQ3-2: Territory Map at Scale / Strategy-Conquest Connection** (Epics, existing)
-  - World Map Experience — Multiple Nodes per Territory (Parent task, proposed)
-    - WME - Engineering (Henrique)
-    - WME - Design (Diana)
-    - WME - UX (Yura)
+- **Tutorial Node Migration** (Sprint 2 of 2)
+  - CHI-36213: Tutorial Arch - Orchestration/State Tracking (Henrique, continuing from S26)
+  - CHI-36212: Tutorial Arch - Triggering (Henrique, continuing from S26)
+  - Tutorial Node Rewrites — CHI-36381 (Henrique, after Tutorial Arch completes)
+  - Tutorial Node Migration - QA (Laura)
+- **WME Design Prep** (UX exploration — eng starts S28)
+  - WME - Design (Diana, proposed)
+  - WME - UX (Yura, proposed)
 - **Standalone**
   - Map Content - Sprint 27 (Jacob/Elise, ongoing)
   - ZZ Player Journey/CG Revisions — CHI-36411 (Elise, Jacob, Chris Fidalgo — cross-pod)
-  - Tutorial Node Rewrites — CHI-36381 (Henrique, after Tutorial Arch completes)
-  - Tutorial Node Migration - QA (Laura, carry-over from S26)
 
-### Carry-Over from S26 (confirmed via ClickUp 4/8)
-- **Henrique De Lima**: CHI-36213 (Tutorial Arch - Orchestration/State Tracking, **still in progress**, low priority) and CHI-36212 (Tutorial Arch - Triggering, **still to do**, low priority) — Tutorial Architecture did NOT complete in S26. These carry into S27 and compete with WME start.
+### Continuing from S26
+- **Henrique De Lima**: CHI-36213 (Tutorial Arch - Orchestration/State Tracking, **in progress**) and CHI-36212 (Tutorial Arch - Triggering, **to do**) — these are core Tutorial Node Migration work. With the resequence to 2 sprints (S26-S27), Henrique has the full sprint to complete tutorial architecture and migration.
 - **Backlog items tagged for ZZ**: CHI-36411 (ZZ Player Journey/CG Revisions — Elise, Jacob, Chris Fidalgo), CHI-36381 (Tutorial Node Rewrites — Henrique, after Tutorial Arch completes)
 
 ### Open Questions
-- [x] ~~Did Tutorial Node Migration (Henrique) complete in S26?~~ **NO** — CHI-36213 still in progress, CHI-36212 still to do. Henrique must finish these before starting WME. **How many days remain?**
-- [ ] Is the WME spec (`planning/features/world_map_vs.md`) updated for "Multiple Nodes per Territory" scope?
-- [ ] Is S26 design/UX prep far enough along for Henrique to start engineering (once Tutorial Arch clears)?
+- [x] ~~Did Tutorial Node Migration complete in S26?~~ **Plan updated**: Tutorial Node Migration expanded to 2 sprints (S26-S27). S27 is Sprint 2 — expected.
+- [ ] Is the WME spec (`planning/features/world_map_vs.md`) updated for "Multiple Nodes per Territory" scope? (Needed for S28 eng start)
+- [ ] Will Tutorial Node Migration complete by end of S27? If not, WME eng start (S28) is at risk.
 
 ### Key Risks
-- **Henrique is sole client engineer** — no parallelism. Tutorial Arch carry-over (CHI-36213 + CHI-36212) must complete before WME starts. If that takes 3+ days, WME gets less than a full sprint.
+- **Henrique is sole client engineer** — Tutorial Node Migration must complete this sprint or WME eng start (S28) slips.
+- Diana/Yura have an extra sprint for WME UX exploration — this is an opportunity to mature design before eng starts. Ensure this time is used well.
 - Diana misses sprint start day (4/14) — kickoff planning must happen end of S26.
-- WME "Multiple Nodes per Territory" design readiness depends entirely on S26 prep quality.
 - **Brazil holiday 4/21** costs Henrique and Laura each 1 day.
 
 ---
@@ -321,7 +323,8 @@ Generated: 2026-04-08
 ## Cross-Pod & Dependencies
 
 ### Key Handoffs This Sprint
-- **WME design readiness -> Henrique engineering start**: S26 design/UX prep by Diana and Yura must be complete for Henrique to start "Multiple Nodes per Territory" (after Tutorial Arch carry-over clears).
+- **Tutorial Node Migration (Empire)**: Henrique continues Tutorial Node Migration (Sprint 2 of 2). No handoff needed — WME eng pushed to S28.
+- **WME design prep (Empire)**: Diana/Yura have extra UX exploration time before S28 eng start. Design should be well-matured by sprint end.
 - **Building Upgrades -> Empire Progression Tree**: Tiago Costa finishes Building Upgrades (S26) and starts Empire Progression Tree (S27). Smooth transition needed. Verify no conflict with Data Tuning Tool epic (CHI-31707).
 - **P2 architecture breakdown -> Social Dynamics engineering**: CHI-36382 confirmed still to do. Until done, 4 engineers may lack clear direction.
 - **Battle HUD Design Doc -> Engineering**: Lincoln's CHI-35036 is in discipline review. Must finalize for Jota's continued HUD work.
@@ -408,7 +411,7 @@ Generated: 2026-04-08
 ### Top Risks
 
 1. **Tim out 5 working days** (4/22-5/01) — two pods (Metagame + Social Dynamics) without producer. Need backup identified.
-2. **Empire: Tutorial Architecture carry-over confirmed** — Henrique's CHI-36213 still in progress, CHI-36212 still to do. WME "Multiple Nodes per Territory" start is delayed until these close. Critical path risk.
+2. **Empire: Tutorial Node Migration must complete S27** — Henrique has full sprint (CHI-36213, CHI-36212, tutorial migration eng). If this overflows into S28, WME eng start slips.
 3. **Social Dynamics P2 architecture breakdown still to do** — CHI-36382 confirmed still to do after full S26 sprint. 4 engineers may lack clear direction at sprint start.
 4. **Brendan Cheatham out 8/10 days** — art direction thinned. Kevin Griffith covers solo.
 5. **Battle solo engineer (Jota)** — all features sequential, any delay cascades through M&Ms. Brazil holiday reduces him to 9 days.
@@ -419,8 +422,8 @@ Generated: 2026-04-08
 
 1. [ ] **Tim week 2 coverage**: Who covers Metagame and Social Dynamics production decisions 4/22-5/01?
 2. [ ] **Jota S26 status**: What did Jota work on in S26 (HUD vs Actor System vs Pathfinding)? What continues in S27?
-3. [x] ~~**Tutorial Node Migration completion**~~: **Did NOT complete** — CHI-36213 in progress, CHI-36212 to do. Henrique must finish before WME. **How many days remain?**
-4. [ ] **WME design readiness**: Is S26 design/UX prep sufficient for Henrique to start engineering (once Tutorial Arch clears)?
+3. [x] ~~**Tutorial Node Migration timeline**~~: **Plan updated** — expanded to 2 sprints (S26-S27). Henrique has full S27 dedicated to tutorial work.
+4. [ ] **WME design readiness for S28**: Will Diana/Yura UX exploration be mature enough for Henrique to start WME engineering in S28?
 5. [x] ~~**P2 task breakdown**~~: CHI-36382 **confirmed still to do**. Must complete early S27 or engineers lack direction.
 6. [ ] **Empire Progression Tree spec**: Does a design spec exist for Tiago?
 7. [ ] **Tiago competing priorities**: Data Tuning Tool epic (CHI-31707) in progress — does this conflict with Empire Progression Tree?

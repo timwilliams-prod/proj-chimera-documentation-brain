@@ -8,7 +8,7 @@ Pod Lead: Diana Vasilescu
 
 ---
 
-1. **Narrative and Tutorial Tooling** — M&Ms, 1 sprint, IN PROGRESS
+1. **Narrative and Tutorial Tooling** — M&Ms, 2 sprints, IN PROGRESS
    Enables designer tooling. Engineering priority while other features aren't ready for eng yet.
 
 2. **[World Map Experience](../../features/world_map_vs.md)** — M&Ms, 3 sprints, NOT STARTED → SHQ4-3, SHQ4-4

@@ -229,9 +229,9 @@ const DASHBOARD_DATA = {
     pods: ["Empire", "Metagame", "Battle", "Social Dynamics", "Dozer", "Art"],
     boulders: [
       // Empire — M&Ms
-      { name: "Narrative & Tutorial Tooling", pod: "Empire", start: "2026-03-30", end: "2026-04-13", status: "active", details: "Designer tooling — 1 sprint (Henrique)" },
-      { name: "World Map Experience", pod: "Empire", start: "2026-04-13", end: "2026-05-25", status: "future", details: "Multiple Nodes, Main Menu UX, Iterations — 3 sprints (SHQ4-3, SHQ4-4)" },
-      { name: "Territory Map VS", pod: "Empire", start: "2026-05-25", end: "2026-06-22", status: "future", details: "Territory Map Vertical Slice — 2 sprints (SHQ3-1, SHQ3-2)" },
+      { name: "Narrative & Tutorial Tooling", pod: "Empire", start: "2026-03-30", end: "2026-04-27", status: "active", details: "Tutorial node migration — 2 sprints S26-S27 (Henrique)" },
+      { name: "World Map Experience", pod: "Empire", start: "2026-04-27", end: "2026-06-08", status: "future", details: "Multiple Nodes, Main Menu UX, Iterations — 3 sprints S28-S30 (SHQ4-3, SHQ4-4)" },
+      { name: "Territory Map VS / Buffer", pod: "Empire", start: "2026-06-08", end: "2026-07-06", status: "future", details: "Territory Map VS + risk buffer — 2 sprints S31-S32 (SHQ3-1, SHQ3-2). TMVS design not ready for eng yet." },
       // Empire — M&C
       { name: "Governors", pod: "Empire", start: "2026-07-22", end: "2026-09-02", status: "future", details: "Governor system — 3 sprints (SHQ3-7). Design IN PROGRESS." },
       { name: "WM Building Upgrades", pod: "Empire", start: "2026-09-02", end: "2026-09-16", status: "future", details: "World map empire investment visibility — 1 sprint" },

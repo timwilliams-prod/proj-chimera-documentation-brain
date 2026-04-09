@@ -1,19 +1,20 @@
 # Empire — M&Ms Milestone Plan
 
-Last Updated: 2026-04-08
+Last Updated: 2026-04-09
 
-Ends: Jun 23, 2026 | Sprints: ~7 | Flex: 1 sprint buffer
+Ends: Jun 23, 2026 | Sprints: ~7 | Flex: shared with TMVS
 
 ## Sprint Allocation
 
 | Sprint | Focus | Feature(s) |
 |--------|-------|------------|
-| S26 | Tutorial Node Migration | #1 |
-| S27-S29 | World Map Experience | #2 (3 sub-efforts) |
-| S30-S31 | Territory Map Vertical Slice | #3 |
-| S32 | Flex / risk buffer | — |
+| S26-S27 | Tutorial Node Migration | #1 (2 sprints) |
+| S28-S30 | World Map Experience | #2 (3 sub-efforts) |
+| S31-S32 | Territory Map VS / Risk buffer | #3 |
 
-Map Content (#4) runs in parallel on design/art track throughout.
+- Tutorial Node Migration expanded to 2 sprints — UX exploration needed for World Map Experience before eng begins.
+- Territory Map VS deferred to S31 — design not ready for eng support yet.
+- Map Content runs in parallel on design/art track throughout (Jacob Siegel, Elise Cole).
 
 ## Milestone Goals
 

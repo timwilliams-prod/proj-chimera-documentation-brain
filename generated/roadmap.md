@@ -29,9 +29,9 @@ gantt
     Soft Launch - May 30      :crit, milestone, 2027-05-30, 0d
 
     section Empire
-    Narrative & Tutorial Tooling :active,  emp1, 2026-03-30, 14d
+    Narrative & Tutorial Tooling :active,  emp1, 2026-03-30, 28d
     World Map Experience       :         emp2, after emp1, 42d
-    Territory Map VS           :         emp3, after emp2, 28d
+    Territory Map VS / Buffer  :         emp3, after emp2, 28d
     Governors (M&C)            :active,  emp4, 2026-07-22, 42d
     WM Building Upgrades       :         emp5, after emp4, 14d
     WM Vertical Slice          :         emp6, after emp5, 14d
@@ -93,9 +93,9 @@ gantt
 
 | # | Feature | Estimate | Status |
 |---|---------|----------|--------|
-| 1 | Narrative and Tutorial Tooling | 1 sprint | IN PROGRESS |
-| 2 | World Map Experience (3 sub-efforts) | 3 sprints | NOT STARTED |
-| 3 | Territory Map Vertical Slice | 2 sprints | NOT STARTED |
+| 1 | Narrative and Tutorial Tooling | 2 sprints (S26-S27) | IN PROGRESS |
+| 2 | World Map Experience (3 sub-efforts) | 3 sprints (S28-S30) | NOT STARTED |
+| 3 | Territory Map VS / Risk buffer | 2 sprints (S31-S32) | NOT STARTED |
 
 **M&C Features** (1x ENG: Henrique De Lima):
 
@@ -313,6 +313,7 @@ gantt
 
 | Date | Changed By | Summary |
 |------|-----------|---------|
+| 2026-04-09 | Tim / Claude | **Empire M&Ms resequence**: Tutorial Node Migration expanded to 2 sprints (S26-S27) — more UX exploration time needed for World Map Experience. WME pushed to S28-S30. Territory Map VS deferred to S31-S32 (design not ready for eng yet, shares time with risk buffer). Total M&Ms scope unchanged. |
 | 2026-04-09 | Tim / Claude | **Empire M&C update**: "WM Zoom Filtering & LOD" renamed to "World Map Vertical Slice" (~1 sprint). "Conquest Guide Full Screen" expanded to 2 sprints (supporting conquest territory/world maps & live ops maps). "Barrier & Story Shard Iterations" renamed to "Experience Iterations" (1 sprint, experience iterations only). Map Content split to `planning/contentTargets.md` with explicit targets: 1x World Map (ongoing), 14x Territory Maps (by M&C), 8x Live Ops Maps (starting Live Ops & Social). **Empire M&C now 8 eng-sprints in 6-sprint milestone — overflow risk flagged.** Feature registry updated. Social Dynamics P1 marked COMPLETE, P2 IN PROGRESS. Pod folder links updated. |
 | 2026-03-27 | Tim / Claude | **Major update**: Empire M&Ms reprioritized (Tutorial Node Migration -> World Map Experience -> Territory Map VS). Governors moved to M&C. Empire capacity: Henrique De Lima sole client eng (Gabriel Arruda -> Social Dynamics, Marcos Loures -> Social Dynamics). Tiago Costa (new) -> Metagame. WH-4 (Production) removed — Dozer now shows actual features (UI Framework V2, Performance). 15 M&Ms SHQs added to ValidationPlan (SHQ4-1 through SHQ4-10 new). Updated product_targets.md with 9 new M&Ms must-haves. |
 | 2026-03-20 | Brann / Claude | **Added Art Pod**: Created Art_Plan.md with cross-pod art production priorities (Character Assets, Environment Art, UI/UX Assets, VFX & Animation). Added Art pod section to consolidated roadmap with M&Ms, Beta Prep, and M&C features. Art supports all pods with visual assets and pipeline development. |

@@ -15,9 +15,9 @@ var SPRINT_DATA = {
     milestone_sprint: 2,
     milestone_sprint_total: 7,
     mode: "Preview",
-    generated: "2026-04-08",
+    generated: "2026-04-09",
     clickup_list: "901326453323",
-    data_notes: "PTO from Google Calendar pull 4/8 (token working). ClickUp refreshed 4/8. ZZ sprint list empty — no pre-staged tasks. S26 carry-overs confirmed from Yackity Yaks list. Brazil holiday April 21 affects 18 team members."
+    data_notes: "PTO from Google Calendar pull 4/8 (token expired 4/9 — reusing PTO data). ClickUp refreshed 4/9. ZZ sprint list empty — no pre-staged tasks. S26 carry-overs confirmed from Yackity Yaks list. Brazil holiday April 21 affects 18 team members. Updated 4/9: Empire M&Ms resequenced — Tutorial Node Migration expanded to 2 sprints (S26-S27), WME eng pushed to S28."
   },
 
   pods: [
@@ -30,17 +30,17 @@ var SPRINT_DATA = {
       producer: "Brann Livesay",
       eng_summary: "Henrique De Lima (sole client eng)",
       goals: [
-        { text: "Start World Map Experience engineering — Multiple Nodes per Territory (Sprint 1 of 3)", shqs: ["SHQ3-1", "SHQ3-2"] },
-        { text: "Continue World Map Experience design/UX iteration", shqs: ["SHQ4-3", "SHQ4-4"] },
+        { text: "Continue Tutorial Node Migration (Sprint 2 of 2) — complete tutorial architecture", shqs: [] },
+        { text: "Continue World Map Experience design/UX exploration — maturing for S28 eng start", shqs: ["SHQ4-3", "SHQ4-4"] },
         { text: "Continue Map Content pipeline", shqs: ["SHQ3-1"] }
       ],
       people: [
-        { name: "Henrique De Lima", discipline: "Eng", avail: 9, total: 10, priorities: ["Clear Tutorial Arch carry-over (CHI-36213, CHI-36212)", "World Map Experience — Multiple Nodes per Territory"], notes: "Brazil holiday 4/21 = 9 days. Sole client engineer. Partial appts 4/15, 4/22. Must finish carry-over before starting WME.", flags: ["sole-eng", "carry-over", "pto"] },
-        { name: "Diana Vasilescu", discipline: "Design", avail: 9, total: 10, priorities: ["World Map Experience design iteration"], notes: "Out 4/14 (sprint start). Scoping should be complete from S26 prep.", flags: ["pto"] },
-        { name: "Yura Rusin", discipline: "UX", avail: 10, total: 10, priorities: ["World Map Experience UX"], notes: "Multiple partial Dr appts (4/14, 4/16, 4/21, 4/22, 4/28). Continuing UX flows from S26.", flags: [] },
+        { name: "Henrique De Lima", discipline: "Eng", avail: 9, total: 10, priorities: ["Tutorial Node Migration (Sprint 2 of 2) — CHI-36213, CHI-36212, tutorial eng"], notes: "Brazil holiday 4/21 = 9 days. Sole client engineer. Partial appts 4/15, 4/22. Full sprint on Tutorial. WME eng starts S28.", flags: ["sole-eng", "pto"] },
+        { name: "Diana Vasilescu", discipline: "Design", avail: 9, total: 10, priorities: ["World Map Experience design prep (UX exploration for S28 eng start)"], notes: "Out 4/14 (sprint start). Extra sprint for UX exploration — maturing WME design.", flags: ["pto"] },
+        { name: "Yura Rusin", discipline: "UX", avail: 10, total: 10, priorities: ["World Map Experience UX exploration"], notes: "Multiple partial Dr appts (4/14, 4/16, 4/21, 4/22, 4/28). Extended UX runway — WME eng starts S28 not S27.", flags: [] },
         { name: "Jacob Siegel", discipline: "Design", avail: 10, total: 10, priorities: ["Map Content (T5/T6 iterations)", "ZZ Player Journey/CG Revisions (CHI-36411)"], notes: "Partial appt 4/14.", flags: [] },
         { name: "Elise Cole", discipline: "Design", avail: 10, total: 10, priorities: ["Map Content", "ZZ Player Journey/CG Revisions (CHI-36411)", "WME design support"], notes: "", flags: [] },
-        { name: "Laura Santana", discipline: "QA", avail: 9, total: 10, priorities: ["Tutorial Node Migration QA", "Bug verification"], notes: "Brazil holiday 4/21 = 9 days. QA when S26 engineering wraps.", flags: ["pto"] },
+        { name: "Laura Santana", discipline: "QA", avail: 9, total: 10, priorities: ["Tutorial Node Migration QA", "Bug verification"], notes: "Brazil holiday 4/21 = 9 days. Tutorial Node Migration QA throughout sprint.", flags: ["pto"] },
         { name: "Brann Livesay", discipline: "Producer", avail: 9, total: 10, priorities: ["Empire production", "Art production"], notes: "Out 4/16 (travel recovery). Also produces Art pod.", flags: ["pto", "split"] },
         { name: "Guilherme Lascasas", discipline: "2D Env Concept", avail: 8, total: 10, priorities: ["Environment Art (Empire map tiles)"], notes: "Out 4/14 + Brazil holiday 4/21. Art pod member supporting Empire.", flags: ["pto"] },
         { name: "Thiago Saraiva", discipline: "Senior 3D", avail: 9, total: 10, priorities: ["3D art (Empire)"], notes: "Brazil holiday 4/21. Art pod member supporting Empire.", flags: ["pto"] },
@@ -51,14 +51,14 @@ var SPRINT_DATA = {
         { id: "CHI-36212", name: "Tutorial Arch - Triggering", assignee: "Henrique De Lima", status: "to_do", confirmed: true }
       ],
       open_questions: [
-        { text: "Did Tutorial Node Migration complete in S26?", resolved: true, answer: "NO — CHI-36213 still in progress, CHI-36212 still to do. Must finish before WME." },
-        { text: "Is the WME spec updated for 'Multiple Nodes per Territory' scope?", resolved: false, answer: "" },
-        { text: "Is S26 design/UX prep far enough for Henrique to start engineering (once carry-over clears)?", resolved: false, answer: "" }
+        { text: "Tutorial Node Migration timeline", resolved: true, answer: "Plan updated — expanded to 2 sprints (S26-S27). S27 is Sprint 2." },
+        { text: "Is the WME spec updated for 'Multiple Nodes per Territory' scope? (Needed for S28 eng start)", resolved: false, answer: "" },
+        { text: "Will Tutorial Node Migration complete by end of S27? If not, WME eng start (S28) is at risk.", resolved: false, answer: "" }
       ],
       risks: [
-        "Henrique is sole client engineer — no parallelism. Tutorial Arch carry-over (CHI-36213 + CHI-36212) must complete before WME starts. If that takes 3+ days, WME gets less than a full sprint.",
+        "Henrique is sole client engineer — Tutorial Node Migration must complete this sprint or WME eng start (S28) slips.",
+        "Diana/Yura have extra sprint for WME UX exploration — ensure this time is used well to mature design before S28 eng start.",
         "Diana misses sprint start day (4/14) — kickoff planning must happen end of S26.",
-        "WME design readiness depends entirely on S26 prep quality.",
         "Brazil holiday 4/21 costs Henrique and Laura each 1 day."
       ]
     },
@@ -254,7 +254,8 @@ var SPRINT_DATA = {
 
   cross_pod: {
     handoffs: [
-      "WME design readiness -> Henrique engineering start: S26 design/UX prep must be complete (after Tutorial Arch carry-over clears).",
+      "Tutorial Node Migration (Empire): Henrique continues Sprint 2 of 2. No handoff — WME eng pushed to S28.",
+      "WME design prep: Diana/Yura have extra UX exploration time before S28 eng start. Design should be well-matured by sprint end.",
       "Building Upgrades -> Empire Progression Tree: Tiago finishes S26, starts S27. Verify no conflict with Data Tuning Tool epic (CHI-31707).",
       "P2 architecture breakdown -> Social Dynamics engineering: CHI-36382 confirmed still to do. Must finish week 1.",
       "Battle HUD Design Doc -> Engineering: Lincoln's CHI-35036 in discipline review. Must finalize for Jota."
@@ -276,7 +277,7 @@ var SPRINT_DATA = {
   summary: {
     top_risks: [
       "Tim out 5 working days (4/22-5/01) — two pods (Metagame + Social Dynamics) without producer.",
-      "Empire: Tutorial Architecture carry-over confirmed — WME start delayed until CHI-36213 + CHI-36212 close.",
+      "Empire: Tutorial Node Migration must complete S27 — if overflows, WME eng start (S28) slips.",
       "Social Dynamics P2 architecture breakdown (CHI-36382) still to do after full S26 — engineers may lack direction.",
       "Brendan Cheatham out 8/10 days — art direction thinned. Kevin Griffith solo.",
       "Battle solo engineer (Jota) — all features sequential, any delay cascades. Brazil holiday = 9 days.",
@@ -286,8 +287,8 @@ var SPRINT_DATA = {
     open_questions: [
       { text: "Tim week 2 coverage: Who covers Metagame and Social Dynamics 4/22-5/01?", resolved: false },
       { text: "Jota S26 status: What did Jota work on in S26? What continues?", resolved: false },
-      { text: "Tutorial Arch carry-over: How many days remain for Henrique?", resolved: false },
-      { text: "WME design readiness: Is S26 prep sufficient for Henrique?", resolved: false },
+      { text: "Tutorial Node Migration: Will it complete by end of S27? If not, WME eng (S28) slips.", resolved: false },
+      { text: "WME design readiness for S28: Will Diana/Yura UX exploration be mature enough?", resolved: false },
       { text: "P2 task breakdown (CHI-36382): Must complete week 1.", resolved: false },
       { text: "Empire Progression Tree spec: Does a design spec exist for Tiago?", resolved: false },
       { text: "Tiago competing priorities: Data Tuning Tool (CHI-31707) vs Empire Progression Tree?", resolved: false },
