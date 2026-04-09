@@ -26,11 +26,12 @@ Pod Lead: Diana Vasilescu
    World map supports empire investment visibility.
 
 6. **[World Map Vertical Slice](../../features/wm_vertical_slice.md)** — M&C, ~1 sprint, NOT STARTED
+   Should be lighter due to previous World Map Experience work.
 
-7. **[Conquest Guide Full Screen](../../features/conquest_guide.md)** — M&C, 2 sprints, NOT STARTED
+8. **[Conquest Guide Full Screen](../../features/conquest_guide.md)** — M&C, 2 sprints, NOT STARTED
    Supporting conquest territory/world maps & live ops maps.
 
-8. **[Experience Iterations](../../features/experience_iterations.md)** — M&C, 1 sprint, NOT STARTED
+9. **[Experience Iterations](../../features/experience_iterations.md)** — M&C, 1 sprint, NOT STARTED
    Barrier & story shard experience iterations.
 
 > **Map Content** has been moved to [planning/contentTargets.md](../../contentTargets.md) — see that file for World Map, Territory Map, and Live Ops Map production targets.
