@@ -44,16 +44,18 @@
       padding: 32px 24px;
     }
 
-    /* ── Report Picker ── */
+    /* -- Report Picker -- */
     .report-picker {
       background: var(--bg-surface);
-      border: 1px solid var(--border);
+      border: 1px solid var(--border-light);
       border-radius: 10px;
-      padding: 14px 20px;
+      padding: 16px 20px;
       margin-bottom: 24px;
+    }
+    .picker-row {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 14px;
       flex-wrap: wrap;
     }
     .picker-label {
@@ -64,29 +66,16 @@
       letter-spacing: 0.5px;
       flex-shrink: 0;
     }
-    .picker-controls {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex: 1;
-      flex-wrap: wrap;
-    }
     .quarter-select {
       background: var(--bg-card);
-      border: 1px solid var(--border);
+      border: 2px solid var(--border-light);
       color: var(--text-bright);
-      padding: 6px 32px 6px 12px;
+      padding: 8px 14px;
       border-radius: 6px;
       font-size: 14px;
       font-family: inherit;
       font-weight: 600;
       cursor: pointer;
-      appearance: none;
-      -webkit-appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239ca3af' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 10px center;
-      transition: border-color 0.15s;
     }
     .quarter-select:hover,
     .quarter-select:focus {
@@ -101,9 +90,9 @@
     }
     .month-chip {
       background: var(--bg-card);
-      border: 1px solid var(--border);
+      border: 1px solid var(--border-light);
       color: var(--text-dim);
-      padding: 4px 14px;
+      padding: 6px 16px;
       border-radius: 6px;
       font-size: 13px;
       font-family: inherit;
@@ -127,7 +116,7 @@
       font-style: italic;
     }
 
-    /* ── Header ── */
+    /* -- Header -- */
     .page-header {
       margin-bottom: 32px;
       padding-bottom: 24px;
@@ -155,7 +144,7 @@
     }
     .meta-chip strong { color: var(--text); }
 
-    /* ── Sections ── */
+    /* -- Sections -- */
     .section {
       background: var(--bg-surface);
       border: 1px solid var(--border);
@@ -192,7 +181,7 @@
     .section-body p { margin-bottom: 12px; }
     .section-body p:last-child { margin-bottom: 0; }
 
-    /* ── Executive Summary ── */
+    /* -- Executive Summary -- */
     .confidence-signal {
       background: var(--bg-card);
       border-left: 3px solid var(--accent);
@@ -212,7 +201,7 @@
       color: var(--yellow);
     }
 
-    /* ── Goal Summary Table ── */
+    /* -- Goal Summary Table -- */
     .goal-table {
       width: 100%;
       border-collapse: collapse;
@@ -238,7 +227,7 @@
     .goal-table .goal-name { color: var(--text-bright); font-weight: 500; }
     .goal-table .goal-notes { color: var(--text-dim); font-size: 13px; }
 
-    /* ── Status Badges ── */
+    /* -- Status Badges -- */
     .badge {
       display: inline-block;
       padding: 2px 10px;
@@ -255,7 +244,7 @@
     .badge-will-not-complete { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
     .badge-no-plan { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
 
-    /* ── Goal Breakdown Cards ── */
+    /* -- Goal Breakdown Cards -- */
     .goal-card {
       border: 1px solid var(--border);
       border-radius: 10px;
@@ -323,7 +312,7 @@
       font-size: 13px;
     }
 
-    /* ── Team Table ── */
+    /* -- Team Table -- */
     .team-table {
       width: 100%;
       border-collapse: collapse;
@@ -357,7 +346,7 @@
       margin-bottom: 16px;
     }
 
-    /* ── Health ── */
+    /* -- Health -- */
     .health-block {
       margin-bottom: 16px;
     }
@@ -383,7 +372,7 @@
       font-style: italic;
     }
 
-    /* ── Risks ── */
+    /* -- Risks -- */
     .risk-group { margin-bottom: 20px; }
     .risk-group:last-child { margin-bottom: 0; }
     .risk-group-title {
@@ -421,7 +410,7 @@
       font-style: italic;
     }
 
-    /* ── Footer ── */
+    /* -- Footer -- */
     .footer {
       margin-top: 32px;
       padding-top: 16px;
@@ -454,7 +443,7 @@
       margin-top: 16px;
     }
 
-    /* ── Expand/Collapse All ── */
+    /* -- Expand/Collapse All -- */
     .toggle-all {
       background: none;
       border: 1px solid var(--border-light);
@@ -473,7 +462,7 @@
       gap: 8px;
     }
 
-    /* ── Loading ── */
+    /* -- Loading -- */
     .loading {
       text-align: center;
       color: var(--text-dim);
@@ -487,7 +476,7 @@
       font-size: 14px;
     }
 
-    /* ── Print ── */
+    /* -- Print -- */
     @media print {
       body { background: #fff; color: #111; padding: 12px; max-width: none; }
       .report-picker { display: none; }
@@ -507,24 +496,50 @@
 <body>
 
   <div id="picker"></div>
-  <div id="app"></div>
+  <div id="app"><div class="loading">Loading...</div></div>
 
+  <script>
+    // ── Index (inline for file:// compatibility) ──
+    // Also try loading external file for forward-compat
+    var PULSE_CHECK_INDEX = [
+      {
+        id: "2026-04",
+        quarter: "Q2 2026",
+        month: "April 2026",
+        month_short: "Apr",
+        milestone: "M&Ms",
+        generated: "2026-04-08",
+        file: "pulse_check_2026-04_data.js",
+        note: "Proxy goals (Q2 QVR goals not set)"
+      },
+      {
+        id: "2026-03",
+        quarter: "Q1 2026",
+        month: "March 2026",
+        month_short: "Mar",
+        milestone: "Systems Validation",
+        generated: "2026-03-25",
+        file: "pulse_check_2026-03_data.js",
+        note: ""
+      }
+    ];
+  </script>
   <script src="pulse_check_index.js"></script>
   <script>
     // ── State ──
-    let currentReportId = null;
-    let currentQuarter = null;
-    const loadedScripts = {};
+    var currentReportId = null;
+    var currentQuarter = null;
+    var loadedData = {};
 
     // ── Helpers ──
     function esc(str) {
-      const d = document.createElement('div');
+      var d = document.createElement('div');
       d.textContent = str || '';
       return d.innerHTML;
     }
 
     function badgeClass(status) {
-      const map = {
+      var map = {
         'on_track': 'badge-on-track',
         'at_risk': 'badge-at-risk',
         'completed': 'badge-completed',
@@ -535,7 +550,7 @@
     }
 
     function badgeLabel(status) {
-      const map = {
+      var map = {
         'on_track': 'On Track',
         'at_risk': 'At Risk',
         'completed': 'Completed',
@@ -550,339 +565,328 @@
     }
 
     function toggleAll(expand) {
-      document.querySelectorAll('.goal-card').forEach(c => {
+      document.querySelectorAll('.goal-card').forEach(function(c) {
         if (expand) c.classList.remove('collapsed');
         else c.classList.add('collapsed');
       });
     }
 
-    // ── Quarter/Month helpers ──
-    function getQuarters() {
-      const quarters = {};
-      PULSE_CHECK_INDEX.forEach(entry => {
+    // ── Quarter helpers ──
+    function getQuarterMap() {
+      var quarters = {};
+      PULSE_CHECK_INDEX.forEach(function(entry) {
         if (!quarters[entry.quarter]) quarters[entry.quarter] = [];
         quarters[entry.quarter].push(entry);
       });
       return quarters;
     }
 
-    function getSortedQuarterKeys() {
-      return Object.keys(getQuarters()).sort().reverse();
+    function getSortedQuarters() {
+      return Object.keys(getQuarterMap()).sort().reverse();
     }
 
     // ── Picker ──
     function renderPicker() {
-      if (!window.PULSE_CHECK_INDEX || PULSE_CHECK_INDEX.length === 0) {
-        document.getElementById('picker').innerHTML = '';
+      var pickerEl = document.getElementById('picker');
+
+      if (!PULSE_CHECK_INDEX || PULSE_CHECK_INDEX.length === 0) {
+        pickerEl.innerHTML = '<div class="report-picker"><span style="color:var(--text-dim)">No reports available.</span></div>';
         return;
       }
 
-      const quarters = getQuarters();
-      const sortedQuarters = getSortedQuarterKeys();
+      var quarters = getQuarterMap();
+      var sortedQ = getSortedQuarters();
 
-      // Default to the quarter of the most recent report
       if (!currentQuarter || !quarters[currentQuarter]) {
-        currentQuarter = sortedQuarters[0];
+        currentQuarter = sortedQ[0];
       }
 
-      // Quarter dropdown
-      const options = sortedQuarters.map(q => {
-        const selected = q === currentQuarter ? ' selected' : '';
-        const count = quarters[q].length;
-        return `<option value="${esc(q)}"${selected}>${esc(q)} (${count} report${count !== 1 ? 's' : ''})</option>`;
-      }).join('');
+      // Build quarter <option>s
+      var optionsHtml = '';
+      for (var i = 0; i < sortedQ.length; i++) {
+        var q = sortedQ[i];
+        var sel = (q === currentQuarter) ? ' selected' : '';
+        var cnt = quarters[q].length;
+        optionsHtml += '<option value="' + esc(q) + '"' + sel + '>' + esc(q) + ' (' + cnt + ' report' + (cnt !== 1 ? 's' : '') + ')</option>';
+      }
 
-      // Month chips for the selected quarter
-      const monthChips = quarters[currentQuarter].map(entry => {
-        return `<button class="month-chip" data-id="${esc(entry.id)}" onclick="loadReport('${esc(entry.id)}')" title="${esc(entry.month)} — ${esc(entry.milestone)}${entry.note ? ' (' + esc(entry.note) + ')' : ''}">${esc(entry.month_short)}</button>`;
-      }).join('');
+      // Build month chips for selected quarter
+      var entries = quarters[currentQuarter];
+      var chipsHtml = '';
+      for (var j = 0; j < entries.length; j++) {
+        var e = entries[j];
+        var tooltip = e.month + ' - ' + e.milestone;
+        if (e.note) tooltip += ' (' + e.note + ')';
+        chipsHtml += '<button class="month-chip" data-id="' + esc(e.id) + '" onclick="loadReport(\'' + esc(e.id) + '\')" title="' + esc(tooltip) + '">' + esc(e.month_short) + '</button>';
+      }
 
-      const noteText = quarters[currentQuarter].length === 1
-        ? quarters[currentQuarter][0].note
-        : '';
+      pickerEl.innerHTML =
+        '<div class="report-picker">' +
+          '<div class="picker-row">' +
+            '<span class="picker-label">Quarter</span>' +
+            '<select class="quarter-select" onchange="selectQuarter(this.value)">' + optionsHtml + '</select>' +
+            '<span class="picker-label" style="margin-left:8px">Month</span>' +
+            '<div class="picker-months">' + chipsHtml + '</div>' +
+          '</div>' +
+        '</div>';
 
-      let html = `
-        <div class="report-picker">
-          <span class="picker-label">Report</span>
-          <div class="picker-controls">
-            <select class="quarter-select" onchange="selectQuarter(this.value)">${options}</select>
-            <div class="picker-months">${monthChips}</div>
-            ${noteText ? `<span class="picker-note">${esc(noteText)}</span>` : ''}
-          </div>
-        </div>`;
-
-      document.getElementById('picker').innerHTML = html;
-      updatePickerActive();
+      highlightActiveChip();
     }
 
     function selectQuarter(quarter) {
       currentQuarter = quarter;
       renderPicker();
 
-      // Auto-load the most recent report in the selected quarter
-      const quarters = getQuarters();
+      // Auto-load the most recent report in this quarter
+      var quarters = getQuarterMap();
       if (quarters[quarter] && quarters[quarter].length > 0) {
         loadReport(quarters[quarter][0].id);
       }
     }
 
-    function updatePickerActive() {
-      document.querySelectorAll('.month-chip').forEach(c => {
-        c.classList.toggle('active', c.dataset.id === currentReportId);
-      });
+    function highlightActiveChip() {
+      var chips = document.querySelectorAll('.month-chip');
+      for (var i = 0; i < chips.length; i++) {
+        if (chips[i].getAttribute('data-id') === currentReportId) {
+          chips[i].classList.add('active');
+        } else {
+          chips[i].classList.remove('active');
+        }
+      }
     }
 
     // ── Report Loading ──
     function loadReport(id) {
       currentReportId = id;
-      updatePickerActive();
+      highlightActiveChip();
 
-      // If already loaded, just re-render
-      if (loadedScripts[id]) {
-        window.PULSE_CHECK_DATA = loadedScripts[id];
-        render();
+      if (loadedData[id]) {
+        renderReport(loadedData[id]);
         return;
       }
 
-      // Show loading state
       document.getElementById('app').innerHTML = '<div class="loading">Loading report...</div>';
 
-      // Find the entry
-      const entry = PULSE_CHECK_INDEX.find(r => r.id === id);
+      var entry = null;
+      for (var i = 0; i < PULSE_CHECK_INDEX.length; i++) {
+        if (PULSE_CHECK_INDEX[i].id === id) { entry = PULSE_CHECK_INDEX[i]; break; }
+      }
       if (!entry) {
-        document.getElementById('app').innerHTML = '<div class="load-error">Report not found in index.</div>';
+        document.getElementById('app').innerHTML = '<div class="load-error">Report "' + esc(id) + '" not found in index.</div>';
         return;
       }
 
-      // Dynamically load the data file
-      const script = document.createElement('script');
+      var script = document.createElement('script');
       script.src = entry.file;
-      script.onload = () => {
-        loadedScripts[id] = window.PULSE_CHECK_DATA;
-        render();
+      script.onload = function() {
+        if (window.PULSE_CHECK_DATA) {
+          loadedData[id] = window.PULSE_CHECK_DATA;
+          renderReport(window.PULSE_CHECK_DATA);
+        } else {
+          document.getElementById('app').innerHTML = '<div class="load-error">Data file loaded but contained no data.</div>';
+        }
       };
-      script.onerror = () => {
-        document.getElementById('app').innerHTML = `<div class="load-error">Failed to load <code>${esc(entry.file)}</code>. Make sure the data file exists.</div>`;
+      script.onerror = function() {
+        document.getElementById('app').innerHTML = '<div class="load-error">Failed to load <code>' + esc(entry.file) + '</code>.<br>If viewing locally, try serving with a local server (e.g. <code>npx serve .</code>).</div>';
       };
       document.head.appendChild(script);
     }
 
     // ── Render Report ──
-    function render() {
-      const d = window.PULSE_CHECK_DATA;
+    function renderReport(d) {
       if (!d) {
         document.getElementById('app').innerHTML = '<div class="loading">Select a report above.</div>';
         return;
       }
 
-      const m = d.meta;
+      var m = d.meta;
 
       // Goal summary table rows
-      const goalRows = d.goals.map(g => `
-        <tr>
-          <td class="goal-num">${g.number}</td>
-          <td class="goal-name">${esc(g.title)}</td>
-          <td><span class="badge ${badgeClass(g.status)}">${badgeLabel(g.status)}</span></td>
-          <td>${esc(g.confidence)}</td>
-          <td class="goal-notes">${esc(g.summary_notes)}</td>
-        </tr>
-      `).join('');
+      var goalRows = d.goals.map(function(g) {
+        return '<tr>' +
+          '<td class="goal-num">' + g.number + '</td>' +
+          '<td class="goal-name">' + esc(g.title) + '</td>' +
+          '<td><span class="badge ' + badgeClass(g.status) + '">' + badgeLabel(g.status) + '</span></td>' +
+          '<td>' + esc(g.confidence) + '</td>' +
+          '<td class="goal-notes">' + esc(g.summary_notes) + '</td>' +
+        '</tr>';
+      }).join('');
 
       // Goal breakdown cards
-      const goalCards = d.goals.map(g => `
-        <div class="goal-card collapsed">
-          <div class="goal-card-header" onclick="toggleCard(this)">
-            <span class="goal-card-arrow">&#9660;</span>
-            <span class="badge ${badgeClass(g.status)}">${badgeLabel(g.status)}</span>
-            <span class="goal-card-title">Goal ${g.number}: ${esc(g.title)}</span>
-          </div>
-          <div class="goal-card-body">${g.breakdown}</div>
-        </div>
-      `).join('');
+      var goalCards = d.goals.map(function(g) {
+        return '<div class="goal-card collapsed">' +
+          '<div class="goal-card-header" onclick="toggleCard(this)">' +
+            '<span class="goal-card-arrow">&#9660;</span>' +
+            '<span class="badge ' + badgeClass(g.status) + '">' + badgeLabel(g.status) + '</span>' +
+            '<span class="goal-card-title">Goal ' + g.number + ': ' + esc(g.title) + '</span>' +
+          '</div>' +
+          '<div class="goal-card-body">' + g.breakdown + '</div>' +
+        '</div>';
+      }).join('');
 
       // Team disciplines table
-      const teamRows = d.team_size.disciplines.map(t => `
-        <tr>
-          <td style="color:var(--text-bright);font-weight:500">${esc(t.name)}</td>
-          <td style="font-weight:600">${t.count}</td>
-          <td style="color:var(--text-dim);font-size:13px">${esc(t.notes)}</td>
-        </tr>
-      `).join('');
+      var teamRows = d.team_size.disciplines.map(function(t) {
+        return '<tr>' +
+          '<td style="color:var(--text-bright);font-weight:500">' + esc(t.name) + '</td>' +
+          '<td style="font-weight:600">' + t.count + '</td>' +
+          '<td style="color:var(--text-dim);font-size:13px">' + esc(t.notes) + '</td>' +
+        '</tr>';
+      }).join('');
 
       // Team changes
-      const changesHtml = d.team_size.changes.length > 0
-        ? '<ul>' + d.team_size.changes.map(c => `<li>${c}</li>`).join('') + '</ul>'
+      var changesHtml = d.team_size.changes.length > 0
+        ? '<ul>' + d.team_size.changes.map(function(c) { return '<li>' + c + '</li>'; }).join('') + '</ul>'
         : '<p style="color:var(--text-dim)">No open roles or team changes this period.</p>';
 
       // Health
-      const highlightsHtml = d.team_health.highlights.map(h => `<li>${h}</li>`).join('');
-      const concernsHtml = d.team_health.concerns.map(c => `<li>${c}</li>`).join('');
+      var highlightsHtml = d.team_health.highlights.map(function(h) { return '<li>' + h + '</li>'; }).join('');
+      var concernsHtml = d.team_health.concerns.map(function(c) { return '<li>' + c + '</li>'; }).join('');
 
       // Risks
-      const blockersHtml = d.blockers_risks.blockers.length > 0
-        ? '<ul>' + d.blockers_risks.blockers.map(b => `<li>${b}</li>`).join('') + '</ul>'
+      var blockersHtml = d.blockers_risks.blockers.length > 0
+        ? '<ul>' + d.blockers_risks.blockers.map(function(b) { return '<li>' + b + '</li>'; }).join('') + '</ul>'
         : '<p style="color:var(--text-dim)">No active blockers.</p>';
 
-      const risksHtml = d.blockers_risks.risks.map(r => `<li>${r}</li>`).join('');
+      var risksHtml = d.blockers_risks.risks.map(function(r) { return '<li>' + r + '</li>'; }).join('');
 
-      const asksHtml = d.blockers_risks.needs_asks.map(a => `
-        <div class="ask-item">
-          <strong>${a.title}</strong>
-          <p style="margin:4px 0 0;font-size:14px">${a.detail}</p>
-          ${a.ask ? `<div class="ask-action">${esc(a.ask)}</div>` : ''}
-        </div>
-      `).join('');
+      var asksHtml = d.blockers_risks.needs_asks.map(function(a) {
+        return '<div class="ask-item">' +
+          '<strong>' + a.title + '</strong>' +
+          '<p style="margin:4px 0 0;font-size:14px">' + a.detail + '</p>' +
+          (a.ask ? '<div class="ask-action">' + esc(a.ask) + '</div>' : '') +
+        '</div>';
+      }).join('');
 
-      const questionsHtml = d.blockers_risks.open_questions.map(q => `<li>${q}</li>`).join('');
+      var questionsHtml = d.blockers_risks.open_questions.map(function(q) { return '<li>' + q + '</li>'; }).join('');
 
       // Data sources
-      const sourceRows = d.data_sources.map(s => `
-        <tr>
-          <td style="color:var(--text)">${esc(s.source)}</td>
-          <td>${esc(s.date)}</td>
-          <td>${esc(s.notes)}</td>
-        </tr>
-      `).join('');
+      var sourceRows = d.data_sources.map(function(s) {
+        return '<tr>' +
+          '<td style="color:var(--text)">' + esc(s.source) + '</td>' +
+          '<td>' + esc(s.date) + '</td>' +
+          '<td>' + esc(s.notes) + '</td>' +
+        '</tr>';
+      }).join('');
 
-      document.getElementById('app').innerHTML = `
-        <div class="page-header">
-          <h1>Pulse Check &mdash; ${esc(m.month)}</h1>
-          <div class="header-meta">
-            <span class="meta-chip"><strong>${esc(m.quarter)}</strong></span>
-            <span class="meta-chip">Milestone: <strong>${esc(m.milestone)}</strong></span>
-            <span class="meta-chip">Generated: <strong>${esc(m.generated)}</strong></span>
-          </div>
-        </div>
+      document.getElementById('app').innerHTML =
+        '<div class="page-header">' +
+          '<h1>Pulse Check &mdash; ' + esc(m.month) + '</h1>' +
+          '<div class="header-meta">' +
+            '<span class="meta-chip"><strong>' + esc(m.quarter) + '</strong></span>' +
+            '<span class="meta-chip">Milestone: <strong>' + esc(m.milestone) + '</strong></span>' +
+            '<span class="meta-chip">Generated: <strong>' + esc(m.generated) + '</strong></span>' +
+          '</div>' +
+        '</div>' +
 
-        <!-- 1. Executive Summary -->
-        <div class="section">
-          <div class="section-header">
-            <span class="section-number">1</span>
-            <span class="section-title">Executive Summary</span>
-          </div>
-          <div class="section-body">
-            ${d.executive_summary}
-          </div>
-        </div>
+        '<div class="section">' +
+          '<div class="section-header">' +
+            '<span class="section-number">1</span>' +
+            '<span class="section-title">Executive Summary</span>' +
+          '</div>' +
+          '<div class="section-body">' + d.executive_summary + '</div>' +
+        '</div>' +
 
-        <!-- 2. Goal Summary -->
-        <div class="section">
-          <div class="section-header">
-            <span class="section-number">2</span>
-            <span class="section-title">Goal Summary</span>
-          </div>
-          <div class="section-body" style="padding:0">
-            <table class="goal-table">
-              <thead>
-                <tr>
-                  <th>#</th><th>Goal</th><th>Status</th><th>Confidence</th><th>Notes</th>
-                </tr>
-              </thead>
-              <tbody>${goalRows}</tbody>
-            </table>
-          </div>
-        </div>
+        '<div class="section">' +
+          '<div class="section-header">' +
+            '<span class="section-number">2</span>' +
+            '<span class="section-title">Goal Summary</span>' +
+          '</div>' +
+          '<div class="section-body" style="padding:0">' +
+            '<table class="goal-table">' +
+              '<thead><tr><th>#</th><th>Goal</th><th>Status</th><th>Confidence</th><th>Notes</th></tr></thead>' +
+              '<tbody>' + goalRows + '</tbody>' +
+            '</table>' +
+          '</div>' +
+        '</div>' +
 
-        <!-- 3. Goal Breakdown -->
-        <div class="section">
-          <div class="section-header">
-            <span class="section-number">3</span>
-            <span class="section-title">Goal Breakdown</span>
-            <div class="section-header-actions">
-              <button class="toggle-all" onclick="toggleAll(true)">Expand All</button>
-              <button class="toggle-all" onclick="toggleAll(false)">Collapse All</button>
-            </div>
-          </div>
-          <div class="section-body">
-            ${goalCards}
-          </div>
-        </div>
+        '<div class="section">' +
+          '<div class="section-header">' +
+            '<span class="section-number">3</span>' +
+            '<span class="section-title">Goal Breakdown</span>' +
+            '<div class="section-header-actions">' +
+              '<button class="toggle-all" onclick="toggleAll(true)">Expand All</button>' +
+              '<button class="toggle-all" onclick="toggleAll(false)">Collapse All</button>' +
+            '</div>' +
+          '</div>' +
+          '<div class="section-body">' + goalCards + '</div>' +
+        '</div>' +
 
-        <!-- 4. Team Size -->
-        <div class="section">
-          <div class="section-header">
-            <span class="section-number">4</span>
-            <span class="section-title">Team Size</span>
-          </div>
-          <div class="section-body">
-            <div class="team-total">${d.team_size.total}</div>
-            <div class="team-total-label">Total Team Members</div>
-            <table class="team-table">
-              <thead>
-                <tr><th>Discipline</th><th>Count</th><th>Notes</th></tr>
-              </thead>
-              <tbody>${teamRows}</tbody>
-            </table>
-            <h4 style="font-size:14px;color:var(--text-bright);margin-top:20px;margin-bottom:8px">Notable Team Changes</h4>
-            ${changesHtml}
-          </div>
-        </div>
+        '<div class="section">' +
+          '<div class="section-header">' +
+            '<span class="section-number">4</span>' +
+            '<span class="section-title">Team Size</span>' +
+          '</div>' +
+          '<div class="section-body">' +
+            '<div class="team-total">' + d.team_size.total + '</div>' +
+            '<div class="team-total-label">Total Team Members</div>' +
+            '<table class="team-table">' +
+              '<thead><tr><th>Discipline</th><th>Count</th><th>Notes</th></tr></thead>' +
+              '<tbody>' + teamRows + '</tbody>' +
+            '</table>' +
+            '<h4 style="font-size:14px;color:var(--text-bright);margin-top:20px;margin-bottom:8px">Notable Team Changes</h4>' +
+            changesHtml +
+          '</div>' +
+        '</div>' +
 
-        <!-- 5. Team Health -->
-        <div class="section">
-          <div class="section-header">
-            <span class="section-number">5</span>
-            <span class="section-title">Team Health</span>
-          </div>
-          <div class="section-body">
-            <p>${d.team_health.assessment}</p>
-            <div class="health-block">
-              <h4>Highlights</h4>
-              <ul>${highlightsHtml}</ul>
-            </div>
-            <div class="health-block">
-              <h4>Concerns</h4>
-              <ul>${concernsHtml}</ul>
-            </div>
-            <div class="health-note">${d.team_health.note || ''}</div>
-          </div>
-        </div>
+        '<div class="section">' +
+          '<div class="section-header">' +
+            '<span class="section-number">5</span>' +
+            '<span class="section-title">Team Health</span>' +
+          '</div>' +
+          '<div class="section-body">' +
+            '<p>' + d.team_health.assessment + '</p>' +
+            '<div class="health-block"><h4>Highlights</h4><ul>' + highlightsHtml + '</ul></div>' +
+            '<div class="health-block"><h4>Concerns</h4><ul>' + concernsHtml + '</ul></div>' +
+            '<div class="health-note">' + (d.team_health.note || '') + '</div>' +
+          '</div>' +
+        '</div>' +
 
-        <!-- 6. Blockers, Risks, Needs & Asks -->
-        <div class="section">
-          <div class="section-header">
-            <span class="section-number">6</span>
-            <span class="section-title">Blockers, Risks, Needs &amp; Asks</span>
-          </div>
-          <div class="section-body">
-            <div class="risk-group">
-              <div class="risk-group-title"><span class="risk-dot" style="background:var(--red)"></span> Active Blockers</div>
-              ${blockersHtml}
-            </div>
-            <div class="risk-group">
-              <div class="risk-group-title"><span class="risk-dot" style="background:var(--yellow)"></span> Top Risks</div>
-              <ul>${risksHtml}</ul>
-            </div>
-            <div class="risk-group">
-              <div class="risk-group-title"><span class="risk-dot" style="background:var(--accent)"></span> Needs &amp; Asks</div>
-              ${asksHtml}
-            </div>
-            <div class="risk-group">
-              <div class="risk-group-title"><span class="risk-dot" style="background:var(--text-dim)"></span> Open Questions</div>
-              <ul>${questionsHtml}</ul>
-            </div>
-          </div>
-        </div>
+        '<div class="section">' +
+          '<div class="section-header">' +
+            '<span class="section-number">6</span>' +
+            '<span class="section-title">Blockers, Risks, Needs &amp; Asks</span>' +
+          '</div>' +
+          '<div class="section-body">' +
+            '<div class="risk-group">' +
+              '<div class="risk-group-title"><span class="risk-dot" style="background:var(--red)"></span> Active Blockers</div>' +
+              blockersHtml +
+            '</div>' +
+            '<div class="risk-group">' +
+              '<div class="risk-group-title"><span class="risk-dot" style="background:var(--yellow)"></span> Top Risks</div>' +
+              '<ul>' + risksHtml + '</ul>' +
+            '</div>' +
+            '<div class="risk-group">' +
+              '<div class="risk-group-title"><span class="risk-dot" style="background:var(--accent)"></span> Needs &amp; Asks</div>' +
+              asksHtml +
+            '</div>' +
+            '<div class="risk-group">' +
+              '<div class="risk-group-title"><span class="risk-dot" style="background:var(--text-dim)"></span> Open Questions</div>' +
+              '<ul>' + questionsHtml + '</ul>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
 
-        <!-- Footer -->
-        <div class="footer">
-          <table class="source-table">
-            <thead><tr><th>Data Source</th><th>Date</th><th>Notes</th></tr></thead>
-            <tbody>${sourceRows}</tbody>
-          </table>
-          <div class="footer-note">Generated by /generatePulseCheckReport</div>
-        </div>
-      `;
+        '<div class="footer">' +
+          '<table class="source-table">' +
+            '<thead><tr><th>Data Source</th><th>Date</th><th>Notes</th></tr></thead>' +
+            '<tbody>' + sourceRows + '</tbody>' +
+          '</table>' +
+          '<div class="footer-note">Generated by /generatePulseCheckReport</div>' +
+        '</div>';
     }
 
     // ── Init ──
-    if (PULSE_CHECK_INDEX.length > 0) {
-      currentQuarter = PULSE_CHECK_INDEX[0].quarter;
-      renderPicker();
-      loadReport(PULSE_CHECK_INDEX[0].id);
-    } else {
-      renderPicker();
-      document.getElementById('app').innerHTML = '<div class="loading">No Pulse Check reports found. Run <code>/generatePulseCheckReport</code> to create one.</div>';
+    try {
+      if (PULSE_CHECK_INDEX && PULSE_CHECK_INDEX.length > 0) {
+        currentQuarter = PULSE_CHECK_INDEX[0].quarter;
+        renderPicker();
+        loadReport(PULSE_CHECK_INDEX[0].id);
+      } else {
+        renderPicker();
+        document.getElementById('app').innerHTML = '<div class="loading">No Pulse Check reports found. Run <code>/generatePulseCheckReport</code> to create one.</div>';
+      }
+    } catch (err) {
+      document.getElementById('picker').innerHTML = '<div class="load-error">Error initializing: ' + err.message + '</div>';
     }
   </script>
 </body>
