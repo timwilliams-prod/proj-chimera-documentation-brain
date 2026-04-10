@@ -64,23 +64,40 @@
       letter-spacing: 0.5px;
       flex-shrink: 0;
     }
-    .picker-quarters {
+    .picker-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 1;
+      flex-wrap: wrap;
+    }
+    .quarter-select {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-bright);
+      padding: 6px 32px 6px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-family: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239ca3af' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      transition: border-color 0.15s;
+    }
+    .quarter-select:hover,
+    .quarter-select:focus {
+      border-color: var(--accent);
+      outline: none;
+    }
+    .picker-months {
       display: flex;
       align-items: center;
       gap: 6px;
       flex-wrap: wrap;
-    }
-    .quarter-group {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .quarter-label {
-      font-size: 12px;
-      color: var(--text-dim);
-      font-weight: 600;
-      padding-right: 2px;
-      white-space: nowrap;
     }
     .month-chip {
       background: var(--bg-card);
@@ -102,13 +119,6 @@
       color: var(--accent);
       border-color: var(--accent);
       font-weight: 600;
-    }
-    .quarter-divider {
-      width: 1px;
-      height: 24px;
-      background: var(--border-light);
-      margin: 0 6px;
-      flex-shrink: 0;
     }
     .picker-note {
       font-size: 11px;
@@ -503,6 +513,7 @@
   <script>
     // ── State ──
     let currentReportId = null;
+    let currentQuarter = null;
     const loadedScripts = {};
 
     // ── Helpers ──
@@ -545,6 +556,20 @@
       });
     }
 
+    // ── Quarter/Month helpers ──
+    function getQuarters() {
+      const quarters = {};
+      PULSE_CHECK_INDEX.forEach(entry => {
+        if (!quarters[entry.quarter]) quarters[entry.quarter] = [];
+        quarters[entry.quarter].push(entry);
+      });
+      return quarters;
+    }
+
+    function getSortedQuarterKeys() {
+      return Object.keys(getQuarters()).sort().reverse();
+    }
+
     // ── Picker ──
     function renderPicker() {
       if (!window.PULSE_CHECK_INDEX || PULSE_CHECK_INDEX.length === 0) {
@@ -552,29 +577,53 @@
         return;
       }
 
-      // Group by quarter
-      const quarters = {};
-      PULSE_CHECK_INDEX.forEach(entry => {
-        if (!quarters[entry.quarter]) quarters[entry.quarter] = [];
-        quarters[entry.quarter].push(entry);
-      });
+      const quarters = getQuarters();
+      const sortedQuarters = getSortedQuarterKeys();
 
-      // Sort quarters descending (most recent first)
-      const sortedQuarters = Object.keys(quarters).sort().reverse();
+      // Default to the quarter of the most recent report
+      if (!currentQuarter || !quarters[currentQuarter]) {
+        currentQuarter = sortedQuarters[0];
+      }
 
-      let html = '<div class="report-picker"><span class="picker-label">Report</span><div class="picker-quarters">';
+      // Quarter dropdown
+      const options = sortedQuarters.map(q => {
+        const selected = q === currentQuarter ? ' selected' : '';
+        const count = quarters[q].length;
+        return `<option value="${esc(q)}"${selected}>${esc(q)} (${count} report${count !== 1 ? 's' : ''})</option>`;
+      }).join('');
 
-      sortedQuarters.forEach((q, qi) => {
-        if (qi > 0) html += '<span class="quarter-divider"></span>';
-        html += `<div class="quarter-group"><span class="quarter-label">${esc(q)}:</span>`;
-        quarters[q].forEach(entry => {
-          html += `<button class="month-chip" data-id="${esc(entry.id)}" onclick="loadReport('${esc(entry.id)}')" title="${esc(entry.month)} — ${esc(entry.milestone)}${entry.note ? ' (' + esc(entry.note) + ')' : ''}">${esc(entry.month_short)}</button>`;
-        });
-        html += '</div>';
-      });
+      // Month chips for the selected quarter
+      const monthChips = quarters[currentQuarter].map(entry => {
+        return `<button class="month-chip" data-id="${esc(entry.id)}" onclick="loadReport('${esc(entry.id)}')" title="${esc(entry.month)} — ${esc(entry.milestone)}${entry.note ? ' (' + esc(entry.note) + ')' : ''}">${esc(entry.month_short)}</button>`;
+      }).join('');
 
-      html += '</div></div>';
+      const noteText = quarters[currentQuarter].length === 1
+        ? quarters[currentQuarter][0].note
+        : '';
+
+      let html = `
+        <div class="report-picker">
+          <span class="picker-label">Report</span>
+          <div class="picker-controls">
+            <select class="quarter-select" onchange="selectQuarter(this.value)">${options}</select>
+            <div class="picker-months">${monthChips}</div>
+            ${noteText ? `<span class="picker-note">${esc(noteText)}</span>` : ''}
+          </div>
+        </div>`;
+
       document.getElementById('picker').innerHTML = html;
+      updatePickerActive();
+    }
+
+    function selectQuarter(quarter) {
+      currentQuarter = quarter;
+      renderPicker();
+
+      // Auto-load the most recent report in the selected quarter
+      const quarters = getQuarters();
+      if (quarters[quarter] && quarters[quarter].length > 0) {
+        loadReport(quarters[quarter][0].id);
+      }
     }
 
     function updatePickerActive() {
@@ -827,10 +876,12 @@
     }
 
     // ── Init ──
-    renderPicker();
     if (PULSE_CHECK_INDEX.length > 0) {
+      currentQuarter = PULSE_CHECK_INDEX[0].quarter;
+      renderPicker();
       loadReport(PULSE_CHECK_INDEX[0].id);
     } else {
+      renderPicker();
       document.getElementById('app').innerHTML = '<div class="loading">No Pulse Check reports found. Run <code>/generatePulseCheckReport</code> to create one.</div>';
     }
   </script>
