@@ -46,6 +46,36 @@ Generated: 2026-04-09 (updated — Empire M&Ms resequence)
 
 ---
 
+## Systems Validation Playtest Results — Week 1 Triage
+
+**CRITICAL**: Three playtest result sets arrive in **Week 1** (4/14-4/17) and will require cross-pod triage.
+
+### Incoming Playtest Results
+
+| Playtest | Build | Results Date | Type | Notes |
+|----------|-------|--------------|------|-------|
+| **Internal Fortis-Wide Playtest** | SV Milestone | **4/14** (Tuesday, sprint start) | Internal | Full team feedback |
+| **Superuser Longitudinal Playtest** | SV Milestone | **4/14** (Tuesday, sprint start) | External | Preliminary results |
+| **PTC External Playtest** | SV Milestone | **4/17** (Friday, week 1) | External | Final external validation for SV |
+
+### Triage Impact
+
+- **Week 1 capacity hit**: Playtest results review, discussion, and triage will consume time across all pods
+- **Priority shifts possible**: High-severity findings may require immediate bug fixes or design pivots
+- **Cross-pod coordination**: Results may affect Battle, Empire, Metagame, and Social Dynamics features
+- **SHQ implications**: SV milestone SHQs (SHQ3-x series) may get updated based on playtest findings
+
+### Triage Plan
+
+- **4/14 (Tuesday)**: Review Internal Fortis-Wide + Superuser preliminary results
+- **4/17 (Friday)**: Review PTC External results
+- **Week 1**: Triage critical/high-priority findings, assign follow-up work
+- **Week 2**: Execute on triage decisions (bug fixes, design adjustments, etc.)
+
+> **Note**: This is the final major external validation for the Systems Validation milestone. Results will inform M&Ms feature priorities and may surface gaps that need addressing before beta.
+
+---
+
 ## Empire
 
 **Design Lead**: Diana Vasilescu | **Producer**: Brann Livesay | **Eng**: Henrique De Lima (sole client eng)
@@ -117,7 +147,7 @@ Generated: 2026-04-09 (updated — Empire M&Ms resequence)
 | Dan Dupuis          | Eng Lead   | 10         | 1. UI Foundation oversight + architecture                             | Planning capacity only. Also Empire eng lead.                                         |
 | Leonard Perez       | Design     | 10         | 1. UI Foundation design 2. Empire Progression Tree design support     |                                                                                       |
 | Christopher Fidalgo | Design     | 10         | 1. CHI-36250 (T5/T6 rewards, carry-over) 2. ZZ Player Journey/CG Revisions (CHI-36411) 3. Narrative/Tutorial Design | S26 carry-over confirmed. High priority item must close early. |
-| Kevin Ligon         | UX         | **8**      | 1. UI Foundation UX wireframes/flows                                  | Out 4/23-4/24. Front-load UX deliverables week 1.                                     |
+| Kevin Ligon         | UX         | **8**      | 1. UI Foundation UX wireframes/flows 2. Battle HUD UX support (cross-pod)   | Out 4/23-4/24. Front-load UX deliverables week 1. Also supporting Battle HUD design phase. |
 | Miguel Duran        | UI Art     | 10         | 1. UI Foundation UI art                                               | Shared resource with Empire.                                                          |
 | Hugo Hideo          | QA         | **9**      | 1. Empire Progression Tree QA (end of sprint) 2. Ongoing verification | **Brazil holiday 4/21 = 9 days**.                                                     |
 
@@ -149,7 +179,7 @@ Generated: 2026-04-09 (updated — Empire M&Ms resequence)
 ### Key Risks
 - **Tim out 4/22-5/01** (6 working days in this sprint = 5 lost) — producer coverage gap for Metagame AND Social Dynamics. Need backup decision-maker identified.
 - Chris Fidalgo carry-over: CHI-36250 must close early in sprint or it compounds further.
-- Kevin Ligon out 4/23-4/24 — front-load UX deliverables in week 1.
+- Kevin Ligon out 4/23-4/24 — front-load UX deliverables in week 1. Also split between UI Foundation (Metagame) and Battle HUD UX (cross-pod support).
 - Dan Dupuis split: UI Foundation (Metagame) + Empire eng lead oversight.
 - **Brazil holiday 4/21**: Guilherme Quizzini and Hugo Hideo each lose 1 day.
 
@@ -161,22 +191,23 @@ Generated: 2026-04-09 (updated — Empire M&Ms resequence)
 **QA**: Julio Scarabelli
 
 ### Sprint Goals
-- Start **Battle HUD Beta Overhaul** engineering (Sprint 1 of ~4) — must-have for M&Ms, validates BHQ-B2 (SHQ4-1)
-- Begin **Actor System Overhaul** implementation based on S26 ENG plan
+- **Actor System Overhaul** implementation (Jota, Sprint 1 of ~2) — based on S26 ENG plan
+- **Battle HUD Beta Overhaul** design/UX finalization (Lincoln/Kevin) — design phase before engineering, validates BHQ-B2 (SHQ4-1)
 - Lincoln Li: Battle HUD Design Doc (CHI-35036) in discipline review — finalize and hand off
 - Continue design prep for upcoming features (Obstacles, Pathfinding & AI)
 - Continue **Battle Content** and **Unit Content** pipelines
 
 ### S26 Actuals (updated)
 - Jota worked on **Actor System Overhaul ENG plan**, **bug fixes**, and **PTC Feedback tasks** in S26
-- Battle HUD Beta Overhaul deferred to S27
+- Battle HUD engineering deferred to S28 (design/UX work in S27)
 
 ### Individual Breakdown
 
 | Assignee | Discipline | Avail Days | Priorities | Notes |
 |----------|-----------|------------|------------|-------|
-| Jota Oliveira | Eng | **9** | 1. Battle HUD Beta Overhaul (starting) 2. Actor System Overhaul implementation (based on S26 plan) | **Brazil holiday 4/21 = 9 days**. Solo client engineer. Critical path for all Battle engineering. Also has Effect Stacking (CHI-35985) in backlog for ZZ. |
-| Lincoln Li | Design Lead | 10 | 1. Battle HUD Design Doc finalization (CHI-35036, discipline review) 2. Future feature design prep | Partial — gymnastics 4/16, 4/23 (~1 hr each). |
+| Jota Oliveira | Eng | **9** | 1. Actor System Overhaul implementation (based on S26 plan) 2. Hero implementation tech (new tech work) | **Brazil holiday 4/21 = 9 days**. Solo client engineer. Critical path for all Battle engineering. Battle HUD eng deferred to S28. Also has Effect Stacking (CHI-35985) in backlog for ZZ. |
+| Lincoln Li | Design Lead | 10 | 1. Battle HUD Design Doc finalization (CHI-35036, discipline review) 2. Future feature design prep | Partial — gymnastics 4/16, 4/23 (~1 hr each). Design/UX phase for Battle HUD this sprint. |
+| Kevin Ligon | UX (Metagame) | **8** | 1. UI Foundation UX wireframes/flows 2. Battle HUD UX support | Out 4/23-4/24. Cross-pod support for Battle HUD. |
 | Nathan Hajek | Design | 10 | 1. Unit Design & Prototype (M&M) | |
 | Dylan Jeffery | Design | 10 | 1. Battle Content pipeline | Ongoing. |
 | Vishaal Gupta | Design | 10 | 1. Battle Content + unit balance | Partial appts 4/16, 4/23 (~1 hr each). |
@@ -191,25 +222,33 @@ Generated: 2026-04-09 (updated — Empire M&Ms resequence)
 
 ### ClickUp Ticket Summary
 
+- **Actor System Overhaul** (proposed)
+  - Actor System Overhaul - Engineering (Jota, Sprint 1 of ~2, based on S26 ENG plan)
+- **Hero Implementation Tech** (proposed)
+  - New tech for Hero implementation (Jota, partial sprint focus)
 - **SHQ4-1: HUD strategic + tactical play** (Epic CHI-36324, existing)
-  - Battle HUD Beta Overhaul - Phase 2 (proposed)
-    - Battle HUD - Engineering (Jota)
+  - Battle HUD Beta Overhaul - Design/UX Phase (Lincoln/Kevin)
     - Battle HUD - Design Doc finalization (Lincoln, CHI-35036 in discipline review)
+    - Battle HUD - UX support (Kevin Ligon, cross-pod)
+  - Battle HUD - Engineering deferred to S28
 - **Standalone**
   - Battle Content - Sprint 27 (ongoing)
   - Unit Content - Sprint 27 (ongoing, multiple ZZ-tagged tasks)
-  - Effect Stacking - Migrate patterns (CHI-35985, Jota — ZZ-tagged, if bandwidth allows)
+  - Effect Stacking - Migrate patterns (CHI-35985, Jota — ZZ-tagged, deferred due to Actor System priority)
 
 ### Open Questions
-- [x] ~~What did Jota actually work on in S26?~~ **Resolved**: Actor System Overhaul ENG plan, bug fixes, PTC Feedback tasks. Battle HUD deferred to S27.
-- [ ] Battle HUD estimate: 3 sprints or 4? Timeline compressed — Battle HUD starts S27 (not S26), plus Actor System implementation. Downstream features (Obstacles, Pathfinding) at risk.
-- [ ] Effect Stacking (CHI-35985) is tagged for ZZ — does Jota have bandwidth alongside HUD + Actor System?
+- [x] ~~What did Jota actually work on in S26?~~ **Resolved**: Actor System Overhaul ENG plan, bug fixes, PTC Feedback tasks.
+- [x] ~~Battle HUD timeline?~~ **Resolved**: Design/UX phase in S27 (Lincoln/Kevin). Engineering starts S28.
+- [x] ~~Jota's S27 priorities?~~ **Resolved**: 1) Actor System Overhaul implementation, 2) Hero implementation tech.
+- [ ] Effect Stacking (CHI-35985) is tagged for ZZ — deferred due to Actor System + Hero tech priority?
+- [ ] Battle HUD engineering estimate: 3 sprints or 4 starting from S28? Milestone deadline Jun 23.
 
 ### Key Risks
 - **Solo engineer (Jota)**: All features sequential. Any delay cascades through the entire M&Ms milestone. Brazil holiday 4/21 reduces him to 9 days.
-- **Timeline compressed**: Battle HUD pushed from S26 to S27. 4 features totaling ~9 eng-sprints now compressed into 6 remaining sprints instead of 7.
-- **Dual track in S27**: Jota starting both Battle HUD (4-sprint feature) and Actor System implementation (based on S26 plan). May need to sequence these instead of parallel.
-- If HUD or Actor System runs long, downstream features (Obstacles, Pathfinding) compress further or may not fit in M&Ms.
+- **Timeline compressed**: Battle HUD engineering pushed to S28 (design/UX in S27). 4 features totaling ~9 eng-sprints in 6 remaining sprints.
+- **Dual track in S27**: Jota splitting time between Actor System Overhaul implementation and Hero implementation tech (new tech work). Both are critical-path items.
+- Battle HUD engineering doesn't start until S28, leaving only 5 sprints for HUD + Obstacles + Pathfinding. Tight fit.
+- If Actor System, Hero tech, or Battle HUD eng runs long, downstream features (Obstacles, Pathfinding) may not fit in M&Ms.
 - Danny out 3 days total (4/16-4/17 PTO + 4/23 local holiday) — Alessandro covers VFX.
 
 ---
@@ -265,24 +304,29 @@ Generated: 2026-04-09 (updated — Empire M&Ms resequence)
 **Eng Lead**: Derek Gallant | **Eng**: Bruno Freitas | **Producer**: Thorben Novais
 
 ### Sprint Goals
-- Continue infrastructure support and performance monitoring
+- **Complete EKS deployment (Prod/Stage)** (Derek) — **enables parallel workflows setup in S28**
+- **Complete Single Config Editor** (Bruno) — finishing from S26
+- **Performance Improvements** (Bruno) — ongoing optimization work
 - Continue UI Framework V2 support (cross-pod)
-- EKS deployment — verify S26 deployments completed
+- Multiplayer infrastructure support for Social Dynamics
 
 ### Individual Breakdown
 
 | Assignee | Discipline | Avail Days | Priorities | Notes |
 |----------|-----------|------------|------------|-------|
-| Derek Gallant | Eng Lead | 10 | 1. Infrastructure support 2. UI Framework V2 support 3. Multiplayer support | Also Social Dynamics eng lead. |
-| Bruno Freitas | Eng | **9** | 1. Build pipeline / tools | **Brazil holiday 4/21 = 9 days**. |
+| Derek Gallant | Eng Lead | 10 | 1. EKS deployment completion (Prod/Stage) 2. Multiplayer infrastructure support 3. UI Framework V2 support | Also Social Dynamics eng lead. EKS must complete to enable S28 parallel workflows. |
+| Bruno Freitas | Eng | **9** | 1. Single Config Editor (finish from S26) 2. Performance Improvements | **Brazil holiday 4/21 = 9 days**. |
+
+### S26 Status
+- EKS deployment (Prod/Stage) started in S26, completing in S27
 
 ### Open Questions
 - [ ] Should Dozer have defined M&Ms deliverables per sprint? (Carried from S26)
-- [ ] EKS deployment status: did S26 deployments (Prod/Stage) complete?
+- [x] ~~EKS deployment status~~ **Resolved**: Started S26, completing S27 (Derek)
 
 ### Key Risks
-- No defined sprint goals — hard to measure progress or flag delays.
-- Derek split between Dozer and Social Dynamics eng lead responsibilities.
+- Derek split between Dozer (EKS deployment) and Social Dynamics eng lead responsibilities.
+- **EKS deployment must complete by end of S27** — blocks parallel workflows setup in S28. Any delay cascades to next sprint.
 - Bruno Freitas loses 1 day to Brazil holiday.
 
 ---
@@ -330,15 +374,17 @@ Generated: 2026-04-09 (updated — Empire M&Ms resequence)
 ## Cross-Pod & Dependencies
 
 ### Key Handoffs This Sprint
+- **EKS deployment completion (Dozer → S28 parallel workflows)**: Derek completes EKS infrastructure deployment (Prod/Stage) started in S26. **Must complete by end of S27** — enables parallel workflows setup in S28.
 - **Tutorial Node Migration (Empire)**: Henrique continues Tutorial Node Migration (Sprint 2 of 2). No handoff needed — WME eng pushed to S28.
 - **WME design prep (Empire)**: Diana/Yura have extra UX exploration time before S28 eng start. Design should be well-matured by sprint end.
 - **Building Upgrades -> Empire Progression Tree**: Tiago Costa finishes Building Upgrades (S26) and starts Empire Progression Tree (S27). Smooth transition needed. Verify no conflict with Data Tuning Tool epic (CHI-31707).
 - **P2 architecture breakdown -> Social Dynamics engineering**: CHI-36382 confirmed still to do. Until done, 4 engineers may lack clear direction.
-- **Battle HUD Design Doc -> Engineering**: Lincoln's CHI-35036 is in discipline review. Must finalize for Jota's continued HUD work.
+- **Battle HUD Design/UX phase (Battle)**: Lincoln finalizes design doc (CHI-35036). Kevin Ligon (Metagame UX) provides cross-pod UX support. Engineering deferred to S28.
 
 ### Shared Resource Conflicts
+- **Derek Gallant**: Dozer EKS deployment completion (enables S28 parallel workflows) + Social Dynamics eng lead. **Must-complete work** this sprint — blocks S28.
+- **Kevin Ligon** (UX): Metagame UI Foundation primary + Battle HUD UX (cross-pod support). Out 4/23-4/24.
 - **Miguel Duran** (UI Artist): Metagame UI Foundation primary. Empire may need WME UI art.
-- **Derek Gallant**: Dozer infrastructure + Social Dynamics eng lead. Critical path for multiplayer.
 - **Dan Dupuis**: Metagame eng lead (UI Foundation) + Empire eng lead.
 - **Chris Fidalgo**: Assigned to both CHI-36250 (Metagame carry-over) and CHI-36411 (ZZ Player Journey — Empire cross-pod).
 
@@ -353,7 +399,9 @@ Generated: 2026-04-09 (updated — Empire M&Ms resequence)
 
 ### Milestone Context
 - **Sprint 2 of M&Ms**. Settling into milestone rhythm after S26 transition.
+- **SV Milestone playtest results** arrive week 1 (4/14, 4/17) — final external validation for Systems Validation. Triage may shift priorities.
 - Key M&Ms SHQs entering active testing: SHQ3-1 (map at scale), SHQ4-1 (HUD strategic/tactical).
+- SV SHQs (SHQ3-x series) may get updated based on playtest findings.
 - Map Goals Handshake (Empire/Battle/Metagame) — dependency to watch as WME engineering starts.
 
 ---
@@ -417,23 +465,26 @@ Generated: 2026-04-09 (updated — Empire M&Ms resequence)
 
 ### Top Risks
 
-1. **Tim out 5 working days** (4/22-5/01) — two pods (Metagame + Social Dynamics) without producer. Need backup identified.
-2. **Empire: Tutorial Node Migration must complete S27** — Henrique has full sprint (CHI-36213, CHI-36212, tutorial migration eng). If this overflows into S28, WME eng start slips.
-3. **Social Dynamics P2 architecture breakdown still to do** — CHI-36382 confirmed still to do after full S26 sprint. 4 engineers may lack clear direction at sprint start.
-4. **Brendan Cheatham out 8/10 days** — art direction thinned. Kevin Griffith covers solo.
-5. **Battle timeline compressed** — Battle HUD deferred from S26 to S27. 4 features now compressed into 6 sprints instead of 7. Jota (solo engineer) starting both HUD and Actor System implementation in S27. Brazil holiday reduces him to 9 days.
-6. **Brazil holiday April 21** — 18 team members lose 1 day. Concentrated impact on Social Dynamics (3/5 engineers) and Battle (sole eng).
-7. **Metagame: Chris carry-over confirmed** — CHI-36250 (T5/T6 rewards) still to do after full sprint. Must close early in S27.
+1. **SV Playtest results triage — Week 1** — Three playtest result sets arrive 4/14 and 4/17. Triage will consume cross-pod capacity in week 1 and may generate urgent bug fixes or design pivots. Final external validation for SV milestone.
+2. **Dozer: EKS deployment must complete** — Derek must finish EKS (Prod/Stage) by end of S27 to enable parallel workflows setup in S28. Any delay blocks S28 work.
+3. **Tim out 5 working days** (4/22-5/01) — two pods (Metagame + Social Dynamics) without producer. Need backup identified.
+4. **Empire: Tutorial Node Migration must complete S27** — Henrique has full sprint (CHI-36213, CHI-36212, tutorial migration eng). If this overflows into S28, WME eng start slips.
+5. **Social Dynamics P2 architecture breakdown still to do** — CHI-36382 confirmed still to do after full S26 sprint. 4 engineers may lack clear direction at sprint start.
+6. **Brendan Cheatham out 8/10 days** — art direction thinned. Kevin Griffith covers solo.
+7. **Battle timeline compressed** — Battle HUD engineering deferred to S28 (design in S27). 4 features now compressed into 6 sprints. Jota (solo engineer) splitting S27 between Actor System Overhaul and Hero implementation tech. Brazil holiday reduces him to 9 days.
+8. **Brazil holiday April 21** — 18 team members lose 1 day. Concentrated impact on Social Dynamics (3/5 engineers) and Battle (sole eng).
+9. **Metagame: Chris carry-over confirmed** — CHI-36250 (T5/T6 rewards) still to do after full sprint. Must close early in S27.
 
 ### Open Questions (resolve before kickoff)
 
-1. [ ] **Tim week 2 coverage**: Who covers Metagame and Social Dynamics production decisions 4/22-5/01?
-2. [x] ~~**Jota S26 status**~~: **Resolved** — Jota worked on Actor System Overhaul ENG plan, bug fixes, and PTC Feedback tasks. Battle HUD deferred to S27 (starts now).
-3. [x] ~~**Tutorial Node Migration timeline**~~: **Plan updated** — expanded to 2 sprints (S26-S27). Henrique has full S27 dedicated to tutorial work.
-4. [ ] **WME design readiness for S28**: Will Diana/Yura UX exploration be mature enough for Henrique to start WME engineering in S28?
-5. [x] ~~**P2 task breakdown**~~: CHI-36382 **confirmed still to do**. Must complete early S27 or engineers lack direction.
-6. [ ] **Empire Progression Tree spec**: Does a design spec exist for Tiago?
-7. [ ] **Tiago competing priorities**: Data Tuning Tool epic (CHI-31707) in progress — does this conflict with Empire Progression Tree?
-8. [ ] **UI Foundation Sprint 2 scope**: Which sub-features are the focus?
-9. [ ] **Art Brendan coverage**: Who covers Assoc. Art Director for 8 days?
-10. [ ] **Dozer deliverables**: Should Dozer have defined sprint goals for M&Ms?
+1. [ ] **SV Playtest triage process**: Who leads triage for each playtest? How do we prioritize findings across pods? What's the severity threshold for interrupting planned S27 work?
+2. [ ] **Tim week 2 coverage**: Who covers Metagame and Social Dynamics production decisions 4/22-5/01?
+3. [x] ~~**Jota S26 status**~~: **Resolved** — Jota worked on Actor System Overhaul ENG plan, bug fixes, and PTC Feedback tasks. Battle HUD deferred to S27 (starts now).
+4. [x] ~~**Tutorial Node Migration timeline**~~: **Plan updated** — expanded to 2 sprints (S26-S27). Henrique has full S27 dedicated to tutorial work.
+5. [ ] **WME design readiness for S28**: Will Diana/Yura UX exploration be mature enough for Henrique to start WME engineering in S28?
+6. [x] ~~**P2 task breakdown**~~: CHI-36382 **confirmed still to do**. Must complete early S27 or engineers lack direction.
+7. [ ] **Empire Progression Tree spec**: Does a design spec exist for Tiago?
+8. [ ] **Tiago competing priorities**: Data Tuning Tool epic (CHI-31707) in progress — does this conflict with Empire Progression Tree?
+9. [ ] **UI Foundation Sprint 2 scope**: Which sub-features are the focus?
+10. [ ] **Art Brendan coverage**: Who covers Assoc. Art Director for 8 days?
+11. [x] ~~**Dozer deliverables**~~: **Resolved** — S27 goal is to complete EKS (Prod/Stage) to enable parallel workflows setup in S28.

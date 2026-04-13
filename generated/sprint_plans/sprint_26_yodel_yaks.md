@@ -231,10 +231,15 @@ Generated: 2026-04-08 (mid-sprint snapshot)
 
 **Eng Lead**: Derek Gallant | **Eng**: Bruno Freitas | **Producer**: Thorben Novais
 
-### Sprint Goals
+### Sprint Goals (Planned)
 - EKS infrastructure deployment (Prod week 1, Stage week 2) — critical path for multiplayer
 - Multiplayer support infrastructure
 - Build pipeline maintenance + Single Config Editor
+
+### Actual Work Completed
+- EKS infrastructure deployment started (Prod/Stage) — **completing in S27**
+- Multiplayer support infrastructure work
+- Build pipeline maintenance
 
 ### Individual Breakdown
 
@@ -251,6 +256,9 @@ Generated: 2026-04-08 (mid-sprint snapshot)
 - EKS deployments are critical path for multiplayer readiness (Social Dynamics dependency)
 - Randy and Garrett (Social Dynamics) may be pulled for Dozer infra work
 - Derek split between Dozer leadership and Social Dynamics eng lead
+
+### Outcomes
+- EKS deployment initiated, continues into Sprint 27 for completion
 
 ---
 

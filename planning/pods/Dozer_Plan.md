@@ -55,10 +55,15 @@ All Dozer features across milestones, ordered by priority within each milestone.
 > Skill-maintained by `/sprint-plan`. Updated with user approval.
 > Shows current + next sprint. Full details in `generated/sprint_plans/`.
 
-### Sprint 26: Yodel Yaks (3/31 - 4/14) — CURRENT
+### Sprint 26: Yodel Yaks (3/31 - 4/14) — COMPLETED
 
 **Goals**:
 - EKS infrastructure deployment (Prod week 1, Stage week 2)
+- Multiplayer support infrastructure
+- Build pipeline maintenance
+
+**Actual Work Completed**:
+- EKS infrastructure deployment started (Prod/Stage) — completing in S27
 - Multiplayer support infrastructure
 - Build pipeline maintenance
 
@@ -69,18 +74,29 @@ All Dozer features across milestones, ordered by priority within each milestone.
 | Derek Gallant | EKS Prod (week 1), EKS Stage (week 2), Multiplayer Support, UI Framework V2 - UI Support (Cross-Pod) | Also Social Dynamics eng lead |
 | Bruno Freitas | Single Config Editor, Build Info/Logs | |
 
-**Risks & Awareness**:
-- EKS deployments are critical path for multiplayer readiness
-- Randy Pasion and Garrett Eidsvig (Social Dynamics) have Dozer split risk — may pull them for infrastructure work
+**Outcomes**:
+- EKS deployment work initiated, continues into S27
 
-### Sprint 27: Zany Zebras (4/14 - 4/28) — NEXT
+### Sprint 27: Zany Zebras (4/14 - 4/28) — CURRENT
 
 **Goals**:
-- Continue infrastructure support
-- [TBD — awaiting feature definitions]
+- **Complete EKS infrastructure deployment (Prod/Stage)** (Derek) — **enables parallel workflows setup in S28**
+- **Complete Single Config Editor** (Bruno, from S26)
+- **Performance Improvements** (Bruno) — ongoing optimization work
+- Continue UI Framework V2 support (cross-pod)
+- Multiplayer infrastructure support for Social Dynamics
+
+**Key Assignments**:
+
+| Person | Focus | Notes |
+|--------|-------|-------|
+| Derek Gallant | EKS deployment completion (Prod/Stage), Multiplayer infrastructure support, UI Framework V2 support | Also Social Dynamics eng lead. EKS must complete to enable S28 parallel workflows. |
+| Bruno Freitas | Single Config Editor (finish from S26), Performance Improvements | Brazil holiday 4/21 (9 avail days) |
 
 **Risks & Awareness**:
-- Same open question: should Dozer have defined M&Ms deliverables?
+- Derek split between Dozer (EKS deployment) and Social Dynamics eng lead — EKS is critical path for S28
+- **EKS deployment must complete by end of S27** — blocks parallel workflows setup in S28
+- Bruno loses 1 day to Brazil holiday (4/21)
 
 ---
 
