@@ -1,6 +1,7 @@
 # Empire Features
 
 Last Updated: 2026-04-09
+Doc Status: DRAFT
 Pod Lead: Diana Vasilescu
 
 > Ranked backlog of all Empire features. Rank is global priority — #1 is always the most important thing.

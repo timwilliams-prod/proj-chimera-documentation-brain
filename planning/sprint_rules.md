@@ -1,6 +1,7 @@
 # Sprint Planning Rules
 
 Last Updated: 2026-03-24
+Doc Status: DRAFT
 
 > **What this file is**: Rules for how sprint work gets broken into ClickUp tasks.
 > Used by `/sprint-plan` to scaffold tasks with the right structure, naming, and discipline breakdown.

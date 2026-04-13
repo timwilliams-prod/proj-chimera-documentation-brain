@@ -1,6 +1,7 @@
 # Team Capacity
 
 Last Updated: 2026-03-30
+Doc Status: DRAFT
 Current Milestone: M&Ms (Multiplayer & Meta, starts 3/31/2026, ends Jun 23, 2026)
 
 > Staffing allocations by discipline and role across milestones.

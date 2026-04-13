@@ -1,6 +1,7 @@
 # Art Features
 
 Last Updated: 2026-04-08
+Doc Status: DRAFT
 Pod Lead: [TBD]
 
 > Ranked backlog of all Art features. Rank is global priority.

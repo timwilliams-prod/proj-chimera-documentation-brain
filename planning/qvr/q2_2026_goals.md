@@ -1,6 +1,7 @@
 # QVR Goals — Q2 2026 (April - June)
 
 Last Updated: 2026-04-08
+Doc Status: DRAFT
 Quarter: Q2 2026 (Apr 1 - Jun 30)
 QVR Set Date: [TBD — date goals were agreed upon]
 Active Milestone: M&Ms (Multiplayer & Meta, ends Jun 23)

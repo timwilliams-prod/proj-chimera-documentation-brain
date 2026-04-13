@@ -1,6 +1,7 @@
 # Empire Pod Plan
 
 Last Updated: 2026-03-27
+Doc Status: DRAFT
 Pod Lead: Diana Vasilescu
 
 > **What this file tracks**: Feature priorities per milestone and validation alignment.

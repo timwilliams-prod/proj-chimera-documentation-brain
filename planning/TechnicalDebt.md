@@ -1,6 +1,7 @@
 # Technical Debt Ledger
 
 **Last Updated**: 2026-03-24
+**Doc Status**: DRAFT
 **Owner**: Engineering Leads
 **Total Active Items**: 84
 **Source**: [High-Level Technical Backlog (Notion)](https://www.notion.so/High-Level-Technical-Backlog-30d3f0b3b6ab80348052fe125dbcc3be)

@@ -1,6 +1,7 @@
 # Battle Features
 
 Last Updated: 2026-04-08
+Doc Status: DRAFT
 Pod Lead: Lincoln Li
 
 > Ranked backlog of all Battle features. Rank is global priority.

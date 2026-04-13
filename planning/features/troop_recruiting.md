@@ -1,6 +1,7 @@
 # Feature: Troop Unlocking & Recruiting
 
 - **Last Updated**: 2026-03-24
+- **Doc Status**: DRAFT
 - **Status**: NOT STARTED
 - **Pod**: Metagame
 - **Design Owner**: Leonard Perez

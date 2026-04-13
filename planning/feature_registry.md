@@ -1,6 +1,7 @@
 # Feature Registry
 
 Last Updated: 2026-04-09 (roadmap-update: Empire feature renames)
+Doc Status: DRAFT
 
 > **What this file is**: The authoritative mapping of features to their Notion source documents and local spec files.
 > `/spec-sync` reads this file to know which features need specs and where to pull design content from.

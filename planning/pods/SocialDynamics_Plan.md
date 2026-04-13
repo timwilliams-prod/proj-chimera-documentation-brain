@@ -1,6 +1,7 @@
 # Social Dynamics Pod Plan
 
 Last Updated: 2026-03-30
+Doc Status: DRAFT
 Pod Lead: [TBD]
 
 > **What this file tracks**: Feature priorities per milestone and validation alignment.

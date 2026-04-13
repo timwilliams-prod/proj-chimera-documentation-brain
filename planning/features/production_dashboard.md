@@ -1,6 +1,7 @@
 # Feature: Production Dashboard
 
 - **Last Updated**: 2026-04-07
+- **Doc Status**: DRAFT
 - **Status**: SPEC
 - **Pod**: Cross-pod (Production tooling)
 - **Design Owner**: Tim Williams

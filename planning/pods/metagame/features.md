@@ -1,6 +1,7 @@
 # Metagame Features
 
 Last Updated: 2026-04-08
+Doc Status: DRAFT
 Pod Lead: Leonard Perez
 
 > Ranked backlog of all Metagame features. Rank is global priority.

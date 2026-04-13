@@ -1,6 +1,7 @@
 # Product Targets
 
 Last Updated: 2026-03-27
+Doc Status: DRAFT
 
 > **What this file is**: The stable, leadership-authored definition of what each milestone must achieve.
 > This is the benchmark that plans are measured against.
