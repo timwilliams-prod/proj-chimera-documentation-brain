@@ -684,12 +684,16 @@
         stale = `<div class="stale-warning">Sprint data is ${age} days old. Run <code>/sprint-plan</code> to refresh.</div>`;
       }
 
+      const holidayList = m.holidays.length
+        ? `<ul style="list-style:disc;margin:4px 0 0 18px;padding:0">${m.holidays.map(h => `<li style="font-size:13px;color:var(--text-dim);padding:1px 0">${esc(h)}</li>`).join('')}</ul>`
+        : '';
+
       return `
         <div class="header">
           <div class="header-left">
             <h1>Sprint ${m.sprint_number}: ${m.sprint_name}</h1>
-            <div class="subtitle">${shortDate(m.start_date)} &mdash; ${shortDate(m.end_date)} &middot; ${m.working_days} working days${m.holidays.length ? ' &middot; ' + esc(m.holidays.join(', ')) : ''}</div>
-            <div class="subtitle" style="margin-top:2px">Generated ${m.generated} &middot; <span style="color:var(--text-dim)">${esc(m.data_notes)}</span></div>
+            <div class="subtitle">${shortDate(m.start_date)} &mdash; ${shortDate(m.end_date)} &middot; ${m.working_days} working days</div>
+            ${holidayList}
             ${stale}
           </div>
           <div class="header-right">
