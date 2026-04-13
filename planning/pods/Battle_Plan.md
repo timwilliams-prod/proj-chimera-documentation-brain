@@ -87,18 +87,19 @@ All Battle features across milestones, ordered by priority within each milestone
 > Skill-maintained by `/sprint-plan`. Updated with user approval.
 > Shows current + next sprint. Full details in `generated/sprint_plans/`.
 
-### Sprint 26: Yodel Yaks (3/31 - 4/14) — CURRENT
+### Sprint 26: Yodel Yaks (3/31 - 4/14) — COMPLETED
 
-**Goals**:
-- Start **Battle HUD Beta Overhaul** (Sprint 1 of ~4) — must-have for M&Ms beta quality
-- Front-load design work on **Obstacles**, **Actor System Overhaul**, **Pathfinding & AI** while Jota focuses on HUD
+**Actual Work Completed**:
+- **Actor System Overhaul**: ENG plan completed by Jota
+- **Bug fixes**: Addressed priority bugs
+- **PTC Feedback tasks**: Implemented feedback from playtest
 - Continue **Battle Content** and **Unit Content** pipelines
 
 **Key Assignments**:
 
 | Person | Focus | Notes |
 |--------|-------|-------|
-| Jota Oliveira | Actor System Overhaul, Pathfinding AI improvements | Solo client engineer, out 3/31 (starts 4/1). 8 avail days. Critical path. |
+| Jota Oliveira | Actor System Overhaul ENG plan, bug fixes, PTC Feedback tasks | Solo client engineer, out 3/31 (starts 4/1). 8 avail days. Critical path. |
 | Alessandro Oliveira | New VFXs | Starting this sprint |
 | Danny Oliveira | VFXs implementation and polish | Starting this sprint |
 | Vinod Rams | New unit concepts (Boss, Shared Assets for Heroes) | Starting this sprint |
@@ -109,23 +110,39 @@ All Battle features across milestones, ordered by priority within each milestone
 | Julio Scarabelli | S25 bug verification + HUD QA prep | |
 | Ben Clair, Felipe Chaves, Tony Bonilla, Vinicius | Unit Content art | Ongoing |
 
-**Risks & Awareness**:
-- **Solo engineer**: Jota is the only client engineer. All features are sequential — any delay cascades.
-- Jota misses kickoff day (3/31) — setup/planning needed without him?
-- 6 features totaling ~12 eng-sprints in a 7-sprint milestone. Pool Management already deferred to M&C.
-- Battle HUD estimate unclear: plan says 3 sprints, Gantt shows 4. Needs clarification.
-- Battle HUD needs an SHQ Epic — should one be created or mapped to existing?
+**Outcomes**:
+- Actor System Overhaul engineering approach defined and documented
+- Bug backlog reduced
+- PTC feedback incorporated into builds
+- Battle HUD Beta Overhaul deferred to S27 (design prep continued in parallel)
 
-### Sprint 27: Zany Zebras (4/14 - 4/28) — NEXT
+### Sprint 27: Zany Zebras (4/14 - 4/28) — CURRENT
 
 **Goals**:
-- Continue **Battle HUD Beta Overhaul** (Sprint 2 of ~4)
-- Continue design prep for upcoming features (Obstacles, Actor System)
+- Start **Battle HUD Beta Overhaul** (Sprint 1 of ~4) — must-have for M&Ms beta quality
+- Begin **Actor System Overhaul** implementation based on S26 ENG plan
+- Continue design prep for upcoming features (Obstacles, Pathfinding & AI)
 - Continue content pipelines
 
+**Key Assignments**:
+
+| Person | Focus | Notes |
+|--------|-------|-------|
+| Jota Oliveira | Battle HUD Beta Overhaul start, Actor System Overhaul implementation | Solo client engineer. Critical path. |
+| Lincoln Li | Battle HUD design direction, feature coordination | |
+| Nathan Hajek | Unit Design & Prototype (M&M) | |
+| Dylan Jeffery | Battle Content pipeline | Ongoing |
+| Vishaal Gupta | Battle Content + unit balance | |
+| Alessandro Oliveira, Danny Oliveira | VFXs | Continuing from S26 |
+| Vinod Rams | Unit concepts | Continuing from S26 |
+| Julio Scarabelli | QA support | |
+| Ben Clair, Felipe Chaves, Tony Bonilla, Vinicius | Unit Content art | Ongoing |
+
 **Risks & Awareness**:
+- **Delayed start**: Battle HUD pushed from S26, compressing timeline
 - Still solo engineer (Jota) — no capacity flexibility
-- If HUD runs long, downstream features compress further
+- 4 features totaling ~9 eng-sprints now compressed into 6 remaining sprints
+- If HUD or Actor System runs long, downstream features (Obstacles, Pathfinding) at risk
 
 ---
 
@@ -135,14 +152,16 @@ All Battle features across milestones, ordered by priority within each milestone
 
 **Ends**: Jun 23, 2026 | **Sprints**: ~7 | **Capacity**: 1x ENG (Jota)
 
-**CAPACITY NOTE**: 4 features totaling 8 sprints scheduled for 7-sprint milestone. Feasible with tight execution.
+**CAPACITY NOTE**: 4 features totaling ~9 eng-sprints scheduled for 7-sprint milestone. Tight execution required.
 
 ```
-Sprint 1:    Battle HUD Beta Overhaul, Obstacles, Actor System Overhaul, Pathfinding & AI (all start)
-Sprint 2:    Battle HUD Beta Overhaul, Actor System Overhaul, Pathfinding & AI
-Sprint 3-4:  Battle HUD Beta Overhaul continues
-Sprint 5:    Obstacles completes
-Sprint 6-7:  [Buffer for overruns or early M&C work]
+Sprint 1 (S26):  Actor System Overhaul ENG plan, bug fixes, PTC feedback — COMPLETED
+Sprint 2 (S27):  Battle HUD Beta Overhaul start, Actor System Overhaul implementation start
+Sprint 3:        Battle HUD Beta Overhaul continues, Actor System Overhaul continues
+Sprint 4:        Battle HUD Beta Overhaul continues, Pathfinding & AI start
+Sprint 5:        Battle HUD Beta Overhaul completes, Obstacles start
+Sprint 6:        Obstacles completes, Pathfinding & AI continues
+Sprint 7:        Buffer for overruns / Actor System & Pathfinding completion
 ```
 
 Battle Content and Unit Content run in parallel on design/art track (see `planning/capacity.md`).

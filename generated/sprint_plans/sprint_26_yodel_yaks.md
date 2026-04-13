@@ -135,16 +135,23 @@ Generated: 2026-04-08 (mid-sprint snapshot)
 **Design Lead**: Lincoln Li | **Producer**: Thorben Novais | **Eng**: Jota Oliveira (sole client eng)
 **QA**: Julio Scarabelli
 
-### Sprint Goals
+### Sprint Goals (Planned)
 - Start **Battle HUD Beta Overhaul** (Sprint 1 of ~4) — must-have for M&Ms, validates BHQ-B2
 - Front-load design work on **Obstacles**, **Actor System Overhaul**, **Pathfinding & AI** while Jota focuses on HUD
 - Continue **Battle Content** and **Unit Content** pipelines
+
+### Actual Work Completed
+- **Actor System Overhaul**: ENG plan completed by Jota
+- **Bug fixes**: Priority bugs addressed
+- **PTC Feedback tasks**: Implemented feedback from playtest
+- Continue **Battle Content** and **Unit Content** pipelines
+- Battle HUD Beta Overhaul deferred to Sprint 27
 
 ### Individual Breakdown
 
 | Assignee | Discipline | Avail Days | Priorities | Notes |
 |----------|-----------|------------|------------|-------|
-| Jota Oliveira | Eng | **8** | 1. Actor System Overhaul 2. Pathfinding & AI improvements | **Out 3/31** (misses kickoff). Solo engineer — critical path. |
+| Jota Oliveira | Eng | **8** | 1. Actor System Overhaul ENG plan 2. Bug fixes 3. PTC Feedback tasks | **Out 3/31** (misses kickoff). Solo engineer — critical path. |
 | Lincoln Li | Design Lead | **5** | 1. Battle HUD design direction 2. Coordinate design prep for future features | **PTO 4/6-4/9** (3 days). Partial appts 4/2 (gymnastics + eye doc + dentist). |
 | Nathan Hajek | Design | 9 | 1. Unit Design & Prototype (M&M) | |
 | Dylan Jeffery | Design | 9 | 1. Battle Content pipeline | Ongoing |

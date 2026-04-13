@@ -161,16 +161,21 @@ Generated: 2026-04-09 (updated — Empire M&Ms resequence)
 **QA**: Julio Scarabelli
 
 ### Sprint Goals
-- Continue **Battle HUD Beta Overhaul** engineering (Sprint 2 of ~4) — must-have for M&Ms, validates BHQ-B2 (SHQ4-1)
+- Start **Battle HUD Beta Overhaul** engineering (Sprint 1 of ~4) — must-have for M&Ms, validates BHQ-B2 (SHQ4-1)
+- Begin **Actor System Overhaul** implementation based on S26 ENG plan
 - Lincoln Li: Battle HUD Design Doc (CHI-35036) in discipline review — finalize and hand off
-- Continue design prep for upcoming features (Obstacles, Actor System Overhaul)
+- Continue design prep for upcoming features (Obstacles, Pathfinding & AI)
 - Continue **Battle Content** and **Unit Content** pipelines
+
+### S26 Actuals (updated)
+- Jota worked on **Actor System Overhaul ENG plan**, **bug fixes**, and **PTC Feedback tasks** in S26
+- Battle HUD Beta Overhaul deferred to S27
 
 ### Individual Breakdown
 
 | Assignee | Discipline | Avail Days | Priorities | Notes |
 |----------|-----------|------------|------------|-------|
-| Jota Oliveira | Eng | **9** | 1. Battle HUD Beta Overhaul (continued from S26) | **Brazil holiday 4/21 = 9 days**. Solo client engineer. Critical path for all Battle engineering. Also has Effect Stacking (CHI-35985) in backlog for ZZ. |
+| Jota Oliveira | Eng | **9** | 1. Battle HUD Beta Overhaul (starting) 2. Actor System Overhaul implementation (based on S26 plan) | **Brazil holiday 4/21 = 9 days**. Solo client engineer. Critical path for all Battle engineering. Also has Effect Stacking (CHI-35985) in backlog for ZZ. |
 | Lincoln Li | Design Lead | 10 | 1. Battle HUD Design Doc finalization (CHI-35036, discipline review) 2. Future feature design prep | Partial — gymnastics 4/16, 4/23 (~1 hr each). |
 | Nathan Hajek | Design | 10 | 1. Unit Design & Prototype (M&M) | |
 | Dylan Jeffery | Design | 10 | 1. Battle Content pipeline | Ongoing. |
@@ -196,13 +201,15 @@ Generated: 2026-04-09 (updated — Empire M&Ms resequence)
   - Effect Stacking - Migrate patterns (CHI-35985, Jota — ZZ-tagged, if bandwidth allows)
 
 ### Open Questions
-- [ ] What did Jota actually work on in S26 — HUD, Actor System Overhaul, or Pathfinding & AI? What carries into S27?
-- [ ] Battle HUD estimate: 3 sprints or 4? Is the milestone breakdown still accurate?
-- [ ] Effect Stacking (CHI-35985) is tagged for ZZ — does Jota have bandwidth alongside HUD?
+- [x] ~~What did Jota actually work on in S26?~~ **Resolved**: Actor System Overhaul ENG plan, bug fixes, PTC Feedback tasks. Battle HUD deferred to S27.
+- [ ] Battle HUD estimate: 3 sprints or 4? Timeline compressed — Battle HUD starts S27 (not S26), plus Actor System implementation. Downstream features (Obstacles, Pathfinding) at risk.
+- [ ] Effect Stacking (CHI-35985) is tagged for ZZ — does Jota have bandwidth alongside HUD + Actor System?
 
 ### Key Risks
 - **Solo engineer (Jota)**: All features sequential. Any delay cascades through the entire M&Ms milestone. Brazil holiday 4/21 reduces him to 9 days.
-- If HUD runs long, Obstacles / Actor System / Pathfinding compress further. 4 features totaling ~9 eng-sprints in a 7-sprint milestone is already tight.
+- **Timeline compressed**: Battle HUD pushed from S26 to S27. 4 features totaling ~9 eng-sprints now compressed into 6 remaining sprints instead of 7.
+- **Dual track in S27**: Jota starting both Battle HUD (4-sprint feature) and Actor System implementation (based on S26 plan). May need to sequence these instead of parallel.
+- If HUD or Actor System runs long, downstream features (Obstacles, Pathfinding) compress further or may not fit in M&Ms.
 - Danny out 3 days total (4/16-4/17 PTO + 4/23 local holiday) — Alessandro covers VFX.
 
 ---
@@ -414,14 +421,14 @@ Generated: 2026-04-09 (updated — Empire M&Ms resequence)
 2. **Empire: Tutorial Node Migration must complete S27** — Henrique has full sprint (CHI-36213, CHI-36212, tutorial migration eng). If this overflows into S28, WME eng start slips.
 3. **Social Dynamics P2 architecture breakdown still to do** — CHI-36382 confirmed still to do after full S26 sprint. 4 engineers may lack clear direction at sprint start.
 4. **Brendan Cheatham out 8/10 days** — art direction thinned. Kevin Griffith covers solo.
-5. **Battle solo engineer (Jota)** — all features sequential, any delay cascades through M&Ms. Brazil holiday reduces him to 9 days.
+5. **Battle timeline compressed** — Battle HUD deferred from S26 to S27. 4 features now compressed into 6 sprints instead of 7. Jota (solo engineer) starting both HUD and Actor System implementation in S27. Brazil holiday reduces him to 9 days.
 6. **Brazil holiday April 21** — 18 team members lose 1 day. Concentrated impact on Social Dynamics (3/5 engineers) and Battle (sole eng).
 7. **Metagame: Chris carry-over confirmed** — CHI-36250 (T5/T6 rewards) still to do after full sprint. Must close early in S27.
 
 ### Open Questions (resolve before kickoff)
 
 1. [ ] **Tim week 2 coverage**: Who covers Metagame and Social Dynamics production decisions 4/22-5/01?
-2. [ ] **Jota S26 status**: What did Jota work on in S26 (HUD vs Actor System vs Pathfinding)? What continues in S27?
+2. [x] ~~**Jota S26 status**~~: **Resolved** — Jota worked on Actor System Overhaul ENG plan, bug fixes, and PTC Feedback tasks. Battle HUD deferred to S27 (starts now).
 3. [x] ~~**Tutorial Node Migration timeline**~~: **Plan updated** — expanded to 2 sprints (S26-S27). Henrique has full S27 dedicated to tutorial work.
 4. [ ] **WME design readiness for S28**: Will Diana/Yura UX exploration be mature enough for Henrique to start WME engineering in S28?
 5. [x] ~~**P2 task breakdown**~~: CHI-36382 **confirmed still to do**. Must complete early S27 or engineers lack direction.
