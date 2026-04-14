@@ -656,6 +656,19 @@
       return div.innerHTML;
     }
 
+    function richText(str) {
+      let html = esc(str);
+      if (SPRINT_DATA && SPRINT_DATA.chi_urls) {
+        html = html.replace(/CHI-\d+/g, match => {
+          const url = SPRINT_DATA.chi_urls[match];
+          return url
+            ? `<a href="${url}" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;font-family:'Cascadia Code','Fira Code',Consolas,monospace;font-size:0.92em">${match}</a>`
+            : match;
+        });
+      }
+      return html;
+    }
+
     // ─── Render: Header ───
     function renderSprintSwitcher() {
       if (typeof SPRINT_MANIFEST === 'undefined' || SPRINT_MANIFEST.length <= 1) return '';
@@ -685,7 +698,7 @@
       }
 
       const holidayList = m.holidays.length
-        ? `<ul style="list-style:disc;margin:4px 0 0 18px;padding:0">${m.holidays.map(h => `<li style="font-size:13px;color:var(--text-dim);padding:1px 0">${esc(h)}</li>`).join('')}</ul>`
+        ? `<ul style="list-style:disc;margin:4px 0 0 18px;padding:0">${m.holidays.map(h => `<li style="font-size:13px;color:var(--text-dim);padding:1px 0">${richText(h)}</li>`).join('')}</ul>`
         : '';
 
       return `
@@ -718,13 +731,13 @@
       const unresolvedCount = s.open_questions.filter(q => !q.resolved).length;
 
       const risks = s.top_risks.map(r =>
-        `<div class="risk-item"><span class="risk-icon">&#9888;</span><span>${esc(r)}</span></div>`
+        `<div class="risk-item"><span class="risk-icon">&#9888;</span><span>${richText(r)}</span></div>`
       ).join('');
 
       const questions = s.open_questions.map(q => `
         <div class="oq-item ${q.resolved ? 'resolved' : ''}">
           <span class="oq-icon">${q.resolved ? '&#10003;' : '&#9675;'}</span>
-          <span class="oq-text">${esc(q.text)}</span>
+          <span class="oq-text">${richText(q.text)}</span>
         </div>
       `).join('');
 
@@ -751,7 +764,7 @@
         const shqs = g.shqs.map(s => `<span class="shq-badge">${s}</span>`).join('');
         return `
           <li class="goal-item">
-            <span class="goal-text editable" contenteditable="false" data-field="goal" data-idx="${i}">${esc(g.text)}</span>
+            <span class="goal-text editable" contenteditable="false" data-field="goal" data-idx="${i}">${richText(g.text)}</span>
             ${shqs}
             <span class="remove-btn" onclick="removeItem(this)" title="Remove">&times;</span>
           </li>`;
@@ -763,7 +776,7 @@
         const cap = capacityBar(p.avail, p.total);
         const priorities = p.priorities.map((pr, j) => `
           <li>
-            <span class="priority-text editable" contenteditable="false" data-field="priority" data-idx="${j}">${esc(pr)}</span>
+            <span class="priority-text editable" contenteditable="false" data-field="priority" data-idx="${j}">${richText(pr)}</span>
             <span class="remove-btn" onclick="removeItem(this)" title="Remove">&times;</span>
           </li>
         `).join('');
@@ -780,7 +793,7 @@
               <span class="add-btn" onclick="addPriority(this)">+ Add priority</span>
             </td>
             <td class="col-notes">
-              <span class="notes-text editable" contenteditable="false" data-field="notes">${esc(p.notes)}</span>
+              <span class="notes-text editable" contenteditable="false" data-field="notes">${richText(p.notes)}</span>
             </td>
           </tr>
         `;
@@ -791,8 +804,8 @@
       if (pod.carry_over.length > 0) {
         const items = pod.carry_over.map(c => `
           <div class="carry-item">
-            <span class="carry-id">${esc(c.id)}</span>
-            <span>${esc(c.name)}</span>
+            ${SPRINT_DATA.chi_urls?.[c.id] ? `<a href="${SPRINT_DATA.chi_urls[c.id]}" target="_blank" rel="noopener" class="carry-id" style="text-decoration:none">${esc(c.id)}</a>` : `<span class="carry-id">${esc(c.id)}</span>`}
+            <span>${richText(c.name)}</span>
             ${statusPill(c.status)}
             <span style="color:var(--text-dim);font-size:12px">${esc(c.assignee)}</span>
             ${c.confirmed ? '<span class="carry-confirmed">&#10003; confirmed</span>' : ''}
@@ -807,8 +820,8 @@
         const items = pod.open_questions.map((q, i) => `
           <div class="oq-item ${q.resolved ? 'resolved' : ''}" data-oq-idx="${i}">
             <span class="oq-icon" onclick="toggleOQ(this)">${q.resolved ? '&#10003;' : '&#9675;'}</span>
-            <span class="oq-text editable" contenteditable="false" data-field="oq-text" data-idx="${i}">${esc(q.text)}</span>
-            ${q.resolved && q.answer ? `<span class="oq-arrow">&rarr;</span><span class="oq-answer-display">${esc(q.answer)}</span>` : ''}
+            <span class="oq-text editable" contenteditable="false" data-field="oq-text" data-idx="${i}">${richText(q.text)}</span>
+            ${q.resolved && q.answer ? `<span class="oq-arrow">&rarr;</span><span class="oq-answer-display">${richText(q.answer)}</span>` : ''}
             <span class="oq-answer-input editable" contenteditable="false" data-field="oq-answer" data-idx="${i}">${esc(q.answer || '')}</span>
           </div>
         `).join('');
@@ -824,7 +837,7 @@
       let risksHtml = '';
       if (pod.risks.length > 0) {
         const items = pod.risks.map(r =>
-          `<div class="risk-item"><span class="risk-icon">&#9888;</span><span>${esc(r)}</span></div>`
+          `<div class="risk-item"><span class="risk-icon">&#9888;</span><span>${richText(r)}</span></div>`
         ).join('');
         risksHtml = `<div class="section-label">Risks</div>${items}`;
       }
@@ -865,13 +878,13 @@
       const cp = SPRINT_DATA.cross_pod;
 
       const handoffs = cp.handoffs.map(h =>
-        `<div class="crossp-item"><span class="crossp-icon">&#8594;</span><span>${esc(h)}</span></div>`
+        `<div class="crossp-item"><span class="crossp-icon">&#8594;</span><span>${richText(h)}</span></div>`
       ).join('');
       const shared = cp.shared_resources.map(s =>
-        `<div class="crossp-item"><span class="crossp-icon">&#8644;</span><span>${esc(s)}</span></div>`
+        `<div class="crossp-item"><span class="crossp-icon">&#8644;</span><span>${richText(s)}</span></div>`
       ).join('');
       const notes = cp.notes.map(n =>
-        `<div class="crossp-item"><span class="crossp-icon">&#9679;</span><span>${esc(n)}</span></div>`
+        `<div class="crossp-item"><span class="crossp-icon">&#9679;</span><span>${richText(n)}</span></div>`
       ).join('');
 
       return `
@@ -919,7 +932,7 @@
             <td>${esc(p.discipline)}</td>
             <td>${capacityBar(p.avail, p.total)}</td>
             <td><span style="color:${loadColor};font-size:12px;font-weight:600">${loadLabel}</span></td>
-            <td style="font-size:12px;color:var(--text-dim)">${esc(p.priorities[0] || '')}</td>
+            <td style="font-size:12px;color:var(--text-dim)">${richText(p.priorities[0] || '')}</td>
           </tr>
         `;
       }).join('');

@@ -44,7 +44,8 @@
       "Bash(python3:*)",
       "Bash(ls planning/features/*.md)",
       "Bash(node:*)",
-      "Bash(powershell.exe:*)"
+      "Bash(powershell.exe:*)",
+      "Bash(py --version)"
     ]
   }
 }

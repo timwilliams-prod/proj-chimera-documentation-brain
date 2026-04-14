@@ -83,12 +83,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "planning/contentTargets.md",
+                "file": "planning/deleteMe-OldValidationRoadmap.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "contentTargets"
+              "title": "deleteMe-OldValidationRoadmap"
             }
           }
         ],
@@ -256,6 +256,10 @@
   },
   "active": "38fc166341ab2af3",
   "lastOpenFiles": [
+    "generated/dashboard/sprints/sprint_27.js.tmp.22132.1776178786427",
+    "generated/dashboard/sprint.html.tmp.22132.1776178538776",
+    "generated/dashboard/sprint.html.tmp.22132.1776178196764",
+    "planning/contentTargets.md",
     "tuning_purge_treasure_chest.csv",
     "tuning_purge_data.csv.tmp.26808.1776115529866",
     "tuning_purge.sh",
@@ -264,11 +268,7 @@
     "tuning_purge_data.csv",
     "tuning_purge_data.csv.tmp.26808.1776108096220",
     "tuning_data_purge.ps1.tmp.26808.1776107341124",
-    "tuning_data_purge.ps1.tmp.26808.1776107336579",
-    "tuning_data_purge.ps1.tmp.26808.1776107330655",
-    "tuning_data_purge.ps1.tmp.26808.1776107322676",
     "generated/sprint_plans/sprint_27_zany_zebras.md",
-    "planning/contentTargets.md",
     "generated/reports/pulse_checks/pulse_check_2026-03.md",
     "generated/reports/pulse_checks/pulse_check_2026-04.md",
     "planning/qvr/q1_2026_goals.md",
