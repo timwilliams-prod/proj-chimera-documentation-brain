@@ -235,7 +235,7 @@ var SPRINT_DATA = {
         { text: "Continue AI Prototype Playtesting and Multiplayer Networking tracks", shqs: [] }
       ],
       people: [
-        { name: "Paul Flores", discipline: "Design", avail: 10, total: 10, priorities: ["AI Prototype Playtesting", "P2 design direction"], notes: "", flags: [] },
+        { name: "Paul Flores", discipline: "Design", avail: 10, total: 10, priorities: ["AI Prototype Playtesting", "Multiplayer overlapping system design details"], notes: "", flags: [] },
         { name: "Gabriel Arruda", discipline: "Eng", avail: 9, total: 10, priorities: ["P2: Map Foundation", "CHI-36382 (Work Breakdown)"], notes: "Brazil holiday 4/21 = 9 days. Transitioned from Empire in S26.", flags: ["pto"] },
         { name: "Marcos Loures", discipline: "Eng", avail: 9, total: 10, priorities: ["P2: Map Foundation", "CHI-36382 (Work Breakdown)"], notes: "Brazil holiday 4/21 = 9 days. Transitioned from Empire in S26.", flags: ["pto"] },
         { name: "Randy Pasion", discipline: "Eng", avail: 10, total: 10, priorities: ["P2: Map Foundation"], notes: "Dozer split risk — feature work may be interrupted.", flags: ["split"] },
