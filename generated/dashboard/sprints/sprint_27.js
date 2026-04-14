@@ -20,6 +20,42 @@ var SPRINT_DATA = {
     data_notes: "ClickUp refreshed 4/13. S26 list has 4 open tasks carrying over (CHI-36213, CHI-36212, CHI-36339, CHI-36250). CHI-36431 and CHI-36374 completed since last refresh. CHI-36381 (Tutorial Node Rewrites) now in progress. ZZ sprint list still empty. CHI-36411 (ZZ Player Journey) now has 6 subtasks with specific assignments. Brazil holiday April 21 affects 18 team members."
   },
 
+  // BAU patterns: priorities matching these (case-insensitive) are excluded from ticket creation.
+  // They still show in pod tables but are skipped in the ClickUp Coverage panel.
+  bau_exceptions: [
+    "production",
+    "bug verification",
+    "ongoing verification"
+  ],
+
+  chi_names: {
+    "CHI-31445": "Hero Animations",
+    "CHI-33005": "Fiara Animation Impl",
+    "CHI-35036": "Battle HUD Design Doc",
+    "CHI-35564": "MP Backend Architecture",
+    "CHI-35985": "Effect Stacking",
+    "CHI-36212": "Tutorial Arch - Triggering",
+    "CHI-36213": "Tutorial Arch - Orchestration/State Tracking",
+    "CHI-36250": "Enter T5 & T6 Rewards",
+    "CHI-36339": "Territory Map Texture Flickering T6",
+    "CHI-36350": "Trench Knight VFXs",
+    "CHI-36351": "Trench Knight VFXs (2)",
+    "CHI-36352": "Trench Knight VFXs (3)",
+    "CHI-36356": "Melee Bot Tiers",
+    "CHI-36374": "Animated Loading Visualization",
+    "CHI-36381": "Tutorial Node Rewrites",
+    "CHI-36382": "P2 Work Breakdown",
+    "CHI-36411": "ZZ Player Journey",
+    "CHI-36412": "Journey Changes",
+    "CHI-36413": "CG Objectives T2-T4",
+    "CHI-36431": "Territory Map Shader Statue Glow",
+    "CHI-36473": "Melee Bot Affinities",
+    "CHI-36495": "T2 Journey Revisions",
+    "CHI-36496": "T3 Journey Revisions",
+    "CHI-36497": "T4 Journey Revisions",
+    "CHI-36508": "Update Scientist Picture"
+  },
+
   chi_urls: {
     "CHI-31445": "https://app.clickup.com/t/8699n06e4",
     "CHI-33005": "https://app.clickup.com/t/869ak46bh",
@@ -77,7 +113,8 @@ var SPRINT_DATA = {
       carry_over: [
         { id: "CHI-36213", name: "Tutorial Arch - Orchestration/State Tracking", assignee: "Henrique De Lima", status: "in_progress", confirmed: true },
         { id: "CHI-36212", name: "Tutorial Arch - Triggering", assignee: "Henrique De Lima", status: "to_do", confirmed: true },
-        { id: "CHI-36381", name: "Tutorial Node Rewrites — Prioritize & Implement", assignee: "Henrique De Lima", status: "in_progress", confirmed: true }
+        { id: "CHI-36381", name: "Tutorial Node Rewrites — Prioritize & Implement", assignee: "Henrique De Lima", status: "in_progress", confirmed: true },
+        { id: "CHI-36339", name: "Territory Map texture flickering T6", assignee: "Marcos Teles", status: "in_progress", confirmed: true }
       ],
       open_questions: [
         { text: "Tutorial Node Migration timeline", resolved: true, answer: "Plan updated — expanded to 2 sprints (S26-S27). S27 is Sprint 2. CHI-36381 now in progress." },
@@ -267,16 +304,11 @@ var SPRINT_DATA = {
       people: [
         { name: "Kevin Griffith", discipline: "Art Director", avail: 10, total: 10, priorities: ["Cross-pod art direction + pipeline oversight"], notes: "Solo AD coverage while Brendan is out.", flags: [] },
         { name: "Brendan Cheatham", discipline: "Assoc. AD", avail: 2, total: 10, priorities: ["Cross-pod art direction (4/14-4/16 only)"], notes: "Out 4/17-5/02 — 8 of 10 days. Major capacity hit.", flags: ["pto"] },
-        { name: "Guilherme Lascasas", discipline: "2D Env Concept", avail: 8, total: 10, priorities: ["Assist with Territory Map Revisions, callouts", "Next Territory Map Tile designs (from Diana's list)"], notes: "Out 4/14 + Brazil holiday 4/21.", flags: ["pto"] },
-        { name: "Thiago Saraiva", discipline: "Senior 3D", avail: 9, total: 10, priorities: ["Territory Map 3D - Terrain objects blockouts: trees, rocks, plants", "Building blockouts"], notes: "Brazil holiday 4/21.", flags: ["pto"] },
         { name: "Pedro Sarraf", discipline: "Lead Tech Art", avail: 4, total: 10, priorities: ["Tech art assignments (4/22-4/25 only)"], notes: "Out through 4/21 (includes Brazil holiday). Returns week 2.", flags: ["pto"] },
-        { name: "Marcos Teles", discipline: "Tech Art", avail: 9, total: 10, priorities: ["Art Offsite Remote Participation (4/13 - 4/15)", "Assist with fixing anti-aliasing on Henrique's tutorial spotlight effect", "Territory Map - Water VFX/Shader Exploration"], notes: "Brazil holiday 4/21. CHI-36431 and CHI-36374 completed. CHI-36339 still in progress.", flags: ["pto", "carry-over"] },
         { name: "Lawrence Steele", discipline: "Audio", avail: 10, total: 10, priorities: ["Sound design"], notes: "", flags: [] },
         { name: "Brann Livesay", discipline: "Producer", avail: 9, total: 10, priorities: ["Art production", "Empire production"], notes: "Out 4/16 (travel recovery). Also produces Empire.", flags: ["pto", "split"] }
       ],
-      carry_over: [
-        { id: "CHI-36339", name: "Territory Map texture flickering T6", assignee: "Marcos Teles", status: "in_progress", confirmed: true }
-      ],
+      carry_over: [],
       open_questions: [
         { text: "Brendan out 8/10 days — who covers Assoc. Art Director responsibilities?", resolved: false, answer: "" },
         { text: "Art priority conflicts: Battle HUD vs UI Foundation vs WME — which gets resources first?", resolved: false, answer: "" },
@@ -286,9 +318,8 @@ var SPRINT_DATA = {
       risks: [
         "Brendan Cheatham out 8 of 10 days — art direction coverage thinned. Kevin solo.",
         "Pedro Sarraf only available 4 days (returns 4/22).",
-        "Brazil holiday 4/21 hits multiple art team members (Guilherme L., Thiago, Marcos Teles).",
-        "Cross-pod art demands intensifying as M&Ms features ramp up.",
-        "CHI-36339 (Territory Map texture flickering) carrying over from S26 — Marcos's priorities have shifted, ensure this still gets attention."
+        "Brazil holiday 4/21 affects Pedro Sarraf (already out through 4/21).",
+        "Cross-pod art demands intensifying as M&Ms features ramp up."
       ]
     }
   ],

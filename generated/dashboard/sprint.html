@@ -239,6 +239,110 @@
     body.spotlight-unlinked .pri-linked { opacity: 0.3; }
     body.spotlight-unlinked .pri-unlinked { background: rgba(234,179,8,0.06); border-radius: 3px; margin: 1px -4px; padding: 1px 4px; }
 
+    /* ── Ticket Plan Interactive ── */
+    .task-type-select {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-family: inherit;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      padding-right: 22px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%238899aa'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 6px center;
+    }
+    .task-type-select:hover { border-color: var(--accent); }
+    .task-parent-input {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-family: 'Cascadia Code', 'Fira Code', Consolas, monospace;
+      width: 140px;
+      margin-top: 4px;
+    }
+    .task-parent-input:focus { outline: none; border-color: var(--accent); }
+    .task-parent-input::placeholder { color: var(--text-dim); opacity: 0.5; }
+    .task-parent-select {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-family: inherit;
+      max-width: 320px;
+      width: 100%;
+      margin-top: 3px;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      padding-right: 22px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%238899aa'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 6px center;
+    }
+    .task-parent-select:focus { outline: none; border-color: var(--accent); }
+    .task-name-editable {
+      min-width: 120px;
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 3px;
+      border: 1px dashed rgba(83,168,255,0.25);
+    }
+    .task-name-editable:focus { outline: none; border-color: var(--accent); background: rgba(83,168,255,0.06); }
+    .task-row-excluded td { opacity: 0.35; }
+    .task-row-excluded td:first-child { opacity: 1; }
+    .ticket-plan-actions {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .coverage-toggle {
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.15s;
+    }
+    .coverage-toggle:hover { filter: brightness(1.3); }
+    .coverage-toggle.active { outline: 2px solid currentColor; outline-offset: 2px; }
+    .coverage-section { margin-top: 14px; }
+    .coverage-section-header {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .backlog-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      cursor: pointer;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+    .backlog-btn:hover { border-color: var(--status-yellow); color: var(--status-yellow); }
+    .backlog-btn.flagged { background: rgba(234,179,8,0.15); border-color: var(--status-yellow); color: var(--status-yellow); }
+    .linked-row-backlog td { opacity: 0.5; }
+    .linked-row-backlog td:last-child { opacity: 1; }
+
     /* ── Capacity Bar ── */
     .cap-wrap { display: flex; align-items: center; gap: 6px; }
     .cap-bar { width: 60px; height: 6px; background: rgba(107,114,128,0.25); border-radius: 3px; overflow: hidden; flex-shrink: 0; }
@@ -872,9 +976,13 @@
         risksHtml = `<div class="section-label">Risks</div>${items}`;
       }
 
-      // Ticket coverage per pod
-      const podLinked = pod.people.reduce((sum, p) => sum + p.priorities.filter(pr => hasTicket(pr)).length, 0);
-      const podTotal = pod.people.reduce((sum, p) => sum + p.priorities.length, 0);
+      // Ticket coverage per pod (excluding BAU items)
+      const bauExceptions = SPRINT_DATA.bau_exceptions || [];
+      const podPriorities = pod.people.flatMap(p => p.priorities);
+      const podActionable = podPriorities.filter(pr => !bauExceptions.some(pat => pr.toLowerCase().includes(pat.toLowerCase())));
+      const podLinked = podActionable.filter(pr => hasTicket(pr)).length;
+      const podTotal = podActionable.length;
+      const podBau = podPriorities.length - podActionable.length;
       const coveragePct = podTotal > 0 ? Math.round((podLinked / podTotal) * 100) : 100;
       const coverageColor = coveragePct === 100 ? 'green' : coveragePct >= 50 ? 'yellow' : 'red';
 
@@ -892,7 +1000,7 @@
           <span class="add-btn" onclick="addGoal(this)">+ Add goal</span>
 
           <div class="section-label" style="margin-top:16px">Team
-            <span class="ticket-coverage-text">${podLinked}/${podTotal} linked</span>
+            <span class="ticket-coverage-text">${podLinked}/${podTotal} linked${podBau > 0 ? ` (${podBau} BAU)` : ''}</span>
             <span class="pill pill-${coverageColor}" style="font-size:10px">${coveragePct}%</span>
           </div>
           <table class="people-table">
@@ -992,52 +1100,184 @@
     }
 
     // ─── Ticket Coverage ───
+    const coverageSections = { linked: false, unlinked: true };
+
     function ticketCoverageStats() {
-      let linked = 0, total = 0;
+      const linked = [];
       const unlinked = [];
+      const bau = [];
+      const exceptions = SPRINT_DATA.bau_exceptions || [];
+
       SPRINT_DATA.pods.forEach(pod => {
         pod.people.forEach(p => {
           p.priorities.forEach(pr => {
-            total++;
-            if (hasTicket(pr)) { linked++; }
-            else { unlinked.push({ pod: pod.name, person: p.name, discipline: p.discipline, priority: pr }); }
+            const isBau = exceptions.some(pattern =>
+              pr.toLowerCase().includes(pattern.toLowerCase())
+            );
+
+            if (isBau) {
+              bau.push({ pod: pod.name, person: p.name, discipline: p.discipline, priority: pr });
+            } else if (hasTicket(pr)) {
+              const chiIds = pr.match(/CHI-\d+/g) || [];
+              linked.push({ pod: pod.name, person: p.name, discipline: p.discipline, priority: pr, chiIds });
+            } else {
+              unlinked.push({ pod: pod.name, person: p.name, discipline: p.discipline, priority: pr });
+            }
           });
         });
       });
-      return { linked, total, unlinked };
+
+      return { linked, unlinked, bau, total: linked.length + unlinked.length + bau.length };
+    }
+
+    function buildParentOptions() {
+      const names = SPRINT_DATA.chi_names || {};
+      return Object.keys(names).sort().map(id =>
+        `<option value="${id}">${esc(id)} \u2014 ${esc(names[id])}</option>`
+      ).join('');
     }
 
     function renderTicketCoverage() {
       const stats = ticketCoverageStats();
-      const pct = stats.total > 0 ? Math.round((stats.linked / stats.total) * 100) : 100;
+      const actionable = stats.linked.length + stats.unlinked.length;
+      const pct = actionable > 0 ? Math.round((stats.linked.length / actionable) * 100) : 100;
+      const parentOpts = buildParentOptions();
 
-      const rows = stats.unlinked.map(item => {
+      // Datalist for link_existing text input
+      const knownChis = SPRINT_DATA.chi_urls ? Object.keys(SPRINT_DATA.chi_urls).sort() : [];
+      const datalistOptions = knownChis.map(chi => {
+        const name = SPRINT_DATA.chi_names?.[chi] || '';
+        return `<option value="${chi}">${chi}${name ? ' \u2014 ' + name : ''}</option>`;
+      }).join('');
+
+      // ── Linked rows ──
+      const linkedRows = stats.linked.map((item, idx) => {
         const podColor = POD_COLORS_HEX[item.pod] || '#888';
+        const chiLinks = item.chiIds.map(id => {
+          const url = SPRINT_DATA.chi_urls?.[id];
+          const name = SPRINT_DATA.chi_names?.[id] || '';
+          return url
+            ? `<a href="${url}" target="_blank" rel="noopener" class="carry-id" style="text-decoration:none;margin-right:4px" title="${esc(name)}">${esc(id)}</a>`
+            : `<span class="carry-id" style="margin-right:4px">${esc(id)}</span>`;
+        }).join('');
         return `
-          <tr>
+          <tr data-linked-idx="${idx}" data-pod="${esc(item.pod)}" data-person="${esc(item.person)}">
             <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${podColor};margin-right:5px;vertical-align:middle"></span>${esc(item.pod)}</td>
             <td><span class="person-name" style="font-size:12px">${esc(item.person)}</span><div class="person-disc">${esc(item.discipline)}</div></td>
             <td style="font-size:13px">${richText(item.priority)}</td>
+            <td style="white-space:nowrap">${chiLinks}</td>
+            <td style="white-space:nowrap">
+              <button class="backlog-btn" onclick="toggleBacklog(this)" title="Flag to push out of sprint">&#8594; Backlog</button>
+            </td>
           </tr>
         `;
       }).join('');
 
+      // ── Unlinked rows ──
+      const unlinkedRows = stats.unlinked.map((item, idx) => {
+        const podColor = POD_COLORS_HEX[item.pod] || '#888';
+        return `
+          <tr data-task-idx="${idx}" data-pod="${esc(item.pod)}" data-person="${esc(item.person)}" data-discipline="${esc(item.discipline)}">
+            <td style="width:30px;text-align:center;vertical-align:middle">
+              <input type="checkbox" checked class="task-include" onchange="updateTaskRow(this)" style="accent-color:var(--accent);cursor:pointer">
+            </td>
+            <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${podColor};margin-right:5px;vertical-align:middle"></span>${esc(item.pod)}</td>
+            <td><span class="person-name" style="font-size:12px">${esc(item.person)}</span><div class="person-disc">${esc(item.discipline)}</div></td>
+            <td><span class="task-name-editable" contenteditable="true">${esc(item.priority)}</span></td>
+            <td>
+              <select class="task-type-select" onchange="toggleTaskType(this)">
+                <option value="individual">Create Individual</option>
+                <option value="subtask">Create as Subtask</option>
+                <option value="link_existing">Link Existing</option>
+              </select>
+              <div class="task-link-detail" style="display:none;margin-top:3px">
+                <select class="task-parent-select" style="display:none">
+                  <option value="">Select parent&hellip;</option>
+                  ${parentOpts}
+                </select>
+                <input type="text" class="task-parent-input" list="chi-datalist" placeholder="CHI-XXXXX" style="display:none">
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      const linkedVis = coverageSections.linked ? 'block' : 'none';
+      const unlinkedVis = coverageSections.unlinked ? 'block' : 'none';
+
       return `
-        <div class="panel">
+        <div class="panel" id="ticket-coverage-panel">
+          <datalist id="chi-datalist">${datalistOptions}</datalist>
           <div class="panel-title">ClickUp Coverage
-            <span class="pill pill-green">${stats.linked} linked</span>
-            <span class="pill pill-yellow">${stats.unlinked.length} need tickets</span>
+            <span class="pill pill-green coverage-toggle ${coverageSections.linked ? 'active' : ''}" onclick="toggleCoverageSection('linked')" title="Click to show/hide linked items">${stats.linked.length} linked</span>
+            <span class="pill pill-yellow coverage-toggle ${coverageSections.unlinked ? 'active' : ''}" onclick="toggleCoverageSection('unlinked')" title="Click to show/hide items needing tickets">${stats.unlinked.length} need tickets</span>
+            ${stats.bau.length > 0 ? `<span class="pill pill-gray" title="${stats.bau.map(b => esc(b.person) + ': ' + esc(b.priority)).join('&#10;')}">${stats.bau.length} BAU excluded</span>` : ''}
             <span class="pill pill-${pct === 100 ? 'green' : pct >= 50 ? 'yellow' : 'red'}">${pct}%</span>
             <button class="edit-btn" style="margin-left:auto;font-size:12px" onclick="toggleSpotlight()">&#128269; Spotlight Unlinked</button>
           </div>
-          ${stats.unlinked.length > 0 ? `
-          <table class="cap-summary-table">
-            <thead><tr><th>Pod</th><th>Person</th><th>Priority (Needs Ticket)</th></tr></thead>
-            <tbody>${rows}</tbody>
-          </table>
-          ` : '<div style="text-align:center;color:var(--status-green);padding:12px">All priorities linked to ClickUp tasks</div>'}
+
+          <!-- Linked Section -->
+          <div class="coverage-section" id="section-linked" style="display:${linkedVis}">
+            <div class="coverage-section-header">
+              Linked Priorities
+              <span style="font-weight:400;font-size:11px;color:var(--text-dim)">${stats.linked.length} items already in ClickUp &mdash; flag any to push to backlog</span>
+            </div>
+            ${stats.linked.length > 0 ? `
+            <table class="cap-summary-table">
+              <thead><tr><th>Pod</th><th>Person</th><th>Priority</th><th>ClickUp</th><th>Action</th></tr></thead>
+              <tbody id="linked-coverage-body">${linkedRows}</tbody>
+            </table>
+            ` : ''}
+          </div>
+
+          <!-- Unlinked Section -->
+          <div class="coverage-section" id="section-unlinked" style="display:${unlinkedVis}">
+            <div class="coverage-section-header">
+              Needs Tickets
+              <span style="font-weight:400;font-size:11px;color:var(--text-dim)">${stats.unlinked.length} priorities without ClickUp tasks</span>
+            </div>
+            ${stats.unlinked.length > 0 ? `
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+              <span id="selection-count" style="font-size:12px;color:var(--text-dim)">${stats.unlinked.length} of ${stats.unlinked.length} selected</span>
+              <div style="display:flex;gap:6px">
+                <button class="edit-btn" style="font-size:11px;padding:3px 10px" onclick="selectAllTasks(true)">Select All</button>
+                <button class="edit-btn" style="font-size:11px;padding:3px 10px" onclick="selectAllTasks(false)">Select None</button>
+              </div>
+            </div>
+            <table class="cap-summary-table">
+              <thead><tr>
+                <th style="width:30px"></th>
+                <th>Pod</th>
+                <th>Person</th>
+                <th>Task Name</th>
+                <th>Link</th>
+              </tr></thead>
+              <tbody id="ticket-coverage-body">${unlinkedRows}</tbody>
+            </table>
+            ` : '<div style="color:var(--status-green);font-size:13px;padding:4px 0">All actionable priorities linked</div>'}
+          </div>
+
+          <div class="ticket-plan-actions">
+            <span style="font-size:12px;color:var(--text-dim)">Export ticket plan &mdash; creates, links, and backlog actions for ClickUp</span>
+            <button class="save-btn" onclick="saveTicketPlan()">Save Ticket Plan</button>
+          </div>
         </div>
       `;
+    }
+
+    function toggleCoverageSection(section) {
+      coverageSections[section] = !coverageSections[section];
+      const el = document.getElementById('section-' + section);
+      if (el) el.style.display = coverageSections[section] ? 'block' : 'none';
+      // Update pill toggle state
+      document.querySelectorAll('.coverage-toggle').forEach(pill => {
+        if (section === 'linked' && pill.textContent.includes('linked')) {
+          pill.classList.toggle('active', coverageSections.linked);
+        }
+        if (section === 'unlinked' && pill.textContent.includes('need')) {
+          pill.classList.toggle('active', coverageSections.unlinked);
+        }
+      });
     }
 
     function toggleSpotlight() {
@@ -1048,6 +1288,150 @@
         btn.classList.toggle('active', active);
         btn.innerHTML = active ? '&#128269; Show All' : '&#128269; Spotlight Unlinked';
       }
+    }
+
+    function toggleTaskType(sel) {
+      const td = sel.closest('td');
+      const detail = td.querySelector('.task-link-detail');
+      const parentSelect = td.querySelector('.task-parent-select');
+      const parentInput = td.querySelector('.task-parent-input');
+
+      if (sel.value === 'subtask') {
+        detail.style.display = 'block';
+        parentSelect.style.display = 'block';
+        parentInput.style.display = 'none';
+        parentInput.value = '';
+      } else if (sel.value === 'link_existing') {
+        detail.style.display = 'block';
+        parentSelect.style.display = 'none';
+        parentInput.style.display = 'block';
+        parentInput.focus();
+      } else {
+        detail.style.display = 'none';
+        parentSelect.style.display = 'none';
+        parentInput.style.display = 'none';
+        parentInput.value = '';
+      }
+    }
+
+    function toggleBacklog(btn) {
+      const row = btn.closest('tr');
+      const isFlagged = row.classList.toggle('linked-row-backlog');
+      btn.classList.toggle('flagged', isFlagged);
+      btn.innerHTML = isFlagged ? '&#8617; Keep' : '&#8594; Backlog';
+    }
+
+    function updateTaskRow(cb) {
+      const row = cb.closest('tr');
+      row.classList.toggle('task-row-excluded', !cb.checked);
+      updateSelectionCount();
+    }
+
+    function updateSelectionCount() {
+      const total = document.querySelectorAll('#ticket-coverage-body .task-include').length;
+      const selected = document.querySelectorAll('#ticket-coverage-body .task-include:checked').length;
+      const el = document.getElementById('selection-count');
+      if (el) el.textContent = `${selected} of ${total} selected`;
+    }
+
+    function selectAllTasks(checked) {
+      document.querySelectorAll('#ticket-coverage-body tr').forEach(row => {
+        const cb = row.querySelector('.task-include');
+        if (cb) {
+          cb.checked = checked;
+          row.classList.toggle('task-row-excluded', !checked);
+        }
+      });
+      updateSelectionCount();
+    }
+
+    function saveTicketPlan() {
+      const createActions = [];
+      const linkActions = [];
+
+      // Collect from unlinked section
+      document.querySelectorAll('#ticket-coverage-body tr').forEach(row => {
+        const include = row.querySelector('.task-include')?.checked;
+        if (!include) return;
+
+        const name = row.querySelector('.task-name-editable')?.textContent.trim();
+        const person = row.dataset.person;
+        const pod = row.dataset.pod;
+        const discipline = row.dataset.discipline;
+        const type = row.querySelector('.task-type-select')?.value || 'individual';
+
+        if (type === 'link_existing') {
+          const existingChi = row.querySelector('.task-parent-input')?.value.trim();
+          if (existingChi) {
+            linkActions.push({
+              name,
+              assignee: person,
+              pod,
+              discipline,
+              existing_chi: existingChi,
+              existing_url: SPRINT_DATA.chi_urls?.[existingChi] || null
+            });
+          }
+        } else {
+          const parentChi = row.querySelector('.task-parent-select')?.value || null;
+          createActions.push({
+            name,
+            assignee: person,
+            pod,
+            discipline,
+            type: type === 'subtask' && parentChi ? 'subtask' : 'individual',
+            parent_chi: type === 'subtask' && parentChi ? parentChi : null,
+            parent_name: type === 'subtask' && parentChi ? (SPRINT_DATA.chi_names?.[parentChi] || null) : null,
+            parent_url: type === 'subtask' && parentChi && SPRINT_DATA.chi_urls?.[parentChi]
+              ? SPRINT_DATA.chi_urls[parentChi] : null
+          });
+        }
+      });
+
+      // Collect backlog actions from linked section
+      const backlogActions = [];
+      document.querySelectorAll('#linked-coverage-body tr.linked-row-backlog').forEach(row => {
+        const chiEls = row.querySelectorAll('.carry-id');
+        const chiIds = Array.from(chiEls).map(el => el.textContent.trim());
+        backlogActions.push({
+          chi_ids: chiIds,
+          chi_urls: chiIds.map(id => SPRINT_DATA.chi_urls?.[id]).filter(Boolean),
+          assignee: row.dataset.person,
+          pod: row.dataset.pod
+        });
+      });
+
+      const stats = ticketCoverageStats();
+      const plan = {
+        sprint: SPRINT_DATA.meta.sprint_name,
+        sprint_number: SPRINT_DATA.meta.sprint_number,
+        clickup_list: SPRINT_DATA.meta.clickup_list,
+        created_at: new Date().toISOString(),
+        coverage: {
+          total_priorities: stats.total,
+          linked: stats.linked.length,
+          bau_excluded: stats.bau.length,
+          creating: createActions.length,
+          linking: linkActions.length,
+          pushing_to_backlog: backlogActions.length
+        },
+        actions: {
+          create: createActions,
+          link_existing: linkActions,
+          push_to_backlog: backlogActions
+        }
+      };
+
+      const json = JSON.stringify(plan, null, 2);
+      const blob = new Blob([json], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `ticket_plan_s${SPRINT_DATA.meta.sprint_number}.json`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
     }
 
     // ─── Main Render ───
@@ -1065,10 +1449,10 @@
       document.getElementById('app').innerHTML = [
         renderHeader(),
         renderSummary(),
-        renderTicketCoverage(),
         pods,
         renderCrossPod(),
         renderCapacity(),
+        renderTicketCoverage(),
         '<div class="footer">Sprint Plan &middot; Generated by <code>/sprint-plan</code></div>'
       ].join('');
     }
