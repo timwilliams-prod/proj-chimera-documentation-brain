@@ -144,16 +144,15 @@ var SPRINT_DATA = {
         { text: "Continue UI Foundation (Pipeline A, Sprint 2 of 6)", shqs: [] },
         { text: "Continue Hero Gacha v1 (Pipeline B, YY/ZZ sprints) — Tiago Costa", shqs: [] },
         { text: "Building Upgrades UX completion — Kevin Ligon wrapping up during ZZ", shqs: [] },
-        { text: "Resolve Chris Fidalgo carry-over (CHI-36250, T5/T6 rewards)", shqs: [] }
       ],
       people: [
         { name: "Leonard Perez", discipline: "Design", avail: 10, total: 10, priorities: ["Commercial Plan", "Meta Depth designs"], notes: "Meta Depth features (Building Upgrades, Empire Progression Summary, Combat Research Tree) need more design/UX time before engineering.", flags: [] },
-        { name: "Christopher Fidalgo", discipline: "Design", avail: 10, total: 10, priorities: ["CHI-36250 (T5/T6 rewards, carry-over)", "ZZ Player Journey/CG Revisions (CHI-36411)", "Narrative/Tutorial Design"], notes: "S26 carry-over confirmed still to do (4/13). High priority item must close early. CHI-36412 + CHI-36413 subtasks assigned.", flags: ["carry-over"] },
-        { name: "Kevin Ligon", discipline: "UX", avail: 8, total: 10, priorities: ["Building Upgrades UX designs", "UI Foundation UX wireframes/flows"], notes: "Out 4/23-4/24. Wrapping up Building Upgrades UX during ZZ. Front-load UX deliverables week 1.", flags: ["pto"] },
+        { name: "Christopher Fidalgo", discipline: "Design", avail: 10, total: 10, priorities: ["CHI-36250 (T5/T6 rewards, carry-over)", "ZZ Player Journey/CG Revisions (CHI-36411)", "Scripted Sequence Design & Prioritization"], notes: "S26 carry-over confirmed still to do (4/13). High priority item must close early. CHI-36412 + CHI-36413 subtasks assigned.", flags: ["carry-over"] },
+        { name: "Kevin Ligon", discipline: "UX", avail: 8, total: 10, priorities: ["Building Upgrades UX designs", "UI Foundation UX wireframes/flows", "Battle HUD UX Design"], notes: "Out 4/23-4/24. Wrapping up Building Upgrades UX during ZZ. Front-load UX deliverables week 1.", flags: ["pto"] },
         { name: "Dan Dupuis", discipline: "Eng Lead", avail: 10, total: 10, priorities: ["UI Foundation oversight + architecture"], notes: "Planning capacity only. Also Empire eng lead.", flags: ["split"] },
         { name: "Guilherme Quizzini", discipline: "Eng", avail: 9, total: 10, priorities: ["UI Foundation (Pipeline A, Sprint 2)"], notes: "Brazil holiday 4/21 = 9 days. Dedicated to UI Foundation for the milestone (6 sprints).", flags: ["pto"] },
         { name: "Tiago Costa", discipline: "Eng", avail: 10, total: 10, priorities: ["Hero Gacha v1 (Pipeline B)"], notes: "Prioritized over Meta Depth features (Building Upgrades, Empire Progression Summary, Combat Research Tree) which need more design/UX time. YY/ZZ sprint scope.", flags: ["new-hire"] },
-        { name: "Miguel Duran", discipline: "UI Art", avail: 10, total: 10, priorities: ["UI Foundation UI art"], notes: "Shared resource with Empire.", flags: ["shared"] },
+        { name: "Miguel Duran", discipline: "UI Art", avail: 10, total: 10, priorities: ["Territory Map UI Art"], notes: "Shared resource with Empire.", flags: ["shared"] },
         { name: "Hugo Hideo", discipline: "QA", avail: 9, total: 10, priorities: ["Hero Gacha v1 QA (end of sprint)", "Ongoing verification"], notes: "Brazil holiday 4/21 = 9 days.", flags: ["pto"] },
         { name: "Tim Williams", discipline: "Producer", avail: 5, total: 10, priorities: ["Metagame production", "Social Dynamics production"], notes: "Out 4/22-5/01 (5 working days lost). Also produces Social Dynamics.", flags: ["pto", "split"] }
       ],
