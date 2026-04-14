@@ -149,8 +149,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 293.5,
-    "collapsed": true
+    "width": 293.5
   },
   "right": {
     "id": "81d2c05b4a46e97f",
@@ -257,17 +256,17 @@
   },
   "active": "38fc166341ab2af3",
   "lastOpenFiles": [
-    "generated/sprint_plans/sprint_27_zany_zebras.md.tmp.2640.1776093035001",
-    "generated/sprint_plans/sprint_27_zany_zebras.md.tmp.2640.1776093022546",
-    "generated/sprint_plans/sprint_27_zany_zebras.md.tmp.2640.1776093013212",
-    "generated/sprint_plans/sprint_27_zany_zebras.md.tmp.2640.1776093005670",
-    "generated/sprint_plans/sprint_27_zany_zebras.md.tmp.2640.1776092987279",
-    "generated/dashboard/sprints/sprint_27.js.tmp.2640.1776092980815",
-    "generated/dashboard/sprints/sprint_27.js.tmp.2640.1776092971321",
-    "generated/sprint_plans/sprint_27_zany_zebras.md.tmp.2640.1776092532021",
-    "generated/sprint_plans/sprint_27_zany_zebras.md.tmp.2640.1776092498449",
-    "generated/sprint_plans/sprint_27_zany_zebras.md.tmp.2640.1776092478750",
-    "generated/sprint_plans/sprint_27_zany_zebras.md.tmp.2640.1776092462999",
+    "tuning_purge_treasure_chest.csv",
+    "tuning_purge_data.csv.tmp.26808.1776115529866",
+    "tuning_purge.sh",
+    "tuning_purge.ps1",
+    "tuning_purge.ps1.tmp.26808.1776108144242",
+    "tuning_purge_data.csv",
+    "tuning_purge_data.csv.tmp.26808.1776108096220",
+    "tuning_data_purge.ps1.tmp.26808.1776107341124",
+    "tuning_data_purge.ps1.tmp.26808.1776107336579",
+    "tuning_data_purge.ps1.tmp.26808.1776107330655",
+    "tuning_data_purge.ps1.tmp.26808.1776107322676",
     "generated/sprint_plans/sprint_27_zany_zebras.md",
     "planning/contentTargets.md",
     "generated/reports/pulse_checks/pulse_check_2026-03.md",

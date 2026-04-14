@@ -1,0 +1,290 @@
+# Tuning Data Purge Operations
+# Source: https://www.notion.so/Tuning-Data-Purge-Work-3303f0b3b6ab80909b1be6b07e7d3d9a
+#
+# Format: operation,schema_dir,config_name,new_name
+#   operation  = "remove" or "rename"
+#   schema_dir = subfolder name under Assets/Tuning/configs/
+#   config_name = filename without .json extension
+#   new_name   = (rename only) target filename without .json extension
+#
+# Lines starting with # are comments. Blank lines are ignored.
+
+# ==========================================================================
+# Tutorial Schema
+# ==========================================================================
+rename,Tutorial,Tutorial_Message_MaxLevel,Tutorial_message_max_level
+remove,Tutorial,story_moment_forkedPath
+remove,Tutorial,story_moment_leonardTaunt
+remove,Tutorial,story_moment_worldSetup
+remove,Tutorial,tutorial_conquest_guide_onboarding
+remove,Tutorial,Tutorial_empire_foundation_moment_end
+
+# ==========================================================================
+# StoryShard
+# ==========================================================================
+rename,StoryShard,StoryShard_6_4,StoryShard_22
+rename,StoryShard,StoryShard_6_2,StoryShard_20
+rename,StoryShard,StoryShard_6_1,StoryShard_19
+rename,StoryShard,StoryShard_6_3,StoryShard_21
+remove,StoryShard,cl3_story_shard_0
+remove,StoryShard,story_shard_5
+remove,StoryShard,story_shard_4
+remove,StoryShard,story_shard_3
+remove,StoryShard,story_shard_2
+remove,StoryShard,story_shard_1
+remove,StoryShard,story_moment_waterArchers
+remove,StoryShard,story_shard_6
+remove,StoryShard,story_moment_floodValley
+remove,StoryShard,cl3_story_shard_6
+remove,StoryShard,cl3_story_shard_5
+remove,StoryShard,cl3_story_shard_4
+remove,StoryShard,cl3_story_shard_3
+remove,StoryShard,cl3_story_shard_2
+remove,StoryShard,cl3_story_shard_1
+remove,StoryShard,cl3_story_shard_7
+remove,StoryShard,story_shard_7
+remove,StoryShard,StoryShard_test_b_moment_1
+remove,StoryShard,StoryShard_test_b_low_shard_1
+remove,StoryShard,StoryShard_test_b_med_shard_1
+remove,StoryShard,StoryShard_test_b_high_shard_1
+remove,StoryShard,StoryShard_test_b_shard_2
+remove,StoryShard,StoryShard_test_c_shard_1
+remove,StoryShard,StoryShard_test_c_shard_2
+remove,StoryShard,StoryShard_test_c_shard_3
+remove,StoryShard,StoryShard_test_c_shard_4
+remove,StoryShard,StoryShard_lumber_mill_preparation
+remove,StoryShard,StoryShard_celestine
+
+# ==========================================================================
+# StoryFragment
+# ==========================================================================
+remove,StoryFragment,story_fragment_celestine
+remove,StoryFragment,story_fragment_confrontGhendra
+remove,StoryFragment,story_fragment_duncan
+remove,StoryFragment,story_fragment_endLeonard
+remove,StoryFragment,story_fragment_ghendra
+remove,StoryFragment,story_fragment_humphrey
+remove,StoryFragment,story_fragment_marvin
+remove,StoryFragment,story_fragment_oliver
+remove,StoryFragment,story_fragment_parents
+remove,StoryFragment,story_fragment_selena
+remove,StoryFragment,story_fragment_thruk
+remove,StoryFragment,story_fragment_toshoia
+remove,StoryFragment,story_fragment_winston
+remove,StoryFragment,story_fragment_conspiracyRoom
+
+# ==========================================================================
+# Narrative
+# ==========================================================================
+rename,Narrative,wombo_combo_narrative,Narrative_tutorial_wombo_combo
+rename,Narrative,Narrative_story_shard_6_1,Narrative_story_shard_19
+rename,Narrative,Narrative_story_shard_6_2,Narrative_story_shard_20
+rename,Narrative,Narrative_story_shard_6_3,Narrative_story_shard_21
+rename,Narrative,Narrative_story_shard_6_4,Narrative_story_shard_22
+remove,Narrative,army_selection
+remove,Narrative,narrative_fragment_celestine
+remove,Narrative,narrative_fragment_confrontGhendra
+remove,Narrative,narrative_fragment_duncan
+remove,Narrative,narrative_fragment_endLeonard
+remove,Narrative,narrative_fragment_ghendra
+remove,Narrative,narrative_fragment_humphrey
+remove,Narrative,narrative_fragment_marvin
+remove,Narrative,narrative_fragment_oliver
+remove,Narrative,narrative_fragment_parents
+remove,Narrative,hero_ability_narrative
+remove,Narrative,narrative_fragment_selena
+remove,Narrative,narrative_fragment_toshoia
+remove,Narrative,narrative_fragment_winston
+remove,Narrative,narrative_story_moment_floodValley
+remove,Narrative,narrative_story_moment_waterArchers
+remove,Narrative,story_shard_narrative_1
+remove,Narrative,story_shard_narrative_2
+remove,Narrative,story_shard_narrative_3
+remove,Narrative,story_shard_narrative_4
+remove,Narrative,story_shard_narrative_5
+remove,Narrative,story_shard_narrative_6
+remove,Narrative,narrative_fragment_thruk
+remove,Narrative,story_shard_narrative_7
+remove,Narrative,headline_winston
+remove,Narrative,headline_thruk
+remove,Narrative,barrack_highlight
+remove,Narrative,cl3_headline_bridge_barrier
+remove,Narrative,cl3_story_shard_narrative_0
+remove,Narrative,cl3_story_shard_narrative_1
+remove,Narrative,cl3_story_shard_narrative_2
+remove,Narrative,cl3_story_shard_narrative_3
+remove,Narrative,cl3_story_shard_narrative_4
+remove,Narrative,cl3_story_shard_narrative_5
+remove,Narrative,cl3_story_shard_narrative_6
+remove,Narrative,cl3_story_shard_narrative_7
+remove,Narrative,headline_toshoia
+remove,Narrative,headline_celestine
+remove,Narrative,headline_duncan
+remove,Narrative,headline_endLeonard
+remove,Narrative,headline_ghendra
+remove,Narrative,headline_humphrey
+remove,Narrative,headline_marvin
+remove,Narrative,headline_oliver
+remove,Narrative,headline_parents
+remove,Narrative,headline_selena
+remove,Narrative,headline_start
+remove,Narrative,headline_confrontGhendra
+remove,Narrative,narrative_story_moment_leonardTaunt
+remove,Narrative,narrative_story_moment_forkedPath
+remove,Narrative,narrative_fragment_conspiracyRoom
+remove,Narrative,headline_conspiracyRoom
+remove,Narrative,narrative_story_moment_worldSetup
+remove,Narrative,narrative_story_moment_leonardTaunt2
+remove,Narrative,narrative_story_moment_leonardTaunt3
+remove,Narrative,Narrative_conquest_guide_onboarding
+remove,Narrative,Narrative_repair_lumber_mill
+remove,Narrative,Narrative_repair_lumber_mill_alt
+remove,Narrative,Narrative_story_moment_small_world_setup
+remove,Narrative,Narrative_test_b_story_moment_1
+remove,Narrative,Narrative_test_b_story_shard_2
+remove,Narrative,Narrative_test_c_story_shard_1
+remove,Narrative,Narrative_test_c_story_shard_2
+remove,Narrative,Narrative_test_c_story_shard_3
+remove,Narrative,Narrative_test_c_story_shard_4
+remove,Narrative,Narrative_test_b_low_story_shard_1
+remove,Narrative,Narrative_test_b_med_story_shard_1
+remove,Narrative,Narrative_test_b_high_story_shard_1
+
+# ==========================================================================
+# NarrativeUIPreset
+# ==========================================================================
+rename,NarrativeUIPreset,directive_top,NarrativeUIPreset_directive_top
+rename,NarrativeUIPreset,directive_bottom,NarrativeUIPreset_directive_bottom
+remove,NarrativeUIPreset,bedroom
+remove,NarrativeUIPreset,thruk_left
+remove,NarrativeUIPreset,story_fragment_no_character
+remove,NarrativeUIPreset,spotlight_only
+remove,NarrativeUIPreset,sovereign_right
+remove,NarrativeUIPreset,sovereign_left
+remove,NarrativeUIPreset,sovereign_bedroom
+remove,NarrativeUIPreset,slide
+remove,NarrativeUIPreset,selena_left
+remove,NarrativeUIPreset,ryan_right
+remove,NarrativeUIPreset,ryan_left
+remove,NarrativeUIPreset,pup_winston_left
+remove,NarrativeUIPreset,pup_oliver_left
+remove,NarrativeUIPreset,pup_humphrey_left
+remove,NarrativeUIPreset,toshoia_left
+remove,NarrativeUIPreset,pup_duncan_left
+remove,NarrativeUIPreset,leonard_left
+remove,NarrativeUIPreset,hoplite_left
+remove,NarrativeUIPreset,headline
+remove,NarrativeUIPreset,ghendra_right
+remove,NarrativeUIPreset,ghendra_left_toshoia_right
+remove,NarrativeUIPreset,ghendra_left
+remove,NarrativeUIPreset,fiara_left
+remove,NarrativeUIPreset,elisea_bedroom
+remove,NarrativeUIPreset,directive
+remove,NarrativeUIPreset,conspiracyRoom
+remove,NarrativeUIPreset,celestine_left
+remove,NarrativeUIPreset,marvin_left
+remove,NarrativeUIPreset,toshoia_left_hoplite_right
+remove,NarrativeUIPreset,empty_ui_preset
+remove,NarrativeUIPreset,NarrativeUIPreset_warden
+
+# ==========================================================================
+# ConquestGuide
+# ==========================================================================
+remove,ConquestGuide,conquest_guide_cl3
+remove,ConquestGuide,conquest_guide_leonard_map
+remove,ConquestGuide,ConquestGuide_test_b_1
+remove,ConquestGuide,ConquestGuide_test_c_1
+remove,ConquestGuide,ConquestGuide_territory_1_test
+
+# ==========================================================================
+# Mission
+# ==========================================================================
+remove,Mission,mission_cl3_m1
+remove,Mission,mission_cl3_m2
+remove,Mission,mission_cl3_m3
+remove,Mission,mission_cl3_m4_a
+remove,Mission,mission_cl3_m4_b
+remove,Mission,mission_cl3_m5
+remove,Mission,mission_cl3_m6
+remove,Mission,mission_cl3_m7
+remove,Mission,mission_cl3_o1
+remove,Mission,mission_cl3_o2
+remove,Mission,mission_cl3_o3
+remove,Mission,mission_cl3_o4
+remove,Mission,mission_cl3_o5
+remove,Mission,mission_cl3_o6
+remove,Mission,mission_leonard_map_m1
+remove,Mission,mission_leonard_map_m2
+remove,Mission,mission_leonard_map_m3
+remove,Mission,mission_leonard_map_m4_a
+remove,Mission,mission_leonard_map_m4_b
+remove,Mission,mission_leonard_map_m5
+remove,Mission,mission_leonard_map_m6
+remove,Mission,mission_leonard_map_m7
+remove,Mission,mission_leonard_map_m8
+remove,Mission,mission_leonard_map_m9
+remove,Mission,mission_leonard_map_o1
+remove,Mission,mission_leonard_map_o2
+remove,Mission,mission_leonard_map_o3
+remove,Mission,mission_leonard_map_o7
+remove,Mission,mission_leonard_map_o4
+remove,Mission,mission_leonard_map_o5
+remove,Mission,mission_leonard_map_o6
+remove,Mission,mission_leonard_map_o8
+remove,Mission,mission_leonard_map_o9
+remove,Mission,Mission_test_b_1_m1
+remove,Mission,Mission_test_c_1_m1
+remove,Mission,Mission_test_c_1_m2
+
+# ==========================================================================
+# CameraTranslation
+# ==========================================================================
+remove,CameraTranslation,camera_current_dragon
+remove,CameraTranslation,camera_current_fork
+remove,CameraTranslation,camera_current_leonardCastle
+remove,CameraTranslation,camera_current_barrier
+remove,CameraTranslation,camera_current_barracks
+remove,CameraTranslation,camera_current_secondTile
+remove,CameraTranslation,camera_current_waterTemple
+
+# ==========================================================================
+# Barrier
+# ==========================================================================
+remove,Barrier,barrier_cl2_1
+remove,Barrier,barrier_cl2_2
+remove,Barrier,barrier_cl3_bridge
+remove,Barrier,barrier_cl3_gate
+remove,Barrier,barrier_test_1
+remove,Barrier,Barrier_test_b_repair_bridge
+remove,Barrier,Barrier_test_c_trial_wisdom
+remove,Barrier,Barrier_test_c_trial_valor
+remove,Barrier,Barrier_test_c_high_final
+remove,Barrier,Barrier_test_c_med_final
+remove,Barrier,Barrier_test_b_boat_bridge_option_2
+remove,Barrier,Barrier_test_b_boat_bridge_option_3
+
+# ==========================================================================
+# Map
+# ==========================================================================
+remove,Map,maps_CE3
+remove,Map,maps_CL1
+remove,Map,maps_CL1props
+remove,Map,maps_CL1_with_story_shards
+remove,Map,maps_CL2
+remove,Map,maps_CL2_with_barrier
+remove,Map,maps_CL3-with-water-temple
+remove,Map,maps_cl3
+remove,Map,maps_granary_test
+remove,Map,maps_CL4
+remove,Map,maps_hero_collection_test
+remove,Map,Map_sprintPP
+remove,Map,Map_foundation_test
+remove,Map,Map_dungeon_test
+remove,Map,maps_test_b_1
+remove,Map,maps_test_b_2
+remove,Map,maps_test_b_3
+remove,Map,maps_test_c_1
+remove,Map,maps_test_c_2
+remove,Map,maps_test_c_3
+remove,Map,Map_territory-2-test
+remove,Map,Map_territory-1-test
