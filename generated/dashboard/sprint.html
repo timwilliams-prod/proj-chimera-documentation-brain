@@ -220,6 +220,25 @@
     .flag-split { background: rgba(170,119,255,0.2); color: #AA77FF; }
     .flag-shared { background: rgba(107,114,128,0.2); color: var(--status-gray); }
 
+    /* ── Ticket Status ── */
+    .ticket-status {
+      display: inline-block;
+      padding: 0 5px;
+      border-radius: 3px;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      margin-left: 4px;
+      vertical-align: middle;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+    .ticket-linked { background: rgba(34,197,94,0.15); color: var(--status-green); }
+    .ticket-missing { background: rgba(234,179,8,0.2); color: var(--status-yellow); }
+    .ticket-coverage-text { font-size: 11px; color: var(--text-dim); font-weight: 400; text-transform: none; letter-spacing: 0; }
+    body.spotlight-unlinked .pri-linked { opacity: 0.3; }
+    body.spotlight-unlinked .pri-unlinked { background: rgba(234,179,8,0.06); border-radius: 3px; margin: 1px -4px; padding: 1px 4px; }
+
     /* ── Capacity Bar ── */
     .cap-wrap { display: flex; align-items: center; gap: 6px; }
     .cap-bar { width: 60px; height: 6px; background: rgba(107,114,128,0.25); border-radius: 3px; overflow: hidden; flex-shrink: 0; }
@@ -669,6 +688,10 @@
       return html;
     }
 
+    function hasTicket(str) {
+      return /CHI-\d+/.test(str);
+    }
+
     // ─── Render: Header ───
     function renderSprintSwitcher() {
       if (typeof SPRINT_MANIFEST === 'undefined' || SPRINT_MANIFEST.length <= 1) return '';
@@ -774,12 +797,19 @@
       const peopleRows = pod.people.map(p => {
         const flags = flagBadges(p.flags);
         const cap = capacityBar(p.avail, p.total);
-        const priorities = p.priorities.map((pr, j) => `
-          <li>
+        const priorities = p.priorities.map((pr, j) => {
+          const isLinked = hasTicket(pr);
+          const badge = isLinked
+            ? '<span class="ticket-status ticket-linked">LINKED</span>'
+            : '<span class="ticket-status ticket-missing">NEEDS TICKET</span>';
+          return `
+          <li class="${isLinked ? 'pri-linked' : 'pri-unlinked'}">
             <span class="priority-text editable" contenteditable="false" data-field="priority" data-idx="${j}">${richText(pr)}</span>
+            ${badge}
             <span class="remove-btn" onclick="removeItem(this)" title="Remove">&times;</span>
           </li>
-        `).join('');
+          `;
+        }).join('');
 
         return `
           <tr data-person="${esc(p.name)}">
@@ -842,6 +872,12 @@
         risksHtml = `<div class="section-label">Risks</div>${items}`;
       }
 
+      // Ticket coverage per pod
+      const podLinked = pod.people.reduce((sum, p) => sum + p.priorities.filter(pr => hasTicket(pr)).length, 0);
+      const podTotal = pod.people.reduce((sum, p) => sum + p.priorities.length, 0);
+      const coveragePct = podTotal > 0 ? Math.round((podLinked / podTotal) * 100) : 100;
+      const coverageColor = coveragePct === 100 ? 'green' : coveragePct >= 50 ? 'yellow' : 'red';
+
       return `
         <div class="pod-section" data-pod-section="${esc(pod.name)}" style="border-left-color: ${color}">
           <div class="pod-header">
@@ -855,7 +891,10 @@
           <ol class="goals-list">${goalsHtml}</ol>
           <span class="add-btn" onclick="addGoal(this)">+ Add goal</span>
 
-          <div class="section-label" style="margin-top:16px">Team</div>
+          <div class="section-label" style="margin-top:16px">Team
+            <span class="ticket-coverage-text">${podLinked}/${podTotal} linked</span>
+            <span class="pill pill-${coverageColor}" style="font-size:10px">${coveragePct}%</span>
+          </div>
           <table class="people-table">
             <thead><tr>
               <th class="col-name">Name</th>
@@ -952,6 +991,65 @@
       `;
     }
 
+    // ─── Ticket Coverage ───
+    function ticketCoverageStats() {
+      let linked = 0, total = 0;
+      const unlinked = [];
+      SPRINT_DATA.pods.forEach(pod => {
+        pod.people.forEach(p => {
+          p.priorities.forEach(pr => {
+            total++;
+            if (hasTicket(pr)) { linked++; }
+            else { unlinked.push({ pod: pod.name, person: p.name, discipline: p.discipline, priority: pr }); }
+          });
+        });
+      });
+      return { linked, total, unlinked };
+    }
+
+    function renderTicketCoverage() {
+      const stats = ticketCoverageStats();
+      const pct = stats.total > 0 ? Math.round((stats.linked / stats.total) * 100) : 100;
+
+      const rows = stats.unlinked.map(item => {
+        const podColor = POD_COLORS_HEX[item.pod] || '#888';
+        return `
+          <tr>
+            <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${podColor};margin-right:5px;vertical-align:middle"></span>${esc(item.pod)}</td>
+            <td><span class="person-name" style="font-size:12px">${esc(item.person)}</span><div class="person-disc">${esc(item.discipline)}</div></td>
+            <td style="font-size:13px">${richText(item.priority)}</td>
+          </tr>
+        `;
+      }).join('');
+
+      return `
+        <div class="panel">
+          <div class="panel-title">ClickUp Coverage
+            <span class="pill pill-green">${stats.linked} linked</span>
+            <span class="pill pill-yellow">${stats.unlinked.length} need tickets</span>
+            <span class="pill pill-${pct === 100 ? 'green' : pct >= 50 ? 'yellow' : 'red'}">${pct}%</span>
+            <button class="edit-btn" style="margin-left:auto;font-size:12px" onclick="toggleSpotlight()">&#128269; Spotlight Unlinked</button>
+          </div>
+          ${stats.unlinked.length > 0 ? `
+          <table class="cap-summary-table">
+            <thead><tr><th>Pod</th><th>Person</th><th>Priority (Needs Ticket)</th></tr></thead>
+            <tbody>${rows}</tbody>
+          </table>
+          ` : '<div style="text-align:center;color:var(--status-green);padding:12px">All priorities linked to ClickUp tasks</div>'}
+        </div>
+      `;
+    }
+
+    function toggleSpotlight() {
+      document.body.classList.toggle('spotlight-unlinked');
+      const btn = document.querySelector('[onclick="toggleSpotlight()"]');
+      if (btn) {
+        const active = document.body.classList.contains('spotlight-unlinked');
+        btn.classList.toggle('active', active);
+        btn.innerHTML = active ? '&#128269; Show All' : '&#128269; Spotlight Unlinked';
+      }
+    }
+
     // ─── Main Render ───
     function render() {
       if (typeof SPRINT_DATA === 'undefined') {
@@ -967,6 +1065,7 @@
       document.getElementById('app').innerHTML = [
         renderHeader(),
         renderSummary(),
+        renderTicketCoverage(),
         pods,
         renderCrossPod(),
         renderCapacity(),
