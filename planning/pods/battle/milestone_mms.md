@@ -5,18 +5,27 @@ Doc Status: DRAFT
 
 Ends: Jun 23, 2026 | Sprints: ~7 | Capacity: 1x ENG (Jota Oliveira)
 
-**CAPACITY NOTE**: 4 features totaling ~9 eng-sprints scheduled in a 7-sprint milestone. Requires tight execution. Design/art prep front-loaded in parallel while Jota focuses on HUD.
+**M&M Checkpoints**:
+- Checkpoint 1 (M&M 1): ends 4/27
+- Checkpoint 2 (M&M 2): 4/28 - 5/25
+- Checkpoint 3 (M&M 3): 5/26 - 6/22
+
+**CAPACITY NOTE**: 4 features totaling ~9 eng-sprints scheduled in a 7-sprint milestone. Requires tight execution. Design/art prep front-loaded in parallel while Jota focuses on engineering.
 
 ## Sprint Allocation
 
 ```
-Sprint 1-4:  Battle HUD Beta Overhaul (eng: Jota)
-Sprint 1:    Obstacles design/art prep (non-eng)
-Sprint 1-2:  Actor System Overhaul design prep (non-eng)
-Sprint 1-2:  Pathfinding & AI design prep (non-eng)
-Sprint 5:    Obstacles eng
-Sprint 6-7:  Buffer for overruns / early M&C work
+M&M Checkpoint 1 (ends 4/27):     Actor System Overhaul — IN PROGRESS (Jota)
+                                  Battle HUD Design/UX Review — DESIGN PHASE (Lincoln, Kevin)
+M&M Checkpoint 2 (4/28 - 5/25):   Battle HUD Implementation (Jota, 4 sprints, spans into CP3)
+                                  Obstacles (design validation + eng)
+                                  Pathfinding & AI Improvements (starts, continues into CP3)
+M&M Checkpoint 3 (5/26 - 6/22):   Battle HUD Implementation (completion)
+                                  Pathfinding & AI Improvements (completion)
+M&M Checkpoint 1-3 (ongoing):     Battle Content, Unit Content
 ```
+
+**Note**: Battle HUD engineering implementation begins in CP2 and completes in CP3. Pathfinding & AI also spans CP2-CP3.
 
 Battle Content (#7) and Unit Content (#8) run in parallel on design/art track throughout.
 

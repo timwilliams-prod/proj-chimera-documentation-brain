@@ -11,16 +11,19 @@ Pod Lead: Lincoln Li
 
 ---
 
-1. **Battle HUD Beta Overhaul** — M&Ms, 4 sprints, IN PROGRESS
-   Combat interface meets beta quality bar.
-
-2. **Obstacles** — M&Ms, 1 sprint, NOT STARTED
-   Environmental tactics add depth.
-
-3. **Actor System Overhaul** — M&Ms, 2 sprints, NOT STARTED
+1. **Actor System Overhaul** — M&M Checkpoint 1 (ends 4/27), 2 sprints, IN PROGRESS
    Performance and maintainability for scale.
 
-4. **Pathfinding & AI Improvements** — M&Ms, 2 sprints, NOT STARTED
+2. **Battle HUD Beta Overhaul - Design/UX Review** — M&M Checkpoint 1 (ends 4/27), Design phase, DESIGN PHASE
+   Combat interface design validated. Design and UX review phase before engineering implementation.
+
+3. **Battle HUD Beta Overhaul - Implementation** — M&M Checkpoint 2 (4/28-5/25) + CP3, 4 sprints, NOT STARTED
+   Combat interface meets beta quality bar. Engineering implementation continues from CP2 into CP3.
+
+4. **Obstacles** — M&M Checkpoint 2 (4/28-5/25), 1 sprint, DESIGN VALIDATION
+   Environmental tactics add depth.
+
+5. **Pathfinding & AI Improvements** — M&M Checkpoint 2 (4/28-5/25) + CP3, 2 sprints, NOT STARTED
    AI behavior feels intelligent and responsive.
 
 5. **Pool Management** — Beta Prep, 1 sprint, NOT STARTED

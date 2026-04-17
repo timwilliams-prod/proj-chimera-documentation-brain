@@ -27,10 +27,11 @@ gantt
     Soft Launch - May 30      :crit, milestone, 2027-05-30, 0d
 
     section M&Ms (ends Jun 23)
-    Battle HUD Beta Overhaul  :active,  bat1, 2026-03-31, 56d
-    Obstacles                 :active,  bat2, 2026-03-31, 14d
-    Actor System Overhaul     :active,  bat3, 2026-03-31, 28d
-    Pathfinding & AI          :active,  bat4, 2026-03-31, 28d
+    Actor System Overhaul (M&M 1)     :active,  bat1, 2026-03-31, 28d
+    Battle HUD Design/UX Review (M&M 1)  :active,  bat2, 2026-03-31, 28d
+    Battle HUD Implementation (M&M 2)  :active,  bat3, 2026-04-28, 42d
+    Obstacles (M&M 2)                 :active,  bat4, 2026-04-28, 14d
+    Pathfinding & AI (M&M 2)          :active,  bat5, 2026-04-28, 28d
 
     section Beta Prep (ends Jul 21)
     Pool Management           :         bat_bp, after bat4, 14d
@@ -67,12 +68,13 @@ Battle features contribute to these BHQs (full details in `planning/ValidationPl
 
 All Battle features across milestones, ordered by priority within each milestone.
 
-| #   | Feature                         | Milestone | Estimate  | Status      | Related SHQs | What It Proves                                   |
-| --- | ------------------------------- | --------- | --------- | ----------- | ------------ | ------------------------------------------------ |
-| 1   | Battle HUD Beta Overhaul        | M&Ms      | 4 sprints | DESIGN PHASE | SHQ4-1       | Combat interface meets beta quality bar          |
-| 2   | Obstacles                       | M&Ms      | 1 sprint  | DESIGN VALIDATION | [TBD]        | Environmental tactics add depth                  |
-| 3   | Actor System Overhaul           | M&Ms      | 2 sprints | IN PROGRESS | [TBD]        | Performance and maintainability for scale        |
-| 4   | Pathfinding & AI Improvements   | M&Ms      | 2 sprints | NOT STARTED | [TBD]        | AI behavior feels intelligent and responsive     |
+| #   | Feature                         | Milestone | Checkpoint | Estimate  | Status      | Related SHQs | What It Proves                                   |
+| --- | ------------------------------- | --------- | ---------- | --------- | ----------- | ------------ | ------------------------------------------------ |
+| 1   | Actor System Overhaul           | M&Ms      | M&M 1 (ends 4/27) | 2 sprints | IN PROGRESS | [TBD]        | Performance and maintainability for scale        |
+| 2   | Battle HUD Beta Overhaul - Design/UX Review | M&Ms | M&M 1 (ends 4/27) | Design phase | DESIGN PHASE | SHQ4-1 | Combat interface design validated |
+| 3   | Battle HUD Beta Overhaul - Implementation | M&Ms | M&M 2 (4/28-5/25) | 4 sprints | NOT STARTED | SHQ4-1 | Combat interface meets beta quality bar |
+| 4   | Obstacles                       | M&Ms      | M&M 2 (4/28-5/25) | 1 sprint  | DESIGN VALIDATION | [TBD]        | Environmental tactics add depth                  |
+| 5   | Pathfinding & AI Improvements   | M&Ms      | M&M 2 (4/28-5/25) | 2 sprints | NOT STARTED | [TBD]        | AI behavior feels intelligent and responsive     |
 | 5   | Battle Server Validation Client | M&C            | 2 sprints | NOT STARTED | [TBD]        | Server-authoritative combat foundation           |
 | 6   | Pool Management                 | Beta Prep      | 1 sprint  | NOT STARTED | [TBD]        | Memory optimization for long sessions            |
 | 7   | Battle Content                  | Ongoing   | Ongoing   | IN PROGRESS | [TBD]        | Content pipeline validates production capacity   |
@@ -157,16 +159,27 @@ All Battle features across milestones, ordered by priority within each milestone
 
 **Ends**: Jun 23, 2026 | **Sprints**: ~7 | **Capacity**: 1x ENG (Jota)
 
+**M&M Checkpoints**:
+- Checkpoint 1 (M&M 1): ends 4/27
+- Checkpoint 2 (M&M 2): 4/28 - 5/25
+- Checkpoint 3 (M&M 3): 5/26 - 6/22
+
 **CAPACITY NOTE**: 4 features totaling ~9 eng-sprints scheduled for 7-sprint milestone. Tight execution required.
 
 ```
-Sprint 1 (S26):  Actor System Overhaul ENG plan, bug fixes, PTC feedback — COMPLETED
-Sprint 2 (S27):  Actor System Overhaul implementation (eng), Battle HUD design/UX (Lincoln/Kevin)
-Sprint 3 (S28):  Actor System Overhaul continues, Battle HUD eng start
-Sprint 4 (S29):  Battle HUD eng continues, Pathfinding & AI start
-Sprint 5 (S30):  Battle HUD eng continues, Pathfinding & AI continues
-Sprint 6 (S31):  Battle HUD completes, Obstacles start
-Sprint 7 (S32):  Obstacles completes, Pathfinding & AI continues / Buffer
+M&M Checkpoint 1 (ends 4/27):
+  Sprint 1 (S26):  Actor System Overhaul ENG plan, bug fixes, PTC feedback — COMPLETED
+  Sprint 2 (S27):  Actor System Overhaul implementation — IN PROGRESS
+                   Battle HUD Design/UX Review (Lincoln, Kevin) — DESIGN PHASE
+
+M&M Checkpoint 2 (4/28 - 5/25):
+  Sprint 3 (S28):  Battle HUD Implementation starts (Jota), Obstacles design validation
+  Sprint 4 (S29):  Battle HUD Implementation continues, Pathfinding & AI starts
+
+M&M Checkpoint 3 (5/26 - 6/22):
+  Sprint 5 (S30):  Battle HUD Implementation continues, Pathfinding & AI continues
+  Sprint 6 (S31):  Battle HUD completes, Pathfinding & AI continues
+  Sprint 7 (S32):  Pathfinding & AI completes / Buffer
 ```
 
 Battle Content and Unit Content run in parallel on design/art track (see `planning/capacity.md`).
