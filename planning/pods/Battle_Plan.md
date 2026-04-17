@@ -69,9 +69,9 @@ All Battle features across milestones, ordered by priority within each milestone
 
 | #   | Feature                         | Milestone | Estimate  | Status      | Related SHQs | What It Proves                                   |
 | --- | ------------------------------- | --------- | --------- | ----------- | ------------ | ------------------------------------------------ |
-| 1   | Battle HUD Beta Overhaul        | M&Ms      | 4 sprints | NOT STARTED | [TBD]        | Combat interface meets beta quality bar          |
-| 2   | Obstacles                       | M&Ms      | 1 sprint  | NOT STARTED | [TBD]        | Environmental tactics add depth                  |
-| 3   | Actor System Overhaul           | M&Ms      | 2 sprints | NOT STARTED | [TBD]        | Performance and maintainability for scale        |
+| 1   | Battle HUD Beta Overhaul        | M&Ms      | 4 sprints | DESIGN PHASE | SHQ4-1       | Combat interface meets beta quality bar          |
+| 2   | Obstacles                       | M&Ms      | 1 sprint  | DESIGN VALIDATION | [TBD]        | Environmental tactics add depth                  |
+| 3   | Actor System Overhaul           | M&Ms      | 2 sprints | IN PROGRESS | [TBD]        | Performance and maintainability for scale        |
 | 4   | Pathfinding & AI Improvements   | M&Ms      | 2 sprints | NOT STARTED | [TBD]        | AI behavior feels intelligent and responsive     |
 | 5   | Battle Server Validation Client | M&C            | 2 sprints | NOT STARTED | [TBD]        | Server-authoritative combat foundation           |
 | 6   | Pool Management                 | Beta Prep      | 1 sprint  | NOT STARTED | [TBD]        | Memory optimization for long sessions            |
@@ -122,7 +122,9 @@ All Battle features across milestones, ordered by priority within each milestone
 - **Actor System Overhaul** implementation (Jota, based on S26 ENG plan) — Sprint 1 of ~2
 - **Hero implementation tech** (Jota) — new tech work
 - **Battle HUD Beta Overhaul** design/UX work (Lincoln, Kevin) — design phase before eng implementation
-- Continue design prep for upcoming features (Obstacles, Pathfinding & AI)
+- **Obstacles prototypes** (Dylan) — design validation, prep for future eng
+- **New Hero Concept: Toshoia** (Vinod, week 2 kickoff) — concept lead
+- Continue design prep for upcoming features (Pathfinding & AI)
 - Continue content pipelines
 
 **Key Assignments**:
@@ -133,10 +135,10 @@ All Battle features across milestones, ordered by priority within each milestone
 | Lincoln Li | Battle HUD design direction + finalization (CHI-35036) | Design/UX phase for Battle HUD this sprint |
 | Kevin Ligon | Battle HUD UX support | Cross-pod support from Metagame |
 | Nathan Hajek | Unit Design & Prototype (M&M) | |
-| Dylan Jeffery | Battle Content pipeline | Ongoing |
+| Dylan Jeffery | Obstacles prototypes (design validation), Battle Content pipeline | Design validation prep for eng |
 | Vishaal Gupta | Battle Content + unit balance | |
 | Alessandro Oliveira, Danny Oliveira | VFXs | Continuing from S26 |
-| Vinod Rams | Unit concepts | Continuing from S26 |
+| Vinod Rams | New Hero Concept: Toshoia (week 2 kickoff), Unit concepts | Concept Lead for Toshoia |
 | Julio Scarabelli | QA support | |
 | Ben Clair, Felipe Chaves, Tony Bonilla, Vinicius | Unit Content art | Ongoing |
 

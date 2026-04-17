@@ -81,6 +81,7 @@ All Dozer features across milestones, ordered by priority within each milestone.
 
 **Goals**:
 - **Complete EKS infrastructure deployment (Prod/Stage)** (Derek) — **enables parallel workflows setup in S28**
+- **M&M Roadmap update** (Derek, Thorben) — milestone planning and roadmap refinement
 - **Complete Single Config Editor** (Bruno, from S26)
 - **Performance Improvements** (Bruno) — ongoing optimization work
 - Continue UI Framework V2 support (cross-pod)
@@ -90,7 +91,8 @@ All Dozer features across milestones, ordered by priority within each milestone.
 
 | Person | Focus | Notes |
 |--------|-------|-------|
-| Derek Gallant | EKS deployment completion (Prod/Stage), Multiplayer infrastructure support, UI Framework V2 support | Also Social Dynamics eng lead. EKS must complete to enable S28 parallel workflows. |
+| Derek Gallant | EKS deployment completion (Prod/Stage), M&M Roadmap update, Multiplayer infrastructure support, UI Framework V2 support | Also Social Dynamics eng lead. EKS must complete to enable S28 parallel workflows. |
+| Thorben Novais | M&M Roadmap update, Sprint planning/coordination | Brazil holiday 4/21 (9 avail days). Also Battle pod producer. |
 | Bruno Freitas | Single Config Editor (finish from S26), Performance Improvements | Brazil holiday 4/21 (9 avail days) |
 
 **Risks & Awareness**:

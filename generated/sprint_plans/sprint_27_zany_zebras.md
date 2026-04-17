@@ -192,9 +192,12 @@ Generated: 2026-04-09 (updated — Empire M&Ms resequence)
 
 ### Sprint Goals
 - **Actor System Overhaul** implementation (Jota, Sprint 1 of ~2) — based on S26 ENG plan
+- **Hero implementation tech** (Jota) — new tech work
 - **Battle HUD Beta Overhaul** design/UX finalization (Lincoln/Kevin) — design phase before engineering, validates BHQ-B2 (SHQ4-1)
 - Lincoln Li: Battle HUD Design Doc (CHI-35036) in discipline review — finalize and hand off
-- Continue design prep for upcoming features (Obstacles, Pathfinding & AI)
+- **Battle Templates** (Dylan) — design work, prep for future eng implementation
+- **New Hero Concept: Toshoia** (Vinod, week 2) — concept kickoff
+- Continue design prep for upcoming features (Pathfinding & AI)
 - Continue **Battle Content** and **Unit Content** pipelines
 
 ### S26 Actuals (updated)
@@ -209,12 +212,12 @@ Generated: 2026-04-09 (updated — Empire M&Ms resequence)
 | Lincoln Li | Design Lead | 10 | 1. Battle HUD Design Doc finalization (CHI-35036, discipline review) 2. Future feature design prep | Partial — gymnastics 4/16, 4/23 (~1 hr each). Design/UX phase for Battle HUD this sprint. |
 | Kevin Ligon | UX (Metagame) | **8** | 1. UI Foundation UX wireframes/flows 2. Battle HUD UX support | Out 4/23-4/24. Cross-pod support for Battle HUD. |
 | Nathan Hajek | Design | 10 | 1. Unit Design & Prototype (M&M) | |
-| Dylan Jeffery | Design | 10 | 1. Battle Content pipeline | Ongoing. |
+| Dylan Jeffery | Design | 10 | 1. Battle Templates 2. Battle Content pipeline | |
 | Vishaal Gupta | Design | 10 | 1. Battle Content + unit balance | Partial appts 4/16, 4/23 (~1 hr each). |
 | Julio Scarabelli | QA | **9** | 1. Battle HUD QA + bug verification | **Brazil holiday 4/21 = 9 days**. |
 | Danny Oliveira | Art (VFX) | **7** | 1. VFX implementation and polish | Out 4/16-4/17 (2 days) + local holiday 4/23 (1 day). |
 | Alessandro Oliveira | Art (VFX) | **9** | 1. Trench Knight VFXs (CHI-36350, 36351, 36352) 2. New VFXs | **Brazil holiday 4/21 = 9 days**. |
-| Vinod Rams | Art | 10 | 1. Unit concepts | |
+| Vinod Rams | Art (Lead 2D Concept) | 10 | 1. New Hero Concept: Toshoia (week 2 kickoff) 2. Unit concepts | Concept Lead for Toshoia. |
 | Ben Clair | Art | 10 | 1. Unit Content art | Partial appt 4/22. |
 | Felipe Chaves | Art | **9** | 1. Character art | **Brazil holiday 4/21 = 9 days** (Canada-based but BR nationality — verify). |
 | Tony Bonilla | Art | 10 | 1. Unit Content art / Hero animations (CHI-31445) | |
@@ -231,6 +234,10 @@ Generated: 2026-04-09 (updated — Empire M&Ms resequence)
     - Battle HUD - Design Doc finalization (Lincoln, CHI-35036 in discipline review)
     - Battle HUD - UX support (Kevin Ligon, cross-pod)
   - Battle HUD - Engineering deferred to S28
+- **Battle Templates** (proposed)
+  - Battle Templates - Design work (Dylan)
+- **New Hero Concept: Toshoia** (proposed)
+  - Hero Concept - Toshoia (Vinod, Concept Lead, week 2 kickoff)
 - **Standalone**
   - Battle Content - Sprint 27 (ongoing)
   - Unit Content - Sprint 27 (ongoing, multiple ZZ-tagged tasks)
@@ -305,6 +312,7 @@ Generated: 2026-04-09 (updated — Empire M&Ms resequence)
 
 ### Sprint Goals
 - **Complete EKS deployment (Prod/Stage)** (Derek) — **enables parallel workflows setup in S28**
+- **M&M Roadmap update** (Derek, Thorben) — milestone planning and roadmap refinement
 - **Complete Single Config Editor** (Bruno) — finishing from S26
 - **Performance Improvements** (Bruno) — ongoing optimization work
 - Continue UI Framework V2 support (cross-pod)
@@ -314,14 +322,15 @@ Generated: 2026-04-09 (updated — Empire M&Ms resequence)
 
 | Assignee | Discipline | Avail Days | Priorities | Notes |
 |----------|-----------|------------|------------|-------|
-| Derek Gallant | Eng Lead | 10 | 1. EKS deployment completion (Prod/Stage) 2. Multiplayer infrastructure support 3. UI Framework V2 support | Also Social Dynamics eng lead. EKS must complete to enable S28 parallel workflows. |
+| Derek Gallant | Eng Lead | 10 | 1. EKS deployment completion (Prod/Stage) 2. M&M Roadmap update 3. Multiplayer infrastructure support 4. UI Framework V2 support | Also Social Dynamics eng lead. EKS must complete to enable S28 parallel workflows. |
+| Thorben Novais | Producer | **9** | 1. M&M Roadmap update 2. Sprint planning/coordination | **Brazil holiday 4/21 = 9 days**. Also Battle pod producer. |
 | Bruno Freitas | Eng | **9** | 1. Single Config Editor (finish from S26) 2. Performance Improvements | **Brazil holiday 4/21 = 9 days**. |
 
 ### S26 Status
 - EKS deployment (Prod/Stage) started in S26, completing in S27
 
 ### Open Questions
-- [ ] Should Dozer have defined M&Ms deliverables per sprint? (Carried from S26)
+- [x] ~~Should Dozer have defined M&Ms deliverables per sprint?~~ **Resolved**: S27 includes EKS deployment completion and M&M Roadmap update
 - [x] ~~EKS deployment status~~ **Resolved**: Started S26, completing S27 (Derek)
 
 ### Key Risks
