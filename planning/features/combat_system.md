@@ -1,6 +1,7 @@
 # Feature: Combat System
 
 - **Last Updated**: 2026-03-18
+- **Doc Status**: DRAFT
 - **Status**: In Active Development
 - **Owner**: Combat Systems Pod
 

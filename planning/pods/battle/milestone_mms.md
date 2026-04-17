@@ -1,6 +1,7 @@
 # Battle — M&Ms Milestone Plan
 
 Last Updated: 2026-04-08
+Doc Status: DRAFT
 
 Ends: Jun 23, 2026 | Sprints: ~7 | Capacity: 1x ENG (Jota Oliveira)
 

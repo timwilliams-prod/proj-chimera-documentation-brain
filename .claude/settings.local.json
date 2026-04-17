@@ -41,7 +41,11 @@
       "mcp__clickup__clickup_get_folder",
       "mcp__google-workspace__time_getCurrentDate",
       "mcp__google-workspace__calendar_list",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(ls planning/features/*.md)",
+      "Bash(node:*)",
+      "Bash(powershell.exe:*)",
+      "Bash(py --version)"
     ]
   }
 }

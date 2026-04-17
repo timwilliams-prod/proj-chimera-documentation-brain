@@ -1,6 +1,7 @@
 # Feature: Ravager's Reef
 
 - **Last Updated**: 2026-03-24
+- **Doc Status**: DRAFT
 - **Status**: NOT STARTED
 - **Pod**: Social Dynamics
 - **Design Owner**: Paul Flores

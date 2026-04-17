@@ -1,6 +1,7 @@
 # Feature: Player Journey
 
 - **Last Updated**: 2026-03-24
+- **Doc Status**: DRAFT
 - **Status**: NOT STARTED
 - **Pod**: Cross-Pod
 - **Design Owner**: [UNASSIGNED]

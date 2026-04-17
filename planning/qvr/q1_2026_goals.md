@@ -1,6 +1,7 @@
 # QVR Goals — Q1 2026 (January - March)
 
 Last Updated: 2026-04-08
+Doc Status: DRAFT
 Quarter: Q1 2026 (Jan 1 - Mar 31)
 QVR Set Date: January 2026
 Active Milestone: Systems Validation (ends Mar 2026)

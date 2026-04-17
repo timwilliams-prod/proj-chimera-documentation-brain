@@ -1,6 +1,7 @@
 # Metagame Pod Plan
 
 Last Updated: 2026-03-30
+Doc Status: DRAFT
 Pod Lead: Leonard Perez
 
 > Feature-level planning per milestone. Sprint execution lives in ClickUp.

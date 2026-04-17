@@ -83,12 +83,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "planning/contentTargets.md",
+                "file": "planning/deleteMe-OldValidationRoadmap.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "contentTargets"
+              "title": "deleteMe-OldValidationRoadmap"
             }
           }
         ],
@@ -149,8 +149,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 293.5,
-    "collapsed": true
+    "width": 293.5
   },
   "right": {
     "id": "81d2c05b4a46e97f",
@@ -257,19 +256,19 @@
   },
   "active": "38fc166341ab2af3",
   "lastOpenFiles": [
-    "generated/reports/pulse_checks/index.html.tmp.21380.1775849851404",
-    "planning/contentTargets.md.tmp.26068.1775758154134",
-    "generated/sprint_plans/sprint_27_zany_zebras.md",
-    "generated/dashboard/sprints/sprint_27.js.tmp.26068.1775750741140",
-    "generated/dashboard/sprints/sprint_27.js.tmp.26068.1775750717714",
-    "generated/dashboard/sprints/sprint_27.js.tmp.26068.1775750703967",
-    "generated/dashboard/sprints/sprint_27.js.tmp.26068.1775750686498",
-    "generated/sprint_plans/sprint_27_zany_zebras.md.tmp.26068.1775750677692",
-    "generated/sprint_plans/sprint_27_zany_zebras.md.tmp.26068.1775750669570",
-    "generated/sprint_plans/sprint_27_zany_zebras.md.tmp.26068.1775750643277",
-    "generated/sprint_plans/sprint_27_zany_zebras.md.tmp.26068.1775750630511",
-    "generated/sprint_plans/sprint_27_zany_zebras.md.tmp.26068.1775750600960",
+    "generated/dashboard/sprints/sprint_27.js.tmp.22132.1776186141270",
+    "generated/dashboard/sprints/sprint_27.js.tmp.22132.1776183144743",
+    "generated/dashboard/sprints/sprint_27.js.tmp.22132.1776183138384",
+    "generated/dashboard/sprints/sprint_27.js.tmp.22132.1776183131194",
+    "generated/dashboard/sprint.html.tmp.22132.1776182081891",
+    "generated/dashboard/sprint.html.tmp.22132.1776182057288",
+    "generated/dashboard/sprint.html.tmp.22132.1776181972563",
+    "generated/dashboard/sprints/sprint_27.js.tmp.22132.1776181779423",
+    "generated/dashboard/sprint.html.tmp.22132.1776180665191",
+    "generated/dashboard/sprint.html.tmp.22132.1776180665164",
+    "generated/dashboard/sprint.html.tmp.22132.1776180664994",
     "planning/contentTargets.md",
+    "generated/sprint_plans/sprint_27_zany_zebras.md",
     "generated/reports/pulse_checks/pulse_check_2026-03.md",
     "generated/reports/pulse_checks/pulse_check_2026-04.md",
     "planning/qvr/q1_2026_goals.md",

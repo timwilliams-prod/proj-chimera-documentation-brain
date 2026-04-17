@@ -1,6 +1,7 @@
 # Empire — Validation Alignment
 
 Last Updated: 2026-04-08
+Doc Status: DRAFT
 
 > Full validation hierarchy in `planning/ValidationPlan.md`.
 

@@ -1,6 +1,7 @@
 # Metagame — M&C Milestone Plan
 
 Last Updated: 2026-04-08
+Doc Status: DRAFT
 
 Ends: Oct 13, 2026 | Sprints: 6 | Capacity: 2x ENG (parallel pipelines)
 

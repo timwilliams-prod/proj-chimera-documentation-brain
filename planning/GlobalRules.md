@@ -1,6 +1,7 @@
 # Global Rules
 
 Last Updated: 2026-03-19
+Doc Status: DRAFT
 
 ## Purpose
 Cross-project constraints, standards, and principles that apply to all pods and features.

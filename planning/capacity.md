@@ -1,6 +1,7 @@
 # Team Capacity
 
 Last Updated: 2026-03-30
+Doc Status: DRAFT
 Current Milestone: M&Ms (Multiplayer & Meta, starts 3/31/2026, ends Jun 23, 2026)
 
 > Staffing allocations by discipline and role across milestones.
@@ -54,7 +55,7 @@ Current Milestone: M&Ms (Multiplayer & Meta, starts 3/31/2026, ends Jun 23, 2026
 | Dan Dupuis         | Canada   | Engineering Lead | Metagame        | Metagame        | [TBD]       | Eng Lead for Meta Vertical, planning 0 capacity                                                                                              |
 | Guilherme Quizzini | Brazil   | Client Engineer  | Metagame        | Metagame        | [TBD]       |                                                                                               |
 | Jota Oliveira      | Brazil   | Client Engineer  | Battle          | Battle          | [TBD]       |                                                                                               |
-| Tiago Costa        | Canada   | Client Engineer  | -               | Metagame | [TBD]       | New hire. First milestone is M&Ms. Listed as "Tiago Keller" in Notion.                        |
+| Tiago Costa        | Brazil   | Client Engineer  | -               | Metagame | [TBD]       | New hire. First milestone is M&Ms. Listed as "Tiago Keller" in Notion.                        |
 | Randy Pasion       | USA      | Client Engineer  | Social Dynamics | Social Dynamics | [TBD]       | Also responsible for build pipeline (Dozer). Feature work at risk of interruption.            |
 | Garrett Eidsvig    | Canada   | Backend Engineer | Social Dynamics | Social Dynamics | [TBD]       | Also responsible for networking/infrastructure (Dozer). Feature work at risk of interruption. |
 | Bruno Bacelar      |          | Backend Engineer | Social Dynamics | Social Dynamics | [TBD]       |                                                                                               |

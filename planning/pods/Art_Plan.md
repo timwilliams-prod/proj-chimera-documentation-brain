@@ -1,6 +1,7 @@
 # Art Pod Plan
 
 Last Updated: 2026-03-25
+Doc Status: DRAFT
 Pod Lead: [TBD]
 
 > **What this file tracks**: Art production priorities per milestone and pipeline capacity.

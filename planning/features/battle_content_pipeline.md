@@ -1,6 +1,7 @@
 # Feature: Battle Content Pipeline
 
 - **Last Updated**: 2026-03-24
+- **Doc Status**: DRAFT
 - **Status**: NOT STARTED
 - **Pod**: Battle
 - **Design Owner**: Lincoln Li

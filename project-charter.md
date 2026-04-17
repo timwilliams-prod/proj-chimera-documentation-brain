@@ -227,6 +227,22 @@ SHQ (defined in ValidationPlan.md)
 
 **If any link breaks**: SHQs without ClickUp Epics can't be evaluated. Features without ClickUp tasks can't be tracked. Sprint evaluations that don't run make milestone checkpoints unreliable.
 
+### Document Approval Status
+
+Every `planning/` file includes a `Doc Status` field in its metadata header. This tells LLMs and team members how much to trust the document's content.
+
+| Value | Meaning | LLM Behavior |
+|-------|---------|---------------|
+| **APPROVED** | Reviewed by owner, content is authoritative | Use with confidence, cite normally |
+| **DRAFT** | Work-in-progress, not yet reviewed/approved | Caveat any claims sourced from this doc — inform the user the source is a draft and may not be finalized |
+| **STALE** | Was approved, now outdated (Last Updated exceeds staleness threshold) | Warn the user the source may be outdated before relying on it |
+
+**Rules**:
+- Generated files (`generated/`) do not carry Doc Status — they are regenerated on demand and inherit trustworthiness from their source files
+- Skills that cite content from a DRAFT or STALE document must flag this to the user
+- Only a document owner or producer can promote a document from DRAFT to APPROVED
+- If a skill detects that `Last Updated` exceeds the staleness threshold for an APPROVED document, it should treat it as STALE regardless of the field value
+
 ### Staleness Detection
 
 Skills check whether their source data is fresh before running. Each `planning/` file has a `Last Updated: YYYY-MM-DD` header. If a file is stale, the skill warns but does not block.
@@ -454,6 +470,7 @@ When operating in this brain:
 8. **Degrade gracefully** — If an external source (Notion, etc.) or file isn't available, work with what's available
 9. **Pull leadership from capacity.md** — Pod leadership, design ownership, and staffing always come from `planning/capacity.md`, not hardcoded elsewhere
 10. **Update the registry** — When adding features to pod plans, also add them to `planning/feature_registry.md`
+11. **Check Doc Status** — Before citing information from a `planning/` file, check its `Doc Status` field. If DRAFT, caveat the information. If STALE, warn the user. See "Document Approval Status" section above
 
 ---
 

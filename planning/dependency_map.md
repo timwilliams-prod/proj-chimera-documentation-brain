@@ -1,6 +1,7 @@
 # Dependency Map
 
 Last Updated: 2026-04-01
+Doc Status: DRAFT
 
 ## Purpose
 Simple map of how pods and features overlap. Use this to identify impact radius of changes.

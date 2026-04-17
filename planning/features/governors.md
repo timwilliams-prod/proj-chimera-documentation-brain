@@ -1,6 +1,7 @@
 # Feature: Governors
 
 - **Last Updated**: 2026-03-19
+- **Doc Status**: DRAFT
 - **Status**: IN PROGRESS
 - **Pod**: Empire
 - **Design Owner**: Diana Vasilescu
