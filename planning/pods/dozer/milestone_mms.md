@@ -5,19 +5,35 @@ Doc Status: DRAFT
 
 Ends: Jun 23, 2026 | Sprints: ~7 | Capacity: 2x ENG (Derek Gallant, Bruno Freitas)
 
+**M&M Checkpoints**:
+- Checkpoint 1 (M&M 1): ends 4/27
+- Checkpoint 2 (M&M 2): 4/28 - 5/25
+- Checkpoint 3 (M&M 3): 5/26 - 6/22
+
 ## Sprint Allocation
 
 ```
-Sprint 1-2:  UI Framework V2 - UI Support (Cross-Pod)
-Sprint 1-7:  Performance/Optimization and Review (ongoing)
+M&M Checkpoint 1 (ends 4/27):     EKS Infrastructure Deployment + Parallel Workflows — IN PROGRESS
+                                  UI Framework V2 - UI Support (Cross-Pod) — IN PROGRESS
+M&M Checkpoint 2 (4/28 - 5/25):   Build Pipeline Review
+                                  Compliance (OneTrust, Age Gate)
+                                  UI Framework V2 (Full)
+M&M Checkpoint 3 (5/26 - 6/22):   Audio Tooling Foundation (STRETCH)
+                                  QA Automation (STRETCH)
+M&M Checkpoint 1-3 (ongoing):     Performance/Optimization and Review — IN PROGRESS
 ```
+
+**Stretch Goals**: Audio Tooling Foundation and QA Automation are stretch goals for M&M 3. If UI Framework V2 work completes early or capacity becomes available, these can be pulled forward.
 
 ## Key Responsibilities
 
-- EKS infrastructure deployment (critical path for multiplayer readiness)
+- EKS infrastructure deployment + parallel workflows (critical path for multiplayer readiness)
 - Multiplayer support infrastructure
-- Build pipeline maintenance
+- Build pipeline review and optimization
+- Compliance implementation (OneTrust, Age Gate)
 - UI Framework V2 shared components
+- Audio Tooling Foundation (stretch)
+- QA Automation (stretch)
 
 ## Capacity & Constraints
 
