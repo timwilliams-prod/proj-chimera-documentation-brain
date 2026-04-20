@@ -1,6 +1,6 @@
 # Team Capacity
 
-Last Updated: 2026-03-30
+Last Updated: 2026-04-20
 Doc Status: DRAFT
 Current Milestone: M&Ms (Multiplayer & Meta, starts 3/31/2026, ends Jun 23, 2026)
 
@@ -41,7 +41,8 @@ Current Milestone: M&Ms (Multiplayer & Meta, starts 3/31/2026, ends Jun 23, 2026
 | Battle          | Thorben Novais | Lincoln Li      | Jota Oliveira | Julio Scarabelli |
 | Social Dynamics | Tim Williams   | Paul Flores     | Derek Gallant | -                |
 | Dozer           | -              | -               | Derek Gallant | -                |
-| Art             | Brann Livesay  | -               | -             | -                |
+
+> **Art Pod closed 2026-04-13.** Art direction continues cross-pod under Kevin Griffith (Art Director) and Brendan Cheatham (Assoc. Art Director). See individual artist rows below for current pod assignments.
 
 ---
 
@@ -96,12 +97,12 @@ Current Milestone: M&Ms (Multiplayer & Meta, starts 3/31/2026, ends Jun 23, 2026
 
 | Person | Country | Role | Pod (Current) | M&Ms (7 spr) | M&C (6 spr) | Notes |
 |--------|---------|------|---------------|---------------|----|-------|
-| Kevin Griffith | USA | Art Director | Art | Art | Art | Cross-pod leadership |
-| Brendan Cheatham | Canada | Associate Art Director | Art | Art | Art | Cross-pod leadership |
-| Lawrence Steele | | Sound Engineer | Art | Art | Art | |
+| Kevin Griffith | USA | Art Director | Cross-pod | Cross-pod | Cross-pod | Cross-pod art direction (Art Pod closed 2026-04-13) |
+| Brendan Cheatham | Canada | Associate Art Director | Cross-pod | Cross-pod | Cross-pod | Cross-pod art direction (Art Pod closed 2026-04-13) |
+| Lawrence Steele | | Sound Engineer | [TBD — Art Pod closed 2026-04-13] | [TBD] | [TBD] | Needs new pod assignment |
 | Danny Oliveira | | Senior Technical Artist | Battle | Battle | [TBD] | |
 | Alessandro Oliveira | | VFX | Battle | Battle | [TBD] | |
-| Pedro Sarraf | | Lead Technical Artist | Art | Art | [TBD] | |
+| Pedro Sarraf | | Lead Technical Artist | [TBD — Art Pod closed 2026-04-13] | [TBD] | [TBD] | Needs new pod assignment |
 | Guilherme Lascasas | | 2D Environment Concept | Empire | Empire | [TBD] | |
 | Vinod Rams | | Lead 2D Concept | Battle | Battle | [TBD] | |
 | Thiago Saraiva | | Senior 3D | Empire | Empire | [TBD] | |
@@ -129,7 +130,7 @@ Current Milestone: M&Ms (Multiplayer & Meta, starts 3/31/2026, ends Jun 23, 2026
 | Person | Country | Role | Pod(s) | Notes |
 |--------|---------|------|--------|-------|
 | Tim Williams | USA | Producer | Metagame, Social Dynamics | Two pods |
-| Brann Livesay | USA | Producer | Empire, Art | Two pods |
+| Brann Livesay | USA | Producer | Empire | Single pod (Art Pod closed 2026-04-13) |
 | Thorben Novais | Brazil | Producer | Battle, Dozer | Two pods |
 
 ---
@@ -144,7 +145,6 @@ Current Milestone: M&Ms (Multiplayer & Meta, starts 3/31/2026, ends Jun 23, 2026
 | Empire loses 1 engineer for M&Ms (Marcos Loures -> Social Dynamics) | Empire drops from 3 to 2 client engineers. Governors (3 sprints, IN PROGRESS) and Territory Map VS (2 sprints) must complete with reduced capacity. | Empire | Flex sprint absorbs some risk but Territory Map VS compression is possible |
 | Social Dynamics: Randy/Garrett Dozer split | 2 of 5 engineers (Randy, Garrett) have Dozer obligations. Feature work at risk of interruption. | Social Dynamics, Dozer | Tiago Costa (new) and Marcos Loures (from Empire) are fully dedicated |
 | Tim Williams produces 2 pods | Attention split between Metagame and Social Dynamics | Metagame, Social Dynamics | |
-| Brann Livesay produces 2 pods | Attention split between Empire and Art | Empire, Art | |
 | Thorben Novais produces 2 pods | Attention split between Battle and Dozer | Battle, Dozer | |
 
 ---
@@ -153,6 +153,7 @@ Current Milestone: M&Ms (Multiplayer & Meta, starts 3/31/2026, ends Jun 23, 2026
 
 | Date | Change | Reason |
 |------|--------|--------|
+| 2026-04-20 | Art Pod closed effective 2026-04-13. Removed Art row from Pod Leadership Summary. Kevin Griffith and Brendan Cheatham reassigned to Cross-pod art direction. Lawrence Steele and Pedro Sarraf flagged [TBD] pending new pod assignment. Brann Livesay producer scope reduced to Empire only; corresponding split-pod risk row removed. | Art Pod dissolution |
 | 2026-03-30 | Added Country column to all tables (sourced from Notion Team Members DB). Tiago Costa listed as "Tiago Keller" in Notion — verify correct name. Some art team members not in Notion DB — countries left blank. Updated milestone to M&Ms current. | Holiday-aware OOO evaluation |
 | 2026-03-20 | M&Ms staffing: Marcos Loures Empire -> Social Dynamics. Tiago Costa (new) added to Social Dynamics. Randy, Garrett, Bruno Bacelar confirmed Social Dynamics for M&Ms. Updated staffing risks. | Social Dynamics ramp-up for multiplayer build-out |
 | 2026-03-19 | Full team roster populated with real staffing data | Moving from placeholder to actual team |

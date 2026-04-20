@@ -1,11 +1,12 @@
 # Art Features
 
-Last Updated: 2026-04-08
-Doc Status: DRAFT
-Pod Lead: [TBD]
+Last Updated: 2026-04-20
+Doc Status: STALE
+Pod Lead: N/A — Art Pod closed 2026-04-13
 
-> Ranked backlog of all Art features. Rank is global priority.
-> Full feature specs in `planning/features/`. Staffing in `planning/capacity.md`.
+> ⚠️ **Art Pod closed 2026-04-13.** This file is retained as a historical backlog only. Art features and tracks listed below have been (or are being) absorbed into the receiving pods' plans. Do not treat this as an active backlog.
+>
+> See `planning/pods/art/milestone_mms.md` for the closure marker and `planning/capacity.md` for current artist assignments.
 
 ---
 

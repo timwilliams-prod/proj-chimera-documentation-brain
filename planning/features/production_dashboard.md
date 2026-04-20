@@ -145,7 +145,7 @@ Displays:
 This is the key visualization improvement over Mermaid. Displays a **CSS Grid timeline** with:
 
 - **X-axis**: Time (sprint boundaries as columns, labeled by sprint name or date)
-- **Y-axis**: Pod swim lanes (Empire, Metagame, Battle, Social Dynamics, Dozer, Art)
+- **Y-axis**: Pod swim lanes (Empire, Metagame, Battle, Social Dynamics, Dozer)
 - **Boulder bars**: Grouped feature blocks spanning their start→end dates
   - Features are grouped into boulders (major work chunks) for clarity — not every individual task
   - Names should be consistent with feature names used across the brain (feature_registry, pod plans)

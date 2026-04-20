@@ -1,12 +1,12 @@
 # Art Pod Plan
 
-Last Updated: 2026-03-25
-Doc Status: DRAFT
-Pod Lead: [TBD]
+Last Updated: 2026-04-20
+Doc Status: STALE
+Pod Lead: N/A — Art Pod closed 2026-04-13
 
-> **What this file tracks**: Art production priorities per milestone and pipeline capacity.
-> **What lives elsewhere**: Feature details in `planning/features/*.md`. Staffing in `planning/capacity.md`. Sprint execution in ClickUp.
-> For the full validation hierarchy, see `planning/ValidationPlan.md`.
+> ⚠️ **Art Pod closed 2026-04-13.** This file is retained for historical reference only. Art production has been distributed across the receiving pods (Empire, Metagame, Battle, Social Dynamics, Dozer). Do not treat this plan as active.
+>
+> See `planning/pods/art/milestone_mms.md` for the closure marker and `planning/capacity.md` for current artist assignments.
 
 ---
 
