@@ -180,8 +180,8 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 | Nathan Hajek | Design | 10 | 1. Unit Design & Prototype 2. Obstacles design validation support | |
 | Dylan Jeffery | Design | 10 | 1. Battle Templates 2. Battle Content pipeline | Continuation from S27. |
 | Vishaal Gupta | Design | 10 | 1. Unit Content + unit balance | Partial appts 4/30, 5/7. |
-| Jota Oliveira | Eng | **9-10** | 1. **Battle HUD Implementation - Sprint 1 of 4 (CP2 start)** 2. Close Actor System Overhaul if not complete | May 1 Labor Day verify. **Solo client eng — critical path for ALL Battle eng.** Battle HUD is now the headline. |
-| Danny Oliveira | Art (VFX) | 10 | 1. VFX implementation/polish | |
+| Jota Oliveira | Eng | **9-10** | 1. **Battle HUD Implementation - Sprint 1 of 2 (CP2 start)** 2. Close Actor System Overhaul if not complete | May 1 Labor Day verify. **Solo client eng — critical path for ALL Battle eng.** Battle HUD is now the headline. |
+| Danny Oliveira | Art (VFX) | 10 | 1. VFX implementation/polish 2. Battle HUD impl. support | |
 | Alessandro Oliveira | Art (VFX) | **9-10** | 1. Trench Knight VFX completion ([CHI-36350](https://app.clickup.com/t/86agjmw4v) family if not done) 2. New VFX | May 1 verify. |
 | Vinod Rams | Art (Lead 2D Concept) | **8** | 1. Toshoia Hero Concept continuation 2. Unit concepts | Out 5/1, 5/4. |
 | Ben Clair | Art | 10 | 1. Start Merrin Rig & Skinning | |
