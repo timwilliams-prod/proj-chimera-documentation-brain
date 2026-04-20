@@ -1,6 +1,6 @@
 # Dozer Pod Plan
 
-Last Updated: 2026-03-27
+Last Updated: 2026-04-20
 Pod Lead: [TBD]
 
 > Feature-level planning per milestone. Sprint execution lives in ClickUp.
@@ -111,6 +111,28 @@ All Dozer features across milestones, ordered by priority within each milestone.
 - Derek split between Dozer (EKS deployment) and Social Dynamics eng lead — EKS is critical path for S28
 - **EKS deployment must complete by end of S27** — blocks parallel workflows setup in S28
 - Bruno loses 1 day to Brazil holiday (4/21)
+
+### Sprint 28: Abra (4/28 - 5/12) — PLANNED
+
+**Goals**:
+- **Build Pipeline Review** starts — audit and optimize build pipeline
+- **Performance Improvements** (Bruno) — ongoing optimization work continues
+- **Compliance (OneTrust, Age Gate)** starts — implement compliance requirements
+- **UI Framework V2 (Full)** starts — complete framework implementation
+- Continue multiplayer infrastructure support
+
+**Key Assignments**:
+
+| Person | Focus | Notes |
+|--------|-------|-------|
+| Derek Gallant | Build Pipeline Review, UI Framework V2 (Full), Multiplayer infrastructure support | Also Social Dynamics eng lead. Parallel workflows enabled from S27 EKS completion. |
+| Bruno Freitas | Performance Improvements | Ongoing optimization work |
+| Thorben Novais | Sprint planning/coordination | Also Battle pod producer |
+
+**Risks & Awareness**:
+- M&M Checkpoint 2 begins — three major features starting (Build Pipeline, Compliance, UI Framework V2)
+- Derek continues split between Dozer and Social Dynamics eng lead
+- Performance work is ongoing and reactive to discoveries
 
 ---
 
