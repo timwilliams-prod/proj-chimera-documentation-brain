@@ -158,6 +158,7 @@ All Battle features across milestones, ordered by priority within each milestone
 - **Battle HUD Beta Overhaul** implementation starts (Jota) — Sprint 1 of 2, engineering begins
 - **Pathfinding & AI** turned on (Jota) — enable feature, engineering adjustments as needed
 - **Obstacles** exploration (Dylan) — exploration and prototyping
+- **Prepare Design Kits for 2D Concept Kick-Off** (Vish, Nathan, Lincoln) — support hero concept work
 - Continue content pipelines
 
 **Key Assignments**:
@@ -166,9 +167,9 @@ All Battle features across milestones, ordered by priority within each milestone
 |--------|-------|-------|
 | Jota Oliveira | Battle HUD Implementation (Sprint 1 of 2), Pathfinding & AI turn-on + adjustments as needed | Solo client engineer. Critical path. Pathfinding enabled this sprint with eng support as needed. |
 | Dylan Jeffery | Obstacles exploration, Battle Content pipeline | Exploration and prototyping phase |
-| Lincoln Li | Battle HUD support as needed | Design/UX completed in S27 |
-| Nathan Hajek | Unit Design & Prototype (M&M) | |
-| Vishaal Gupta | Battle Content + unit balance | |
+| Lincoln Li | Battle HUD support as needed, Prepare Design Kits for 2D Concept Kick-Off | Design/UX completed in S27 |
+| Nathan Hajek | Unit Design & Prototype (M&M), Prepare Design Kits for 2D Concept Kick-Off | |
+| Vishaal Gupta | Battle Content + unit balance, Prepare Design Kits for 2D Concept Kick-Off | |
 | Alessandro Oliveira, Danny Oliveira | VFXs | |
 | Julio Scarabelli | QA support | |
 | **Hero Concept Art**: | | |
