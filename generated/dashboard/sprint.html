@@ -434,21 +434,48 @@
     @media (max-width: 800px) { .summary-grid { grid-template-columns: 1fr; } }
     .summary-col h3 { font-size: 13px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
 
-    /* ── Overview Panel (milestone-lens) ── */
-    .overview-grid {
+    /* ── Overview Panel (checkpoint-lens) ── */
+    .overview-h3 {
+      font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.6px;
+      margin: 0 0 10px 0; padding-bottom: 6px; border-bottom: 1px solid var(--border);
+    }
+    .cp-section { margin-bottom: 18px; }
+    .cp-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
     }
-    .overview-col h3 {
-      font-size: 12px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.5px;
-      margin-bottom: 8px; padding-bottom: 4px; border-bottom: 1px solid var(--border);
+    .cp-card {
+      background: rgba(83, 168, 255, 0.05);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
     }
+    .cp-card-text { font-size: 13px; line-height: 1.4; color: var(--text); }
+
+    .overview-twocol {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 800px) { .overview-twocol { grid-template-columns: 1fr; } }
+    .overview-col { min-width: 0; }
     .overview-item {
-      padding: 4px 0; font-size: 13px;
-      display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap;
+      padding: 6px 0;
+      font-size: 13px;
+      line-height: 1.4;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: baseline;
+      gap: 8px;
+      border-bottom: 1px solid rgba(42,58,94,0.2);
     }
-    .overview-bullet { color: var(--accent); flex-shrink: 0; font-size: 14px; line-height: 1; }
+    .overview-item:last-child { border-bottom: none; }
+    .overview-text { color: var(--text); }
+    .overview-tags { display: inline-flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
     .overview-empty {
       font-size: 12px; color: var(--text-dim); font-style: italic; padding: 8px 0;
     }
@@ -460,7 +487,7 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.4px;
-      margin-left: 4px;
+      white-space: nowrap;
     }
     .carry-rollup-q {
       background: rgba(255, 196, 63, 0.06);
@@ -886,57 +913,86 @@
       `;
     }
 
-    // ─── Render: Sprint Overview (milestone-lens) ───
+    // ─── Render: Sprint Overview (checkpoint-lens) ───
     function renderSummary() {
       const s = SPRINT_DATA.summary || {};
       const m = SPRINT_DATA.meta || {};
 
-      const milestoneGoals = (s.milestone_goals || []).map(g =>
-        `<div class="overview-item"><span class="overview-bullet">&bull;</span><span>${richText(typeof g === 'string' ? g : g.text)}</span></div>`
-      ).join('');
+      const podTag = (p) => {
+        const color = POD_COLORS_HEX[p] || '#888';
+        return `<span class="pod-tag" style="background:${color}1f;color:${color};border:1px solid ${color}55">${esc(p)}</span>`;
+      };
 
-      const checkpoint = s.checkpoint;
+      // ── Checkpoint Goals — horizontal full-width cards
+      const cp = s.checkpoint;
       let checkpointHtml = '';
-      if (checkpoint && checkpoint.goals && checkpoint.goals.length) {
-        const items = checkpoint.goals.map(g =>
-          `<div class="overview-item"><span class="overview-bullet">&bull;</span><span>${richText(typeof g === 'string' ? g : g.text)}</span></div>`
-        ).join('');
+      if (cp && cp.goals && cp.goals.length) {
+        const cards = cp.goals.map(g => {
+          const text = typeof g === 'string' ? g : g.text;
+          // Detect "Pod: rest" pattern and split visually
+          const match = text.match(/^\*?\*?([A-Za-z &/]+)\*?\*?:\s*(.+)$/);
+          if (match) {
+            const pod = match[1].trim();
+            const rest = match[2];
+            return `<div class="cp-card">${podTag(pod)}<div class="cp-card-text">${richText(rest)}</div></div>`;
+          }
+          return `<div class="cp-card"><div class="cp-card-text">${richText(text)}</div></div>`;
+        }).join('');
         checkpointHtml = `
-          <div class="overview-col">
-            <h3>${esc(checkpoint.name || 'Checkpoint Goals')}</h3>
-            ${items}
+          <div class="cp-section">
+            <h3 class="overview-h3">${esc(cp.name || 'Checkpoint Goals')}</h3>
+            <div class="cp-grid">${cards}</div>
           </div>`;
       }
 
-      const activeFocus = (s.active_focus || []).map(f => {
+      // ── Validation In Flight (left col)
+      const validationItems = (s.validation_in_flight || []).map(v => {
+        if (typeof v === 'string') return `<div class="overview-item"><span class="shq-badge">${esc(v)}</span></div>`;
+        const pods = (v.pods || []).map(podTag).join(' ');
+        return `
+          <div class="overview-item">
+            <span class="shq-badge">${esc(v.id)}</span>
+            <span class="overview-text">${richText(v.label || '')}</span>
+            <span class="overview-tags">${pods}</span>
+          </div>`;
+      }).join('');
+
+      // ── Active Focus (right col)
+      const focusItems = (s.active_focus || []).map(f => {
         const txt = typeof f === 'string' ? f : f.text;
         const shqs = (typeof f === 'object' && f.shqs ? f.shqs : []).map(x => `<span class="shq-badge">${esc(x)}</span>`).join('');
-        const pods = (typeof f === 'object' && f.pods ? f.pods : []).map(p => `<span class="pod-tag" style="background:${(POD_COLORS_HEX[p] || '#888')}22;color:${POD_COLORS_HEX[p] || '#888'}">${esc(p)}</span>`).join('');
-        return `<div class="overview-item"><span class="overview-bullet">&bull;</span><span>${richText(txt)} ${shqs} ${pods}</span></div>`;
+        const pods = (typeof f === 'object' && f.pods ? f.pods : []).map(podTag).join(' ');
+        return `
+          <div class="overview-item">
+            <span class="overview-text">${richText(txt)}</span>
+            <span class="overview-tags">${shqs} ${pods}</span>
+          </div>`;
       }).join('');
 
-      const validation = (s.validation_in_flight || []).map(v => {
-        if (typeof v === 'string') return `<div class="overview-item"><span class="shq-badge">${esc(v)}</span></div>`;
-        const pods = (v.pods || []).map(p => `<span class="pod-tag" style="background:${(POD_COLORS_HEX[p] || '#888')}22;color:${POD_COLORS_HEX[p] || '#888'}">${esc(p)}</span>`).join('');
-        return `<div class="overview-item"><span class="shq-badge">${esc(v.id)}</span><span>${richText(v.label || '')}</span> ${pods}</div>`;
-      }).join('');
+      const twoCol = (validationItems || focusItems) ? `
+        <div class="overview-twocol">
+          <div class="overview-col">
+            <h3 class="overview-h3">Validation In Flight</h3>
+            ${validationItems || '<div class="overview-empty">No active SHQs listed.</div>'}
+          </div>
+          <div class="overview-col">
+            <h3 class="overview-h3">Active Focus This Sprint</h3>
+            ${focusItems || '<div class="overview-empty">No active focus items listed.</div>'}
+          </div>
+        </div>` : '';
 
-      const overviewCols = [];
-      if (milestoneGoals) overviewCols.push(`<div class="overview-col"><h3>Milestone Goals — ${esc(m.milestone || '')}</h3>${milestoneGoals}</div>`);
-      if (checkpointHtml) overviewCols.push(checkpointHtml);
-      if (activeFocus) overviewCols.push(`<div class="overview-col"><h3>Active Focus This Sprint</h3>${activeFocus}</div>`);
-      if (validation) overviewCols.push(`<div class="overview-col"><h3>Validation In Flight</h3>${validation}</div>`);
-
-      const overviewBody = overviewCols.length
-        ? `<div class="overview-grid">${overviewCols.join('')}</div>`
-        : `<div class="overview-empty">No overview content yet — add <code>summary.milestone_goals</code>, <code>summary.checkpoint</code>, <code>summary.active_focus</code>, or <code>summary.validation_in_flight</code> to the sprint data file.</div>`;
+      const empty = (!checkpointHtml && !twoCol)
+        ? `<div class="overview-empty">No overview content yet — add <code>summary.checkpoint</code>, <code>summary.validation_in_flight</code>, or <code>summary.active_focus</code> to the sprint data file.</div>`
+        : '';
 
       return `
         <div class="panel">
           <div class="panel-title">Sprint Overview
             <span class="pill pill-blue">Sprint ${m.milestone_sprint || '?'} of ${m.milestone_sprint_total || '?'}</span>
           </div>
-          ${overviewBody}
+          ${checkpointHtml}
+          ${twoCol}
+          ${empty}
         </div>
       `;
     }
