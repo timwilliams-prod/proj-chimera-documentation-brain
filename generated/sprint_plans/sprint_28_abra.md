@@ -61,7 +61,7 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 
 ### Sprint Goals
 - **WME — Multiple Nodes per Territory** kickoff (Henrique begins WME engineering, Sub-effort 1 of 3) — SHQ4-3, SHQ4-4
-- Wrap any Tutorial Node Migration carry-over from S27 (must close to free Henrique for WME)
+- **Tutorial Node Migration is PAUSED** — will be trickled in across other engineers as capacity allows; Henrique is freed for WME
 - Continue **Map Content** pipeline (Jacob, Elise) — SHQ3-1
 - **Yura WME UX must reach completion-state for handoff before 5/11 maternity leave**
 
@@ -73,8 +73,8 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 | Jacob Siegel | Design | 10 | 1. Map Content (T-tier work continuation) 2. Any remaining ZZ Player Journey/CG follow-ups | Carry-over from [CHI-36411](https://app.clickup.com/t/86agp9g9c) family if not closed in S27. |
 | Elise Cole | Design | 10 | 1. Map Content / T8 Design Prep ([CHI-36576](https://app.clickup.com/t/86agw4bwz)) 2. Figma Map agentic research ([CHI-36575](https://app.clickup.com/t/86agw4bfz)) 3. WME design support | Both ZZ tasks are top-level, will likely carry into S28. |
 | Yura Rusin | UX | **9** | 1. **WME UX hand-off package** (must finalize before 5/11) 2. Dr appts | **Maternity leave starts 5/11** — loses sprint day 10 + all of M&Ms remainder. **Critical**: ensure WME UX is in handoff-ready state. Identify backup UX. |
-| Henrique De Lima | Eng | **9-10** | 1. **WME — Multiple Nodes per Territory (Eng kickoff)** 2. Close any Tutorial Migration carry-over ([CHI-36213](https://app.clickup.com/t/86aga1m3a), [CHI-36212](https://app.clickup.com/t/86aga1j5p), [CHI-36381](https://app.clickup.com/t/86agjz596) if open) | May 1 Labor Day pending verification. Sole client engineer. Partial appts 4/29, 5/6. **Capacity at risk if S27 tutorial work isn't closed.** |
-| Laura Santana | QA | **9-10** | 1. Tutorial Migration QA (closing) 2. WME smoke-test prep | May 1 verify. |
+| Henrique De Lima | Eng | **9-10** | 1. **WME — Multiple Nodes per Territory (Eng kickoff)** | May 1 Labor Day pending verification. Sole client engineer. Partial appts 4/29, 5/6. **Tutorial Migration paused — Henrique focused on WME.** |
+| Laura Santana | QA | **9-10** | 1. WME smoke-test prep 2. Tutorial Migration QA (only when Tutorial work trickles in) | May 1 verify. |
 | Brann Livesay | Producer | **9** | 1. Empire production 2. Art production | Out 5/8. |
 
 ### ClickUp Ticket Summary (proposed)
@@ -83,17 +83,18 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
   - WME Sub-effort 1: Multiple Nodes per Territory — Engineering (Henrique)
   - WME Sub-effort 1: Multiple Nodes per Territory — UX finalization (Yura — handoff package)
   - WME Sub-effort 1: Multiple Nodes per Territory — Design spec (Diana)
+- **Tutorial Migration — PAUSED**, will trickle to other engineers as capacity allows:
+  - [CHI-36213](https://app.clickup.com/t/86aga1m3a) Tutorial Arch - Orchestration (re-assign as capacity allows)
+  - [CHI-36212](https://app.clickup.com/t/86aga1j5p) Tutorial Arch - Triggering (re-assign as capacity allows)
+  - [CHI-36381](https://app.clickup.com/t/86agjz596) Tutorial Node Rewrites (re-assign as capacity allows)
 - **Carry-over from S27** (verify late next week)
-  - [CHI-36213](https://app.clickup.com/t/86aga1m3a) Tutorial Arch - Orchestration (Henrique)
-  - [CHI-36212](https://app.clickup.com/t/86aga1j5p) Tutorial Arch - Triggering (Henrique)
-  - [CHI-36381](https://app.clickup.com/t/86agjz596) Tutorial Node Rewrites (Henrique)
   - [CHI-36576](https://app.clickup.com/t/86agw4bwz) T8 Design Prep (Elise)
   - [CHI-36575](https://app.clickup.com/t/86agw4bfz) Figma Map agentic research (Elise)
 - **Standalone**
   - Map Content - Sprint 28 (Jacob/Elise, ongoing)
 
 ### Open Questions
-- [ ] **Did Tutorial Node Migration close in S27?** S27 plan explicitly flagged it would not. If carry-over, Henrique starts WME late.
+- [ ] **Tutorial Migration trickle plan** — which engineers absorb the remaining Tutorial work, and at what cadence?
 - [ ] **Is WME Multiple Nodes per Territory spec ready** for engineering kickoff (Diana)?
 - [ ] **Yura maternity coverage**: Who picks up Empire UX from 5/11 through ~6/20? Diana to backstop, or pull cross-pod UX (Kevin Ligon)?
 - [ ] **WME UX handoff package** — what artifacts must Yura deliver before 5/11 to keep WME on track?
@@ -101,7 +102,7 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 
 ### Key Risks
 - **Yura maternity leave starts 5/11** — Empire's only UX disappears for ~6 weeks of M&Ms. WME UX must be either done or handed off cleanly. **Backup UX assignment needed before sprint start.**
-- **Tutorial Migration carry-over** would compress WME engineering window. Henrique cannot do both.
+- **Tutorial Migration paused** — work will trickle in across other engineers; risk of slow completion and orphaned ownership if not assigned proactively.
 - **WME spec readiness** — S27 plan flagged Diana needed to mature spec during the extra UX runway. Verify it's ready.
 - **Henrique sole engineer** + first sprint of a new feature = high architecture risk if spec is loose.
 
@@ -114,8 +115,8 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 
 ### Sprint Goals
 - **UI Foundation** (Pipeline A, Sprint 3 of 6) — Guilherme continues. Sub-feature focus TBD.
-- **Pipeline B (Tiago)** — what's next after Hero Gacha v1? Milestone plan suggests Building Upgrades or Empire Progression Tree, but actual S27 sequence diverged. **Open question.**
-- Continue Meta Depth design/UX maturation (Leonard, Kevin Ligon)
+- **Building Upgrades (Meta Depth Phase 1)** — Tiago kicks off as next Pipeline B feature
+- Continue Meta Depth design/UX maturation (Leonard, Kevin Ligon) — especially Building Upgrades to unblock Tiago
 
 ### Individual Breakdown
 
@@ -126,7 +127,7 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 | Kevin Ligon | UX | 10 | 1. UI Foundation UX (Sprint 3 sub-features) 2. Meta Depth UX (Building Upgrades, Empire Progression Tree) 3. Battle HUD UX support cross-pod | UI Foundation primary. Meta Depth needs UX cycles to unblock Pipeline B. |
 | Dan Dupuis | Eng Lead | 10 | 1. UI Foundation oversight 2. Empire eng lead support (WME kickoff) | Planning capacity only. |
 | Guilherme Quizzini | Eng | **9-10** | 1. UI Foundation (Pipeline A, Sprint 3) | May 1 Labor Day verify. Dedicated to UI Foundation for full milestone. |
-| Tiago Costa | Eng | **9-10** | 1. **TBD — Pipeline B next feature** (Hero Gacha v1 wrap? Building Upgrades start?) | May 1 Labor Day verify. New hire — needs clear handoff. |
+| Tiago Costa | Eng | **9-10** | 1. **Building Upgrades (Meta Depth Phase 1) — Pipeline B kickoff** | May 1 Labor Day verify. New hire — ensure spec + design handoff is clean before kickoff. |
 | Miguel Duran | UI Art | 10 | 1. UI Foundation UI art 2. Cross-pod UI art (Battle HUD, WME) | Shared. |
 | Hugo Hideo | QA | **9-10** | 1. Hero Gacha v1 QA closeout (if S27 didn't finish) 2. UI Foundation QA | May 1 verify. |
 
@@ -137,24 +138,24 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
     - UI Foundation - UX (Kevin)
     - UI Foundation - Engineering (Guilherme)
     - UI Foundation - UI Art (Miguel)
-- **Pipeline B (Tiago) — TBD**
-  - Hero Gacha v1 close-out if needed (Tiago, Hugo QA)
-  - OR Building Upgrades / Empire Progression Tree start (depends on design readiness)
+- **Pipeline B — Building Upgrades (Meta Depth Phase 1)**
+  - Building Upgrades - Engineering kickoff (Tiago)
+  - Building Upgrades - UX (Kevin Ligon)
+  - Building Upgrades - Design (Leonard)
+  - Hero Gacha v1 close-out if needed (Tiago, Hugo QA — spillover only)
 - **Carry-over to confirm**
   - [CHI-36250](https://app.clickup.com/t/86agcpt61) T5/T6 rewards (Chris, if not closed in S27)
 
 ### Open Questions
-- [ ] **Tiago Costa S28 priority** — Hero Gacha v1 finishing or starting next Pipeline B feature? Which feature?
+- [ ] **Building Upgrades spec readiness** — is the Meta Depth Phase 1 design + UX ready for Tiago's eng kickoff?
 - [ ] **UI Foundation Sprint 3 scope** — which sub-features (Hero Info, Leveling, Gear, Badging, Tutorials/Narrative)?
-- [ ] **Are Meta Depth designs ready** for engineering yet (Building Upgrades, Empire Progression Tree, Combat Research Tree)?
 - [ ] **Tim coverage week 1** (4/28-5/1) — same gap as S27. Backup decision-maker for Metagame + SD?
 - [ ] **Chris Fidalgo carry-over status** — did [CHI-36250](https://app.clickup.com/t/86agcpt61) close in S27?
 - [ ] UI Foundation SHQ linkage (carried from S26 and S27)
 
 ### Key Risks
 - **Tim out 4 days at sprint start** — Metagame decisions may stall. Front-load week-1 alignment before 4/28.
-- **Pipeline B scope ambiguity** — Tiago's next feature still undefined. Risk of idle capacity for new hire.
-- **Meta Depth design backlog** — if Building Upgrades / Progression Tree aren't ready, Pipeline B's M&Ms order of operations slips further.
+- **Building Upgrades design readiness** — if Meta Depth Phase 1 isn't ready, Tiago risks idle time on his second feature.
 - May 1 Labor Day affects Guilherme, Tiago, Hugo (Brazil).
 
 ---
@@ -229,45 +230,48 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 **Design Lead**: Paul Flores | **Producer**: Tim Williams | **Eng**: Gabriel Arruda, Marcos Loures, Randy Pasion, Garrett Eidsvig, Bruno Bacelar
 
 ### Sprint Goals
-- **Phase 2 (Map Foundation)** — should be wrapping or transitioning to **Phase 3 (Basic Game Logic)** depending on S26-S27 progress
-- Resolve P2 Work Breakdown ([CHI-36382](https://app.clickup.com/t/86agkdgp8)) — flagged critical in S27
-- AI Prototype Playtesting + Multiplayer Networking continue
+- **Phase 2 (Map Foundation) continues** — wrapping initial pieces (still on P2; switchover to in-client version is the AA goal)
+- AA target: Loures on **Tile Ownership + Tile States + Map Visualization**; Gabriel on **Embark Flow (Dock/Hero/Troop selection)** then **Battle** if time; Randy on **Multiplayer Map Instance Creation, list, join, dev UI v1**
+- AI Prototype Playtesting + Multiplayer Networking continue (Paul, Bruno)
 - Assess switchover readiness to in-client version
 
 ### Individual Breakdown
 
 | Assignee | Discipline | Avail Days | Priorities | Notes |
 |----------|-----------|------------|------------|-------|
-| Paul Flores | Design | 10 | 1. AI Prototype Playtesting 2. P3 design direction (if P2 completing) | |
-| Gabriel Arruda | Eng | **9-10** | 1. P2 Map Foundation OR P3 Basic Game Logic kickoff 2. P2 Work Breakdown closure | May 1 verify. |
-| Marcos Loures | Eng | **9-10** | 1. P2 Map Foundation / P3 transition 2. P2 Work Breakdown | May 1 verify. |
-| Randy Pasion | Eng | 10 | 1. P2/P3 work | Dozer split risk. |
-| Garrett Eidsvig | Eng | 10 | 1. MP infrastructure (P2/P3) | Dozer split risk. [CHI-35564](https://app.clickup.com/t/86afj74z5) status to verify. |
+| Paul Flores | Design | 10 | 1. AI Prototype Playtesting 2. P2 wrap design support | |
+| Marcos Loures | Eng | **9-10** | 1. **Tile Ownership** 2. **Tile States** 3. **Map Visualization** | May 1 verify. AA-target P2 wrap-up. |
+| Gabriel Arruda | Eng | **9-10** | 1. **Embark Flow (Dock / Hero / Troop selection)** 2. **Battle** (stretch if time) | May 1 verify. |
+| Randy Pasion | Eng | 10 | 1. **Multiplayer Map Instance Creation, list, join, dev UI v1** | Dozer split risk. |
+| Garrett Eidsvig | Eng | 10 | 1. MP infrastructure (P2 wrap support) | Dozer split risk. [CHI-35564](https://app.clickup.com/t/86afj74z5) status to verify. |
 | Bruno Bacelar | Eng | **6** | 1. Multiplayer Networking — front-load weeks 1-1.5 | **Out 5/6-5/15** for vacation. Loses last 4 sprint days. Networking work at risk in week 2. |
 
 ### ClickUp Ticket Summary (proposed)
 
-- **Multiplayer Foundation** (Epics, existing)
-  - Phase 2: Map Foundation - completion (Gabriel, Marcos, Randy, Garrett)
-  - Phase 3: Basic Game Logic - kickoff (proposed if P2 completes)
+- **Multiplayer Foundation — Phase 2 wrap** (AA target)
+  - P2: Tile Ownership (Loures)
+  - P2: Tile States (Loures)
+  - P2: Map Visualization (Loures)
+  - P2: Embark Flow — Dock / Hero / Troop selection (Gabriel)
+  - P2: Battle (Gabriel — stretch)
+  - P2: Multiplayer Map Instance Creation + list + join + dev UI v1 (Randy)
   - Multiplayer Networking - Sprint 28 (Bruno — front-loaded)
   - AI Prototype Playtesting - Sprint 28 (Paul)
 - **Carry-over to confirm**
-  - [CHI-36382](https://app.clickup.com/t/86agkdgp8) P2 Work Breakdown (Marcos, Gabriel — STILL TO DO at S27 start)
   - [CHI-35564](https://app.clickup.com/t/86afj74z5) MP Backend architecture (Garrett — was in progress)
 
 ### Open Questions
-- [ ] **Did P2 Work Breakdown ([CHI-36382](https://app.clickup.com/t/86agkdgp8)) finally complete in S27?** Was critical escalation.
-- [ ] **Phase 2 → Phase 3 transition timing** — does P2 Map Foundation complete in S28?
+- [ ] **Does P2 wrap fully complete in S28?** AA target depends on Loures + Gabriel + Randy landing their pieces.
 - [ ] **Tim coverage week 1** for SD producer decisions (same gap as Metagame).
 - [ ] **Bruno week-2 networking** — what's safe to defer or hand off while he's out 5/6-5/11?
 - [ ] **Switchover assessment** — is in-client version closer to playtest-viable?
+- [ ] **Gabriel's Battle stretch** — does he have time after Embark Flow, or pull forward to S29?
 - [ ] May 1 Labor Day — Gabriel, Marcos, Bruno (BR) likely off.
 
 ### Key Risks
 - **Bruno out 4 days at sprint end** — Multiplayer Networking pace will dip in week 2.
 - **Tim out 4 days at sprint start** — back-to-back producer gap with S27.
-- **Phase 2 architecture clarity** — if P2 Work Breakdown didn't close in S27, S28 inherits the same critical risk.
+- **AA-target P2 wrap** — three engineers each owning distinct pieces; if any slip, AA switchover slides.
 - Randy/Garrett Dozer split continues.
 - May 1 Labor Day reduces 3 of 5 engineers (Gabriel, Marcos, Bruno) by 1 day.
 
@@ -356,10 +360,11 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 ## Cross-Pod & Dependencies
 
 ### Key Handoffs This Sprint
-- **Tutorial Migration close → WME Eng kickoff** (Empire — internal handoff, but at risk if S27 didn't fully close)
+- **Tutorial Migration paused → trickle to other engineers** (Empire — assignment plan needed; Henrique freed for WME)
 - **Battle HUD DD finalize → Battle HUD Eng kickoff** (Battle — Lincoln to Jota)
 - **EKS deployment close → Parallel Workflows + CP2 work** (Dozer — Derek)
-- **Phase 2 Work Breakdown close → P2 Eng (or P3 transition)** (SD — escalation from S27)
+- **Building Upgrades design + UX → Tiago eng kickoff** (Metagame — Leonard / Kevin Ligon to Tiago)
+- **P2 wrap pieces → AA switchover assessment** (SD — Loures + Gabriel + Randy)
 - **Yura WME UX → handoff package before 5/11 maternity leave** (Empire — find backup UX)
 
 ### Shared Resource Conflicts
@@ -454,7 +459,7 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 
 1. **Yura Rusin maternity leave starts 5/11** — Empire UX gone for ~6 weeks of M&Ms. Only Sub-effort 1 of WME starts before she leaves. Backup UX assignment needed before sprint kickoff.
 2. **Triple eng kickoff sprint** — Battle HUD, WME, and Dozer CP2 (3 features) all begin S28. Highest transition load of M&Ms so far.
-3. **S27 carry-over uncertainty** — Tutorial Migration (Empire), Actor System Overhaul + HUD DD (Battle), EKS (Dozer), P2 Work Breakdown (SD) all need to close in S27 to enable S28 kickoffs. **S27 plan flagged at least Tutorial Migration as unlikely to fully close.**
+3. **S27 carry-over uncertainty** — Actor System Overhaul + HUD DD (Battle), EKS (Dozer) need to close in S27 to enable S28 kickoffs. Tutorial Migration is **paused** and will trickle in across other engineers — needs an assignment plan to avoid orphaned ownership.
 4. **Tim out 4 days at sprint start** — Metagame + Social Dynamics producer gap, second sprint in a row. Backup decision-maker still not identified.
 5. **Brendan out 4 days at sprint start** — Kevin Griffith solo art direction for week 1, second sprint in a row.
 6. **Bruno Bacelar out last 4 sprint days** — Multiplayer Networking dips in week 2.
@@ -467,19 +472,18 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 
 1. [ ] **Yura maternity coverage**: Who picks up Empire UX from 5/11 onward? (Critical — affects M&Ms remainder)
 2. [ ] **Tim week-1 backup**: Producer coverage for Metagame + SD (4/28-5/1)
-3. [ ] **Tutorial Node Migration close-out** in S27 — status by end of next week
+3. [ ] **Tutorial Migration trickle plan** — which engineers absorb the remaining work, at what cadence?
 4. [ ] **Battle HUD Design Doc** ([CHI-35036](https://app.clickup.com/t/869bvfcym)) finalized?
 5. [ ] **Actor System Overhaul** complete in S27?
 6. [ ] **EKS deployment** closed in S27?
-7. [ ] **P2 Work Breakdown** ([CHI-36382](https://app.clickup.com/t/86agkdgp8)) closed in S27?
-8. [ ] **WME spec readiness** — Multiple Nodes per Territory ready for Henrique?
-9. [ ] **Tiago Costa S28 priority** — Pipeline B next feature?
-10. [ ] **UI Foundation Sprint 3 sub-feature scope**
-11. [ ] **Meta Depth design readiness** — Building Upgrades, Empire Progression Tree, Combat Research Tree
-12. [ ] **Battle CP2 prioritization** — HUD vs Obstacles vs Pathfinding under 1-engineer constraint
-13. [ ] **Dozer CP2 prioritization** — Build Pipeline vs Compliance vs UI Framework V2 under 2-engineer constraint
-14. [ ] **Art priority for CP2** — Battle HUD assets vs WME assets vs UI Foundation
-15. [ ] **May 1 Workers' Day** policy — verify with Holly/HR
-16. [ ] **Chris Fidalgo carry-over** — [CHI-36250](https://app.clickup.com/t/86agcpt61) closed?
-17. [ ] **UI Foundation SHQ linkage** (carried from S26 + S27)
-18. [ ] **Phase 2 → Phase 3 transition timing** for SD
+7. [ ] **WME spec readiness** — Multiple Nodes per Territory ready for Henrique?
+8. [ ] **Building Upgrades (Meta Depth Phase 1) spec + UX readiness** — ready for Tiago's eng kickoff?
+9. [ ] **UI Foundation Sprint 3 sub-feature scope**
+10. [ ] **Battle CP2 prioritization** — HUD vs Obstacles vs Pathfinding under 1-engineer constraint
+11. [ ] **Dozer CP2 prioritization** — Build Pipeline vs Compliance vs UI Framework V2 under 2-engineer constraint
+12. [ ] **Art priority for CP2** — Battle HUD assets vs WME assets vs UI Foundation
+13. [ ] **May 1 Workers' Day** policy — verify with Holly/HR
+14. [ ] **Chris Fidalgo carry-over** — [CHI-36250](https://app.clickup.com/t/86agcpt61) closed?
+15. [ ] **UI Foundation SHQ linkage** (carried from S26 + S27)
+16. [ ] **SD P2 wrap completion** — does the AA-target switchover land in S28?
+17. [ ] **Gabriel SD Battle stretch** — fits in S28 or pulls to S29?

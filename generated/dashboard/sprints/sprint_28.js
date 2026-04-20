@@ -79,7 +79,7 @@ var SPRINT_DATA = {
       eng_summary: "Henrique De Lima (sole client eng)",
       goals: [
         { text: "WME — Multiple Nodes per Territory eng kickoff (Sub-effort 1 of 3)", shqs: ["SHQ4-3", "SHQ4-4"] },
-        { text: "Wrap any Tutorial Node Migration carry-over from S27", shqs: [] },
+        { text: "Tutorial Node Migration is PAUSED — will trickle in across other engineers as capacity allows; Henrique freed for WME", shqs: [] },
         { text: "Continue Map Content pipeline", shqs: ["SHQ3-1"] },
         { text: "Yura WME UX must reach handoff state before 5/11 maternity leave", shqs: ["SHQ4-3"] }
       ],
@@ -88,19 +88,19 @@ var SPRINT_DATA = {
         { name: "Jacob Siegel", discipline: "Design", avail: 10, total: 10, priorities: ["Map Content (T-tier work continuation)", "Any remaining ZZ Player Journey/CG follow-ups"], notes: "Carry-over watch from CHI-36411 family if not closed in S27.", flags: [] },
         { name: "Elise Cole", discipline: "Design", avail: 10, total: 10, priorities: ["Map Content / T8 Design Prep (CHI-36576)", "Figma Map agentic research (CHI-36575)", "WME design support"], notes: "Both ZZ tasks are top-level — likely carry into S28.", flags: ["carry-over"] },
         { name: "Yura Rusin", discipline: "UX", avail: 9, total: 10, priorities: ["WME UX hand-off package (must finalize before 5/11)", "Dr appts"], notes: "Maternity leave starts 5/11 — loses sprint day 10 + all of M&Ms remainder (S29-S31). Critical: ensure WME UX is in handoff-ready state. Identify backup UX.", flags: ["pto"] },
-        { name: "Henrique De Lima", discipline: "Eng", avail: 9, total: 10, priorities: ["WME — Multiple Nodes per Territory (Eng kickoff)", "Close any Tutorial Migration carry-over (CHI-36213, CHI-36212, CHI-36381 if open)"], notes: "May 1 Labor Day pending verification (assumed off as BR). Sole client engineer. Partial appts 4/29, 5/6. Capacity at risk if S27 tutorial work isn't closed.", flags: ["sole-eng", "pto"] },
-        { name: "Laura Santana", discipline: "QA", avail: 9, total: 10, priorities: ["Tutorial Migration QA (closing)", "WME smoke-test prep"], notes: "May 1 Labor Day verify.", flags: ["pto"] },
+        { name: "Henrique De Lima", discipline: "Eng", avail: 9, total: 10, priorities: ["WME — Multiple Nodes per Territory (Eng kickoff)"], notes: "May 1 Labor Day pending verification (assumed off as BR). Sole client engineer. Partial appts 4/29, 5/6. Tutorial Migration paused — Henrique focused on WME.", flags: ["sole-eng", "pto"] },
+        { name: "Laura Santana", discipline: "QA", avail: 9, total: 10, priorities: ["WME smoke-test prep", "Tutorial Migration QA (only when Tutorial work trickles in)"], notes: "May 1 Labor Day verify.", flags: ["pto"] },
         { name: "Brann Livesay", discipline: "Producer", avail: 9, total: 10, priorities: ["Empire production", "Art production"], notes: "Out 5/8. Also produces Art.", flags: ["pto", "split"] }
       ],
       carry_over: [
-        { id: "CHI-36213", name: "Tutorial Arch - Orchestration/State Tracking", assignee: "Henrique De Lima", status: "in_progress", confirmed: false },
-        { id: "CHI-36212", name: "Tutorial Arch - Triggering", assignee: "Henrique De Lima", status: "in_progress", confirmed: false },
-        { id: "CHI-36381", name: "Tutorial Node Rewrites", assignee: "Henrique De Lima", status: "in_progress", confirmed: false },
+        { id: "CHI-36213", name: "Tutorial Arch - Orchestration/State Tracking — PAUSED, trickle to other engineers", assignee: "Reassign as capacity allows", status: "paused", confirmed: false },
+        { id: "CHI-36212", name: "Tutorial Arch - Triggering — PAUSED, trickle to other engineers", assignee: "Reassign as capacity allows", status: "paused", confirmed: false },
+        { id: "CHI-36381", name: "Tutorial Node Rewrites — PAUSED, trickle to other engineers", assignee: "Reassign as capacity allows", status: "paused", confirmed: false },
         { id: "CHI-36576", name: "T8 Design Prep", assignee: "Elise Cole", status: "to_do", confirmed: false },
         { id: "CHI-36575", name: "Figma Map agentic research", assignee: "Elise Cole", status: "in_progress", confirmed: false }
       ],
       open_questions: [
-        { text: "Did Tutorial Node Migration close in S27? S27 plan flagged it would not.", resolved: false, answer: "" },
+        { text: "Tutorial Migration trickle plan — which engineers absorb the remaining Tutorial work, and at what cadence?", resolved: false, answer: "" },
         { text: "Is WME Multiple Nodes per Territory spec ready for engineering kickoff (Diana)?", resolved: false, answer: "" },
         { text: "Yura maternity coverage: who picks up Empire UX from 5/11 through ~6/20?", resolved: false, answer: "" },
         { text: "WME UX handoff package — what artifacts must Yura deliver before 5/11?", resolved: false, answer: "" },
@@ -108,7 +108,7 @@ var SPRINT_DATA = {
       ],
       risks: [
         "Yura maternity leave starts 5/11 — Empire's only UX disappears for ~6 weeks of M&Ms. WME UX must be either done or handed off cleanly. Backup UX assignment needed before sprint start.",
-        "Tutorial Migration carry-over would compress WME engineering window. Henrique cannot do both.",
+        "Tutorial Migration paused — work will trickle in across other engineers; risk of slow completion and orphaned ownership if not assigned proactively.",
         "WME spec readiness — verify Diana's spec is ready before sprint start.",
         "Henrique sole engineer + first sprint of new feature = high architecture risk if spec is loose."
       ]
@@ -124,8 +124,8 @@ var SPRINT_DATA = {
       eng_summary: "Guilherme Quizzini (Pipeline A), Tiago Costa (Pipeline B)",
       goals: [
         { text: "UI Foundation (Pipeline A, Sprint 3 of 6) — Guilherme continues", shqs: [] },
-        { text: "Pipeline B (Tiago) — next feature TBD", shqs: [] },
-        { text: "Continue Meta Depth design/UX maturation (Leonard, Kevin Ligon)", shqs: [] }
+        { text: "Building Upgrades (Meta Depth Phase 1) — Tiago kicks off as next Pipeline B feature", shqs: [] },
+        { text: "Continue Meta Depth design/UX maturation (Leonard, Kevin Ligon) — especially Building Upgrades to unblock Tiago", shqs: [] }
       ],
       people: [
         { name: "Leonard Perez", discipline: "Design", avail: 10, total: 10, priorities: ["Meta Depth design progression (Building Upgrades, Empire Progression Tree, Combat Research Tree)", "Commercial plan continuation"], notes: "Tim out week 1 — Leonard may need to drive design decisions independently.", flags: [] },
@@ -133,7 +133,7 @@ var SPRINT_DATA = {
         { name: "Kevin Ligon", discipline: "UX", avail: 10, total: 10, priorities: ["UI Foundation UX (Sprint 3 sub-features)", "Meta Depth UX (Building Upgrades, Empire Progression Tree)", "Battle HUD UX support cross-pod"], notes: "Three competing streams. Meta Depth needs UX cycles to unblock Pipeline B.", flags: [] },
         { name: "Dan Dupuis", discipline: "Eng Lead", avail: 10, total: 10, priorities: ["UI Foundation oversight", "Empire eng lead support (WME kickoff)"], notes: "Planning capacity only. Split: Metagame + Empire.", flags: ["split"] },
         { name: "Guilherme Quizzini", discipline: "Eng", avail: 9, total: 10, priorities: ["UI Foundation (Pipeline A, Sprint 3)"], notes: "May 1 Labor Day verify. Dedicated to UI Foundation for full milestone.", flags: ["pto"] },
-        { name: "Tiago Costa", discipline: "Eng", avail: 9, total: 10, priorities: ["TBD — Pipeline B next feature (Hero Gacha v1 wrap? Building Upgrades start?)"], notes: "May 1 Labor Day verify. New hire — needs clear handoff.", flags: ["new-hire", "pto"] },
+        { name: "Tiago Costa", discipline: "Eng", avail: 9, total: 10, priorities: ["Building Upgrades (Meta Depth Phase 1) — Pipeline B kickoff"], notes: "May 1 Labor Day verify. New hire — ensure spec + design handoff is clean before kickoff.", flags: ["new-hire", "pto"] },
         { name: "Miguel Duran", discipline: "UI Art", avail: 10, total: 10, priorities: ["UI Foundation UI art", "Cross-pod UI art (Battle HUD, WME)"], notes: "Shared resource. Two big eng kickoffs need art.", flags: ["shared"] },
         { name: "Hugo Hideo", discipline: "QA", avail: 9, total: 10, priorities: ["Hero Gacha v1 QA closeout (if S27 didn't finish)", "UI Foundation QA"], notes: "May 1 Labor Day verify.", flags: ["pto"] },
         { name: "Tim Williams", discipline: "Producer", avail: 6, total: 10, priorities: ["Metagame production", "Social Dynamics production"], notes: "Out 4/28-5/1 (continuation of S27 PTO). 4 days lost. Two pods.", flags: ["pto", "split"] }
@@ -142,17 +142,15 @@ var SPRINT_DATA = {
         { id: "CHI-36250", name: "Enter T5 & T6 rewards", assignee: "Christopher Fidalgo", status: "to_do", confirmed: false }
       ],
       open_questions: [
-        { text: "Tiago Costa S28 priority — Hero Gacha v1 finishing or starting next Pipeline B feature? Which?", resolved: false, answer: "" },
+        { text: "Building Upgrades spec readiness — is the Meta Depth Phase 1 design + UX ready for Tiago's eng kickoff?", resolved: false, answer: "" },
         { text: "UI Foundation Sprint 3 scope — which sub-features (Hero Info, Leveling, Gear, Badging, Tutorials/Narrative)?", resolved: false, answer: "" },
-        { text: "Are Meta Depth designs ready for engineering yet (Building Upgrades, Empire Progression Tree, Combat Research Tree)?", resolved: false, answer: "" },
         { text: "Tim coverage week 1 (4/28-5/1) — same gap as S27. Backup decision-maker for Metagame + SD?", resolved: false, answer: "" },
         { text: "Chris Fidalgo carry-over status — did CHI-36250 close in S27?", resolved: false, answer: "" },
         { text: "UI Foundation SHQ linkage (carried from S26 and S27)", resolved: false, answer: "" }
       ],
       risks: [
         "Tim out 4 days at sprint start — Metagame decisions may stall. Front-load week-1 alignment before 4/28.",
-        "Pipeline B scope ambiguity — Tiago's next feature still undefined. Risk of idle capacity for new hire.",
-        "Meta Depth design backlog — if Building Upgrades / Progression Tree aren't ready, Pipeline B's M&Ms order of operations slips further.",
+        "Building Upgrades design readiness — if Meta Depth Phase 1 isn't ready, Tiago risks idle time on his second feature.",
         "May 1 Labor Day affects Guilherme, Tiago, Hugo (Brazil)."
       ]
     },
@@ -217,36 +215,35 @@ var SPRINT_DATA = {
       producer: "Tim Williams",
       eng_summary: "Gabriel Arruda, Marcos Loures, Randy Pasion, Garrett Eidsvig, Bruno Bacelar",
       goals: [
-        { text: "Phase 2 (Map Foundation) wrapping or transitioning to Phase 3 (Basic Game Logic)", shqs: [] },
-        { text: "Resolve P2 Work Breakdown (CHI-36382) — flagged critical in S27", shqs: [] },
-        { text: "AI Prototype Playtesting + Multiplayer Networking continue", shqs: [] },
+        { text: "Phase 2 (Map Foundation) continues — wrapping initial pieces (still on P2; switchover to in-client version is the AA goal)", shqs: [] },
+        { text: "AA target: Loures on Tile Ownership + Tile States + Map Visualization; Gabriel on Embark Flow (Dock/Hero/Troop selection) then Battle if time; Randy on Multiplayer Map Instance Creation, list, join, dev UI v1", shqs: [] },
+        { text: "AI Prototype Playtesting + Multiplayer Networking continue (Paul, Bruno)", shqs: [] },
         { text: "Assess switchover readiness to in-client version", shqs: [] }
       ],
       people: [
-        { name: "Paul Flores", discipline: "Design", avail: 10, total: 10, priorities: ["AI Prototype Playtesting", "P3 design direction (if P2 completing)"], notes: "", flags: [] },
-        { name: "Gabriel Arruda", discipline: "Eng", avail: 9, total: 10, priorities: ["P2 Map Foundation OR P3 Basic Game Logic kickoff", "P2 Work Breakdown closure"], notes: "May 1 Labor Day verify.", flags: ["pto"] },
-        { name: "Marcos Loures", discipline: "Eng", avail: 9, total: 10, priorities: ["P2 Map Foundation / P3 transition", "P2 Work Breakdown"], notes: "May 1 Labor Day verify.", flags: ["pto"] },
-        { name: "Randy Pasion", discipline: "Eng", avail: 10, total: 10, priorities: ["P2/P3 work"], notes: "Dozer split risk.", flags: ["split"] },
-        { name: "Garrett Eidsvig", discipline: "Eng", avail: 10, total: 10, priorities: ["MP infrastructure (P2/P3)"], notes: "Dozer split risk. CHI-35564 status to verify.", flags: ["split"] },
+        { name: "Paul Flores", discipline: "Design", avail: 10, total: 10, priorities: ["AI Prototype Playtesting", "P2 wrap design support"], notes: "", flags: [] },
+        { name: "Marcos Loures", discipline: "Eng", avail: 9, total: 10, priorities: ["Tile Ownership", "Tile States", "Map Visualization"], notes: "May 1 Labor Day verify. AA-target P2 wrap-up.", flags: ["pto"] },
+        { name: "Gabriel Arruda", discipline: "Eng", avail: 9, total: 10, priorities: ["Embark Flow (Dock / Hero / Troop selection)", "Battle (stretch if time)"], notes: "May 1 Labor Day verify.", flags: ["pto"] },
+        { name: "Randy Pasion", discipline: "Eng", avail: 10, total: 10, priorities: ["Multiplayer Map Instance Creation, list, join, dev UI v1"], notes: "Dozer split risk.", flags: ["split"] },
+        { name: "Garrett Eidsvig", discipline: "Eng", avail: 10, total: 10, priorities: ["MP infrastructure (P2 wrap support)"], notes: "Dozer split risk. CHI-35564 status to verify.", flags: ["split"] },
         { name: "Bruno Bacelar", discipline: "Eng", avail: 6, total: 10, priorities: ["Multiplayer Networking — front-load weeks 1-1.5"], notes: "Out 5/6-5/15 for vacation. Loses last 4 sprint days. Networking work at risk in week 2.", flags: ["pto"] },
         { name: "Tim Williams", discipline: "Producer", avail: 6, total: 10, priorities: ["Social Dynamics production", "Metagame production"], notes: "Out 4/28-5/1 (continuation of S27 PTO). 4 days lost. Two pods.", flags: ["pto", "split"] }
       ],
       carry_over: [
-        { id: "CHI-36382", name: "P2 Work Breakdown", assignee: "Marcos Loures / Gabriel Arruda", status: "to_do", confirmed: false },
         { id: "CHI-35564", name: "MP Backend architecture", assignee: "Garrett Eidsvig", status: "in_progress", confirmed: false }
       ],
       open_questions: [
-        { text: "Did P2 Work Breakdown (CHI-36382) finally complete in S27? Was critical escalation.", resolved: false, answer: "" },
-        { text: "Phase 2 → Phase 3 transition timing — does P2 Map Foundation complete in S28?", resolved: false, answer: "" },
+        { text: "Does P2 wrap fully complete in S28? AA target depends on Loures + Gabriel + Randy landing their pieces.", resolved: false, answer: "" },
         { text: "Tim coverage week 1 for SD producer decisions (same gap as Metagame).", resolved: false, answer: "" },
         { text: "Bruno week-2 networking — what's safe to defer or hand off while he's out 5/6-5/11?", resolved: false, answer: "" },
         { text: "Switchover assessment — is in-client version closer to playtest-viable?", resolved: false, answer: "" },
+        { text: "Gabriel's Battle stretch — does he have time after Embark Flow, or pull forward to S29?", resolved: false, answer: "" },
         { text: "May 1 Labor Day — Gabriel, Marcos, Bruno (BR) likely off.", resolved: false, answer: "" }
       ],
       risks: [
         "Bruno out 4 days at sprint end — Multiplayer Networking pace will dip in week 2.",
         "Tim out 4 days at sprint start — back-to-back producer gap with S27.",
-        "Phase 2 architecture clarity — if P2 Work Breakdown didn't close in S27, S28 inherits the same critical risk.",
+        "AA-target P2 wrap — three engineers each owning distinct pieces; if any slip, AA switchover slides.",
         "Randy/Garrett Dozer split continues.",
         "May 1 Labor Day reduces 3 of 5 engineers (Gabriel, Marcos, Bruno) by 1 day."
       ]
@@ -328,10 +325,11 @@ var SPRINT_DATA = {
 
   cross_pod: {
     handoffs: [
-      "Tutorial Migration close → WME Eng kickoff (Empire — internal handoff, but at risk if S27 didn't fully close)",
+      "Tutorial Migration paused → trickle to other engineers (Empire — assignment plan needed; Henrique freed for WME)",
       "Battle HUD DD finalize → Battle HUD Eng kickoff (Battle — Lincoln to Jota)",
       "EKS deployment close → Parallel Workflows + CP2 work (Dozer — Derek)",
-      "Phase 2 Work Breakdown close → P2 Eng (or P3 transition) (SD — escalation from S27)",
+      "Building Upgrades design + UX → Tiago eng kickoff (Metagame — Leonard / Kevin Ligon to Tiago)",
+      "P2 wrap pieces → AA switchover assessment (SD — Loures + Gabriel + Randy)",
       "Yura WME UX → handoff package before 5/11 maternity leave (Empire — find backup UX)"
     ],
     shared_resources: [
@@ -356,7 +354,7 @@ var SPRINT_DATA = {
     top_risks: [
       "Yura Rusin maternity leave starts 5/11 — Empire UX gone for ~6 weeks of M&Ms. Only Sub-effort 1 of WME starts before she leaves.",
       "Triple eng kickoff sprint — Battle HUD, WME, and Dozer CP2 (3 features) all begin S28.",
-      "S27 carry-over uncertainty — Tutorial Migration, Actor System Overhaul + HUD DD, EKS, P2 Work Breakdown all need to close in S27 to enable S28 kickoffs.",
+      "S27 carry-over uncertainty — Actor System Overhaul + HUD DD (Battle), EKS (Dozer) need to close in S27 to enable S28 kickoffs. Tutorial Migration is paused and will trickle to other engineers — needs an assignment plan.",
       "Tim out 4 days at sprint start — Metagame + Social Dynamics producer gap, second sprint in a row.",
       "Brendan out 4 days at sprint start — Kevin Griffith solo art direction for week 1, second sprint in a row.",
       "Bruno Bacelar out last 4 sprint days — Multiplayer Networking dips in week 2.",
@@ -368,22 +366,21 @@ var SPRINT_DATA = {
     open_questions: [
       { text: "Yura maternity coverage: Who picks up Empire UX from 5/11 onward? (Critical — affects M&Ms remainder)", resolved: false },
       { text: "Tim week-1 backup: Producer coverage for Metagame + SD (4/28-5/1)", resolved: false },
-      { text: "Tutorial Node Migration close-out in S27 — status by end of next week", resolved: false },
+      { text: "Tutorial Migration trickle plan — which engineers absorb the remaining work, at what cadence?", resolved: false },
       { text: "Battle HUD Design Doc (CHI-35036) finalized?", resolved: false },
       { text: "Actor System Overhaul complete in S27?", resolved: false },
       { text: "EKS deployment closed in S27?", resolved: false },
-      { text: "P2 Work Breakdown (CHI-36382) closed in S27?", resolved: false },
       { text: "WME spec readiness — Multiple Nodes per Territory ready for Henrique?", resolved: false },
-      { text: "Tiago Costa S28 priority — Pipeline B next feature?", resolved: false },
+      { text: "Building Upgrades (Meta Depth Phase 1) spec + UX readiness — ready for Tiago's eng kickoff?", resolved: false },
       { text: "UI Foundation Sprint 3 sub-feature scope", resolved: false },
-      { text: "Meta Depth design readiness — Building Upgrades, Empire Progression Tree, Combat Research Tree", resolved: false },
       { text: "Battle CP2 prioritization — HUD vs Obstacles vs Pathfinding under 1-engineer constraint", resolved: false },
       { text: "Dozer CP2 prioritization — Build Pipeline vs Compliance vs UI Framework V2 under 2-engineer constraint", resolved: false },
       { text: "Art priority for CP2 — Battle HUD assets vs WME assets vs UI Foundation", resolved: false },
       { text: "May 1 Workers' Day policy — verify with Holly/HR", resolved: false },
       { text: "Chris Fidalgo carry-over — CHI-36250 closed?", resolved: false },
       { text: "UI Foundation SHQ linkage (carried from S26 + S27)", resolved: false },
-      { text: "Phase 2 → Phase 3 transition timing for SD", resolved: false }
+      { text: "SD P2 wrap completion — does the AA-target switchover land in S28?", resolved: false },
+      { text: "Gabriel SD Battle stretch — fits in S28 or pulls to S29?", resolved: false }
     ]
   }
 };
