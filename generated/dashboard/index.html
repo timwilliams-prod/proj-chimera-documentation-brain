@@ -706,12 +706,18 @@
         `;
       }).join('');
 
+      const endShort = (() => {
+        const d = new Date(s.end_date + 'T00:00:00');
+        return `${d.getMonth() + 1}/${d.getDate()}`;
+      })();
+
       return `
         <div class="panel">
-          <div class="panel-title">Sprint Progress — ${s.name}
+          <div class="panel-title" style="margin-bottom: 4px;">Sprint Progress — ${s.name}
             <span class="badge pill-blue">${daysLeft > 0 ? daysLeft + 'd left' : 'Ended'}</span>
             <span class="badge pill-green">${pct}% done</span>
           </div>
+          <div style="font-size: 13px; color: var(--text-dim); margin-bottom: 16px;">Ends: ${endShort}</div>
           <div class="stat-cards">${cards}</div>
           ${podBars ? '<div style="margin-top: 8px;">' + podBars + '</div>' : ''}
         </div>

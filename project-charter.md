@@ -39,7 +39,8 @@ Game Documentation DB    -sync->  planning/ files        -inform-> Sprint-level 
 | Battle | Battles & Units | Lincoln Li | Thorben Novais | Jota Oliveira |
 | Social Dynamics | Multiplayer & Social features | Paul Flores | Tim Williams | Derek Gallant |
 | Dozer | Technical Efforts & Infrastructure | - | - | Derek Gallant |
-| Art | Cross-pod visual production | Kevin Griffith (Art Director) | Brann Livesay | - |
+
+> **Art Pod closed 2026-04-13.** Artists distributed across the five remaining pods. Cross-pod art direction continues under Kevin Griffith (Art Director) and Brendan Cheatham (Assoc. Art Director). See `planning/capacity.md` for current artist assignments and `planning/pods/art/milestone_mms.md` for the closure marker.
 
 ### Milestones
 
@@ -480,3 +481,4 @@ When operating in this brain:
 |------|--------|--------|
 | 2026-03-24 | Initial Lotus project charter created from brain-template | Tim / Claude |
 | 2026-03-25 | Added Sprint Plans section to pod plans; documented in charter | Tim / Claude |
+| 2026-04-20 | Art Pod closed (effective 2026-04-13); artists distributed to other pods. Updated must-have feature pod assignments in product_targets.md (6 Starter Heroes → Battle; Art Outsourcing Pipelines → Cross-pod; Tone/Emotion → Empire) | Tim / Claude |

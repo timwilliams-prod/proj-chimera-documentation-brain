@@ -1,62 +1,14 @@
 # Art — M&Ms Milestone Plan
 
-Last Updated: 2026-04-08
-Doc Status: DRAFT
+Last Updated: 2026-04-20
+Doc Status: APPROVED
 
-Ends: Jun 23, 2026 | Sprints: ~7
+## Status: Art Pod Closed (effective 2026-04-13)
 
-## Art Production Tracks
+The Art Pod was dissolved on **2026-04-13**. Artists have been distributed to the other pods (Empire, Metagame, Battle, Social Dynamics, Dozer).
 
-```
-Character Assets:    Hero models, unit variations, character portraits
-Environment Art:     Map tiles, buildings, terrain features, world map assets
-UI/UX Assets:        Interface elements, icons, buttons, menus
-VFX & Animation:     Combat effects, skill animations, transition effects
-```
+- **Artist assignments**: see `planning/capacity.md`
+- **Art direction**: Kevin Griffith (Art Director) and Brendan Cheatham (Assoc. Art Director) continue cross-pod oversight; their assignments are reflected in `planning/capacity.md`
+- **Art deliverables**: now tracked inside the receiving pod's milestone plan (e.g., Battle HUD assets in `pods/battle/milestone_mms.md`, Map Content art in `pods/empire/milestone_mms.md`)
 
-All tracks run in parallel throughout the milestone. Art assets support all pod features.
-
-## Checkpoint Goals
-
-**M&M Checkpoint 1 (ends 4/27)**
-- Map Content territory variety expanding (Empire WME prep)
-- Battle HUD asset direction locked, key art produced for design review
-- UI Foundation visual style guide aligned with Metagame Pipeline A
-
-**M&M Checkpoint 2 (4/28 - 5/25)**
-- WME assets delivered to support Empire engineering kickoff
-- Battle HUD assets in active integration alongside Jota's eng work
-- Unit content cadence steady — no Battle pod blockers from art
-
-**M&M Checkpoint 3 (5/26 - 6/22)**
-- All beta-required art delivered for Empire / Battle / Metagame milestone scopes
-- VFX & Animation track staffed and producing
-- Pipeline efficiency assessed; learnings captured for M&C scale-up
-
-## Cross-Pod Asset Delivery
-
-Art resources serve multiple pods simultaneously:
-- **Empire**: Map Content (territories, buildings, terrain)
-- **Battle**: Battle HUD assets, unit art, VFX
-- **Metagame**: UI Foundation assets, hero info screens
-
-## Capacity & Constraints
-
-- **Kevin Griffith** — Art Director, cross-pod direction + pipeline oversight
-- **Brendan Cheatham** — Assoc. Art Director, cross-pod direction
-- Pedro Sarraf out 4/3-4/21 — reduced capacity across S26-S27
-- Art priority conflicts: multiple pods competing for art resources
-- VFX & Animation track assignee TBD
-- See `planning/capacity.md` for full staffing
-
-## Critical Path Risk
-
-Art dependencies block feature completion across all pods. Early asset delivery critical for iterative testing.
-
-## Beta Launch Prep (ends Jul 21, 2026 — 2 sprints)
-
-Art team focuses on polish, visual consistency, and beta feedback. Final quality pass (#5).
-
-## M&C Preview (ends Oct 13, 2026 — 6 sprints)
-
-Hero Assets Expansion (#6), Monetization Art Assets (#7), Content Pipeline Scaling (#8). Pipeline efficiency gains critical for M&C velocity.
+This file is retained as a status marker so LLMs and humans see the closure. No further planning content lives here.

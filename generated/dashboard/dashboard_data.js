@@ -21,10 +21,10 @@ const DASHBOARD_DATA = {
       { feature: "Narrative and Tutorial Tooling", pod: "Empire", status: "in_progress" },
       { feature: "Audio Tooling Foundation", pod: "Dozer", status: "not_started" },
       { feature: "UI Foundation", pod: "Metagame", status: "in_progress" },
-      { feature: "6 Starter Heroes — Designed and Arted", pod: "Battle / Art", status: "in_progress" },
-      { feature: "Art Outsourcing Pipelines Established", pod: "Art", status: "not_started" },
+      { feature: "6 Starter Heroes — Designed and Arted", pod: "Battle", status: "in_progress" },
+      { feature: "Art Outsourcing Pipelines Established", pod: "Cross-pod", status: "not_started" },
       { feature: "Reduction of FTUE Friction", pod: "Cross-pod", status: "not_started" },
-      { feature: "Overarching Tone/Emotion of Game", pod: "Art / Empire", status: "in_progress" },
+      { feature: "Overarching Tone/Emotion of Game", pod: "Empire", status: "in_progress" },
       { feature: "Multiplayer Foundation Complete", pod: "Social Dynamics", status: "in_progress" }
     ],
     success_criteria: [

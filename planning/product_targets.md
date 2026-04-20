@@ -39,10 +39,10 @@ Doc Status: DRAFT
 | Narrative and Tutorial Tooling | Empire | Designers need functional tooling to build tutorial and narrative content at scale                        |
 | Audio Tooling Foundation               | Dozer      | Audio pipeline must be established for content production                                                       |
 | UI Foundation                          | Metagame | Core UI systems and patterns needed for all feature UIs                                                         |
-| 6 Starter Heroes — Designed and Arted  | Battle / Art | Verify art direction with final hero assets; hero roster needed for all playtests                          |
-| Art Outsourcing Pipelines Established  | Art      | External art production must be validated for scale                                                              |
+| 6 Starter Heroes — Designed and Arted  | Battle   | Verify art direction with final hero assets; hero roster needed for all playtests                                |
+| Art Outsourcing Pipelines Established  | Cross-pod | External art production must be validated for scale                                                             |
 | Reduction of FTUE Friction             | Cross-pod | First-time user experience must be smooth enough for external playtests                                        |
-| Overarching Tone/Emotion of Game       | Art / Empire | Narrative and art direction must come together to establish cohesive game identity                          |
+| Overarching Tone/Emotion of Game       | Empire   | Narrative and art direction must come together to establish cohesive game identity                              |
 | Multiplayer Foundation Complete | Social Dynamics    | Multiplayer foundation must be at a point where we can internally playtest the mode by the end of the Milestone                    |
 
 ### Success Criteria
