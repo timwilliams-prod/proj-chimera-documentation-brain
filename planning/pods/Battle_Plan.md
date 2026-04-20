@@ -29,9 +29,9 @@ gantt
     section M&Ms (ends Jun 23)
     Actor System Overhaul (M&M 1)     :active,  bat1, 2026-03-31, 28d
     Battle HUD Design/UX Review (M&M 1)  :active,  bat2, 2026-03-31, 28d
-    Battle HUD Implementation (M&M 2)  :active,  bat3, 2026-04-28, 42d
-    Obstacles (M&M 2)                 :active,  bat4, 2026-04-28, 14d
-    Pathfinding & AI (M&M 2)          :active,  bat5, 2026-04-28, 28d
+    Battle HUD Implementation (M&M 2)  :active,  bat3, 2026-04-28, 28d
+    Pathfinding & AI (M&M 2 - ongoing)  :active,  bat5, 2026-04-28, 56d
+    Obstacles Exploration (M&M 2)     :active,  bat4, 2026-04-28, 14d
 
     section Beta Prep (ends Jul 21)
     Pool Management           :         bat_bp, after bat4, 14d
@@ -72,9 +72,9 @@ All Battle features across milestones, ordered by priority within each milestone
 | --- | ------------------------------- | --------- | ---------- | --------- | ----------- | ------------ | ------------------------------------------------ |
 | 1   | Actor System Overhaul           | M&Ms      | M&M 1 (ends 4/27) | 2 sprints | IN PROGRESS | [TBD]        | Performance and maintainability for scale        |
 | 2   | Battle HUD Beta Overhaul - Design/UX Review | M&Ms | M&M 1 (ends 4/27) | Design phase | DESIGN PHASE | SHQ4-1 | Combat interface design validated |
-| 3   | Battle HUD Beta Overhaul - Implementation | M&Ms | M&M 2 (4/28-5/25) | 4 sprints | NOT STARTED | SHQ4-1 | Combat interface meets beta quality bar |
-| 4   | Obstacles                       | M&Ms      | M&M 2 (4/28-5/25) | 1 sprint  | DESIGN VALIDATION | [TBD]        | Environmental tactics add depth                  |
-| 5   | Pathfinding & AI Improvements   | M&Ms      | M&M 2 (4/28-5/25) | 2 sprints | NOT STARTED | [TBD]        | AI behavior feels intelligent and responsive     |
+| 3   | Battle HUD Beta Overhaul - Implementation | M&Ms | M&M 2 (4/28-5/25) | 2 sprints | NOT STARTED | SHQ-01, SHQ-02 | Combat interface meets beta quality bar |
+| 4   | Obstacles                       | M&Ms      | M&M 2 (4/28-5/25) | Exploration | EXPLORATION | [TBD]        | Environmental tactics add depth                  |
+| 5   | Pathfinding & AI Improvements   | M&Ms      | M&M 2 (4/28-5/25) | Ongoing (as needed) | IN PROGRESS | [TBD]        | AI behavior feels intelligent and responsive     |
 | 5   | Battle Server Validation Client | M&C            | 2 sprints | NOT STARTED | [TBD]        | Server-authoritative combat foundation           |
 | 6   | Pool Management                 | Beta Prep      | 1 sprint  | NOT STARTED | [TBD]        | Memory optimization for long sessions            |
 | 7   | Battle Content                  | Ongoing   | Ongoing   | IN PROGRESS | [TBD]        | Content pipeline validates production capacity   |
@@ -147,28 +147,29 @@ All Battle features across milestones, ordered by priority within each milestone
 
 **Risks & Awareness**:
 - **Actor System focus**: Jota prioritizing Actor System Overhaul implementation this sprint
-- **Battle HUD design phase**: Lincoln/Kevin doing design/UX work; engineering deferred to later sprint
+- **Battle HUD design phase**: Lincoln/Kevin doing design/UX work; engineering deferred to S28-S29 (2 sprints)
 - Still solo engineer (Jota) — no capacity flexibility
-- 4 features totaling ~9 eng-sprints now compressed into 6 remaining sprints
-- If Actor System or later Battle HUD eng runs long, downstream features (Obstacles, Pathfinding) at risk
+- S28 will have Battle HUD (primary), Pathfinding turn-on (eng as needed), and Obstacles exploration (Dylan)
+- If Actor System runs long in S27, S28 Battle HUD start is at risk
 
 ### Sprint 28: Abra (4/28 - 5/12) — PLANNED
 
 **Goals**:
-- **Battle HUD Beta Overhaul** implementation starts (Jota) — Sprint 1 of ~4, engineering begins
-- **Obstacles** design validation (Dylan) — continued design prep
-- **Pathfinding & AI** design prep — preparing for S29 engineering start
+- **Battle HUD Beta Overhaul** implementation starts (Jota) — Sprint 1 of 2, engineering begins
+- **Pathfinding & AI** turned on (Jota) — enable feature, engineering adjustments as needed
+- **Obstacles** exploration (Dylan) — exploration and prototyping
+- **Prepare Design Kits for 2D Concept Kick-Off** (Vish, Nathan, Lincoln) — support hero concept work
 - Continue content pipelines
 
 **Key Assignments**:
 
 | Person | Focus | Notes |
 |--------|-------|-------|
-| Jota Oliveira | Battle HUD Implementation (Sprint 1 of ~4) | Solo client engineer. Critical path. Engineering phase begins. |
-| Dylan Jeffery | Obstacles design validation, Battle Content pipeline | Continued design validation |
-| Lincoln Li | Battle HUD support as needed | Design/UX completed in S27 |
-| Nathan Hajek | Unit Design & Prototype (M&M) | |
-| Vishaal Gupta | Battle Content + unit balance | |
+| Jota Oliveira | Battle HUD Implementation (Sprint 1 of 2), Pathfinding & AI turn-on + adjustments as needed | Solo client engineer. Critical path. Pathfinding enabled this sprint with eng support as needed. |
+| Dylan Jeffery | Obstacles exploration, Battle Content pipeline | Exploration and prototyping phase |
+| Lincoln Li | Battle HUD support as needed, Prepare Design Kits for 2D Concept Kick-Off | Design/UX completed in S27 |
+| Nathan Hajek | Unit Design & Prototype (M&M), Prepare Design Kits for 2D Concept Kick-Off | |
+| Vishaal Gupta | Battle Content + unit balance, Prepare Design Kits for 2D Concept Kick-Off | |
 | Alessandro Oliveira, Danny Oliveira | VFXs | |
 | Julio Scarabelli | QA support | |
 | **Hero Concept Art**: | | |
@@ -180,10 +181,11 @@ All Battle features across milestones, ordered by priority within each milestone
 | Tony Bonilla | Finish Trench Knight animations, Start Merrin Animations | Priority: Trench Knight completion |
 
 **Risks & Awareness**:
-- Battle HUD implementation starts — estimated 3-4 sprints total to complete
+- Battle HUD implementation starts — estimated 2 sprints total to complete (S28-S29)
+- Pathfinding turned on in S28 — engineering adjustments as needed alongside Battle HUD work
+- Obstacles exploration in S28 — will determine if engineering work needed in S30+
 - Solo engineer (Jota) continues as bottleneck
-- 4 features totaling ~9 eng-sprints compressed into 5 remaining sprints (S28-S32)
-- Any delay in Battle HUD cascades to Obstacles and Pathfinding features
+- Jota splitting time between Battle HUD (primary) and Pathfinding adjustments (as needed)
 
 ---
 
@@ -198,7 +200,7 @@ All Battle features across milestones, ordered by priority within each milestone
 - Checkpoint 2 (M&M 2): 4/28 - 5/25
 - Checkpoint 3 (M&M 3): 5/26 - 6/22
 
-**CAPACITY NOTE**: 4 features totaling ~9 eng-sprints scheduled for 7-sprint milestone. Tight execution required.
+**CAPACITY NOTE**: Battle HUD (2 sprints) is primary focus S28-S29. Pathfinding turned on S28 with ongoing eng adjustments as needed. Obstacles exploration in S28 informs future eng work.
 
 ```
 M&M Checkpoint 1 (ends 4/27):
@@ -207,13 +209,16 @@ M&M Checkpoint 1 (ends 4/27):
                    Battle HUD Design/UX Review (Lincoln, Kevin) — DESIGN PHASE
 
 M&M Checkpoint 2 (4/28 - 5/25):
-  Sprint 3 (S28):  Battle HUD Implementation starts (Jota), Obstacles design validation
-  Sprint 4 (S29):  Battle HUD Implementation continues, Pathfinding & AI starts
+  Sprint 3 (S28):  Battle HUD Implementation (Sprint 1 of 2)
+                   Pathfinding & AI turned on (eng adjustments as needed)
+                   Obstacles exploration (Dylan)
+  Sprint 4 (S29):  Battle HUD Implementation (Sprint 2 of 2)
+                   Pathfinding & AI adjustments continue as needed
 
 M&M Checkpoint 3 (5/26 - 6/22):
-  Sprint 5 (S30):  Battle HUD Implementation continues, Pathfinding & AI continues
-  Sprint 6 (S31):  Battle HUD completes, Pathfinding & AI continues
-  Sprint 7 (S32):  Pathfinding & AI completes / Buffer
+  Sprint 5 (S30):  Obstacles eng (if needed based on S28 exploration)
+  Sprint 6 (S31):  TBD - additional features or polish
+  Sprint 7 (S32):  Buffer / Polish
 ```
 
 Battle Content and Unit Content run in parallel on design/art track (see `planning/capacity.md`).
