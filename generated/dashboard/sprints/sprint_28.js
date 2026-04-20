@@ -364,12 +364,24 @@ var SPRINT_DATA = {
     checkpoint: {
       name: "M&M Checkpoint 2 (4/28 – 5/25) — Battle & Dozer enter CP2",
       goals: [
-        "Battle: Battle HUD Implementation begins (4-sprint span CP2 → CP3)",
-        "Battle: Obstacles design validation + early eng",
-        "Battle: Pathfinding & AI Improvements prep",
-        "Dozer: Build Pipeline Review kickoff",
-        "Dozer: Compliance (OneTrust, Age Gate) kickoff",
-        "Dozer: UI Framework V2 (Full) kickoff"
+        "Empire: World Map Experience eng implementation kicked off (Henrique on Multiple Nodes per Territory)",
+        "Empire: Territory Map performance/visual targets validated through WME work (SHQ3-1 evidence accumulating)",
+        "Empire: Map Content variety expanded to support WME testing",
+        "Metagame: Pipeline A — UI Foundation supports 2+ pod screens in active use; cross-pod adoption pattern proven",
+        "Metagame: Pipeline B — Building Upgrades shipped; Empire Progression Tree underway",
+        "Metagame: FTUE Friction reduction design implementation has visible in-game changes",
+        "Battle: Battle HUD Implementation in active engineering (Jota) — at least 50% through impl scope",
+        "Battle: Obstacles eng integration started; design proven viable for ship",
+        "Battle: Pathfinding & AI Improvements eng kicked off",
+        "Social Dynamics: Phase 2 wrap — Tile Ownership + Tile States + Map Visualization (Loures), Embark Flow (Gabriel), Multiplayer Map Instance Creation/list/join + dev UI v1 (Randy)",
+        "Social Dynamics: Phase 3 (Basic Game Logic) kicked off",
+        "Social Dynamics: In-client multiplayer demonstrably playable in dev UI",
+        "Dozer: Build Pipeline Review kicked off — improvements scoped and starting to land",
+        "Dozer: Compliance (OneTrust, Age Gate) implementation underway",
+        "Dozer: UI Framework V2 (Full) feature-complete enough for cross-pod adoption",
+        "Art: WME assets delivered to support Empire engineering kickoff",
+        "Art: Battle HUD assets in active integration alongside Jota's eng work",
+        "Art: Unit content cadence steady — no Battle pod blockers from art"
       ]
     },
     active_focus: [
@@ -390,7 +402,29 @@ var SPRINT_DATA = {
       { id: "SHQ4-3", label: "World Map Experience — territory readability", pods: ["Empire"] },
       { id: "SHQ4-4", label: "World Map Experience — multiple nodes per territory", pods: ["Empire"] }
     ],
+    checkpoint_coverage: [
+      { pod: "Empire", checkpoint_goal: "WME eng implementation kicked off (Multiple Nodes per Territory)", sprint_work: "WME Sub-effort 1 eng kickoff — Henrique", status: "on_track" },
+      { pod: "Empire", checkpoint_goal: "Territory Map perf/visual targets validated through WME", sprint_work: "Indirect — via WME work; Marcos Teles AA + flicker fix", status: "light" },
+      { pod: "Empire", checkpoint_goal: "Map Content variety expanded for WME testing", sprint_work: "Jacob + Elise on Map Content / T8 prep", status: "on_track" },
+      { pod: "Metagame", checkpoint_goal: "UI Foundation supports 2+ pod screens", sprint_work: "Sprint 3 of 6 in flight (still building toward consumability)", status: "light" },
+      { pod: "Metagame", checkpoint_goal: "Building Upgrades shipped; EPT underway", sprint_work: "Building Upgrades eng kickoff — Tiago", status: "on_track" },
+      { pod: "Metagame", checkpoint_goal: "FTUE Friction reduction visible in-game", sprint_work: "Chris on Narrative/Tutorial design (no eng implementation yet)", status: "light" },
+      { pod: "Battle", checkpoint_goal: "Battle HUD Implementation 50%+ through impl scope", sprint_work: "Sprint 1 of 4 begins — Jota", status: "on_track" },
+      { pod: "Battle", checkpoint_goal: "Obstacles eng integration started; design viable", sprint_work: "Design validation only this sprint; eng deferred", status: "light" },
+      { pod: "Battle", checkpoint_goal: "Pathfinding & AI eng kicked off", sprint_work: "Lincoln design prep only — no eng start", status: "none" },
+      { pod: "Social Dynamics", checkpoint_goal: "Phase 2 wrap (Tile Ownership/States/Map Viz, Embark, MP Instances)", sprint_work: "Loures + Gabriel + Randy AA-target sprint goals", status: "on_track" },
+      { pod: "Social Dynamics", checkpoint_goal: "Phase 3 (Basic Game Logic) kicked off", sprint_work: "Not started — pod still wrapping P2", status: "none" },
+      { pod: "Social Dynamics", checkpoint_goal: "In-client multiplayer playable in dev UI", sprint_work: "Randy MP Map Instance + dev UI v1", status: "on_track" },
+      { pod: "Dozer", checkpoint_goal: "Build Pipeline Review kicked off", sprint_work: "Bruno F + Thorben — Audit & Plan", status: "on_track" },
+      { pod: "Dozer", checkpoint_goal: "Compliance (OneTrust, Age Gate) underway", sprint_work: "Derek — kickoff (capacity-constrained)", status: "light" },
+      { pod: "Dozer", checkpoint_goal: "UI Framework V2 (Full) cross-pod ready", sprint_work: "Migration kickoff only — feature-complete is CP2 close", status: "light" },
+      { pod: "Art", checkpoint_goal: "WME assets delivered for Empire eng kickoff", sprint_work: "Guilherme L + Thiago S environment/blockouts", status: "on_track" },
+      { pod: "Art", checkpoint_goal: "Battle HUD assets in active integration", sprint_work: "Miguel Duran cross-pod UI art", status: "on_track" },
+      { pod: "Art", checkpoint_goal: "Unit content cadence steady — no Battle blockers", sprint_work: "Ben/Felipe/Tony/Vini active", status: "on_track" }
+    ],
     top_risks: [
+      "CP2 GOAL UNCOVERED — Battle: Pathfinding & AI eng kickoff has no S28 work; Jota fully consumed by HUD. Decision needed before S29: cut, defer to CP3, or bring in support.",
+      "CP2 GOAL UNCOVERED — SD: Phase 3 (Basic Game Logic) kickoff has no S28 work; pod still wrapping P2. Likely slips to CP3 unless P2 closes cleanly.",
       "Yura Rusin maternity leave starts 5/11 — Empire UX gone for ~6 weeks of M&Ms. Only Sub-effort 1 of WME starts before she leaves.",
       "Triple eng kickoff sprint — Battle HUD, WME, and Dozer CP2 (3 features) all begin S28.",
       "S27 carry-over uncertainty — Actor System Overhaul + HUD DD (Battle), EKS (Dozer) need to close in S27 to enable S28 kickoffs. Tutorial Migration is paused and will trickle to other engineers — needs an assignment plan.",

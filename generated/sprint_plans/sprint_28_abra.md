@@ -31,23 +31,39 @@ Generated: 2026-04-20
 - 6 Starter Heroes — designed and arted
 - Narrative and Tutorial tooling functional for designers
 
-### M&M Checkpoint 2 Goals (4/28 – 5/25) — Battle & Dozer enter CP2
-- **Battle**: Battle HUD Implementation begins (4-sprint span CP2 → CP3)
-- **Battle**: Obstacles design validation + early eng
-- **Battle**: Pathfinding & AI Improvements prep
-- **Dozer**: Build Pipeline Review kickoff
-- **Dozer**: Compliance (OneTrust, Age Gate) kickoff
-- **Dozer**: UI Framework V2 (Full) kickoff
+### M&M Checkpoint 2 Goals (4/28 – 5/25)
+
+Sourced from each pod's `planning/pods/{pod}/milestone_mms.md` Checkpoint Goals section. CP2 spans S28 + S29 (S30 starts inside CP3) — these are what each pod has committed to landing by **5/25**.
+
+- **Empire**: World Map Experience eng implementation kicked off (Henrique on Multiple Nodes per Territory)
+- **Empire**: Territory Map performance/visual targets validated through WME work (SHQ3-1 evidence accumulating)
+- **Empire**: Map Content variety expanded to support WME testing
+- **Metagame**: Pipeline A — UI Foundation supports 2+ pod screens in active use; cross-pod adoption pattern proven
+- **Metagame**: Pipeline B — Building Upgrades shipped; Empire Progression Tree underway
+- **Metagame**: FTUE Friction reduction design implementation has visible in-game changes
+- **Battle**: Battle HUD Implementation in active engineering (Jota) — at least 50% through impl scope
+- **Battle**: Obstacles eng integration started; design proven viable for ship
+- **Battle**: Pathfinding & AI Improvements eng kicked off
+- **Social Dynamics**: Phase 2 wrap — Tile Ownership + Tile States + Map Visualization (Loures), Embark Flow (Gabriel), Multiplayer Map Instance Creation/list/join + dev UI v1 (Randy)
+- **Social Dynamics**: Phase 3 (Basic Game Logic) kicked off
+- **Social Dynamics**: In-client multiplayer demonstrably playable in dev UI
+- **Dozer**: Build Pipeline Review kicked off — improvements scoped and starting to land
+- **Dozer**: Compliance (OneTrust, Age Gate) implementation underway
+- **Dozer**: UI Framework V2 (Full) feature-complete enough for cross-pod adoption
+- **Art**: WME assets delivered to support Empire engineering kickoff
+- **Art**: Battle HUD assets in active integration alongside Jota's eng work
+- **Art**: Unit content cadence steady — no Battle pod blockers from art
 
 ### Active Focus This Sprint
-- **WME — Multiple Nodes per Territory** eng kickoff (Empire, SHQ4-3 / SHQ4-4)
-- **Battle HUD Implementation** begins (Battle, SHQ4-1) — Sprint 1 of 4
-- **UI Foundation Sprint 3 of 6** (Metagame, Pipeline A)
-- **Building Upgrades (Meta Depth Phase 1)** eng kickoff (Metagame, Pipeline B)
-- **SD Phase 2 wrap — AA-target switchover** (Tile Ownership/States/Map Viz, Embark Flow, MP Map Instances)
-- **Dozer CP2** — 3 features kicking off in parallel (Build Pipeline, Compliance, UI Framework V2 Full)
-- **Yura WME UX handoff package** before 5/11 maternity leave
-- **Map Content + Battle/Unit Content pipelines** continue (SHQ3-1)
+- **WME — Multiple Nodes per Territory** eng kickoff (Empire, SHQ4-3 / SHQ4-4) → *Empire CP2 #1*
+- **Battle HUD Implementation** begins (Battle, SHQ4-1) — Sprint 1 of 4 → *Battle CP2 #1*
+- **UI Foundation Sprint 3 of 6** (Metagame, Pipeline A) → *Metagame CP2 #1 (laying groundwork)*
+- **Building Upgrades (Meta Depth Phase 1)** eng kickoff (Metagame, Pipeline B) → *Metagame CP2 #2*
+- **SD Phase 2 wrap — AA-target switchover** (Tile Ownership/States/Map Viz, Embark Flow, MP Map Instances) → *SD CP2 #1*
+- **Dozer CP2** — 3 features kicking off in parallel (Build Pipeline, Compliance, UI Framework V2 Full) → *Dozer CP2 #1, #2, #3*
+- **Battle HUD + WME art delivery** ramps to support eng kickoffs → *Art CP2 #1, #2*
+- **Yura WME UX handoff package** before 5/11 maternity leave → *protects Empire CP2/CP3 continuity*
+- **Map Content + Battle/Unit Content pipelines** continue (SHQ3-1) → *Empire CP2 #3, Art CP2 #3*
 
 ### Validation In Flight
 - **SHQ3-1** — Map content pipeline validated at target production rate (Empire)
@@ -443,6 +459,41 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 
 ---
 
+## Checkpoint Coverage — M&M Checkpoint 2 (4/28 – 5/25)
+
+S28 is the first sprint of CP2 (only Empire and Metagame had CP2 work pre-existing; Battle and Dozer **enter** CP2 now). This panel shows whether each pod's checkpoint goals have meaningful sprint work behind them in S28.
+
+| Pod | Checkpoint Goal | S28 Active Work | Status |
+|-----|-----------------|------------------|--------|
+| Empire | WME eng implementation kicked off (Multiple Nodes per Territory) | WME Sub-effort 1 eng kickoff — Henrique | ✅ On Track |
+| Empire | Territory Map perf/visual targets validated through WME | Indirect — via WME work; Marcos Teles AA + flicker fix | ⚠️ Light |
+| Empire | Map Content variety expanded for WME testing | Jacob + Elise on Map Content / T8 prep | ✅ On Track |
+| Metagame | UI Foundation supports 2+ pod screens | Sprint 3 of 6 in flight (still building toward consumability) | ⚠️ Light |
+| Metagame | Building Upgrades shipped; EPT underway | Building Upgrades eng kickoff — Tiago | ✅ On Track |
+| Metagame | FTUE Friction reduction visible in-game | Chris on Narrative/Tutorial design (no eng implementation yet) | ⚠️ Light |
+| Battle | Battle HUD Implementation 50%+ through impl scope | Sprint 1 of 4 begins — Jota | ✅ On Track |
+| Battle | Obstacles eng integration started; design viable | Design validation only this sprint; eng deferred | ⚠️ Light |
+| Battle | Pathfinding & AI eng kicked off | Lincoln design prep only — no eng start | ❌ No Coverage |
+| Social Dynamics | Phase 2 wrap (Tile Ownership/States/Map Viz, Embark, MP Instances) | Loures + Gabriel + Randy AA-target sprint goals | ✅ On Track |
+| Social Dynamics | Phase 3 (Basic Game Logic) kicked off | Not started — pod still wrapping P2 | ❌ No Coverage |
+| Social Dynamics | In-client multiplayer playable in dev UI | Randy MP Map Instance + dev UI v1 | ✅ On Track |
+| Dozer | Build Pipeline Review kicked off | Bruno F + Thorben — Audit & Plan | ✅ On Track |
+| Dozer | Compliance (OneTrust, Age Gate) underway | Derek — kickoff (capacity-constrained) | ⚠️ Light |
+| Dozer | UI Framework V2 (Full) cross-pod ready | Migration kickoff only — feature-complete is CP2 close | ⚠️ Light |
+| Art | WME assets delivered for Empire eng kickoff | Guilherme L + Thiago S environment/blockouts | ✅ On Track |
+| Art | Battle HUD assets in active integration | Miguel Duran cross-pod UI art | ✅ On Track |
+| Art | Unit content cadence steady — no Battle blockers | Ben/Felipe/Tony/Vini active | ✅ On Track |
+
+**Summary**: **9 of 18** CP2 goals (50%) have ✅ on-track sprint work in S28. **7 are ⚠️ light**, **2 are ❌ uncovered**.
+
+**At-Risk Goals (2 sprints remaining in CP2)**:
+- ❌ **Battle: Pathfinding & AI eng kicked off** — Jota fully consumed by HUD; eng start may slip to CP3. Decision needed before S29: cut, defer, or bring in support.
+- ❌ **SD: Phase 3 kicked off** — pod still wrapping P2. Phase 3 entry may slip to CP3 unless P2 closes cleanly in S28.
+
+**⚠️ Light goals to watch**: Battle Obstacles (eng deferred), Metagame UI Foundation consumption (still in build-out), Metagame FTUE Friction (no eng yet), Dozer Compliance + UI Framework V2 (kickoff-only this sprint), Empire Territory Map validation (indirect through WME).
+
+---
+
 ## Capacity Summary
 
 **Total Working Days**: 10 (May 1 Workers' Day pending verification — could reduce BR team to 9)
@@ -502,16 +553,18 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 
 ### Top Risks
 
-1. **Yura Rusin maternity leave starts 5/11** — Empire UX gone for ~6 weeks of M&Ms. Only Sub-effort 1 of WME starts before she leaves. Backup UX assignment needed before sprint kickoff.
-2. **Triple eng kickoff sprint** — Battle HUD, WME, and Dozer CP2 (3 features) all begin S28. Highest transition load of M&Ms so far.
-3. **S27 carry-over uncertainty** — Actor System Overhaul + HUD DD (Battle), EKS (Dozer) need to close in S27 to enable S28 kickoffs. Tutorial Migration is **paused** and will trickle in across other engineers — needs an assignment plan to avoid orphaned ownership.
-4. **Tim out 4 days at sprint start** — Metagame + Social Dynamics producer gap, second sprint in a row. Backup decision-maker still not identified.
-5. **Brendan out 4 days at sprint start** — Kevin Griffith solo art direction for week 1, second sprint in a row.
-6. **Bruno Bacelar out last 4 sprint days** — Multiplayer Networking dips in week 2.
-7. **Battle CP2 over-subscribed** — 3 features (HUD, Obstacles, Pathfinding) against 1 engineer (Jota).
-8. **Dozer CP2 over-subscribed** — 3 features (Build Pipeline, Compliance, UI Framework V2) against 2 engineers.
-9. **May 1 Workers' Day** — pending verification. If observed, BR team (~18 members) loses 1 day.
-10. **S28 ClickUp list empty** — needs population before Tuesday 4/28 kickoff.
+1. **CP2 GOAL UNCOVERED — Battle: Pathfinding & AI eng kickoff** has no S28 work; Jota fully consumed by HUD. Decision needed before S29: cut, defer to CP3, or bring in support.
+2. **CP2 GOAL UNCOVERED — SD: Phase 3 (Basic Game Logic) kickoff** has no S28 work; pod still wrapping P2. Likely slips to CP3 unless P2 closes cleanly.
+3. **Yura Rusin maternity leave starts 5/11** — Empire UX gone for ~6 weeks of M&Ms. Only Sub-effort 1 of WME starts before she leaves. Backup UX assignment needed before sprint kickoff.
+4. **Triple eng kickoff sprint** — Battle HUD, WME, and Dozer CP2 (3 features) all begin S28. Highest transition load of M&Ms so far.
+5. **S27 carry-over uncertainty** — Actor System Overhaul + HUD DD (Battle), EKS (Dozer) need to close in S27 to enable S28 kickoffs. Tutorial Migration is **paused** and will trickle in across other engineers — needs an assignment plan to avoid orphaned ownership.
+6. **Tim out 4 days at sprint start** — Metagame + Social Dynamics producer gap, second sprint in a row. Backup decision-maker still not identified.
+7. **Brendan out 4 days at sprint start** — Kevin Griffith solo art direction for week 1, second sprint in a row.
+8. **Bruno Bacelar out last 4 sprint days** — Multiplayer Networking dips in week 2.
+9. **Battle CP2 over-subscribed** — 3 features (HUD, Obstacles, Pathfinding) against 1 engineer (Jota).
+10. **Dozer CP2 over-subscribed** — 3 features (Build Pipeline, Compliance, UI Framework V2) against 2 engineers.
+11. **May 1 Workers' Day** — pending verification. If observed, BR team (~18 members) loses 1 day.
+12. **S28 ClickUp list empty** — needs population before Tuesday 4/28 kickoff.
 
 ### Open Questions (resolve before kickoff)
 
