@@ -179,7 +179,7 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 | Lincoln Li | Design Lead | 10 | 1. Battle HUD design support during eng implementation 2. Obstacles design validation 3. Pathfinding & AI design prep | Partial appts 4/30, 5/7 (~1 hr each). Battle HUD eng starts now — design availability for Q&A critical. |
 | Nathan Hajek | Design | 10 | 1. Unit Design & Prototype 2. Obstacles design validation support | |
 | Dylan Jeffery | Design | 10 | 1. Battle Templates 2. Battle Content pipeline | Continuation from S27. |
-| Vishaal Gupta | Design | 10 | 1. Battle Content + unit balance | Partial appts 4/30, 5/7. |
+| Vishaal Gupta | Design | 10 | 1. Unit Content + unit balance | Partial appts 4/30, 5/7. |
 | Jota Oliveira | Eng | **9-10** | 1. **Battle HUD Implementation - Sprint 1 of 4 (CP2 start)** 2. Close Actor System Overhaul if not complete | May 1 Labor Day verify. **Solo client eng — critical path for ALL Battle eng.** Battle HUD is now the headline. |
 | Danny Oliveira | Art (VFX) | 10 | 1. VFX implementation/polish | |
 | Alessandro Oliveira | Art (VFX) | **9-10** | 1. Trench Knight VFX completion ([CHI-36350](https://app.clickup.com/t/86agjmw4v) family if not done) 2. New VFX | May 1 verify. |
