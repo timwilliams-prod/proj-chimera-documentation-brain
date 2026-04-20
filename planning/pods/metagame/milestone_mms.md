@@ -26,6 +26,23 @@ S6 ┃ UI Foundation                           S6 ┃ Passive Bonus Tiles (1 spr
 S7 ┃ (buffer)                                S7 ┃ (buffer)
 ```
 
+## Checkpoint Goals
+
+**M&M Checkpoint 1 (ends 4/27)**
+- Pipeline A: UI Foundation framework scaffolding in place, first cross-pod screens consuming it
+- Pipeline B: Building Upgrades design locked, ready for Tiago to start eng in CP2
+- Christopher Fidalgo carry-over from S25 burned down
+
+**M&M Checkpoint 2 (4/28 - 5/25)**
+- Pipeline A: UI Foundation supports 2+ pod screens in active use; cross-pod adoption pattern proven
+- Pipeline B: Building Upgrades shipped; Empire Progression Tree underway
+- FTUE Friction reduction design implementation has visible in-game changes
+
+**M&M Checkpoint 3 (5/26 - 6/22)**
+- Pipeline A: UI Foundation feature-complete for beta — supports all milestone metagame screens
+- Pipeline B: Global Combat Research Tree complete; Hero Gacha v1 + Passive Bonus Tiles integrated
+- Metagame depth systems (progression, gacha, bonuses) playable end-to-end
+
 ## Milestone Goals
 
 - UI Foundation supports cross-pod metagame screens for beta

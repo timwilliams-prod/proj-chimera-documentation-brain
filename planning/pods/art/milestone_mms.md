@@ -16,6 +16,23 @@ VFX & Animation:     Combat effects, skill animations, transition effects
 
 All tracks run in parallel throughout the milestone. Art assets support all pod features.
 
+## Checkpoint Goals
+
+**M&M Checkpoint 1 (ends 4/27)**
+- Map Content territory variety expanding (Empire WME prep)
+- Battle HUD asset direction locked, key art produced for design review
+- UI Foundation visual style guide aligned with Metagame Pipeline A
+
+**M&M Checkpoint 2 (4/28 - 5/25)**
+- WME assets delivered to support Empire engineering kickoff
+- Battle HUD assets in active integration alongside Jota's eng work
+- Unit content cadence steady — no Battle pod blockers from art
+
+**M&M Checkpoint 3 (5/26 - 6/22)**
+- All beta-required art delivered for Empire / Battle / Metagame milestone scopes
+- VFX & Animation track staffed and producing
+- Pipeline efficiency assessed; learnings captured for M&C scale-up
+
 ## Cross-Pod Asset Delivery
 
 Art resources serve multiple pods simultaneously:

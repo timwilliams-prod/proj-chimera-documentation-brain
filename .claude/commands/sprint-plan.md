@@ -69,7 +69,13 @@ Replace `{ms}` with the milestone short name for the current milestone (e.g., `m
 - `planning/dependency_map.md` — Cross-pod dependencies that affect sequencing
 - `planning/ValidationPlan.md` — Active SHQs to connect work to validation
 
-### 3. Cross-Reference Pod Data with Context
+### 3. Identify the Active Checkpoint
+
+Each pod's `milestone_{ms}.md` defines **Checkpoint Goals** — 2-5 outcome bullets per checkpoint (e.g. CP1 / CP2 / CP3 within M&Ms). Determine which checkpoint the upcoming sprint falls into based on the sprint's date range vs. the checkpoint date ranges declared in the pod files.
+
+For each pod, extract that checkpoint's goals — these are the **outcomes the pod is committed to producing by the end of this checkpoint**. Sprint goals should each connect to one of them. If a pod hasn't authored Checkpoint Goals for the active checkpoint, surface this as an open question in their pod section ("⚠️ No checkpoint goals defined — what are we trying to land by [end of CP]?").
+
+### 4. Cross-Reference Pod Data with Context
 
 For each pod, combine the feature priorities (`features.md`) and milestone sprint allocation (`milestone_{ms}.md`) to understand what work is planned for this sprint window. Then enrich with additional context:
 
@@ -79,7 +85,7 @@ For each pod, combine the feature priorities (`features.md`) and milestone sprin
 - Cross-reference against ClickUp state, PTO, and capacity to validate and enrich.
 - Flag any conflicts between pod plans and ClickUp reality (e.g., a person assigned work but fully on PTO, a feature marked "NOT STARTED" that has ClickUp tasks already in progress).
 
-### 4. Pull PTO from Google Calendar
+### 5. Pull PTO from Google Calendar
 
 Read the **Lotus OOO** calendar for the sprint's 2-week window:
 - Calendar ID: `c_3992c42a3903831f4100bc114a0b4758274a26d5a31f749f5aaacc140caeddc7@group.calendar.google.com`
@@ -97,7 +103,7 @@ Flag anyone with:
 - **Full sprint out**: Unavailable — do not assign work
 - **Key person out during critical phase**: Risk flag (e.g., only engineer on a pod out during their feature's sprint)
 
-### 5. Check ClickUp State
+### 6. Check ClickUp State
 
 #### For Preview Mode:
 - Pull tasks from the **current sprint list** to identify carry-over risks (tasks still open that might not finish)
@@ -111,13 +117,13 @@ Flag anyone with:
 
 Use `clickup_search` with `space_ids: ["38562126"]` to search within Lotus only. For list-specific queries, use `clickup_filter_tasks` with the list ID.
 
-### 6. Build the Sprint Plan
+### 7. Build the Sprint Plan
 
 Generate the sprint plan organized by pod. Lead with a milestone-lens **Sprint Overview** section, then per-pod sections, then cross-pod, then capacity, then risks/questions.
 
 #### Sprint Overview (top of plan):
 
-Authoring this section is a **synthesis step**, not a copy job. Look at the milestone goals (`product_targets.md`), checkpoint allocations (pod milestone files), validation roadmap (`ValidationPlan.md` and `generated/validation_roadmap.md`), and the per-pod sprint goals you're about to write. Then summarize *what this sprint is actively driving toward* in milestone terms.
+Authoring this section is a **synthesis step**, not a copy job. Look at the milestone goals (`product_targets.md`), checkpoint goals (per-pod from `milestone_{ms}.md`), validation roadmap (`ValidationPlan.md` and `generated/validation_roadmap.md`), and the per-pod sprint goals you're about to write. Then summarize *what this sprint is actively driving toward* in milestone terms.
 
 ```markdown
 ## Sprint Overview
@@ -125,11 +131,12 @@ Authoring this section is a **synthesis step**, not a copy job. Look at the mile
 ### Milestone Goals — [Milestone Name]
 - [Pulled from product_targets.md — the high-level "Goal" + Must-Have Features]
 
-### [Checkpoint Name] Goals (if applicable)
-- [If the sprint falls inside a checkpoint, pull that checkpoint's goals from pod milestone files]
+### [Checkpoint Name] Goals
+- [Pod]: [outcome bullet from that pod's milestone_{ms}.md Checkpoint Goals section, for the active checkpoint]
+- [...one row per pod that has goals for the active checkpoint]
 
 ### Active Focus This Sprint
-- [Cross-pod, milestone-lens summary of what's being driven this sprint — not a list of every task. Each item should connect to a milestone goal or SHQ.]
+- [Cross-pod, milestone-lens summary of what's being driven this sprint — not a list of every task. Each item should connect to a checkpoint goal or SHQ.]
 
 ### Validation In Flight
 - SHQ-X: [label] — [pods]
@@ -143,7 +150,11 @@ The Overview should answer: "If a leadership team member only reads the top sect
 **Lead**: [Design Lead] | **Producer**: [Producer] | **Eng**: [Engineers]
 
 ### Sprint Goals
-- [1-3 high-level goals for this pod this sprint, connected to milestone/SHQ]
+- [Goal text] → *advances [Checkpoint Goal short name]*
+- [Goal text] → *advances [Checkpoint Goal short name]*
+- [Goal text that doesn't connect to any checkpoint goal] → ⚠️ *off-checkpoint*
+
+Each sprint goal MUST either map to one of the pod's active Checkpoint Goals or be flagged as off-checkpoint. Off-checkpoint work isn't automatically wrong — but it should be a deliberate exception, surfaced as a risk (e.g. "Why are we spending sprint time on something that doesn't ladder up to CP2?").
 
 ### Individual Breakdown
 
@@ -197,7 +208,24 @@ In Preview mode, mark items as (proposed) or (confirmed). In Kickoff mode, this 
 | [Name] | [Pod] | [working days - PTO days] | [sum of estimates] | [OK / Heavy / Over] |
 ```
 
-### 7. Scaffold ClickUp Tasks (Kickoff Mode Only)
+#### Checkpoint Coverage (end of plan):
+
+After all pod sections, summarize how this sprint's work covers the active checkpoint's goals across all pods:
+
+```markdown
+## Checkpoint Coverage — [Checkpoint Name]
+
+| Pod | Checkpoint Goal | Active Sprint Work | Status |
+|-----|-----------------|---------------------|--------|
+| Empire | [CP goal] | [Sprint goal(s) advancing it, or "—"] | ✅ On Track / ⚠️ Light / ❌ No Coverage |
+| ... | ... | ... | ... |
+
+**Summary**: [X of Y] checkpoint goals have active sprint work. [Call out any checkpoint goals that are at risk of slipping with no work this sprint.]
+```
+
+This is the answer to: *"At the end of this sprint, will we have meaningfully advanced our checkpoint commitments?"* Any checkpoint goal with no sprint work AND fewer than 2 sprints remaining in the checkpoint should be raised as a top risk.
+
+### 8. Scaffold ClickUp Tasks (Kickoff Mode Only)
 
 For each planned work item, apply the scaffolding rules from `planning/sprint_rules.md`:
 
@@ -215,7 +243,7 @@ When confirmed, for each task:
 2. Add to the Sprint list using `clickup_add_task_to_list`
 3. If there's a parent Epic, set the parent relationship
 
-### 8. Write Sprint Plan File
+### 9. Write Sprint Plan File
 
 Save the full sprint plan to `generated/sprint_plans/sprint_[number]_[name].md`.
 
@@ -234,7 +262,7 @@ Generated: [Date]
 ---
 ```
 
-### 9. Generate Sprint Dashboard Data
+### 10. Generate Sprint Dashboard Data
 
 Generate a versioned sprint data file and update the manifest for the sprint view dashboard.
 
@@ -280,9 +308,16 @@ var SPRINT_DATA = {
   summary: {
     // ── Sprint Overview (milestone-lens) — REQUIRED, rendered as the top panel
     milestone_goals: ["…"],                                         // High-level milestone goals from product_targets.md
-    checkpoint: { name: "…", goals: ["…"] },                        // Optional: only when sprint falls inside a checkpoint
+    checkpoint: {                                                    // The active checkpoint for this sprint — pull goals from each pod's milestone_{ms}.md
+      name: "…",                                                     //   e.g. "M&M Checkpoint 2 (4/28 – 5/25)"
+      goals: ["[Pod]: [outcome]", "…"]                               //   Per-pod checkpoint outcomes, prefixed with pod name
+    },
     active_focus: [{ text, shqs: [], pods: [] }],                   // What this sprint is actively driving — milestone-lens, not a task list
     validation_in_flight: [{ id: "SHQ-X", label: "…", pods: [] }],  // Active SHQs being worked
+    // ── Checkpoint Coverage — rendered as a panel after pod sections
+    checkpoint_coverage: [
+      { pod: "…", checkpoint_goal: "…", sprint_work: "…", status: "on_track|light|none" }
+    ],
     // ── Risks & Open Questions — rendered in a separate panel below the pod sections
     top_risks: [],
     open_questions: [{ text, resolved }]
@@ -297,17 +332,20 @@ Key mappings:
 - `carry_over.confirmed`: true if verified against ClickUp (not just assumed from previous plan). Carry-over is RAW data — the dashboard auto-rolls it into a synthesized open question per pod (e.g. *"Past Sprint Cleanup — will we have to deal with these? Henrique (3), Yura (1)"*) with a tooltip and per-item drilldown.
 - Include ALL people from `capacity.md` assigned to each pod, not just engineers
 - `summary.milestone_goals` and `summary.active_focus` are REQUIRED — without them, the Sprint Overview panel renders empty. Author them as a synthesis pass after writing the per-pod sections.
+- `summary.checkpoint.goals` MUST be sourced from each pod's `planning/pods/{pod}/milestone_{ms}.md` Checkpoint Goals section (for the active checkpoint). Do not invent checkpoint goals — if a pod hasn't authored them, leave that pod out of `checkpoint.goals` and surface the gap in `top_risks`.
+- `summary.checkpoint_coverage` is the data backing the Checkpoint Coverage panel — one row per (pod, checkpoint_goal). `status: "none"` should always trigger an entry in `top_risks` if the checkpoint has ≤2 sprints remaining.
 
 The data file is consumed by `sprint.html` which supports View/Edit modes. Editable fields (goals, priorities, notes, open questions) can be modified inline and exported as `sprint_edits_[N].json` for the skill to apply back. The HTML loads `sprint_manifest.js` and dynamically loads the selected sprint's data file. A dropdown in the header lets users switch between sprints.
 
-### 10. Summary
+### 11. Summary
 
 Report to the user:
 - **Mode**: Preview or Kickoff
 - **Sprint**: Name, number, dates
 - **Milestone**: Which milestone, how far through it
+- **Active Checkpoint**: Which checkpoint, what coverage looks like (X of Y CP goals advancing)
 - **PTO impact**: Who's out, capacity effect
-- **Key risks**: Overloaded people, missing specs, dependency conflicts
+- **Key risks**: Overloaded people, missing specs, dependency conflicts, off-checkpoint work, CP goals with no coverage
 - **Preview only**: Open questions that need answers before kickoff
 - **Kickoff only**: How many ClickUp tasks created/updated, any gaps
 

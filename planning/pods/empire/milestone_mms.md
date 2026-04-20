@@ -16,6 +16,23 @@ Ends: Jun 23, 2026 | Sprints: ~7 | Flex: shared with TMVS
 - Territory Map VS deferred to S31 — design not ready for eng support yet.
 - Map Content runs in parallel on design/art track throughout (Jacob Siegel, Elise Cole).
 
+## Checkpoint Goals
+
+**M&M Checkpoint 1 (ends 4/27)**
+- Tutorial Node Migration carry-over de-risked: paused as a focused effort, trickled across other engineers as bandwidth allows
+- WME UX exploration complete and ready for eng kickoff in CP2
+- Map Content design/art pipeline producing usable territory variety
+
+**M&M Checkpoint 2 (4/28 - 5/25)**
+- World Map Experience eng implementation kicked off (Henrique on Multiple Nodes per Territory)
+- Territory Map performance/visual targets validated through WME work (SHQ3-1 evidence accumulating)
+- Map Content variety expanded to support WME testing
+
+**M&M Checkpoint 3 (5/26 - 6/22)**
+- World Map Experience features complete — session goals surfaced on world map (SHQ4-3 answered)
+- Territory Map vertical slice eng underway, on track for milestone close (SHQ3-2 evidence in progress)
+- Empire strategy layer ↔ tile-level conquest connection demonstrated end-to-end
+
 ## Milestone Goals
 
 - Territory map proves scalable — performance + visual quality + variety (SHQ3-1)

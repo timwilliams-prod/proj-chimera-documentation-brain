@@ -121,7 +121,37 @@ A table showing every SHQ targeted at this milestone, organized by Winning Hypot
 
 Repeat for each Winning Hypothesis that has SHQs in this milestone.
 
-### Section 4: Pod Order of Operations
+### Section 4: Milestone Checkpoint Plan
+
+A cross-pod synthesis of the per-pod **Checkpoint Goals** sections (read from each `planning/pods/{pod}/milestone_{ms}.md`). Checkpoints divide the milestone into ~monthly phases (e.g. M&Ms has CP1, CP2, CP3) and each pod owns 2-5 outcome bullets per checkpoint.
+
+```markdown
+## Milestone Checkpoint Plan
+
+### [Checkpoint Name] (date range)
+
+**Cross-pod theme**: [1-line synthesis of what this checkpoint is collectively about]
+
+| Pod | Checkpoint Outcomes |
+|-----|---------------------|
+| Empire | • [outcome 1]<br>• [outcome 2] |
+| Metagame | • [outcome 1]<br>• [outcome 2] |
+| Battle | • [outcome 1] |
+| Social Dynamics | • [outcome 1] |
+| Dozer | • [outcome 1] |
+| Art | • [outcome 1] |
+
+**Checkpoint risks**: [any cross-pod risks specific to hitting this checkpoint]
+```
+
+Repeat for each checkpoint defined by the pods.
+
+Rules:
+- If a pod hasn't defined Checkpoint Goals in their `milestone_{ms}.md`, mark it **⚠️ Missing — pod has not authored checkpoint outcomes** and surface in Gaps/Risks.
+- The **cross-pod theme** is your synthesis — what's the collective story for this checkpoint? (e.g., "CP2 is when multiplayer infra meets first cross-pod consumer; Battle HUD eng begins.")
+- Use checkpoint names exactly as the pods write them (typically "M&M Checkpoint 1" / "CP1" — match style).
+
+### Section 5: Pod Order of Operations
 
 For EACH pod with features in this milestone, generate a sprint-by-sprint breakdown:
 
@@ -151,7 +181,16 @@ Rules:
 - For pods with parallel pipelines (Metagame), show "Pipeline A" and "Pipeline B" columns instead of a single Engineering column
 - For phased pods (Social Dynamics), show phases in the Engineering column
 
-### Section 5: Cross-Pod Dependencies
+In the per-pod table, also include a **Checkpoint Outcomes** subsection beneath the sprint table that restates the pod's checkpoint goals (so the per-pod section is self-contained for that pod's lead):
+
+```markdown
+**Checkpoint Outcomes** (from pod milestone plan):
+- **CP1**: [outcomes]
+- **CP2**: [outcomes]
+- **CP3**: [outcomes]
+```
+
+### Section 6: Cross-Pod Dependencies
 
 ```markdown
 ## Cross-Pod Dependencies
@@ -163,7 +202,7 @@ Rules:
 
 Only include dependencies relevant to THIS milestone.
 
-### Section 6: Gaps and Risks
+### Section 7: Gaps and Risks
 
 ```markdown
 ## Gaps and Risks
@@ -193,3 +232,4 @@ Only include dependencies relevant to THIS milestone.
 - If a pod has no features defined for this milestone, include it with "[TBD — awaiting feature definitions]"
 - The Gantt should make capacity risks VISUALLY obvious — if features overflow the milestone boundary, they'll extend past the end marker
 - Always run a target check: compare must-haves to planned features and flag gaps
+- Checkpoint Goals come from each pod's `planning/pods/{pod}/milestone_{ms}.md` — the milestone plan synthesizes them, it does NOT author them. If a pod is missing checkpoint goals, surface the gap rather than inventing outcomes.

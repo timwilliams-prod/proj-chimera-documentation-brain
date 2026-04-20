@@ -24,6 +24,23 @@ Phase 3:  Basic Game Logic
 Phase 4+: As time allows — goal is playtest switchover from AI prototype
 ```
 
+## Checkpoint Goals
+
+**M&M Checkpoint 1 (ends 4/27)**
+- Phase 1 (Infrastructure & Foundation) complete
+- Phase 2 (Map Foundation) underway: networking, instance creation framework, initial map systems
+- AI Prototype remains active playtest vehicle
+
+**M&M Checkpoint 2 (4/28 - 5/25)**
+- Phase 2 wrap: Tile Ownership + Tile States + Map Visualization (Loures), Embark Flow (Gabriel), Multiplayer Map Instance Creation/list/join + dev UI v1 (Randy)
+- Phase 3 (Basic Game Logic) kicked off
+- In-client multiplayer demonstrably playable in dev UI
+
+**M&M Checkpoint 3 (5/26 - 6/22)**
+- Phase 3 complete; Phase 4+ progressing as capacity allows
+- **Switchover Goal**: in-client multiplayer ready to replace AI prototype as primary playtest vehicle
+- Networking stable enough for multi-player playtests across the studio
+
 ## Capacity & Constraints
 
 - 2 client engineers (Randy, Garrett) — but both have Dozer split risk

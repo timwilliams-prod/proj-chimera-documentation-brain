@@ -29,6 +29,23 @@ M&M Checkpoint 1-3 (ongoing):     Battle Content, Unit Content
 
 Battle Content (#7) and Unit Content (#8) run in parallel on design/art track throughout.
 
+## Checkpoint Goals
+
+**M&M Checkpoint 1 (ends 4/27)**
+- Actor System Overhaul shipped — performance foundation in place for HUD work
+- Battle HUD design/UX review complete — eng spec ready for CP2 kickoff
+- Obstacles design validation underway
+
+**M&M Checkpoint 2 (4/28 - 5/25)**
+- Battle HUD Implementation in active engineering (Jota) — at least 50% through impl scope
+- Obstacles eng integration started; design proven viable for ship
+- Pathfinding & AI Improvements eng kicked off
+
+**M&M Checkpoint 3 (5/26 - 6/22)**
+- Battle HUD Implementation complete — combat interface meets beta quality bar (SHQ4-1 answered)
+- Pathfinding & AI Improvements complete
+- Battle Content + Unit Content delivering against pipeline targets for beta
+
 ## Milestone Goals
 
 - Combat interface meets beta quality bar (Battle HUD Overhaul)
