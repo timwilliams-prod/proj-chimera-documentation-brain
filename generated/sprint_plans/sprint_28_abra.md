@@ -19,6 +19,46 @@ Generated: 2026-04-20
 
 ---
 
+## Sprint Overview
+
+### Milestone Goals — M&Ms (Multiplayer & Meta)
+- Multiplayer foundations playable in internal playtests by end of M&Ms
+- Territory Map vertical slice proves scale + strategy/conquest connection (SHQ3-1, SHQ3-2)
+- Battle HUD Beta Overhaul reaches beta quality bar (BHQ-B2)
+- UI Foundation core systems shipped for all feature UIs
+- At least one Metagame Depth system playable
+- Optimization + compliance prep for beta
+- 6 Starter Heroes — designed and arted
+- Narrative and Tutorial tooling functional for designers
+
+### M&M Checkpoint 2 Goals (4/28 – 5/25) — Battle & Dozer enter CP2
+- **Battle**: Battle HUD Implementation begins (4-sprint span CP2 → CP3)
+- **Battle**: Obstacles design validation + early eng
+- **Battle**: Pathfinding & AI Improvements prep
+- **Dozer**: Build Pipeline Review kickoff
+- **Dozer**: Compliance (OneTrust, Age Gate) kickoff
+- **Dozer**: UI Framework V2 (Full) kickoff
+
+### Active Focus This Sprint
+- **WME — Multiple Nodes per Territory** eng kickoff (Empire, SHQ4-3 / SHQ4-4)
+- **Battle HUD Implementation** begins (Battle, SHQ4-1) — Sprint 1 of 4
+- **UI Foundation Sprint 3 of 6** (Metagame, Pipeline A)
+- **Building Upgrades (Meta Depth Phase 1)** eng kickoff (Metagame, Pipeline B)
+- **SD Phase 2 wrap — AA-target switchover** (Tile Ownership/States/Map Viz, Embark Flow, MP Map Instances)
+- **Dozer CP2** — 3 features kicking off in parallel (Build Pipeline, Compliance, UI Framework V2 Full)
+- **Yura WME UX handoff package** before 5/11 maternity leave
+- **Map Content + Battle/Unit Content pipelines** continue (SHQ3-1)
+
+### Validation In Flight
+- **SHQ3-1** — Map content pipeline validated at target production rate (Empire)
+- **SHQ3-2** — Empire strategy layer and tile-level conquest feel connected (Empire)
+- **SHQ3-3** — Map → hero progression validation, IN PROGRESS (Empire)
+- **SHQ4-1** — HUD strategic + tactical play / Battle HUD Beta Overhaul (Battle)
+- **SHQ4-3** — World Map Experience: territory readability (Empire)
+- **SHQ4-4** — World Map Experience: multiple nodes per territory (Empire)
+
+---
+
 ## Milestone Phase Transitions Hitting This Sprint
 
 Sprint 28 is a **transition sprint** for multiple pods. Three big handoffs hit at the same time:
@@ -94,6 +134,7 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
   - Map Content - Sprint 28 (Jacob/Elise, ongoing)
 
 ### Open Questions
+- [ ] **Past Sprint Cleanup — will we have to deal with these?** Reassign as capacity allows (3 — Tutorial Arch Orchestration / Triggering / Node Rewrites), Elise Cole (2 — T8 Design Prep, Figma Map agentic research)
 - [ ] **Tutorial Migration trickle plan** — which engineers absorb the remaining Tutorial work, and at what cadence?
 - [ ] **Is WME Multiple Nodes per Territory spec ready** for engineering kickoff (Diana)?
 - [ ] **Yura maternity coverage**: Who picks up Empire UX from 5/11 through ~6/20? Diana to backstop, or pull cross-pod UX (Kevin Ligon)?
@@ -147,6 +188,7 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
   - [CHI-36250](https://app.clickup.com/t/86agcpt61) T5/T6 rewards (Chris, if not closed in S27)
 
 ### Open Questions
+- [ ] **Past Sprint Cleanup — will we have to deal with these?** Christopher Fidalgo (1 — CHI-36250 T5/T6 rewards)
 - [ ] **Building Upgrades spec readiness** — is the Meta Depth Phase 1 design + UX ready for Tiago's eng kickoff?
 - [ ] **UI Foundation Sprint 3 scope** — which sub-features (Hero Info, Leveling, Gear, Badging, Tutorials/Narrative)?
 - [ ] **Tim coverage week 1** (4/28-5/1) — same gap as S27. Backup decision-maker for Metagame + SD?
@@ -210,6 +252,7 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
   - Effect Stacking [CHI-35985](https://app.clickup.com/t/86ag15v96) (still deferred?)
 
 ### Open Questions
+- [ ] **Past Sprint Cleanup — will we have to deal with these?** Lincoln Li (1 — CHI-35036 Battle HUD DD), Jota Oliveira (1 — CHI-35985 Effect Stacking)
 - [ ] **Battle HUD Design Doc finalized?** [CHI-35036](https://app.clickup.com/t/869bvfcym) was in discipline review at S27 kickoff. Eng implementation depends on it.
 - [ ] **Did Actor System Overhaul complete in S27?** If not, HUD eng start delayed.
 - [ ] **Obstacles eng start S28 or S29?** Milestone plan says CP2 (which spans 2 sprints). Capacity-constrained on Jota.
@@ -261,6 +304,7 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
   - [CHI-35564](https://app.clickup.com/t/86afj74z5) MP Backend architecture (Garrett — was in progress)
 
 ### Open Questions
+- [ ] **Past Sprint Cleanup — will we have to deal with these?** Garrett Eidsvig (1 — CHI-35564 MP Backend architecture)
 - [ ] **Does P2 wrap fully complete in S28?** AA target depends on Loures + Gabriel + Randy landing their pieces.
 - [ ] **Tim coverage week 1** for SD producer decisions (same gap as Metagame).
 - [ ] **Bruno week-2 networking** — what's safe to defer or hand off while he's out 5/6-5/11?
@@ -345,6 +389,7 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 | Lawrence Steele | Audio | 10 | 1. Sound design | |
 
 ### Open Questions
+- [ ] **Past Sprint Cleanup — will we have to deal with these?** Marcos Teles (1 — CHI-36339 Territory Map texture flickering T6)
 - [ ] **Brendan coverage week 1** — same situation as S27. Kevin solo through 5/3.
 - [ ] **Art priority for CP2** — Battle HUD assets (eng begins) vs WME assets (eng begins) vs UI Foundation continuing. Which gets first?
 - [ ] **Marcos Teles carry-over** — did [CHI-36339](https://app.clickup.com/t/86aghye8r) (Territory Map texture flickering) close in S27?

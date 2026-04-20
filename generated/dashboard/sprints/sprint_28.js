@@ -351,6 +351,45 @@ var SPRINT_DATA = {
   },
 
   summary: {
+    milestone_goals: [
+      "Multiplayer foundations playable in internal playtests by end of M&Ms",
+      "Territory Map vertical slice proves scale + strategy/conquest connection (SHQ3-1, SHQ3-2)",
+      "Battle HUD Beta Overhaul reaches beta quality bar (BHQ-B2)",
+      "UI Foundation core systems shipped for all feature UIs",
+      "At least one Metagame Depth system playable",
+      "Optimization + compliance prep for beta",
+      "6 Starter Heroes — designed and arted",
+      "Narrative and Tutorial tooling functional for designers"
+    ],
+    checkpoint: {
+      name: "M&M Checkpoint 2 (4/28 – 5/25) — Battle & Dozer enter CP2",
+      goals: [
+        "Battle: Battle HUD Implementation begins (4-sprint span CP2 → CP3)",
+        "Battle: Obstacles design validation + early eng",
+        "Battle: Pathfinding & AI Improvements prep",
+        "Dozer: Build Pipeline Review kickoff",
+        "Dozer: Compliance (OneTrust, Age Gate) kickoff",
+        "Dozer: UI Framework V2 (Full) kickoff"
+      ]
+    },
+    active_focus: [
+      { text: "WME — Multiple Nodes per Territory eng kickoff (Sub-effort 1 of 3)", shqs: ["SHQ4-3", "SHQ4-4"], pods: ["Empire"] },
+      { text: "Battle HUD Implementation begins (Sprint 1 of 4)", shqs: ["SHQ4-1"], pods: ["Battle"] },
+      { text: "UI Foundation Sprint 3 of 6 (Pipeline A)", shqs: [], pods: ["Metagame"] },
+      { text: "Building Upgrades (Meta Depth Phase 1) eng kickoff (Pipeline B)", shqs: [], pods: ["Metagame"] },
+      { text: "SD Phase 2 wrap — AA-target switchover (Tile Ownership/States/Map Viz, Embark Flow, MP Map Instances)", shqs: [], pods: ["Social Dynamics"] },
+      { text: "Dozer CP2 — 3 features kicking off in parallel", shqs: [], pods: ["Dozer"] },
+      { text: "Yura WME UX handoff package before 5/11 maternity leave", shqs: ["SHQ4-3"], pods: ["Empire"] },
+      { text: "Map Content + Battle/Unit Content pipelines continue", shqs: ["SHQ3-1"], pods: ["Empire", "Battle"] }
+    ],
+    validation_in_flight: [
+      { id: "SHQ3-1", label: "Map content pipeline validated at target production rate", pods: ["Empire"] },
+      { id: "SHQ3-2", label: "Empire strategy layer and tile-level conquest feel connected", pods: ["Empire"] },
+      { id: "SHQ3-3", label: "Map → hero progression validation (in progress)", pods: ["Empire"] },
+      { id: "SHQ4-1", label: "HUD strategic + tactical play (Battle HUD Beta Overhaul)", pods: ["Battle"] },
+      { id: "SHQ4-3", label: "World Map Experience — territory readability", pods: ["Empire"] },
+      { id: "SHQ4-4", label: "World Map Experience — multiple nodes per territory", pods: ["Empire"] }
+    ],
     top_risks: [
       "Yura Rusin maternity leave starts 5/11 — Empire UX gone for ~6 weeks of M&Ms. Only Sub-effort 1 of WME starts before she leaves.",
       "Triple eng kickoff sprint — Battle HUD, WME, and Dozer CP2 (3 features) all begin S28.",

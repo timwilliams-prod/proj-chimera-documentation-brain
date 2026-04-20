@@ -113,7 +113,29 @@ Use `clickup_search` with `space_ids: ["38562126"]` to search within Lotus only.
 
 ### 6. Build the Sprint Plan
 
-Generate the sprint plan organized by pod. Each pod section includes:
+Generate the sprint plan organized by pod. Lead with a milestone-lens **Sprint Overview** section, then per-pod sections, then cross-pod, then capacity, then risks/questions.
+
+#### Sprint Overview (top of plan):
+
+Authoring this section is a **synthesis step**, not a copy job. Look at the milestone goals (`product_targets.md`), checkpoint allocations (pod milestone files), validation roadmap (`ValidationPlan.md` and `generated/validation_roadmap.md`), and the per-pod sprint goals you're about to write. Then summarize *what this sprint is actively driving toward* in milestone terms.
+
+```markdown
+## Sprint Overview
+
+### Milestone Goals — [Milestone Name]
+- [Pulled from product_targets.md — the high-level "Goal" + Must-Have Features]
+
+### [Checkpoint Name] Goals (if applicable)
+- [If the sprint falls inside a checkpoint, pull that checkpoint's goals from pod milestone files]
+
+### Active Focus This Sprint
+- [Cross-pod, milestone-lens summary of what's being driven this sprint — not a list of every task. Each item should connect to a milestone goal or SHQ.]
+
+### Validation In Flight
+- SHQ-X: [label] — [pods]
+```
+
+The Overview should answer: "If a leadership team member only reads the top section, do they understand what we're driving this sprint and how it lines up with milestone goals?"
 
 #### Per-Pod Structure:
 ```markdown
@@ -149,12 +171,12 @@ Hierarchical view of what will be created in ClickUp at Kickoff. Mirrors the SHQ
 
 In Preview mode, mark items as (proposed) or (confirmed). In Kickoff mode, this is the definitive list.
 
-### Carry-Over Risk (if any)
-- [Task from previous sprint that didn't finish] — [status, what's left]
-
-### Open Questions (Preview mode only)
-- [ ] [Question that needs resolution before kickoff]
+### Open Questions
+- [ ] **Past Sprint Cleanup — will we have to deal with these?** [Name] (count), [Name] (count), … [Roll up carry-over from the previous sprint as the FIRST open question, grouped by assignee. Carry-over IS NOT a separate section anymore.]
+- [ ] [Other open questions that need resolution before kickoff]
 ```
+
+**Carry-over handling**: The raw carry-over data (CHI IDs, names, statuses) still belongs in the data file's `pod.carry_over[]` array — the dashboard reads from it to render the rollup question with a tooltip and per-item drilldown. But in the markdown plan, surface it only as the synthesized "Past Sprint Cleanup" question. Do not produce a standalone "Carry-Over" section.
 
 #### Cross-Pod Section:
 ```markdown
@@ -237,7 +259,7 @@ const SPRINT_CURRENT = 27;
 Structure the sprint data using `var SPRINT_DATA` (**must be `var`**, not `const` — multiple sprint files are loaded sequentially and `const` would throw a redeclaration error):
 
 ```javascript
-const SPRINT_DATA = {
+var SPRINT_DATA = {
   meta: {
     sprint_name, sprint_number, start_date, end_date, working_days,
     holidays: [], milestone, milestone_end, milestone_sprint, milestone_sprint_total,
@@ -249,13 +271,19 @@ const SPRINT_DATA = {
       name, lead, producer, eng_summary,
       goals: [{ text, shqs: [] }],
       people: [{ name, discipline, avail, total, priorities: [], notes, flags: [] }],
-      carry_over: [{ id, name, assignee, status, confirmed }],
+      carry_over: [{ id, name, assignee, status, confirmed }],   // RAW DATA — dashboard renders this as a synthesized "Past Sprint Cleanup" open question, not its own section
       open_questions: [{ text, resolved, answer }],
       risks: []
     }
   ],
   cross_pod: { handoffs: [], shared_resources: [], notes: [] },
   summary: {
+    // ── Sprint Overview (milestone-lens) — REQUIRED, rendered as the top panel
+    milestone_goals: ["…"],                                         // High-level milestone goals from product_targets.md
+    checkpoint: { name: "…", goals: ["…"] },                        // Optional: only when sprint falls inside a checkpoint
+    active_focus: [{ text, shqs: [], pods: [] }],                   // What this sprint is actively driving — milestone-lens, not a task list
+    validation_in_flight: [{ id: "SHQ-X", label: "…", pods: [] }],  // Active SHQs being worked
+    // ── Risks & Open Questions — rendered in a separate panel below the pod sections
     top_risks: [],
     open_questions: [{ text, resolved }]
   }
@@ -266,8 +294,9 @@ Key mappings:
 - `avail`: working days minus PTO days for that person
 - `total`: total working days in the sprint (same for everyone, before PTO)
 - `flags`: array from `["sole-eng", "carry-over", "pto", "new-hire", "split", "shared"]`
-- `carry_over.confirmed`: true if verified against ClickUp (not just assumed from previous plan)
+- `carry_over.confirmed`: true if verified against ClickUp (not just assumed from previous plan). Carry-over is RAW data — the dashboard auto-rolls it into a synthesized open question per pod (e.g. *"Past Sprint Cleanup — will we have to deal with these? Henrique (3), Yura (1)"*) with a tooltip and per-item drilldown.
 - Include ALL people from `capacity.md` assigned to each pod, not just engineers
+- `summary.milestone_goals` and `summary.active_focus` are REQUIRED — without them, the Sprint Overview panel renders empty. Author them as a synthesis pass after writing the per-pod sections.
 
 The data file is consumed by `sprint.html` which supports View/Edit modes. Editable fields (goals, priorities, notes, open questions) can be modified inline and exported as `sprint_edits_[N].json` for the skill to apply back. The HTML loads `sprint_manifest.js` and dynamically loads the selected sprint's data file. A dropdown in the header lets users switch between sprints.
 

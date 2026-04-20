@@ -434,6 +434,40 @@
     @media (max-width: 800px) { .summary-grid { grid-template-columns: 1fr; } }
     .summary-col h3 { font-size: 13px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
 
+    /* ── Overview Panel (milestone-lens) ── */
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .overview-col h3 {
+      font-size: 12px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.5px;
+      margin-bottom: 8px; padding-bottom: 4px; border-bottom: 1px solid var(--border);
+    }
+    .overview-item {
+      padding: 4px 0; font-size: 13px;
+      display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap;
+    }
+    .overview-bullet { color: var(--accent); flex-shrink: 0; font-size: 14px; line-height: 1; }
+    .overview-empty {
+      font-size: 12px; color: var(--text-dim); font-style: italic; padding: 8px 0;
+    }
+    .pod-tag {
+      display: inline-block;
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-left: 4px;
+    }
+    .carry-rollup-q {
+      background: rgba(255, 196, 63, 0.06);
+      border-left: 2px solid var(--status-yellow);
+      padding-left: 6px;
+    }
+
     /* ── Cross-Pod ── */
     .crossp-item { padding: 3px 0; font-size: 13px; display: flex; align-items: baseline; gap: 6px; }
     .crossp-icon { color: var(--accent); flex-shrink: 0; font-size: 11px; }
@@ -852,26 +886,83 @@
       `;
     }
 
-    // ─── Render: Summary ───
+    // ─── Render: Sprint Overview (milestone-lens) ───
     function renderSummary() {
-      const s = SPRINT_DATA.summary;
-      const unresolvedCount = s.open_questions.filter(q => !q.resolved).length;
+      const s = SPRINT_DATA.summary || {};
+      const m = SPRINT_DATA.meta || {};
 
-      const risks = s.top_risks.map(r =>
-        `<div class="risk-item"><span class="risk-icon">&#9888;</span><span>${richText(r)}</span></div>`
+      const milestoneGoals = (s.milestone_goals || []).map(g =>
+        `<div class="overview-item"><span class="overview-bullet">&bull;</span><span>${richText(typeof g === 'string' ? g : g.text)}</span></div>`
       ).join('');
 
-      const questions = s.open_questions.map(q => `
-        <div class="oq-item ${q.resolved ? 'resolved' : ''}">
-          <span class="oq-icon">${q.resolved ? '&#10003;' : '&#9675;'}</span>
-          <span class="oq-text">${richText(q.text)}</span>
-        </div>
-      `).join('');
+      const checkpoint = s.checkpoint;
+      let checkpointHtml = '';
+      if (checkpoint && checkpoint.goals && checkpoint.goals.length) {
+        const items = checkpoint.goals.map(g =>
+          `<div class="overview-item"><span class="overview-bullet">&bull;</span><span>${richText(typeof g === 'string' ? g : g.text)}</span></div>`
+        ).join('');
+        checkpointHtml = `
+          <div class="overview-col">
+            <h3>${esc(checkpoint.name || 'Checkpoint Goals')}</h3>
+            ${items}
+          </div>`;
+      }
+
+      const activeFocus = (s.active_focus || []).map(f => {
+        const txt = typeof f === 'string' ? f : f.text;
+        const shqs = (typeof f === 'object' && f.shqs ? f.shqs : []).map(x => `<span class="shq-badge">${esc(x)}</span>`).join('');
+        const pods = (typeof f === 'object' && f.pods ? f.pods : []).map(p => `<span class="pod-tag" style="background:${(POD_COLORS_HEX[p] || '#888')}22;color:${POD_COLORS_HEX[p] || '#888'}">${esc(p)}</span>`).join('');
+        return `<div class="overview-item"><span class="overview-bullet">&bull;</span><span>${richText(txt)} ${shqs} ${pods}</span></div>`;
+      }).join('');
+
+      const validation = (s.validation_in_flight || []).map(v => {
+        if (typeof v === 'string') return `<div class="overview-item"><span class="shq-badge">${esc(v)}</span></div>`;
+        const pods = (v.pods || []).map(p => `<span class="pod-tag" style="background:${(POD_COLORS_HEX[p] || '#888')}22;color:${POD_COLORS_HEX[p] || '#888'}">${esc(p)}</span>`).join('');
+        return `<div class="overview-item"><span class="shq-badge">${esc(v.id)}</span><span>${richText(v.label || '')}</span> ${pods}</div>`;
+      }).join('');
+
+      const overviewCols = [];
+      if (milestoneGoals) overviewCols.push(`<div class="overview-col"><h3>Milestone Goals — ${esc(m.milestone || '')}</h3>${milestoneGoals}</div>`);
+      if (checkpointHtml) overviewCols.push(checkpointHtml);
+      if (activeFocus) overviewCols.push(`<div class="overview-col"><h3>Active Focus This Sprint</h3>${activeFocus}</div>`);
+      if (validation) overviewCols.push(`<div class="overview-col"><h3>Validation In Flight</h3>${validation}</div>`);
+
+      const overviewBody = overviewCols.length
+        ? `<div class="overview-grid">${overviewCols.join('')}</div>`
+        : `<div class="overview-empty">No overview content yet — add <code>summary.milestone_goals</code>, <code>summary.checkpoint</code>, <code>summary.active_focus</code>, or <code>summary.validation_in_flight</code> to the sprint data file.</div>`;
 
       return `
         <div class="panel">
           <div class="panel-title">Sprint Overview
-            <span class="pill pill-red">${s.top_risks.length} risks</span>
+            <span class="pill pill-blue">Sprint ${m.milestone_sprint || '?'} of ${m.milestone_sprint_total || '?'}</span>
+          </div>
+          ${overviewBody}
+        </div>
+      `;
+    }
+
+    // ─── Render: Risks & Open Questions (separate panel) ───
+    function renderRisksAndQuestions() {
+      const s = SPRINT_DATA.summary || {};
+      const topRisks = s.top_risks || [];
+      const openQs = s.open_questions || [];
+      const unresolvedCount = openQs.filter(q => !q.resolved).length;
+
+      const risks = topRisks.map(r =>
+        `<div class="risk-item"><span class="risk-icon">&#9888;</span><span>${richText(r)}</span></div>`
+      ).join('') || '<div class="overview-empty">No top risks listed.</div>';
+
+      const questions = openQs.map(q => `
+        <div class="oq-item ${q.resolved ? 'resolved' : ''}">
+          <span class="oq-icon">${q.resolved ? '&#10003;' : '&#9675;'}</span>
+          <span class="oq-text">${richText(q.text)}</span>
+        </div>
+      `).join('') || '<div class="overview-empty">No open questions.</div>';
+
+      return `
+        <div class="panel">
+          <div class="panel-title">Risks &amp; Open Questions
+            <span class="pill pill-red">${topRisks.length} risks</span>
             <span class="pill pill-${unresolvedCount > 0 ? 'yellow' : 'green'}">${unresolvedCount} open questions</span>
           </div>
           <div class="summary-grid">
@@ -933,24 +1024,40 @@
         `;
       }).join('');
 
-      // Carry-over
-      let carryHtml = '';
-      if (pod.carry_over.length > 0) {
-        const items = pod.carry_over.map(c => `
-          <div class="carry-item">
-            ${SPRINT_DATA.chi_urls?.[c.id] ? `<a href="${SPRINT_DATA.chi_urls[c.id]}" target="_blank" rel="noopener" class="carry-id" style="text-decoration:none">${esc(c.id)}</a>` : `<span class="carry-id">${esc(c.id)}</span>`}
-            <span>${richText(c.name)}</span>
-            ${statusPill(c.status)}
-            <span style="color:var(--text-dim);font-size:12px">${esc(c.assignee)}</span>
-            ${c.confirmed ? '<span class="carry-confirmed">&#10003; confirmed</span>' : ''}
+      // Carry-over rollup (synthesized as the first open question, not a separate section)
+      let carryRollupHtml = '';
+      if (pod.carry_over && pod.carry_over.length > 0) {
+        const byAssignee = pod.carry_over.reduce((acc, c) => {
+          const key = c.assignee || 'Unassigned';
+          acc[key] = (acc[key] || 0) + 1;
+          return acc;
+        }, {});
+        const summary = Object.entries(byAssignee)
+          .sort((a, b) => b[1] - a[1])
+          .map(([n, c]) => `${esc(n)} (${c})`).join(', ');
+
+        // Build a tooltip listing each carry-over with link if available
+        const tooltip = pod.carry_over.map(c => `${c.id}: ${c.name} [${c.assignee}]`).join('\n');
+        const itemList = pod.carry_over.map(c => {
+          const idHtml = SPRINT_DATA.chi_urls?.[c.id]
+            ? `<a href="${SPRINT_DATA.chi_urls[c.id]}" target="_blank" rel="noopener" class="carry-id" style="text-decoration:none">${esc(c.id)}</a>`
+            : `<span class="carry-id">${esc(c.id)}</span>`;
+          return `<div style="font-size:12px;color:var(--text-dim);padding:2px 0 2px 22px">${idHtml} ${richText(c.name)} <span style="opacity:0.6">— ${esc(c.assignee)}</span> ${statusPill(c.status)}</div>`;
+        }).join('');
+
+        carryRollupHtml = `
+          <div class="oq-item carry-rollup-q" title="${esc(tooltip)}">
+            <span class="oq-icon">&#9675;</span>
+            <span class="oq-text"><strong>Past Sprint Cleanup</strong> — will we have to deal with these? ${summary}</span>
           </div>
-        `).join('');
-        carryHtml = `<div class="section-label">Carry-Over</div>${items}`;
+          ${itemList}
+        `;
       }
 
       // Open questions
       let oqHtml = '';
-      if (pod.open_questions.length > 0) {
+      const hasCarry = !!carryRollupHtml;
+      if (pod.open_questions.length > 0 || hasCarry) {
         const items = pod.open_questions.map((q, i) => `
           <div class="oq-item ${q.resolved ? 'resolved' : ''}" data-oq-idx="${i}">
             <span class="oq-icon" onclick="toggleOQ(this)">${q.resolved ? '&#10003;' : '&#9675;'}</span>
@@ -959,9 +1066,10 @@
             <span class="oq-answer-input editable" contenteditable="false" data-field="oq-answer" data-idx="${i}">${esc(q.answer || '')}</span>
           </div>
         `).join('');
-        const unresolvedCount = pod.open_questions.filter(q => !q.resolved).length;
+        const unresolvedCount = pod.open_questions.filter(q => !q.resolved).length + (hasCarry ? 1 : 0);
         oqHtml = `
           <div class="section-label">Open Questions <span class="pill pill-${unresolvedCount > 0 ? 'yellow' : 'green'}" style="font-size:10px">${unresolvedCount} open</span></div>
+          ${carryRollupHtml}
           ${items}
           <span class="add-btn" onclick="addQuestion(this)">+ Add question</span>
         `;
@@ -1013,7 +1121,6 @@
             <tbody>${peopleRows}</tbody>
           </table>
 
-          ${carryHtml}
           ${oqHtml}
           ${risksHtml}
         </div>
@@ -1453,6 +1560,7 @@
         renderCrossPod(),
         renderCapacity(),
         renderTicketCoverage(),
+        renderRisksAndQuestions(),
         '<div class="footer">Sprint Plan &middot; Generated by <code>/sprint-plan</code></div>'
       ].join('');
     }
