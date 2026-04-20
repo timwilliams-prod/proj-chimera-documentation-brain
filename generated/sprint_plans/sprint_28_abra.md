@@ -184,10 +184,10 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 | Danny Oliveira | Art (VFX) | 10 | 1. VFX implementation/polish | |
 | Alessandro Oliveira | Art (VFX) | **9-10** | 1. Trench Knight VFX completion ([CHI-36350](https://app.clickup.com/t/86agjmw4v) family if not done) 2. New VFX | May 1 verify. |
 | Vinod Rams | Art (Lead 2D Concept) | **8** | 1. Toshoia Hero Concept continuation 2. Unit concepts | Out 5/1, 5/4. |
-| Ben Clair | Art | 10 | 1. Unit Content art | |
-| Felipe Chaves | Art | **9-10** | 1. Character art | May 1 verify. |
-| Tony Bonilla | Art | 10 | 1. Unit Content art / Hero animations ([CHI-31445](https://app.clickup.com/t/8699n06e4)) | |
-| Vini Muniz | Art | 10 | 1. Melee Bot continuation ([CHI-36356](https://app.clickup.com/t/86agjy22g), [CHI-36473](https://app.clickup.com/t/86agq78gj)) | |
+| Ben Clair | Art | 10 | 1. Start Merrin Rig & Skinning | |
+| Felipe Chaves | Art | **9-10** | 1. Finish Merrin 3d | May 1 verify. |
+| Tony Bonilla | Art | 10 | 1. Finish Trench Knight / Hero animations ([CHI-31445](https://app.clickup.com/t/8699n06e4)) | |
+| Vini Muniz | Art | 10 | 1. Melee Bot continuation ([CHI-36356](https://app.clickup.com/t/86agjy22g), [CHI-36473](https://app.clickup.com/t/86agq78gj)) 2. Next Hero Concept (Toshoia/Mecha Saboteur) | |
 | Julio Scarabelli | QA | **9-10** | 1. Battle HUD QA prep 2. Bug verification | May 1 verify. |
 | Thorben Novais | Producer | **9-10** | 1. Battle production 2. Dozer production (CP2 starts) | May 1 verify. Two pods. |
 
