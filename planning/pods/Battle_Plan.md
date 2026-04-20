@@ -140,9 +140,10 @@ All Battle features across milestones, ordered by priority within each milestone
 | Dylan Jeffery | Obstacles prototypes (design validation), Battle Content pipeline | Design validation prep for eng |
 | Vishaal Gupta | Battle Content + unit balance | |
 | Alessandro Oliveira, Danny Oliveira | VFXs | Continuing from S26 |
-| Vinod Rams | New Hero Concept: Toshoia (week 2 kickoff), Unit concepts | Concept Lead for Toshoia |
+| Vinod Rams | Hero Toshoia 2D Concept Kick-Off (4/20), Unit concepts | Concept work continues into S28 |
+| Vinicius | Unit Content art | Preparing for Hero concept work in S28 |
 | Julio Scarabelli | QA support | |
-| Ben Clair, Felipe Chaves, Tony Bonilla, Vinicius | Unit Content art | Ongoing |
+| Ben Clair, Felipe Chaves, Tony Bonilla | Unit Content art | Ongoing |
 
 **Risks & Awareness**:
 - **Actor System focus**: Jota prioritizing Actor System Overhaul implementation this sprint
@@ -150,6 +151,39 @@ All Battle features across milestones, ordered by priority within each milestone
 - Still solo engineer (Jota) — no capacity flexibility
 - 4 features totaling ~9 eng-sprints now compressed into 6 remaining sprints
 - If Actor System or later Battle HUD eng runs long, downstream features (Obstacles, Pathfinding) at risk
+
+### Sprint 28: Abra (4/28 - 5/12) — PLANNED
+
+**Goals**:
+- **Battle HUD Beta Overhaul** implementation starts (Jota) — Sprint 1 of ~4, engineering begins
+- **Obstacles** design validation (Dylan) — continued design prep
+- **Pathfinding & AI** design prep — preparing for S29 engineering start
+- Continue content pipelines
+
+**Key Assignments**:
+
+| Person | Focus | Notes |
+|--------|-------|-------|
+| Jota Oliveira | Battle HUD Implementation (Sprint 1 of ~4) | Solo client engineer. Critical path. Engineering phase begins. |
+| Dylan Jeffery | Obstacles design validation, Battle Content pipeline | Continued design validation |
+| Lincoln Li | Battle HUD support as needed | Design/UX completed in S27 |
+| Nathan Hajek | Unit Design & Prototype (M&M) | |
+| Vishaal Gupta | Battle Content + unit balance | |
+| Alessandro Oliveira, Danny Oliveira | VFXs | |
+| Julio Scarabelli | QA support | |
+| **Hero Concept Art**: | | |
+| Vinod Rams | Hero Toshoia or Hero Mecha Saboteur 2D Concept | Both concepts finish in S28. Assignment TBD with Vinicius. |
+| Vinicius | Hero Toshoia or Hero Mecha Saboteur 2D Concept | Both concepts finish in S28. Assignment TBD with Vinod. |
+| **Unit Content - Merrin**: | | |
+| Felipe Chaves | Finish Merrin 3D | |
+| Ben Clair | Start Merrin Rig & Skinning | |
+| Tony Bonilla | Finish Trench Knight animations, Start Merrin Animations | Priority: Trench Knight completion |
+
+**Risks & Awareness**:
+- Battle HUD implementation starts — estimated 3-4 sprints total to complete
+- Solo engineer (Jota) continues as bottleneck
+- 4 features totaling ~9 eng-sprints compressed into 5 remaining sprints (S28-S32)
+- Any delay in Battle HUD cascades to Obstacles and Pathfinding features
 
 ---
 
