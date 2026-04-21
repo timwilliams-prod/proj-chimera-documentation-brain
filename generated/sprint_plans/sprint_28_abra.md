@@ -5,7 +5,7 @@ Working Days: 10 (May 1 — verify Labor Day handling for Brazil/global; Tiraden
 Holidays: May 1 (Friday) — Workers' Day / Labor Day. Likely BR holiday; verify Fortis policy for US/Canada team.
 Milestone: M&Ms (Multiplayer & Meta) — Sprint 3 of ~7
 Mode: Preview
-Generated: 2026-04-20
+Generated: 2026-04-20 (updated 2026-04-21: Art Pod removed, artists embedded in working pods; Diana/Marcos priorities updated)
 ---
 
 # Sprint 28: Abra — PREVIEW
@@ -120,19 +120,18 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 - **WME — Multiple Nodes per Territory** engineering kickoff (Henrique, Sub-effort 1 of 3) → *advances Empire CP2 #1* — SHQ4-3, SHQ4-4
 - **WME Sub-effort 1 spec finalized** in week 1 (Diana) → *advances Empire CP2 #1*
 - **Map Content pipeline** continues (Jacob, Elise) → *advances Empire CP2 #3* — SHQ3-1
-- **Narrative design/planning for the second story arc** → ⚠️ *off-checkpoint* (Empire-owned narrative work; no current CP2 narrative goal — milestone plan may need update)
 
 ### Individual Breakdown
 
 | Assignee | Discipline | Avail Days | Priorities | Notes |
 |----------|-----------|------------|------------|-------|
-| Diana Vasilescu | Design | 10 | 1. WME spec finalization (Multiple Nodes per Territory) — get to ready before 4/28 2. Map Content design support 3. **Begin absorbing UX duties** for WME Sub-efforts 2 & 3 (post-Yura) | Critical week-1 design alignment with Henrique. **Diana is now the post-5/11 UX owner for Empire.** |
+| Diana Vasilescu | Design | 10 | 1. WME spec finalization (Multiple Nodes per Territory) — get to ready before 4/28 2. Map Content design support 3. **Narrative design/planning for the second story arc** (pre-req for Map content) | Critical week-1 design alignment with Henrique. |
 | Jacob Siegel | Design | 10 | 1. Map Content (T-tier work continuation) 2. Any remaining ZZ Player Journey/CG follow-ups | Carry-over watch from [CHI-36411](https://app.clickup.com/t/86agp9g9c) family if not closed in S27. |
 | Elise Cole | Design | 10 | 1. **Figma Map agentic research** ([CHI-36575](https://app.clickup.com/t/86agw4bfz)) — primary 2. T8 Design Prep ([CHI-36576](https://app.clickup.com/t/86agw4bwz)) → continues into T8 Implementation, lower priority 3. WME design support | Carry-over from S27 confirmed. Agentic research is the higher-priority track. |
 | Yura Rusin | UX | **9** | 1. **WME UX hand-off package** — Sub-effort 1 final wireframes + flows, Sub-effort 2 final wireframes + flows, open Qs / decisions log 2. Dr appts | **Maternity leave starts 5/11** — loses sprint day 10 + all of M&Ms remainder (S29-S31). Sub-effort 3 deliberately left to Diana as flex room for iterations. |
 | Henrique De Lima | Eng | **9** | 1. **WME — Multiple Nodes per Territory (Eng kickoff)** | **Off May 1 (BR Workers' Day, confirmed)**. Sole client engineer. Partial appts 4/29, 5/6. Tutorial Migration parked — Henrique focused on WME. Spec not 100% ready at sprint start — week-1 alignment with Diana required. |
 | Laura Santana | QA | **9** | 1. WME smoke-test prep 2. Bug verification | **Off May 1 (BR Workers' Day)**. Tutorial QA dropped — Tutorial work parked. |
-| Marcos Teles | Tech Art | **9-10** | 1. Empire tech art (carryover from S27 if [CHI-36339](https://app.clickup.com/t/86aghye8r) Territory Map texture flickering still open) 2. Anti-aliasing tutorial spotlight 3. Water VFX/Shader exploration | May 1 verify. Empire-embedded artist. |
+| Marcos Teles | Tech Art | **9-10** | 1. **Territory Map Optimization Review** (collab with Pedro/Thiago) 2. Anti-aliasing tutorial spotlight 3. Water VFX/Shader exploration | May 1 verify. Empire-embedded artist. |
 | Guilherme Lascasas | 2D Env Concept | **9-10** | 1. Environment concept (Empire) 2. WME asset support for Henrique kickoff | May 1 verify. Empire-embedded artist. |
 | Thiago Saraiva | Senior 3D | **9-10** | 1. 3D blockouts (Empire — terrain objects, building blockouts) 2. WME asset support for Henrique kickoff | May 1 verify. Empire-embedded artist. |
 | Brann Livesay | Producer | **9** | 1. Empire production (incl. Empire-embedded art) | Out 5/8. |
@@ -443,7 +442,7 @@ S28 is the first sprint of CP2 (only Empire and Metagame had CP2 work pre-existi
 | Pod | Checkpoint Goal | S28 Active Work | Status |
 |-----|-----------------|------------------|--------|
 | Empire | WME eng implementation kicked off (Multiple Nodes per Territory) | WME Sub-effort 1 eng kickoff — Henrique | ✅ On Track |
-| Empire | Territory Map perf/visual targets validated through WME | Indirect — via WME work; Marcos Teles AA + flicker fix | ⚠️ Light |
+| Empire | Territory Map perf/visual targets validated through WME | Marcos Teles — Territory Map Optimization Review (collab with Pedro/Thiago); indirect via WME work | ✅ On Track |
 | Empire | Map Content variety expanded for WME testing | Jacob + Elise on Map Content / T8 prep | ✅ On Track |
 | Empire | WME assets delivered for eng kickoff | Guilherme L env concept + Thiago S 3D blockouts | ✅ On Track |
 | Metagame | UI Foundation supports 2+ pod screens | Sprint 3 of 6 in flight (still building toward consumability) | ⚠️ Light |
@@ -461,13 +460,13 @@ S28 is the first sprint of CP2 (only Empire and Metagame had CP2 work pre-existi
 | Dozer | Compliance (OneTrust, Age Gate) underway | Derek — kickoff (capacity-constrained) | ⚠️ Light |
 | Dozer | UI Framework V2 (Full) cross-pod ready | Migration kickoff only — feature-complete is CP2 close | ⚠️ Light |
 
-**Summary**: **9 of 18** CP2 goals (50%) have ✅ on-track sprint work in S28. **7 are ⚠️ light**, **2 are ❌ uncovered**.
+**Summary**: **10 of 18** CP2 goals (56%) have ✅ on-track sprint work in S28. **6 are ⚠️ light**, **2 are ❌ uncovered**.
 
 **At-Risk Goals (2 sprints remaining in CP2)**:
 - ❌ **Battle: Pathfinding & AI eng kicked off** — Jota fully consumed by HUD; eng start may slip to CP3. Decision needed before S29: cut, defer, or bring in support.
 - ❌ **SD: Phase 3 kicked off** — pod still wrapping P2. Phase 3 entry may slip to CP3 unless P2 closes cleanly in S28.
 
-**⚠️ Light goals to watch**: Battle Obstacles (eng deferred), Metagame UI Foundation consumption (still in build-out), Metagame FTUE Friction (no eng yet), Dozer Compliance + UI Framework V2 (kickoff-only this sprint), Empire Territory Map validation (indirect through WME).
+**⚠️ Light goals to watch**: Battle Obstacles (eng deferred), Metagame UI Foundation consumption (still in build-out), Metagame FTUE Friction (no eng yet), Dozer Compliance + UI Framework V2 (kickoff-only this sprint).
 
 ---
 
