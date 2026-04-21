@@ -34,7 +34,8 @@ Read ALL of these:
 - `planning/pods/battle/features.md` + `planning/pods/battle/milestone_{ms}.md` — Battle features and sprint allocation
 - `planning/pods/social_dynamics/features.md` + `planning/pods/social_dynamics/milestone_{ms}.md` — Social Dynamics features and sprint allocation
 - `planning/pods/dozer/features.md` + `planning/pods/dozer/milestone_{ms}.md` — Dozer features and sprint allocation
-- `planning/pods/art/features.md` + `planning/pods/art/milestone_{ms}.md` — Art features and sprint allocation
+
+> **5 active pods**: Empire, Metagame, Battle, Social Dynamics, Dozer. Art Pod was closed 2026-04-13 — `planning/pods/art/` only contains a closure marker. Do not read it as a pod plan and do not produce an Art section in the milestone plan. Artist deliverables roll up under each pod's content track per `planning/capacity.md`.
 
 Replace `{ms}` with the milestone short name (e.g., `milestone_mms.md` for M&Ms, `milestone_mc.md` for M&C, `milestone_beta_prep.md` for Beta Prep, `milestone_live_ops.md` for Live Ops, `milestone_soft_launch.md` for Soft Launch).
 - `generated/roadmap.md` — Consolidated view for cross-reference

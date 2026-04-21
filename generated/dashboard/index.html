@@ -875,7 +875,10 @@
       const sprintCols = msSprints.map(s => {
         const today = new Date().toISOString().slice(0, 10);
         const isCurrent = today >= s.start && today < s.end;
-        return `<div class="roadmap-sprint-col ${isCurrent ? 'current' : ''}">${s.name}</div>`;
+        const endDate = new Date(s.end + 'T00:00:00');
+        endDate.setDate(endDate.getDate() - 1);
+        const endLabel = `${endDate.getMonth() + 1}/${endDate.getDate()}`;
+        return `<div class="roadmap-sprint-col ${isCurrent ? 'current' : ''}">${s.name} (${endLabel})</div>`;
       }).join('');
 
       // Sprint gridlines

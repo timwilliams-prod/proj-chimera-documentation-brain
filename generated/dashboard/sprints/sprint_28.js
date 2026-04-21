@@ -90,14 +90,18 @@ var SPRINT_DATA = {
         { name: "Yura Rusin", discipline: "UX", avail: 9, total: 10, priorities: ["WME UX hand-off package: Sub-effort 1 final wireframes + flows", "WME UX hand-off package: Sub-effort 2 final wireframes + flows", "Open Qs / decisions log", "Dr appts"], notes: "Maternity leave starts 5/11 — loses sprint day 10 + all of M&Ms remainder (S29-S31). Sub-effort 3 deliberately left to Diana as flex room for iterations.", flags: ["pto"] },
         { name: "Henrique De Lima", discipline: "Eng", avail: 9, total: 10, priorities: ["WME — Multiple Nodes per Territory (Eng kickoff)"], notes: "Off May 1 (BR Workers' Day, confirmed). Sole client engineer. Partial appts 4/29, 5/6. Tutorial Migration parked — focused on WME. Spec not 100% ready at sprint start — week-1 alignment with Diana required.", flags: ["sole-eng", "pto"] },
         { name: "Laura Santana", discipline: "QA", avail: 9, total: 10, priorities: ["WME smoke-test prep", "Bug verification"], notes: "Off May 1 (BR Workers' Day, confirmed). Tutorial QA dropped — Tutorial work parked.", flags: ["pto"] },
-        { name: "Brann Livesay", discipline: "Producer", avail: 9, total: 10, priorities: ["Empire production", "Art production"], notes: "Out 5/8. Also produces Art.", flags: ["pto", "split"] }
+        { name: "Marcos Teles", discipline: "Tech Art", avail: 9, total: 10, priorities: ["Empire tech art (carryover from S27 if CHI-36339 still open)", "Anti-aliasing tutorial spotlight", "Water VFX/Shader exploration"], notes: "May 1 Labor Day verify.", flags: ["pto"] },
+        { name: "Guilherme Lascasas", discipline: "2D Env Concept", avail: 9, total: 10, priorities: ["Environment concept (Empire)", "WME asset support for Henrique kickoff"], notes: "May 1 Labor Day verify.", flags: ["pto"] },
+        { name: "Thiago Saraiva", discipline: "Senior 3D", avail: 9, total: 10, priorities: ["3D blockouts (Empire — terrain objects, building blockouts)", "WME asset support for Henrique kickoff"], notes: "May 1 Labor Day verify.", flags: ["pto"] },
+        { name: "Brann Livesay", discipline: "Producer", avail: 9, total: 10, priorities: ["Empire production (incl. Empire-embedded art)"], notes: "Out 5/8.", flags: ["pto"] }
       ],
       carry_over: [
         { id: "CHI-36213", name: "Tutorial Arch - Orchestration/State Tracking — PARKED (no trickle; revisit at next milestone planning)", assignee: "Parked — owner TBD", status: "paused", confirmed: true },
         { id: "CHI-36212", name: "Tutorial Arch - Triggering — PARKED (no trickle; revisit at next milestone planning)", assignee: "Parked — owner TBD", status: "paused", confirmed: true },
         { id: "CHI-36381", name: "Tutorial Node Rewrites — PARKED (no trickle; revisit at next milestone planning)", assignee: "Parked — owner TBD", status: "paused", confirmed: true },
         { id: "CHI-36575", name: "Figma Map agentic research (PRIMARY)", assignee: "Elise Cole", status: "in_progress", confirmed: true },
-        { id: "CHI-36576", name: "T8 Design Prep — continues into T8 Implementation, lower priority", assignee: "Elise Cole", status: "to_do", confirmed: true }
+        { id: "CHI-36576", name: "T8 Design Prep — continues into T8 Implementation, lower priority", assignee: "Elise Cole", status: "to_do", confirmed: true },
+        { id: "CHI-36339", name: "Territory Map Texture Flickering T6", assignee: "Marcos Teles", status: "in_progress", confirmed: false }
       ],
       open_questions: [
         { text: "Tutorial Migration trickle plan — which engineers absorb the remaining Tutorial work, and at what cadence?", resolved: true, answer: "PARKED entirely until designer tooling is re-prioritized. No engineer pickup planned." },
@@ -283,45 +287,6 @@ var SPRINT_DATA = {
         "Derek's split between Dozer + SD eng lead intensifies as both pods enter big phases.",
         "EKS dependency — if S27 didn't close, parallel workflows setup slips."
       ]
-    },
-
-    // ──────────────────────────────────────────
-    // ART
-    // ──────────────────────────────────────────
-    {
-      name: "Art",
-      lead: "Kevin Griffith",
-      producer: "Brann Livesay",
-      eng_summary: "",
-      goals: [
-        { text: "All ongoing tracks continue (Character, Environment, UI/UX, VFX & Animation)", shqs: [] },
-        { text: "Cross-pod priorities for CP2: Battle HUD assets (eng begins), WME assets (eng begins), UI Foundation continuing", shqs: [] },
-        { text: "Brendan returns 5/4 — week-1 coverage gap", shqs: [] }
-      ],
-      people: [
-        { name: "Kevin Griffith", discipline: "Art Director", avail: 10, total: 10, priorities: ["Cross-pod art direction", "CP2 art priority alignment"], notes: "Solo AD coverage week 1 (Brendan out through 5/3).", flags: [] },
-        { name: "Brendan Cheatham", discipline: "Assoc. AD", avail: 6, total: 10, priorities: ["Cross-pod art direction (5/4-5/11 only)"], notes: "Out 4/28-5/1. Returns 5/4. 4 sprint days lost.", flags: ["pto"] },
-        { name: "Pedro Sarraf", discipline: "Lead Tech Art", avail: 10, total: 10, priorities: ["Tech art assignments"], notes: "Should be at full availability.", flags: [] },
-        { name: "Marcos Teles", discipline: "Tech Art", avail: 9, total: 10, priorities: ["Empire tech art (carryover from S27 if CHI-36339 still open)", "Anti-aliasing tutorial spotlight", "Water VFX/Shader exploration"], notes: "May 1 Labor Day verify.", flags: ["pto"] },
-        { name: "Guilherme Lascasas", discipline: "2D Env Concept", avail: 9, total: 10, priorities: ["Environment concept (Empire)"], notes: "May 1 Labor Day verify.", flags: ["pto"] },
-        { name: "Thiago Saraiva", discipline: "Senior 3D", avail: 9, total: 10, priorities: ["3D blockouts (Empire — terrain objects, building blockouts)"], notes: "May 1 Labor Day verify.", flags: ["pto"] },
-        { name: "Lawrence Steele", discipline: "Audio", avail: 10, total: 10, priorities: ["Sound design"], notes: "", flags: [] },
-        { name: "Brann Livesay", discipline: "Producer", avail: 9, total: 10, priorities: ["Art production", "Empire production"], notes: "Out 5/8. Also produces Empire.", flags: ["pto", "split"] }
-      ],
-      carry_over: [
-        { id: "CHI-36339", name: "Territory Map Texture Flickering T6", assignee: "Marcos Teles", status: "in_progress", confirmed: false }
-      ],
-      open_questions: [
-        { text: "Brendan coverage week 1 — same situation as S27. Kevin solo through 5/3.", resolved: false, answer: "" },
-        { text: "Art priority for CP2 — Battle HUD assets (eng begins) vs WME assets (eng begins) vs UI Foundation continuing. Which gets first?", resolved: false, answer: "" },
-        { text: "Marcos Teles carry-over — did CHI-36339 (Territory Map texture flickering) close in S27?", resolved: false, answer: "" },
-        { text: "May 1 Labor Day — BR-based art team off?", resolved: false, answer: "" }
-      ],
-      risks: [
-        "Two big eng kickoffs (WME, Battle HUD) hit same sprint — both need art support immediately.",
-        "Brendan out 4 days continues from S27 — Kevin Griffith covers solo for week 1.",
-        "May 1 Labor Day affects all BR art team members."
-      ]
     }
   ],
 
@@ -340,7 +305,11 @@ var SPRINT_DATA = {
       "Kevin Ligon (UX): UI Foundation primary + Meta Depth + Battle HUD support (cross-pod).",
       "Miguel Duran (UI Artist): UI Foundation primary + cross-pod (Battle HUD, WME).",
       "Dan Dupuis (Eng Lead): UI Foundation oversight + Empire WME kickoff support.",
-      "Thorben Novais (Producer): Battle + Dozer both ramping to CP2."
+      "Thorben Novais (Producer): Battle + Dozer both ramping to CP2.",
+      "Kevin Griffith (Art Director, cross-pod): solo AD coverage week 1 (Brendan out through 5/3). Setting CP2 art priorities across Empire (WME) + Battle (HUD) + Metagame (UI Foundation).",
+      "Brendan Cheatham (Assoc. AD, cross-pod): Out 4/28-5/1, returns 5/4. 6 sprint days available.",
+      "Pedro Sarraf (Lead Tech Art, cross-pod / Battle from CP3): Tech art assignments across pods.",
+      "Lawrence Steele (Audio, cross-pod): Sound design across pods."
     ],
     notes: [
       "Yura maternity leave starts 5/11 (RESOLVED 2026-04-21): No embedded Empire UX after 5/11. Lina supports the project but is on Meta. Diana Vasilescu absorbs UX duties for WME Sub-efforts 2 & 3 in addition to her design lead role. Yura handoff package due before 5/11: Sub-effort 1 + 2 final wireframes/flows + open Qs/decisions log. Sub-effort 3 = iteration flex room. Open watch: Diana's load in S29+.",
@@ -369,10 +338,13 @@ var SPRINT_DATA = {
         "Empire: World Map Experience eng implementation kicked off (Henrique on Multiple Nodes per Territory)",
         "Empire: Territory Map performance/visual targets validated through WME work (SHQ3-1 evidence accumulating)",
         "Empire: Map Content variety expanded to support WME testing",
+        "Empire: WME assets delivered (Guilherme L env concept + Thiago S 3D blockouts) to support Henrique's eng kickoff",
         "Metagame: Pipeline A — UI Foundation supports 2+ pod screens in active use; cross-pod adoption pattern proven",
         "Metagame: Pipeline B — Building Upgrades shipped; Empire Progression Tree underway",
         "Metagame: FTUE Friction reduction design implementation has visible in-game changes",
         "Battle: Battle HUD Implementation in active engineering (Jota) — at least 50% through impl scope",
+        "Battle: Battle HUD assets in active integration alongside Jota's eng work (Miguel Duran cross-pod UI art)",
+        "Battle: Unit content cadence steady — no Battle pod blockers from art (Ben/Felipe/Tony/Vini active)",
         "Battle: Obstacles eng integration started; design proven viable for ship",
         "Battle: Pathfinding & AI Improvements eng kicked off",
         "Social Dynamics: Phase 2 wrap — Tile Ownership + Tile States + Map Visualization (Loures), Embark Flow (Gabriel), Multiplayer Map Instance Creation/list/join + dev UI v1 (Randy)",
@@ -380,10 +352,7 @@ var SPRINT_DATA = {
         "Social Dynamics: In-client multiplayer demonstrably playable in dev UI",
         "Dozer: Build Pipeline Review kicked off — improvements scoped and starting to land",
         "Dozer: Compliance (OneTrust, Age Gate) implementation underway",
-        "Dozer: UI Framework V2 (Full) feature-complete enough for cross-pod adoption",
-        "Art: WME assets delivered to support Empire engineering kickoff",
-        "Art: Battle HUD assets in active integration alongside Jota's eng work",
-        "Art: Unit content cadence steady — no Battle pod blockers from art"
+        "Dozer: UI Framework V2 (Full) feature-complete enough for cross-pod adoption"
       ]
     },
     active_focus: [
@@ -408,10 +377,13 @@ var SPRINT_DATA = {
       { pod: "Empire", checkpoint_goal: "WME eng implementation kicked off (Multiple Nodes per Territory)", sprint_work: "WME Sub-effort 1 eng kickoff — Henrique", status: "on_track" },
       { pod: "Empire", checkpoint_goal: "Territory Map perf/visual targets validated through WME", sprint_work: "Indirect — via WME work; Marcos Teles AA + flicker fix", status: "light" },
       { pod: "Empire", checkpoint_goal: "Map Content variety expanded for WME testing", sprint_work: "Jacob + Elise on Map Content / T8 prep", status: "on_track" },
+      { pod: "Empire", checkpoint_goal: "WME assets delivered for eng kickoff", sprint_work: "Guilherme L env concept + Thiago S 3D blockouts", status: "on_track" },
       { pod: "Metagame", checkpoint_goal: "UI Foundation supports 2+ pod screens", sprint_work: "Sprint 3 of 6 in flight (still building toward consumability)", status: "light" },
       { pod: "Metagame", checkpoint_goal: "Building Upgrades shipped; EPT underway", sprint_work: "Building Upgrades eng kickoff — Tiago", status: "on_track" },
       { pod: "Metagame", checkpoint_goal: "FTUE Friction reduction visible in-game", sprint_work: "Chris on Narrative/Tutorial design (no eng implementation yet)", status: "light" },
       { pod: "Battle", checkpoint_goal: "Battle HUD Implementation 50%+ through impl scope", sprint_work: "Sprint 1 of 4 begins — Jota", status: "on_track" },
+      { pod: "Battle", checkpoint_goal: "Battle HUD assets in active integration", sprint_work: "Miguel Duran cross-pod UI art", status: "on_track" },
+      { pod: "Battle", checkpoint_goal: "Unit content cadence steady — no art blockers", sprint_work: "Ben/Felipe/Tony/Vini active", status: "on_track" },
       { pod: "Battle", checkpoint_goal: "Obstacles eng integration started; design viable", sprint_work: "Design validation only this sprint; eng deferred", status: "light" },
       { pod: "Battle", checkpoint_goal: "Pathfinding & AI eng kicked off", sprint_work: "Lincoln design prep only — no eng start", status: "none" },
       { pod: "Social Dynamics", checkpoint_goal: "Phase 2 wrap (Tile Ownership/States/Map Viz, Embark, MP Instances)", sprint_work: "Loures + Gabriel + Randy AA-target sprint goals", status: "on_track" },
@@ -419,10 +391,7 @@ var SPRINT_DATA = {
       { pod: "Social Dynamics", checkpoint_goal: "In-client multiplayer playable in dev UI", sprint_work: "Randy MP Map Instance + dev UI v1", status: "on_track" },
       { pod: "Dozer", checkpoint_goal: "Build Pipeline Review kicked off", sprint_work: "Bruno F + Thorben — Audit & Plan", status: "on_track" },
       { pod: "Dozer", checkpoint_goal: "Compliance (OneTrust, Age Gate) underway", sprint_work: "Derek — kickoff (capacity-constrained)", status: "light" },
-      { pod: "Dozer", checkpoint_goal: "UI Framework V2 (Full) cross-pod ready", sprint_work: "Migration kickoff only — feature-complete is CP2 close", status: "light" },
-      { pod: "Art", checkpoint_goal: "WME assets delivered for Empire eng kickoff", sprint_work: "Guilherme L + Thiago S environment/blockouts", status: "on_track" },
-      { pod: "Art", checkpoint_goal: "Battle HUD assets in active integration", sprint_work: "Miguel Duran cross-pod UI art", status: "on_track" },
-      { pod: "Art", checkpoint_goal: "Unit content cadence steady — no Battle blockers", sprint_work: "Ben/Felipe/Tony/Vini active", status: "on_track" }
+      { pod: "Dozer", checkpoint_goal: "UI Framework V2 (Full) cross-pod ready", sprint_work: "Migration kickoff only — feature-complete is CP2 close", status: "light" }
     ],
     top_risks: [
       "CP2 GOAL UNCOVERED — Battle: Pathfinding & AI eng kickoff has no S28 work; Jota fully consumed by HUD. Decision needed before S29: cut, defer to CP3, or bring in support.",
@@ -432,7 +401,7 @@ var SPRINT_DATA = {
       "Triple eng kickoff sprint — Battle HUD, WME, and Dozer CP2 (3 features) all begin S28.",
       "S27 carry-over uncertainty — Actor System Overhaul + HUD DD (Battle), EKS (Dozer) need to close in S27 to enable S28 kickoffs. Tutorial Migration is PARKED entirely — owner needed for re-prioritization decision (next milestone planning).",
       "Tim out 4 days at sprint start — Metagame + Social Dynamics producer gap, second sprint in a row.",
-      "Brendan out 4 days at sprint start — Kevin Griffith solo art direction for week 1, second sprint in a row.",
+      "Brendan Cheatham out 4 days at sprint start — Kevin Griffith solo cross-pod art direction for week 1, second sprint in a row.",
       "Bruno Bacelar out last 4 sprint days — Multiplayer Networking dips in week 2.",
       "Battle CP2 over-subscribed — 3 features (HUD, Obstacles, Pathfinding) against 1 engineer (Jota).",
       "Dozer CP2 over-subscribed — 3 features (Build Pipeline, Compliance, UI Framework V2) against 2 engineers.",
@@ -454,7 +423,7 @@ var SPRINT_DATA = {
       { text: "UI Foundation Sprint 3 sub-feature scope", resolved: false },
       { text: "Battle CP2 prioritization — HUD vs Obstacles vs Pathfinding under 1-engineer constraint", resolved: false },
       { text: "Dozer CP2 prioritization — Build Pipeline vs Compliance vs UI Framework V2 under 2-engineer constraint", resolved: false },
-      { text: "Art priority for CP2 — Battle HUD assets vs WME assets vs UI Foundation", resolved: false },
+      { text: "Cross-pod art priority for CP2 — Battle HUD assets vs WME assets vs UI Foundation (Kevin Griffith / Brendan Cheatham to set)", resolved: false },
       { text: "May 1 Workers' Day policy for non-Empire BR team — verify with Holly/HR", resolved: false },
       { text: "Chris Fidalgo carry-over — CHI-36250 closed?", resolved: false },
       { text: "UI Foundation SHQ linkage (carried from S26 + S27)", resolved: false },

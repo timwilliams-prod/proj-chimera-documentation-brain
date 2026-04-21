@@ -12,6 +12,18 @@ See `planning/features/production_dashboard.md` for the full spec (panels, data 
 
 ---
 
+## Pod Model (read first)
+
+There are **5 active pods**: Empire, Metagame, Battle, Social Dynamics, Dozer.
+
+**Art Pod was closed 2026-04-13.** Do not include "Art" in the pods array, do not create an Art panel, do not list artists under a separate Art swim lane. Artists are now embedded in their working pods per `planning/capacity.md` Pod Leadership Summary:
+- **Empire artists**: Guilherme Lascasas (2D Env), Thiago Saraiva (Senior 3D), Marcos Teles (Tech Art)
+- **Battle artists**: Vinod Rams, Ben Clair, Felipe Chaves, Tony Bonilla, Vini Muniz, Danny Oliveira (VFX), Alessandro Oliveira (VFX)
+- **Cross-pod art direction**: Kevin Griffith (Art Director), Brendan Cheatham (Assoc. AD)
+- **Cross-pod / TBD**: Lawrence Steele (Audio), Pedro Sarraf (Lead Tech Art — Battle CP3+)
+
+`planning/capacity.md` is the authoritative source for current artist pod assignments — re-read it on every run; do not cache an old map.
+
 ## Your Task
 
 ### 1. Read Source Files
@@ -22,7 +34,7 @@ Read these files to gather data for each panel:
 |------|----------|
 | `planning/product_targets.md` | Panel 1 (Milestone Goals) |
 | `planning/ValidationPlan.md` | Panel 1 (status of SHQs tied to must-haves), Panel 4 (Validation) |
-| `planning/pods/{pod}/features.md` (all 6 pods) | Panel 1 (must-have feature status), Panel 5 (Roadmap boulders) |
+| `planning/pods/{pod}/features.md` (5 active pods: Empire, Metagame, Battle, Social Dynamics, Dozer) | Panel 1 (must-have feature status), Panel 5 (Roadmap boulders) |
 | `planning/contentTargets.md` | Panel 5 (Content pipeline boulders — phased by milestone) |
 | `generated/roadmap.md` | Panel 5 (Roadmap timeline data) |
 | `planning/operating_cadence.md` | Panel 3 (staleness thresholds) |
@@ -199,7 +211,7 @@ const DASHBOARD_DATA = {
     today: "YYYY-MM-DD",
     milestones: [ { name: "...", date: "YYYY-MM-DD" } ],
     sprints: [ { name: "...", start: "YYYY-MM-DD", end: "YYYY-MM-DD" } ],
-    pods: ["Empire", "Metagame", "Battle", "Social Dynamics", "Dozer", "Art"],
+    pods: ["Empire", "Metagame", "Battle", "Social Dynamics", "Dozer"],
     boulders: [
       { name: "...", pod: "...", start: "YYYY-MM-DD", end: "YYYY-MM-DD", status: "active|future", details: "..." }
     ]

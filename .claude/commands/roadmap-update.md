@@ -138,7 +138,9 @@ For each pod, generate a section with this structure:
 | P2 | Map Foundation | NOT STARTED |
 ```
 
-**Validation data**: Pull validation info from the pod's `validation.md` file (if it exists — dozer and art pods don't have one). Cross-check SHQ statuses against `planning/ValidationPlan.md` — use the ValidationPlan as authoritative if there's a conflict.
+**Validation data**: Pull validation info from the pod's `validation.md` file (if it exists — Dozer doesn't have one). Cross-check SHQ statuses against `planning/ValidationPlan.md` — use the ValidationPlan as authoritative if there's a conflict.
+
+**Pod model**: 5 active pods (Empire, Metagame, Battle, Social Dynamics, Dozer). Art Pod was closed 2026-04-13 — `planning/pods/art/` only holds a closure marker; do not regenerate an Art pod section in `generated/roadmap.md`. Artist deliverables roll up under each pod's content track per `planning/capacity.md`.
 
 If the pod's `features.md` has no features defined yet, show `[TBD - awaiting feature definitions]`.
 

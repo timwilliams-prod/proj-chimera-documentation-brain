@@ -22,8 +22,9 @@ Read ALL of these files to build the latest roadmap data:
 - `planning/pods/battle/features.md` — Battle feature priorities
 - `planning/pods/social_dynamics/features.md` — Social Dynamics feature priorities
 - `planning/pods/dozer/features.md` — Dozer feature priorities
-- `planning/pods/art/features.md` — Art feature priorities
 - `planning/capacity.md` — Team staffing (for staffLine per pod)
+
+> **5 active pods**: Empire, Metagame, Battle, Social Dynamics, Dozer. Art Pod was closed 2026-04-13 — `planning/pods/art/` only holds a closure marker. Do not read it as a pod feature source and do not emit an Art pod entry. Artist deliverables are now embedded in their working pods per `planning/capacity.md` (Empire artists, Battle artists, cross-pod art direction, etc.) and should appear in the relevant pod's `staffLine` rather than as a standalone Art row.
 - `planning/ValidationPlan.md` — SHQ/BHQ statuses
 
 **Current data (for diffing):**

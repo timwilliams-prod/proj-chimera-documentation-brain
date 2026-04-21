@@ -38,10 +38,13 @@ Sourced from each pod's `planning/pods/{pod}/milestone_mms.md` Checkpoint Goals 
 - **Empire**: World Map Experience eng implementation kicked off (Henrique on Multiple Nodes per Territory)
 - **Empire**: Territory Map performance/visual targets validated through WME work (SHQ3-1 evidence accumulating)
 - **Empire**: Map Content variety expanded to support WME testing
+- **Empire**: WME assets delivered (Guilherme L env concept + Thiago S 3D blockouts) to support Henrique's eng kickoff
 - **Metagame**: Pipeline A — UI Foundation supports 2+ pod screens in active use; cross-pod adoption pattern proven
 - **Metagame**: Pipeline B — Building Upgrades shipped; Empire Progression Tree underway
 - **Metagame**: FTUE Friction reduction design implementation has visible in-game changes
 - **Battle**: Battle HUD Implementation in active engineering (Jota) — at least 50% through impl scope
+- **Battle**: Battle HUD assets in active integration alongside Jota's eng work (Miguel Duran cross-pod UI art)
+- **Battle**: Unit content cadence steady — no Battle pod blockers from art (Ben/Felipe/Tony/Vini active)
 - **Battle**: Obstacles eng integration started; design proven viable for ship
 - **Battle**: Pathfinding & AI Improvements eng kicked off
 - **Social Dynamics**: Phase 2 wrap — Tile Ownership + Tile States + Map Visualization (Loures), Embark Flow (Gabriel), Multiplayer Map Instance Creation/list/join + dev UI v1 (Randy)
@@ -50,9 +53,6 @@ Sourced from each pod's `planning/pods/{pod}/milestone_mms.md` Checkpoint Goals 
 - **Dozer**: Build Pipeline Review kicked off — improvements scoped and starting to land
 - **Dozer**: Compliance (OneTrust, Age Gate) implementation underway
 - **Dozer**: UI Framework V2 (Full) feature-complete enough for cross-pod adoption
-- **Art**: WME assets delivered to support Empire engineering kickoff
-- **Art**: Battle HUD assets in active integration alongside Jota's eng work
-- **Art**: Unit content cadence steady — no Battle pod blockers from art
 
 ### Active Focus This Sprint
 - **WME — Multiple Nodes per Territory** eng kickoff (Empire, SHQ4-3 / SHQ4-4) → *Empire CP2 #1*
@@ -61,9 +61,10 @@ Sourced from each pod's `planning/pods/{pod}/milestone_mms.md` Checkpoint Goals 
 - **Building Upgrades (Meta Depth Phase 1)** eng kickoff (Metagame, Pipeline B) → *Metagame CP2 #2*
 - **SD Phase 2 wrap — AA-target switchover** (Tile Ownership/States/Map Viz, Embark Flow, MP Map Instances) → *SD CP2 #1*
 - **Dozer CP2** — 3 features kicking off in parallel (Build Pipeline, Compliance, UI Framework V2 Full) → *Dozer CP2 #1, #2, #3*
-- **Battle HUD + WME art delivery** ramps to support eng kickoffs → *Art CP2 #1, #2*
+- **WME art delivery** (Empire-embedded: Guilherme L env concept + Thiago S 3D blockouts) ramps to support Henrique's kickoff → *Empire CP2 art*
+- **Battle HUD art integration** (Miguel Duran cross-pod UI art) alongside Jota's eng → *Battle CP2 art*
 - **Yura WME UX handoff package** before 5/11 maternity leave → *protects Empire CP2/CP3 continuity*
-- **Map Content + Battle/Unit Content pipelines** continue (SHQ3-1) → *Empire CP2 #3, Art CP2 #3*
+- **Map Content + Battle/Unit Content pipelines** continue (SHQ3-1) → *Empire + Battle CP2 content*
 
 ### Validation In Flight
 - **SHQ3-1** — Map content pipeline validated at target production rate (Empire)
@@ -94,11 +95,11 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 | Person | Pod | Dates Out | Days Lost | Avail Days | Impact |
 |--------|-----|-----------|-----------|------------|--------|
 | Tim Williams | Metagame / SD | 4/28-5/01 (returning Mon 5/4) | 4 | **6** | **Producer gap weeks 1** for Metagame + Social Dynamics. Continuation of S27 PTO. |
-| Brendan Cheatham | Art | 4/28-5/01 (returning Mon 5/4; PTO ends 5/2 per cal) | 4 | **6** | Assoc. AD missing first half of sprint. Continuation of S27 PTO. Kevin Griffith covers solo for week 1. |
+| Brendan Cheatham | Cross-pod (Assoc. AD) | 4/28-5/01 (returning Mon 5/4; PTO ends 5/2 per cal) | 4 | **6** | Assoc. AD missing first half of sprint. Continuation of S27 PTO. Kevin Griffith covers solo cross-pod art direction for week 1. |
 | Bruno Bacelar | Social Dynamics | 5/6-5/11 (vacation through 5/15) | 4 | **6** | Networking out for back half. Multiplayer Networking track impact. |
 | Vinod Rams | Battle (Art) | 5/1, 5/4 | 2 | **8** | Hero concept work briefly slowed. |
 | Yura Rusin | Empire (UX) | Dr appts 4/28, 5/1, 5/4, 5/7 + **Maternity leave starts 5/11** | ~1 sprint day + 1 maternity day | **9** (effective) | **MAJOR DOWNSTREAM**: Yura on maternity leave from 5/11 through 6/20. Loses last 1 day of S28 + ALL of S29, S30, S31 (most of M&Ms remainder). Empire WME UX must complete before 5/11 or transition to backup. |
-| Brann Livesay | Empire / Art | 5/8 (Fri) | 1 | **9** | Producer minor. |
+| Brann Livesay | Empire | 5/8 (Fri) | 1 | **9** | Producer minor. |
 
 **Partial Appointments** (1-2 hrs, minimal impact):
 - Henrique Lima: 4/29, 5/6 (Wed mornings)
@@ -131,7 +132,10 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 | Yura Rusin | UX | **9** | 1. **WME UX hand-off package** — Sub-effort 1 final wireframes + flows, Sub-effort 2 final wireframes + flows, open Qs / decisions log 2. Dr appts | **Maternity leave starts 5/11** — loses sprint day 10 + all of M&Ms remainder (S29-S31). Sub-effort 3 deliberately left to Diana as flex room for iterations. |
 | Henrique De Lima | Eng | **9** | 1. **WME — Multiple Nodes per Territory (Eng kickoff)** | **Off May 1 (BR Workers' Day, confirmed)**. Sole client engineer. Partial appts 4/29, 5/6. Tutorial Migration parked — Henrique focused on WME. Spec not 100% ready at sprint start — week-1 alignment with Diana required. |
 | Laura Santana | QA | **9** | 1. WME smoke-test prep 2. Bug verification | **Off May 1 (BR Workers' Day)**. Tutorial QA dropped — Tutorial work parked. |
-| Brann Livesay | Producer | **9** | 1. Empire production 2. Art production | Out 5/8. |
+| Marcos Teles | Tech Art | **9-10** | 1. Empire tech art (carryover from S27 if [CHI-36339](https://app.clickup.com/t/86aghye8r) Territory Map texture flickering still open) 2. Anti-aliasing tutorial spotlight 3. Water VFX/Shader exploration | May 1 verify. Empire-embedded artist. |
+| Guilherme Lascasas | 2D Env Concept | **9-10** | 1. Environment concept (Empire) 2. WME asset support for Henrique kickoff | May 1 verify. Empire-embedded artist. |
+| Thiago Saraiva | Senior 3D | **9-10** | 1. 3D blockouts (Empire — terrain objects, building blockouts) 2. WME asset support for Henrique kickoff | May 1 verify. Empire-embedded artist. |
+| Brann Livesay | Producer | **9** | 1. Empire production (incl. Empire-embedded art) | Out 5/8. |
 
 ### ClickUp Ticket Summary (proposed)
 
@@ -386,50 +390,15 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 
 ---
 
-## Art
-
-**Art Director**: Kevin Griffith | **Assoc. Art Director**: Brendan Cheatham | **Producer**: Brann Livesay
-
-### Sprint Goals
-- All ongoing tracks continue (Character, Environment, UI/UX, VFX & Animation)
-- **Cross-pod priorities for CP2**: Battle HUD assets (eng begins), WME assets (eng begins), UI Foundation continuing
-- Brendan returns 5/4 — week-1 coverage gap
-
-### Individual Breakdown
-
-| Assignee | Discipline | Avail Days | Priorities | Notes |
-|----------|-----------|------------|------------|-------|
-| Kevin Griffith | Art Director | 10 | 1. Cross-pod art direction 2. CP2 art priority alignment | Solo AD coverage week 1 (Brendan out through 5/3). |
-| Brendan Cheatham | Assoc. AD | **6** | 1. Cross-pod art direction (5/4-5/11 only) | Out 4/28-5/1. Returns 5/4. |
-| Pedro Sarraf | Lead Tech Art | 10 | 1. Tech art assignments | Should be at full availability. |
-| Marcos Teles | Tech Art | **9-10** | 1. Empire tech art (carryover from S27 if [CHI-36339](https://app.clickup.com/t/86aghye8r) Territory Map texture flickering still open) 2. Anti-aliasing tutorial spotlight 3. Water VFX/Shader exploration | May 1 verify. |
-| Guilherme Lascasas | 2D Env Concept | **9-10** | 1. Environment concept (Empire) | May 1 verify. |
-| Thiago Saraiva | Senior 3D | **9-10** | 1. 3D blockouts (Empire — terrain objects, building blockouts) | May 1 verify. |
-| Lawrence Steele | Audio | 10 | 1. Sound design | |
-
-### Open Questions
-- [ ] **Past Sprint Cleanup — will we have to deal with these?** Marcos Teles (1 — CHI-36339 Territory Map texture flickering T6)
-- [ ] **Brendan coverage week 1** — same situation as S27. Kevin solo through 5/3.
-- [ ] **Art priority for CP2** — Battle HUD assets (eng begins) vs WME assets (eng begins) vs UI Foundation continuing. Which gets first?
-- [ ] **Marcos Teles carry-over** — did [CHI-36339](https://app.clickup.com/t/86aghye8r) (Territory Map texture flickering) close in S27?
-- [ ] May 1 Labor Day — BR-based art team off?
-
-### Key Risks
-- **Two big eng kickoffs (WME, Battle HUD) hit same sprint** — both need art support immediately.
-- Brendan out 4 days continues from S27 — Kevin Griffith covers solo for week 1.
-- May 1 Labor Day affects all BR art team members.
-
----
-
 ## Cross-Pod & Dependencies
 
 ### Key Handoffs This Sprint
-- **Tutorial Migration paused → trickle to other engineers** (Empire — assignment plan needed; Henrique freed for WME)
+- **Tutorial Migration PARKED → no trickle** (Empire — revisit at next milestone planning; Henrique focused on WME)
 - **Battle HUD DD finalize → Battle HUD Eng kickoff** (Battle — Lincoln to Jota)
 - **EKS deployment close → Parallel Workflows + CP2 work** (Dozer — Derek)
 - **Building Upgrades design + UX → Tiago eng kickoff** (Metagame — Leonard / Kevin Ligon to Tiago)
 - **P2 wrap pieces → AA switchover assessment** (SD — Loures + Gabriel + Randy)
-- **Yura WME UX → handoff package before 5/11 maternity leave** (Empire — find backup UX)
+- **Yura WME UX → handoff package before 5/11 maternity leave** (Empire — Sub-effort 1 + 2 wireframes/flows + open Qs log; Diana absorbs UX post-5/11)
 
 ### Shared Resource Conflicts
 - **Tim Williams** (Producer): out week 1 for both Metagame and Social Dynamics. Same as S27.
@@ -438,6 +407,10 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 - **Miguel Duran** (UI Artist): UI Foundation primary + cross-pod (Battle HUD, WME).
 - **Dan Dupuis** (Eng Lead): UI Foundation oversight + Empire WME kickoff support.
 - **Thorben Novais** (Producer): Battle + Dozer both ramping to CP2.
+- **Kevin Griffith** (Art Director, cross-pod): solo AD coverage week 1 (Brendan out through 5/3). Setting CP2 art priorities across Empire (WME) + Battle (HUD) + Metagame (UI Foundation).
+- **Brendan Cheatham** (Assoc. AD, cross-pod): Out 4/28-5/1, returns 5/4. 6 sprint days available for cross-pod art direction.
+- **Pedro Sarraf** (Lead Tech Art, cross-pod / Battle from CP3): Tech art assignments across pods.
+- **Lawrence Steele** (Audio, cross-pod): Sound design across pods.
 
 ### Critical Cross-Pod Risk: Yura Maternity Leave (RESOLVED)
 - Empire's only UX leaves **5/11**. Affects M&Ms remainder (S29, S30, S31).
@@ -472,10 +445,13 @@ S28 is the first sprint of CP2 (only Empire and Metagame had CP2 work pre-existi
 | Empire | WME eng implementation kicked off (Multiple Nodes per Territory) | WME Sub-effort 1 eng kickoff — Henrique | ✅ On Track |
 | Empire | Territory Map perf/visual targets validated through WME | Indirect — via WME work; Marcos Teles AA + flicker fix | ⚠️ Light |
 | Empire | Map Content variety expanded for WME testing | Jacob + Elise on Map Content / T8 prep | ✅ On Track |
+| Empire | WME assets delivered for eng kickoff | Guilherme L env concept + Thiago S 3D blockouts | ✅ On Track |
 | Metagame | UI Foundation supports 2+ pod screens | Sprint 3 of 6 in flight (still building toward consumability) | ⚠️ Light |
 | Metagame | Building Upgrades shipped; EPT underway | Building Upgrades eng kickoff — Tiago | ✅ On Track |
 | Metagame | FTUE Friction reduction visible in-game | Chris on Narrative/Tutorial design (no eng implementation yet) | ⚠️ Light |
 | Battle | Battle HUD Implementation 50%+ through impl scope | Sprint 1 of 4 begins — Jota | ✅ On Track |
+| Battle | Battle HUD assets in active integration | Miguel Duran cross-pod UI art | ✅ On Track |
+| Battle | Unit content cadence steady — no art blockers | Ben/Felipe/Tony/Vini active | ✅ On Track |
 | Battle | Obstacles eng integration started; design viable | Design validation only this sprint; eng deferred | ⚠️ Light |
 | Battle | Pathfinding & AI eng kicked off | Lincoln design prep only — no eng start | ❌ No Coverage |
 | Social Dynamics | Phase 2 wrap (Tile Ownership/States/Map Viz, Embark, MP Instances) | Loures + Gabriel + Randy AA-target sprint goals | ✅ On Track |
@@ -484,9 +460,6 @@ S28 is the first sprint of CP2 (only Empire and Metagame had CP2 work pre-existi
 | Dozer | Build Pipeline Review kicked off | Bruno F + Thorben — Audit & Plan | ✅ On Track |
 | Dozer | Compliance (OneTrust, Age Gate) underway | Derek — kickoff (capacity-constrained) | ⚠️ Light |
 | Dozer | UI Framework V2 (Full) cross-pod ready | Migration kickoff only — feature-complete is CP2 close | ⚠️ Light |
-| Art | WME assets delivered for Empire eng kickoff | Guilherme L + Thiago S environment/blockouts | ✅ On Track |
-| Art | Battle HUD assets in active integration | Miguel Duran cross-pod UI art | ✅ On Track |
-| Art | Unit content cadence steady — no Battle blockers | Ben/Felipe/Tony/Vini active | ✅ On Track |
 
 **Summary**: **9 of 18** CP2 goals (50%) have ✅ on-track sprint work in S28. **7 are ⚠️ light**, **2 are ❌ uncovered**.
 
@@ -505,10 +478,10 @@ S28 is the first sprint of CP2 (only Empire and Metagame had CP2 work pre-existi
 | Person | Pod | Avail Days | PTO/Notes |
 |--------|-----|-----------|-----------|
 | Tim Williams | Metagame / SD | **6** | Out 4/28-5/1 |
-| Brendan Cheatham | Art | **6** | Out 4/28-5/1 (returns 5/4) |
+| Brendan Cheatham | Cross-pod (Assoc. AD) | **6** | Out 4/28-5/1 (returns 5/4) |
 | Bruno Bacelar | Social Dynamics | **6** | Vacation 5/6-5/15 |
 | Vinod Rams | Battle (Art) | **8** | PTO 5/1, 5/4 |
-| Brann Livesay | Empire / Art | **9** | Out 5/8 |
+| Brann Livesay | Empire | **9** | Out 5/8 |
 | Yura Rusin | Empire (UX) | **9** | Maternity leave begins 5/11 (loses last day; absent ~6 weeks after) + Dr appts 4/28, 5/1, 5/4, 5/7 |
 | Diana Vasilescu | Empire | 10 | |
 | Jacob Siegel | Empire | 10 | |
@@ -543,12 +516,12 @@ S28 is the first sprint of CP2 (only Empire and Metagame had CP2 work pre-existi
 | Garrett Eidsvig | Social Dynamics | 10 | Dozer split risk |
 | Derek Gallant | Dozer | 10 | Also SD eng lead |
 | Bruno Freitas | Dozer | **9-10** | May 1 verify |
-| Kevin Griffith | Art | 10 | Solo AD coverage week 1 |
-| Pedro Sarraf | Art | 10 | |
-| Marcos Teles | Art | **9-10** | May 1 verify |
-| Guilherme Lascasas | Art | **9-10** | May 1 verify |
-| Thiago Saraiva | Art | **9-10** | May 1 verify |
-| Lawrence Steele | Art (Audio) | 10 | |
+| Marcos Teles | Empire (Tech Art) | **9-10** | May 1 verify. Empire-embedded artist. |
+| Guilherme Lascasas | Empire (2D Env) | **9-10** | May 1 verify. Empire-embedded artist. |
+| Thiago Saraiva | Empire (3D) | **9-10** | May 1 verify. Empire-embedded artist. |
+| Kevin Griffith | Cross-pod (Art Director) | 10 | Solo AD coverage week 1 |
+| Pedro Sarraf | Cross-pod (Lead Tech Art) | 10 | Battle from CP3+ |
+| Lawrence Steele | Cross-pod (Audio) | 10 | |
 | Hafiz Kassam | QA (Lead) | 10 | |
 
 ---
@@ -564,7 +537,7 @@ S28 is the first sprint of CP2 (only Empire and Metagame had CP2 work pre-existi
 5. **Triple eng kickoff sprint** — Battle HUD, WME, and Dozer CP2 (3 features) all begin S28. Highest transition load of M&Ms so far.
 6. **S27 carry-over uncertainty** — Actor System Overhaul + HUD DD (Battle), EKS (Dozer) need to close in S27 to enable S28 kickoffs. Tutorial Migration is **PARKED** entirely — owner needed for re-prioritization decision (next milestone planning).
 7. **Tim out 4 days at sprint start** — Metagame + Social Dynamics producer gap, second sprint in a row. Backup decision-maker still not identified.
-8. **Brendan out 4 days at sprint start** — Kevin Griffith solo art direction for week 1, second sprint in a row.
+8. **Brendan Cheatham out 4 days at sprint start** — Kevin Griffith solo cross-pod art direction for week 1, second sprint in a row.
 9. **Bruno Bacelar out last 4 sprint days** — Multiplayer Networking dips in week 2.
 10. **Battle CP2 over-subscribed** — 3 features (HUD, Obstacles, Pathfinding) against 1 engineer (Jota).
 11. **Dozer CP2 over-subscribed** — 3 features (Build Pipeline, Compliance, UI Framework V2) against 2 engineers.
@@ -590,7 +563,7 @@ S28 is the first sprint of CP2 (only Empire and Metagame had CP2 work pre-existi
 6. [ ] **UI Foundation Sprint 3 sub-feature scope**
 7. [ ] **Battle CP2 prioritization** — HUD vs Obstacles vs Pathfinding under 1-engineer constraint
 8. [ ] **Dozer CP2 prioritization** — Build Pipeline vs Compliance vs UI Framework V2 under 2-engineer constraint
-9. [ ] **Art priority for CP2** — Battle HUD assets vs WME assets vs UI Foundation
+9. [ ] **Cross-pod art priority for CP2** — Battle HUD assets vs WME assets vs UI Foundation (Kevin Griffith / Brendan Cheatham to set)
 10. [ ] **May 1 Workers' Day** policy for non-Empire BR team (Metagame, Battle, SD, Dozer, Art) — verify with Holly/HR
 11. [ ] **Chris Fidalgo carry-over** — [CHI-36250](https://app.clickup.com/t/86agcpt61) closed?
 12. [ ] **UI Foundation SHQ linkage** (carried from S26 + S27)

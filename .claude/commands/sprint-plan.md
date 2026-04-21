@@ -24,6 +24,19 @@ Ask the user which mode to run (or infer from context):
 
 ---
 
+## Pod Model (read first)
+
+There are **5 active pods**: Empire, Metagame, Battle, Social Dynamics, Dozer.
+
+**Art Pod was closed 2026-04-13.** Do not create a separate "Art" pod section in the sprint plan, do not list artists under their own swim lane, and do not tag tasks with `art`. Artists are now embedded in their working pods per `planning/capacity.md` Pod Leadership Summary — list each artist in their assigned pod's **Individual Breakdown** table:
+
+- **Empire artists**: Guilherme Lascasas (2D Env), Thiago Saraiva (Senior 3D), Marcos Teles (Tech Art)
+- **Battle artists**: Vinod Rams (Lead 2D Concept), Ben Clair (Senior Tech Art), Felipe Chaves (Staff 3D Character), Tony Bonilla (Lead Animator), Vini Muniz (Character Concept), Danny Oliveira (VFX), Alessandro Oliveira (VFX)
+- **Cross-pod art direction**: Kevin Griffith (Art Director), Brendan Cheatham (Assoc. AD) — list under their primary pod for the sprint, or under Cross-Pod & Dependencies if direction is genuinely cross-pod that sprint
+- **Cross-pod / TBD pod**: Lawrence Steele (Audio), Pedro Sarraf (Lead Tech Art — Battle from CP3) — list under the pod they're actively supporting that sprint and flag as `[shared]` or `[TBD]`
+
+`planning/capacity.md` is the authoritative source for current artist pod assignments. Re-read it on every sprint plan run; do not cache an old map. If an artist's pod is `[TBD]`, surface it as an open question in the sprint plan.
+
 ## Your Task
 
 ### 1. Identify Sprint Context
@@ -401,7 +414,7 @@ When creating ClickUp tasks, follow these rules strictly:
    - P3 (Normal): Nice-to-have or supporting work
    - P4 (Low): Tech debt, cleanup, exploration
 5. **Assign to the correct person** using `planning/capacity.md`. If multiple candidates, leave unassigned and flag.
-6. **Tag with pod name** (lowercase): `empire`, `metagame`, `battle`, `social-dynamics`, `dozer`, `art`
+6. **Tag with pod name** (lowercase): `empire`, `metagame`, `battle`, `social-dynamics`, `dozer` (Art Pod was closed 2026-04-13 — never tag tasks `art`; tag artists' tasks under their working pod per `planning/capacity.md`)
 
 ---
 
