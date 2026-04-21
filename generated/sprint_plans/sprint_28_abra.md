@@ -287,10 +287,8 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 **Design Lead**: Paul Flores | **Producer**: Tim Williams | **Eng**: Gabriel Arruda, Marcos Loures, Randy Pasion, Garrett Eidsvig, Bruno Bacelar
 
 ### Sprint Goals
-- **Phase 2 (Map Foundation) continues** — wrapping initial pieces (still on P2; switchover to in-client version is the AA goal)
-- AA target: Loures on **Tile Ownership + Tile States + Map Visualization**; Gabriel on **Embark Flow (Dock/Hero/Troop selection)** then **Battle** if time; Randy on **Multiplayer Map Instance Creation, list, join, dev UI v1**
-- AI Prototype Playtesting + Multiplayer Networking continue (Paul, Bruno)
-- Assess switchover readiness to in-client version
+- **AI Prototype Playtesting, Feedback, Iterations** (Paul, Bruno)
+- **Continue Phase 2: Tile Ownership/States/Visualization, Embark Flow, and Multiplayer Map Instance creation, listing, joining** (Loures, Gabriel, Randy)
 
 ### Individual Breakdown
 

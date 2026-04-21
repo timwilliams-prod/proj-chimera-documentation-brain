@@ -220,10 +220,8 @@ var SPRINT_DATA = {
       producer: "Tim Williams",
       eng_summary: "Gabriel Arruda, Marcos Loures, Randy Pasion, Garrett Eidsvig, Bruno Bacelar",
       goals: [
-        { text: "Phase 2 (Map Foundation) continues — wrapping initial pieces (still on P2; switchover to in-client version is the AA goal)", shqs: [] },
-        { text: "AA target: Loures on Tile Ownership + Tile States + Map Visualization; Gabriel on Embark Flow (Dock/Hero/Troop selection) then Battle if time; Randy on Multiplayer Map Instance Creation, list, join, dev UI v1", shqs: [] },
-        { text: "AI Prototype Playtesting + Multiplayer Networking continue (Paul, Bruno)", shqs: [] },
-        { text: "Assess switchover readiness to in-client version", shqs: [] }
+        { text: "AI Prototype Playtesting, Feedback, Iterations (Paul, Bruno)", shqs: [] },
+        { text: "Continue Phase 2: Tile Ownership/States/Visualization, Embark Flow, and Multiplayer Map Instance creation, listing, joining (Loures, Gabriel, Randy)", shqs: [] }
       ],
       people: [
         { name: "Paul Flores", discipline: "Design", avail: 10, total: 10, priorities: ["AI Prototype Playtesting", "P2 wrap design support"], notes: "", flags: [] },
