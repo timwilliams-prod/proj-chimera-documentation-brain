@@ -365,12 +365,13 @@
       }
 
       const totalFiles = FILES_DATA.sections.reduce((n, s) => n + countFiles(s), 0);
+      const filesGenLabel = new Date(FILES_DATA.generated_at.includes('T') ? FILES_DATA.generated_at : FILES_DATA.generated_at + 'T00:00:00').toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' });
 
       document.getElementById('app').innerHTML = `
         <div class="header">
           <h1>Project Files</h1>
           <div class="subtitle">${totalFiles} files across planning, features, and generated output &middot; Links open on GitHub</div>
-          <div class="last-updated">Last Updated: ${FILES_DATA.generated_at}</div>
+          <div class="last-updated">Last Updated: ${filesGenLabel}</div>
         </div>
         <div class="search-wrap">
           <span class="search-icon">&#128269;</span>

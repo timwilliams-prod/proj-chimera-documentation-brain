@@ -15,7 +15,7 @@ var SPRINT_DATA = {
     milestone_sprint: 3,
     milestone_sprint_total: 7,
     mode: "Preview",
-    generated: "2026-04-21",
+    generated: "2026-04-21T20:50:00Z",
     clickup_list: "901326732674",
     data_notes: "Preview prepared ~7 days before sprint kickoff. ClickUp Sprint 28 list (901326732674) is empty. Sprint 27 still has 5 visible open tasks; full S27 carry-over picture won't be clear until late next week. Triple eng kickoff sprint: WME (Empire), Battle HUD Implementation (Battle), Dozer CP2 (Build Pipeline + Compliance + UI Framework V2 Full). EMPIRE RESOLUTIONS (2026-04-21): Yura maternity coverage = Diana absorbs UX for WME Sub-efforts 2 & 3 (no embedded Empire UX after 5/11). Tutorial Migration PARKED (no engineer trickle). WME spec close-out planned for week 1. May 1 Workers' Day confirmed observed for Henrique + Laura (BR). Yura handoff package = Sub-efforts 1 + 2 wireframes/flows + open Qs log. Other pods still pending answers."
   },

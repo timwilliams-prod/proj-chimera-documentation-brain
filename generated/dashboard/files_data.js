@@ -1,11 +1,11 @@
 // generated/dashboard/files_data.js
 // Auto-generated file tree for the Files viewer
 // Regenerate when files are added/removed
-// Generated: 2026-04-08
+// Generated: 2026-04-21T20:50:00Z
 
 const FILES_DATA = {
   repo_base: "https://github.com/timwilliams-prod/proj-chimera-documentation-brain/blob/main",
-  generated_at: "2026-04-08",
+  generated_at: "2026-04-21T20:50:00Z",
 
   sections: [
     // ── Planning (Core) ──

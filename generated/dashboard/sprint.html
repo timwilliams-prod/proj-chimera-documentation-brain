@@ -928,13 +928,13 @@
       const msPct = (m.milestone_sprint / m.milestone_sprint_total) * 100;
 
       let stale = '';
-      const genDate = new Date(m.generated + 'T00:00:00');
+      const genDate = new Date(m.generated.includes('T') ? m.generated : m.generated + 'T00:00:00');
       const now = new Date();
       const age = Math.round((now - genDate) / 86400000);
       if (age >= 3) {
         stale = `<div class="stale-warning">Sprint data is ${age} days old. Run <code>/sprint-plan</code> to refresh.</div>`;
       }
-      const genLabel = genDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      const genLabel = genDate.toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' });
 
       const holidayList = m.holidays.length
         ? `<ul style="list-style:disc;margin:4px 0 0 18px;padding:0">${m.holidays.map(h => `<li style="font-size:13px;color:var(--text-dim);padding:1px 0">${richText(h)}</li>`).join('')}</ul>`

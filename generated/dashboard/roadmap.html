@@ -583,7 +583,7 @@
       const boulderCount = r.boulders.length;
 
       // Assemble
-      const genDate = new Date(DASHBOARD_DATA.generated_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      const genDate = new Date(DASHBOARD_DATA.generated_at).toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' });
 
       document.getElementById('app').innerHTML = `
         <div class="header">

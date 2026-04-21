@@ -608,7 +608,7 @@
       const d = DASHBOARD_DATA;
       const m = d.milestone;
       const daysLeft = daysBetween(new Date().toISOString().slice(0, 10), m.end_date);
-      const genDate = new Date(d.generated_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+      const genDate = new Date(d.generated_at).toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' });
 
       return `
         <div class="header">
