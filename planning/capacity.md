@@ -99,10 +99,10 @@ Current Milestone: M&Ms (Multiplayer & Meta, starts 3/31/2026, ends Jun 23, 2026
 |--------|---------|------|---------------|---------------|----|-------|
 | Kevin Griffith | USA | Art Director | Cross-pod | Cross-pod | Cross-pod | Cross-pod art direction (Art Pod closed 2026-04-13) |
 | Brendan Cheatham | Canada | Associate Art Director | Cross-pod | Cross-pod | Cross-pod | Cross-pod art direction (Art Pod closed 2026-04-13) |
-| Lawrence Steele | | Sound Engineer | [TBD — Art Pod closed 2026-04-13] | [TBD] | [TBD] | Needs new pod assignment |
+| Lawrence Steele | | Sound Engineer | Cross-pod | Cross-pod | [TBD] | Needs new pod assignment |
 | Danny Oliveira | | Senior Technical Artist | Battle | Battle | [TBD] | |
 | Alessandro Oliveira | | VFX | Battle | Battle | [TBD] | |
-| Pedro Sarraf | | Lead Technical Artist | [TBD — Art Pod closed 2026-04-13] | [TBD] | [TBD] | Needs new pod assignment |
+| Pedro Sarraf | | Lead Technical Artist | Cross-pod | Battle | [TBD] | Needs new pod assignment |
 | Guilherme Lascasas | | 2D Environment Concept | Empire | Empire | [TBD] | |
 | Vinod Rams | | Lead 2D Concept | Battle | Battle | [TBD] | |
 | Thiago Saraiva | | Senior 3D | Empire | Empire | [TBD] | |
