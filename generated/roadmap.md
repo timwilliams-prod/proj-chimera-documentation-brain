@@ -61,11 +61,14 @@ gantt
     Unit Production (53+216)   :active,  bat_units, 2026-03-18, 2027-05-30
 
     section Social Dynamics
-    P1-P6 Map Build-Up         :active,  soc1, 2026-03-19, 2026-07-20
-    Multiplayer Networking     :active,  soc_net, 2026-03-19, 2026-06-23
-    P7-P10 Map Completion      :         soc2, after soc1, 84d
-    Ravager's Reef             :         soc_rr, after soc2, 42d
-    Battlepass                 :         soc_bp, after soc_rr, 28d
+    MM1 - Map Foundation (P1+P2)    :active,  soc_mm1, 2026-03-31, 2026-04-28
+    MM2 - Phase 2 (P3)              :         soc_mm2, 2026-04-28, 2026-05-26
+    MM3 - Heroes & Tiles (P4+P5)    :         soc_mm3, 2026-05-26, 2026-06-23
+    Beta Prep - Leaderboard/Authoring :       soc_beta, 2026-06-23, 2026-07-21
+    Multiplayer Networking          :active,  soc_net, 2026-03-19, 2026-06-23
+    M&C - Multiplayer Launch Polish :         soc_mc, 2026-07-22, 2026-10-13
+    Ravager's Reef                  :         soc_rr, 2026-10-13, 42d
+    Battlepass                      :         soc_bp, after soc_rr, 28d
 
     section Dozer
     UI Framework V2            :active,  doz1, 2026-03-31, 28d
@@ -223,27 +226,49 @@ gantt
 **Pod Lead**: Paul Flores | **Producer**: Tim Williams | **Eng Lead**: Derek Gallant
 **Pod Folder**: [`planning/pods/social_dynamics/`](../planning/pods/social_dynamics/)
 
-**M&Ms Validation Focus**: Building multiplayer map foundations via phased build-up (P1-P10), with AI prototype playtesting in parallel until in-client switchover.
+**M&Ms Validation Focus**: Building multiplayer map foundations via the MM1 → MM3 checkpoint plan (P1–P10 phases as functionality vocabulary). AI prototype carries playtesting until in-client switchover by end of M&Ms (6/22).
 
 | Key BHQ | Key SHQs for M&Ms | Status |
 |---------|-------------------|--------|
 | BHQ-M2: PvE to social pipeline | No SHQs until post-Systems Validation | Future milestone |
 | BHQ-M4: Multiplayer motivations | SHQ3-18 through SHQ3-22 (paper/prototype multiplayer designs) | NOT STARTED |
 
-**Strategy**: 3 parallel tracks — AI Prototype (playtesting), Multiplayer Maps (P1-P10 phased build), Networking. All phases target completion by end of M&C. Switchover from AI prototype to in-client during M&Ms.
+**Strategy**: 3 parallel tracks — AI Prototype (playtesting), Multiplayer Maps (MM1/MM2/MM3 sprint-mapped build-up), Networking. **Goal 1**: in-client multiplayer ready to replace AI prototype by end of M&Ms. **Goal 2** (M&C): 6 polish areas — Dynamic Experience, Clarity, Design Depth, Infrastructure, Final UI Polish, Onboarding. **Goal 3** (post-launch): Flags, Chat, Coop. Source: Multiplayer Implementation Strategy (Notion).
 
 **M&Ms Staffing** (5x ENG: Gabriel Arruda, Marcos Loures, Randy Pasion, Garrett Eidsvig, Bruno Bacelar):
 - Gabriel Arruda and Marcos Loures transitioning from Empire for M&Ms
 - Randy and Garrett have Dozer split risk — feature work may be interrupted
 - Bruno Bacelar dedicated to Multiplayer Networking
 
-| Phase | Feature | Status |
-|-------|---------|--------|
-| P1 | Infrastructure & Foundation (ETA 3/30) | COMPLETE |
-| P2 | Map Foundation (~1 month) | IN PROGRESS |
-| P3 | Basic Game Logic (6 features) | NOT STARTED |
-| P4+ | Heroes on Map, Interesting Tiles, Initial Rollout | NOT STARTED |
-| - | Multiplayer Networking (parallel) | IN PROGRESS |
+**M&Ms Features** (sprint codes from Notion: A=S28, B=S29, C=S30, D=S31):
+
+| Checkpoint | Sprint | Feature(s) | Phase | Status |
+|------------|--------|------------|-------|--------|
+| MM1 | S26–S27 (YY→ZZ) | Multiplayer Map Foundation — Data (Loures), Models (Gabriel), Visualization (Randy) | P1 + P2 | IN PROGRESS |
+| MM2 | S28 (A) | Tile Ownership/States/Visualization, Embark Flow, MP Map Instance Creation/List/Join dev UI v1 | P3 (partial) | NOT STARTED |
+| MM2 | S29 (B) | Battles, Troop Training | P3 (partial) | NOT STARTED |
+| MM3 | S30 (C) | Persistent Hero Health & Recovery, Hero Party Map Representation, Hero Energy & Pathing | P4 | NOT STARTED |
+| MM3 | S31 (D) | Tile Info & Actions, Tile Types & Cycle Generation | P5 | NOT STARTED |
+
+> **Risky Prototype Areas** (may impact foundation): Embark Flow, Map RNG (Battles/Tile Types/Modifiers/Seasons), Map Visuals (multiplayer maps differ from Territory/World).
+
+**Beta Launch Prep Features** (S32–S33 / Sprints E+F — milestone plan TBD closer to date):
+
+| Sprint | Feature(s) | Phase |
+|--------|------------|-------|
+| S32 (E) | Map Leaderboard v1, Multiplayer Map Authoring | P6 |
+| S33 (F) | Iteration / Flex | — |
+
+**M&C Features — Multiplayer Launch Polish** (6 themes; sequencing TBD):
+
+| # | Theme | Phase Coverage |
+|---|-------|----------------|
+| 1 | Make Experience More Dynamic (Story Shards, map choice, modifiers, departure) | P7 |
+| 2 | Make Experience More Clear (Activity Log, modifiers display, Income Summary, End Reward, Metagame Leaderboard) | P8 |
+| 3 | Design Depth (Seasons, Leaderboard Payouts, higher building start) | P9 |
+| 4 | Infrastructure (Battle Server Authoritative, Matchmaking & Leaderboards) | P10 |
+| 5 | Final UI Polish (MP Map Instance/List/Join screens) | — |
+| 6 | Game Mode Onboarding (design effort) | — |
 
 **Post-M&C Features**:
 
@@ -251,6 +276,8 @@ gantt
 |---------|----------|--------|
 | Ravager's Reef | 3 sprints | NOT STARTED |
 | Battlepass | 2 sprints | NOT STARTED |
+
+**Post-Launch Backlog**: Flags, Chat Messages, Coop mode.
 
 ---
 
@@ -302,6 +329,7 @@ gantt
 
 | Date | Changed By | Summary |
 |------|-----------|---------|
+| 2026-04-21 | Tim / Claude | **Social Dynamics restructure** from Multiplayer Implementation Strategy (Notion). Adopted dual vocabulary: **MM1/MM2/MM3** = M&Ms checkpoint plan (rigid: 2 sprints each) and **P1–P10** = phases of multiplayer functionality (engineering shorthand). Sprint-by-sprint commitments now mapped: MM1 (Map Foundation: Data/Models/Visualization) through MM3 (Sprint D: Tile Info, Tile Types, Cycle Generation). Beta Launch Prep S32/S33 features added (Map Leaderboard v1, MP Map Authoring, Flex). M&C broken into Goal 2 themes (6 polish areas: Dynamic, Clarity, Depth, Infrastructure, UI Polish, Onboarding). Goal 3 post-launch backlog (Flags, Chat, Coop). 3 risky prototype areas called out (Embark Flow, Map RNG, Map Visuals). Pod Lead set to Paul Flores. |
 | 2026-04-21 | Tim / Claude | **Empire WME terminology**: Renamed "WME Sub-Effort 1/2/3" to feature names — **WME - Multiple WM Nodes per Territory** (S28), **WME - Main Menu/Game Mode Navigation** (S29), **WME - Experience Iterations** (S30). **Tutorial Migration PARKED entirely** — narrative tooling work continued S26-S27 but tutorial migration paused; affects "Narrative and Tutorial Tooling" must-have in product_targets.md. **Yura maternity 5/11**: Diana absorbs UX for WME #2b + #2c. **Metagame**: Hero Gacha v1 marked COMPLETE (shipped in S27 by Tiago Costa); Building Upgrades is next Pipeline B feature for TiagoC. **Art Pod removed from roadmap** — closed 2026-04-13; artists redistributed; per-pod art deliverables now roll under each pod's content track. **Dozer**: Added Build Pipeline Review and Compliance (OneTrust/Age Gate) as M&Ms CP2 features. |
 | 2026-04-09 | Tim / Claude | **Empire M&Ms resequence**: Tutorial Node Migration expanded to 2 sprints (S26-S27) — more UX exploration time needed for World Map Experience. WME pushed to S28-S30. Territory Map VS deferred to S31-S32 (design not ready for eng yet, shares time with risk buffer). Total M&Ms scope unchanged. |
 | 2026-04-09 | Tim / Claude | **Empire M&C update**: "WM Zoom Filtering & LOD" renamed to "World Map Vertical Slice" (~1 sprint). "Conquest Guide Full Screen" expanded to 2 sprints (supporting conquest territory/world maps & live ops maps). "Barrier & Story Shard Iterations" renamed to "Experience Iterations" (1 sprint, experience iterations only). Map Content split to `planning/contentTargets.md` with explicit targets: 1x World Map (ongoing), 14x Territory Maps (by M&C), 8x Live Ops Maps (starting Live Ops & Social). **Empire M&C now 8 eng-sprints in 6-sprint milestone — overflow risk flagged.** Feature registry updated. Social Dynamics P1 marked COMPLETE, P2 IN PROGRESS. Pod folder links updated. |
