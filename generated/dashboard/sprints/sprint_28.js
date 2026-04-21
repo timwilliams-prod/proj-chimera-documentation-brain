@@ -80,7 +80,8 @@ var SPRINT_DATA = {
       goals: [
         { text: "WME — Multiple Nodes per Territory eng kickoff (Henrique, Sub-effort 1 of 3)", shqs: ["SHQ4-3", "SHQ4-4"] },
         { text: "WME Sub-effort 1 spec finalized in week 1 (Diana)", shqs: ["SHQ4-3", "SHQ4-4"] },
-        { text: "Map Content pipeline continues (Jacob, Elise)", shqs: ["SHQ3-1"] }
+        { text: "Map Content pipeline continues (Jacob, Elise)", shqs: ["SHQ3-1"] },
+        { text: "Narrative design/planning for the second story arc — ⚠️ off-checkpoint (no current CP2 narrative goal; milestone plan may need update)", shqs: [] }
       ],
       people: [
         { name: "Diana Vasilescu", discipline: "Design", avail: 10, total: 10, priorities: ["WME spec finalization (Multiple Nodes per Territory) — close week 1", "Map Content design support", "Begin absorbing UX duties for WME Sub-efforts 2 & 3 (post-Yura)"], notes: "Critical week-1 design alignment with Henrique. Diana is now the post-5/11 UX owner for Empire — design + UX dual role.", flags: [] },

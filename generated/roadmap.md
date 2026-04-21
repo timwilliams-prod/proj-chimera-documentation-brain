@@ -1,6 +1,6 @@
 # Feature Roadmap
 
-Last Updated: 2026-04-09
+Last Updated: 2026-04-21
 
 > **This is the operational view** - what we're actually building and when, consolidated from all pod plans.
 > For milestone targets and success criteria, see `planning/product_targets.md`.
@@ -29,9 +29,11 @@ gantt
     Soft Launch - May 30      :crit, milestone, 2027-05-30, 0d
 
     section Empire
-    Narrative & Tutorial Tooling :active,  emp1, 2026-03-30, 28d
-    World Map Experience       :         emp2, after emp1, 42d
-    Territory Map VS / Buffer  :         emp3, after emp2, 28d
+    Narrative Tooling (Tut Migration PARKED) :done, emp1, 2026-03-30, 28d
+    WME - Multiple WM Nodes/Territory :active, emp2a, 2026-04-28, 14d
+    WME - Main Menu/Game Mode Nav     :        emp2b, after emp2a, 14d
+    WME - Experience Iterations       :        emp2c, after emp2b, 14d
+    Territory Map VS / Buffer  :         emp3, after emp2c, 28d
     Governors (M&C)            :active,  emp4, 2026-07-22, 42d
     WM Building Upgrades       :         emp5, after emp4, 14d
     WM Vertical Slice          :         emp6, after emp5, 14d
@@ -42,7 +44,9 @@ gantt
 
     section Metagame
     UI Foundation              :active, meta_a, 2026-03-18, 84d
-    Pipeline B (5 features)    :        meta_b, 2026-03-18, 84d
+    Hero Gacha v1 (DONE S27)   :done,   meta_b1, 2026-04-14, 14d
+    Building Upgrades (next)   :        meta_b2, 2026-04-28, 14d
+    Pipeline B (4 features)    :        meta_b, after meta_b2, 56d
     M&C - 9 features           :        meta_mc, 2026-07-22, 84d
     Live Ops - 10 features     :        meta_lo, 2026-10-14, 112d
     Soft Launch - 5 features   :        meta_sl, 2027-02-03, 112d
@@ -66,12 +70,8 @@ gantt
     section Dozer
     UI Framework V2            :active,  doz1, 2026-03-31, 28d
     Performance & Optimization :active,  doz2, 2026-03-31, 84d
-
-    section Art
-    M&Ms Art Production        :active,  art1, 2026-03-18, 98d
-    VFX & Animation            :         art4, 2026-03-31, 84d
-    Beta Polish                :         art_bp, 2026-06-24, 28d
-    M&C Art Production         :         art5, 2026-07-22, 84d
+    Build Pipeline Review      :         doz3, 2026-04-28, 28d
+    Compliance (OneTrust/Age)  :         doz4, 2026-04-28, 28d
 ```
 
 ---
@@ -93,9 +93,15 @@ gantt
 
 | # | Feature | Estimate | Status |
 |---|---------|----------|--------|
-| 1 | Narrative and Tutorial Tooling | 2 sprints (S26-S27) | IN PROGRESS |
-| 2 | World Map Experience (3 sub-efforts) | 3 sprints (S28-S30) | NOT STARTED |
+| 1 | Narrative & Tutorial Tooling (Tutorial Migration PARKED) | 2 sprints (S26-S27) | NARRATIVE DONE / TUTORIAL PARKED |
+| 2a | WME - Multiple WM Nodes per Territory | 1 sprint (S28) | IN PROGRESS |
+| 2b | WME - Main Menu/Game Mode Navigation | 1 sprint (S29) | NOT STARTED |
+| 2c | WME - Experience Iterations | 1 sprint (S30) | NOT STARTED |
 | 3 | Territory Map VS / Risk buffer | 2 sprints (S31-S32) | NOT STARTED |
+
+> **UX Continuity Risk**: Yura Rusin on maternity leave 5/11 → ~6/20. UX handoff package for WME #2a + #2b due before 5/11. **Diana Vasilescu absorbs UX duties** for WME #2b and #2c on top of design lead. No embedded Empire UX coverage post-5/11.
+
+> **Tutorial Migration PARKED**: All Tutorial Node Migration work paused as of S28; 3 open tickets stale (CHI-36213, CHI-36212, CHI-36381). Revisit at next milestone planning. **Note**: This affects the "Narrative and Tutorial Tooling" must-have in `product_targets.md` — tutorial portion is no longer being delivered in M&Ms.
 
 **M&C Features** (1x ENG: Henrique De Lima):
 
@@ -137,11 +143,12 @@ gantt
 | # | Feature | Sprints | Pipeline | Status |
 |---|---------|---------|----------|--------|
 | 1 | UI Foundation | 6 | A | IN PROGRESS |
-| 2 | Building Upgrades | 1 | B | NOT STARTED |
-| 3 | Empire Progression Tree | 1 | B | NOT STARTED |
-| 4 | Global Combat Research Tree | 2 | B | NOT STARTED |
-| 5 | Hero Gacha v1 | 1 | B | NOT STARTED |
+| 2 | Hero Gacha v1 | 1 | B | **COMPLETE (S27)** |
+| 3 | Building Upgrades | 1 | B | NOT STARTED (TiagoC next, S28) |
+| 4 | Empire Progression Tree | 1 | B | NOT STARTED |
+| 5 | Global Combat Research Tree | 2 | B | NOT STARTED |
 | 6 | Passive Bonus Tiles | 1 | B | NOT STARTED |
+| 7 | Reduction of FTUE Friction | 2 | (cross) | NOT STARTED |
 
 **M&C Features** (2x ENG, parallel pipelines):
 
@@ -182,6 +189,7 @@ gantt
 | 2 | Obstacles | 1 sprint | NOT STARTED |
 | 3 | Actor System Overhaul | 2 sprints | NOT STARTED |
 | 4 | Pathfinding & AI Improvements | 2 sprints | NOT STARTED |
+
 **Content Targets** (see [`planning/contentTargets.md`](../planning/contentTargets.md)):
 
 | Content | Target | Deadline | Status |
@@ -251,49 +259,30 @@ gantt
 **Eng Lead**: Derek Gallant | **Producer**: - | **Pod Lead**: -
 **Pod Folder**: [`planning/pods/dozer/`](../planning/pods/dozer/)
 
-**M&Ms Focus**: Infrastructure, UI framework support, and performance optimization to meet beta quality bar.
+**M&Ms Focus**: Infrastructure, UI framework support, performance, build pipeline, and beta compliance.
 
 | Key Focus | Description | Status |
 |-----------|-------------|--------|
-| UI Framework V2 | Cross-pod UI support for M&Ms features | NOT STARTED |
-| Performance & Stability | Game performance meets beta quality bar | NOT STARTED |
+| UI Framework V2 | Cross-pod UI support for M&Ms features (Support → Full migration) | IN PROGRESS |
+| Performance & Stability | Game performance meets beta quality bar | IN PROGRESS |
+| Build Pipeline Review | CP2 audit and improvements | NOT STARTED (CP2 kickoff S28) |
+| Compliance | OneTrust + Age Gate for beta readiness | NOT STARTED (CP2 kickoff S28) |
 
 **M&Ms Features** (2x ENG: Derek Gallant, Bruno Freitas):
 
 | # | Feature | Estimate | Status |
 |---|---------|----------|--------|
-| 1 | UI Framework V2 - UI Support (Cross-Pod) | 2 sprints | NOT STARTED |
-| 2 | Performance/Optimization and Review | Ongoing | NOT STARTED |
+| 1 | UI Framework V2 - UI Support (Cross-Pod) | 2 sprints | IN PROGRESS |
+| 2 | UI Framework V2 - Full Migration (CP2) | 2 sprints | NOT STARTED |
+| 3 | Build Pipeline Review (CP2) | 2 sprints | NOT STARTED |
+| 4 | Compliance — OneTrust + Age Gate (CP2) | 2 sprints | NOT STARTED |
+| 5 | Performance/Optimization | Ongoing | IN PROGRESS |
+
+> **CP2 CAPACITY**: 3 features kicking off S28 against 2 engineers (Derek + Bruno F). Likely needs prioritization. Derek also splits with SD eng lead duties.
 
 ---
 
-### Art
-
-**Art Director**: Kevin Griffith | **Producer**: Brann Livesay | **Eng Lead**: -
-**Pod Folder**: [`planning/pods/art/`](../planning/pods/art/)
-
-**M&Ms Validation Focus**: Visual quality bar and art pipeline scalability supporting all pods.
-
-| Key Focus | Description | Status |
-|-----------|-------------|--------|
-| Art pipeline efficiency | Rapid iteration without sacrificing quality | NOT YET TESTED |
-| Visual consistency | Cross-pod aesthetic alignment | TESTING |
-| Production scalability | Long-term content production capacity | NOT YET TESTED |
-
-**M&Ms Features** (Cross-pod support):
-
-| # | Feature | Status |
-|---|---------|--------|
-| 1 | Character Assets (Heroes & Units) | IN PROGRESS |
-| 2 | Environment Art (Map tiles, buildings) | IN PROGRESS |
-| 3 | UI/UX Assets (Interface elements) | IN PROGRESS |
-| 4 | VFX & Animation (Combat effects) | NOT STARTED |
-| - | Art Style Guide (Continuous) | IN PROGRESS |
-| - | Art Tool Development (Continuous) | IN PROGRESS |
-
-**Beta Prep**: Polish & Beta Quality (2 sprints)
-
-**M&C Features**: Hero Assets Expansion, Monetization Art Assets, Content Pipeline Scaling
+> **Art Pod (closed 2026-04-13)**: No standalone Art section. Artists are now embedded in Empire, Battle, and Cross-pod (Kevin Griffith / Brendan Cheatham). Per-pod art deliverables roll up under each pod's content track. See `planning/capacity.md` for current artist assignments and `planning/pods/art/milestone_mms.md` for the closure marker.
 
 ---
 
@@ -313,6 +302,7 @@ gantt
 
 | Date | Changed By | Summary |
 |------|-----------|---------|
+| 2026-04-21 | Tim / Claude | **Empire WME terminology**: Renamed "WME Sub-Effort 1/2/3" to feature names — **WME - Multiple WM Nodes per Territory** (S28), **WME - Main Menu/Game Mode Navigation** (S29), **WME - Experience Iterations** (S30). **Tutorial Migration PARKED entirely** — narrative tooling work continued S26-S27 but tutorial migration paused; affects "Narrative and Tutorial Tooling" must-have in product_targets.md. **Yura maternity 5/11**: Diana absorbs UX for WME #2b + #2c. **Metagame**: Hero Gacha v1 marked COMPLETE (shipped in S27 by Tiago Costa); Building Upgrades is next Pipeline B feature for TiagoC. **Art Pod removed from roadmap** — closed 2026-04-13; artists redistributed; per-pod art deliverables now roll under each pod's content track. **Dozer**: Added Build Pipeline Review and Compliance (OneTrust/Age Gate) as M&Ms CP2 features. |
 | 2026-04-09 | Tim / Claude | **Empire M&Ms resequence**: Tutorial Node Migration expanded to 2 sprints (S26-S27) — more UX exploration time needed for World Map Experience. WME pushed to S28-S30. Territory Map VS deferred to S31-S32 (design not ready for eng yet, shares time with risk buffer). Total M&Ms scope unchanged. |
 | 2026-04-09 | Tim / Claude | **Empire M&C update**: "WM Zoom Filtering & LOD" renamed to "World Map Vertical Slice" (~1 sprint). "Conquest Guide Full Screen" expanded to 2 sprints (supporting conquest territory/world maps & live ops maps). "Barrier & Story Shard Iterations" renamed to "Experience Iterations" (1 sprint, experience iterations only). Map Content split to `planning/contentTargets.md` with explicit targets: 1x World Map (ongoing), 14x Territory Maps (by M&C), 8x Live Ops Maps (starting Live Ops & Social). **Empire M&C now 8 eng-sprints in 6-sprint milestone — overflow risk flagged.** Feature registry updated. Social Dynamics P1 marked COMPLETE, P2 IN PROGRESS. Pod folder links updated. |
 | 2026-03-27 | Tim / Claude | **Major update**: Empire M&Ms reprioritized (Tutorial Node Migration -> World Map Experience -> Territory Map VS). Governors moved to M&C. Empire capacity: Henrique De Lima sole client eng (Gabriel Arruda -> Social Dynamics, Marcos Loures -> Social Dynamics). Tiago Costa (new) -> Metagame. WH-4 (Production) removed — Dozer now shows actual features (UI Framework V2, Performance). 15 M&Ms SHQs added to ValidationPlan (SHQ4-1 through SHQ4-10 new). Updated product_targets.md with 9 new M&Ms must-haves. |

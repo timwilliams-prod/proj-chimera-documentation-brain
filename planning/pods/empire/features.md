@@ -1,6 +1,6 @@
 # Empire Features
 
-Last Updated: 2026-04-09
+Last Updated: 2026-04-21
 Doc Status: DRAFT
 Pod Lead: Diana Vasilescu
 
@@ -9,13 +9,14 @@ Pod Lead: Diana Vasilescu
 
 ---
 
-1. **Narrative and Tutorial Tooling** — M&Ms, 2 sprints, IN PROGRESS
-   Enables designer tooling. Engineering priority while other features aren't ready for eng yet.
+1. **Narrative and Tutorial Tooling** — M&Ms, 2 sprints (S26-S27), TUTORIAL MIGRATION PARKED
+   Narrative tooling work continued; **Tutorial Node Migration parked entirely** as of S28 (no engineer trickle). Revisit at next milestone planning. Three open Tutorial Arch tickets (CHI-36213, CHI-36212, CHI-36381) are stale.
 
-2. **[World Map Experience](../../features/world_map_vs.md)** — M&Ms, 3 sprints, NOT STARTED → SHQ4-3, SHQ4-4
-   a. Multiple Nodes per Territory (Sprint 1)
-   b. Main Menu UX/UI Implementation (Sprint 2)
-   c. World Map Experience Iterations (Sprint 3)
+2. **[World Map Experience](../../features/world_map_vs.md)** — M&Ms, 3 sprints (S28-S30), IN PROGRESS → SHQ4-3, SHQ4-4
+   a. **WME - Multiple WM Nodes per Territory** (Sprint 1, S28) — eng kickoff S28; spec finalized week-1 with Diana
+   b. **WME - Main Menu/Game Mode Navigation** (Sprint 2, S29)
+   c. **WME - Experience Iterations** (Sprint 3, S30)
+   **UX coverage**: Yura on Sub-feature (a) handoff package through 5/11; **Diana absorbs UX** for (b) and (c) after Yura's maternity leave begins 5/11.
 
 3. **[Territory Map Vertical Slice](../../features/territory_map_vs.md)** — M&Ms, 2 sprints, NOT STARTED → SHQ3-1, SHQ3-2
    Two map layers feel connected; seamless strategic flow.

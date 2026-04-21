@@ -1,6 +1,6 @@
 # Empire — M&Ms Milestone Plan
 
-Last Updated: 2026-04-09
+Last Updated: 2026-04-21
 
 Ends: Jun 23, 2026 | Sprints: ~7 | Flex: shared with TMVS
 
@@ -8,13 +8,16 @@ Ends: Jun 23, 2026 | Sprints: ~7 | Flex: shared with TMVS
 
 | Sprint | Focus | Feature(s) |
 |--------|-------|------------|
-| S26-S27 | Tutorial Node Migration | #1 (2 sprints) |
-| S28-S30 | World Map Experience | #2 (3 sub-efforts) |
+| S26-S27 | Narrative & Tutorial Tooling (Tutorial Migration now PARKED) | #1 |
+| S28 | WME - Multiple WM Nodes per Territory (eng kickoff) | #2a |
+| S29 | WME - Main Menu/Game Mode Navigation | #2b |
+| S30 | WME - Experience Iterations | #2c |
 | S31-S32 | Territory Map VS / Risk buffer | #3 |
 
-- Tutorial Node Migration expanded to 2 sprints — UX exploration needed for World Map Experience before eng begins.
+- **Tutorial Node Migration is PARKED entirely as of S28** — no engineer trickle. Revisit at next milestone planning. (Original plan: S26-S27 sequential.)
 - Territory Map VS deferred to S31 — design not ready for eng support yet.
 - Map Content runs in parallel on design/art track throughout (Jacob Siegel, Elise Cole).
+- **UX continuity (Yura maternity)**: Yura on leave 5/11 through ~6/20. UX handoff package for WME #2a + #2b due before 5/11. **Diana absorbs UX** for WME #2b and #2c. No embedded Empire UX coverage post-5/11.
 
 ## Checkpoint Goals
 
@@ -24,12 +27,13 @@ Ends: Jun 23, 2026 | Sprints: ~7 | Flex: shared with TMVS
 - Map Content design/art pipeline producing usable territory variety
 
 **M&M Checkpoint 2 (4/28 - 5/25)**
-- World Map Experience eng implementation kicked off (Henrique on Multiple Nodes per Territory)
+- World Map Experience eng implementation kicked off (Henrique on **WME - Multiple WM Nodes per Territory**, then **WME - Main Menu/Game Mode Navigation**)
+- Yura UX handoff package landed before 5/11 maternity leave; Diana takes over WME UX
 - Territory Map performance/visual targets validated through WME work (SHQ3-1 evidence accumulating)
 - Map Content variety expanded to support WME testing
 
 **M&M Checkpoint 3 (5/26 - 6/22)**
-- World Map Experience features complete — session goals surfaced on world map (SHQ4-3 answered)
+- World Map Experience features complete — **WME - Experience Iterations** lands; session goals surfaced on world map (SHQ4-3 answered)
 - Territory Map vertical slice eng underway, on track for milestone close (SHQ3-2 evidence in progress)
 - Empire strategy layer ↔ tile-level conquest connection demonstrated end-to-end
 

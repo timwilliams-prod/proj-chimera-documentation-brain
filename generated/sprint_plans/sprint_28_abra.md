@@ -119,6 +119,7 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 - **WME — Multiple Nodes per Territory** engineering kickoff (Henrique, Sub-effort 1 of 3) → *advances Empire CP2 #1* — SHQ4-3, SHQ4-4
 - **WME Sub-effort 1 spec finalized** in week 1 (Diana) → *advances Empire CP2 #1*
 - **Map Content pipeline** continues (Jacob, Elise) → *advances Empire CP2 #3* — SHQ3-1
+- **Narrative design/planning for the second story arc** → ⚠️ *off-checkpoint* (Empire-owned narrative work; no current CP2 narrative goal — milestone plan may need update)
 
 ### Individual Breakdown
 
