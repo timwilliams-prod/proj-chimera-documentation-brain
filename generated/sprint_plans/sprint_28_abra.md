@@ -116,11 +116,9 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 **QA**: Laura Santana | **UX**: Yura Rusin
 
 ### Sprint Goals
-- **WME — Multiple Nodes per Territory** kickoff (Henrique begins WME engineering, Sub-effort 1 of 3) — SHQ4-3, SHQ4-4
-- **Tutorial Node Migration is PARKED** — will not trickle to other engineers; revisit when designer tooling is re-prioritized
-- Continue **Map Content** pipeline (Jacob, Elise) — SHQ3-1
-- **Yura WME UX handoff package** finalized before 5/11 maternity leave (Sub-effort 1 + 2 wireframes/flows + open Qs log)
-- **WME scope held at 3 sub-efforts** for M&Ms — Diana absorbs UX duties post-5/11 (no embedded Empire UX coverage; Lina supports project but on Meta)
+- **WME — Multiple Nodes per Territory** engineering kickoff (Henrique, Sub-effort 1 of 3) → *advances Empire CP2 #1* — SHQ4-3, SHQ4-4
+- **WME Sub-effort 1 spec finalized** in week 1 (Diana) → *advances Empire CP2 #1*
+- **Map Content pipeline** continues (Jacob, Elise) → *advances Empire CP2 #3* — SHQ3-1
 
 ### Individual Breakdown
 

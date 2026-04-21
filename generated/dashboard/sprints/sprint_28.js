@@ -78,11 +78,9 @@ var SPRINT_DATA = {
       producer: "Brann Livesay",
       eng_summary: "Henrique De Lima (sole client eng)",
       goals: [
-        { text: "WME — Multiple Nodes per Territory eng kickoff (Sub-effort 1 of 3)", shqs: ["SHQ4-3", "SHQ4-4"] },
-        { text: "Tutorial Node Migration is PARKED — no trickle to other engineers; revisit when designer tooling is re-prioritized", shqs: [] },
-        { text: "Continue Map Content pipeline", shqs: ["SHQ3-1"] },
-        { text: "Yura WME UX handoff package finalized before 5/11 maternity leave (Sub-effort 1 + 2 wireframes/flows + open Qs log)", shqs: ["SHQ4-3"] },
-        { text: "WME scope held at 3 sub-efforts — Diana absorbs UX duties post-5/11 (no embedded Empire UX coverage)", shqs: ["SHQ4-3", "SHQ4-4"] }
+        { text: "WME — Multiple Nodes per Territory eng kickoff (Henrique, Sub-effort 1 of 3)", shqs: ["SHQ4-3", "SHQ4-4"] },
+        { text: "WME Sub-effort 1 spec finalized in week 1 (Diana)", shqs: ["SHQ4-3", "SHQ4-4"] },
+        { text: "Map Content pipeline continues (Jacob, Elise)", shqs: ["SHQ3-1"] }
       ],
       people: [
         { name: "Diana Vasilescu", discipline: "Design", avail: 10, total: 10, priorities: ["WME spec finalization (Multiple Nodes per Territory) — close week 1", "Map Content design support", "Begin absorbing UX duties for WME Sub-efforts 2 & 3 (post-Yura)"], notes: "Critical week-1 design alignment with Henrique. Diana is now the post-5/11 UX owner for Empire — design + UX dual role.", flags: [] },

@@ -156,6 +156,45 @@ The Overview should answer: "If a leadership team member only reads the top sect
 
 Each sprint goal MUST either map to one of the pod's active Checkpoint Goals or be flagged as off-checkpoint. Off-checkpoint work isn't automatically wrong — but it should be a deliberate exception, surfaced as a risk (e.g. "Why are we spending sprint time on something that doesn't ladder up to CP2?").
 
+**Sprint Goals hygiene — STRICT rules:**
+
+A Sprint Goal is **a concrete deliverable this sprint will produce**. It must pass this test: *"At the end of this sprint, can we say YES or NO — did we deliver this?"*
+
+**A Sprint Goal IS:**
+- An active piece of work that produces an artifact, milestone, or measurable progress *during this sprint*
+- Phrased as an outcome: "X kicked off", "Y shipped", "Z reaches handoff state"
+- Owned by someone on the pod *this sprint*
+
+**A Sprint Goal IS NOT:**
+- ❌ A **risk or warning** ("Tutorial Migration is PARKED" — that's a state/risk, not work being done)
+- ❌ A **policy decision or ongoing situation** ("Empire has no embedded UX after 5/11" — that's context that informs planning, not a goal)
+- ❌ A **scope statement** ("WME scope held at 3 sub-efforts" — that's a planning decision, not a deliverable)
+- ❌ **Work expected to complete in the previous sprint** (e.g. if Yura's WME UX is supposed to wrap in S27, do not list it as an S28 goal — only list it if it's actively continuing or carrying over)
+- ❌ **Restating the same situation across multiple bullets** — each fact appears in the plan exactly once
+
+**No duplication rule:** Every fact, situation, decision, or risk appears in **exactly one section** of the per-pod block. Do not repeat:
+- A risk in Sprint Goals AND in Key Risks
+- A scope decision in Sprint Goals AND in Notes AND in Cross-Pod
+- A status ("X is parked") in Sprint Goals AND in ClickUp Ticket Summary AND in Risks
+
+**Where each thing belongs:**
+| Fact type | Section |
+|-----------|---------|
+| Active work being done this sprint | Sprint Goals |
+| Carry-over from previous sprint that's still in flight | Sprint Goals (if active) OR Past Sprint Cleanup question |
+| Things that are NOT happening (parked, deferred, cut) | Key Risks (if it creates risk) OR ClickUp Ticket Summary (with status label) |
+| Personnel changes, coverage gaps, capacity constraints | Key Risks (once) — referenced from Cross-Pod if cross-pod impact |
+| Scope decisions / planning choices | Captured in pod plan / milestone file — only mentioned in Sprint Goals if a *deliverable this sprint* falls out of it |
+| Open questions needing answers before kickoff | Open Questions |
+
+**Target: 3-5 Sprint Goals per pod.** If you find yourself writing 6+ goals, you're probably mixing in risks, context, or duplicated framings of the same goal. Consolidate.
+
+**Before finalizing each pod's Sprint Goals, run this checklist:**
+1. Does each goal pass the YES/NO deliverable test?
+2. Is any goal actually a risk, scope statement, or policy decision in disguise? → Move it.
+3. Is the same situation (e.g., a coverage gap) referenced in more than one bullet? → Collapse to one canonical mention in Key Risks.
+4. Is any goal's work supposed to have completed in the *previous* sprint? → Drop it unless it's actively carrying over.
+
 ### Individual Breakdown
 
 List EVERY person assigned to this pod (from capacity.md). Include their PTO inline in the Notes column — no separate PTO section.
