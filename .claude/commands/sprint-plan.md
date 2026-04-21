@@ -58,8 +58,6 @@ Read ALL of these to understand what should be in this sprint:
 - `planning/pods/social_dynamics/milestone_{ms}.md` — Social Dynamics sprint allocation for current milestone
 - `planning/pods/dozer/features.md` — Dozer feature priorities
 - `planning/pods/dozer/milestone_{ms}.md` — Dozer sprint allocation for current milestone
-- `planning/pods/art/features.md` — Art feature priorities
-- `planning/pods/art/milestone_{ms}.md` — Art sprint allocation for current milestone
 - `generated/roadmap.md` — Consolidated roadmap (which features are scheduled when)
 
 Replace `{ms}` with the milestone short name for the current milestone (e.g., `milestone_mms.md` for M&Ms, `milestone_mc.md` for M&C).
