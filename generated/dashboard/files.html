@@ -79,6 +79,18 @@
     }
     .header h1 { font-size: 26px; color: var(--text-bright); margin-bottom: 4px; }
     .header .subtitle { color: var(--text-dim); font-size: 13px; }
+    .last-updated {
+      display: inline-block;
+      background: rgba(83, 168, 255, 0.12);
+      border: 1px solid rgba(83, 168, 255, 0.35);
+      color: var(--accent);
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 8px;
+      letter-spacing: 0.2px;
+    }
 
     /* ── Search ── */
     .search-wrap {
@@ -358,6 +370,7 @@
         <div class="header">
           <h1>Project Files</h1>
           <div class="subtitle">${totalFiles} files across planning, features, and generated output &middot; Links open on GitHub</div>
+          <div class="last-updated">Last Updated: ${FILES_DATA.generated_at}</div>
         </div>
         <div class="search-wrap">
           <span class="search-icon">&#128269;</span>

@@ -165,7 +165,7 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 
 ## Metagame
 
-**Design Lead**: Leonard Perez | **Producer**: Tim Williams | **Eng**: Guilherme Quizzini (Pipeline A), Tiago Costa (Pipeline B)
+**Design Lead**: Leonard Perez | **Producer**: Tim Williams | **Eng**: Guilherme Quizzini (Pipeline A — UI Foundation), Tiago Costa (Pipeline B — Building Upgrade Implementation)
 **Eng Lead**: Dan Dupuis (planning capacity) | **QA**: Hugo Hideo | **UX**: Kevin Ligon | **UI Art**: Miguel Duran
 
 ### Sprint Goals

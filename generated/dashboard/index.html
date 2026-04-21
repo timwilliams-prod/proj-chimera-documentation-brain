@@ -56,6 +56,18 @@
     }
     .header-left h1 { font-size: 28px; color: var(--text-bright); margin-bottom: 4px; }
     .header-left .subtitle { color: var(--text-dim); font-size: 14px; }
+    .last-updated {
+      display: inline-block;
+      background: rgba(83, 168, 255, 0.12);
+      border: 1px solid rgba(83, 168, 255, 0.35);
+      color: var(--accent);
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 8px;
+      letter-spacing: 0.2px;
+    }
     .header-right { text-align: right; }
     .header-right .milestone-name { font-size: 20px; color: var(--accent); font-weight: 600; }
     .header-right .milestone-meta { color: var(--text-dim); font-size: 13px; }
@@ -602,7 +614,7 @@
         <div class="header">
           <div class="header-left">
             <h1>Lotus Production Dashboard</h1>
-            <div class="subtitle">Generated ${genDate}</div>
+            <div class="last-updated">Last Updated: ${genDate}</div>
             ${dashboardStaleWarning()}
           </div>
           <div class="header-right">

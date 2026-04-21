@@ -126,7 +126,7 @@ var SPRINT_DATA = {
       name: "Metagame",
       lead: "Leonard Perez",
       producer: "Tim Williams",
-      eng_summary: "Guilherme Quizzini (Pipeline A), Tiago Costa (Pipeline B)",
+      eng_summary: "Guilherme Quizzini (Pipeline A — UI Foundation), Tiago Costa (Pipeline B — Building Upgrade Implementation)",
       goals: [
         { text: "UI Foundation (Pipeline A, Sprint 3 of 6) — Guilherme continues", shqs: [] },
         { text: "Building Upgrades (Meta Depth Phase 1) — Tiago kicks off as next Pipeline B feature", shqs: [] },

@@ -87,6 +87,18 @@
     }
     .header h1 { font-size: 26px; color: var(--text-bright); margin-bottom: 4px; }
     .header .subtitle { color: var(--text-dim); font-size: 13px; }
+    .last-updated {
+      display: inline-block;
+      background: rgba(83, 168, 255, 0.12);
+      border: 1px solid rgba(83, 168, 255, 0.35);
+      color: var(--accent);
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 8px;
+      letter-spacing: 0.2px;
+    }
 
     /* -- Panel -- */
     .panel {
@@ -576,7 +588,8 @@
       document.getElementById('app').innerHTML = `
         <div class="header">
           <h1>Full Roadmap</h1>
-          <div class="subtitle">${formatDate(tlStart)} through ${formatDate(tlEnd)} &middot; ${boulderCount} features across ${r.pods.length} pods &middot; Data from ${genDate}</div>
+          <div class="subtitle">${formatDate(tlStart)} through ${formatDate(tlEnd)} &middot; ${boulderCount} features across ${r.pods.length} pods</div>
+          <div class="last-updated">Last Updated: ${genDate}</div>
         </div>
 
         <div class="panel">

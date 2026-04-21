@@ -67,6 +67,18 @@
     .header { margin-bottom: 20px; padding-bottom: 16px; border-bottom: 2px solid var(--border); display: flex; align-items: flex-start; justify-content: space-between; }
     .header-left h1 { font-size: 26px; color: var(--text-bright); margin-bottom: 4px; }
     .header .subtitle { color: var(--text-dim); font-size: 13px; }
+    .last-updated {
+      display: inline-block;
+      background: rgba(83, 168, 255, 0.12);
+      border: 1px solid rgba(83, 168, 255, 0.35);
+      color: var(--accent);
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 8px;
+      letter-spacing: 0.2px;
+    }
     .header-actions { display: flex; gap: 8px; align-items: center; }
 
     /* ── Buttons ── */
@@ -511,9 +523,9 @@
             <h1>Validation Check-in</h1>
             <div class="subtitle">
               ${esc(m.current_milestone)} &middot;
-              Last evaluated: ${esc(m.last_evaluated)} &middot;
               Data from ValidationPlan.md + ClickUp SHQ Tracker
             </div>
+            <div class="last-updated">Last Updated: ${esc(m.last_evaluated)}</div>
           </div>
           <div class="header-actions">
             <button class="btn btn-default" id="btn-edit" onclick="toggleEdit()">Edit Mode</button>

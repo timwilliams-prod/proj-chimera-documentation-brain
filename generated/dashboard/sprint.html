@@ -55,6 +55,18 @@
     }
     .header-left h1 { font-size: 26px; color: var(--text-bright); margin-bottom: 2px; }
     .header-left .subtitle { color: var(--text-dim); font-size: 13px; }
+    .last-updated {
+      display: inline-block;
+      background: rgba(83, 168, 255, 0.12);
+      border: 1px solid rgba(83, 168, 255, 0.35);
+      color: var(--accent);
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 8px;
+      letter-spacing: 0.2px;
+    }
     .header-right { text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
     .milestone-name { font-size: 18px; color: var(--accent); font-weight: 600; }
     .milestone-bar-wrap { display: flex; align-items: center; gap: 8px; }
@@ -922,6 +934,7 @@
       if (age >= 3) {
         stale = `<div class="stale-warning">Sprint data is ${age} days old. Run <code>/sprint-plan</code> to refresh.</div>`;
       }
+      const genLabel = genDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 
       const holidayList = m.holidays.length
         ? `<ul style="list-style:disc;margin:4px 0 0 18px;padding:0">${m.holidays.map(h => `<li style="font-size:13px;color:var(--text-dim);padding:1px 0">${richText(h)}</li>`).join('')}</ul>`
@@ -933,6 +946,7 @@
             <h1>Sprint ${m.sprint_number}: ${m.sprint_name}</h1>
             <div class="subtitle">${shortDate(m.start_date)} &mdash; ${shortDate(m.end_date)} &middot; ${m.working_days} working days</div>
             ${holidayList}
+            <div class="last-updated">Last Updated: ${genLabel}</div>
             ${stale}
           </div>
           <div class="header-right">
