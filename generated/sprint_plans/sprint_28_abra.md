@@ -117,51 +117,55 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 
 ### Sprint Goals
 - **WME — Multiple Nodes per Territory** kickoff (Henrique begins WME engineering, Sub-effort 1 of 3) — SHQ4-3, SHQ4-4
-- **Tutorial Node Migration is PAUSED** — will be trickled in across other engineers as capacity allows; Henrique is freed for WME
+- **Tutorial Node Migration is PARKED** — will not trickle to other engineers; revisit when designer tooling is re-prioritized
 - Continue **Map Content** pipeline (Jacob, Elise) — SHQ3-1
-- **Yura WME UX must reach completion-state for handoff before 5/11 maternity leave**
+- **Yura WME UX handoff package** finalized before 5/11 maternity leave (Sub-effort 1 + 2 wireframes/flows + open Qs log)
+- **WME scope held at 3 sub-efforts** for M&Ms — Diana absorbs UX duties post-5/11 (no embedded Empire UX coverage; Lina supports project but on Meta)
 
 ### Individual Breakdown
 
 | Assignee | Discipline | Avail Days | Priorities | Notes |
 |----------|-----------|------------|------------|-------|
-| Diana Vasilescu | Design | 10 | 1. WME spec finalization (Multiple Nodes per Territory) 2. Map Content design support 3. Backstop Yura's UX for post-5/11 handoff | Critical week-1 design alignment with Henrique. |
-| Jacob Siegel | Design | 10 | 1. Map Content (T-tier work continuation) 2. Any remaining ZZ Player Journey/CG follow-ups | Carry-over from [CHI-36411](https://app.clickup.com/t/86agp9g9c) family if not closed in S27. |
-| Elise Cole | Design | 10 | 1. Map Content / T8 Design Prep ([CHI-36576](https://app.clickup.com/t/86agw4bwz)) 2. Figma Map agentic research ([CHI-36575](https://app.clickup.com/t/86agw4bfz)) 3. WME design support | Both ZZ tasks are top-level, will likely carry into S28. |
-| Yura Rusin | UX | **9** | 1. **WME UX hand-off package** (must finalize before 5/11) 2. Dr appts | **Maternity leave starts 5/11** — loses sprint day 10 + all of M&Ms remainder. **Critical**: ensure WME UX is in handoff-ready state. Identify backup UX. |
-| Henrique De Lima | Eng | **9-10** | 1. **WME — Multiple Nodes per Territory (Eng kickoff)** | May 1 Labor Day pending verification. Sole client engineer. Partial appts 4/29, 5/6. **Tutorial Migration paused — Henrique focused on WME.** |
-| Laura Santana | QA | **9-10** | 1. WME smoke-test prep 2. Tutorial Migration QA (only when Tutorial work trickles in) | May 1 verify. |
+| Diana Vasilescu | Design | 10 | 1. WME spec finalization (Multiple Nodes per Territory) — get to ready before 4/28 2. Map Content design support 3. **Begin absorbing UX duties** for WME Sub-efforts 2 & 3 (post-Yura) | Critical week-1 design alignment with Henrique. **Diana is now the post-5/11 UX owner for Empire.** |
+| Jacob Siegel | Design | 10 | 1. Map Content (T-tier work continuation) 2. Any remaining ZZ Player Journey/CG follow-ups | Carry-over watch from [CHI-36411](https://app.clickup.com/t/86agp9g9c) family if not closed in S27. |
+| Elise Cole | Design | 10 | 1. **Figma Map agentic research** ([CHI-36575](https://app.clickup.com/t/86agw4bfz)) — primary 2. T8 Design Prep ([CHI-36576](https://app.clickup.com/t/86agw4bwz)) → continues into T8 Implementation, lower priority 3. WME design support | Carry-over from S27 confirmed. Agentic research is the higher-priority track. |
+| Yura Rusin | UX | **9** | 1. **WME UX hand-off package** — Sub-effort 1 final wireframes + flows, Sub-effort 2 final wireframes + flows, open Qs / decisions log 2. Dr appts | **Maternity leave starts 5/11** — loses sprint day 10 + all of M&Ms remainder (S29-S31). Sub-effort 3 deliberately left to Diana as flex room for iterations. |
+| Henrique De Lima | Eng | **9** | 1. **WME — Multiple Nodes per Territory (Eng kickoff)** | **Off May 1 (BR Workers' Day, confirmed)**. Sole client engineer. Partial appts 4/29, 5/6. Tutorial Migration parked — Henrique focused on WME. Spec not 100% ready at sprint start — week-1 alignment with Diana required. |
+| Laura Santana | QA | **9** | 1. WME smoke-test prep 2. Bug verification | **Off May 1 (BR Workers' Day)**. Tutorial QA dropped — Tutorial work parked. |
 | Brann Livesay | Producer | **9** | 1. Empire production 2. Art production | Out 5/8. |
 
 ### ClickUp Ticket Summary (proposed)
 
 - **SHQ4-3 / SHQ4-4: World Map Experience** (Epic — confirm exists or create)
   - WME Sub-effort 1: Multiple Nodes per Territory — Engineering (Henrique)
-  - WME Sub-effort 1: Multiple Nodes per Territory — UX finalization (Yura — handoff package)
-  - WME Sub-effort 1: Multiple Nodes per Territory — Design spec (Diana)
-- **Tutorial Migration — PAUSED**, will trickle to other engineers as capacity allows:
-  - [CHI-36213](https://app.clickup.com/t/86aga1m3a) Tutorial Arch - Orchestration (re-assign as capacity allows)
-  - [CHI-36212](https://app.clickup.com/t/86aga1j5p) Tutorial Arch - Triggering (re-assign as capacity allows)
-  - [CHI-36381](https://app.clickup.com/t/86agjz596) Tutorial Node Rewrites (re-assign as capacity allows)
-- **Carry-over from S27** (verify late next week)
-  - [CHI-36576](https://app.clickup.com/t/86agw4bwz) T8 Design Prep (Elise)
-  - [CHI-36575](https://app.clickup.com/t/86agw4bfz) Figma Map agentic research (Elise)
+  - WME Sub-effort 1: Multiple Nodes per Territory — Design spec finalization (Diana — must close week 1)
+  - WME Sub-effort 1: Multiple Nodes per Territory — UX final wireframes + flows (Yura — handoff package)
+  - WME Sub-effort 2: Main Menu UX/UI — UX final wireframes + flows (Yura — handoff package)
+  - WME Open Questions / Decisions Log (Yura — handoff package)
+- **Tutorial Migration — PARKED**, no trickle to other engineers; revisit when designer tooling is re-prioritized:
+  - [CHI-36213](https://app.clickup.com/t/86aga1m3a) Tutorial Arch - Orchestration (parked)
+  - [CHI-36212](https://app.clickup.com/t/86aga1j5p) Tutorial Arch - Triggering (parked)
+  - [CHI-36381](https://app.clickup.com/t/86agjz596) Tutorial Node Rewrites (parked)
+- **Carry-over from S27** (confirmed continuing)
+  - [CHI-36575](https://app.clickup.com/t/86agw4bfz) Figma Map agentic research (Elise — primary)
+  - [CHI-36576](https://app.clickup.com/t/86agw4bwz) T8 Design Prep (Elise — continues into T8 Implementation, lower priority)
 - **Standalone**
   - Map Content - Sprint 28 (Jacob/Elise, ongoing)
 
-### Open Questions
-- [ ] **Past Sprint Cleanup — will we have to deal with these?** Reassign as capacity allows (3 — Tutorial Arch Orchestration / Triggering / Node Rewrites), Elise Cole (2 — T8 Design Prep, Figma Map agentic research)
-- [ ] **Tutorial Migration trickle plan** — which engineers absorb the remaining Tutorial work, and at what cadence?
-- [ ] **Is WME Multiple Nodes per Territory spec ready** for engineering kickoff (Diana)?
-- [ ] **Yura maternity coverage**: Who picks up Empire UX from 5/11 through ~6/20? Diana to backstop, or pull cross-pod UX (Kevin Ligon)?
-- [ ] **WME UX handoff package** — what artifacts must Yura deliver before 5/11 to keep WME on track?
-- [ ] May 1 Brazil Labor Day — does Henrique work or is he off?
+### Open Questions (resolved)
+- [x] **Past Sprint Cleanup — will we have to deal with these?** Tutorial Arch (3) PARKED. Elise's two carry-overs continue: Figma agentic research is primary; T8 Design Prep continues into T8 Implementation as lower priority.
+- [x] **Tutorial Migration trickle plan** — **PARKED entirely** until designer tooling is re-prioritized. No engineer pickup planned.
+- [x] **Is WME Multiple Nodes per Territory spec ready** for engineering kickoff? Not yet, but **Diana commits to getting it ready in time**. Plan: spec finalization week 1, deep eng once locked.
+- [x] **Yura maternity coverage**: **No embedded Empire UX coverage post-5/11**. Lina supports the project but is on Meta. **Diana absorbs UX duties** for WME Sub-efforts 2 & 3.
+- [x] **WME UX handoff package** — Sub-effort 1 final wireframes + flows, Sub-effort 2 final wireframes + flows, open Qs / decisions log. Sub-effort 3 intentionally left as flex room for iteration.
+- [x] **May 1 Brazil Labor Day** — **Henrique is OFF** (BR holiday observed). Same applies to Laura.
 
 ### Key Risks
-- **Yura maternity leave starts 5/11** — Empire's only UX disappears for ~6 weeks of M&Ms. WME UX must be either done or handed off cleanly. **Backup UX assignment needed before sprint start.**
-- **Tutorial Migration paused** — work will trickle in across other engineers; risk of slow completion and orphaned ownership if not assigned proactively.
-- **WME spec readiness** — S27 plan flagged Diana needed to mature spec during the extra UX runway. Verify it's ready.
-- **Henrique sole engineer** + first sprint of a new feature = high architecture risk if spec is loose.
+- **No embedded Empire UX after 5/11** — Diana now owns design + UX for WME Sub-efforts 2 & 3 alongside spec/lead duties. Highest pod-level risk for M&Ms remainder. Watch Diana's load in S29+.
+- **WME spec not yet ready at sprint start** — Diana committed to closing the gap in week 1; eng-kickoff slips by a few days are expected. Henrique should have a scoping/exploration backup in week 1 to absorb any spec lag.
+- **Tutorial Migration parked** — three open tickets are now stale. Owner needed for re-prioritization decision (probably at next milestone planning).
+- **Henrique sole engineer + spec catch-up** = first-week risk; Diana–Henrique alignment is the critical path.
+- **May 1 BR Workers' Day** — Henrique and Laura confirmed off. Empire effective sprint = 9 days for eng + QA.
 
 ---
 
@@ -436,11 +440,12 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 - **Dan Dupuis** (Eng Lead): UI Foundation oversight + Empire WME kickoff support.
 - **Thorben Novais** (Producer): Battle + Dozer both ramping to CP2.
 
-### Critical Cross-Pod Risk: Yura Maternity Leave
+### Critical Cross-Pod Risk: Yura Maternity Leave (RESOLVED)
 - Empire's only UX leaves **5/11**. Affects M&Ms remainder (S29, S30, S31).
 - WME has 3 sub-efforts; only Sub-effort 1 starts before Yura departs.
-- Sub-efforts 2 (Main Menu UX/UI) and 3 (Iterations) — **who does the UX?**
-- Options: Kevin Ligon cross-pod, contractor, Diana absorbs design+UX.
+- **Decision**: No embedded Empire UX replacement. Lina supports the broader project but is on Meta. **Diana Vasilescu absorbs UX duties** for WME Sub-efforts 2 & 3 in addition to her design lead role.
+- Yura handoff package (due before 5/11): Sub-effort 1 final wireframes + flows, Sub-effort 2 final wireframes + flows, open Qs / decisions log. Sub-effort 3 left as iteration flex room.
+- **Open watch**: Diana's load in S29+ — if WME UX eats into her design lead bandwidth, scope cut conversation may need to happen at next milestone checkpoint.
 
 ### Producer Coverage — Week 1 Gap (continuing from S27)
 - **Tim out 4/28-5/1** (4 days) for Metagame + Social Dynamics.
@@ -509,8 +514,8 @@ S28 is the first sprint of CP2 (only Empire and Metagame had CP2 work pre-existi
 | Diana Vasilescu | Empire | 10 | |
 | Jacob Siegel | Empire | 10 | |
 | Elise Cole | Empire | 10 | |
-| Henrique De Lima | Empire | **9-10** | May 1 verify; partial appts 4/29, 5/6 |
-| Laura Santana | QA (Empire) | **9-10** | May 1 verify |
+| Henrique De Lima | Empire | **9** | **Off May 1 (BR Workers' Day, confirmed)**; partial appts 4/29, 5/6 |
+| Laura Santana | QA (Empire) | **9** | **Off May 1 (BR Workers' Day, confirmed)** |
 | Leonard Perez | Metagame | 10 | |
 | Christopher Fidalgo | Metagame | 10 | |
 | Kevin Ligon | Metagame (UX) | 10 | |
@@ -555,33 +560,40 @@ S28 is the first sprint of CP2 (only Empire and Metagame had CP2 work pre-existi
 
 1. **CP2 GOAL UNCOVERED — Battle: Pathfinding & AI eng kickoff** has no S28 work; Jota fully consumed by HUD. Decision needed before S29: cut, defer to CP3, or bring in support.
 2. **CP2 GOAL UNCOVERED — SD: Phase 3 (Basic Game Logic) kickoff** has no S28 work; pod still wrapping P2. Likely slips to CP3 unless P2 closes cleanly.
-3. **Yura Rusin maternity leave starts 5/11** — Empire UX gone for ~6 weeks of M&Ms. Only Sub-effort 1 of WME starts before she leaves. Backup UX assignment needed before sprint kickoff.
-4. **Triple eng kickoff sprint** — Battle HUD, WME, and Dozer CP2 (3 features) all begin S28. Highest transition load of M&Ms so far.
-5. **S27 carry-over uncertainty** — Actor System Overhaul + HUD DD (Battle), EKS (Dozer) need to close in S27 to enable S28 kickoffs. Tutorial Migration is **paused** and will trickle in across other engineers — needs an assignment plan to avoid orphaned ownership.
-6. **Tim out 4 days at sprint start** — Metagame + Social Dynamics producer gap, second sprint in a row. Backup decision-maker still not identified.
-7. **Brendan out 4 days at sprint start** — Kevin Griffith solo art direction for week 1, second sprint in a row.
-8. **Bruno Bacelar out last 4 sprint days** — Multiplayer Networking dips in week 2.
-9. **Battle CP2 over-subscribed** — 3 features (HUD, Obstacles, Pathfinding) against 1 engineer (Jota).
-10. **Dozer CP2 over-subscribed** — 3 features (Build Pipeline, Compliance, UI Framework V2) against 2 engineers.
-11. **May 1 Workers' Day** — pending verification. If observed, BR team (~18 members) loses 1 day.
-12. **S28 ClickUp list empty** — needs population before Tuesday 4/28 kickoff.
+3. **Empire has no embedded UX after 5/11** — Diana absorbs UX duties for WME Sub-efforts 2 & 3 alongside design lead role. Highest single-pod risk for M&Ms remainder.
+4. **WME spec not yet ready** — Diana committed to closing the gap in week 1, but Henrique's eng kickoff begins against a still-maturing spec.
+5. **Triple eng kickoff sprint** — Battle HUD, WME, and Dozer CP2 (3 features) all begin S28. Highest transition load of M&Ms so far.
+6. **S27 carry-over uncertainty** — Actor System Overhaul + HUD DD (Battle), EKS (Dozer) need to close in S27 to enable S28 kickoffs. Tutorial Migration is **PARKED** entirely — owner needed for re-prioritization decision (next milestone planning).
+7. **Tim out 4 days at sprint start** — Metagame + Social Dynamics producer gap, second sprint in a row. Backup decision-maker still not identified.
+8. **Brendan out 4 days at sprint start** — Kevin Griffith solo art direction for week 1, second sprint in a row.
+9. **Bruno Bacelar out last 4 sprint days** — Multiplayer Networking dips in week 2.
+10. **Battle CP2 over-subscribed** — 3 features (HUD, Obstacles, Pathfinding) against 1 engineer (Jota).
+11. **Dozer CP2 over-subscribed** — 3 features (Build Pipeline, Compliance, UI Framework V2) against 2 engineers.
+12. **May 1 Workers' Day** — Empire confirmed observed (Henrique, Laura off). Other BR pods pending Holly/HR verification.
+13. **S28 ClickUp list empty** — needs population before Tuesday 4/28 kickoff.
 
 ### Open Questions (resolve before kickoff)
 
-1. [ ] **Yura maternity coverage**: Who picks up Empire UX from 5/11 onward? (Critical — affects M&Ms remainder)
-2. [ ] **Tim week-1 backup**: Producer coverage for Metagame + SD (4/28-5/1)
-3. [ ] **Tutorial Migration trickle plan** — which engineers absorb the remaining work, at what cadence?
-4. [ ] **Battle HUD Design Doc** ([CHI-35036](https://app.clickup.com/t/869bvfcym)) finalized?
-5. [ ] **Actor System Overhaul** complete in S27?
-6. [ ] **EKS deployment** closed in S27?
-7. [ ] **WME spec readiness** — Multiple Nodes per Territory ready for Henrique?
-8. [ ] **Building Upgrades (Meta Depth Phase 1) spec + UX readiness** — ready for Tiago's eng kickoff?
-9. [ ] **UI Foundation Sprint 3 sub-feature scope**
-10. [ ] **Battle CP2 prioritization** — HUD vs Obstacles vs Pathfinding under 1-engineer constraint
-11. [ ] **Dozer CP2 prioritization** — Build Pipeline vs Compliance vs UI Framework V2 under 2-engineer constraint
-12. [ ] **Art priority for CP2** — Battle HUD assets vs WME assets vs UI Foundation
-13. [ ] **May 1 Workers' Day** policy — verify with Holly/HR
-14. [ ] **Chris Fidalgo carry-over** — [CHI-36250](https://app.clickup.com/t/86agcpt61) closed?
-15. [ ] **UI Foundation SHQ linkage** (carried from S26 + S27)
-16. [ ] **SD P2 wrap completion** — does the AA-target switchover land in S28?
-17. [ ] **Gabriel SD Battle stretch** — fits in S28 or pulls to S29?
+**Empire — RESOLVED 2026-04-21**:
+- [x] **Yura maternity coverage**: No embedded Empire UX after 5/11. Diana absorbs UX for WME Sub-efforts 2 & 3.
+- [x] **Tutorial Migration trickle plan**: PARKED entirely — no engineer trickle.
+- [x] **WME spec readiness**: Not yet, but Diana commits to readiness in time (week-1 finalization).
+- [x] **WME UX handoff package**: Sub-effort 1 + 2 final wireframes/flows + open Qs/decisions log. Sub-effort 3 = flex room.
+- [x] **May 1 BR Workers' Day**: Henrique and Laura confirmed off (BR holiday observed).
+- [x] **Empire S27 carry-over**: Tutorial Arch (3) parked. Elise's Figma agentic research = primary; T8 Design Prep continues into T8 Implementation as lower priority.
+
+**Open**:
+1. [ ] **Tim week-1 backup**: Producer coverage for Metagame + SD (4/28-5/1)
+2. [ ] **Battle HUD Design Doc** ([CHI-35036](https://app.clickup.com/t/869bvfcym)) finalized?
+3. [ ] **Actor System Overhaul** complete in S27?
+4. [ ] **EKS deployment** closed in S27?
+5. [ ] **Building Upgrades (Meta Depth Phase 1) spec + UX readiness** — ready for Tiago's eng kickoff?
+6. [ ] **UI Foundation Sprint 3 sub-feature scope**
+7. [ ] **Battle CP2 prioritization** — HUD vs Obstacles vs Pathfinding under 1-engineer constraint
+8. [ ] **Dozer CP2 prioritization** — Build Pipeline vs Compliance vs UI Framework V2 under 2-engineer constraint
+9. [ ] **Art priority for CP2** — Battle HUD assets vs WME assets vs UI Foundation
+10. [ ] **May 1 Workers' Day** policy for non-Empire BR team (Metagame, Battle, SD, Dozer, Art) — verify with Holly/HR
+11. [ ] **Chris Fidalgo carry-over** — [CHI-36250](https://app.clickup.com/t/86agcpt61) closed?
+12. [ ] **UI Foundation SHQ linkage** (carried from S26 + S27)
+13. [ ] **SD P2 wrap completion** — does the AA-target switchover land in S28?
+14. [ ] **Gabriel SD Battle stretch** — fits in S28 or pulls to S29?
