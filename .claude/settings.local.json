@@ -45,7 +45,10 @@
       "Bash(ls planning/features/*.md)",
       "Bash(node:*)",
       "Bash(powershell.exe:*)",
-      "Bash(py --version)"
+      "Bash(py --version)",
+      "mcp__clickup__clickup_get_task_time_entries",
+      "mcp__clickup__clickup_get_list",
+      "mcp__clickup__clickup_get_time_entries"
     ]
   }
 }

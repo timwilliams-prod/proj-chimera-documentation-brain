@@ -5,7 +5,7 @@ Working Days: 10 (May 1 — verify Labor Day handling for Brazil/global; Tiraden
 Holidays: May 1 (Friday) — Workers' Day / Labor Day. Likely BR holiday; verify Fortis policy for US/Canada team.
 Milestone: M&Ms (Multiplayer & Meta) — Sprint 3 of ~7
 Mode: Preview
-Generated: 2026-04-20 (updated 2026-04-21: Art Pod removed, artists embedded in working pods; Diana/Marcos priorities updated; CP2 high-level goals consolidated)
+Generated: 2026-04-20 (updated 2026-04-24: Fresh PTO from Google Calendar - added Elise Cole 4/28, Thiago Saraiva 4/30)
 ---
 
 # Sprint 28: Abra — PREVIEW
@@ -86,11 +86,13 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 
 | Person | Pod | Dates Out | Days Lost | Avail Days | Impact |
 |--------|-----|-----------|-----------|------------|--------|
-| Tim Williams | Metagame / SD | 4/28-5/01 (returning Mon 5/4) | 4 | **6** | **Producer gap weeks 1** for Metagame + Social Dynamics. Continuation of S27 PTO. |
-| Brendan Cheatham | Cross-pod (Assoc. AD) | 4/28-5/01 (returning Mon 5/4; PTO ends 5/2 per cal) | 4 | **6** | Assoc. AD missing first half of sprint. Continuation of S27 PTO. Kevin Griffith covers solo cross-pod art direction for week 1. |
-| Bruno Bacelar | Social Dynamics | 5/6-5/11 (vacation through 5/15) | 4 | **6** | Networking out for back half. Multiplayer Networking track impact. |
+| Tim Williams | Metagame / SD | 4/28-5/01 (returning Mon 5/4) | 4 | **6** | **Producer gap week 1** for Metagame + Social Dynamics. Continuation of S27 PTO. |
+| Brendan Cheatham | Cross-pod (Assoc. AD) | 4/28-5/02 (returning Mon 5/4) | 4 | **6** | Assoc. AD missing first half of sprint. Continuation of S27 PTO. Kevin Griffith covers solo cross-pod art direction for week 1. |
+| Bruno Bacelar | Social Dynamics | 5/6-5/15 (vacation) | 4 | **6** | Networking out for back half. Multiplayer Networking track impact. |
 | Vinod Rams | Battle (Art) | 5/1, 5/4 | 2 | **8** | Hero concept work briefly slowed. |
 | Yura Rusin | Empire (UX) | Dr appts 4/28, 5/1, 5/4, 5/7 + **Maternity leave starts 5/11** | ~1 sprint day + 1 maternity day | **9** (effective) | **MAJOR DOWNSTREAM**: Yura on maternity leave from 5/11 through 6/20. Loses last 1 day of S28 + ALL of S29, S30, S31 (most of M&Ms remainder). Empire WME UX must complete before 5/11 or transition to backup. |
+| Elise Cole | Empire | 4/28 (Mon) | 1 | **9** | Misses first day of sprint. |
+| Thiago Saraiva | Empire (Art) | 4/30 (Wed) | 1 | **9** | Empire 3D artist. May 1 also pending verification. |
 | Brann Livesay | Empire | 5/8 (Fri) | 1 | **9** | Producer minor. |
 
 **Partial Appointments** (1-2 hrs, minimal impact):
@@ -119,13 +121,13 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 |----------|-----------|------------|------------|-------|
 | Diana Vasilescu | Design | 10 | 1. WME spec finalization (Multiple Nodes per Territory) — get to ready before 4/28 2. Map Content design support 3. **Narrative design/planning for the second story arc** (pre-req for Map content) | Critical week-1 design alignment with Henrique. |
 | Jacob Siegel | Design | 10 | 1. Map Content (T-tier work continuation) 2. Any remaining ZZ Player Journey/CG follow-ups | Carry-over watch from [CHI-36411](https://app.clickup.com/t/86agp9g9c) family if not closed in S27. |
-| Elise Cole | Design | 10 | 1. **Figma Map agentic research** ([CHI-36575](https://app.clickup.com/t/86agw4bfz)) — primary 2. T8 Design Prep ([CHI-36576](https://app.clickup.com/t/86agw4bwz)) → continues into T8 Implementation, lower priority 3. WME design support | Carry-over from S27 confirmed. Agentic research is the higher-priority track. |
+| Elise Cole | Design | **9** | 1. **Figma Map agentic research** ([CHI-36575](https://app.clickup.com/t/86agw4bfz)) — primary 2. T8 Design Prep ([CHI-36576](https://app.clickup.com/t/86agw4bwz)) → continues into T8 Implementation, lower priority 3. WME design support | **Out 4/28 (first day)**. Carry-over from S27 confirmed continuing. Agentic research is the higher-priority track. |
 | Yura Rusin | UX | **9** | 1. **WME UX hand-off package** — Sub-effort 1 final wireframes + flows, Sub-effort 2 final wireframes + flows, open Qs / decisions log 2. Dr appts | **Maternity leave starts 5/11** — loses sprint day 10 + all of M&Ms remainder (S29-S31). Sub-effort 3 deliberately left to Diana as flex room for iterations. |
 | Henrique De Lima | Eng | **9** | 1. **WME — Multiple Nodes per Territory (Eng kickoff)** | **Off May 1 (BR Workers' Day, confirmed)**. Sole client engineer. Partial appts 4/29, 5/6. Tutorial Migration parked — Henrique focused on WME. Spec not 100% ready at sprint start — week-1 alignment with Diana required. |
 | Laura Santana | QA | **9** | 1. WME smoke-test prep 2. Bug verification | **Off May 1 (BR Workers' Day)**. Tutorial QA dropped — Tutorial work parked. |
 | Marcos Teles | Tech Art | **9-10** | 1. **Territory Map Optimization Review** (collab with Pedro/Thiago) 2. Anti-aliasing tutorial spotlight 3. Water VFX/Shader exploration | May 1 verify. Empire-embedded artist. |
 | Guilherme Lascasas | 2D Env Concept | **9-10** | 1. Environment concept (Empire) 2. WME asset support for Henrique kickoff | May 1 verify. Empire-embedded artist. |
-| Thiago Saraiva | Senior 3D | **9-10** | 1. 3D blockouts (Empire — terrain objects, building blockouts) 2. WME asset support for Henrique kickoff | May 1 verify. Empire-embedded artist. |
+| Thiago Saraiva | Senior 3D | **9** | 1. 3D blockouts (Empire — terrain objects, building blockouts) 2. WME asset support for Henrique kickoff | **Out 4/30**. May 1 also pending verification (if also off, would be 8 days). Empire-embedded artist. |
 | Brann Livesay | Producer | **9** | 1. Empire production (incl. Empire-embedded art) | Out 5/8. |
 
 ### ClickUp Ticket Summary (proposed)
@@ -467,7 +469,7 @@ S28 is the first sprint of CP2 (only Empire and Metagame had CP2 work pre-existi
 | Yura Rusin | Empire (UX) | **9** | Maternity leave begins 5/11 (loses last day; absent ~6 weeks after) + Dr appts 4/28, 5/1, 5/4, 5/7 |
 | Diana Vasilescu | Empire | 10 | |
 | Jacob Siegel | Empire | 10 | |
-| Elise Cole | Empire | 10 | |
+| Elise Cole | Empire | **9** | Out 4/28 |
 | Henrique De Lima | Empire | **9** | **Off May 1 (BR Workers' Day, confirmed)**; partial appts 4/29, 5/6 |
 | Laura Santana | QA (Empire) | **9** | **Off May 1 (BR Workers' Day, confirmed)** |
 | Leonard Perez | Metagame | 10 | |
@@ -500,7 +502,7 @@ S28 is the first sprint of CP2 (only Empire and Metagame had CP2 work pre-existi
 | Bruno Freitas | Dozer | **9-10** | May 1 verify |
 | Marcos Teles | Empire (Tech Art) | **9-10** | May 1 verify. Empire-embedded artist. |
 | Guilherme Lascasas | Empire (2D Env) | **9-10** | May 1 verify. Empire-embedded artist. |
-| Thiago Saraiva | Empire (3D) | **9-10** | May 1 verify. Empire-embedded artist. |
+| Thiago Saraiva | Empire (3D) | **9** | Out 4/30; May 1 also pending. Empire-embedded artist. |
 | Kevin Griffith | Cross-pod (Art Director) | 10 | Solo AD coverage week 1 |
 | Pedro Sarraf | Cross-pod (Lead Tech Art) | 10 | Battle from CP3+ |
 | Lawrence Steele | Cross-pod (Audio) | 10 | |
