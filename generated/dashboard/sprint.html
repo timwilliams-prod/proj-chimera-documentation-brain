@@ -1141,6 +1141,9 @@
     function renderPod(pod) {
       const color = POD_COLORS_HEX[pod.name] || '#888';
 
+      // Build parent options for subtask dropdown
+      const parentOpts = buildParentOptions();
+
       // Goals
       const goalsHtml = pod.goals.map((g, i) => {
         const shqs = g.shqs.map(s => `<span class="shq-badge">${s}</span>`).join('');
@@ -1158,13 +1161,28 @@
         const cap = capacityBar(p.avail, p.total);
         const priorities = p.priorities.map((pr, j) => {
           const isLinked = hasTicket(pr);
-          const badge = isLinked
+          const ticketAction = isLinked
             ? '<span class="ticket-status ticket-linked">LINKED</span>'
-            : '<span class="ticket-status ticket-missing">NEEDS TICKET</span>';
+            : `
+              <span class="ticket-status ticket-missing">NEEDS TICKET</span>
+              <select class="task-type-select" onchange="toggleTaskType(this)" style="font-size:10px;padding:2px 4px;margin-left:6px">
+                <option value="">Select action...</option>
+                <option value="individual">Create Individual</option>
+                <option value="subtask">Create as Subtask</option>
+                <option value="link_existing">Link Existing</option>
+              </select>
+              <div class="task-link-detail" style="display:none;margin-top:3px;margin-left:6px">
+                <select class="task-parent-select" style="display:none;font-size:10px;padding:2px 4px">
+                  <option value="">Select parent&hellip;</option>
+                  ${parentOpts}
+                </select>
+                <input type="text" class="task-parent-input" list="chi-datalist" placeholder="CHI-XXXXX" style="display:none;font-size:10px;padding:2px 4px;width:120px">
+              </div>
+            `;
           return `
           <li class="${isLinked ? 'pri-linked' : 'pri-unlinked'}">
             <span class="priority-text editable" contenteditable="false" data-field="priority" data-idx="${j}">${richText(pr)}</span>
-            ${badge}
+            ${ticketAction}
             <span class="remove-btn" onclick="removeItem(this)" title="Remove">&times;</span>
           </li>
           `;
