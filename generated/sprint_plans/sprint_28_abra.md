@@ -1,21 +1,21 @@
 ---
 Sprint: Abra 28
 Dates: 4/28 - 5/12
-Working Days: 10 (May 1 — verify Labor Day handling for Brazil/global; Tiradentes is past)
-Holidays: May 1 (Friday) — Workers' Day / Labor Day. Likely BR holiday; verify Fortis policy for US/Canada team.
+Working Days: 10 (May 1 confirmed Brazil holiday)
+Holidays: May 1 (Friday) — Workers' Day / Labor Day (Brazil national holiday, affects BR team members)
 Milestone: M&Ms (Multiplayer & Meta) — Sprint 3 of ~7
-Mode: Preview
-Generated: 2026-04-20 (updated 2026-04-24: Fresh PTO from Google Calendar - added Elise Cole 4/28, Thiago Saraiva 4/30)
+Mode: Kickoff
+Generated: 2026-04-24
 ---
 
-# Sprint 28: Abra — PREVIEW
+# Sprint 28: Abra — KICKOFF
 
 **Milestone**: M&Ms (Multiplayer & Meta) — ends Jun 23, 2026
 **Sprint 3 of ~7** in this milestone. **First sprint of M&M Checkpoint 2 (4/28-5/25)** for Battle and Dozer.
 **Working Days**: 10 (Apr 28 Tue – May 11 Mon; May 12 Tue is S29 kickoff)
-**ClickUp List**: `901326732674` — currently **empty**, needs population at kickoff.
+**ClickUp List**: `901326732674`
 
-> **Data freshness**: ClickUp pulled 2026-04-20. Sprint 27 still has 5 open tasks visible at top level — full picture of S27 carry-over won't be clear until late next week. This preview is being prepared ~8 days before sprint start; many items below are flagged as **"verify before kickoff."**
+> **Kickoff Mode**: This is the final plan for Sprint 28. ClickUp tasks will be created in Product Backlog and added to the sprint list. S27 carry-over has been verified: CHI-36575 (Elise, in progress) and CHI-36250 (Chris, to do).
 
 ---
 
