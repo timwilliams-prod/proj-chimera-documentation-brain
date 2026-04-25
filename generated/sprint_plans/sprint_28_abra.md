@@ -180,7 +180,7 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 | Assignee | Discipline | Avail Days | Priorities | Notes |
 |----------|-----------|------------|------------|-------|
 | Leonard Perez | Design | 10 | 1. Meta Depth design progression (Building Upgrades, Empire Progression Tree, Combat Research Tree) 2. Commercial plan continuation | Tim out week 1 — Leonard may need to drive design decisions independently. |
-| Christopher Fidalgo | Design | 10 | 1. Narrative/Tutorial design 2. Any S27 carry-over ([CHI-36250](https://app.clickup.com/t/86agcpt61) T5/T6 rewards if still open) | Risk: if Chris's S27 tasks didn't close, S28 starts overloaded. |
+| Christopher Fidalgo | Design | 10 | 1. Narrative/Tutorial design 2. Any S27 carry-over ([CHI-36250](https://app.clickup.com/t/86agcpt61) T5/T6 rewards if still open) 3. Add source of Gacha scrolls to game economy (from roaming monsters) | Risk: if Chris's S27 tasks didn't close, S28 starts overloaded. |
 | Kevin Ligon | UX | 10 | 1. UI Foundation UX (Sprint 3 sub-features) 2. Meta Depth UX (Building Upgrades, Empire Progression Tree) 3. Battle HUD UX support cross-pod | UI Foundation primary. Meta Depth needs UX cycles to unblock Pipeline B. |
 | Dan Dupuis | Eng Lead | 10 | 1. UI Foundation oversight 2. Empire eng lead support (WME kickoff) | Planning capacity only. |
 | Guilherme Quizzini | Eng | **9-10** | 1. UI Foundation (Pipeline A, Sprint 3) | May 1 Labor Day verify. Dedicated to UI Foundation for full milestone. |
