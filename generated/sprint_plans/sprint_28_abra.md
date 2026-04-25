@@ -56,7 +56,7 @@ Sourced from each pod's `planning/pods/{pod}/milestone_mms.md` Checkpoint Goals 
 - **UI Foundation Sprint 3 of 6** (Metagame, Pipeline A) → *Metagame CP2 #1 (laying groundwork)*
 - **Building Upgrades (Meta Depth Phase 1)** eng kickoff (Metagame, Pipeline B) → *Metagame CP2 #2*
 - **SD in-client multiplayer baseline** — P2 wrap (Loures/Gabriel/Randy) + dev UI v1 (Randy) → *SD CP2 #1 (P3 kickoff still uncovered)*
-- **Dozer CP2** — Build Pipeline Review + Compliance kicking off in parallel → *Dozer CP2 #1, #2*
+- **Dozer CP2** — EKS parallel workflows (Derek, continues from S27) + Build Pipeline Review + Compliance (One Trust spike, Age Gate) + UI Framework V2 Full kicking off → *Dozer CP2 #1, #2, #3*
 - **Yura WME UX handoff package** before 5/11 maternity leave → *protects Empire CP2/CP3 continuity*
 - **Map Content + Battle/Unit Content pipelines** continue (SHQ3-1) → *Empire + Battle CP2 content*
 
@@ -78,7 +78,7 @@ Sprint 28 is a **transition sprint** for multiple pods. Three big handoffs hit a
 |-----|------------|---------------|------|
 | Empire | Tutorial Migration → **WME Eng begins** (Multiple Nodes per Territory) | Tutorial Node Migration completes in S27; WME spec ready | **S27 plan flagged Tutorial won't fully complete in S27**. WME eng start may proceed against partial migration state. |
 | Battle | UX/Design Review (CP1) → **Battle HUD Implementation begins** (4-sprint span CP1→CP2, implementation in CP2 starting S28) | Battle HUD Design Doc ([CHI-35036](https://app.clickup.com/t/869bvfcym)) finalized in CP1 | UX and Design Review completed in CP1. First pass implementation with Danny + Jota begins S28. |
-| Dozer | M&M CP1 → **CP2 starts** (Build Pipeline, Compliance, UI Framework V2 Full) | EKS deployment completes in S27; UI Framework V2 Support wraps | EKS critical path — confirm Derek closed it. |
+| Dozer | M&M CP1 → **CP2 starts** (Build Pipeline, Compliance, UI Framework V2 Full) + EKS continues | EKS parallel workflows setup continues from S27; UI Framework V2 Support wraps | EKS work continues into S28 (Derek). CP2 features kick off alongside EKS continuation. |
 
 ---
 
@@ -359,16 +359,19 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 
 ---
 
-## Dozer
+## Dozer (Tech Pod)
 
 **Eng Lead**: Derek Gallant | **Eng**: Bruno Freitas | **Producer**: Thorben Novais
 
 **M&M Checkpoint 2 begins this sprint (4/28-5/25).**
 
 ### Sprint Goals
-- **Build Pipeline Review** kickoff (CP2 Sprint 1 of 2)
+- **EKS - Setting up parallel workflows** (Derek - continues from Sprint 27)
 - **Compliance (OneTrust, Age Gate)** kickoff (CP2 Sprint 1 of 2)
+  - Spike: One Trust (Derek)
+  - Age Gate (Bruno) - Check Unified SDK with Randy, plan Reskin with UI Kit
 - **UI Framework V2 (Full)** kickoff (CP2 Sprint 1 of 2)
+- **Build Pipeline Review** kickoff (CP2 Sprint 1 of 2)
 - Performance/Optimization continues
 - Multiplayer infra support continues
 
@@ -376,32 +379,37 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 
 | Assignee | Discipline | Avail Days | Priorities | Notes |
 |----------|-----------|------------|------------|-------|
-| Derek Gallant | Eng Lead | 10 | 1. Compliance (OneTrust, Age Gate) — likely owner 2. UI Framework V2 (Full) oversight 3. SD eng lead duties (P2/P3) 4. Multiplayer infra | Split: Dozer + SD eng lead. **Verify EKS deployment closed in S27.** |
+| Derek Gallant | Eng Lead | 10 | 1. **EKS - Setting up parallel workflows** (continues from S27) 2. **Spike: One Trust** 3. UI Framework V2 (Full) oversight 4. SD eng lead duties (P2/P3) 5. Multiplayer infra | Split: Dozer + SD eng lead. EKS work continues into S28. |
 | Thorben Novais | Producer | **9-10** | 1. Build Pipeline Review coordination 2. M&M roadmap maintenance 3. Battle production | May 1 verify. Two pods. |
-| Bruno Freitas | Eng | **9-10** | 1. Build Pipeline Review (likely lead) 2. Performance/Optimization | May 1 verify. |
+| Bruno Freitas | Eng | **9-10** | 1. **Age Gate** (Check Unified SDK with Randy, plan Reskin with UI Kit) 2. Build Pipeline Review 3. Performance/Optimization | May 1 verify. |
 
 ### ClickUp Ticket Summary (proposed)
 
-- **Build Pipeline Review** (proposed Epic, CP2)
-  - Build Pipeline Review - Audit & Plan (Bruno F, Thorben)
+- **EKS - Setting up parallel workflows** (continuation from S27)
+  - EKS - Parallel Workflows Setup (Derek, continues from S27)
 - **Compliance (OneTrust, Age Gate)** (proposed Epic, CP2)
-  - Compliance - OneTrust integration kickoff (Derek)
-  - Compliance - Age Gate kickoff (Derek)
+  - Spike: One Trust (Derek)
+  - Age Gate - Check Unified SDK with Randy (Bruno)
+  - Age Gate - Plan Reskin with UI Kit (Bruno)
 - **UI Framework V2 (Full)** (proposed Epic, CP2)
   - UI Framework V2 - Migration kickoff (Derek + cross-pod)
+- **Build Pipeline Review** (proposed Epic, CP2)
+  - Build Pipeline Review - Audit & Plan (Bruno F, Thorben)
 - **Standalone / ongoing**
   - Performance/Optimization - Sprint 28 (Bruno F)
+  - Multiplayer infra support (Derek)
 
 ### Open Questions
-- [ ] **Did EKS deployment complete in S27?** Blocks parallel workflows in S28.
+- [x] **Did EKS deployment complete in S27?** EKS work continues into S28 with parallel workflows setup (Derek).
 - [ ] **Did UI Framework V2 - UI Support (CP1) wrap?** Predecessor to V2 Full.
-- [ ] **CP2 task ownership** — 3 parallel CP2 features against 2 engineers (Derek, Bruno F). Realistic?
+- [ ] **CP2 task ownership** — 3 parallel CP2 features (Build Pipeline, Compliance, UI Framework V2) + EKS continuation against 2 engineers (Derek, Bruno F). Realistic?
+- [ ] **Age Gate Unified SDK verification** — Bruno needs to check with Randy on SDK status.
 - [ ] May 1 Labor Day — Bruno F, Thorben off?
 
 ### Key Risks
-- **CP2 over-loaded** — 3 features (Build Pipeline, Compliance, UI Framework V2 Full) starting same sprint with 2 engineers. Likely needs prioritization.
+- **CP2 over-loaded** — 3 features (Build Pipeline, Compliance, UI Framework V2 Full) + EKS parallel workflows starting/continuing with 2 engineers. Likely needs prioritization.
 - Derek's split between Dozer + SD eng lead intensifies as both pods enter big phases.
-- EKS dependency — if S27 didn't close, parallel workflows setup slips.
+- **Age Gate dependencies** — Bruno needs Randy's input on Unified SDK status before planning Reskin with UI Kit.
 
 ---
 
@@ -410,7 +418,8 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 ### Key Handoffs This Sprint
 - **Tutorial Migration PARKED → no trickle** (Empire — revisit at next milestone planning; Henrique focused on WME)
 - **Battle HUD UX/Design Review (CP1) → Battle HUD Implementation kickoff** (Battle — Danny + Jota first pass)
-- **EKS deployment close → Parallel Workflows + CP2 work** (Dozer — Derek)
+- **EKS → Parallel Workflows setup continues** (Dozer — Derek, continuation from S27)
+- **Age Gate → Unified SDK check with Randy** (Dozer — Bruno needs Randy's input before UI Kit reskin planning)
 - **Building Upgrades design + UX → Tiago eng kickoff** (Metagame — Leonard / Kevin Ligon to Tiago)
 - **P2 wrap pieces → AA switchover assessment** (SD — Loures + Gabriel + Randy)
 - **Yura WME UX → handoff package before 5/11 maternity leave** (Empire — Sub-effort 1 + 2 wireframes/flows + open Qs log; Diana absorbs UX post-5/11)
@@ -543,7 +552,7 @@ S28 is the first sprint of CP2 (only Empire and Metagame had CP2 work pre-existi
 3. **Empire has no embedded UX after 5/11** — Diana absorbs UX duties for WME Sub-efforts 2 & 3 alongside design lead role. Highest single-pod risk for M&Ms remainder.
 4. **WME spec not yet ready** — Diana committed to closing the gap in week 1, but Henrique's eng kickoff begins against a still-maturing spec.
 5. **Triple eng kickoff sprint** — Battle HUD, WME, and Dozer CP2 (3 features) all begin S28. Highest transition load of M&Ms so far.
-6. **S27 carry-over uncertainty** — Actor System Overhaul Phase 1 complete in S27, Phase 2 continues (4 phases total). EKS (Dozer) needs to close in S27. Battle HUD DD completed in CP1. Tutorial Migration is **PARKED** entirely — owner needed for re-prioritization decision (next milestone planning).
+6. **S27 carry-over uncertainty** — Actor System Overhaul Phase 1 complete in S27, Phase 2 continues (4 phases total). EKS (Dozer) continues into S28 with parallel workflows setup. Battle HUD DD completed in CP1. Tutorial Migration is **PARKED** entirely — owner needed for re-prioritization decision (next milestone planning).
 7. **Tim out 4 days at sprint start** — Metagame + Social Dynamics producer gap, second sprint in a row. Backup decision-maker still not identified.
 8. **Brendan Cheatham out 4 days at sprint start** — Kevin Griffith solo cross-pod art direction for week 1, second sprint in a row.
 9. **Bruno Bacelar out last 4 sprint days** — Multiplayer Networking dips in week 2.
@@ -566,7 +575,7 @@ S28 is the first sprint of CP2 (only Empire and Metagame had CP2 work pre-existi
 1. [ ] **Tim week-1 backup**: Producer coverage for Metagame + SD (4/28-5/1)
 2. [x] **Battle HUD Design Doc** ([CHI-35036](https://app.clickup.com/t/869bvfcym)) finalized in CP1
 3. [x] **Actor System Overhaul Phase 1** complete in S27, Phase 2 continues in S28 (4 phases total)
-4. [ ] **EKS deployment** closed in S27?
+4. [x] **EKS deployment** continues in S28 with parallel workflows setup (Derek)
 5. [ ] **Building Upgrades (Meta Depth Phase 1) spec + UX readiness** — ready for Tiago's eng kickoff?
 6. [ ] **UI Foundation Sprint 3 sub-feature scope**
 7. [ ] **Battle CP2 prioritization** — HUD vs Obstacles vs Pathfinding under 1-engineer constraint
