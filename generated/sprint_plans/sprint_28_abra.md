@@ -50,7 +50,9 @@ Sourced from each pod's `planning/pods/{pod}/milestone_mms.md` Checkpoint Goals 
 ### Active Focus This Sprint
 - **WME — Multiple Nodes per Territory** eng kickoff (Empire, SHQ4-3 / SHQ4-4) → *Empire CP2 #1*
 - **Territory Map vertical slice push** — Guilherme L (env concept) + Thiago S (3D blockouts/decoration) + Marcos T (Optimization Review) → *Empire CP2 #2*
-- **Battle HUD Implementation** begins — Jota eng + Miguel Duran cross-pod UI art (Battle, SHQ4-1) — Sprint 1 of 4 → *Battle CP2 #1*
+- **Battle HUD Implementation** begins — Danny + Jota eng + Miguel Duran cross-pod UI art (Battle, SHQ4-1) — Sprint 1 of 4 (spans CP1 and CP2; UX/Design Review in CP1, implementation in CP2) → *Battle CP2 #1*
+- **Actor System Overhaul Phase 2** — Jota + Ben (Phase 1 complete in S27, 4 phases total) → *Battle ongoing*
+- **Unit Content + Affinity Swap** — Hero pipeline (5 heroes in flight: Toshoia concept, Merrin 3D/rig, Trench Knight anim/VFX, Mecha Saboteur concept kickoff) + Design Kits wrap (12 M&M heroes) + Ranged Bot → *Battle CP2 content*
 - **UI Foundation Sprint 3 of 6** (Metagame, Pipeline A) → *Metagame CP2 #1 (laying groundwork)*
 - **Building Upgrades (Meta Depth Phase 1)** eng kickoff (Metagame, Pipeline B) → *Metagame CP2 #2*
 - **SD in-client multiplayer baseline** — P2 wrap (Loures/Gabriel/Randy) + dev UI v1 (Randy) → *SD CP2 #1 (P3 kickoff still uncovered)*
@@ -75,7 +77,7 @@ Sprint 28 is a **transition sprint** for multiple pods. Three big handoffs hit a
 | Pod | Transition | Pre-condition | Risk |
 |-----|------------|---------------|------|
 | Empire | Tutorial Migration → **WME Eng begins** (Multiple Nodes per Territory) | Tutorial Node Migration completes in S27; WME spec ready | **S27 plan flagged Tutorial won't fully complete in S27**. WME eng start may proceed against partial migration state. |
-| Battle | Design phase → **Battle HUD Implementation begins** (4-sprint span CP2→CP3) | Battle HUD Design Doc ([CHI-35036](https://app.clickup.com/t/869bvfcym)) finalized in S27 | DD was still in discipline review at S27 kickoff. **Verify finalized.** |
+| Battle | UX/Design Review (CP1) → **Battle HUD Implementation begins** (4-sprint span CP1→CP2, implementation in CP2 starting S28) | Battle HUD Design Doc ([CHI-35036](https://app.clickup.com/t/869bvfcym)) finalized in CP1 | UX and Design Review completed in CP1. First pass implementation with Danny + Jota begins S28. |
 | Dozer | M&M CP1 → **CP2 starts** (Build Pipeline, Compliance, UI Framework V2 Full) | EKS deployment completes in S27; UI Framework V2 Support wraps | EKS critical path — confirm Derek closed it. |
 
 ---
@@ -224,62 +226,84 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 **QA**: Julio Scarabelli
 
 ### Sprint Goals
-- **Battle HUD Beta Overhaul - Implementation begins** (Jota, Sprint 1 of 4 — spans CP2 + CP3) — SHQ4-1
-- Continue Actor System Overhaul if not complete in S27
-- **Obstacles** — design validation + early eng (per milestone plan)
+- **Affinity Swap** (Felipe, Dylan, Lincoln will provide required color adjustments)
+- **Battle HUD Beta Overhaul - Implementation begins** (Danny + Jota, Sprint 1 of 4 — spans CP1 and CP2; UX/Design Review completed in CP1, implementation starts in CP2) — SHQ4-1
+- **Unit Content**
+  - **Art**
+    - Implement Ranged Bot (Portraits, cross-pod Kevin/Yura)
+    - New Hero Concept (Toshoia) — Vinod continues from S27
+    - New Hero 3D (Merrin) — Felipe continues from S27
+    - New Hero Animation (Trench Knight) — Tony continues from S27
+    - New Hero VFXs (Trench Knight) — Alessandro and Danny continue from S27
+    - New Hero Concept (Mecha Saboteur) — Vini starts in S28 (2D Concept Kick-Off scheduled: 4/29)
+    - New Hero Rig (Merrin) — Ben starts in S28
+  - **Design**
+    - Design Kits wrap for 12 M&M heroes (Lincoln, Nathan)
+- **Actor System Overhaul** (Phase 2, Jota and Ben — continues from S27. Total of 4 phases. Phase 1 is complete in S27)
+- **Obstacles** — design validation (Dylan) + early eng (per milestone plan)
 - **Pathfinding & AI Improvements** — early prep work
-- Battle Content + Unit Content pipelines continue
-- New Hero Concept (Toshoia) — Vinod continues from S27
+- **Battle ENV Performance Investigate** (Danny)
 
 ### Individual Breakdown
 
 | Assignee | Discipline | Avail Days | Priorities | Notes |
 |----------|-----------|------------|------------|-------|
-| Lincoln Li | Design Lead | 10 | 1. Battle HUD design support during eng implementation 2. Obstacles design validation 3. Pathfinding & AI design prep | Partial appts 4/30, 5/7 (~1 hr each). Battle HUD eng starts now — design availability for Q&A critical. |
-| Nathan Hajek | Design | 10 | 1. Unit Design & Prototype 2. Obstacles design validation support | |
-| Dylan Jeffery | Design | 10 | 1. Battle Templates 2. Battle Content pipeline | Continuation from S27. |
+| Lincoln Li | Design Lead | 10 | 1. Battle HUD design support during eng implementation 2. Design Kits wrap for 12 M&M heroes (with Nathan) 3. Affinity Swap color adjustments (with Dylan, Felipe) 4. Pathfinding & AI design prep | Partial appts 4/30, 5/7 (~1 hr each). Battle HUD eng starts now — design availability for Q&A critical. |
+| Nathan Hajek | Design | 10 | 1. Design Kits wrap for 12 M&M heroes (with Lincoln) 2. Unit Design & Prototype | |
+| Dylan Jeffery | Design | 10 | 1. Affinity Swap (with Felipe, Lincoln provides color adjustments) 2. Obstacles design validation 3. Battle Templates | Continuation from S27. |
 | Vishaal Gupta | Design | 10 | 1. Unit Content + unit balance | Partial appts 4/30, 5/7. |
-| Jota Oliveira | Eng | **9-10** | 1. **Battle HUD Implementation - Sprint 1 of 2 (CP2 start)** 2. Close Actor System Overhaul if not complete | May 1 Labor Day verify. **Solo client eng — critical path for ALL Battle eng.** Battle HUD is now the headline. |
-| Danny Oliveira | Art (VFX) | 10 | 1. VFX implementation/polish 2. Battle HUD impl. support | |
-| Alessandro Oliveira | Art (VFX) | **9-10** | 1. Trench Knight VFX completion ([CHI-36350](https://app.clickup.com/t/86agjmw4v) family if not done) 2. New VFX | May 1 verify. |
-| Vinod Rams | Art (Lead 2D Concept) | **8** | 1. Toshoia Hero Concept continuation 2. Unit concepts | Out 5/1, 5/4. |
-| Ben Clair | Art | 10 | 1. Start Merrin Rig & Skinning | |
-| Felipe Chaves | Art | **9-10** | 1. Finish Merrin 3d | May 1 verify. |
-| Tony Bonilla | Art | 10 | 1. Finish Trench Knight / Hero animations ([CHI-31445](https://app.clickup.com/t/8699n06e4)) | |
-| Vini Muniz | Art | 10 | 1. Melee Bot continuation ([CHI-36356](https://app.clickup.com/t/86agjy22g), [CHI-36473](https://app.clickup.com/t/86agq78gj)) 2. Next Hero Concept (Toshoia/Mecha Saboteur) | |
+| Jota Oliveira | Eng | **9-10** | 1. **Battle HUD first pass implementation - Sprint 1 of 4** (with Danny) 2. **Actor System Overhaul Phase 2** (with Ben, continues from S27) | May 1 Labor Day verify. **Solo client eng — critical path for ALL Battle eng.** Battle HUD is now the headline. Phase 1 of Actor System complete in S27. |
+| Danny Oliveira | Art (VFX) | 10 | 1. **Battle HUD first pass implementation** (with Jota) 2. **New Hero VFXs (Trench Knight)** (with Alessandro, continues from S27) 3. **Battle ENV Performance Investigate** | |
+| Alessandro Oliveira | Art (VFX) | **9-10** | 1. **New Hero VFXs (Trench Knight)** (with Danny, continues from S27) 2. VFX implementation | May 1 verify. |
+| Vinod Rams | Art (Lead 2D Concept) | **8** | 1. **New Hero Concept (Toshoia)** (continues from S27) 2. Unit concepts | Out 5/1, 5/4. |
+| Ben Clair | Art | 10 | 1. **New Hero Rig (Merrin)** (starts in S28) 2. **Actor System Overhaul Phase 2** (with Jota, continues from S27) | |
+| Felipe Chaves | Art | **9-10** | 1. **Affinity Swap** (with Dylan, Lincoln provides color adjustments) 2. **New Hero 3D (Merrin)** (continues from S27) | May 1 verify. |
+| Tony Bonilla | Art | 10 | 1. **New Hero Animation (Trench Knight)** (continues from S27) | |
+| Vini Muniz | Art | 10 | 1. **New Hero Concept (Mecha Saboteur)** (starts in S28, 2D Concept Kick-Off: 4/29) 2. Ranged Bot implementation (Portraits, cross-pod Kevin/Yura) | |
 | Julio Scarabelli | QA | **9-10** | 1. Battle HUD QA prep 2. Bug verification | May 1 verify. |
 | Thorben Novais | Producer | **9-10** | 1. Battle production 2. Dozer production (CP2 starts) | May 1 verify. Two pods. |
 
 ### ClickUp Ticket Summary (proposed)
 
+- **Affinity Swap**
+  - Affinity Swap Implementation (Felipe, Dylan, Lincoln — color adjustments)
 - **SHQ4-1: HUD strategic + tactical play** (Epic [CHI-36324](https://app.clickup.com/t/86aghvg71))
-  - Battle HUD Implementation - Sprint 1 (Jota) — first of 4-sprint phase
+  - Battle HUD Implementation - Sprint 1 (Danny + Jota) — first of 4-sprint phase; first pass implementation
+- **Unit Content - Art**
+  - Ranged Bot Implementation (Vini — Portraits, cross-pod Kevin/Yura)
+  - New Hero Concept (Toshoia) - Sprint 28 (Vinod, continuation from S27)
+  - New Hero 3D (Merrin) - Sprint 28 (Felipe, continuation from S27)
+  - New Hero Animation (Trench Knight) - Sprint 28 (Tony, continuation from S27)
+  - New Hero VFXs (Trench Knight) - Sprint 28 (Alessandro + Danny, continuation from S27)
+  - New Hero Concept (Mecha Saboteur) - Kick-Off (Vini, starts 4/29)
+  - New Hero Rig (Merrin) (Ben, starts in S28)
+- **Unit Content - Design**
+  - Design Kits wrap for 12 M&M heroes (Lincoln, Nathan)
+- **Actor System Overhaul - Phase 2** (Epic — 4 phases total, Phase 1 complete in S27)
+  - Actor System Overhaul Phase 2 - Engineering (Jota, Ben — continuation from S27)
 - **Obstacles** (proposed Epic — confirm SHQ link)
-  - Obstacles - Design Validation (Lincoln, Nathan)
-  - Obstacles - Engineering kickoff (Jota — capacity dependent)
+  - Obstacles - Design Validation (Dylan)
+  - Obstacles - Engineering kickoff (capacity dependent)
 - **Pathfinding & AI Improvements** (proposed)
   - Pathfinding & AI - Design prep (Lincoln)
-- **Standalone / ongoing**
-  - Battle Content - Sprint 28
-  - Unit Content - Sprint 28
-  - Toshoia Hero Concept (Vinod, continuation)
+- **Battle ENV Performance**
+  - Battle ENV Performance Investigate (Danny)
 - **Carry-over to confirm**
-  - Actor System Overhaul (Jota, if not complete)
   - Effect Stacking [CHI-35985](https://app.clickup.com/t/86ag15v96) (still deferred?)
 
 ### Open Questions
-- [ ] **Past Sprint Cleanup — will we have to deal with these?** Lincoln Li (1 — CHI-35036 Battle HUD DD), Jota Oliveira (1 — CHI-35985 Effect Stacking)
-- [ ] **Battle HUD Design Doc finalized?** [CHI-35036](https://app.clickup.com/t/869bvfcym) was in discipline review at S27 kickoff. Eng implementation depends on it.
-- [ ] **Did Actor System Overhaul complete in S27?** If not, HUD eng start delayed.
+- [x] **Past Sprint Cleanup — will we have to deal with these?** Lincoln Li (CHI-35036 Battle HUD DD completed in CP1), Jota Oliveira (1 — CHI-35985 Effect Stacking)
+- [x] **Battle HUD Design Doc finalized?** [CHI-35036](https://app.clickup.com/t/869bvfcym) completed in CP1. UX and Design Review finished; ready for implementation.
+- [x] **Did Actor System Overhaul Phase 1 complete in S27?** Yes, Phase 1 complete. Phase 2 continues in S28 with Jota and Ben.
 - [ ] **Obstacles eng start S28 or S29?** Milestone plan says CP2 (which spans 2 sprints). Capacity-constrained on Jota.
 - [ ] **Pathfinding & AI eng start** — same Jota dependency.
-- [ ] **4 features × ~9 eng-sprints in 6 sprints** (capacity note from milestone plan) — does this hold? Battle HUD (4) + Obstacles (1) + Pathfinding (2) + Actor wrap = 8. Tight.
+- [ ] **4 features × ~9 eng-sprints in 6 sprints** (capacity note from milestone plan) — does this hold? Battle HUD (4) + Obstacles (1) + Pathfinding (2) + Actor Phase 2/3/4 = tight capacity.
 - [ ] May 1 Labor Day — Jota off?
 
 ### Key Risks
-- **Jota single point of failure** — Battle HUD Implementation begins, but Actor System and Hero implementation tech may still be open. Sequencing critical.
-- **Battle HUD DD may not be finalized** — eng starts against unclear spec.
-- **CP2 capacity over-subscribed** — milestone plan flagged ~9 eng-sprints in 7-sprint milestone. CP2 specifically loads 3 features against 1 engineer.
+- **Battle HUD first pass implementation** — Danny + Jota collaboration begins; Actor System Phase 1 complete in S27, Phase 2 continues.
+- **Actor System Overhaul multi-phase** — 4 phases total, Phase 2 continues in S28 (Jota + Ben). Phases 3-4 need to be scheduled across remaining sprints.
+- **CP2 capacity over-subscribed** — milestone plan flagged ~9 eng-sprints in 7-sprint milestone. CP2 specifically loads Battle HUD (4 sprints) + Actor System Phase 2 + Obstacles + Pathfinding with limited engineering capacity (Jota solo client eng).
 - May 1 Labor Day reduces Jota by another day.
 
 ---
@@ -385,7 +409,7 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 
 ### Key Handoffs This Sprint
 - **Tutorial Migration PARKED → no trickle** (Empire — revisit at next milestone planning; Henrique focused on WME)
-- **Battle HUD DD finalize → Battle HUD Eng kickoff** (Battle — Lincoln to Jota)
+- **Battle HUD UX/Design Review (CP1) → Battle HUD Implementation kickoff** (Battle — Danny + Jota first pass)
 - **EKS deployment close → Parallel Workflows + CP2 work** (Dozer — Derek)
 - **Building Upgrades design + UX → Tiago eng kickoff** (Metagame — Leonard / Kevin Ligon to Tiago)
 - **P2 wrap pieces → AA switchover assessment** (SD — Loures + Gabriel + Randy)
@@ -438,7 +462,7 @@ S28 is the first sprint of CP2 (only Empire and Metagame had CP2 work pre-existi
 | Empire | Map Content variety expanded for WME testing | Jacob + Elise on Map Content / T8 prep | ✅ On Track |
 | Metagame | UI Foundation supports 2+ pod screens | Sprint 3 of 6 in flight (still building toward consumability) | ⚠️ Light |
 | Metagame | Building Upgrades shipped; EPT underway | Building Upgrades eng kickoff — Tiago | ✅ On Track |
-| Battle | Battle HUD Implementation (eng + asset integration) | Sprint 1 of 4 begins — Jota; Miguel Duran cross-pod UI art | ✅ On Track |
+| Battle | Battle HUD Implementation (eng + asset integration) | Sprint 1 of 4 begins — Danny + Jota; Miguel Duran cross-pod UI art | ✅ On Track |
 | Battle | Unit content cadence steady — no art blockers | Ben/Felipe/Tony/Vini active | ✅ On Track |
 | Battle | Pathfinding and Obstacles Implementation | Lincoln/Nathan design prep + Obstacles design validation only — no eng start | ⚠️ Light |
 | Social Dynamics | In-client multiplayer baseline functionality (P2 wrap + P3 kickoff + dev UI playable) | Loures/Gabriel/Randy AA-target P2 wrap + dev UI v1; Phase 3 not yet started | ⚠️ Light |
@@ -519,7 +543,7 @@ S28 is the first sprint of CP2 (only Empire and Metagame had CP2 work pre-existi
 3. **Empire has no embedded UX after 5/11** — Diana absorbs UX duties for WME Sub-efforts 2 & 3 alongside design lead role. Highest single-pod risk for M&Ms remainder.
 4. **WME spec not yet ready** — Diana committed to closing the gap in week 1, but Henrique's eng kickoff begins against a still-maturing spec.
 5. **Triple eng kickoff sprint** — Battle HUD, WME, and Dozer CP2 (3 features) all begin S28. Highest transition load of M&Ms so far.
-6. **S27 carry-over uncertainty** — Actor System Overhaul + HUD DD (Battle), EKS (Dozer) need to close in S27 to enable S28 kickoffs. Tutorial Migration is **PARKED** entirely — owner needed for re-prioritization decision (next milestone planning).
+6. **S27 carry-over uncertainty** — Actor System Overhaul Phase 1 complete in S27, Phase 2 continues (4 phases total). EKS (Dozer) needs to close in S27. Battle HUD DD completed in CP1. Tutorial Migration is **PARKED** entirely — owner needed for re-prioritization decision (next milestone planning).
 7. **Tim out 4 days at sprint start** — Metagame + Social Dynamics producer gap, second sprint in a row. Backup decision-maker still not identified.
 8. **Brendan Cheatham out 4 days at sprint start** — Kevin Griffith solo cross-pod art direction for week 1, second sprint in a row.
 9. **Bruno Bacelar out last 4 sprint days** — Multiplayer Networking dips in week 2.
@@ -540,8 +564,8 @@ S28 is the first sprint of CP2 (only Empire and Metagame had CP2 work pre-existi
 
 **Open**:
 1. [ ] **Tim week-1 backup**: Producer coverage for Metagame + SD (4/28-5/1)
-2. [ ] **Battle HUD Design Doc** ([CHI-35036](https://app.clickup.com/t/869bvfcym)) finalized?
-3. [ ] **Actor System Overhaul** complete in S27?
+2. [x] **Battle HUD Design Doc** ([CHI-35036](https://app.clickup.com/t/869bvfcym)) finalized in CP1
+3. [x] **Actor System Overhaul Phase 1** complete in S27, Phase 2 continues in S28 (4 phases total)
 4. [ ] **EKS deployment** closed in S27?
 5. [ ] **Building Upgrades (Meta Depth Phase 1) spec + UX readiness** — ready for Tiago's eng kickoff?
 6. [ ] **UI Foundation Sprint 3 sub-feature scope**
