@@ -1,0 +1,578 @@
+{
+  "sprint": "Abra 28",
+  "edited_at": "2026-04-27T14:13:47.407Z",
+  "pods": {
+    "Empire": {
+      "goals": [
+        {
+          "text": "WME — Multiple Nodes per Territory engineering kickoff (Henrique, Sub-effort 1 of 3)",
+          "shqs": [
+            "SHQ4-3",
+            "SHQ4-4"
+          ]
+        },
+        {
+          "text": "WME — Multiple Nodes per Territory spec finalized in week 1 (Diana)",
+          "shqs": [
+            "SHQ4-3",
+            "SHQ4-4"
+          ]
+        },
+        {
+          "text": "Map Content pipeline continues: T5-6 edits, T7-8 creation (Jacob, Elise)",
+          "shqs": [
+            "SHQ3-1"
+          ]
+        },
+        {
+          "text": "Territory Map Vertical Slice (Gui, Thiago, KG)",
+          "shqs": []
+        }
+      ],
+      "people": {
+        "Diana Vasilescu": {
+          "priorities": [
+            "WME spec finalization: Multiple Nodes per Territory (support Henrique)",
+            "Map Content design support",
+            "Narrative design and planning for the second story arc"
+          ],
+          "notes": "Critical week-1 design alignment with Henrique"
+        },
+        "Jacob Siegel": {
+          "priorities": [
+            "T7 implementation",
+            "Any remaining ZZ Player Journey/CG follow-ups"
+          ],
+          "notes": "Carry-over watch from CHI-36411 family"
+        },
+        "Elise Cole": {
+          "priorities": [
+            "Figma Map agentic research (CHI-36575) — primary",
+            "T8 Design Prep (CHI-36576) — lower priority",
+            "WME design support"
+          ],
+          "notes": "Out 4/28 (first day). Carry-over from S27 confirmed continuing."
+        },
+        "Yura Rusin": {
+          "priorities": [
+            "WME UX — Sub-effort 1 (multiple nodes) & 2 (game modes) wireframes/flows + open Qs log",
+            "Prep for OOO time + handoff to Lina"
+          ],
+          "notes": "Maternity leave starts 5/11 — loses day 10 + all of S29-S31"
+        },
+        "Henrique De Lima": {
+          "priorities": [
+            "WME — Multiple Nodes per Territory implementation"
+          ],
+          "notes": "Off May 1 (BR Workers' Day). Sole client eng. Tutorial Migration parked."
+        },
+        "Laura Santana": {
+          "priorities": [
+            "WME smoke-test prep",
+            "Bug verification"
+          ],
+          "notes": "Off May 1 (BR Workers' Day)"
+        },
+        "Marcos Teles": {
+          "priorities": [
+            "Territory Map Optimization Review (collab w Pedro)",
+            "Water VFX/Shader exploration"
+          ],
+          "notes": "May 1 verify. Empire-embedded artist."
+        },
+        "Guilherme Lascasas": {
+          "priorities": [
+            "Territory Map Visual Target assist",
+            "WME asset support"
+          ],
+          "notes": ""
+        },
+        "Thiago Saraiva": {
+          "priorities": [
+            "Territory Map vertical slice tile creation",
+            "WME asset support"
+          ],
+          "notes": "Out 4/30. May 1 also pending verification. Empire-embedded artist."
+        },
+        "Brann Livesay": {
+          "priorities": [
+            "Empire production (incl. Empire-embedded art, Tim OOO coverage for Meta Pod)"
+          ],
+          "notes": "Out 5/8"
+        }
+      },
+      "open_questions": [
+        {
+          "text": "Past Sprint Cleanup — will we have to deal with these? Henrique (3), Elise Cole (2)",
+          "resolved": false,
+          "answer": ""
+        },
+        {
+          "text": "All Empire open questions resolved 2026-04-21",
+          "resolved": true,
+          "answer": "Yura maternity coverage, Tutorial Migration, WME spec readiness, May 1 holiday all resolved."
+        }
+      ]
+    },
+    "Metagame": {
+      "goals": [
+        {
+          "text": "UI Foundation (Pipeline A, Sprint 3 of 6) — Quizzini continues",
+          "shqs": []
+        },
+        {
+          "text": "Meta Depth design/UX maturation (Leonard, Kevin) — especially Building Upgrades to unblock Tiago",
+          "shqs": []
+        },
+        {
+          "text": "Building Upgrades (Meta Depth Phase 1) — Tiago kicks off as next Pipeline B feature",
+          "shqs": []
+        }
+      ],
+      "people": {
+        "Leonard Perez": {
+          "priorities": [
+            "Meta Depth design progression (Building Upgrades, EPT, Combat Research Tree)",
+            "Commercial plan continuation"
+          ],
+          "notes": "Tim out week 1 — Leonard may drive design decisions independently"
+        },
+        "Christopher Fidalgo": {
+          "priorities": [
+            "Narrative/Tutorial design",
+            "S27 carry-over (CHI-36250 T5/T6 rewards if still open)",
+            "Add source of Gacha scrolls to game economy"
+          ],
+          "notes": ""
+        },
+        "Kevin Ligon": {
+          "priorities": [
+            "UI Foundation UX",
+            "Meta Depth UX (Building Upgrades, EPT)",
+            "Battle HUD UX support cross-pod"
+          ],
+          "notes": "UI Foundation primary. Meta Depth needs UX to unblock Pipeline B. Next up for Kevin = Scripted Sequences"
+        },
+        "Dan Dupuis": {
+          "priorities": [
+            "UI Foundation oversight",
+            "Empire eng lead support (WME kickoff)"
+          ],
+          "notes": "Planning capacity only"
+        },
+        "Guilherme Quizzini": {
+          "priorities": [
+            "UI Foundation (Pipeline A, Sprint 3)"
+          ],
+          "notes": "May 1 Labor Day verify. Dedicated to UI Foundation for full milestone: Hero Screen is coming along, Gear will likely be next unless we want to re-prioritize"
+        },
+        "Tiago Costa": {
+          "priorities": [
+            "Building Upgrades (Meta Depth Phase 1) — Pipeline B kickoff"
+          ],
+          "notes": "May 1 Labor Day verify. New hire — ensure clean spec + design handoff."
+        },
+        "Miguel Duran": {
+          "priorities": [
+            "Territory Map UI asset finalization",
+            "Building Upgrades UI Art",
+            "Cross-pod UI art (Battle HUD, WME)",
+            "Collaborating with KevinL on Scripted Sequence UI Art Exploration"
+          ],
+          "notes": "Shared resource"
+        },
+        "Hugo Hideo": {
+          "priorities": [
+            "Hero Gacha v1 QA closeout (if S27 didn't finish)",
+            "UI Foundation QA"
+          ],
+          "notes": "May 1 verify"
+        }
+      },
+      "open_questions": [
+        {
+          "text": "Past Sprint Cleanup — will we have to deal with these? Christopher Fidalgo (1)",
+          "resolved": false,
+          "answer": ""
+        },
+        {
+          "text": "Past Sprint Cleanup — Christopher Fidalgo (1 — CHI-36250 T5/T6 rewards)",
+          "resolved": false,
+          "answer": ""
+        },
+        {
+          "text": "Building Upgrades spec readiness — is Meta Depth Phase 1 design + UX ready for Tiago's eng kickoff?",
+          "resolved": false,
+          "answer": ""
+        },
+        {
+          "text": "UI Foundation Sprint 3 scope — which sub-features?",
+          "resolved": false,
+          "answer": ""
+        },
+        {
+          "text": "Tim coverage week 1 (4/28-5/1) — backup decision-maker for Metagame + SD?",
+          "resolved": false,
+          "answer": ""
+        },
+        {
+          "text": "UI Foundation SHQ linkage (carried from S26 and S27)",
+          "resolved": false,
+          "answer": ""
+        }
+      ]
+    },
+    "Battle": {
+      "goals": [
+        {
+          "text": "Affinity Swap (Felipe, Dylan, Lincoln provides color adjustments)",
+          "shqs": []
+        },
+        {
+          "text": "Battle HUD Beta Overhaul - Implementation begins (Danny + Jota, Sprint 1 of 4)",
+          "shqs": [
+            "SHQ4-1"
+          ]
+        },
+        {
+          "text": "Unit Content (Art: Ranged Bot, 5 heroes; Design: Design Kits for 12 M&M heroes)",
+          "shqs": []
+        },
+        {
+          "text": "Actor System Overhaul Phase 2 (Jota + Ben, 4 phases total, Phase 1 complete in S27)",
+          "shqs": []
+        },
+        {
+          "text": "Obstacles — design validation (Dylan) + early eng",
+          "shqs": []
+        },
+        {
+          "text": "Pathfinding & AI Improvements — early prep work",
+          "shqs": []
+        },
+        {
+          "text": "Battle ENV Performance Investigate (Danny)",
+          "shqs": []
+        }
+      ],
+      "people": {
+        "Lincoln Li": {
+          "priorities": [
+            "Battle HUD design support",
+            "Design Kits wrap for 12 M&M heroes (with Nathan)",
+            "Affinity Swap color adjustments",
+            "Pathfinding & AI design prep"
+          ],
+          "notes": "Partial appts 4/30, 5/7. Battle HUD eng starts — design Q&A critical."
+        },
+        "Nathan Hajek": {
+          "priorities": [
+            "Design Kits wrap for 12 M&M heroes (with Lincoln)",
+            "Unit Design & Prototype"
+          ],
+          "notes": ""
+        },
+        "Dylan Jeffery": {
+          "priorities": [
+            "Affinity Swap (with Felipe, Lincoln)",
+            "Obstacles design validation",
+            "Battle Templates"
+          ],
+          "notes": "Continuation from S27"
+        },
+        "Vishaal Gupta": {
+          "priorities": [
+            "Unit Content + unit balance"
+          ],
+          "notes": "Partial appts 4/30, 5/7"
+        },
+        "Jota Oliveira": {
+          "priorities": [
+            "Battle HUD first pass implementation (with Danny)",
+            "Actor System Overhaul Phase 2 (with Ben)"
+          ],
+          "notes": "May 1 Labor Day verify. Solo client eng — critical path. Phase 1 complete in S27."
+        },
+        "Danny Oliveira": {
+          "priorities": [
+            "Battle HUD first pass implementation (with Jota)",
+            "New Hero VFXs (Trench Knight) with Alessandro",
+            "Battle ENV Performance Investigate"
+          ],
+          "notes": ""
+        },
+        "Alessandro Oliveira": {
+          "priorities": [
+            "New Hero VFXs (Trench Knight) with Danny",
+            "VFX implementation"
+          ],
+          "notes": "May 1 verify"
+        },
+        "Vinod Rams": {
+          "priorities": [
+            "New Hero Concept (Toshoia) continues from S27",
+            "Unit concepts"
+          ],
+          "notes": "Out 5/1, 5/4"
+        },
+        "Ben Clair": {
+          "priorities": [
+            "New Hero Rig (Merrin) starts in S28",
+            "Actor System Overhaul Phase 2 (with Jota)"
+          ],
+          "notes": ""
+        },
+        "Felipe Chaves": {
+          "priorities": [
+            "Affinity Swap (with Dylan, Lincoln)",
+            "New Hero 3D (Merrin) continues from S27"
+          ],
+          "notes": "May 1 verify"
+        },
+        "Tony Bonilla": {
+          "priorities": [
+            "New Hero Animation (Trench Knight) continues from S27"
+          ],
+          "notes": ""
+        },
+        "Vini Muniz": {
+          "priorities": [
+            "New Hero Concept (Mecha Saboteur) starts 4/29",
+            "Ranged Bot implementation (Portraits)"
+          ],
+          "notes": "May 1 verify"
+        },
+        "Julio Scarabelli": {
+          "priorities": [
+            "Battle HUD QA prep",
+            "Bug verification"
+          ],
+          "notes": "May 1 verify"
+        },
+        "Thorben Novais": {
+          "priorities": [
+            "Battle production",
+            "Dozer production (CP2 starts)"
+          ],
+          "notes": "May 1 verify. Two pods."
+        }
+      },
+      "open_questions": [
+        {
+          "text": "Past Sprint Cleanup — will we have to deal with these? Jota Oliveira (1)",
+          "resolved": false,
+          "answer": ""
+        },
+        {
+          "text": "Battle HUD Design Doc finalized in CP1",
+          "resolved": true,
+          "answer": "CHI-35036 completed in CP1. UX and Design Review finished."
+        },
+        {
+          "text": "Actor System Overhaul Phase 1 complete in S27",
+          "resolved": true,
+          "answer": "Phase 1 complete. Phase 2 continues in S28 (4 phases total)."
+        },
+        {
+          "text": "Obstacles eng start S28 or S29? Capacity-constrained on Jota.",
+          "resolved": false,
+          "answer": ""
+        },
+        {
+          "text": "Pathfinding & AI eng start — same Jota dependency.",
+          "resolved": false,
+          "answer": ""
+        },
+        {
+          "text": "4 features × ~9 eng-sprints in 6 sprints — Battle HUD (4) + Obstacles (1) + Pathfinding (2) + Actor Phase 2/3/4 = tight capacity.",
+          "resolved": false,
+          "answer": ""
+        },
+        {
+          "text": "May 1 Labor Day — Jota off?",
+          "resolved": false,
+          "answer": ""
+        }
+      ]
+    },
+    "Social Dynamics": {
+      "goals": [
+        {
+          "text": "AI Prototype Playtesting, Feedback, Iterations (Paul, Bruno)",
+          "shqs": []
+        },
+        {
+          "text": "Phase 2: Tile Ownership/States/Visualization, Embark Flow, Map Instance creation/listing/joining (Loures, Gabriel, Randy)",
+          "shqs": []
+        }
+      ],
+      "people": {
+        "Paul Flores": {
+          "priorities": [
+            "AI Prototype Playtesting",
+            "P2 wrap design support"
+          ],
+          "notes": ""
+        },
+        "Marcos Loures": {
+          "priorities": [
+            "Tile Ownership",
+            "Tile States",
+            "Map Visualization"
+          ],
+          "notes": "May 1 verify. AA-target P2 wrap-up."
+        },
+        "Gabriel Arruda": {
+          "priorities": [
+            "Embark Flow (Dock / Hero / Troop selection)",
+            "Battle (stretch if time)"
+          ],
+          "notes": "May 1 verify"
+        },
+        "Randy Pasion": {
+          "priorities": [
+            "Multiplayer Map Instance Creation, list, join, dev UI v1"
+          ],
+          "notes": "Dozer split risk"
+        },
+        "Garrett Eidsvig": {
+          "priorities": [
+            "MP infrastructure (P2 wrap support)"
+          ],
+          "notes": "Dozer split risk. CHI-35564 status to verify."
+        },
+        "Bruno Bacelar": {
+          "priorities": [
+            "Multiplayer Networking — front-load weeks 1-1.5"
+          ],
+          "notes": "Out 5/6-5/15 for vacation. Loses last 4 sprint days."
+        }
+      },
+      "open_questions": [
+        {
+          "text": "Past Sprint Cleanup — will we have to deal with these? Garrett Eidsvig (1)",
+          "resolved": false,
+          "answer": ""
+        },
+        {
+          "text": "Past Sprint Cleanup — Garrett Eidsvig (1 — CHI-35564 MP Backend architecture)",
+          "resolved": false,
+          "answer": ""
+        },
+        {
+          "text": "Does P2 wrap fully complete in S28? AA target depends on Loures + Gabriel + Randy.",
+          "resolved": false,
+          "answer": ""
+        },
+        {
+          "text": "Tim coverage week 1 for SD producer decisions",
+          "resolved": false,
+          "answer": ""
+        },
+        {
+          "text": "Bruno week-2 networking — what's safe to defer while he's out 5/6-5/11?",
+          "resolved": false,
+          "answer": ""
+        },
+        {
+          "text": "Switchover assessment — is in-client version closer to playtest-viable?",
+          "resolved": false,
+          "answer": ""
+        },
+        {
+          "text": "Gabriel's Battle stretch — fits in S28 or pulls to S29?",
+          "resolved": false,
+          "answer": ""
+        },
+        {
+          "text": "May 1 Labor Day — Gabriel, Marcos, Bruno (BR) likely off",
+          "resolved": false,
+          "answer": ""
+        }
+      ]
+    },
+    "Dozer (Tech Pod)": {
+      "goals": [
+        {
+          "text": "EKS - Setting up parallel workflows (Derek, continues from S27)",
+          "shqs": []
+        },
+        {
+          "text": "Compliance (OneTrust, Age Gate) kickoff — Spike: One Trust (Derek), Age Gate (Bruno with Randy)",
+          "shqs": []
+        },
+        {
+          "text": "UI Framework V2 (Full) kickoff (CP2 Sprint 1 of 2)",
+          "shqs": []
+        },
+        {
+          "text": "Build Pipeline Review kickoff (CP2 Sprint 1 of 2)",
+          "shqs": []
+        },
+        {
+          "text": "Performance/Optimization continues",
+          "shqs": []
+        },
+        {
+          "text": "Multiplayer infra support continues",
+          "shqs": []
+        }
+      ],
+      "people": {
+        "Derek Gallant": {
+          "priorities": [
+            "EKS - Setting up parallel workflows (continues from S27)",
+            "Spike: One Trust",
+            "UI Framework V2 (Full) oversight",
+            "SD eng lead duties (P2/P3)",
+            "Multiplayer infra"
+          ],
+          "notes": "Split: Dozer + SD eng lead. EKS work continues into S28."
+        },
+        "Thorben Novais": {
+          "priorities": [
+            "Build Pipeline Review coordination",
+            "M&M roadmap maintenance",
+            "Battle production"
+          ],
+          "notes": "May 1 verify. Two pods."
+        },
+        "Bruno Freitas": {
+          "priorities": [
+            "Age Gate (Check Unified SDK with Randy, plan Reskin with UI Kit)",
+            "Build Pipeline Review",
+            "Performance/Optimization"
+          ],
+          "notes": "May 1 verify"
+        }
+      },
+      "open_questions": [
+        {
+          "text": "EKS deployment continues in S28 with parallel workflows setup",
+          "resolved": true,
+          "answer": "EKS work continues into S28 (Derek)."
+        },
+        {
+          "text": "Did UI Framework V2 - UI Support (CP1) wrap? Predecessor to V2 Full.",
+          "resolved": false,
+          "answer": ""
+        },
+        {
+          "text": "CP2 task ownership — 3 parallel CP2 features + EKS continuation against 2 engineers. Realistic?",
+          "resolved": false,
+          "answer": ""
+        },
+        {
+          "text": "Age Gate Unified SDK verification — Bruno needs to check with Randy on SDK status.",
+          "resolved": false,
+          "answer": ""
+        },
+        {
+          "text": "May 1 Labor Day — Bruno F, Thorben off?",
+          "resolved": false,
+          "answer": ""
+        }
+      ]
+    }
+  }
+}
