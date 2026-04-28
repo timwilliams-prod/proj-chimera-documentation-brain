@@ -35,15 +35,15 @@ var SPRINT_DATA = {
       ],
 
       people: [
-        { name: "Diana Vasilescu", discipline: "Design", avail: 10, total: 10, priorities: ["WME spec finalization: Multiple Nodes per Territory (support Henrique)", "Map Content design support", "Narrative design and planning for the second story arc"], notes: "Critical week-1 design alignment with Henrique", flags: [] },
-        { name: "Jacob Siegel", discipline: "Design", avail: 10, total: 10, priorities: ["T7 implementation", "Any remaining ZZ Player Journey/CG follow-ups"], notes: "Carry-over watch from CHI-36411 family", flags: ["carry-over"] },
-        { name: "Elise Cole", discipline: "Design", avail: 9, total: 10, priorities: ["Figma Map agentic research (CHI-36575) — primary", "T8 Design Prep (CHI-36576) — lower priority", "WME design support"], notes: "Out 4/28 (first day). Carry-over from S27 confirmed continuing.", flags: ["pto", "carry-over"] },
+        { name: "Diana Vasilescu", discipline: "Design", avail: 10, total: 10, priorities: ["WME spec finalization: Multiple Nodes per Territory (support Henrique)", "Narrative for Region 2 - main beats top level and image generation"], notes: "Critical week-1 design alignment with Henrique", flags: [] },
+        { name: "Jacob Siegel", discipline: "Design", avail: 10, total: 10, priorities: ["T6 content edits for D2 narrative", "T8 content creation for D2 narrative", "World Map Reshaping"], notes: "Next: T9 creation", flags: ["carry-over"] },
+        { name: "Elise Cole", discipline: "Design", avail: 9, total: 10, priorities: ["Figma Map agentic research (CHI-36575) — primary", "T5 content edits for D2 narrative", "T7 content creation for D2 narrative", "Map Creation flow — high prio (a couple days)"], notes: "Out 4/28 (first day).", flags: ["pto", "carry-over"] },
         { name: "Yura Rusin", discipline: "UX", avail: 9, total: 10, priorities: ["WME UX — Sub-effort 1 (multiple nodes) & 2 (game modes) wireframes/flows + open Qs log", "Prep for OOO time + handoff to Lina"], notes: "Maternity leave starts 5/11 — loses day 10 + all of S29-S31", flags: ["pto"] },
-        { name: "Henrique De Lima", discipline: "Eng", avail: 9, total: 10, priorities: ["WME — Multiple Nodes per Territory implementation"], notes: "Off May 1 (BR Workers' Day). Sole client eng. Tutorial Migration parked.", flags: ["sole-eng", "pto"] },
-        { name: "Laura Santana", discipline: "QA", avail: 9, total: 10, priorities: ["WME smoke-test prep", "Bug verification"], notes: "Off May 1 (BR Workers' Day)", flags: ["pto"] },
-        { name: "Marcos Teles", discipline: "Tech Art", avail: 9, total: 10, priorities: ["Territory Map Optimization Review (collab w Pedro)", "Water VFX/Shader exploration"], notes: "May 1 verify. Empire-embedded artist.", flags: [] },
+        { name: "Henrique De Lima", discipline: "Eng", avail: 9, total: 10, priorities: ["WME — Multiple Nodes per Territory implementation"], notes: "May 1 OOO. Sole client eng. Tutorial Migration parked.", flags: ["sole-eng", "pto"] },
+        { name: "Laura Santana", discipline: "QA", avail: 9, total: 10, priorities: ["WME smoke-test prep", "Bug verification"], notes: "May 1 OOO.", flags: ["pto"] },
+        { name: "Marcos Teles", discipline: "Tech Art", avail: 9, total: 10, priorities: ["Territory Map Optimization Review (collab w Pedro)", "Water VFX/Shader exploration"], notes: "May 1 OOO. Empire-embedded artist.", flags: [] },
         { name: "Guilherme Lascasas", discipline: "2D Env Concept", avail: 9, total: 10, priorities: ["Territory Map Visual Target assist", "WME asset support"], notes: "", flags: [] },
-        { name: "Thiago Saraiva", discipline: "Senior 3D", avail: 9, total: 10, priorities: ["Territory Map vertical slice tile creation", "WME asset support"], notes: "Out 4/30. May 1 also pending verification. Empire-embedded artist.", flags: ["pto"] },
+        { name: "Thiago Saraiva", discipline: "Senior 3D", avail: 9, total: 10, priorities: ["Territory Map vertical slice tile creation", "WME asset support"], notes: "Out 4/30, May 1. Empire-embedded artist.", flags: ["pto"] },
         { name: "Brann Livesay", discipline: "Producer", avail: 9, total: 10, priorities: ["Empire production (incl. Empire-embedded art, Tim OOO coverage for Meta Pod)"], notes: "Out 5/8", flags: ["pto"] }
       ],
 
@@ -86,10 +86,10 @@ var SPRINT_DATA = {
         { name: "Christopher Fidalgo", discipline: "Design", avail: 10, total: 10, priorities: ["Narrative/Tutorial design", "S27 carry-over (CHI-36250 T5/T6 rewards if still open)", "Add source of Gacha scrolls to game economy"], notes: "", flags: ["carry-over"] },
         { name: "Kevin Ligon", discipline: "UX", avail: 10, total: 10, priorities: ["UI Foundation UX", "Meta Depth UX (Building Upgrades, EPT)", "Battle HUD UX support cross-pod"], notes: "UI Foundation primary. Meta Depth needs UX to unblock Pipeline B. Next up for Kevin = Scripted Sequences", flags: ["shared"] },
         { name: "Dan Dupuis", discipline: "Eng Lead", avail: 10, total: 10, priorities: ["UI Foundation oversight", "Empire eng lead support (WME kickoff)"], notes: "Planning capacity only", flags: ["shared"] },
-        { name: "Guilherme Quizzini", discipline: "Eng", avail: 9, total: 10, priorities: ["UI Foundation (Pipeline A, Sprint 3)"], notes: "May 1 Labor Day verify. Dedicated to UI Foundation for full milestone: Hero Screen is coming along, Gear will likely be next unless we want to re-prioritize", flags: [] },
-        { name: "Tiago Costa", discipline: "Eng", avail: 9, total: 10, priorities: ["Building Upgrades (Meta Depth Phase 1) — Pipeline B kickoff"], notes: "May 1 Labor Day verify. New hire — ensure clean spec + design handoff.", flags: ["new-hire"] },
-        { name: "Miguel Duran", discipline: "UI Art", avail: 10, total: 10, priorities: ["Territory Map UI asset finalization", "Building Upgrades UI Art", "Cross-pod UI art (Battle HUD, WME)", "Collaborating with KevinL on Scripted Sequence UI Art Exploration"], notes: "Shared resource", flags: ["shared"] },
-        { name: "Hugo Hideo", discipline: "QA", avail: 9, total: 10, priorities: ["Hero Gacha v1 QA closeout (if S27 didn't finish)", "UI Foundation QA"], notes: "May 1 verify", flags: [] }
+        { name: "Guilherme Quizzini", discipline: "Eng", avail: 9, total: 10, priorities: ["UI Foundation (Pipeline A, Sprint 3)"], notes: "May 1 OOO. Dedicated to UI Foundation for full milestone: Hero Screen is coming along, Gear will likely be next unless we want to re-prioritize", flags: [] },
+        { name: "Tiago Costa", discipline: "Eng", avail: 9, total: 10, priorities: ["Building Upgrades (Meta Depth Phase 1) — Pipeline B kickoff"], notes: "May 1 OOO. New hire — ensure clean spec + design handoff.", flags: ["new-hire"] },
+        { name: "Miguel Duran", discipline: "UI Art", avail: 10, total: 10, priorities: ["Territory Map UI asset finalization", "Building Upgrades UI Art", "Rank icon concept pass", "Building Stat icons", "Hero/Troop Stat icons"], notes: "discussion thread on 2-5: https://fortisgames.slack.com/archives/C0A2DBGPM8Q/p1777305299695769?thread_ts=1777300542.614889&cid=C0A2DBGPM8Q", flags: ["shared"] },
+        { name: "Hugo Hideo", discipline: "QA", avail: 9, total: 10, priorities: ["Hero Gacha v1 QA closeout (Checking if the gacha rolls received matched expectations)", "UI Foundation QA"], notes: "May 1 OOO.", flags: [] }
       ],
 
       carry_over: [

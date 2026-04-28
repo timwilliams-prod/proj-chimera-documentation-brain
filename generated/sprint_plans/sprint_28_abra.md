@@ -122,15 +122,15 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 
 | Assignee | Discipline | Avail Days | Priorities | Notes |
 |----------|-----------|------------|------------|-------|
-| Diana Vasilescu | Design | 10 | 1. WME spec finalization: Multiple Nodes per Territory (support Henrique) 2. Map Content design support 3. Narrative design and planning for the second story arc | Critical week-1 design alignment with Henrique. |
-| Jacob Siegel | Design | 10 | 1. T7 implementation 2. Any remaining ZZ Player Journey/CG follow-ups | Carry-over watch from [CHI-36411](https://app.clickup.com/t/86agp9g9c) family if not closed in S27. |
-| Elise Cole | Design | **9** | 1. **Figma Map agentic research** ([CHI-36575](https://app.clickup.com/t/86agw4bfz)) — primary 2. T8 Design Prep ([CHI-36576](https://app.clickup.com/t/86agw4bwz)) — lower priority 3. WME design support | **Out 4/28 (first day)**. Carry-over from S27 confirmed continuing. Agentic research is the higher-priority track. |
+| Diana Vasilescu | Design | 10 | 1. WME spec finalization: Multiple Nodes per Territory (support Henrique) 2. Narrative for Region 2 - main beats top level and image generation | Critical week-1 design alignment with Henrique. |
+| Jacob Siegel | Design | 10 | 1. T6 content edits for D2 narrative 2. T8 content creation for D2 narrative 3. World Map Reshaping | Next: T9 creation |
+| Elise Cole | Design | **9** | 1. **Figma Map agentic research** ([CHI-36575](https://app.clickup.com/t/86agw4bfz)) — primary 2. T5 content edits for D2 narrative 3. T7 content creation for D2 narrative 4. Map Creation flow — high prio (a couple days) | **Out 4/28 (first day).** |
 | Yura Rusin | UX | **9** | 1. WME UX — Sub-effort 1 (multiple nodes) & 2 (game modes) wireframes/flows + open Qs log 2. Prep for OOO time + handoff to Lina | **Maternity leave starts 5/11** — loses sprint day 10 + all of M&Ms remainder (S29-S31). Sub-effort 3 deliberately left to Diana as flex room for iterations. |
-| Henrique De Lima | Eng | **9** | 1. **WME — Multiple Nodes per Territory implementation** | **Off May 1 (BR Workers' Day, confirmed)**. Sole client engineer. Partial appts 4/29, 5/6. Tutorial Migration parked — Henrique focused on WME. Spec not 100% ready at sprint start — week-1 alignment with Diana required. |
-| Laura Santana | QA | **9** | 1. WME smoke-test prep 2. Bug verification | **Off May 1 (BR Workers' Day)**. Tutorial QA dropped — Tutorial work parked. |
-| Marcos Teles | Tech Art | **9-10** | 1. **Territory Map Optimization Review** (collab w Pedro) 2. Water VFX/Shader exploration | May 1 verify. Empire-embedded artist. |
+| Henrique De Lima | Eng | **9** | 1. **WME — Multiple Nodes per Territory implementation** | **May 1 OOO.** Sole client engineer. Partial appts 4/29, 5/6. Tutorial Migration parked — Henrique focused on WME. Spec not 100% ready at sprint start — week-1 alignment with Diana required. |
+| Laura Santana | QA | **9** | 1. WME smoke-test prep 2. Bug verification | **May 1 OOO.** Tutorial QA dropped — Tutorial work parked. |
+| Marcos Teles | Tech Art | **9-10** | 1. **Territory Map Optimization Review** (collab w Pedro) 2. Water VFX/Shader exploration | **May 1 OOO.** Empire-embedded artist. |
 | Guilherme Lascasas | 2D Env Concept | **9-10** | 1. Territory Map Visual Target assist 2. WME asset support | Empire-embedded artist. |
-| Thiago Saraiva | Senior 3D | **9** | 1. Territory Map vertical slice tile creation 2. WME asset support | **Out 4/30**. May 1 also pending verification (if also off, would be 8 days). Empire-embedded artist. |
+| Thiago Saraiva | Senior 3D | **9** | 1. Territory Map vertical slice tile creation 2. WME asset support | **Out 4/30, May 1.** Empire-embedded artist. |
 | Brann Livesay | Producer | **9** | 1. Empire production (incl. Empire-embedded art, Tim OOO coverage for Meta Pod) | Out 5/8. |
 
 ### ClickUp Ticket Summary (proposed)
@@ -187,10 +187,10 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 | Christopher Fidalgo | Design | 10 | 1. Narrative/Tutorial design 2. S27 carry-over ([CHI-36250](https://app.clickup.com/t/86agcpt61) T5/T6 rewards if still open) 3. Add source of Gacha scrolls to game economy | |
 | Kevin Ligon | UX | 10 | 1. UI Foundation UX 2. Meta Depth UX (Building Upgrades, EPT) 3. Battle HUD UX support cross-pod | UI Foundation primary. Meta Depth needs UX to unblock Pipeline B. Next up for Kevin = Scripted Sequences |
 | Dan Dupuis | Eng Lead | 10 | 1. UI Foundation oversight 2. Empire eng lead support (WME kickoff) | Planning capacity only. |
-| Guilherme Quizzini | Eng | **9-10** | 1. UI Foundation (Pipeline A, Sprint 3) | May 1 Labor Day verify. Dedicated to UI Foundation for full milestone: Hero Screen is coming along, Gear will likely be next unless we want to re-prioritize |
-| Tiago Costa | Eng | **9-10** | 1. **Building Upgrades (Meta Depth Phase 1) — Pipeline B kickoff** | May 1 Labor Day verify. New hire — ensure clean spec + design handoff. |
-| Miguel Duran | UI Art | 10 | 1. Territory Map UI asset finalization 2. Building Upgrades UI Art 3. Cross-pod UI art (Battle HUD, WME) 4. Collaborating with KevinL on Scripted Sequence UI Art Exploration | Shared resource |
-| Hugo Hideo | QA | **9-10** | 1. Hero Gacha v1 QA closeout (if S27 didn't finish) 2. UI Foundation QA | May 1 verify. |
+| Guilherme Quizzini | Eng | **9-10** | 1. UI Foundation (Pipeline A, Sprint 3) | **May 1 OOO.** Dedicated to UI Foundation for full milestone: Hero Screen is coming along, Gear will likely be next unless we want to re-prioritize |
+| Tiago Costa | Eng | **9-10** | 1. **Building Upgrades (Meta Depth Phase 1) — Pipeline B kickoff** | **May 1 OOO.** New hire — ensure clean spec + design handoff. |
+| Miguel Duran | UI Art | 10 | 1. Territory Map UI asset finalization 2. Building Upgrades UI Art 3. Rank icon concept pass 4. Building Stat icons 5. Hero/Troop Stat icons | discussion thread on 2-5: https://fortisgames.slack.com/archives/C0A2DBGPM8Q/p1777305299695769?thread_ts=1777300542.614889&cid=C0A2DBGPM8Q |
+| Hugo Hideo | QA | **9-10** | 1. Hero Gacha v1 QA closeout (Checking if the gacha rolls received matched expectations) 2. UI Foundation QA | **May 1 OOO.** |
 
 ### ClickUp Ticket Summary (proposed)
 
