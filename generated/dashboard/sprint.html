@@ -1180,7 +1180,8 @@
               </div>
             `;
           return `
-          <li class="${isLinked ? 'pri-linked' : 'pri-unlinked'}">
+          <li class="${isLinked ? 'pri-linked' : 'pri-unlinked'}" data-pod="${esc(pod.name)}" data-person="${esc(p.name)}" data-priority-idx="${j}">
+            <input type="checkbox" ${isLinked ? '' : 'checked'} class="task-include-pod" style="accent-color:var(--accent);cursor:pointer;margin-right:6px;vertical-align:middle">
             <span class="priority-text editable" contenteditable="false" data-field="priority" data-idx="${j}">${richText(pr)}</span>
             ${ticketAction}
             <span class="remove-btn" onclick="removeItem(this)" title="Remove">&times;</span>
@@ -1305,6 +1306,11 @@
 
           ${oqHtml}
           ${risksHtml}
+
+          <div class="ticket-plan-actions" style="margin-top:16px;border-top:1px solid var(--border);padding-top:12px">
+            <span style="font-size:12px;color:var(--text-dim)">Export ticket plan for this pod &mdash; creates, links, and backlog actions for ClickUp</span>
+            <button class="save-btn" onclick="savePodTicketPlan('${esc(pod.name)}')">Save Ticket Plan</button>
+          </div>
         </div>
       `;
     }
@@ -1717,6 +1723,98 @@
       const a = document.createElement('a');
       a.href = url;
       a.download = `ticket_plan_s${SPRINT_DATA.meta.sprint_number}.json`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    function savePodTicketPlan(podName) {
+      const createActions = [];
+      const linkActions = [];
+
+      // Collect from pod section - find all priority items for this pod
+      document.querySelectorAll(`.pod-section[data-pod-section="${podName}"] li[data-pod]`).forEach(item => {
+        const checkbox = item.querySelector('.task-include-pod');
+        if (!checkbox?.checked) return;
+
+        const isLinked = item.classList.contains('pri-linked');
+        if (isLinked) return; // Skip already linked items
+
+        const name = item.querySelector('.priority-text')?.textContent.trim();
+        const person = item.dataset.person;
+        const pod = item.dataset.pod;
+
+        // Find the person's discipline from the pod data
+        const podData = SPRINT_DATA.pods.find(p => p.name === podName);
+        const personData = podData?.people.find(p => p.name === person);
+        const discipline = personData?.discipline || '';
+
+        const typeSelect = item.querySelector('.task-type-select');
+        const type = typeSelect?.value || 'individual';
+
+        if (type === 'link_existing') {
+          const existingChi = item.querySelector('.task-parent-input')?.value.trim();
+          if (existingChi) {
+            linkActions.push({
+              name,
+              assignee: person,
+              pod,
+              discipline,
+              existing_chi: existingChi,
+              existing_url: SPRINT_DATA.chi_urls?.[existingChi] || null
+            });
+          }
+        } else if (type === 'individual' || type === 'subtask') {
+          const parentChi = item.querySelector('.task-parent-select')?.value || null;
+          createActions.push({
+            name,
+            assignee: person,
+            pod,
+            discipline,
+            type: type === 'subtask' && parentChi ? 'subtask' : 'individual',
+            parent_chi: type === 'subtask' && parentChi ? parentChi : null,
+            parent_name: type === 'subtask' && parentChi ? (SPRINT_DATA.chi_names?.[parentChi] || null) : null,
+            parent_url: type === 'subtask' && parentChi && SPRINT_DATA.chi_urls?.[parentChi]
+              ? SPRINT_DATA.chi_urls[parentChi] : null
+          });
+        }
+      });
+
+      // Count pod-specific stats
+      const podData = SPRINT_DATA.pods.find(p => p.name === podName);
+      const bauExceptions = SPRINT_DATA.bau_exceptions || [];
+      const podPriorities = podData?.people.flatMap(p => p.priorities) || [];
+      const podActionable = podPriorities.filter(pr => !bauExceptions.some(pat => pr.toLowerCase().includes(pat.toLowerCase())));
+      const podLinked = podActionable.filter(pr => hasTicket(pr)).length;
+      const podTotal = podActionable.length;
+      const podBau = podPriorities.length - podActionable.length;
+
+      const plan = {
+        sprint: SPRINT_DATA.meta.sprint_name,
+        sprint_number: SPRINT_DATA.meta.sprint_number,
+        pod: podName,
+        clickup_list: SPRINT_DATA.meta.clickup_list,
+        created_at: new Date().toISOString(),
+        coverage: {
+          total_priorities: podTotal,
+          linked: podLinked,
+          bau_excluded: podBau,
+          creating: createActions.length,
+          linking: linkActions.length
+        },
+        actions: {
+          create: createActions,
+          link_existing: linkActions
+        }
+      };
+
+      const json = JSON.stringify(plan, null, 2);
+      const blob = new Blob([json], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `ticket_plan_s${SPRINT_DATA.meta.sprint_number}_${podName.toLowerCase().replace(/\s+/g, '_')}.json`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
