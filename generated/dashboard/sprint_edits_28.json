@@ -1,6 +1,6 @@
 {
   "sprint": "Abra 28",
-  "edited_at": "2026-04-27T14:13:47.407Z",
+  "edited_at": "2026-04-28T14:40:08.870Z",
   "pods": {
     "Empire": {
       "goals": [
@@ -12,7 +12,7 @@
           ]
         },
         {
-          "text": "WME — Multiple Nodes per Territory spec finalized in week 1 (Diana)",
+          "text": "WME — Multiple Nodes per Territory spec finalized in week 1 (Diana)",
           "shqs": [
             "SHQ4-3",
             "SHQ4-4"
@@ -33,25 +33,26 @@
         "Diana Vasilescu": {
           "priorities": [
             "WME spec finalization: Multiple Nodes per Territory (support Henrique)",
-            "Map Content design support",
-            "Narrative design and planning for the second story arc"
+            "Narrative for Region 2 - main beats top level and image generation"
           ],
           "notes": "Critical week-1 design alignment with Henrique"
         },
         "Jacob Siegel": {
           "priorities": [
-            "T7 implementation",
-            "Any remaining ZZ Player Journey/CG follow-ups"
+            "T6 content edits for D2 narrative",
+            "T8 content creation for D2 narrative",
+            "World Map Reshaping"
           ],
-          "notes": "Carry-over watch from CHI-36411 family"
+          "notes": "Next: T9 creation"
         },
         "Elise Cole": {
           "priorities": [
             "Figma Map agentic research (CHI-36575) — primary",
-            "T8 Design Prep (CHI-36576) — lower priority",
-            "WME design support"
+            "T5 content edits for D2 narrative",
+            "T7 content creation for D2 narrative",
+            "Map Creation flow — high prio (a couple days)"
           ],
-          "notes": "Out 4/28 (first day). Carry-over from S27 confirmed continuing."
+          "notes": "Out 4/28 (first day)."
         },
         "Yura Rusin": {
           "priorities": [
@@ -64,21 +65,21 @@
           "priorities": [
             "WME — Multiple Nodes per Territory implementation"
           ],
-          "notes": "Off May 1 (BR Workers' Day). Sole client eng. Tutorial Migration parked."
+          "notes": "May 1 OOO. Sole client eng. Tutorial Migration parked."
         },
         "Laura Santana": {
           "priorities": [
             "WME smoke-test prep",
             "Bug verification"
           ],
-          "notes": "Off May 1 (BR Workers' Day)"
+          "notes": "May 1 OOO."
         },
         "Marcos Teles": {
           "priorities": [
             "Territory Map Optimization Review (collab w Pedro)",
             "Water VFX/Shader exploration"
           ],
-          "notes": "May 1 verify. Empire-embedded artist."
+          "notes": "May 1 OOO. Empire-embedded artist."
         },
         "Guilherme Lascasas": {
           "priorities": [
@@ -92,7 +93,7 @@
             "Territory Map vertical slice tile creation",
             "WME asset support"
           ],
-          "notes": "Out 4/30. May 1 also pending verification. Empire-embedded artist."
+          "notes": "Out 4/30, May 1. Empire-embedded artist."
         },
         "Brann Livesay": {
           "priorities": [
@@ -102,6 +103,11 @@
         }
       },
       "open_questions": [
+        {
+          "text": "Past Sprint Cleanup — will we have to deal with these? Henrique (3), Elise Cole (2)",
+          "resolved": false,
+          "answer": ""
+        },
         {
           "text": "Past Sprint Cleanup — will we have to deal with these? Henrique (3), Elise Cole (2)",
           "resolved": false,
@@ -164,32 +170,38 @@
           "priorities": [
             "UI Foundation (Pipeline A, Sprint 3)"
           ],
-          "notes": "May 1 Labor Day verify. Dedicated to UI Foundation for full milestone: Hero Screen is coming along, Gear will likely be next unless we want to re-prioritize"
+          "notes": "May 1 OOO. Dedicated to UI Foundation for full milestone: Hero Screen is coming along, Gear will likely be next unless we want to re-prioritize"
         },
         "Tiago Costa": {
           "priorities": [
             "Building Upgrades (Meta Depth Phase 1) — Pipeline B kickoff"
           ],
-          "notes": "May 1 Labor Day verify. New hire — ensure clean spec + design handoff."
+          "notes": "May 1 OOO. New hire — ensure clean spec + design handoff."
         },
         "Miguel Duran": {
           "priorities": [
             "Territory Map UI asset finalization",
             "Building Upgrades UI Art",
-            "Cross-pod UI art (Battle HUD, WME)",
-            "Collaborating with KevinL on Scripted Sequence UI Art Exploration"
+            "Rank icon concept pass",
+            "Building Stat icons",
+            "Hero/Troop Stat icons"
           ],
-          "notes": "Shared resource"
+          "notes": "discussion thread on 2-5: https://fortisgames.slack.com/archives/C0A2DBGPM8Q/p1777305299695769?thread_ts=1777300542.614889&cid=C0A2DBGPM8Q"
         },
         "Hugo Hideo": {
           "priorities": [
-            "Hero Gacha v1 QA closeout (if S27 didn't finish)",
+            "Hero Gacha v1 QA closeout (Checking if the gacha rolls received matched expectations)",
             "UI Foundation QA"
           ],
-          "notes": "May 1 verify"
+          "notes": "May 1 OOO."
         }
       },
       "open_questions": [
+        {
+          "text": "Past Sprint Cleanup — will we have to deal with these? Christopher Fidalgo (1)",
+          "resolved": false,
+          "answer": ""
+        },
         {
           "text": "Past Sprint Cleanup — will we have to deal with these? Christopher Fidalgo (1)",
           "resolved": false,
@@ -364,6 +376,11 @@
           "answer": ""
         },
         {
+          "text": "Past Sprint Cleanup — will we have to deal with these? Jota Oliveira (1)",
+          "resolved": false,
+          "answer": ""
+        },
+        {
           "text": "Battle HUD Design Doc finalized in CP1",
           "resolved": true,
           "answer": "CHI-35036 completed in CP1. UX and Design Review finished."
@@ -449,6 +466,11 @@
         }
       },
       "open_questions": [
+        {
+          "text": "Past Sprint Cleanup — will we have to deal with these? Garrett Eidsvig (1)",
+          "resolved": false,
+          "answer": ""
+        },
         {
           "text": "Past Sprint Cleanup — will we have to deal with these? Garrett Eidsvig (1)",
           "resolved": false,
