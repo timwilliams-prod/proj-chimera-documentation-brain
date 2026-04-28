@@ -1959,16 +1959,24 @@
           if (text) podEdits.goals.push({ text, shqs });
         });
 
-        // People
+        // People - aggregate all rows per person
         section.querySelectorAll('[data-person]').forEach(row => {
           const name = row.dataset.person;
-          const priorities = [];
+          if (!podEdits.people[name]) {
+            podEdits.people[name] = { priorities: [], notes: '' };
+          }
+
           row.querySelectorAll('.priority-text').forEach(el => {
             const t = el.textContent.trim();
-            if (t && t !== 'New priority') priorities.push(t);
+            if (t && t !== 'New priority') {
+              podEdits.people[name].priorities.push(t);
+            }
           });
+
           const notes = row.querySelector('.notes-text')?.textContent.trim() || '';
-          podEdits.people[name] = { priorities, notes };
+          if (notes) {
+            podEdits.people[name].notes = notes;
+          }
         });
 
         // Open questions
