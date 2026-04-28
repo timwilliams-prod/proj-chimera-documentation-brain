@@ -122,10 +122,10 @@ Pulled from Lotus OOO calendar `c_3992c42a3...`.
 
 | Assignee | Discipline | Avail Days | Priorities | Notes |
 |----------|-----------|------------|------------|-------|
-| Diana Vasilescu | Design | 10 | 1. WME spec finalization: Multiple Nodes per Territory (support Henrique) 2. Narrative for Region 2 - main beats top level and image generation | Critical week-1 design alignment with Henrique. |
-| Jacob Siegel | Design | 10 | 1. T6 content edits for D2 narrative 2. T8 content creation for D2 narrative 3. World Map Reshaping | Next: T9 creation |
-| Elise Cole | Design | **9** | 1. **Figma Map agentic research** ([CHI-36575](https://app.clickup.com/t/86agw4bfz)) — primary 2. T5 content edits for D2 narrative 3. T7 content creation for D2 narrative 4. Map Creation flow — high prio (a couple days) | **Out 4/28 (first day).** |
-| Yura Rusin | UX | **9** | 1. WME UX — Sub-effort 1 (multiple nodes) & 2 (game modes) wireframes/flows + open Qs log 2. Prep for OOO time + handoff to Lina | **Maternity leave starts 5/11** — loses sprint day 10 + all of M&Ms remainder (S29-S31). Sub-effort 3 deliberately left to Diana as flex room for iterations. |
+| Diana Vasilescu | Design | 10 | 1. WME spec finalization: Multiple Nodes per Territory (support Henrique) 2. Narrative for Region 2 - main beats top level and image generation 3. WME spec finalization: Game Modes to be kicked off next sprint 4. Feedback for Territory Map Visual Target + Vertical Slice | Critical week-1 design alignment with Henrique. |
+| Jacob Siegel | Design | 10 | 1. World Map Reshaping 2. T6 total refresh for day 2 narrative (design and narrative, potentially implementation) | Next: T8 and T9 creation |
+| Elise Cole | Design | **9** | 1. **Figma Map agentic research** ([CHI-36575](https://app.clickup.com/t/86agw4bfz)) — primary 2. Map Creation flow — high prio (a couple days) 3. T5 total refresh for day 2 narrative (design and narrative, potentially implementation) | **Out 4/28 (first day). Next: T7** |
+| Yura Rusin | UX | **9** | 1. WME UX — Game Modes wireframes/flows + open Qs log 2. Prep for OOO time + handoff to Lina | **Maternity leave starts 5/11** — loses sprint day 10 + all of M&Ms remainder (S29-S31). Sub-effort 3 deliberately left to Diana as flex room for iterations. |
 | Henrique De Lima | Eng | **9** | 1. **WME — Multiple Nodes per Territory implementation** | **May 1 OOO.** Sole client engineer. Partial appts 4/29, 5/6. Tutorial Migration parked — Henrique focused on WME. Spec not 100% ready at sprint start — week-1 alignment with Diana required. |
 | Laura Santana | QA | **9** | 1. WME smoke-test prep 2. Bug verification | **May 1 OOO.** Tutorial QA dropped — Tutorial work parked. |
 | Marcos Teles | Tech Art | **9-10** | 1. **Territory Map Optimization Review** (collab w Pedro) 2. Water VFX/Shader exploration | **May 1 OOO.** Empire-embedded artist. |
