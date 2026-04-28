@@ -1179,9 +1179,10 @@
                 <input type="text" class="task-parent-input" list="chi-datalist" placeholder="CHI-XXXXX" style="display:none;font-size:10px;padding:2px 4px;width:120px">
               </div>
             `;
+          const checkbox = isLinked ? '' : '<input type="checkbox" class="task-include-pod" style="accent-color:var(--accent);cursor:pointer;margin-right:6px;vertical-align:middle">';
           return `
           <li class="${isLinked ? 'pri-linked' : 'pri-unlinked'}" data-pod="${esc(pod.name)}" data-person="${esc(p.name)}" data-priority-idx="${j}">
-            <input type="checkbox" ${isLinked ? '' : 'checked'} class="task-include-pod" style="accent-color:var(--accent);cursor:pointer;margin-right:6px;vertical-align:middle">
+            ${checkbox}
             <span class="priority-text editable" contenteditable="false" data-field="priority" data-idx="${j}">${richText(pr)}</span>
             ${ticketAction}
             <span class="remove-btn" onclick="removeItem(this)" title="Remove">&times;</span>
