@@ -48,7 +48,26 @@
       "Bash(py --version)",
       "mcp__clickup__clickup_get_task_time_entries",
       "mcp__clickup__clickup_get_list",
-      "mcp__clickup__clickup_get_time_entries"
+      "mcp__clickup__clickup_get_time_entries",
+      "mcp__plugin_slack_slack__slack_read_thread",
+      "mcp__clickup__clickup_resolve_assignees",
+      "mcp__clickup__clickup_create_task",
+      "mcp__plugin_slack_slack__slack_send_message",
+      "mcp__clickup__clickup_update_task",
+      "mcp__notion__notion-update-page",
+      "mcp__google-workspace__sheets_getText"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'Recreating SHQ sync check cron jobs...' && cron delete ea6f4ce5 2>/dev/null || true && cron delete 019dbaed 2>/dev/null || true && cron create '17 17 * * 1' '/shq-sync-check' --recurring --durable && cron create '17 18 * * *' '/shq-sync-check monitor' --recurring --durable && echo 'SHQ sync check jobs created!'"
+          }
+        ]
+      }
     ]
   }
 }
