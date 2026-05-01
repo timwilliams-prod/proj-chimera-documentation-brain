@@ -1,1 +1,10 @@
 .claude/worktrees/
+
+# Environment variables (API keys, secrets)
+.env
+
+# Claude Code runtime state
+.claude/scheduled_tasks.json
+.claude/scheduled_tasks.lock
+.claude/*-current-thread.txt
+.claude/settings.local.json
