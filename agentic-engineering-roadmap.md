@@ -3,7 +3,7 @@
 > Where we're going, why, and what's coming when.
 
 **Owner:** Tim Williams
-**Audience:** Producers (Brann, Thorben, Tim, +1) + Project Leaders (James, Derek, Hafiz)
+**Audience:** Producers + Project Leadership
 **Last Updated:** 2026-05-04
 **Status:** v0.1 — Initial vision
 
@@ -21,7 +21,9 @@ This isn't replacing producers. It's reclaiming their time from work that should
 
 ## From → To
 
-| | Today | 12-18 Months |
+> *(Today's split varies meaningfully per pod and producer — some producers are closer to 50/50, others closer to 70/30. The numbers below are a directional average, not a per-person target.)*
+
+| | Today | 6-9 Months |
 |---|---|---|
 | **Producer's week** | ~60% plan maintenance / ~40% strategy | ~20% maintenance / ~80% strategy & alignment |
 | **IC's morning** | "What's on my list? Why does this matter?" → 30 min hunting | Daily brief: task, the feature it serves, why it matters, who else is on it |
@@ -38,7 +40,7 @@ We're not just building agents. The full picture is three stacked transformation
 
 1. **Org Coordination Layer** — agents that maintain plans, sync data, surface decisions. **(Current focus.)**
 2. **IC Augmentation** — per-discipline AI tooling that makes each person 2-3x more effective. **(Parallel; engineers partway there.)**
-3. **Workflow Redesign** — once agents and tooling are mature, re-shape *how* work flows. **(9-18 months out.)**
+3. **Workflow Redesign** — once agents and tooling are mature, re-shape *how* work flows. **(Later in the 6-9 month window.)**
 
 Most orgs try all three at once and accomplish none. We're sequencing.
 
@@ -107,7 +109,7 @@ Next step here: a **per-discipline audit** — where does the day actually go, a
 
 Once the foundation is real, pick **one workflow** and redesign it end-to-end around AI. Likely candidate: **spec → shipped feature**. This is where the team doesn't just go faster — the *shape* of how we work changes.
 
-Highest risk, highest reward. 9-18 months out. Listed here so it's visible, not actionable yet.
+Highest risk, highest reward. Late in the 6-9 month window. Listed here so it's visible, not actionable yet.
 
 ---
 

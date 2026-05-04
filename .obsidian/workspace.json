@@ -256,6 +256,9 @@
   },
   "active": "38fc166341ab2af3",
   "lastOpenFiles": [
+    "agentic-engineering-roadmap.md.tmp.22740.1777907317022",
+    "agentic-engineering-roadmap.md.tmp.22740.1777907299737",
+    "agentic-engineering-roadmap.md.tmp.22740.1777907292756",
     "agentic-engineering-roadmap.md",
     "agentic-engineering-roadmap.md.tmp.22740.1777905007816",
     "generated/dashboard/sprints/sprint_29.js",
@@ -266,8 +269,6 @@
     "generated/dashboard/sprints/sprint_28.js.tmp.10948.1776803490890",
     "generated/sprint_plans/sprint_28_abra.md.tmp.10948.1776803483530",
     "generated/dashboard/files.html.tmp.10948.1776803398896",
-    "generated/dashboard/validation.html.tmp.10948.1776803387401",
-    "generated/dashboard/roadmap.html.tmp.10948.1776803372392",
     "generated/sprint_plans/sprint_28_abra.md",
     "planning/contentTargets.md",
     "generated/sprint_plans/sprint_27_zany_zebras.md",
@@ -290,7 +291,6 @@
     "planning/pods/social_dynamics/features.md",
     "planning/pods/battle/validation.md",
     "planning/pods/battle/milestone_mms.md",
-    "planning/pods/battle/features.md",
-    "planning/pods/metagame/validation.md"
+    "planning/pods/battle/features.md"
   ]
 }
