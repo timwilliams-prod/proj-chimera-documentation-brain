@@ -34,18 +34,18 @@ var SPRINT_DATA = {
         { text: "WME — Multiple Nodes per Territory wrap (Henrique, week 1 only)", shqs: ["SHQ4-3", "SHQ4-4"] },
         { text: "WME — Main Menu/Game Mode Navigation eng kickoff with tightly-bounded week-1 scope (Henrique, before 5/20 vacation)", shqs: ["SHQ4-4"] },
         { text: "WME #2b spec + UX locked by Diana before Henrique vacation so any S30 backup engineer has clean handoff", shqs: ["SHQ4-4"] },
-        { text: "Territory Map Vertical Slice — visual target finalization push (Guilherme L + Thiago S + Marcos T optimization review wrap)", shqs: ["SHQ3-1"] },
-        { text: "Map Content T7-T8 implementation (Jacob, Elise)", shqs: ["SHQ3-1"] }
+        { text: "Territory Map Vertical Slice — begin map tile pipeline based on completed Visual Target (Thiago)", shqs: ["SHQ3-1"] },
+        { text: "Day 2 Map Content design (Jacob on T6,8,9, Elise on T5,7)", shqs: ["SHQ3-1"] }
       ],
 
       people: [
-        { name: "Diana Vasilescu", discipline: "Design", avail: 9, total: 10, priorities: ["WME #2b spec + UX finalization (absorbing Yura's UX) — must close before Henrique vacation 5/20", "WME #2a iteration support during Henrique's last week", "Narrative for Region 2 (continuation from S28)", "Territory Map visual target feedback"], notes: "US — Memorial Day -1. Highest individual load this sprint (design lead + UX + Region 2 + Territory Map).", flags: ["pto"] },
-        { name: "Jacob Siegel", discipline: "Design", avail: 9, total: 10, priorities: ["T7 implementation", "T8 design wrap", "World Map Reshaping continuation"], notes: "US — Memorial Day -1.", flags: ["pto"] },
-        { name: "Elise Cole", discipline: "Design", avail: 9, total: 10, priorities: ["Map Creation flow (continuation from S28)", "Figma Map agentic research wrap (CHI-36575)", "T7/T8 design support"], notes: "US — Memorial Day -1.", flags: ["pto", "carry-over"] },
+        { name: "Diana Vasilescu", discipline: "Design", avail: 9, total: 10, priorities: ["WME #2b spec + UX finalization (absorbing Yura's UX) — must close before Henrique vacation 5/20", "WME #2a iteration support during Henrique's last week", "Territory Map visual target/ vertical slice feedback"], notes: "US — Memorial Day -1. Highest individual load this sprint (design lead + UX + Region 2 + Territory Map).", flags: ["pto"] },
+        { name: "Jacob Siegel", discipline: "Design", avail: 9, total: 10, priorities: ["T8 design", "T8 begin implementation", "World Map Reshaping continuation"], notes: "US — Memorial Day -1.", flags: ["pto"] },
+        { name: "Elise Cole", discipline: "Design", avail: 9, total: 10, priorities: ["T7 design", "T7 begin implementation"], notes: "US — Memorial Day -1.", flags: ["pto", "carry-over"] },
         { name: "Henrique De Lima", discipline: "Eng", avail: 4.5, total: 10, priorities: ["WME #2a wrap (week 1)", "WME #2b eng kickoff — bounded scope (week 1, hand-off ready)", "Pre-vacation handoff doc"], notes: "Vacation 5/20-6/6 (5 days lost in S29). Partial appt 5/13 morning. Sole client engineer — Empire eng pauses 5/20 onwards.", flags: ["sole-eng", "pto"] },
         { name: "Laura Santana", discipline: "QA", avail: 10, total: 10, priorities: ["WME #2a smoke-test during Henrique's wrap", "Bug verification", "Test plan prep for #2b"], notes: "BR — no holiday.", flags: [] },
         { name: "Marcos Teles", discipline: "Tech Art", avail: 10, total: 10, priorities: ["Territory Map Optimization Review wrap (collab w Pedro) — CP2 close-out", "WME TA support", "Water VFX/Shader exploration"], notes: "BR — no holiday. Empire-embedded artist.", flags: [] },
-        { name: "Guilherme Lascasas", discipline: "2D Env Concept", avail: 10, total: 10, priorities: ["Territory Map Visual Target push", "WME asset support"], notes: "BR — no holiday. Empire-embedded artist.", flags: [] },
+        { name: "Guilherme Lascasas", discipline: "2D Env Concept", avail: 10, total: 10, priorities: [], notes: "BR — no holiday. Empire-embedded artist.", flags: [] },
         { name: "Thiago Saraiva", discipline: "Senior 3D", avail: 10, total: 10, priorities: ["Territory Map vertical slice tile creation continued", "WME asset support"], notes: "BR — no holiday. Empire-embedded artist.", flags: [] },
         { name: "Brann Livesay", discipline: "Producer", avail: 9, total: 10, priorities: ["Empire production (incl. Empire-embedded art)", "Henrique vacation transition planning", "Plan S30 Empire eng coverage"], notes: "US — Memorial Day -1.", flags: ["pto"] }
       ],
@@ -60,6 +60,7 @@ var SPRINT_DATA = {
       ],
 
       open_questions: [
+        { text: "Past Sprint Cleanup — will we have to deal with these? Henrique (3), Henrique / Diana / team (1), Jacob / Elise / Guilherme L / Thiago S (1), Elise Cole (1)", resolved: false, answer: "" },
         { text: "Past Sprint Cleanup — will we have to deal with these? Henrique (likely 2+ from WME #2a if not fully wrapped), Diana, Elise — verify at Kickoff", resolved: false, answer: "" },
         { text: "Henrique vacation coverage: Does any other engineer (Gabriel? Marcos Loures?) flex back to Empire for ~1 week to keep WME #2b moving? Or does Empire eng pause 5/20 → 6/8?", resolved: false, answer: "" },
         { text: "WME #2b scope bounding: What slice can Henrique realistically land in 4-5 days?", resolved: false, answer: "" },
@@ -108,6 +109,7 @@ var SPRINT_DATA = {
       ],
 
       open_questions: [
+        { text: "Past Sprint Cleanup — will we have to deal with these? Hugo Hideo / Christopher Fidalgo (1), Christopher Fidalgo (1), Tiago Costa (1)", resolved: false, answer: "" },
         { text: "Past Sprint Cleanup — will we have to deal with these? Hugo (1+), Fidalgo (1+), Tiago (likely Building Upgrades carry-over) — verify at Kickoff", resolved: false, answer: "" },
         { text: "Did Building Upgrades complete in S28? If not, Empire Progression Tree start slips a sprint and CP2 #2 goal is at risk.", resolved: false, answer: "" },
         { text: "EPT spec + UX readiness check — is Leonard + Kevin Ligon ready to hand to Tiago at S29 start?", resolved: false, answer: "" },
@@ -165,6 +167,7 @@ var SPRINT_DATA = {
       ],
 
       open_questions: [
+        { text: "Past Sprint Cleanup — will we have to deal with these? Jota / Danny (1), Jota / Ben (1), Vinod / Felipe / Tony / Alessandro / Danny / Ben / Vini (1), Jota Oliveira (1)", resolved: false, answer: "" },
         { text: "Past Sprint Cleanup — will we have to deal with these? Jota (likely 1-2), Felipe/Tony/Ben/Alessandro (multi-sprint art continuations) — verify at Kickoff", resolved: false, answer: "" },
         { text: "Battle HUD Sprint 2 scope — what's locked in for the second sprint of the 4-sprint feature?", resolved: false, answer: "" },
         { text: "Actor System Phase 2 → Phase 3 handoff — Phase 2 fully wrapping in S28? Phase 3 spec ready?", resolved: false, answer: "" },
@@ -211,6 +214,7 @@ var SPRINT_DATA = {
       ],
 
       open_questions: [
+        { text: "Past Sprint Cleanup — will we have to deal with these? Garrett Eidsvig (1), Marcos L / Gabriel / Randy (1)", resolved: false, answer: "" },
         { text: "Past Sprint Cleanup — will we have to deal with these? Verify all 5 SD engineers' S28 carry-over at Kickoff", resolved: false, answer: "" },
         { text: "Did MM2 Sprint A close cleanly in S28? AA-target was P2 wrap + dev UI v1 — confirm before locking S29 scope.", resolved: false, answer: "" },
         { text: "In-client multiplayer playable in dev UI by 5/25 — what's the demo bar for 'playable'? Need an explicit playtest checklist.", resolved: false, answer: "" },
@@ -257,6 +261,7 @@ var SPRINT_DATA = {
       ],
 
       open_questions: [
+        { text: "Past Sprint Cleanup — will we have to deal with these? Derek Gallant (1), Derek / Bruno F (1), Derek + cross-pod (1), Bruno F / Thorben (1)", resolved: false, answer: "" },
         { text: "Past Sprint Cleanup — will we have to deal with these? Derek (likely EKS + Compliance + UIFW V2 in flight), Bruno F (Age Gate + Build Pipeline) — verify at Kickoff", resolved: false, answer: "" },
         { text: "Did EKS deployment complete in S28? If not, Derek's CP2 close-out work is double-loaded.", resolved: false, answer: "" },
         { text: "Did UI Framework V2 - UI Support (CP1) fully wrap? Predecessor to V2 Full — confirm before locking S29 scope.", resolved: false, answer: "" },
