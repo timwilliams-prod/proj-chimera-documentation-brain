@@ -256,6 +256,9 @@
   },
   "active": "38fc166341ab2af3",
   "lastOpenFiles": [
+    "generated/dashboard/sprints/sprint_29.js",
+    "generated/sprint_plans/sprint_29_bulbasaur.md",
+    "generated/dashboard/sprint_edits_28_b.json",
     "generated/dashboard/index.html.tmp.10948.1776804668427",
     "generated/sprint_plans/sprint_28_abra.md.tmp.10948.1776804501040",
     "generated/dashboard/sprints/sprint_28.js.tmp.10948.1776803490890",
@@ -265,8 +268,6 @@
     "generated/dashboard/roadmap.html.tmp.10948.1776803372392",
     "generated/dashboard/sprint.html.tmp.10948.1776803363042",
     "generated/dashboard/sprint.html.tmp.10948.1776803358725",
-    "generated/dashboard/sprint.html.tmp.10948.1776803352419",
-    "generated/dashboard/index.html.tmp.10948.1776803342024",
     "generated/sprint_plans/sprint_28_abra.md",
     "planning/contentTargets.md",
     "generated/sprint_plans/sprint_27_zany_zebras.md",
@@ -290,7 +291,6 @@
     "planning/pods/battle/validation.md",
     "planning/pods/battle/milestone_mms.md",
     "planning/pods/battle/features.md",
-    "planning/pods/metagame/validation.md",
-    "planning/pods/metagame/milestone_mc.md"
+    "planning/pods/metagame/validation.md"
   ]
 }
