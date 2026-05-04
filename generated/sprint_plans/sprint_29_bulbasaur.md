@@ -87,21 +87,75 @@ Generated: 2026-05-04
 
 ---
 
+## Dozer (Tech Pod)
+
+**Eng Lead**: Derek Gallant | **Eng**: Bruno Freitas | **Producer**: Thorben Novais
+
+**M&M Checkpoint 2 continues this sprint (4/28-5/25).**
+
+### Sprint Goals
+- **EKS - Wrap Up** (Derek - Reach out to legal after EKS/Fortis is set up)
+- **Compliance (OneTrust, Age Gate)** (continues from S28 - CP2 Sprint 2 of 2)
+  - One Trust (Derek)
+  - Age Gate (Bruno) - Reskin with UI Kit
+- **UI Framework V2 - Support** - continues (Derek)
+- **Build Pipeline Review** - continues
+- Performance/Optimization continues
+- Multiplayer infra support continues
+
+### Individual Breakdown
+
+| Assignee | Discipline | Avail Days | Priorities | Notes |
+|----------|-----------|------------|------------|-------|
+| Derek Gallant | Eng Lead | 10 | 1. **EKS - Wrap Up** (Reach out to legal after setup) 2. **One Trust** 3. UI Framework V2 - Support 4. SD eng lead duties 5. Multiplayer infra | Split: Dozer + SD eng lead. EKS wrapping up in S29. |
+| Thorben Novais | Producer | 10 | 1. Build Pipeline Review coordination 2. M&M roadmap maintenance 3. Battle production | Two pods. |
+| Bruno Freitas | Eng | 10 | 1. **Age Gate - Reskin with UI Kit** 2. Build Pipeline Review 3. Performance/Optimization | |
+
+### ClickUp Ticket Summary (proposed)
+
+- **EKS - Wrap Up** (continuation from S28)
+  - EKS - Wrap Up (Derek, reach out to legal after EKS/Fortis setup)
+- **Compliance (OneTrust, Age Gate)** (Epic, CP2 Sprint 2 of 2)
+  - One Trust (Derek, continues from S28)
+  - Age Gate - Reskin with UI Kit (Bruno, continues from S28)
+- **UI Framework V2 - Support** (continuation from S28)
+  - UI Framework V2 - Support (Derek, continues from S28)
+- **Build Pipeline Review** (Epic, CP2 continuation)
+  - Build Pipeline Review - Continued work (Bruno F, Thorben)
+- **Standalone / ongoing**
+  - Performance/Optimization - Sprint 29 (Bruno F)
+  - Multiplayer infra support (Derek)
+
+### Key Risks
+- **CP2 final sprint** — Last sprint of Checkpoint 2 (4/28-5/25); EKS wrap-up and Compliance features must land
+- **EKS legal coordination** — Derek needs to reach out to legal after EKS/Fortis setup completes
+- **Age Gate UI Kit reskin** — Bruno completing reskin work from S28
+- Derek's split between Dozer + SD eng lead continues at high intensity
+
+---
+
 ## Other Pods
 
-[To be added: Empire, Metagame, Social Dynamics, Dozer sections]
+[To be added: Empire, Metagame, Social Dynamics sections]
 
 ---
 
 ## Preview Summary
 
-### Top Risks (Battle Pod)
+### Top Risks
 
+**Battle Pod:**
 1. **Battle HUD Sprint 2 of 4** — Implementation continues with Danny + Jota
 2. **Actor System Overhaul Phase 3** — Optimization phase begins, Jota's focus split between HUD and Actor System
 3. **Jota sole engineer** — Managing two major engineering efforts simultaneously
 4. **Unit content cadence** — 6 heroes in pipeline across concept, 3D, animation, VFX, and rigging stages
 5. **Design Kits wrap** — 12 M&M heroes remaining for Lincoln and Nathan
 6. **Obstacles and Pathfinding** — Design validation continues, engineering timeline TBD
+
+**Tech Pod (Dozer):**
+1. **CP2 final sprint** — Last sprint of Checkpoint 2; EKS and Compliance must land by 5/25
+2. **EKS legal coordination** — Derek must reach out to legal after EKS/Fortis setup
+3. **Derek split role** — Dozer eng lead + SD eng lead at continued high intensity
+4. **Age Gate reskin completion** — Bruno wrapping UI Kit integration
 
 ---
