@@ -17,7 +17,8 @@ Gathers comprehensive status for a game unit/hero across Google Drive (latest im
 - Slack DM to requester - Condensed status summary
 
 ### External Sources (Read-Only)
-- Google Drive - Hero image folders
+- Miro - Concept art progress board (primary image source)
+- Google Drive - Hero image folders (fallback image source)
 - Notion - Design Kit database
 - ClickUp - Task tickets and timeline view
 - Slack - Channel discussions
@@ -40,7 +41,42 @@ Gathers comprehensive status for a game unit/hero across Google Drive (latest im
 - Use `slack_search_users` with the email to find Slack user ID
 - Store the Slack user ID for final DM
 
-### 3. Search Google Drive for Images
+### 3. Search Miro Board for Concept Images (Primary)
+
+The Miro concept art progress board is the primary source for the latest concept image. Only the **Vinod Rams** and **Vinicius Muniz** lanes are searched — skip Guilherme Lascasas and any other lanes.
+
+**Board:** `https://miro.com/app/board/uXjVG_G7jjo=/`
+
+**Step 3a — Anchor on artist labels:**
+- Use `mcp__miro__board_list_items` with `item_type=text` to enumerate text widgets on the board
+- Find the two artist label texts: `"Vinod Rams"` and `"Vinicius Muniz"` (large fontSize ~747, white text)
+- Record each artist's `position.y` (the lane's vertical anchor)
+- Define each lane's y-window as anchor_y ± 3000 units (covers date row + image row)
+
+**Step 3b — Collect unit-matching signals within each lane:**
+Within each lane's y-window, gather any of these signals (used as confidence boosters in step 3c):
+- **Text widgets** containing the hero name in their content (case-insensitive, partial match OK)
+- **Notion link text** with hrefs like `notion.so/...{hero_name}...` (e.g., `Approved-Merrin-AoE-Specialist`)
+- **Image `data.altText` or `data.title`** containing the hero name — when present, this is the strongest signal
+- **Date labels** near such matches (smaller fontSize ~369, formatted like `M/D/YY`) — capture them as date hints
+
+Signals are optional: if none are found, step 3c still returns the rightmost images by x-position. The signals are used to filter or disambiguate when many candidates exist.
+
+**Step 3c — Pick the top 2 rightmost images in each lane:**
+- Re-query `mcp__miro__board_list_items` with `item_type=image`, paginating until `has_more=false`
+- Filter to images whose `position.y` falls in the lane's y-window
+- Sort by `position.x` **descending** (rightmost = most recent on the horizontal timeline)
+- Take the **top 2 images** by x-position from each lane (yielding up to 4 candidates total across both lanes)
+- If a lane has no images in its y-window, skip it; if both lanes are empty, fall through to step 3e (Drive fallback)
+- When more than 2 candidates exist within a tight x-range, prefer images that match a step-3b signal (alt/title hit, or within ~5000 units of a unit-mentioning anchor)
+
+**Step 3d — Capture image details:**
+For each of the top 2 images per lane:
+- Use `mcp__miro__image_get_url` to get the **signed download URL** (note: signed URLs expire in ~2 hours, so they should be sent in the DM promptly)
+- Record: artist (lane), nearest date label, image x/y position, Miro deep link (`?moveToWidget={image_id}`)
+- These will be embedded in the DM with link text **"image 01"** and **"image 02"** (per artist/lane)
+
+**Step 3e — Fallback to Google Drive (only if Miro returned nothing):**
 - Parent folder: `1uGs0fpHNkKgtQbajDOwFxU8GrDn0vbXo`
 - Search within parent folder for sub-folders matching the hero name (case-insensitive)
 - Use `drive_search` with query like: `name contains '{hero_name}' and '{parent_folder_id}' in parents and mimeType='application/vnd.google-apps.folder'`
@@ -50,6 +86,7 @@ Gathers comprehensive status for a game unit/hero across Google Drive (latest im
   - Save as: `{hero_name}_latest.png` (or appropriate extension)
   - Also save with timestamp: `{hero_name}_{YYYY-MM-DD}.png` (backup)
 - Record: file path, file name, last modified date, Drive folder URL
+- Note in the report that Drive was used as fallback (no Miro match)
 
 ### 4. Search ClickUp Tickets
 - Use the ClickUp MCP tool to search for tickets containing the hero name
@@ -87,7 +124,7 @@ Gathers comprehensive status for a game unit/hero across Google Drive (latest im
 - Extract the Design Kit URL for this unit
 - If not found, mark as "Not available"
 
-### 7. Search Slack for Discussions
+### 7. Search Slack for Discussions and Shared Images
 - Use Slack MCP search tool for messages containing the hero name
 - Filter: last 10 days
 - Search in: all public channels (use `slack_search_public`)
@@ -99,6 +136,19 @@ Gathers comprehensive status for a game unit/hero across Google Drive (latest im
   - Link to message
 - Limit to top 10 most recent/relevant results
 
+**Also run a parallel search for image-bearing messages:**
+- **Preferred:** standard `slack_search_public` with the `has:file` modifier in the query, e.g. `{hero_name} has:file after:{date_10_days_ago}`. This reliably catches messages where designers attached work-in-progress images.
+- Fallback (less reliable, often returns 0 hits): `slack_search_public` with `content_types="files"` and a query like `{hero_name} type:images after:{date_10_days_ago}`. Try only if `has:file` returns nothing.
+- Designer image shares typically land in `#proj-lotus-pod-battle`, `#proj-lotus-art-style-development`, or unit-pipeline channels — useful as `in:` filters if results are noisy.
+- For each image file or image-bearing message captured:
+  - File name (or message text preview)
+  - Permalink to the Slack message/file
+  - Channel
+  - Author
+  - Timestamp
+- Limit to the **5 most recent** image attachments to keep the DM concise
+- These will appear in a dedicated "Recently Shared in Slack" section of the DM
+
 ### 8. Send Condensed Slack DM
 Use `slack_send_message` to send a DM to the requester's Slack user ID (obtained in step 2).
 
@@ -109,9 +159,18 @@ Message should use standard Slack markdown formatting (not rich blocks):
 
 ---
 
-*📁 Latest Image*
-{filename} • Modified {date}
-<{drive_folder_url}|View in Drive> • `{local_path}`
+*🎨 Latest Concept Images (Miro)*
+{for each artist with images:}
+*{artist_name}*
+• <{img1_signed_url}|image 01> _(near {date1})_
+• <{img2_signed_url}|image 02> _(near {date2})_
+{if Drive fallback used:}
+• _Drive fallback_ — <{drive_folder_url}|{filename}> _({modified_date})_
+
+*📸 Recently Shared in Slack* _(last 10 days)_
+{for each image attachment found, up to 5:}
+• <{slack_permalink}|{file_name or "image"}> — _{channel} • {author} • {date}_
+{if no Slack image attachments found, omit this entire section}
 
 *📋 Design Kit*
 <{design_kit_url}|View Design Kit>
@@ -132,15 +191,6 @@ Message should use standard Slack markdown formatting (not rich blocks):
 
 *💬 Slack Activity* (last 10 days: {count} mentions)
 Most recent: {X} days ago in <{slack_link}|#{channel}>
-
----
-
-*⚡ Summary*
-{status_emoji} Image: {status}
-{status_emoji} Active work: {in_progress_count} tickets
-{status_emoji} Recent activity: {days_since_last_mention} days ago
-
-{blockers_or_next_steps_if_applicable}
 ```
 
 **Formatting Rules**:
@@ -178,7 +228,8 @@ After sending the Slack DM, display to user:
 - This is a read-only status gathering tool with private delivery
 
 ### Handle Missing Data Gracefully
-- If Google Drive folder not found: skip image section, note in Slack message
+- If Miro board has no unit-matching anchor in either lane: fall back to Google Drive (step 3e)
+- If Drive fallback also returns nothing: skip image section, note "No concept image found (Miro + Drive)" in Slack message
 - If Design Kit not found in Notion: show "Design Kit not available" in message
 - If no ClickUp tickets found: show "No tickets found" in message
 - If no Slack discussions: show "No recent discussions" in message
@@ -216,12 +267,30 @@ After sending the Slack DM, display to user:
 - Use view mode query to get filtered results with due dates
 - Fallback: If view query fails, search individual tickets by name pattern
 
-### Google Drive Details
+### Miro Board Details (Primary Image Source)
+- Board URL: `https://miro.com/app/board/uXjVG_G7jjo=/`
+- The board is a horizontal timeline: dates progress left → right (newer = larger x)
+- Artists are organized into vertical lanes (rows). Only these two are searched:
+  - **Vinod Rams** lane — anchor `position.y ≈ 8,800`
+  - **Vinicius Muniz** lane — anchor `position.y ≈ 42,400`
+- A third lane exists for Guilherme Lascasas (`y ≈ 24,200`) — **do not search it**
+- Lane y-anchor positions can shift as the board grows; always re-derive them by searching for the artist name text (large fontSize ~747) rather than hardcoding y-values
+- Lane y-window: anchor_y ± 3,000 captures the date row + image row for that artist
+- Image selection: take the **top 2 rightmost images** in each lane's y-window (newest = largest x). Fetch all image pages until `has_more=false` before sorting.
+- Confidence signals (used to disambiguate when many candidates cluster at similar x): `data.altText`/`data.title` on the image containing the unit name, or proximity (~5000 units) to a text widget or Notion link mentioning the unit
+- Date labels follow `M/D/YY` format (smaller fontSize ~369) and sit just below images — use them as the "near {date}" hint in the DM
+- Image URLs from `image_get_url` are signed CloudFront links that **expire in ~2 hours**, so the DM should be sent promptly after fetching
+- DM link text convention: label the two images **"image 01"** and **"image 02"** per lane, in rightmost-first order
+- This board is read-only for this skill — do NOT create/move/edit Miro items
+
+### Google Drive Details (Fallback Image Source)
+- Used **only if no unit-matching image found in the Miro lanes**
 - Parent folder ID: `1uGs0fpHNkKgtQbajDOwFxU8GrDn0vbXo`
 - Parent folder URL: `https://drive.google.com/drive/folders/1uGs0fpHNkKgtQbajDOwFxU8GrDn0vbXo`
 - Contains sub-folders for each hero/unit with their images
 - Search within this parent folder to limit scope and improve accuracy
 - Image priority order: .png > .jpg > .psd (most recent file wins)
+- When this fallback is used, note it explicitly in the Slack DM
 
 ### Design Kit Database Details
 - Notion database URL: `https://www.notion.so/1eb3f0b3b6ab805893cfff034a5ceb42?v=3133f0b3b6ab8073ab4a000cd643a365`
