@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lotus Map Prototype</title>
+  <link rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""/>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="map"></div>
+
+  <!-- HUD overlays. data-visible-at lists scene indices where the element shows. -->
+  <!-- Scene 0 = world view, 1 = main menu, 2 = home empire -->
+
+  <div id="hud-back" class="hud" data-visible-at="2">
+    <button id="btn-back" class="back-btn">&larr; Back</button>
+  </div>
+
+  <div id="hud-zoom-controls" class="hud" data-visible-at="0,1,2">
+    <button id="btn-zoom-in" class="zoom-btn" title="Zoom in (mouse wheel up)">+</button>
+    <button id="btn-zoom-out" class="zoom-btn" title="Zoom out (mouse wheel down)">&minus;</button>
+  </div>
+
+  <div id="hud-debug" class="hud" data-visible-at="0,1,2">
+    <div class="debug-row"><span class="debug-label">Scene:</span> <span id="debug-scene">-</span></div>
+    <div class="debug-row"><span class="debug-label">Cursor:</span> <span id="debug-cursor">-</span></div>
+    <div class="debug-row debug-hint">Click anywhere to log coords to console</div>
+    <div class="debug-row"><label><input type="checkbox" id="toggle-hotspots"> show hotspot outlines</label></div>
+  </div>
+
+  <div id="hud-legend" class="hud" data-visible-at="0,1,2">
+    <div class="legend-title">Scenes</div>
+    <div class="legend-item" data-scene="0"><span class="legend-key">0</span> World View (zoomed out)</div>
+    <div class="legend-item" data-scene="1"><span class="legend-key">1</span> Main Menu (regions)</div>
+    <div class="legend-item" data-scene="2"><span class="legend-key">2</span> Home Empire (nodes)</div>
+    <div class="legend-hint">Wheel up/down or +/&minus; to switch &middot; click EMPIRE to drill in</div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+          crossorigin=""></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

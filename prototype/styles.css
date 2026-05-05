@@ -1,0 +1,221 @@
+/* =====================================================================
+   Lotus Map Prototype — Styles
+   ===================================================================== */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: #1a1530;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #fff;
+  overflow: hidden;
+}
+
+#map {
+  width: 100vw;
+  height: 100vh;
+  background: #1a1530;
+  cursor: crosshair;
+}
+
+/* Hide leaflet's default attribution corner */
+.leaflet-control-attribution { display: none !important; }
+
+/* ---------- HUD layout ---------- */
+
+.hud {
+  position: absolute;
+  z-index: 1000;
+  pointer-events: auto;
+  transition: opacity 0.18s ease;
+}
+
+.hud.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Back button — top-left of viewport, scene 2 only */
+#hud-back {
+  top: 16px;
+  left: 16px;
+}
+.back-btn {
+  background: rgba(20, 16, 40, 0.85);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(4px);
+}
+.back-btn:hover { background: rgba(40, 30, 70, 0.95); }
+
+/* Zoom controls — bottom-right */
+#hud-zoom-controls {
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.zoom-btn {
+  width: 40px;
+  height: 40px;
+  background: rgba(20, 16, 40, 0.85);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  font-size: 22px;
+  font-weight: 600;
+  cursor: pointer;
+  line-height: 1;
+}
+.zoom-btn:hover { background: rgba(40, 30, 70, 0.95); }
+.zoom-btn:disabled { opacity: 0.35; cursor: default; }
+
+/* Debug panel — top-right */
+#hud-debug {
+  top: 16px;
+  right: 16px;
+  background: rgba(20, 16, 40, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 12px;
+  font-family: 'SF Mono', Menlo, Consolas, monospace;
+  min-width: 200px;
+  backdrop-filter: blur(4px);
+}
+.debug-row { padding: 2px 0; }
+.debug-label { color: #a99fd0; display: inline-block; min-width: 56px; }
+.debug-hint  { color: #8077a8; font-size: 11px; padding-top: 6px; }
+.debug-row label { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+.debug-row input[type="checkbox"] { margin: 0; }
+
+/* Legend — bottom-left */
+#hud-legend {
+  bottom: 16px;
+  left: 16px;
+  background: rgba(20, 16, 40, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 12px;
+  max-width: 280px;
+  backdrop-filter: blur(4px);
+}
+.legend-title {
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #a99fd0;
+  margin-bottom: 6px;
+}
+.legend-item {
+  padding: 3px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.55;
+  transition: opacity 0.15s;
+}
+.legend-item.active {
+  opacity: 1;
+  font-weight: 600;
+}
+.legend-key {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  text-align: center;
+  line-height: 18px;
+  font-size: 11px;
+  font-weight: 700;
+}
+.legend-item.active .legend-key {
+  background: #5fdc8b;
+  color: #1a1530;
+}
+.legend-hint {
+  color: #8077a8;
+  font-size: 11px;
+  padding-top: 8px;
+  line-height: 1.4;
+}
+
+/* ---------- Region hotspots (scene 1) ---------- */
+
+.region-hotspot {
+  cursor: pointer;
+}
+.region-tag {
+  background: rgba(20, 16, 40, 0.0);
+  border: 2px dashed transparent;
+  border-radius: 4px;
+  padding: 6px 14px;
+  color: rgba(255, 255, 255, 0.0);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-align: center;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+.region-hotspot:hover .region-tag {
+  background: rgba(20, 16, 40, 0.85);
+  color: #fff;
+  border-color: currentColor;
+  transform: scale(1.05);
+}
+
+/* When showing outlines (debug mode), make hotspots visible */
+body.show-hotspots .region-tag {
+  background: rgba(20, 16, 40, 0.55);
+  border-color: currentColor;
+  color: #fff;
+}
+
+/* ---------- Empire node hotspots (scene 2) ---------- */
+
+.node-hotspot { cursor: pointer; }
+.node-tag {
+  background: rgba(20, 16, 40, 0.0);
+  border: 2px dashed transparent;
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.0);
+  text-align: center;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+.node-hotspot:hover .node-tag {
+  background: rgba(20, 16, 40, 0.9);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: scale(1.1);
+}
+body.show-hotspots .node-tag {
+  background: rgba(20, 16, 40, 0.55);
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #fff;
+}
+
+/* Type-tinted outlines (debug) */
+body.show-hotspots .node-capital  { border-color: #5fdc5f; }
+body.show-hotspots .node-resource { border-color: #c0c0c0; }
+body.show-hotspots .node-mission  { border-color: #dc8b5f; }
+body.show-hotspots .node-pvp      { border-color: #c25fdc; }
