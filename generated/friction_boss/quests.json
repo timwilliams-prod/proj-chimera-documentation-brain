@@ -1,0 +1,526 @@
+{
+  "campaign": {
+    "title": "Agentic Engineering with Lotus",
+    "subtitle": "A Producer's Quest Log",
+    "version": "v0.1",
+    "lastUpdated": "2026-05-04",
+    "currentChapter": "Chapter I — Foundations",
+    "tagline": "Every quest weakens the Friction. Every defeated quest is parallel work unlocked."
+  },
+  "boss": {
+    "name": "FRICTION",
+    "title": "The Devourer of Producer Hours",
+    "description": "The ancient force that turns strategy into status-chasing, that makes plans go stale, that buries ICs in 'what am I doing today.' Slain not by force, but by skills, agents, and clarity.",
+    "maxHp": 1000,
+    "currentHp": 870,
+    "phases": [
+      { "threshold": 1000, "name": "UNTOUCHED", "description": "Producers compile plans by hand. ICs hunt for context. Risks surface at retro." },
+      { "threshold": 800, "name": "WOUNDED", "description": "Skills exist and get used. Brain is the source of truth. Plans drift less." },
+      { "threshold": 600, "name": "BLEEDING", "description": "First agents run autonomously. Status syncs without human intervention." },
+      { "threshold": 400, "name": "STAGGERED", "description": "Spec → ticket pipeline is automatic. Sprint plans pre-drafted." },
+      { "threshold": 200, "name": "CORNERED", "description": "ICs get personal daily briefs. Cross-pod coordination is continuous." },
+      { "threshold": 0, "name": "DEFEATED", "description": "Producers think. Agents synchronize. Engineers run 10+ parallel terminals as standard practice." }
+    ]
+  },
+  "captain": {
+    "name": "Tim Williams",
+    "title": "Senior Producer / Quest Champion",
+    "level": 3,
+    "xp": 130,
+    "xpToNext": 250,
+    "totalXpEarned": 130
+  },
+  "party": [
+    { "name": "Tim Williams", "role": "Quest Champion", "status": "active", "type": "human", "note": "Carrying the torch. Needs allies." },
+    { "name": "The Brain (Lotus Doc Brain)", "role": "Shared Substrate", "status": "active", "type": "system", "note": "Charter v1 stable. Source of truth for planning." },
+    { "name": "Existing Skill Library", "role": "Manual Toolkit", "status": "active", "type": "system", "note": "17+ skills in .claude/commands/. Producer-invoked today." },
+    { "name": "Ally Producer", "role": "Co-Champion", "status": "vacant", "type": "human", "note": "Recruit one producer who buys the vision. Critical for survival." },
+    { "name": "Status Sync Agent", "role": "Continuous Reader", "status": "locked", "type": "agent", "note": "Unlocks after Phase 0 maturity gate is built." },
+    { "name": "Plan Coherence Agent", "role": "Risk Surface", "status": "locked", "type": "agent", "note": "Unlocks after risk-evaluation skill matures." },
+    { "name": "Spec Curator Agent", "role": "Notion Watcher", "status": "locked", "type": "agent", "note": "Unlocks after spec-sync skill matures." },
+    { "name": "Sprint Pipeline Agent", "role": "Ticket Scaffolder", "status": "locked", "type": "agent", "note": "The dangerous one. Last to deploy. Writes to ClickUp." },
+    { "name": "Clarity Auditor Agent", "role": "Ticket Watchdog", "status": "locked", "type": "agent", "note": "Surface-only. Pings owners on gaps." },
+    { "name": "Risk/Drift Agent", "role": "Continuous Sentinel", "status": "locked", "type": "agent", "note": "Watches everything. Surfaces nothing without reason." }
+  ],
+  "chapters": [
+    {
+      "id": "chapter-1",
+      "title": "Chapter I — Foundations",
+      "subtitle": "Sharpen the Blade",
+      "description": "Before we hunt the boss, we forge our weapons. Skills mature, processes harden, infrastructure constraints get answered.",
+      "status": "active",
+      "quests": [
+        {
+          "id": "q1-1",
+          "title": "Forge the Maturity Gate",
+          "type": "process",
+          "tier": "main",
+          "xp": 30,
+          "frictionDamage": 20,
+          "status": "available",
+          "description": "Author the Skill Maturity Framework as a real document in the brain. Seven criteria, explicit bar, examples of pass and fail.",
+          "deliverable": "planning/skill_maturity_framework.md",
+          "prerequisites": [],
+          "frictionUnlock": "Without this, every promotion to autonomous is a vibe call. Producers can't review skills consistently. Engineers can't trust agent output."
+        },
+        {
+          "id": "q1-2",
+          "title": "Audit the Skill Armory",
+          "type": "process",
+          "tier": "main",
+          "xp": 25,
+          "frictionDamage": 15,
+          "status": "available",
+          "description": "Run every existing skill through the Maturity Framework. Tag each: agent-ready, needs-work, manual-forever. Output: a ranked list.",
+          "deliverable": "generated/reports/skill_audit.md",
+          "prerequisites": ["q1-1"],
+          "frictionUnlock": "We stop guessing which skills are ready. The next agent we wrap is the obvious one."
+        },
+        {
+          "id": "q1-3",
+          "title": "Solve the Always-On Riddle",
+          "type": "infrastructure",
+          "tier": "main",
+          "xp": 50,
+          "frictionDamage": 60,
+          "status": "available",
+          "description": "Within the Fortis ecosystem, identify how scheduled/autonomous agents will actually run. Survey available tooling: existing CI runners, scheduled jobs, cloud functions, internal automation platforms. Produce a concrete proposal with one primary path and one fallback.",
+          "deliverable": "planning/agent_infrastructure_proposal.md",
+          "prerequisites": [],
+          "frictionUnlock": "This is the real boss-hp drain. Without an answer, no agent runs autonomously. With an answer, the floor opens."
+        },
+        {
+          "id": "q1-4",
+          "title": "Enshrine the Where-Things-Live Edict",
+          "type": "process",
+          "tier": "side",
+          "xp": 15,
+          "frictionDamage": 10,
+          "status": "available",
+          "description": "Single-page, team-facing doc: which tool for which thing. Notion vs Brain vs ClickUp. Pin it in Slack. Reference it constantly until it's reflex.",
+          "deliverable": "WHERE_THINGS_LIVE.md",
+          "prerequisites": [],
+          "frictionUnlock": "The most common drift on these efforts is people putting the right thing in the wrong tool. This is cheap, high-leverage."
+        },
+        {
+          "id": "q1-5",
+          "title": "Build the Skill Review Ritual",
+          "type": "process",
+          "tier": "main",
+          "xp": 35,
+          "frictionDamage": 25,
+          "status": "available",
+          "description": "Define the lightweight review pipeline: skill proposed → drafted → tested by 2+ producers → reviewed against Maturity Framework → approved or sent back. Same pipeline for planning doc changes.",
+          "deliverable": "planning/skill_review_process.md",
+          "prerequisites": ["q1-1"],
+          "frictionUnlock": "Without a review ritual, skill quality drifts. With it, agent-ready becomes a real checkpoint we can trust."
+        },
+        {
+          "id": "q1-6",
+          "title": "Recruit the First Ally",
+          "type": "social",
+          "tier": "main",
+          "xp": 40,
+          "frictionDamage": 30,
+          "status": "available",
+          "description": "Find one other producer who genuinely buys the vision. Not as a courtesy — as a co-champion. Walk them through the roadmap, get their pushback, fold it in.",
+          "deliverable": "An ally who can speak to this in rooms you're not in",
+          "prerequisites": [],
+          "frictionUnlock": "A solo champion is fragile. An ally turns this from one person's project into a small movement."
+        }
+      ]
+    },
+    {
+      "id": "chapter-2",
+      "title": "Chapter II — The Skill Forge",
+      "subtitle": "Build What's Missing",
+      "description": "We have skills. We're missing skills. The audit told us what to build. We build them.",
+      "status": "available",
+      "quests": [
+        {
+          "id": "q2-1",
+          "title": "Skill: /clarity-audit",
+          "type": "skill-build",
+          "tier": "main",
+          "xp": 35,
+          "frictionDamage": 30,
+          "status": "available",
+          "description": "Reads active sprint tickets in ClickUp. Checks each for: description, feature link, prioritization, clear 'why'. Outputs a per-owner report grouped by gap type.",
+          "deliverable": ".claude/commands/clarity-audit.md",
+          "prerequisites": ["q1-2"],
+          "frictionUnlock": "First skill that directly serves IC clarity. Producer-invokable today, agent-wrappable when mature. The seed of the future Clarity Auditor agent."
+        },
+        {
+          "id": "q2-2",
+          "title": "Skill: /dependency-map-sync",
+          "type": "skill-build",
+          "tier": "main",
+          "xp": 40,
+          "frictionDamage": 35,
+          "status": "available",
+          "description": "Reads cross-pod dependencies from feature specs and pod plans. Maintains dependency_map.md as a live surface. Flags dependencies at risk based on owner status + ClickUp progress.",
+          "deliverable": ".claude/commands/dependency-map-sync.md",
+          "prerequisites": ["q1-2"],
+          "frictionUnlock": "Replaces half the value of scrum-of-scrums. When this is live and trusted, we can cut a meeting."
+        },
+        {
+          "id": "q2-3",
+          "title": "Skill: /risk-surface",
+          "type": "skill-build",
+          "tier": "main",
+          "xp": 35,
+          "frictionDamage": 25,
+          "status": "available",
+          "description": "Continuous-mode version of /risk-evaluation. Lightweight, fast, designed to run on every plan change. Outputs deltas: new risks, resolved risks, escalating risks.",
+          "deliverable": ".claude/commands/risk-surface.md",
+          "prerequisites": ["q1-2"],
+          "frictionUnlock": "Risks today surface at retro. With this, they surface within 48 hours of emergence."
+        },
+        {
+          "id": "q2-4",
+          "title": "Skill: /spec-to-tickets",
+          "type": "skill-build",
+          "tier": "main",
+          "xp": 50,
+          "frictionDamage": 50,
+          "status": "available",
+          "description": "Takes an approved feature spec and drafts the ClickUp ticket breakdown. Includes context, validation goal links, dependency callouts. Output is reviewable markdown; ticket creation is a separate gated step.",
+          "deliverable": ".claude/commands/spec-to-tickets.md",
+          "prerequisites": ["q1-2"],
+          "frictionUnlock": "The biggest manual handoff in current production becomes a 10-minute review. Engineers see context they couldn't see before."
+        },
+        {
+          "id": "q2-5",
+          "title": "Skill: /ic-daily-brief",
+          "type": "skill-build",
+          "tier": "side",
+          "xp": 30,
+          "frictionDamage": 20,
+          "status": "available",
+          "description": "Producer-invokable per-IC brief generator. Reads ClickUp + brain. Outputs: today's task, the feature it serves, validation goal, who else is on related work, blockers. Markdown today, future-Slack-DM later.",
+          "deliverable": ".claude/commands/ic-daily-brief.md",
+          "prerequisites": ["q1-2"],
+          "frictionUnlock": "Test the daily-brief format manually before agent-wrapping it. If ICs find it useful when sent by hand, it's ready for automation."
+        },
+        {
+          "id": "q2-6",
+          "title": "Skill: /standup-prebrief",
+          "type": "skill-build",
+          "tier": "side",
+          "xp": 25,
+          "frictionDamage": 15,
+          "status": "available",
+          "description": "Generates the pod's standup pre-brief: yesterday's progress (ClickUp deltas), today's focus, blockers, upcoming dependencies. Producer posts manually until agent-ready.",
+          "deliverable": ".claude/commands/standup-prebrief.md",
+          "prerequisites": ["q2-2"],
+          "frictionUnlock": "Standups become decision meetings, not status meetings. Cuts standup time, increases standup value."
+        },
+        {
+          "id": "q2-7",
+          "title": "Skill: /milestone-checkpoint",
+          "type": "skill-build",
+          "tier": "side",
+          "xp": 30,
+          "frictionDamage": 15,
+          "status": "available",
+          "description": "Monthly milestone health summary. Reads product_targets, validation roadmap, feature roadmap, capacity. Output: are we on track for the milestone, what's at risk, what trade-offs are emerging.",
+          "deliverable": ".claude/commands/milestone-checkpoint.md",
+          "prerequisites": [],
+          "frictionUnlock": "Currently this is hours of manual compilation per month. Becomes a 30-min review of pre-compiled data."
+        }
+      ]
+    },
+    {
+      "id": "chapter-3",
+      "title": "Chapter III — First Blood",
+      "subtitle": "The Metagame Pilot",
+      "description": "One pod. One agent. Read-only first. Earn trust before any agent writes.",
+      "status": "locked",
+      "lockedReason": "Requires Always-On Riddle solved (q1-3) and at least 2 skills Phase-0 ready",
+      "quests": [
+        {
+          "id": "q3-1",
+          "title": "Deploy Status Sync Agent (Read-Only)",
+          "type": "agent-deploy",
+          "tier": "main",
+          "xp": 75,
+          "frictionDamage": 80,
+          "status": "locked",
+          "description": "First autonomous agent. Pulls ClickUp + SHQ Tracker on schedule. Updates brain's generated/ surfaces. Read-only — no writes back to source systems. Pilot pod: Metagame.",
+          "deliverable": "Status Sync Agent running on the always-on infra",
+          "prerequisites": ["q1-3", "q1-5"],
+          "frictionUnlock": "First time the brain stays fresh without a human running a skill. First slice of autonomous trust."
+        },
+        {
+          "id": "q3-2",
+          "title": "Deploy Plan Coherence Agent",
+          "type": "agent-deploy",
+          "tier": "main",
+          "xp": 60,
+          "frictionDamage": 50,
+          "status": "locked",
+          "description": "Second autonomous agent. Watches plan deltas, fires risk-evaluation, surfaces options when capacity/dependencies shift. Surface-only. Metagame pod.",
+          "deliverable": "Plan Coherence Agent running",
+          "prerequisites": ["q3-1", "q2-3"],
+          "frictionUnlock": "Risks now surface continuously. The 'we discovered at retro' failure mode dies."
+        },
+        {
+          "id": "q3-3",
+          "title": "Deploy Clarity Auditor Agent",
+          "type": "agent-deploy",
+          "tier": "main",
+          "xp": 50,
+          "frictionDamage": 40,
+          "status": "locked",
+          "description": "Runs the clarity-audit skill on a daily cadence. Pings owners (Slack DM) on gaps. Producer reviews weekly summary.",
+          "deliverable": "Clarity Auditor Agent running",
+          "prerequisites": ["q2-1", "q3-1"],
+          "frictionUnlock": "ICs stop hitting Monday morning with 'why am I doing this?' tickets. Producer reclaims the chasing time."
+        },
+        {
+          "id": "q3-4",
+          "title": "Build the Observability Hall",
+          "type": "infrastructure",
+          "tier": "main",
+          "xp": 60,
+          "frictionDamage": 40,
+          "status": "locked",
+          "description": "Build the 'what did the agents do today?' dashboard. Audit log per agent, per run. Cost tracking. Failure tracking. The thing producers check when something feels off.",
+          "deliverable": "Observability dashboard for active agents",
+          "prerequisites": ["q3-1"],
+          "frictionUnlock": "Without observability, every agent failure becomes 'why don't we just do this manually.' With it, failures are diagnosable, fixable, and survivable."
+        }
+      ]
+    },
+    {
+      "id": "chapter-4",
+      "title": "Chapter IV — The Writing Hand",
+      "subtitle": "Agents That Change Things",
+      "description": "Read-only is safe. Read-write is where the leverage lives. Approval gates everywhere, trust earned per workflow.",
+      "status": "locked",
+      "lockedReason": "Requires Chapter III complete and trust earned on read-only agents",
+      "quests": [
+        {
+          "id": "q4-1",
+          "title": "Deploy Spec Curator Agent",
+          "type": "agent-deploy",
+          "tier": "main",
+          "xp": 70,
+          "frictionDamage": 60,
+          "status": "locked",
+          "description": "First write-capable agent. Watches Notion, syncs spec changes to brain, flags gaps to designer queue. Writes only to brain — never to Notion or ClickUp.",
+          "deliverable": "Spec Curator Agent running",
+          "prerequisites": ["q3-4"],
+          "frictionUnlock": "Specs and plans stay in sync without human ferrying. Designers get gap-pings within hours, not weeks."
+        },
+        {
+          "id": "q4-2",
+          "title": "Deploy Sprint Pipeline Agent (The Dangerous One)",
+          "type": "agent-deploy",
+          "tier": "main",
+          "xp": 100,
+          "frictionDamage": 90,
+          "status": "locked",
+          "description": "Drafts sprint plans + ClickUp tickets from approved features. Writes to ClickUp on producer approval. Maintains linkage as sprint evolves. THE highest-risk agent — every safeguard matters.",
+          "deliverable": "Sprint Pipeline Agent running with full approval gates",
+          "prerequisites": ["q4-1", "q2-4"],
+          "frictionUnlock": "The biggest manual workflow in production — gone. Producers approve breakdowns instead of authoring them. Engineers see fully-contextualized tickets."
+        },
+        {
+          "id": "q4-3",
+          "title": "Expand to Second Pod",
+          "type": "agent-deploy",
+          "tier": "side",
+          "xp": 50,
+          "frictionDamage": 30,
+          "status": "locked",
+          "description": "Roll the proven agent stack (Status Sync, Plan Coherence, Clarity Auditor) to a second pod. Likely Battle or Empire.",
+          "deliverable": "Second pod onboarded",
+          "prerequisites": ["q3-3"],
+          "frictionUnlock": "Proves the pattern scales. Halves the per-agent cost going forward."
+        }
+      ]
+    },
+    {
+      "id": "chapter-5",
+      "title": "Chapter V — Reshape the Rituals",
+      "subtitle": "Workflow Redesign",
+      "description": "With agents trusted and surfaces live, we audit the meeting schedule and the production rhythm. Cut what's redundant. Reshape what stays.",
+      "status": "locked",
+      "lockedReason": "Requires meaningful Phase 1 + Phase 2 progress",
+      "quests": [
+        {
+          "id": "q5-1",
+          "title": "Audit the Meeting Schedule",
+          "type": "process",
+          "tier": "main",
+          "xp": 30,
+          "frictionDamage": 25,
+          "status": "locked",
+          "description": "Map every recurring meeting against the goal it serves and the surface that now handles it automatically. Identify cuts, merges, and reshapes.",
+          "deliverable": "planning/meeting_audit.md",
+          "prerequisites": [],
+          "frictionUnlock": "Most meetings exist because information didn't aggregate. Now it does. Reclaim the calendar."
+        },
+        {
+          "id": "q5-2",
+          "title": "Cut Scrum-of-Scrums to 1x/week",
+          "type": "process",
+          "tier": "main",
+          "xp": 25,
+          "frictionDamage": 20,
+          "status": "locked",
+          "description": "When dependency map is live and trusted, cut SoS frequency. Re-evaluate if 0x/week is possible after a sprint.",
+          "deliverable": "Calendar change + team comms",
+          "prerequisites": ["q5-1"],
+          "frictionUnlock": "First meeting cut. Test case for whether the team trusts the surfaces enough to drop the ritual."
+        },
+        {
+          "id": "q5-3",
+          "title": "Redesign Spec → Shipped Feature Flow",
+          "type": "workflow-redesign",
+          "tier": "main",
+          "xp": 100,
+          "frictionDamage": 80,
+          "status": "locked",
+          "description": "End-to-end redesign of the spec → ticket → IC → ship pipeline around the new agent stack. Document the new flow, train the team, measure the delta.",
+          "deliverable": "planning/redesigned_feature_flow.md + team adoption",
+          "prerequisites": ["q4-2"],
+          "frictionUnlock": "This is where the team stops going faster and the *shape* of work changes. The biggest payoff in the campaign."
+        }
+      ]
+    },
+    {
+      "id": "chapter-6",
+      "title": "Chapter VI — IC Augmentation",
+      "subtitle": "Per-Discipline Leverage (Parallel Track)",
+      "description": "While the org-coordination layer matures, each discipline gets its own AI leverage audit and toolkit. Engineers are partway. The rest is uneven.",
+      "status": "available",
+      "quests": [
+        {
+          "id": "q6-1",
+          "title": "Engineering Augmentation Audit",
+          "type": "audit",
+          "tier": "main",
+          "xp": 35,
+          "frictionDamage": 30,
+          "status": "available",
+          "description": "Where is engineering time going, and where can Claude Code / Cursor / parallel agents remove a chunk? Aim: framework for engineers running 10+ parallel terminals on isolated tasks.",
+          "deliverable": "library/audits/engineering_augmentation.md",
+          "prerequisites": [],
+          "frictionUnlock": "The dream state: engineers running parallel agentic work as standard practice. This audit finds the path."
+        },
+        {
+          "id": "q6-2",
+          "title": "Design Augmentation Audit",
+          "type": "audit",
+          "tier": "side",
+          "xp": 25,
+          "frictionDamage": 15,
+          "status": "available",
+          "description": "Spec authoring, balance/data analysis, design doc generation. What can designers offload?",
+          "deliverable": "library/audits/design_augmentation.md",
+          "prerequisites": [],
+          "frictionUnlock": "Designers move faster on iteration; specs reach producers cleaner."
+        },
+        {
+          "id": "q6-3",
+          "title": "QA Augmentation Audit",
+          "type": "audit",
+          "tier": "side",
+          "xp": 25,
+          "frictionDamage": 15,
+          "status": "available",
+          "description": "Test plan generation, bug triage, regression prep. What can QA offload to AI?",
+          "deliverable": "library/audits/qa_augmentation.md",
+          "prerequisites": [],
+          "frictionUnlock": "QA stops being a bottleneck on tight sprints; coverage actually improves."
+        },
+        {
+          "id": "q6-4",
+          "title": "Art Augmentation Audit",
+          "type": "audit",
+          "tier": "side",
+          "xp": 25,
+          "frictionDamage": 15,
+          "status": "available",
+          "description": "Generative ideation, asset variations, reference gathering — within Fortis policy and craft standards.",
+          "deliverable": "library/audits/art_augmentation.md",
+          "prerequisites": [],
+          "frictionUnlock": "Artists spend more time on craft, less on production drudgery — within the guardrails."
+        }
+      ]
+    },
+    {
+      "id": "chapter-final",
+      "title": "Final Chapter — The Defeated Boss",
+      "subtitle": "What Victory Looks Like",
+      "description": "When the campaign is won.",
+      "status": "locked",
+      "lockedReason": "The end of the road. Defeated when boss HP hits 0.",
+      "quests": [
+        {
+          "id": "qf-1",
+          "title": "Producer Time Reclaimed: 80% Strategic",
+          "type": "outcome",
+          "tier": "main",
+          "xp": 0,
+          "frictionDamage": 0,
+          "status": "locked",
+          "description": "Calendar audit confirms producers spend 80%+ of their time on strategy and alignment, <20% on plan maintenance.",
+          "deliverable": "Measured outcome",
+          "prerequisites": [],
+          "frictionUnlock": "The vision is real."
+        },
+        {
+          "id": "qf-2",
+          "title": "Engineers Running 10+ Parallel Terminals",
+          "type": "outcome",
+          "tier": "main",
+          "xp": 0,
+          "frictionDamage": 0,
+          "status": "locked",
+          "description": "Standard practice, not heroic effort. Framework, skills, and approval gates make this the path of least resistance.",
+          "deliverable": "Measured outcome",
+          "prerequisites": [],
+          "frictionUnlock": "The dream state."
+        },
+        {
+          "id": "qf-3",
+          "title": "Meeting Load Cut By Half",
+          "type": "outcome",
+          "tier": "main",
+          "xp": 0,
+          "frictionDamage": 0,
+          "status": "locked",
+          "description": "Total recurring meeting hours per producer cut at least 50% from baseline. Reclaimed time goes to thinking, deciding, aligning.",
+          "deliverable": "Measured outcome",
+          "prerequisites": [],
+          "frictionUnlock": "Boss defeated."
+        }
+      ]
+    }
+  ],
+  "legend": {
+    "questTypes": {
+      "process": "Workflow / approval / ritual work",
+      "infrastructure": "Build the rails the agents run on",
+      "skill-build": "Author or harden a slash-command skill",
+      "agent-deploy": "Wrap an agent-ready skill as an autonomous agent",
+      "audit": "Investigate, propose, recommend",
+      "social": "Recruit, align, persuade",
+      "workflow-redesign": "Reshape how work flows",
+      "outcome": "The measurable end state"
+    },
+    "statuses": {
+      "available": "Open. No blockers. Pick it up.",
+      "active": "In progress.",
+      "complete": "Done. XP claimed. Friction damaged.",
+      "locked": "Prerequisites not met. Cannot start yet."
+    },
+    "tiers": {
+      "main": "Critical path. Boss-damaging.",
+      "side": "Valuable but not blocking. Pick up between main quests."
+    }
+  }
+}

@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agentic Engineering with Lotus — A Producer's Quest Log</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0c0e18;
+    --ink-deep: #060810;
+    --ink-warm: #161827;
+    --parchment: #e8dcc4;
+    --parchment-dim: #b8ad95;
+    --parchment-deep: #8a7e65;
+    --gold: #d4a847;
+    --gold-bright: #f0c360;
+    --gold-deep: #8a6a1f;
+    --cyan: #4dd4e8;
+    --cyan-deep: #1d8a98;
+    --blood: #c0392b;
+    --blood-bright: #e74c3c;
+    --blood-deep: #7a1f15;
+    --shadow-deep: rgba(0,0,0,0.6);
+    --frame-line: rgba(212, 168, 71, 0.25);
+    --frame-line-bright: rgba(212, 168, 71, 0.55);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--ink-deep);
+    color: var(--parchment);
+    font-family: 'Spectral', Georgia, serif;
+    font-weight: 400;
+    line-height: 1.55;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body {
+    background:
+      radial-gradient(ellipse at 20% 10%, rgba(212,168,71,0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 90%, rgba(77,212,232,0.04) 0%, transparent 55%),
+      radial-gradient(ellipse at 50% 50%, var(--ink-warm) 0%, var(--ink-deep) 100%);
+    background-attachment: fixed;
+    position: relative;
+  }
+
+  /* paper grain overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.4;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.95 0 0 0 0 0.85 0 0 0 0 0.65 0 0 0 0.18 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+    z-index: 1;
+  }
+
+  .vignette {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.5) 100%);
+    z-index: 2;
+  }
+
+  main {
+    position: relative;
+    z-index: 3;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 48px 32px 96px;
+  }
+
+  /* ━━━━━━━━━━━━━ HEADER ━━━━━━━━━━━━━ */
+  header {
+    text-align: center;
+    margin-bottom: 56px;
+    position: relative;
+  }
+
+  .crest {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .crest-line {
+    height: 1px;
+    width: 80px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+  }
+
+  .crest-emblem {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--gold);
+    transform: rotate(45deg);
+    position: relative;
+    display: inline-block;
+  }
+  .crest-emblem::after {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border: 1px solid var(--gold);
+    background: radial-gradient(circle, var(--gold-bright) 0%, transparent 70%);
+    opacity: 0.6;
+  }
+
+  .campaign-meta {
+    font-family: 'Cinzel', serif;
+    font-weight: 500;
+    font-size: 0.72rem;
+    letter-spacing: 0.45em;
+    color: var(--parchment-deep);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  h1.campaign-title {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+    color: var(--gold-bright);
+    letter-spacing: 0.04em;
+    line-height: 1.1;
+    text-shadow: 0 2px 30px rgba(212, 168, 71, 0.3), 0 1px 0 rgba(0,0,0,0.8);
+    margin-bottom: 8px;
+  }
+
+  .campaign-subtitle {
+    font-family: 'Spectral', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: var(--parchment-dim);
+    margin-bottom: 24px;
+  }
+
+  .tagline {
+    max-width: 640px;
+    margin: 0 auto;
+    font-family: 'Spectral', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--parchment);
+    border-top: 1px solid var(--frame-line);
+    border-bottom: 1px solid var(--frame-line);
+    padding: 14px 0;
+    line-height: 1.5;
+  }
+
+  /* ━━━━━━━━━━━━━ BOSS PANEL ━━━━━━━━━━━━━ */
+  .boss-panel {
+    margin: 56px 0;
+    border: 1px solid var(--blood-deep);
+    background:
+      linear-gradient(135deg, rgba(192, 57, 43, 0.08) 0%, transparent 60%),
+      linear-gradient(to bottom, var(--ink) 0%, var(--ink-warm) 100%);
+    padding: 32px 40px;
+    position: relative;
+    box-shadow:
+      0 0 0 1px rgba(192,57,43,0.1),
+      0 30px 60px -20px rgba(0,0,0,0.7),
+      inset 0 1px 0 rgba(255,255,255,0.03);
+  }
+
+  .boss-panel::before, .boss-panel::after {
+    content: '';
+    position: absolute;
+    width: 24px; height: 24px;
+    border: 2px solid var(--blood);
+    pointer-events: none;
+  }
+  .boss-panel::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+  .boss-panel::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+  .boss-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.5em;
+    color: var(--blood-bright);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .boss-name {
+    font-family: 'Cinzel', serif;
+    font-weight: 800;
+    font-size: clamp(2.4rem, 5vw, 3.4rem);
+    color: var(--blood-bright);
+    letter-spacing: 0.08em;
+    line-height: 1;
+    text-shadow: 0 0 20px rgba(192,57,43,0.4), 0 2px 0 rgba(0,0,0,0.8);
+    margin-bottom: 6px;
+  }
+
+  .boss-title {
+    font-family: 'Spectral', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--parchment-dim);
+    margin-bottom: 18px;
+  }
+
+  .boss-description {
+    font-family: 'Spectral', serif;
+    font-size: 1rem;
+    color: var(--parchment);
+    margin-bottom: 28px;
+    max-width: 720px;
+    line-height: 1.6;
+  }
+
+  .hp-bar-wrapper {
+    margin-bottom: 16px;
+  }
+  .hp-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+  }
+  .hp-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    color: var(--parchment-deep);
+    text-transform: uppercase;
+  }
+  .hp-numbers {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    color: var(--blood-bright);
+    font-weight: 600;
+  }
+  .hp-bar {
+    position: relative;
+    height: 22px;
+    background: var(--ink-deep);
+    border: 1px solid var(--blood-deep);
+    overflow: hidden;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.6);
+  }
+  .hp-fill {
+    height: 100%;
+    background:
+      linear-gradient(180deg, var(--blood-bright) 0%, var(--blood) 50%, var(--blood-deep) 100%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), inset 0 -2px 6px rgba(0,0,0,0.4);
+    transition: width 1.2s cubic-bezier(0.2, 0.7, 0.2, 1);
+    position: relative;
+  }
+  .hp-fill::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent 0px, transparent 6px,
+      rgba(0,0,0,0.08) 6px, rgba(0,0,0,0.08) 12px
+    );
+  }
+
+  .phase-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    margin-top: 24px;
+  }
+  .phase {
+    border: 1px solid var(--frame-line);
+    padding: 10px 12px;
+    background: rgba(0,0,0,0.3);
+    transition: all 0.3s;
+  }
+  .phase.passed {
+    border-color: var(--gold);
+    background: rgba(212, 168, 71, 0.06);
+  }
+  .phase.current {
+    border-color: var(--blood-bright);
+    background: rgba(192, 57, 43, 0.12);
+    box-shadow: 0 0 16px rgba(192,57,43,0.3), inset 0 0 16px rgba(192,57,43,0.1);
+  }
+  .phase-name {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    color: var(--parchment-deep);
+    margin-bottom: 4px;
+  }
+  .phase.passed .phase-name { color: var(--gold-bright); }
+  .phase.current .phase-name { color: var(--blood-bright); }
+  .phase-desc {
+    font-size: 0.78rem;
+    line-height: 1.4;
+    color: var(--parchment-dim);
+  }
+  .phase.current .phase-desc { color: var(--parchment); }
+
+  /* ━━━━━━━━━━━━━ STATUS GRID ━━━━━━━━━━━━━ */
+  .status-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 56px 0;
+  }
+
+  .panel {
+    border: 1px solid var(--frame-line);
+    background: linear-gradient(to bottom, var(--ink) 0%, var(--ink-warm) 100%);
+    padding: 28px 32px;
+    position: relative;
+    box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.02);
+  }
+  .panel::before, .panel::after {
+    content: '';
+    position: absolute;
+    width: 16px; height: 16px;
+    border: 1px solid var(--gold);
+    pointer-events: none;
+  }
+  .panel::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+  .panel::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+  .panel-header {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.45em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--frame-line);
+  }
+
+  .captain-name {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: var(--parchment);
+    margin-bottom: 4px;
+  }
+  .captain-title {
+    font-family: 'Spectral', serif;
+    font-style: italic;
+    color: var(--parchment-dim);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+  .level-row {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+  .level-num {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 2.4rem;
+    color: var(--gold-bright);
+    line-height: 1;
+  }
+  .level-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    color: var(--parchment-deep);
+    text-transform: uppercase;
+  }
+  .xp-bar-wrapper {
+    margin-top: 12px;
+  }
+  .xp-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--gold);
+  }
+  .xp-bar {
+    height: 8px;
+    background: var(--ink-deep);
+    border: 1px solid var(--frame-line);
+    overflow: hidden;
+  }
+  .xp-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold-deep), var(--gold-bright));
+    box-shadow: 0 0 8px rgba(212,168,71,0.4);
+    transition: width 1s ease;
+  }
+
+  /* party */
+  .party-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .party-member {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 10px;
+    border-left: 2px solid var(--frame-line);
+    background: rgba(0,0,0,0.2);
+  }
+  .party-member.active { border-left-color: var(--cyan); }
+  .party-member.vacant { border-left-color: var(--blood-deep); opacity: 0.7; }
+  .party-member.locked { border-left-color: var(--parchment-deep); opacity: 0.45; }
+
+  .party-icon {
+    width: 28px; height: 28px;
+    border: 1px solid var(--frame-line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: 0.7rem;
+    color: var(--parchment-deep);
+    flex-shrink: 0;
+  }
+  .party-member.active .party-icon { color: var(--cyan); border-color: var(--cyan-deep); }
+  .party-member.vacant .party-icon { color: var(--blood-bright); border-color: var(--blood-deep); }
+  .party-member.active.human .party-icon { background: rgba(77, 212, 232, 0.08); }
+  .party-member.active.system .party-icon { background: rgba(212, 168, 71, 0.06); border-color: var(--gold-deep); color: var(--gold); }
+
+  .party-info {
+    flex: 1;
+    min-width: 0;
+  }
+  .party-name {
+    font-family: 'Cinzel', serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--parchment);
+  }
+  .party-role {
+    font-size: 0.78rem;
+    color: var(--parchment-dim);
+  }
+  .party-note {
+    font-size: 0.72rem;
+    font-style: italic;
+    color: var(--parchment-deep);
+    margin-top: 2px;
+  }
+
+  /* ━━━━━━━━━━━━━ CHAPTER ━━━━━━━━━━━━━ */
+  .chapter-section {
+    margin-top: 80px;
+  }
+  .chapter-section:first-of-type { margin-top: 56px; }
+
+  .chapter-header {
+    margin-bottom: 32px;
+    position: relative;
+    padding-left: 24px;
+    border-left: 3px solid var(--gold);
+  }
+  .chapter-header.locked { border-left-color: var(--parchment-deep); opacity: 0.6; }
+  .chapter-header.active::before {
+    content: '◆';
+    position: absolute;
+    left: -10px;
+    top: 8px;
+    color: var(--cyan);
+    font-size: 1rem;
+    text-shadow: 0 0 12px var(--cyan);
+  }
+
+  .chapter-meta-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+  .chapter-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    padding: 3px 8px;
+    border: 1px solid var(--frame-line);
+    color: var(--parchment-deep);
+    text-transform: uppercase;
+  }
+  .chapter-tag.active {
+    color: var(--cyan);
+    border-color: var(--cyan-deep);
+    background: rgba(77, 212, 232, 0.06);
+  }
+  .chapter-tag.locked {
+    color: var(--parchment-deep);
+  }
+
+  h2.chapter-title {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    color: var(--parchment);
+    line-height: 1.15;
+    margin-bottom: 4px;
+  }
+  .chapter-subtitle {
+    font-family: 'Spectral', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .chapter-description {
+    color: var(--parchment-dim);
+    font-size: 0.95rem;
+    max-width: 760px;
+  }
+  .chapter-locked-reason {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--blood-bright);
+  }
+
+  /* ━━━━━━━━━━━━━ QUEST CARDS ━━━━━━━━━━━━━ */
+  .quest-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 20px;
+    margin-top: 24px;
+  }
+
+  .quest {
+    border: 1px solid var(--frame-line);
+    background: linear-gradient(135deg, var(--ink-warm) 0%, var(--ink) 100%);
+    padding: 24px 24px 20px;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 12px 24px -10px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.02);
+  }
+  .quest:hover {
+    transform: translateY(-3px);
+    border-color: var(--frame-line-bright);
+    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.04);
+  }
+
+  .quest.tier-main {
+    border-left: 3px solid var(--gold);
+  }
+  .quest.tier-side {
+    border-left: 3px solid var(--cyan-deep);
+  }
+  .quest.locked {
+    opacity: 0.5;
+    filter: grayscale(0.6);
+  }
+  .quest.locked:hover {
+    transform: none;
+  }
+
+  .quest-tag-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .quest-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    padding: 3px 7px;
+    border: 1px solid var(--frame-line);
+    color: var(--parchment-deep);
+    text-transform: uppercase;
+  }
+  .quest-tag.tier { color: var(--gold); border-color: var(--gold-deep); }
+  .quest-tag.tier.side { color: var(--cyan); border-color: var(--cyan-deep); }
+  .quest-tag.type { color: var(--parchment-dim); }
+  .quest-tag.locked-tag { color: var(--blood-bright); border-color: var(--blood-deep); }
+
+  .quest-title {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--parchment);
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+  .quest.locked .quest-title { color: var(--parchment-dim); }
+
+  .quest-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--parchment-dim);
+    margin-bottom: 16px;
+    flex: 1;
+  }
+
+  .quest-friction-unlock {
+    border-top: 1px dashed var(--frame-line);
+    padding-top: 12px;
+    margin-bottom: 16px;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--parchment);
+    font-style: italic;
+  }
+  .quest-friction-unlock::before {
+    content: '⚔ ';
+    color: var(--blood-bright);
+    font-style: normal;
+  }
+
+  .quest-deliverable {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--cyan);
+    margin-bottom: 12px;
+    word-break: break-all;
+  }
+  .quest-deliverable::before {
+    content: '↳ ';
+    color: var(--parchment-deep);
+  }
+
+  .quest-prereqs {
+    font-size: 0.72rem;
+    color: var(--parchment-deep);
+    margin-bottom: 12px;
+  }
+  .quest-prereqs strong {
+    font-family: 'Cinzel', serif;
+    color: var(--blood-bright);
+    letter-spacing: 0.15em;
+    font-weight: 500;
+    font-size: 0.7rem;
+  }
+
+  .quest-rewards {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--frame-line);
+    padding-top: 12px;
+    margin-top: auto;
+  }
+  .reward-block {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .reward-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    color: var(--parchment-deep);
+    text-transform: uppercase;
+  }
+  .reward-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  .reward-value.xp { color: var(--gold-bright); }
+  .reward-value.dmg { color: var(--blood-bright); }
+
+  /* ━━━━━━━━━━━━━ FOOTER ━━━━━━━━━━━━━ */
+  footer {
+    margin-top: 96px;
+    padding-top: 32px;
+    border-top: 1px solid var(--frame-line);
+    text-align: center;
+    color: var(--parchment-deep);
+    font-size: 0.8rem;
+  }
+  footer p { margin-bottom: 4px; }
+  footer .small {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--parchment-deep);
+    letter-spacing: 0.1em;
+  }
+
+  /* legend */
+  .legend-section {
+    margin-top: 64px;
+  }
+  .legend-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .legend-item {
+    border: 1px solid var(--frame-line);
+    padding: 12px 14px;
+    background: rgba(0,0,0,0.25);
+  }
+  .legend-key {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .legend-desc {
+    font-size: 0.85rem;
+    color: var(--parchment-dim);
+  }
+
+  /* fade-in */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .quest, .panel, .chapter-section { animation: fadeUp 0.6s ease backwards; }
+
+  /* responsive */
+  @media (max-width: 820px) {
+    main { padding: 24px 16px 64px; }
+    .status-grid { grid-template-columns: 1fr; }
+    .quest-grid { grid-template-columns: 1fr; }
+    .phase-row { grid-template-columns: repeat(2, 1fr); }
+    .boss-panel { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="vignette"></div>
+<main>
+  <header>
+    <div class="crest">
+      <span class="crest-line"></span>
+      <span class="crest-emblem"></span>
+      <span class="crest-line"></span>
+    </div>
+    <div class="campaign-meta" id="campaign-meta">— Campaign —</div>
+    <h1 class="campaign-title" id="campaign-title">—</h1>
+    <p class="campaign-subtitle" id="campaign-subtitle">—</p>
+    <p class="tagline" id="campaign-tagline">—</p>
+  </header>
+
+  <!-- Boss Panel -->
+  <section class="boss-panel" id="boss-panel" aria-labelledby="boss-name">
+    <div class="boss-label">⚔  The Antagonist  ⚔</div>
+    <h2 class="boss-name" id="boss-name">—</h2>
+    <p class="boss-title" id="boss-title">—</p>
+    <p class="boss-description" id="boss-description">—</p>
+    <div class="hp-bar-wrapper">
+      <div class="hp-meta">
+        <span class="hp-label">Hit Points Remaining</span>
+        <span class="hp-numbers" id="hp-numbers">—</span>
+      </div>
+      <div class="hp-bar">
+        <div class="hp-fill" id="hp-fill" style="width: 0%"></div>
+      </div>
+    </div>
+    <div class="phase-row" id="phase-row"></div>
+  </section>
+
+  <!-- Captain + Party -->
+  <section class="status-grid">
+    <div class="panel">
+      <div class="panel-header">— Captain Roster —</div>
+      <div class="captain-name" id="captain-name">—</div>
+      <div class="captain-title" id="captain-title">—</div>
+      <div class="level-row">
+        <span class="level-num" id="captain-level">—</span>
+        <span class="level-label">Level</span>
+      </div>
+      <div class="xp-bar-wrapper">
+        <div class="xp-meta">
+          <span id="xp-current">— XP</span>
+          <span id="xp-target">/ —</span>
+        </div>
+        <div class="xp-bar">
+          <div class="xp-fill" id="xp-fill" style="width: 0%"></div>
+        </div>
+      </div>
+      <div style="margin-top: 16px; font-size: 0.85rem; color: var(--parchment-dim); font-style: italic; line-height: 1.5;">
+        XP earned by completing quests. Each level unlocks new chapters when prerequisites converge. Total XP earned this campaign: <span id="total-xp" style="color: var(--gold); font-style: normal; font-weight: 600;">—</span>.
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-header">— Party Roster —</div>
+      <div class="party-list" id="party-list"></div>
+    </div>
+  </section>
+
+  <!-- Chapters -->
+  <div id="chapters"></div>
+
+  <!-- Legend -->
+  <section class="legend-section">
+    <div class="panel">
+      <div class="panel-header">— Field Manual —</div>
+      <div style="margin-bottom: 16px; font-size: 0.85rem; color: var(--parchment-dim); font-style: italic;">
+        For producers and leadership reading this for the first time.
+      </div>
+      <div style="margin-bottom: 8px; color: var(--gold); font-family: 'Cinzel', serif; font-size: 0.78rem; letter-spacing: 0.3em; text-transform: uppercase;">Quest Types</div>
+      <div class="legend-grid" id="legend-types"></div>
+      <div style="margin-top: 28px; margin-bottom: 8px; color: var(--gold); font-family: 'Cinzel', serif; font-size: 0.78rem; letter-spacing: 0.3em; text-transform: uppercase;">Quest Statuses</div>
+      <div class="legend-grid" id="legend-statuses"></div>
+      <div style="margin-top: 28px; margin-bottom: 8px; color: var(--gold); font-family: 'Cinzel', serif; font-size: 0.78rem; letter-spacing: 0.3em; text-transform: uppercase;">Quest Tiers</div>
+      <div class="legend-grid" id="legend-tiers"></div>
+    </div>
+  </section>
+
+  <footer>
+    <p style="font-family: 'Cinzel', serif; letter-spacing: 0.3em; color: var(--gold); margin-bottom: 8px;">— END OF QUEST LOG —</p>
+    <p>Source of truth: <code style="color: var(--cyan);">generated/agentic_quest_log/quests.json</code></p>
+    <p>Edit the JSON to update quest state. Re-open this file to see changes. No build step.</p>
+    <p class="small" id="footer-meta" style="margin-top: 12px;"></p>
+  </footer>
+</main>
+
+<script>
+// ━━━━━━━━━━━━━ DATA ━━━━━━━━━━━━━
+// Embedded for offline / single-file use. The companion quests.json is the
+// canonical source — update both, or load from JSON via fetch when served.
+const QUEST_DATA = {
+  "campaign": {
+    "title": "Agentic Engineering with Lotus",
+    "subtitle": "A Producer's Quest Log",
+    "version": "v0.1",
+    "lastUpdated": "2026-05-04",
+    "currentChapter": "Chapter I \u2014 Foundations",
+    "tagline": "Every quest weakens the Friction. Every defeated quest is parallel work unlocked."
+  },
+  "boss": {
+    "name": "FRICTION",
+    "title": "The Devourer of Producer Hours",
+    "description": "The ancient force that turns strategy into status-chasing, that makes plans go stale, that buries ICs in 'what am I doing today.' Slain not by force, but by skills, agents, and clarity.",
+    "maxHp": 1000,
+    "currentHp": 870,
+    "phases": [
+      {
+        "threshold": 1000,
+        "name": "UNTOUCHED",
+        "description": "Producers compile plans by hand. ICs hunt for context. Risks surface at retro."
+      },
+      {
+        "threshold": 800,
+        "name": "WOUNDED",
+        "description": "Skills exist and get used. Brain is the source of truth. Plans drift less."
+      },
+      {
+        "threshold": 600,
+        "name": "BLEEDING",
+        "description": "First agents run autonomously. Status syncs without human intervention."
+      },
+      {
+        "threshold": 400,
+        "name": "STAGGERED",
+        "description": "Spec \u2192 ticket pipeline is automatic. Sprint plans pre-drafted."
+      },
+      {
+        "threshold": 200,
+        "name": "CORNERED",
+        "description": "ICs get personal daily briefs. Cross-pod coordination is continuous."
+      },
+      {
+        "threshold": 0,
+        "name": "DEFEATED",
+        "description": "Producers think. Agents synchronize. Engineers run 10+ parallel terminals as standard practice."
+      }
+    ]
+  },
+  "captain": {
+    "name": "Tim Williams",
+    "title": "Senior Producer / Quest Champion",
+    "level": 3,
+    "xp": 130,
+    "xpToNext": 250,
+    "totalXpEarned": 130
+  },
+  "party": [
+    {
+      "name": "Tim Williams",
+      "role": "Quest Champion",
+      "status": "active",
+      "type": "human",
+      "note": "Carrying the torch. Needs allies."
+    },
+    {
+      "name": "The Brain (Lotus Doc Brain)",
+      "role": "Shared Substrate",
+      "status": "active",
+      "type": "system",
+      "note": "Charter v1 stable. Source of truth for planning."
+    },
+    {
+      "name": "Existing Skill Library",
+      "role": "Manual Toolkit",
+      "status": "active",
+      "type": "system",
+      "note": "17+ skills in .claude/commands/. Producer-invoked today."
+    },
+    {
+      "name": "Ally Producer",
+      "role": "Co-Champion",
+      "status": "vacant",
+      "type": "human",
+      "note": "Recruit one producer who buys the vision. Critical for survival."
+    },
+    {
+      "name": "Status Sync Agent",
+      "role": "Continuous Reader",
+      "status": "locked",
+      "type": "agent",
+      "note": "Unlocks after Phase 0 maturity gate is built."
+    },
+    {
+      "name": "Plan Coherence Agent",
+      "role": "Risk Surface",
+      "status": "locked",
+      "type": "agent",
+      "note": "Unlocks after risk-evaluation skill matures."
+    },
+    {
+      "name": "Spec Curator Agent",
+      "role": "Notion Watcher",
+      "status": "locked",
+      "type": "agent",
+      "note": "Unlocks after spec-sync skill matures."
+    },
+    {
+      "name": "Sprint Pipeline Agent",
+      "role": "Ticket Scaffolder",
+      "status": "locked",
+      "type": "agent",
+      "note": "The dangerous one. Last to deploy. Writes to ClickUp."
+    },
+    {
+      "name": "Clarity Auditor Agent",
+      "role": "Ticket Watchdog",
+      "status": "locked",
+      "type": "agent",
+      "note": "Surface-only. Pings owners on gaps."
+    },
+    {
+      "name": "Risk/Drift Agent",
+      "role": "Continuous Sentinel",
+      "status": "locked",
+      "type": "agent",
+      "note": "Watches everything. Surfaces nothing without reason."
+    }
+  ],
+  "chapters": [
+    {
+      "id": "chapter-1",
+      "title": "Chapter I \u2014 Foundations",
+      "subtitle": "Sharpen the Blade",
+      "description": "Before we hunt the boss, we forge our weapons. Skills mature, processes harden, infrastructure constraints get answered.",
+      "status": "active",
+      "quests": [
+        {
+          "id": "q1-1",
+          "title": "Forge the Maturity Gate",
+          "type": "process",
+          "tier": "main",
+          "xp": 30,
+          "frictionDamage": 20,
+          "status": "available",
+          "description": "Author the Skill Maturity Framework as a real document in the brain. Seven criteria, explicit bar, examples of pass and fail.",
+          "deliverable": "planning/skill_maturity_framework.md",
+          "prerequisites": [],
+          "frictionUnlock": "Without this, every promotion to autonomous is a vibe call. Producers can't review skills consistently. Engineers can't trust agent output."
+        },
+        {
+          "id": "q1-2",
+          "title": "Audit the Skill Armory",
+          "type": "process",
+          "tier": "main",
+          "xp": 25,
+          "frictionDamage": 15,
+          "status": "available",
+          "description": "Run every existing skill through the Maturity Framework. Tag each: agent-ready, needs-work, manual-forever. Output: a ranked list.",
+          "deliverable": "generated/reports/skill_audit.md",
+          "prerequisites": [
+            "q1-1"
+          ],
+          "frictionUnlock": "We stop guessing which skills are ready. The next agent we wrap is the obvious one."
+        },
+        {
+          "id": "q1-3",
+          "title": "Solve the Always-On Riddle",
+          "type": "infrastructure",
+          "tier": "main",
+          "xp": 50,
+          "frictionDamage": 60,
+          "status": "available",
+          "description": "Within the Fortis ecosystem, identify how scheduled/autonomous agents will actually run. Survey available tooling: existing CI runners, scheduled jobs, cloud functions, internal automation platforms. Produce a concrete proposal with one primary path and one fallback.",
+          "deliverable": "planning/agent_infrastructure_proposal.md",
+          "prerequisites": [],
+          "frictionUnlock": "This is the real boss-hp drain. Without an answer, no agent runs autonomously. With an answer, the floor opens."
+        },
+        {
+          "id": "q1-4",
+          "title": "Enshrine the Where-Things-Live Edict",
+          "type": "process",
+          "tier": "side",
+          "xp": 15,
+          "frictionDamage": 10,
+          "status": "available",
+          "description": "Single-page, team-facing doc: which tool for which thing. Notion vs Brain vs ClickUp. Pin it in Slack. Reference it constantly until it's reflex.",
+          "deliverable": "WHERE_THINGS_LIVE.md",
+          "prerequisites": [],
+          "frictionUnlock": "The most common drift on these efforts is people putting the right thing in the wrong tool. This is cheap, high-leverage."
+        },
+        {
+          "id": "q1-5",
+          "title": "Build the Skill Review Ritual",
+          "type": "process",
+          "tier": "main",
+          "xp": 35,
+          "frictionDamage": 25,
+          "status": "available",
+          "description": "Define the lightweight review pipeline: skill proposed \u2192 drafted \u2192 tested by 2+ producers \u2192 reviewed against Maturity Framework \u2192 approved or sent back. Same pipeline for planning doc changes.",
+          "deliverable": "planning/skill_review_process.md",
+          "prerequisites": [
+            "q1-1"
+          ],
+          "frictionUnlock": "Without a review ritual, skill quality drifts. With it, agent-ready becomes a real checkpoint we can trust."
+        },
+        {
+          "id": "q1-6",
+          "title": "Recruit the First Ally",
+          "type": "social",
+          "tier": "main",
+          "xp": 40,
+          "frictionDamage": 30,
+          "status": "available",
+          "description": "Find one other producer who genuinely buys the vision. Not as a courtesy \u2014 as a co-champion. Walk them through the roadmap, get their pushback, fold it in.",
+          "deliverable": "An ally who can speak to this in rooms you're not in",
+          "prerequisites": [],
+          "frictionUnlock": "A solo champion is fragile. An ally turns this from one person's project into a small movement."
+        }
+      ]
+    },
+    {
+      "id": "chapter-2",
+      "title": "Chapter II \u2014 The Skill Forge",
+      "subtitle": "Build What's Missing",
+      "description": "We have skills. We're missing skills. The audit told us what to build. We build them.",
+      "status": "available",
+      "quests": [
+        {
+          "id": "q2-1",
+          "title": "Skill: /clarity-audit",
+          "type": "skill-build",
+          "tier": "main",
+          "xp": 35,
+          "frictionDamage": 30,
+          "status": "available",
+          "description": "Reads active sprint tickets in ClickUp. Checks each for: description, feature link, prioritization, clear 'why'. Outputs a per-owner report grouped by gap type.",
+          "deliverable": ".claude/commands/clarity-audit.md",
+          "prerequisites": [
+            "q1-2"
+          ],
+          "frictionUnlock": "First skill that directly serves IC clarity. Producer-invokable today, agent-wrappable when mature. The seed of the future Clarity Auditor agent."
+        },
+        {
+          "id": "q2-2",
+          "title": "Skill: /dependency-map-sync",
+          "type": "skill-build",
+          "tier": "main",
+          "xp": 40,
+          "frictionDamage": 35,
+          "status": "available",
+          "description": "Reads cross-pod dependencies from feature specs and pod plans. Maintains dependency_map.md as a live surface. Flags dependencies at risk based on owner status + ClickUp progress.",
+          "deliverable": ".claude/commands/dependency-map-sync.md",
+          "prerequisites": [
+            "q1-2"
+          ],
+          "frictionUnlock": "Replaces half the value of scrum-of-scrums. When this is live and trusted, we can cut a meeting."
+        },
+        {
+          "id": "q2-3",
+          "title": "Skill: /risk-surface",
+          "type": "skill-build",
+          "tier": "main",
+          "xp": 35,
+          "frictionDamage": 25,
+          "status": "available",
+          "description": "Continuous-mode version of /risk-evaluation. Lightweight, fast, designed to run on every plan change. Outputs deltas: new risks, resolved risks, escalating risks.",
+          "deliverable": ".claude/commands/risk-surface.md",
+          "prerequisites": [
+            "q1-2"
+          ],
+          "frictionUnlock": "Risks today surface at retro. With this, they surface within 48 hours of emergence."
+        },
+        {
+          "id": "q2-4",
+          "title": "Skill: /spec-to-tickets",
+          "type": "skill-build",
+          "tier": "main",
+          "xp": 50,
+          "frictionDamage": 50,
+          "status": "available",
+          "description": "Takes an approved feature spec and drafts the ClickUp ticket breakdown. Includes context, validation goal links, dependency callouts. Output is reviewable markdown; ticket creation is a separate gated step.",
+          "deliverable": ".claude/commands/spec-to-tickets.md",
+          "prerequisites": [
+            "q1-2"
+          ],
+          "frictionUnlock": "The biggest manual handoff in current production becomes a 10-minute review. Engineers see context they couldn't see before."
+        },
+        {
+          "id": "q2-5",
+          "title": "Skill: /ic-daily-brief",
+          "type": "skill-build",
+          "tier": "side",
+          "xp": 30,
+          "frictionDamage": 20,
+          "status": "available",
+          "description": "Producer-invokable per-IC brief generator. Reads ClickUp + brain. Outputs: today's task, the feature it serves, validation goal, who else is on related work, blockers. Markdown today, future-Slack-DM later.",
+          "deliverable": ".claude/commands/ic-daily-brief.md",
+          "prerequisites": [
+            "q1-2"
+          ],
+          "frictionUnlock": "Test the daily-brief format manually before agent-wrapping it. If ICs find it useful when sent by hand, it's ready for automation."
+        },
+        {
+          "id": "q2-6",
+          "title": "Skill: /standup-prebrief",
+          "type": "skill-build",
+          "tier": "side",
+          "xp": 25,
+          "frictionDamage": 15,
+          "status": "available",
+          "description": "Generates the pod's standup pre-brief: yesterday's progress (ClickUp deltas), today's focus, blockers, upcoming dependencies. Producer posts manually until agent-ready.",
+          "deliverable": ".claude/commands/standup-prebrief.md",
+          "prerequisites": [
+            "q2-2"
+          ],
+          "frictionUnlock": "Standups become decision meetings, not status meetings. Cuts standup time, increases standup value."
+        },
+        {
+          "id": "q2-7",
+          "title": "Skill: /milestone-checkpoint",
+          "type": "skill-build",
+          "tier": "side",
+          "xp": 30,
+          "frictionDamage": 15,
+          "status": "available",
+          "description": "Monthly milestone health summary. Reads product_targets, validation roadmap, feature roadmap, capacity. Output: are we on track for the milestone, what's at risk, what trade-offs are emerging.",
+          "deliverable": ".claude/commands/milestone-checkpoint.md",
+          "prerequisites": [],
+          "frictionUnlock": "Currently this is hours of manual compilation per month. Becomes a 30-min review of pre-compiled data."
+        }
+      ]
+    },
+    {
+      "id": "chapter-3",
+      "title": "Chapter III \u2014 First Blood",
+      "subtitle": "The Metagame Pilot",
+      "description": "One pod. One agent. Read-only first. Earn trust before any agent writes.",
+      "status": "locked",
+      "lockedReason": "Requires Always-On Riddle solved (q1-3) and at least 2 skills Phase-0 ready",
+      "quests": [
+        {
+          "id": "q3-1",
+          "title": "Deploy Status Sync Agent (Read-Only)",
+          "type": "agent-deploy",
+          "tier": "main",
+          "xp": 75,
+          "frictionDamage": 80,
+          "status": "locked",
+          "description": "First autonomous agent. Pulls ClickUp + SHQ Tracker on schedule. Updates brain's generated/ surfaces. Read-only \u2014 no writes back to source systems. Pilot pod: Metagame.",
+          "deliverable": "Status Sync Agent running on the always-on infra",
+          "prerequisites": [
+            "q1-3",
+            "q1-5"
+          ],
+          "frictionUnlock": "First time the brain stays fresh without a human running a skill. First slice of autonomous trust."
+        },
+        {
+          "id": "q3-2",
+          "title": "Deploy Plan Coherence Agent",
+          "type": "agent-deploy",
+          "tier": "main",
+          "xp": 60,
+          "frictionDamage": 50,
+          "status": "locked",
+          "description": "Second autonomous agent. Watches plan deltas, fires risk-evaluation, surfaces options when capacity/dependencies shift. Surface-only. Metagame pod.",
+          "deliverable": "Plan Coherence Agent running",
+          "prerequisites": [
+            "q3-1",
+            "q2-3"
+          ],
+          "frictionUnlock": "Risks now surface continuously. The 'we discovered at retro' failure mode dies."
+        },
+        {
+          "id": "q3-3",
+          "title": "Deploy Clarity Auditor Agent",
+          "type": "agent-deploy",
+          "tier": "main",
+          "xp": 50,
+          "frictionDamage": 40,
+          "status": "locked",
+          "description": "Runs the clarity-audit skill on a daily cadence. Pings owners (Slack DM) on gaps. Producer reviews weekly summary.",
+          "deliverable": "Clarity Auditor Agent running",
+          "prerequisites": [
+            "q2-1",
+            "q3-1"
+          ],
+          "frictionUnlock": "ICs stop hitting Monday morning with 'why am I doing this?' tickets. Producer reclaims the chasing time."
+        },
+        {
+          "id": "q3-4",
+          "title": "Build the Observability Hall",
+          "type": "infrastructure",
+          "tier": "main",
+          "xp": 60,
+          "frictionDamage": 40,
+          "status": "locked",
+          "description": "Build the 'what did the agents do today?' dashboard. Audit log per agent, per run. Cost tracking. Failure tracking. The thing producers check when something feels off.",
+          "deliverable": "Observability dashboard for active agents",
+          "prerequisites": [
+            "q3-1"
+          ],
+          "frictionUnlock": "Without observability, every agent failure becomes 'why don't we just do this manually.' With it, failures are diagnosable, fixable, and survivable."
+        }
+      ]
+    },
+    {
+      "id": "chapter-4",
+      "title": "Chapter IV \u2014 The Writing Hand",
+      "subtitle": "Agents That Change Things",
+      "description": "Read-only is safe. Read-write is where the leverage lives. Approval gates everywhere, trust earned per workflow.",
+      "status": "locked",
+      "lockedReason": "Requires Chapter III complete and trust earned on read-only agents",
+      "quests": [
+        {
+          "id": "q4-1",
+          "title": "Deploy Spec Curator Agent",
+          "type": "agent-deploy",
+          "tier": "main",
+          "xp": 70,
+          "frictionDamage": 60,
+          "status": "locked",
+          "description": "First write-capable agent. Watches Notion, syncs spec changes to brain, flags gaps to designer queue. Writes only to brain \u2014 never to Notion or ClickUp.",
+          "deliverable": "Spec Curator Agent running",
+          "prerequisites": [
+            "q3-4"
+          ],
+          "frictionUnlock": "Specs and plans stay in sync without human ferrying. Designers get gap-pings within hours, not weeks."
+        },
+        {
+          "id": "q4-2",
+          "title": "Deploy Sprint Pipeline Agent (The Dangerous One)",
+          "type": "agent-deploy",
+          "tier": "main",
+          "xp": 100,
+          "frictionDamage": 90,
+          "status": "locked",
+          "description": "Drafts sprint plans + ClickUp tickets from approved features. Writes to ClickUp on producer approval. Maintains linkage as sprint evolves. THE highest-risk agent \u2014 every safeguard matters.",
+          "deliverable": "Sprint Pipeline Agent running with full approval gates",
+          "prerequisites": [
+            "q4-1",
+            "q2-4"
+          ],
+          "frictionUnlock": "The biggest manual workflow in production \u2014 gone. Producers approve breakdowns instead of authoring them. Engineers see fully-contextualized tickets."
+        },
+        {
+          "id": "q4-3",
+          "title": "Expand to Second Pod",
+          "type": "agent-deploy",
+          "tier": "side",
+          "xp": 50,
+          "frictionDamage": 30,
+          "status": "locked",
+          "description": "Roll the proven agent stack (Status Sync, Plan Coherence, Clarity Auditor) to a second pod. Likely Battle or Empire.",
+          "deliverable": "Second pod onboarded",
+          "prerequisites": [
+            "q3-3"
+          ],
+          "frictionUnlock": "Proves the pattern scales. Halves the per-agent cost going forward."
+        }
+      ]
+    },
+    {
+      "id": "chapter-5",
+      "title": "Chapter V \u2014 Reshape the Rituals",
+      "subtitle": "Workflow Redesign",
+      "description": "With agents trusted and surfaces live, we audit the meeting schedule and the production rhythm. Cut what's redundant. Reshape what stays.",
+      "status": "locked",
+      "lockedReason": "Requires meaningful Phase 1 + Phase 2 progress",
+      "quests": [
+        {
+          "id": "q5-1",
+          "title": "Audit the Meeting Schedule",
+          "type": "process",
+          "tier": "main",
+          "xp": 30,
+          "frictionDamage": 25,
+          "status": "locked",
+          "description": "Map every recurring meeting against the goal it serves and the surface that now handles it automatically. Identify cuts, merges, and reshapes.",
+          "deliverable": "planning/meeting_audit.md",
+          "prerequisites": [],
+          "frictionUnlock": "Most meetings exist because information didn't aggregate. Now it does. Reclaim the calendar."
+        },
+        {
+          "id": "q5-2",
+          "title": "Cut Scrum-of-Scrums to 1x/week",
+          "type": "process",
+          "tier": "main",
+          "xp": 25,
+          "frictionDamage": 20,
+          "status": "locked",
+          "description": "When dependency map is live and trusted, cut SoS frequency. Re-evaluate if 0x/week is possible after a sprint.",
+          "deliverable": "Calendar change + team comms",
+          "prerequisites": [
+            "q5-1"
+          ],
+          "frictionUnlock": "First meeting cut. Test case for whether the team trusts the surfaces enough to drop the ritual."
+        },
+        {
+          "id": "q5-3",
+          "title": "Redesign Spec \u2192 Shipped Feature Flow",
+          "type": "workflow-redesign",
+          "tier": "main",
+          "xp": 100,
+          "frictionDamage": 80,
+          "status": "locked",
+          "description": "End-to-end redesign of the spec \u2192 ticket \u2192 IC \u2192 ship pipeline around the new agent stack. Document the new flow, train the team, measure the delta.",
+          "deliverable": "planning/redesigned_feature_flow.md + team adoption",
+          "prerequisites": [
+            "q4-2"
+          ],
+          "frictionUnlock": "This is where the team stops going faster and the *shape* of work changes. The biggest payoff in the campaign."
+        }
+      ]
+    },
+    {
+      "id": "chapter-6",
+      "title": "Chapter VI \u2014 IC Augmentation",
+      "subtitle": "Per-Discipline Leverage (Parallel Track)",
+      "description": "While the org-coordination layer matures, each discipline gets its own AI leverage audit and toolkit. Engineers are partway. The rest is uneven.",
+      "status": "available",
+      "quests": [
+        {
+          "id": "q6-1",
+          "title": "Engineering Augmentation Audit",
+          "type": "audit",
+          "tier": "main",
+          "xp": 35,
+          "frictionDamage": 30,
+          "status": "available",
+          "description": "Where is engineering time going, and where can Claude Code / Cursor / parallel agents remove a chunk? Aim: framework for engineers running 10+ parallel terminals on isolated tasks.",
+          "deliverable": "library/audits/engineering_augmentation.md",
+          "prerequisites": [],
+          "frictionUnlock": "The dream state: engineers running parallel agentic work as standard practice. This audit finds the path."
+        },
+        {
+          "id": "q6-2",
+          "title": "Design Augmentation Audit",
+          "type": "audit",
+          "tier": "side",
+          "xp": 25,
+          "frictionDamage": 15,
+          "status": "available",
+          "description": "Spec authoring, balance/data analysis, design doc generation. What can designers offload?",
+          "deliverable": "library/audits/design_augmentation.md",
+          "prerequisites": [],
+          "frictionUnlock": "Designers move faster on iteration; specs reach producers cleaner."
+        },
+        {
+          "id": "q6-3",
+          "title": "QA Augmentation Audit",
+          "type": "audit",
+          "tier": "side",
+          "xp": 25,
+          "frictionDamage": 15,
+          "status": "available",
+          "description": "Test plan generation, bug triage, regression prep. What can QA offload to AI?",
+          "deliverable": "library/audits/qa_augmentation.md",
+          "prerequisites": [],
+          "frictionUnlock": "QA stops being a bottleneck on tight sprints; coverage actually improves."
+        },
+        {
+          "id": "q6-4",
+          "title": "Art Augmentation Audit",
+          "type": "audit",
+          "tier": "side",
+          "xp": 25,
+          "frictionDamage": 15,
+          "status": "available",
+          "description": "Generative ideation, asset variations, reference gathering \u2014 within Fortis policy and craft standards.",
+          "deliverable": "library/audits/art_augmentation.md",
+          "prerequisites": [],
+          "frictionUnlock": "Artists spend more time on craft, less on production drudgery \u2014 within the guardrails."
+        }
+      ]
+    },
+    {
+      "id": "chapter-final",
+      "title": "Final Chapter \u2014 The Defeated Boss",
+      "subtitle": "What Victory Looks Like",
+      "description": "When the campaign is won.",
+      "status": "locked",
+      "lockedReason": "The end of the road. Defeated when boss HP hits 0.",
+      "quests": [
+        {
+          "id": "qf-1",
+          "title": "Producer Time Reclaimed: 80% Strategic",
+          "type": "outcome",
+          "tier": "main",
+          "xp": 0,
+          "frictionDamage": 0,
+          "status": "locked",
+          "description": "Calendar audit confirms producers spend 80%+ of their time on strategy and alignment, <20% on plan maintenance.",
+          "deliverable": "Measured outcome",
+          "prerequisites": [],
+          "frictionUnlock": "The vision is real."
+        },
+        {
+          "id": "qf-2",
+          "title": "Engineers Running 10+ Parallel Terminals",
+          "type": "outcome",
+          "tier": "main",
+          "xp": 0,
+          "frictionDamage": 0,
+          "status": "locked",
+          "description": "Standard practice, not heroic effort. Framework, skills, and approval gates make this the path of least resistance.",
+          "deliverable": "Measured outcome",
+          "prerequisites": [],
+          "frictionUnlock": "The dream state."
+        },
+        {
+          "id": "qf-3",
+          "title": "Meeting Load Cut By Half",
+          "type": "outcome",
+          "tier": "main",
+          "xp": 0,
+          "frictionDamage": 0,
+          "status": "locked",
+          "description": "Total recurring meeting hours per producer cut at least 50% from baseline. Reclaimed time goes to thinking, deciding, aligning.",
+          "deliverable": "Measured outcome",
+          "prerequisites": [],
+          "frictionUnlock": "Boss defeated."
+        }
+      ]
+    }
+  ],
+  "legend": {
+    "questTypes": {
+      "process": "Workflow / approval / ritual work",
+      "infrastructure": "Build the rails the agents run on",
+      "skill-build": "Author or harden a slash-command skill",
+      "agent-deploy": "Wrap an agent-ready skill as an autonomous agent",
+      "audit": "Investigate, propose, recommend",
+      "social": "Recruit, align, persuade",
+      "workflow-redesign": "Reshape how work flows",
+      "outcome": "The measurable end state"
+    },
+    "statuses": {
+      "available": "Open. No blockers. Pick it up.",
+      "active": "In progress.",
+      "complete": "Done. XP claimed. Friction damaged.",
+      "locked": "Prerequisites not met. Cannot start yet."
+    },
+    "tiers": {
+      "main": "Critical path. Boss-damaging.",
+      "side": "Valuable but not blocking. Pick up between main quests."
+    }
+  }
+};
+
+async function loadData() {
+  if (QUEST_DATA) return QUEST_DATA;
+  try {
+    const res = await fetch('quests.json');
+    return await res.json();
+  } catch (e) {
+    console.error('Could not load quests.json — ensure it sits next to this HTML file.', e);
+    return null;
+  }
+}
+
+// ━━━━━━━━━━━━━ RENDER ━━━━━━━━━━━━━
+function renderCampaign(d) {
+  document.getElementById('campaign-meta').textContent = `— ${d.campaign.currentChapter} — ${d.campaign.version} —`;
+  document.getElementById('campaign-title').textContent = d.campaign.title;
+  document.getElementById('campaign-subtitle').textContent = d.campaign.subtitle;
+  document.getElementById('campaign-tagline').textContent = d.campaign.tagline;
+  document.getElementById('footer-meta').textContent = `${d.campaign.version}  ·  Last updated ${d.campaign.lastUpdated}`;
+}
+
+function renderBoss(d) {
+  const b = d.boss;
+  document.getElementById('boss-name').textContent = b.name;
+  document.getElementById('boss-title').textContent = b.title;
+  document.getElementById('boss-description').textContent = b.description;
+  document.getElementById('hp-numbers').textContent = `${b.currentHp} / ${b.maxHp}`;
+
+  const pct = (b.currentHp / b.maxHp) * 100;
+  setTimeout(() => {
+    document.getElementById('hp-fill').style.width = pct + '%';
+  }, 200);
+
+  // phases — render with passed/current/upcoming logic
+  const phaseRow = document.getElementById('phase-row');
+  phaseRow.innerHTML = '';
+  // sort phases descending by threshold (1000 first, 0 last)
+  const phases = [...b.phases].sort((a, c) => c.threshold - a.threshold);
+  // current phase = first phase whose threshold <= currentHp + 0
+  // i.e. the phase we are currently sitting at or below
+  let currentIdx = 0;
+  for (let i = 0; i < phases.length; i++) {
+    if (b.currentHp <= phases[i].threshold) currentIdx = i;
+  }
+  phases.forEach((p, i) => {
+    const div = document.createElement('div');
+    div.className = 'phase';
+    if (i < currentIdx) div.classList.add('passed');
+    if (i === currentIdx) div.classList.add('current');
+    div.innerHTML = `<div class="phase-name">${p.name}</div><div class="phase-desc">${p.description}</div>`;
+    phaseRow.appendChild(div);
+  });
+}
+
+function renderCaptain(d) {
+  const c = d.captain;
+  document.getElementById('captain-name').textContent = c.name;
+  document.getElementById('captain-title').textContent = c.title;
+  document.getElementById('captain-level').textContent = c.level;
+  document.getElementById('xp-current').textContent = `${c.xp} XP`;
+  document.getElementById('xp-target').textContent = `/ ${c.xpToNext}`;
+  document.getElementById('total-xp').textContent = `${c.totalXpEarned} XP`;
+  const pct = (c.xp / c.xpToNext) * 100;
+  setTimeout(() => {
+    document.getElementById('xp-fill').style.width = pct + '%';
+  }, 400);
+}
+
+function renderParty(d) {
+  const list = document.getElementById('party-list');
+  list.innerHTML = '';
+  d.party.forEach(m => {
+    const initials = m.name.split(/[\s\(]/).filter(s => s.length > 0).map(s => s[0]).slice(0, 2).join('').toUpperCase();
+    const el = document.createElement('div');
+    el.className = `party-member ${m.status} ${m.type}`;
+    el.innerHTML = `
+      <div class="party-icon">${initials}</div>
+      <div class="party-info">
+        <div class="party-name">${m.name}</div>
+        <div class="party-role">${m.role}</div>
+        <div class="party-note">${m.note}</div>
+      </div>`;
+    list.appendChild(el);
+  });
+}
+
+function renderChapters(d) {
+  const container = document.getElementById('chapters');
+  container.innerHTML = '';
+  d.chapters.forEach((ch, i) => {
+    const section = document.createElement('section');
+    section.className = 'chapter-section';
+    section.style.animationDelay = (i * 0.06) + 's';
+
+    const headerLockedClass = ch.status === 'locked' ? 'locked' : '';
+    const headerActiveClass = ch.status === 'active' ? 'active' : '';
+    const tagClass = ch.status === 'active' ? 'active' : (ch.status === 'locked' ? 'locked' : '');
+    const tagLabel = ch.status === 'active' ? 'In Progress' : (ch.status === 'locked' ? 'Locked' : 'Available');
+    const lockedReasonHtml = ch.lockedReason ? `<div class="chapter-locked-reason">⛓ ${ch.lockedReason}</div>` : '';
+
+    section.innerHTML = `
+      <div class="chapter-header ${headerLockedClass} ${headerActiveClass}">
+        <div class="chapter-meta-row">
+          <span class="chapter-tag ${tagClass}">${tagLabel}</span>
+        </div>
+        <h2 class="chapter-title">${ch.title}</h2>
+        <div class="chapter-subtitle">${ch.subtitle}</div>
+        <div class="chapter-description">${ch.description}</div>
+        ${lockedReasonHtml}
+      </div>
+      <div class="quest-grid"></div>`;
+    container.appendChild(section);
+
+    const grid = section.querySelector('.quest-grid');
+    ch.quests.forEach((q, qi) => {
+      const card = document.createElement('article');
+      card.className = `quest tier-${q.tier} ${q.status === 'locked' ? 'locked' : ''}`;
+      card.style.animationDelay = (i * 0.06 + qi * 0.04) + 's';
+
+      const tierLabel = q.tier === 'main' ? 'Main' : 'Side';
+      const tierClass = q.tier === 'main' ? '' : 'side';
+      const lockTag = q.status === 'locked' ? '<span class="quest-tag locked-tag">Locked</span>' : '';
+      const prereqText = q.prerequisites && q.prerequisites.length > 0
+        ? `<div class="quest-prereqs"><strong>Requires:</strong> ${q.prerequisites.join(', ')}</div>`
+        : '';
+
+      card.innerHTML = `
+        <div class="quest-tag-row">
+          <span class="quest-tag tier ${tierClass}">${tierLabel}</span>
+          <span class="quest-tag type">${q.type.replace(/-/g, ' ')}</span>
+          ${lockTag}
+        </div>
+        <h3 class="quest-title">${q.title}</h3>
+        <div class="quest-description">${q.description}</div>
+        <div class="quest-friction-unlock">${q.frictionUnlock}</div>
+        <div class="quest-deliverable">${q.deliverable}</div>
+        ${prereqText}
+        <div class="quest-rewards">
+          <div class="reward-block">
+            <span class="reward-label">XP</span>
+            <span class="reward-value xp">+${q.xp}</span>
+          </div>
+          <div class="reward-block" style="text-align: right;">
+            <span class="reward-label">Friction Damage</span>
+            <span class="reward-value dmg">−${q.frictionDamage}</span>
+          </div>
+        </div>`;
+      grid.appendChild(card);
+    });
+  });
+}
+
+function renderLegend(d) {
+  const types = document.getElementById('legend-types');
+  Object.entries(d.legend.questTypes).forEach(([k, v]) => {
+    const el = document.createElement('div');
+    el.className = 'legend-item';
+    el.innerHTML = `<div class="legend-key">${k.replace(/-/g, ' ')}</div><div class="legend-desc">${v}</div>`;
+    types.appendChild(el);
+  });
+  const statuses = document.getElementById('legend-statuses');
+  Object.entries(d.legend.statuses).forEach(([k, v]) => {
+    const el = document.createElement('div');
+    el.className = 'legend-item';
+    el.innerHTML = `<div class="legend-key">${k}</div><div class="legend-desc">${v}</div>`;
+    statuses.appendChild(el);
+  });
+  const tiers = document.getElementById('legend-tiers');
+  Object.entries(d.legend.tiers).forEach(([k, v]) => {
+    const el = document.createElement('div');
+    el.className = 'legend-item';
+    el.innerHTML = `<div class="legend-key">${k}</div><div class="legend-desc">${v}</div>`;
+    tiers.appendChild(el);
+  });
+}
+
+(async function init() {
+  const d = await loadData();
+  if (!d) {
+    document.querySelector('main').innerHTML = '<p style="text-align:center; padding: 80px; color: var(--blood-bright); font-family: Cinzel, serif;">⚠ Could not load quests.json. Place it next to this HTML file, or open via a local web server.</p>';
+    return;
+  }
+  renderCampaign(d);
+  renderBoss(d);
+  renderCaptain(d);
+  renderParty(d);
+  renderChapters(d);
+  renderLegend(d);
+})();
+</script>
+</body>
+</html>

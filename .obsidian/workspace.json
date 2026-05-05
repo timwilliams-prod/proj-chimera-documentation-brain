@@ -83,12 +83,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "planning/deleteMe-OldValidationRoadmap.md",
+                "file": "agentic-engineering-roadmap.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "deleteMe-OldValidationRoadmap"
+              "title": "agentic-engineering-roadmap"
             }
           }
         ],
@@ -256,6 +256,15 @@
   },
   "active": "38fc166341ab2af3",
   "lastOpenFiles": [
+    "generated/friction_boss/agentic-engineering-roadmap (1).md",
+    "generated/friction_boss/agentic-engineering-roadmap.md",
+    "generated/friction_boss/README.md",
+    "generated/friction_boss/quests.json",
+    "generated/friction_boss/index.html",
+    "generated/friction_boss/team-track-split.md",
+    "generated/friction_boss",
+    "generated/New folder",
+    "planning/deleteMe-OldValidationRoadmap.md",
     "agentic-engineering-roadmap.md.tmp.22740.1777907317022",
     "agentic-engineering-roadmap.md.tmp.22740.1777907299737",
     "agentic-engineering-roadmap.md.tmp.22740.1777907292756",
@@ -264,11 +273,6 @@
     "generated/dashboard/sprints/sprint_29.js",
     "generated/sprint_plans/sprint_29_bulbasaur.md",
     "generated/dashboard/sprint_edits_28_b.json",
-    "generated/dashboard/index.html.tmp.10948.1776804668427",
-    "generated/sprint_plans/sprint_28_abra.md.tmp.10948.1776804501040",
-    "generated/dashboard/sprints/sprint_28.js.tmp.10948.1776803490890",
-    "generated/sprint_plans/sprint_28_abra.md.tmp.10948.1776803483530",
-    "generated/dashboard/files.html.tmp.10948.1776803398896",
     "generated/sprint_plans/sprint_28_abra.md",
     "planning/contentTargets.md",
     "generated/sprint_plans/sprint_27_zany_zebras.md",
@@ -287,10 +291,6 @@
     "planning/pods/dozer/milestone_mms.md",
     "planning/pods/dozer/features.md",
     "planning/pods/social_dynamics/validation.md",
-    "planning/pods/social_dynamics/milestone_mms.md",
-    "planning/pods/social_dynamics/features.md",
-    "planning/pods/battle/validation.md",
-    "planning/pods/battle/milestone_mms.md",
-    "planning/pods/battle/features.md"
+    "planning/pods/social_dynamics/milestone_mms.md"
   ]
 }
