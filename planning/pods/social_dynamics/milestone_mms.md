@@ -45,13 +45,14 @@ Ends: Jun 23, 2026 | Sprints: ~7
 
 > **Heaviness flag (Sprint D)**: 5 items including Hero Energy/Pathing (originally a full sprint on its own) plus client-side matchmaking integration. Paul to discuss with engineering.
 
-## Risky Prototype Areas (May Impact Foundation)
+## Risky Areas
 
-> These three areas could shift foundation choices if iteration changes the data shape or designer controls. Watch closely through MM2.
+> Some of these could shift foundation choices if iteration changes the data shape or designer controls (watch closely through MM2). Others reflect polish/quality time we may not have within the milestone.
 
 - **Embark Flow** — how players select starting position + which army units they bring
 - **Map RNG** — controls over Battles, Tile Types, Unique Map Modifiers, Map Seasons (impacts data structure + designer control)
 - **Map Visuals** — multiplayer maps differ from Territory/World Maps (more tiles, different POIs, multi-player state, fortifications)
+- **UX/UI Visual Quality & Map/Gameplay Visuals** — unlikely to get a comfortable number of iteration cycles to land this in a great spot given the time and resources available. Expect rough edges through M&Ms; some polish in Beta Launch Prep (Sprint F), but full visual quality pass likely a Future / M&C item.
 
 ## Capacity & Constraints
 
