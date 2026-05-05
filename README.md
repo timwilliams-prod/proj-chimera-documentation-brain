@@ -161,6 +161,21 @@ Gathers comprehensive status for a game unit/hero across multiple sources.
 
 **Usage**: `/unit-pipeline-status {hero_name}` (e.g., `/unit-pipeline-status Merrin`)
 
+### `/create-concept-art-tickets`
+Creates parent ticket and subtasks for concept art (A1, A2, A3) in ClickUp.
+
+**Usage**: `/create-concept-art-tickets` → prompts for unit name, start date, assignee
+
+### `/create-3d-tickets`
+Creates parent ticket and subtasks for 3D modeling pipeline (Highpoly, Lowpoly, UVs, Bake, Textures) in ClickUp.
+
+**Usage**: `/create-3d-tickets` → prompts for unit name, start date, assignee
+
+### `/create-rig-tickets`
+Creates parent ticket and subtask for rig & skinning in ClickUp.
+
+**Usage**: `/create-rig-tickets` → prompts for unit name, start date, assignee
+
 ## Data Ingestion
 
 ### From Notion
