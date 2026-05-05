@@ -256,6 +256,12 @@
   },
   "active": "38fc166341ab2af3",
   "lastOpenFiles": [
+    "generated/friction_boss/trailer.html",
+    "planning/pods/unit/concept_art_estimates.md",
+    "planning/pods/unit/animation_estimates.md",
+    "planning/pods/unit/3d_modeling_estimates.md",
+    "planning/pods/unit",
+    "planning/pods/Unit_Plan.md",
     "generated/friction_boss/agentic-engineering-roadmap (1).md",
     "generated/friction_boss/agentic-engineering-roadmap.md",
     "generated/friction_boss/README.md",
@@ -272,7 +278,6 @@
     "agentic-engineering-roadmap.md.tmp.22740.1777905007816",
     "generated/dashboard/sprints/sprint_29.js",
     "generated/sprint_plans/sprint_29_bulbasaur.md",
-    "generated/dashboard/sprint_edits_28_b.json",
     "generated/sprint_plans/sprint_28_abra.md",
     "planning/contentTargets.md",
     "generated/sprint_plans/sprint_27_zany_zebras.md",
@@ -286,11 +291,6 @@
     "planning/pods/empire/features.md",
     "planning/pods/empire/validation.md",
     "reference/pod_plan_structure_options.md",
-    "planning/pods/art/milestone_mms.md",
-    "planning/pods/art/features.md",
-    "planning/pods/dozer/milestone_mms.md",
-    "planning/pods/dozer/features.md",
-    "planning/pods/social_dynamics/validation.md",
-    "planning/pods/social_dynamics/milestone_mms.md"
+    "planning/pods/art/milestone_mms.md"
   ]
 }
