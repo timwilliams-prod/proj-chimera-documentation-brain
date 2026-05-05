@@ -56,8 +56,6 @@ Ends: Jun 23, 2026 | Sprints: ~7
 ## Capacity & Constraints
 
 - 2 client engineers (Randy, Garrett) — both have Dozer split risk
-- Gabriel Arruda and Marcos Loures transitioning from Empire — clean handoff needed
-- Additional resources expected for M&C polish work
 - See `planning/capacity.md` for full staffing
 
 ## Beta Launch Prep
