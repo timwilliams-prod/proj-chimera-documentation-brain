@@ -27,33 +27,55 @@ Creates a parent ticket and 10 sequential subtasks for unit animation work, base
 4. **Load Estimates**
    - Read `planning/pods/unit/animation_estimates.md` for task durations
 
-5. **Calculate Schedule**
+5. **Confirm Required Deliverables**
+
+   Not every unit needs every animation. Before scheduling, present the full list to the user (with the default suggestion based on common unit archetypes) and ask which deliverables are required for THIS unit.
+
+   Use `AskUserQuestion` with a single multi-select question listing all 10 deliverables. Each option label includes the time estimate so the user can weigh inclusion vs. timeline impact.
+
+   **Default guidance (use this to recommend, but always defer to the user's selection):**
+   - **Always required (core combat loop):** Idle, Move, Basic Attack, Death
+   - **Almost always required:** at least one Special Ability (A1)
+   - **Common but optional:** Special Ability 2, Special Ability 3, Stun
+   - **Legendary / hero-only:** Wombo Combo (typically skipped for uncommon units, common units, or troops)
+   - **Always include if any animations are being made:** Feedback and Revisions (this is review buffer, not a discrete asset)
+
+   **Examples of valid subsets:**
+   - *Legendary hero (full kit):* all 10
+   - *Uncommon hero (3 abilities, no wombo):* skip Wombo Combo → 9 deliverables (~14 days)
+   - *Common troop (1 ability, no wombo, no death anim variant):* Idle, Move, Basic Attack, A1, Stun, Death, Feedback → 7 deliverables (~9.5 days)
+
+   Record the user's selection. From this point on, "deliverables" refers to **only the selected ones** — subsequent steps must respect the subset.
+
+6. **Calculate Schedule**
    - Calculate working days (excluding weekends)
    - Start from validated/confirmed start date (after dependency check)
-   - Sequential tasks based on estimates:
-     - Idle: 1 day
-     - Move: 1 day
-     - Basic Attack: 1 day
-     - Special Ability 1: 2 days
-     - Special Ability 2: 2 days
-     - Special Ability 3: 2 days
-     - Stun: 0.5 days
-     - Death: 1.5 days
-     - Wombo Combo: 2 days
-     - Feedback and Revisions: 3 days
-   - Parent ticket spans from first task start to last task end (16 working days total)
+   - Schedule **only the deliverables selected in step 5**, in this canonical order (skip any not selected):
+     1. Idle (1 day)
+     2. Move (1 day)
+     3. Basic Attack (1 day)
+     4. Special Ability 1 (2 days)
+     5. Special Ability 2 (2 days)
+     6. Special Ability 3 (2 days)
+     7. Stun (0.5 days)
+     8. Death (1.5 days)
+     9. Wombo Combo (2 days)
+     10. Feedback and Revisions (3 days)
+   - Parent ticket spans from first task start to last task end (sum of selected days, weekends excluded)
 
-6. **Create Parent Ticket**
+7. **Create Parent Ticket**
    - Name: `{Unit Name} - Animations`
    - List ID: `901208416337` (Product Backlog)
-   - Start/Due dates: calculated span (full 16 working days)
+   - Start/Due dates: calculated span (covers only the selected deliverables)
    - Assignee: found user ID
    - Custom field "🪷 Lotus Pod" = "Battle" (ID: `ee297ee9-3b42-4f32-b3d8-b577debf883f`, value: `a1bd403a-aafc-4224-834f-6a75a452e761`)
    - Tag: "animation"
    - Task type: "Deliverable"
    - Parent: `86ag91381` (Unit Content parent)
 
-7. **Create Subtasks** (in order)
+8. **Create Subtasks** (only the deliverables selected in step 5, in canonical order)
+
+   Possible subtasks (create only those that were selected):
    1. {Unit Name} - Idle
    2. {Unit Name} - Move
    3. {Unit Name} - Basic Attack
@@ -74,10 +96,11 @@ Creates a parent ticket and 10 sequential subtasks for unit animation work, base
 
    Note: Time estimates must be set via a follow-up `clickup_update_task` call — the create-task tool does not accept `time_estimate` as a creation parameter.
 
-8. **Return Summary**
+9. **Return Summary**
    - Parent ticket ID and URL
-   - All 10 subtask IDs and URLs with their dates
-   - Total duration (16 working days / 128 hours)
+   - All created subtask IDs and URLs with their dates
+   - List of any deliverables that were skipped (so the user can sanity-check the subset)
+   - Total duration (sum of selected days)
 
 ## Custom Field Details
 
@@ -118,5 +141,6 @@ User: Create animation tickets for "Toshoia" starting May 25th, assign to Tony B
 - Weekends (Saturday/Sunday) are excluded from working days
 - All dates calculated sequentially (one task after another)
 - Parent ticket gets parent ID: `86ag91381` (Unit Content parent)
-- Total pipeline time: 16 working days (128 hours) — over 3 calendar weeks
+- **Total pipeline time depends on which deliverables were selected in step 5.** Full kit (all 10) = 16 working days / 128 hours. Common subsets land in the 7–14 working-day range.
 - For tighter schedules, ask the user whether the "Feedback and Revisions" subtask should be parallelized (overlap with later abilities) rather than serialized at the end
+- Deliverable selection is per-unit; never assume the previous unit's selection applies to the next one
