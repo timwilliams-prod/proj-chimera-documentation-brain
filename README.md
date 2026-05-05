@@ -149,6 +149,18 @@ Generates multiple roadmap scenarios for comparison — exploring "what if" alte
 ### `/validation-review`
 Evaluates and updates the Validation Roadmap - reviews SHQ progress, rolls up to BHQ/WH confidence, checks feature-validation alignment against `planning/product_targets.md` success criteria.
 
+### `/unit-pipeline-status`
+Gathers comprehensive status for a game unit/hero across multiple sources.
+
+**What It Does**:
+1. Searches Google Drive for latest hero images (supports partial name matching)
+2. Downloads latest image to `generated/unit_images/{hero_name}/`
+3. Searches ClickUp for related tickets (last 30 days)
+4. Searches Slack for recent discussions (last 30 days)
+5. Generates consolidated status report in `generated/unit_status/`
+
+**Usage**: `/unit-pipeline-status {hero_name}` (e.g., `/unit-pipeline-status Merrin`)
+
 ## Data Ingestion
 
 ### From Notion
