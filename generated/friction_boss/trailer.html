@@ -308,85 +308,6 @@
     border-left: 1px solid var(--frame-line);
   }
 
-  /* ━━━━━━━━━━━━━ THREE LAYERS ━━━━━━━━━━━━━ */
-  .layer-stack {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-bottom: 32px;
-  }
-  .layer {
-    border: 1px solid var(--frame-line);
-    background: linear-gradient(to bottom, var(--ink) 0%, var(--ink-warm) 100%);
-    padding: 32px 28px;
-    position: relative;
-    box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5);
-    display: flex;
-    flex-direction: column;
-  }
-  .layer::before, .layer::after {
-    content: ''; position: absolute;
-    width: 14px; height: 14px;
-    border: 1px solid var(--gold);
-    pointer-events: none;
-  }
-  .layer::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
-  .layer::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
-
-  .layer.current {
-    border-color: var(--blood);
-    box-shadow: 0 0 24px rgba(192,57,43,0.2), 0 20px 40px -15px rgba(0,0,0,0.5);
-  }
-  .layer.current::before, .layer.current::after { border-color: var(--blood-bright); }
-
-  .layer-num {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78rem;
-    color: var(--gold);
-    letter-spacing: 0.25em;
-    margin-bottom: 14px;
-  }
-  .layer.current .layer-num { color: var(--blood-bright); }
-
-  .layer-title {
-    font-family: 'Cinzel', serif;
-    font-weight: 600;
-    font-size: 1.25rem;
-    color: var(--parchment);
-    margin-bottom: 12px;
-    letter-spacing: 0.02em;
-  }
-  .layer-status {
-    font-family: 'Cinzel', serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--parchment-deep);
-    margin-bottom: 20px;
-    padding-bottom: 14px;
-    border-bottom: 1px solid var(--frame-line);
-  }
-  .layer.current .layer-status { color: var(--blood-bright); }
-  .layer-body {
-    font-family: 'Spectral', serif;
-    font-size: 0.97rem;
-    color: var(--parchment-dim);
-    line-height: 1.6;
-  }
-
-  .compounding-note {
-    text-align: center;
-    font-family: 'Spectral', serif;
-    font-style: italic;
-    font-size: 1rem;
-    color: var(--parchment-dim);
-    max-width: 720px;
-    margin: 0 auto;
-    padding-top: 24px;
-    border-top: 1px solid var(--frame-line);
-  }
-  .compounding-note strong { color: var(--gold-bright); font-style: normal; font-weight: 600; }
-
   /* ━━━━━━━━━━━━━ PHASE ROADMAP ━━━━━━━━━━━━━ */
   .phase-roadmap {
     border: 1px solid var(--frame-line);
@@ -757,7 +678,6 @@
 
   /* ━━━━━━━━━━━━━ RESPONSIVE ━━━━━━━━━━━━━ */
   @media (max-width: 880px) {
-    .layer-stack { grid-template-columns: 1fr; }
     .victory-pillars { grid-template-columns: 1fr; }
     .dig-deeper { grid-template-columns: 1fr; }
     .from-to-split { grid-template-columns: 1fr; }
@@ -783,13 +703,11 @@
       <div class="crest-line"></div>
     </div>
 
-    <div class="eyebrow">A Producer's Trailer · Lotus · v0.4</div>
+    <div class="eyebrow">A Producer's Trailer · Lotus · v0.5</div>
 
     <h1 class="hero-title">We're rebuilding production so the whole team can move at frontier-studio velocity.</h1>
 
     <p class="hero-tagline">
-      Every discipline — producers, engineers, QA, designers, artists — operating like the small,
-      high-craft, high-leverage teams that frontier studios are quietly building today.
       The path to get there has a name. So does the boss we're killing along the way.
     </p>
 
@@ -814,8 +732,6 @@
       <div class="boss-title-big">The Devourer of Producer Hours</div>
       <p class="boss-quote">
         Friction is what eats the time between deciding and doing.
-        It's the manual handoffs, the stale plans, the chase-down DMs,
-        the spec → ticket relay race that loses 30% of context at every step.
         <strong>It's slain not by force, but by skills, agents, and clarity.</strong>
       </p>
       <div class="boss-hp-mini">
@@ -828,65 +744,13 @@
 
   <div class="divider"></div>
 
-  <!-- ━━━━━━━━━━━━━ THREE LAYERS ━━━━━━━━━━━━━ -->
-  <section>
-    <div class="section-eyebrow">The Vision</div>
-    <h2 class="section-title">Three stacked transformations. They compound.</h2>
-    <p class="section-lede">
-      Most orgs try all three at once and accomplish none.
-      We're sequencing — and the layers multiply each other when they land.
-    </p>
-
-    <div class="layer-stack">
-      <div class="layer current">
-        <div class="layer-num">LAYER 01</div>
-        <div class="layer-title">Org Coordination</div>
-        <div class="layer-status">⚔ Current Focus</div>
-        <div class="layer-body">
-          Agents that maintain plans, sync data, surface decisions.
-          Producers strategize; the plumbing between specs, tickets,
-          and status reports gets maintained automatically.
-        </div>
-      </div>
-      <div class="layer">
-        <div class="layer-num">LAYER 02</div>
-        <div class="layer-title">IC Augmentation</div>
-        <div class="layer-status">Parallel Track</div>
-        <div class="layer-body">
-          Per-discipline AI tooling. Engineers running 10+ parallel terminals as
-          standard practice. QA on craft testing. Designers iterating with AI co-authors
-          that know the design pillars.
-        </div>
-      </div>
-      <div class="layer">
-        <div class="layer-num">LAYER 03</div>
-        <div class="layer-title">Workflow Redesign</div>
-        <div class="layer-status">Unlocks Soonest After 01</div>
-        <div class="layer-body">
-          Once agents are real, the obsolete handoffs become loud.
-          We don't just go faster — the <em>shape</em> of how work flows changes.
-          Spec → shipped feature collapses from days to hours.
-        </div>
-      </div>
-    </div>
-
-    <p class="compounding-note">
-      Engineers +30% effective × producers +50% strategic time ≠ +80%.
-      It's <strong>multiplicative</strong> — because the bottleneck moves.
-      Faster engineers expose slow producer alignment. Faster alignment exposes slow handoffs.
-      Each layer's gains unlock the next.
-    </p>
-  </section>
-
-  <div class="divider"></div>
-
   <!-- ━━━━━━━━━━━━━ PHASE ROADMAP (TLDR) ━━━━━━━━━━━━━ -->
   <section>
     <div class="section-eyebrow">The Roadmap (TL;DR)</div>
     <h2 class="section-title">Five phases. We're at the start.</h2>
     <p class="section-lede">
-      No calendar dates. The shape is fixed; pace depends on how hard we push
-      and how quickly trust gets earned at each gate.
+      No calendar dates — the shape is fixed; pace depends on how hard we push.
+      Each phase unlocks the next, and gains <em>compound</em> because the bottleneck moves.
     </p>
 
     <div class="phase-roadmap">
@@ -1042,8 +906,8 @@
         <div class="deep-kind">// Vision Doc</div>
         <div class="deep-title">Agentic Engineering Roadmap</div>
         <div class="deep-body">
-          The full v0.4 vision. Three layers, four phases, the Phase 0 maturity gate,
-          risk register, and what could go wrong. The narrative behind the trailer.
+          The full v0.5 vision. Five phases, the Phase 0 maturity gate, the Fortis
+          infra constraint, risk register. The narrative behind the trailer.
         </div>
         <div class="deep-arrow">Read the Roadmap →</div>
       </a>
@@ -1062,7 +926,7 @@
 
   <footer>
     <div class="footer-meta">
-      Lotus · Agentic Engineering Trailer · <span>v0.4</span> · Last Updated <span>2026-05-04</span>
+      Lotus · Agentic Engineering Trailer · <span>v0.5</span> · Last Updated <span>2026-05-05</span>
     </div>
   </footer>
 

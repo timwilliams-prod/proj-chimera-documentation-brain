@@ -157,7 +157,7 @@ Honest list. Naming these isn't pessimism — it's how we get support to do this
 
 ## How We'll Track Progress
 
-The campaign tracks itself through the **Quest Log** — a living dashboard at `generated/agentic_quest_log/` that maps the full campaign as a quest tree, tracks the FRICTION boss's HP as quests complete, and shows which chapters and party members are unlocked. It's the canonical view of "where are we?" for anyone who wants to know.
+The campaign tracks itself through the **Quest Log** — a living dashboard at `generated/friction_boss/index.html` that maps the full campaign as a quest tree, tracks the FRICTION boss's HP as quests complete, and shows which chapters and party members are unlocked. It's the canonical view of "where are we?" for anyone who wants to know.
 
 Boss HP and quest completion are the headline. Underneath sit a few key signals that tell us whether the campaign is *actually* working — not just visibly progressing:
 

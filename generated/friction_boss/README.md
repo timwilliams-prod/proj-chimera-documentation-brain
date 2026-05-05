@@ -1,22 +1,32 @@
-# Agentic Engineering Quest Log
+# Agentic Engineering — Friction Boss Folder
 
 > A producer's campaign tracker for the agentic engineering effort on Lotus.
 
 ## What this is
 
-A static HTML dashboard that turns the agentic engineering roadmap into a quest log with a visible boss monster (Friction), XP, party members, and chapters. Built for producers + leadership — playful in tone, serious in substance.
+The home for everything that frames, narrates, and tracks the campaign to slay FRICTION — the boss monster that eats the time between deciding and doing. The folder holds the trailer (newcomer entry point), the live Quest Log dashboard, the full vision doc, and the four-producer track split.
 
-**Lives at:** `generated/agentic_quest_log/`
+**Lives at:** `generated/friction_boss/`
 
 ## Files
 
 | File | Role |
 |---|---|
-| `index.html` | The dashboard. Open in any browser. |
-| `quests.json` | The data source. Hand-edited by the champion. |
+| `trailer.html` | The ~2-minute producer's pitch. Open this first if you're new. |
+| `index.html` | The **Quest Log** — boss HP, party members, chapters, quests. The live progress tracker. |
+| `quests.json` | Data source for the Quest Log. Hand-edited by the champion. |
+| `agentic-engineering-roadmap.md` | The full v0.5 vision. Five phases, the Phase 0 maturity gate, the Fortis infra constraint, risk register. |
+| `team-track-split.md` | How the four producers (Holly, Thorben, Brann, Tim) divide the campaign without going four directions. |
 | `README.md` | This file. |
 
-## How to update
+## Reading order
+
+1. **`trailer.html`** — the cinematic entry point. Open in any browser.
+2. **`index.html`** — the Quest Log itself. Where ongoing progress lives.
+3. **`agentic-engineering-roadmap.md`** — the depth behind the trailer.
+4. **`team-track-split.md`** — who owns what across the four-producer team.
+
+## How to update the Quest Log
 
 Two valid paths depending on where you are:
 
@@ -49,7 +59,7 @@ print('Regenerated.')
 
 You can also serve the directory locally and the page will fetch `quests.json` directly — useful if you want the JSON to be the live source while iterating.
 
-## What goes where
+## What goes where (Quest Log JSON)
 
 | Field | Meaning |
 |---|---|
@@ -72,8 +82,15 @@ When you finish a quest:
 5. If a chapter's status should advance, update it.
 6. Bump `campaign.lastUpdated`.
 7. Regenerate (Path A or B above).
+8. Post a quest-completion message to `#agentic-engineering` (template in `team-track-split.md`).
 
 This will eventually be a `/quest-complete <id>` skill. For now, manual.
+
+## Updating the trailer or roadmap
+
+- **`trailer.html`** is hand-edited HTML. Inline CSS at the top, body content below. Keep it tight — it's a trailer, not the doc.
+- **`agentic-engineering-roadmap.md`** is the source-of-truth narrative. When the vision shifts, update it here first; the trailer follows.
+- **`team-track-split.md`** evolves as the four-producer team learns what works. Re-evaluate at the Phase 1 → Phase 2 boundary.
 
 ## Aesthetic notes
 

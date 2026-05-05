@@ -83,12 +83,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "agentic-engineering-roadmap.md",
+                "file": "planning/deleteMe-OldValidationRoadmap.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "agentic-engineering-roadmap"
+              "title": "deleteMe-OldValidationRoadmap"
             }
           }
         ],
@@ -256,6 +256,11 @@
   },
   "active": "38fc166341ab2af3",
   "lastOpenFiles": [
+    "generated/friction_boss/README.md.tmp.3540.1777990420659",
+    "generated/friction_boss/trailer.html.tmp.3540.1777990324375",
+    "generated/friction_boss/trailer.html.tmp.3540.1777990284104",
+    "generated/friction_boss/agentic-engineering-roadmap.md.tmp.3540.1777990246892",
+    "agentic-engineering-roadmap.md",
     "generated/friction_boss/agentic-engineering-roadmap.md.tmp.3540.1777989703039",
     "generated/friction_boss/trailer.html",
     "planning/pods/unit/concept_art_estimates.md",
@@ -272,11 +277,6 @@
     "generated/friction_boss",
     "generated/New folder",
     "planning/deleteMe-OldValidationRoadmap.md",
-    "agentic-engineering-roadmap.md.tmp.22740.1777907317022",
-    "agentic-engineering-roadmap.md.tmp.22740.1777907299737",
-    "agentic-engineering-roadmap.md.tmp.22740.1777907292756",
-    "agentic-engineering-roadmap.md",
-    "agentic-engineering-roadmap.md.tmp.22740.1777905007816",
     "generated/sprint_plans/sprint_29_bulbasaur.md",
     "generated/sprint_plans/sprint_28_abra.md",
     "planning/contentTargets.md",
