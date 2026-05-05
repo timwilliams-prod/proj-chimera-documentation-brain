@@ -51,7 +51,6 @@ Ends: Jun 23, 2026 | Sprints: ~7
 
 - **Embark Flow** — how players select starting position + which army units they bring
 - **Map RNG** — controls over Battles, Tile Types, Unique Map Modifiers, Map Seasons (impacts data structure + designer control)
-- **Map Visuals** — multiplayer maps differ from Territory/World Maps (more tiles, different POIs, multi-player state, fortifications)
 - **UX/UI Visual Quality & Map/Gameplay Visuals** — unlikely to get a comfortable number of iteration cycles to land this in a great spot given the time and resources available. Expect rough edges through M&Ms; some polish in Beta Launch Prep (Sprint F), but full visual quality pass likely a Future / M&C item.
 
 ## Capacity & Constraints
