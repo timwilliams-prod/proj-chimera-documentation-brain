@@ -1,6 +1,6 @@
 # Social Dynamics Features
 
-Last Updated: 2026-04-21
+Last Updated: 2026-05-05
 Doc Status: DRAFT
 Pod Lead: Paul Flores
 
@@ -12,54 +12,94 @@ Pod Lead: Paul Flores
 > - **P1–P10** = phases of multiplayer functionality build-up (not 1:1 with checkpoints; used as engineering shorthand for what gets built).
 >
 > **Parallel tracks (M&Ms)**: (1) AI Prototype — playtesting until in-client version is ready; (2) Multiplayer Maps build-up; (3) Networking infrastructure in parallel.
-> **M&Ms goal**: Internal playtest by end of M&Ms (6/22). In-client multiplayer replaces AI prototype.
+> **M&Ms goal**: v1 multiplayer **feature-complete by end of M&Ms (6/23)** — shippable to beta players by end of Beta Launch Prep (7/21). In-client multiplayer replaces AI prototype during this milestone.
 
 ---
 
-## Goal 1 — M&Ms Internal Playtest (by 6/22)
+## Goal 1 — v1 Multiplayer Ready for Beta Launch
 
-Sprint-by-sprint commitments. Sprint codes from Multiplayer Implementation Strategy (Notion).
+Feature-complete by end of M&Ms (6/23), shippable by end of Beta Launch Prep (7/21).
 
-### MM1 — Multiplayer Map Foundation Complete (through ZZ/S27)
+### Priority Ranking (v1 Items + Sprint Assignment)
+
+| Rank | Feature | Sprint |
+|------|---------|--------|
+| 1 | MP Resource Generators | B |
+| 2 | MP Barracks | B |
+| 3 | MP Foundations | B |
+| 4 | Passive Bonus Tiles | C |
+| 5 | Building Upgrades | C |
+| 6 | Troops earning | B |
+| 7 | Persistent Hero Health | C |
+| 8 | Hero Avatars | C |
+| 9 | Hero Energy & Pathing + Attack/Defend Tile Actions | D |
+| 10 | Meta basic ruleset (map cycle/reset) | D |
+| 11 | Map Leaderboards v1 (individual maps) | D |
+| 12 | Basic Matchmaking v1 | D |
+| + | Basic Relics (item version of Passive Bonus Tiles) | C |
+| + | Story Shards (collectible items, pulled forward from P7) | D |
+| 13 | Onboarding implementation & polish | E |
+| 14 | UI polish & stability | F |
+
+> Hero Avatars subsumes the prior "Hero Party Map Representation." Tile Types & Cycle Generation has been exploded into individual tile types (Foundations, Resource Generators, Barracks, Passive Bonus Tiles); the cycle/reset element is captured in Meta basic ruleset.
+
+### Sprint-by-Sprint Commitments
+
+#### MM1 — Multiplayer Map Foundation Complete (through ZZ/S27) — IN PROGRESS
 1. **Multiplayer Map Foundation** — IN PROGRESS
    - Data (Marcos Loures), Models (Gabriel Arruda), Visualization (Randy Pasion)
    - Covers P1 (Infrastructure & Foundation) + P2 (Map Foundation)
 
-### MM2 — Multiplayer Phase 2 Complete (Sprints A+B / S28–S29)
-2. **Sprint A (S28 Abra, ends 5/12)** — NOT STARTED
+#### MM2 — Sprint A (S28 Abra, ends 5/12) — IN PROGRESS
+2. **Sprint A** — IN PROGRESS
    a. Tile Ownership / Tile States / Map Visualization
    b. Embark Flow (Dock + Hero Party + Troop Selection)
    c. Multiplayer Map Instance Creation / List / Join — dev UI v1
+   d. Battles
+   e. Troop Training
 
-3. **Sprint B (S29, ends 5/26)** — NOT STARTED
-   a. Battles
-   b. Troop Training
+   *End-of-A state*: Players select an MP room, land on the map, and battle to conquer neutral & other player tiles. Covers most of P3 (Basic Game Logic).
 
-   *Covers most of P3 (Basic Game Logic).*
+#### MM2 — Sprint B (S29, ends 5/26) — "Build & Earn" — NOT STARTED
+3. **Sprint B**
+   a. **MP Foundations** *(priority #3)* — buildable foundation slot on owned tiles (prereq for buildings)
+   b. **MP Resource Generators** *(priority #1)* — passive resource income building
+   c. **MP Barracks** *(priority #2)* — passive troop generation building
+   d. **Troops earning** *(priority #6)* — passive troop generation tied to Barracks
 
-### MM3 — Heroes & Tiles (Sprints C+D / S30–S31)
-4. **Sprint C (S30, ends 6/9)** — NOT STARTED
-   a. Persistent Hero Health & Recovery
-   b. Hero Party Map Representation
-   c. Hero Energy & Pathing
+   *End-of-B state*: Economic loop closes. Players claim tiles → place Foundations → build Resource Generators and Barracks. Conquer → build → earn → reinforce → conquer more.
 
-   *Covers P4 (Heroes on Map).*
+#### MM3 — Sprint C (S30, ends 6/9) — "Hero Identity & Strategic Depth" — NOT STARTED
+4. **Sprint C**
+   a. **Persistent Hero Health** *(priority #7)* — heroes carry health between engagements (real cost to fight)
+   b. **Hero Avatars** *(priority #8)* — heroes visible on map (subsumes Hero Party Map Representation)
+   c. **Building Upgrades** *(priority #5)* — buildings upgradeable for stronger output
+   d. **Passive Bonus Tiles** *(priority #4)* — strategic tile types granting passive bonuses while controlled
+   e. **Basic Relics** *(new)* — item version of Passive Bonus Tiles (passive bonus, but an item not a tile)
 
-5. **Sprint D (S31, ends 6/23)** — NOT STARTED
-   a. Tile Info & Actions (view, attack, defend, fortify, upgrade)
-   b. Tile Types & Cycle Generation
+   *End-of-C state*: Heroes have identity (visible avatar + persistent health). Building economy deepens via upgrades. Passive Bonus Tiles + Basic Relics introduce strategic high-value targets worth fighting over.
 
-   *Covers P5 (Interesting Tiles).*
+#### MM3 — Sprint D (S31, ends 6/23 = end of M&Ms) — "Mobility, Meta Loop, Match Plumbing" — NOT STARTED
+5. **Sprint D** — *v1 multiplayer feature-complete by end of this sprint*
+   a. **Hero Energy & Pathing + Attack/Defend Tile Actions** *(priority #9)* — heroes spend energy to traverse paths and execute tile actions
+   b. **Meta basic ruleset** *(priority #10)* — map cycle: open for fixed duration, then resets
+   c. **Map Leaderboards v1** *(priority #11)* — per-individual-map leaderboards (not cross-season)
+   d. **Basic Matchmaking v1** *(priority #12)* — players matched into map instances
+   e. **Story Shards** *(pulled forward from P7)* — collectible items at random map locations
 
-### Beta Launch Prep (Sprints E+F / S32–S33) — feature list only
-*Detailed milestone plan TBD closer to date.*
+   *End-of-D state = v1 multiplayer feature-complete*: Full beat-loop closes. Matched in → build → move heroes → fight & explore → climb leaderboard → cycle ends → matched into next map.
 
-6. **Sprint E (S32, ends 7/7)** — NOT STARTED
-   a. Map Leaderboard v1 (single-map resource leaderboard) — *covers P6*
-   b. Multiplayer Map Authoring
+   > **Heaviness flag**: Sprint D carries 5 items including Hero Energy/Pathing (originally a full sprint on its own). Matchmaking and Leaderboards likely need backend work running in parallel through B/C to actually land. Paul to discuss with engineering.
 
-7. **Sprint F (S33, ends 7/21)** — NOT STARTED
-   - Iteration / Flex
+#### Beta Launch Prep — Sprint E (S32, ends 7/7) — Onboarding — NOT STARTED
+6. **Sprint E**
+   a. **Onboarding implementation & polish** *(priority #13)* — new-player intro to MP mode
+
+#### Beta Launch Prep — Sprint F (S33, ends 7/21) — Polish & Stability — NOT STARTED
+7. **Sprint F** — *Beta-launch ready by end of this sprint*
+   a. **UI polish & stability** *(priority #14)* — final pass on screens, ship-readiness
+
+   *End-of-F state*: v1 multiplayer is shippable to beta players.
 
 ---
 
@@ -68,7 +108,7 @@ Sprint-by-sprint commitments. Sprint codes from Multiplayer Implementation Strat
 *Six focus areas to be sequenced during M&C planning. Relative sizing not yet locked — Paul iterating on simplifications.*
 
 8. **Make the Experience More Dynamic** — covers P7 (Dynamic Experience)
-   - Story Shards at random locations
+   - ~~Story Shards at random locations~~ *(pulled forward to Goal 1, Sprint D — full P7 work here is depth/randomization on top)*
    - Players choose which map to embark to
    - Per-map / global modifiers
    - Departure logic (depart early, exit with spoils)
