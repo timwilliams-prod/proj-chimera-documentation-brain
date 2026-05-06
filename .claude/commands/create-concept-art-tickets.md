@@ -28,7 +28,33 @@ Creates a parent ticket and subtasks for concept art based on the template CHI-3
      - VFX guidance: 1 day
    - Parent ticket spans from first task start to last task end
 
-5. **Create Parent Ticket**
+5. **Check Assignee Workload Conflicts**
+
+   Before creating the parent ticket, verify the assignee isn't already overloaded during the proposed window.
+
+   - Call `clickup_filter_tasks` with:
+     - `assignees`: [found user ID]
+     - `due_date_from`: proposed parent start date
+     - `include_closed`: false
+     - `subtasks`: true
+
+   - Post-filter the results — keep only tasks that:
+     - Have **both** `start_date` and `due_date` set (otherwise overlap is undefined)
+     - Have `start_date` **on or before** the proposed parent due date (otherwise they begin after our work ends)
+   - The survivors are the **conflicts**.
+
+   - **No conflicts:** proceed to the next step.
+
+   - **Conflicts exist:**
+     1. Show the user the conflict list — for each: task name, custom ID, status, `start → due` dates, URL.
+     2. Compute `suggested_start = max(due_date among conflicts) + 1 working day` (skip Sat/Sun).
+     3. Use `AskUserQuestion` with three options:
+        - **Reschedule to {suggested_start}** (Recommended) — recompute the entire schedule from this new start.
+        - **Proceed anyway** — accept the overlap and create the tickets as planned.
+        - **Pick a different start date** — user provides a custom date; recompute.
+     4. If the user reschedules (suggested or custom), **re-run this check** with the new dates. Loop until either no conflicts remain or the user chooses "Proceed anyway".
+
+6. **Create Parent Ticket**
    - Name: `Hero - {Unit Name} - Concepts`
    - List ID: `901208416337` (Product Backlog)
    - Start/Due dates: calculated span
@@ -37,7 +63,7 @@ Creates a parent ticket and subtasks for concept art based on the template CHI-3
    - Tag: "2d"
    - Parent: Same as template (from template's parent field)
 
-6. **Create Subtasks** (in order)
+7. **Create Subtasks** (in order)
    - Hero - {Unit Name} - Ideation
    - Hero - {Unit Name} - AI Pose Iterations
    - Hero - {Unit Name} - Gacha Portrait
@@ -53,7 +79,7 @@ Creates a parent ticket and subtasks for concept art based on the template CHI-3
    - Lotus Pod custom field = "Battle"
    - Parent: the newly created parent ticket ID
 
-7. **Return Summary**
+8. **Return Summary**
    - Parent ticket ID and URL
    - All subtask IDs and URLs with dates
    - Total duration

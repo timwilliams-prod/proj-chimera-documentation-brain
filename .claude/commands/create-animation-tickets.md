@@ -63,7 +63,33 @@ Creates a parent ticket and 10 sequential subtasks for unit animation work, base
      10. Feedback and Revisions (3 days)
    - Parent ticket spans from first task start to last task end (sum of selected days, weekends excluded)
 
-7. **Create Parent Ticket**
+7. **Check Assignee Workload Conflicts**
+
+   Before creating the parent ticket, verify the assignee isn't already overloaded during the proposed window.
+
+   - Call `clickup_filter_tasks` with:
+     - `assignees`: [found user ID]
+     - `due_date_from`: proposed parent start date
+     - `include_closed`: false
+     - `subtasks`: true
+
+   - Post-filter the results — keep only tasks that:
+     - Have **both** `start_date` and `due_date` set (otherwise overlap is undefined)
+     - Have `start_date` **on or before** the proposed parent due date (otherwise they begin after our work ends)
+   - The survivors are the **conflicts**.
+
+   - **No conflicts:** proceed to the next step.
+
+   - **Conflicts exist:**
+     1. Show the user the conflict list — for each: task name, custom ID, status, `start → due` dates, URL.
+     2. Compute `suggested_start = max(due_date among conflicts) + 1 working day` (skip Sat/Sun).
+     3. Use `AskUserQuestion` with three options:
+        - **Reschedule to {suggested_start}** (Recommended) — recompute the entire schedule from this new start.
+        - **Proceed anyway** — accept the overlap and create the tickets as planned.
+        - **Pick a different start date** — user provides a custom date; recompute.
+     4. If the user reschedules (suggested or custom), **re-run this check** with the new dates. Loop until either no conflicts remain or the user chooses "Proceed anyway".
+
+8. **Create Parent Ticket**
    - Name: `{Unit Name} - Animations`
    - List ID: `901208416337` (Product Backlog)
    - Start/Due dates: calculated span (covers only the selected deliverables)
@@ -73,7 +99,7 @@ Creates a parent ticket and 10 sequential subtasks for unit animation work, base
    - Task type: "Deliverable"
    - Parent: `86ag90gaw` (CHI-36166 — "Unit Animations")
 
-8. **Create Subtasks** (only the deliverables selected in step 5, in canonical order)
+9. **Create Subtasks** (only the deliverables selected in step 5, in canonical order)
 
    Possible subtasks (create only those that were selected):
    1. {Unit Name} - Idle
@@ -96,7 +122,7 @@ Creates a parent ticket and 10 sequential subtasks for unit animation work, base
 
    Note: Time estimates must be set via a follow-up `clickup_update_task` call — the create-task tool does not accept `time_estimate` as a creation parameter.
 
-9. **Return Summary**
+10. **Return Summary**
    - Parent ticket ID and URL
    - All created subtask IDs and URLs with their dates
    - List of any deliverables that were skipped (so the user can sanity-check the subset)

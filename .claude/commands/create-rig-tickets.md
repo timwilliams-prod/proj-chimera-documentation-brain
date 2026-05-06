@@ -34,7 +34,33 @@ Creates a parent ticket and subtask for rig & skinning based on the unit pipelin
      - Rig & Skin: 4 days
    - Parent ticket spans from first task start to last task end
 
-6. **Create Parent Ticket**
+6. **Check Assignee Workload Conflicts**
+
+   Before creating the parent ticket, verify the assignee isn't already overloaded during the proposed window.
+
+   - Call `clickup_filter_tasks` with:
+     - `assignees`: [found user ID]
+     - `due_date_from`: proposed parent start date
+     - `include_closed`: false
+     - `subtasks`: true
+
+   - Post-filter the results — keep only tasks that:
+     - Have **both** `start_date` and `due_date` set (otherwise overlap is undefined)
+     - Have `start_date` **on or before** the proposed parent due date (otherwise they begin after our work ends)
+   - The survivors are the **conflicts**.
+
+   - **No conflicts:** proceed to the next step.
+
+   - **Conflicts exist:**
+     1. Show the user the conflict list — for each: task name, custom ID, status, `start → due` dates, URL.
+     2. Compute `suggested_start = max(due_date among conflicts) + 1 working day` (skip Sat/Sun).
+     3. Use `AskUserQuestion` with three options:
+        - **Reschedule to {suggested_start}** (Recommended) — recompute the entire schedule from this new start.
+        - **Proceed anyway** — accept the overlap and create the tickets as planned.
+        - **Pick a different start date** — user provides a custom date; recompute.
+     4. If the user reschedules (suggested or custom), **re-run this check** with the new dates. Loop until either no conflicts remain or the user chooses "Proceed anyway".
+
+7. **Create Parent Ticket**
    - Name: `{Unit Name} - Rig`
    - List ID: `901208416337` (Product Backlog)
    - Start/Due dates: calculated span
@@ -43,7 +69,7 @@ Creates a parent ticket and subtask for rig & skinning based on the unit pipelin
    - Tag: "rig"
    - Parent: `86ag91381` (Unit Content parent)
 
-7. **Create Subtask**
+8. **Create Subtask**
    - {Unit Name} - Rig & Skin
    
    With:
@@ -53,7 +79,7 @@ Creates a parent ticket and subtask for rig & skinning based on the unit pipelin
    - Lotus Pod custom field = "Battle"
    - Parent: the newly created parent ticket ID
 
-8. **Return Summary**
+9. **Return Summary**
    - Parent ticket ID and URL
    - Subtask ID and URL with dates
    - Total duration
