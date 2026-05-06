@@ -60,9 +60,27 @@
       "mcp__clickup__clickup_get_custom_fields",
       "Bash(git add *)",
       "Bash(git commit *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "mcp__plugin_slack_slack__slack_search_public",
+      "mcp__clickup__clickup_get_workspace_members",
+      "mcp__clickup__clickup_find_member_by_name",
+      "Bash(git commit -m 'Add create-concept-art-tickets skill *)",
+      "mcp__google-workspace__drive_search",
+      "mcp__plugin_slack_slack__slack_search_users",
+      "Bash(curl *)",
+      "mcp__miro__context_explore",
+      "mcp__miro__context_get",
+      "mcp__miro__board_list_items",
+      "mcp__miro__image_get_url",
+      "Bash(git fetch *)",
+      "Bash(git stash *)",
+      "Bash(git pull *)"
     ]
   },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "github"
+  ],
   "hooks": {
     "SessionStart": [
       {
