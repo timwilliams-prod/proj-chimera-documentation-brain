@@ -4,31 +4,24 @@
 //
 // Read endpoint for picon's #/health/logs and the /skill-evaluate skill.
 //
-// Headers:
-//   X-Lotus-Telemetry-Token: <token>     required
-//                                        Any valid producer token works.
+// No auth: telemetry is internal-team-grade data (skill names, file paths,
+// hostnames, OS usernames). For a small team the simplicity of an open
+// endpoint outweighs the marginal protection of a shared secret. If access
+// control becomes necessary, gate the whole dashboard URL behind Cloudflare
+// Access (Zero Trust) rather than re-introducing per-request auth here.
 //
 // Response:
 //   200 { events: [...], count, fetched_at }
-//   401 if token missing or invalid
 //
 // See generated/friction_boss/observability_design.md for the full design.
 
 interface Env {
   LOTUS_EVENTS: D1Database;
-  [key: string]: any;        // for TELEMETRY_TOKEN_* env vars
 }
 
 const THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1000;
 
 export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
-  // Read endpoint requires a valid token to prevent leaking telemetry to
-  // anyone who guesses the URL. Any producer's token is acceptable.
-  const token = request.headers.get('x-lotus-telemetry-token');
-  if (!isValidToken(token, env)) {
-    return jsonResponse({ error: 'unauthorized' }, 401);
-  }
-
   const url = new URL(request.url);
   const since = numParam(url, 'since', Date.now() - THIRTY_DAYS_MS);
   const until = numParam(url, 'until', Date.now());
@@ -79,23 +72,6 @@ export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
 };
 
 // ─── Helpers ─────────────────────────────────────────────────────────
-
-function isValidToken(token: string | null, env: Env): boolean {
-  if (!token) return false;
-  for (const [key, value] of Object.entries(env)) {
-    if (!key.startsWith('TELEMETRY_TOKEN_')) continue;
-    if (typeof value !== 'string') continue;
-    if (constantTimeEqual(token, value)) return true;
-  }
-  return false;
-}
-
-function constantTimeEqual(a: string, b: string): boolean {
-  if (a.length !== b.length) return false;
-  let diff = 0;
-  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
-  return diff === 0;
-}
 
 function numParam(url: URL, key: string, fallback: number): number {
   const v = Number(url.searchParams.get(key));

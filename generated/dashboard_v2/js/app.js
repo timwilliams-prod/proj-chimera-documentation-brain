@@ -291,9 +291,8 @@
   // ────────────────────────────────────────────────────────────────────────────
   // The producer hook in .claude/hooks/log-event.js POSTs every skill
   // invocation, tool use, subagent use, and session end to /api/log-event,
-  // which writes to D1. /api/query-events reads it back. The token comes from
-  // a TELEMETRY_TOKEN_<NAME> env var on Cloudflare; producers paste their own
-  // into the Logs page once and it's cached in localStorage from there on.
+  // which writes to D1. /api/query-events reads it back — no auth, since
+  // telemetry is internal-team-grade data and the URL isn't public.
 
   const TELEMETRY_RANGE_MS = {
     "24h": 24 * 3600 * 1000,
@@ -301,21 +300,16 @@
     "30d": 30 * 24 * 3600 * 1000
   };
 
-  function getTelemetryToken() { return lsGet("telemetry_token"); }
-
   async function fetchEvents(params) {
     const qs = new URLSearchParams();
     Object.entries(params).forEach(([k, v]) => {
       if (v !== undefined && v !== null && v !== "") qs.append(k, v);
     });
     const url = `/api/query-events?${qs.toString()}`;
-    const r = await fetch(url, {
-      headers: { "X-Lotus-Telemetry-Token": getTelemetryToken() || "" }
-    });
+    const r = await fetch(url);
     if (!r.ok) {
-      // Read the body so the user can see what came back (auth error, function
-      // not deployed serving HTML, etc). Cap the snippet so we don't dump 50KB
-      // into the panel if we got the SPA index.html as a fallback.
+      // Read the body so the user can see what came back. Cap the snippet so
+      // we don't dump 50KB into the panel if we got the SPA index.html back.
       let snippet = "";
       try { snippet = (await r.text() || "").slice(0, 200); } catch (_) {}
       const err = new Error(`HTTP ${r.status} from ${url}${snippet ? ` — ${snippet}` : ""}`);
@@ -1622,8 +1616,6 @@
   //   2. Filter row (range, event type, skill, actor, limit)
   //   3. Event table (most recent first)
   //
-  // Token: /api/query-events requires X-Lotus-Telemetry-Token. We prompt once
-  // and cache in localStorage. Any 401 wipes the cached token and re-prompts.
   // The rollup queries are independent of the user's filter — they always
   // cover 7d and 30d so the headline numbers stay stable across filter changes.
 
@@ -1662,38 +1654,6 @@
   function renderLogs() {
     const content = document.getElementById("content");
 
-    if (!getTelemetryToken()) {
-      content.innerHTML = `
-        ${pageHeader({ title: "Agent Logs", subtitle: "Skill and agent telemetry from D1 (via /api/query-events)." })}
-        <div class="panel">
-          <div class="panel-title">Telemetry token required</div>
-          <p class="small" style="margin-bottom:12px;">
-            This page reads from <code>/api/query-events</code>, which needs an <code>X-Lotus-Telemetry-Token</code>
-            for every request. Paste yours below — it's stored in your browser only
-            (<code>localStorage</code> under <code>lotusv2.telemetry_token</code>) and never sent anywhere except
-            the Pages Function above. Ask Tim if you don't have one (it's the same value as the
-            <code>TELEMETRY_TOKEN_&lt;NAME&gt;</code> Cloudflare env var matched to you).
-          </p>
-          <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
-            <input type="password" id="token-input" placeholder="paste TELEMETRY_TOKEN_… value"
-                   style="flex:1;min-width:280px;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:6px;font-family:inherit;font-size:13px;">
-            <button class="btn btn-primary" id="save-token-btn">Save &amp; load</button>
-          </div>
-        </div>
-      `;
-      const input = document.getElementById("token-input");
-      const save = () => {
-        const v = (input.value || "").trim();
-        if (!v) { showToast("Paste a token first."); return; }
-        lsSet("telemetry_token", v);
-        renderLogs();
-      };
-      document.getElementById("save-token-btn").addEventListener("click", save);
-      input.addEventListener("keypress", (e) => { if (e.key === "Enter") save(); });
-      input.focus();
-      return;
-    }
-
     const filters = lsGet("logs_filters") || {
       range: "7d", event_type: "all", skill: "", actor: "", limit: 200
     };
@@ -1702,10 +1662,7 @@
       ${pageHeader({
         title: "Agent Logs",
         subtitle: "Skill and agent telemetry from D1. Click Refresh to re-fetch.",
-        actions: `
-          <button class="btn" id="logs-refresh">Refresh</button>
-          <button class="btn btn-ghost" id="logs-forget-token">Forget token</button>
-        `
+        actions: `<button class="btn" id="logs-refresh">Refresh</button>`
       })}
 
       <div class="grid-2">
@@ -1776,10 +1733,6 @@
     });
 
     document.getElementById("logs-refresh").addEventListener("click", () => renderLogs());
-    document.getElementById("logs-forget-token").addEventListener("click", () => {
-      lsRemove("telemetry_token");
-      renderLogs();
-    });
 
     document.querySelectorAll("[data-logs-filter]").forEach(el => {
       const evtName = (el.tagName === "INPUT" && el.type !== "number") ? "input" : "change";
@@ -1819,9 +1772,7 @@
   function renderLogsError(e) {
     const status = e.status ? ` (${e.status})` : "";
     let hint = "";
-    if (e.status === 401) {
-      hint = `<div class="small" style="margin-top:6px;">The token was rejected by <code>/api/query-events</code>. Confirm a matching <code>TELEMETRY_TOKEN_&lt;NAME&gt;</code> env var is set on the Cloudflare Pages project, then click <strong>Forget token</strong> above and paste again.</div>`;
-    } else if (e.status === 404 || /not be deployed/.test(e.message || "")) {
+    if (e.status === 404 || /not be deployed/.test(e.message || "")) {
       hint = `<div class="small" style="margin-top:6px;">The endpoint isn't responding from this origin. Check that the <code>functions/api/query-events.ts</code> deploy has landed on the same Pages project that serves this dashboard.</div>`;
     }
     return `
