@@ -755,6 +755,227 @@
       transform: rotate(225deg);
     }
 
+    /* ────────────────────────────────── Sprint Plan (native) ────────────────────────────────── */
+    /* Sprint header card — sprint name, dates, milestone progress, dropdown */
+    .sprint-header-card {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: start;
+    }
+    @media (max-width: 900px) { .sprint-header-card { grid-template-columns: 1fr; } }
+    .sprint-header-left .sprint-h1 {
+      font-size: 22px;
+      color: var(--text-bright);
+      font-weight: 600;
+      margin: 0 0 4px 0;
+    }
+    .sprint-header-left .sprint-dates {
+      color: var(--text-dim);
+      font-size: 13px;
+    }
+    .sprint-header-left .sprint-holidays {
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--text-dim);
+      list-style: disc;
+      padding-left: 18px;
+    }
+    .sprint-header-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+      min-width: 240px;
+    }
+    .sprint-milestone-name { font-size: 12px; color: var(--text-dim); }
+    .sprint-milestone-bar {
+      width: 220px;
+      height: 6px;
+      background: var(--bg);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .sprint-milestone-bar-fill {
+      height: 100%;
+      background: var(--accent);
+      transition: width 0.2s;
+    }
+    .sprint-milestone-meta { font-size: 11px; color: var(--text-dim); }
+    .sprint-controls {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .sprint-controls select {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text-bright);
+      padding: 5px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-family: inherit;
+      cursor: pointer;
+    }
+    .sprint-controls select:focus { outline: none; border-color: var(--accent); }
+
+    /* Build Target — exec summary card with accent left-border */
+    .build-target-card {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin-bottom: 16px;
+    }
+    .build-target-eyebrow {
+      font-size: 10.5px;
+      color: var(--accent);
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .build-target-headline {
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--text-bright);
+      font-weight: 400;
+      margin-bottom: 14px;
+    }
+    .build-target-stats {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .bt-chip {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 130px;
+      max-width: 360px;
+    }
+    .bt-chip-row {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+    .bt-chip-count {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-bright);
+      line-height: 1;
+    }
+    .bt-chip-label {
+      font-size: 11px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+    .bt-chip-note {
+      font-size: 11.5px;
+      color: var(--text-dim);
+      line-height: 1.35;
+    }
+
+    /* Producer-grouped Goals — 3 columns */
+    .goals-3col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 1100px) { .goals-3col { grid-template-columns: 1fr; } }
+    .goal-producer-col { min-width: 0; }
+    .goal-producer-name {
+      font-size: 11px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 10px;
+    }
+    .goal-producer-name strong { color: var(--text-bright); font-weight: 700; }
+    .goal-pod-block + .goal-pod-block {
+      border-top: 1px solid rgba(42, 58, 94, 0.4);
+      padding-top: 8px;
+      margin-top: 8px;
+    }
+    .goal-pod-block-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+    .goal-pod-block-header .pod-tag-sm { font-size: 9.5px; padding: 1px 6px; }
+    .goal-pod-list {
+      list-style: none;
+      padding: 0 0 0 6px;
+      margin: 0;
+    }
+    .goal-pod-list li {
+      font-size: 12.5px;
+      line-height: 1.45;
+      color: var(--text);
+      padding: 2px 0;
+      position: relative;
+      padding-left: 12px;
+    }
+    .goal-pod-list li::before {
+      content: "·";
+      color: var(--text-dim);
+      position: absolute;
+      left: 0;
+      top: -2px;
+      font-size: 16px;
+    }
+
+    /* Validation In Flight + Active Focus two-column layout */
+    .sprint-overview-twocol {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 900px) { .sprint-overview-twocol { grid-template-columns: 1fr; } }
+    .sprint-overview-col h3 {
+      font-size: 11px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin: 0 0 8px 0;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .sprint-overview-item {
+      padding: 6px 0;
+      font-size: 12.5px;
+      line-height: 1.4;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: baseline;
+      gap: 8px;
+      border-bottom: 1px solid rgba(42, 58, 94, 0.2);
+    }
+    .sprint-overview-item:last-child { border-bottom: none; }
+    .shq-badge {
+      font-family: 'Cascadia Code', 'Fira Code', Consolas, monospace;
+      font-size: 10.5px;
+      background: rgba(83, 168, 255, 0.12);
+      color: var(--accent);
+      padding: 1px 6px;
+      border-radius: 3px;
+    }
+
     /* ────────────────────────────────── Coming soon ────────────────────────────────── */
     .coming-soon {
       text-align: center;

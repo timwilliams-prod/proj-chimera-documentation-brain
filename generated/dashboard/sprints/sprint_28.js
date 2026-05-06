@@ -283,6 +283,11 @@ var SPRINT_DATA = {
   },
 
   summary: {
+    build_target: {
+      headline: "Sprint 28 opens M&M Checkpoint 2: Empire's World Map Experience eng implementation kicks off, Battle HUD implementation begins, Pipeline B starts on Building Upgrades, and Social Dynamics moves into Tile/Embark/MP Map Instance work for in-client multiplayer.",
+      territories: { count: 0, note: "Territory Map vertical slice work continues (T7 + T8 in pipeline); no new playable territories shipping in this sprint's build" },
+      new_features: { count: 5, note: "WME — Multiple Nodes per Territory (eng kickoff) · Battle HUD Implementation Sprint 1 of 4 · Building Upgrades (Pipeline B kickoff) · MM2 Sprint A — Tile/Embark/MP Map Instance · Compliance (OneTrust + Age Gate) starts" }
+    },
     milestone_goals: [
       "Multiplayer foundations playable in internal playtests by end of M&Ms",
       "Territory Map vertical slice proves scale + strategy/conquest connection (SHQ3-1, SHQ3-2)",

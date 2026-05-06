@@ -18,7 +18,8 @@
    - **Read (sprint)** — `/api/clickup-sprint` — live ClickUp data for the Sprint widget. Fixes the multi-list bug. Always fresh.
    - **Read (search)** — `/api/clickup-search` — already coded at `functions/api/clickup-search.ts` (added 2026-05-05). Used by the Roadmap popover to resolve a feature name → live ClickUp ticket. Same env vars as `clickup-sprint`. Until deployed the popover gracefully falls back to a workspace-search URL.
    - **Write** — `/api/save-md` — Save buttons commit edits back to `.md` files via a GitHub App. Replaces the localStorage-only path.
-5. **Roadmap is now native** (no iframe) at `#/plans/roadmap`. Clicking a boulder pins a popover with summary + ClickUp link. Validation Roadmap and Sprint Plans still iframe-embed the old dashboard — same migration to do for those next.
+5. **Roadmap is now native** (no iframe) at `#/plans/roadmap`. Clicking a boulder pins a popover with summary + ClickUp link.
+6. **Sprint Plan is now hybrid native** at `#/plans/sprints` — header + new Build Target exec summary + producer-grouped Goals (3 columns: Brann / Tim / Thorben) + Validation/Focus render natively. Per-pod, capacity, ClickUp coverage, and risks panels are still iframe-embedded from `sprint.html` for now (with `?hideHeader=1&hideOverview=1` to suppress duplicates). Validation Roadmap is still fully iframe-embedded.
 6. A few content placeholders still need filling in (Useful Links, Tech Debt items in Dozer, Brain Health consistency checks). All marked `PLACEHOLDER` in the data files.
 
 ---
@@ -295,6 +296,55 @@ Before deleting `generated/dashboard/`, move (or copy and update) these into `da
 
 ---
 
+## Hybrid Sprint Plan (added 2026-05-06)
+
+The Sprint Plan page (`#/plans/sprints`) is a hybrid: top half is native picon, bottom half iframe-embeds the un-ported sections of `sprint.html`. The reason is scope — `sprint.html` is ~2000 lines across 8 panels; porting it all in one session would have been risky parity work. Tim's UX asks (Build Target exec summary + condensed Goals) live in the native top half; the rest follows.
+
+What landed natively:
+- **Sprint header card** (sprint name, dates, holidays, milestone progress bar, mode pill, sprint dropdown selector). Replaces `sprint.html`'s `renderHeader()`.
+- **Build Target card** — new exec summary panel reading from `summary.build_target` in the sprint data file. Headline + chips for territories count and new features count, each with a short note.
+- **Producer-Grouped Goals** — replaces the old "Checkpoint Goals" card grid. 3 columns by producer (Brann / Tim / Thorben), pods stacked under each producer, goals as tight bullets. Producer comes from each pod's `producer` field with a fallback map matching `capacity.md`. Goal text parsed from the `Pod: text` format already used in `summary.checkpoint.goals`.
+- **Validation In Flight + Active Focus** — two-col, kept compact.
+
+What's still iframe-embedded (transitional):
+- Per-pod sections (priorities, goals, capacity, carry-over, open questions, risks) — biggest panels in `sprint.html`.
+- Cross-Pod Dependencies, Capacity Summary, ClickUp Coverage, Checkpoint Coverage, Risks & Open Questions.
+- The iframe loads `sprint.html?embed=1&hideHeader=1&hideOverview=1` so the duplicated header + Sprint Overview don't show twice.
+- Picon respects `?sprint=N` in the iframe src so switching sprints in the dropdown reloads both halves consistently — but `sprint.html`'s own dropdown bug still exists for now (Tim deferred separately).
+
+### New data field — `summary.build_target`
+
+Added to each sprint data file (`generated/dashboard/sprints/sprint_NN.js`). Authored by `/sprint-plan` going forward; S28 + S29 have been backfilled by hand. Shape:
+
+```js
+summary: {
+  build_target: {
+    headline: "1–2 plain-English sentences. Producer voice. What ships at sprint end.",
+    territories: { count: 2, note: "T7 (Jacob) and T8 (Elise) progressing in pipeline; …" },
+    new_features: { count: 5, note: "Building Upgrades shipped · MM2 Sprint B in-client … · …" }
+  },
+  // …existing fields…
+}
+```
+
+The skill (`.claude/commands/sprint-plan.md`) has been updated with authoring rules: headline is for non-specialists (avoid SHQ IDs), territory count = new playable territories shipping in this sprint's build, new features count = features shipped or hitting major milestones (kickoff, Sprint X of Y, feature-complete).
+
+### `sprint.html` embed flags (added)
+
+`sprint.html` now reads two new query params when in `embed=1` mode:
+- `?hideHeader=1` → adds `body.hide-header` → CSS hides `.header`.
+- `?hideOverview=1` → adds `body.hide-overview` → CSS hides `#sprint-overview-panel` (id added to the Sprint Overview panel for stable targeting).
+
+Both are no-ops outside embed mode. The standalone `sprint.html` page is unchanged for direct viewers.
+
+### Follow-up work for Sprint Plan
+
+- Port the remaining panels (per-pod, cross-pod, capacity, ClickUp coverage, checkpoint coverage, risks) so the iframe can be retired entirely. See `sprint.html` `renderPod()` (line ~1147), `renderCrossPod()` (line ~1326), `renderCapacity()` (line ~1358), `renderTicketCoverage()` (line ~1442), `renderCheckpointCoverage()` (line ~1059), `renderRisksAndQuestions()` (line ~1115) for reference.
+- Fix the `sprint.html` dropdown bug (Tim deferred). Once the rest is ported, the dropdown can move into picon and the bug goes away.
+- Edit mode for the new native panels (Build Target + Goals) — currently display-only; they regenerate via `/sprint-plan`.
+
+---
+
 ## File layout
 
 ```
@@ -338,7 +388,7 @@ Roadmap / Validation Roadmap / Sprint Plans are **embedded** from the existing d
 | `#/reports` | Reports archive grouped by report type |
 | `#/plans/roadmap` | Native render via `renderRoadmap()` in `app.js` (click-to-pin popover with ClickUp link) |
 | `#/plans/validation` | Iframe: existing `validation.html` |
-| `#/plans/sprints` | Iframe: existing `sprint.html` (dropdown bug + Next-label deferred) |
+| `#/plans/sprints` | Hybrid: native header + Build Target + producer-grouped Goals + Validation/Focus, iframe of `sprint.html` (with `hideHeader=1&hideOverview=1`) for the remaining panels |
 | `#/plans/capacity` | Editable capacity tables |
 | `#/priorities/{empire,metagame,battle,social-dynamics,dozer}` | Per-pod editable summary |
 | `#/health/brain` | Brain Health (staleness from existing data + consistency placeholders) |

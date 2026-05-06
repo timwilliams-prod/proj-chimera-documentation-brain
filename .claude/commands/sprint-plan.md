@@ -139,6 +139,11 @@ Authoring this section is a **synthesis step**, not a copy job. Look at the mile
 ```markdown
 ## Sprint Overview
 
+### Build Target — End of Sprint [N]
+- **Headline**: [1–2 plain-English sentences. Producer voice. What would Holly/James see in-build at sprint end? Reference checkpoint context (e.g. "closes CP2") and the most consequential 3–4 items shipping or graduating to feature-complete.]
+- **Territories**: [N] — [short note: which territories are landing in-build, or "0 — N in pipeline"]
+- **New features**: [N] — [3–6 most prominent features shipped, hitting feature-complete, or graduating a major milestone (e.g. "kickoff", "Sprint X of Y")]
+
 ### Milestone Goals — [Milestone Name]
 - [Pulled from product_targets.md — the high-level "Goal" + Must-Have Features]
 
@@ -154,6 +159,21 @@ Authoring this section is a **synthesis step**, not a copy job. Look at the mile
 ```
 
 The Overview should answer: "If a leadership team member only reads the top section, do they understand what we're driving this sprint and how it lines up with milestone goals?"
+
+**Build Target hygiene:**
+- The headline is for **non-specialists** — anyone (Holly, James, an engineer in another pod) should grok it without looking up jargon. Avoid SHQ IDs and ticket numbers in the headline; those belong in Active Focus / Validation In Flight.
+- Territory count = number of *new playable territory maps shipping in this sprint's build*. Work-in-progress territories don't count; mention them in the note.
+- New features count = features that either ship, hit feature-complete, OR cross a major milestone (eng kickoff, Sprint X of Y, etc.). Be conservative — if it's "in continued progress" without a milestone moment, skip it.
+- If the headline runs more than 2 sentences, you're overreaching. Cut.
+
+When writing the data file (`sprint_NN.js`), populate this as `summary.build_target`:
+```js
+build_target: {
+  headline: "...",
+  territories: { count: N, note: "..." },
+  new_features: { count: N, note: "..." }
+}
+```
 
 #### Per-Pod Structure:
 ```markdown

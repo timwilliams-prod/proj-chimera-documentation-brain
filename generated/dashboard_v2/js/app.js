@@ -953,6 +953,289 @@
     `;
   }
 
+  // ────────────────────────────────────────────────────────────────────────────
+  // Sprint Plan (hybrid native — replaces the iframe to dashboard/sprint.html)
+  //   Native: header + Build Target + Producer-Grouped Goals + Validation/Focus
+  //   Iframe: per-pod, cross-pod, capacity, ticket coverage, checkpoint coverage,
+  //           risks (sprint.html with ?embed=1&hideHeader=1&hideOverview=1)
+  // ────────────────────────────────────────────────────────────────────────────
+  const POD_TO_PRODUCER_FALLBACK = {
+    "Empire": "Brann Livesay",
+    "Metagame": "Tim Williams",
+    "Social Dynamics": "Tim Williams",
+    "Battle": "Thorben Novais",
+    "Dozer": "Thorben Novais"
+  };
+  // Fixed column order: Brann (Empire), Tim (Metagame + SD), Thorben (Battle + Dozer)
+  const PRODUCER_COL_ORDER = ["Brann Livesay", "Tim Williams", "Thorben Novais"];
+
+  let activeSprintNumber = null;
+  const sprintDataCache = {}; // sprint number → SPRINT_DATA snapshot
+
+  function renderSprintPlan() {
+    if (typeof SPRINT_MANIFEST === "undefined" || !Array.isArray(SPRINT_MANIFEST) || SPRINT_MANIFEST.length === 0) {
+      document.getElementById("content").innerHTML = `
+        ${pageHeader({ title: "Sprint Plan", subtitle: "No sprint manifest loaded" })}
+        <div class="panel"><div class="small">SPRINT_MANIFEST not found. Run /sprint-plan or check that <code>../dashboard/sprint_manifest.js</code> is loading.</div></div>
+      `;
+      return;
+    }
+
+    if (activeSprintNumber == null) {
+      activeSprintNumber = (typeof SPRINT_CURRENT !== "undefined") ? SPRINT_CURRENT : SPRINT_MANIFEST[SPRINT_MANIFEST.length - 1].number;
+    }
+
+    document.getElementById("content").innerHTML = `
+      ${pageHeader({ title: "Sprint Plan", subtitle: "Loading…" })}
+      <div class="panel"><div class="small">Loading sprint data…</div></div>
+    `;
+
+    loadSprintData(activeSprintNumber).then(data => {
+      if (!data) {
+        document.getElementById("content").innerHTML = `
+          ${pageHeader({ title: "Sprint Plan", subtitle: `Sprint ${activeSprintNumber}` })}
+          <div class="panel"><div class="small">Failed to load <code>SPRINT_DATA</code> for sprint ${activeSprintNumber}.</div></div>
+        `;
+        return;
+      }
+      renderSprintPlanContent(data);
+    });
+  }
+
+  // Dynamically load a sprint's data file (sprint_NN.js sets a global SPRINT_DATA).
+  // We snapshot the global on each load and cache by sprint number so switching is fast.
+  function loadSprintData(sprintNumber) {
+    if (sprintDataCache[sprintNumber]) {
+      return Promise.resolve(sprintDataCache[sprintNumber]);
+    }
+    const entry = SPRINT_MANIFEST.find(s => s.number === sprintNumber);
+    if (!entry) return Promise.resolve(null);
+    return new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = `../dashboard/${entry.file}?v=${Date.now()}`;
+      script.onload = () => {
+        if (typeof SPRINT_DATA !== "undefined") {
+          sprintDataCache[sprintNumber] = SPRINT_DATA;
+          resolve(SPRINT_DATA);
+        } else {
+          resolve(null);
+        }
+        script.remove();
+      };
+      script.onerror = () => { resolve(null); script.remove(); };
+      document.head.appendChild(script);
+    });
+  }
+
+  function switchSprint(num) {
+    activeSprintNumber = num;
+    renderSprintPlan();
+  }
+
+  function renderSprintPlanContent(d) {
+    const m = d.meta || {};
+    const s = d.summary || {};
+    const podToProducer = buildPodToProducerMap(d);
+
+    const dropdownOptions = SPRINT_MANIFEST.slice().sort((a, b) => b.number - a.number).map(sp => {
+      const sel = sp.number === activeSprintNumber ? " selected" : "";
+      const cur = (typeof SPRINT_CURRENT !== "undefined" && sp.number === SPRINT_CURRENT) ? " (current)" : "";
+      return `<option value="${sp.number}"${sel}>S${sp.number}: ${escapeHtml(sp.name)}${cur}</option>`;
+    }).join("");
+
+    const msPct = (m.milestone_sprint && m.milestone_sprint_total)
+      ? Math.round((m.milestone_sprint / m.milestone_sprint_total) * 100)
+      : 0;
+    const holidaysHtml = (m.holidays && m.holidays.length)
+      ? `<ul class="sprint-holidays">${m.holidays.map(h => `<li>${escapeHtml(h)}</li>`).join("")}</ul>`
+      : "";
+
+    const headerCard = `
+      <div class="sprint-header-card">
+        <div class="sprint-header-left">
+          <h1 class="sprint-h1">Sprint ${m.sprint_number}: ${escapeHtml(m.sprint_name || "")}</h1>
+          <div class="sprint-dates">${escapeHtml(formatDate(m.start_date))} → ${escapeHtml(formatDate(m.end_date))} · ${m.working_days || "?"} working days</div>
+          ${holidaysHtml}
+        </div>
+        <div class="sprint-header-right">
+          <div class="sprint-milestone-name">${escapeHtml(m.milestone || "")}</div>
+          <div class="sprint-milestone-bar"><div class="sprint-milestone-bar-fill" style="width:${msPct}%"></div></div>
+          <div class="sprint-milestone-meta">Sprint ${m.milestone_sprint || "?"} of ${m.milestone_sprint_total || "?"}</div>
+          <div class="sprint-controls">
+            <span class="pill pill-${m.mode === "Preview" ? "pending" : "complete"}">${escapeHtml(m.mode || "")}</span>
+            <select id="sprint-switcher" aria-label="Switch sprint">${dropdownOptions}</select>
+          </div>
+        </div>
+      </div>
+    `;
+
+    const buildTargetHtml = renderBuildTarget(s.build_target);
+    const goalsHtml = renderProducerGroupedGoals(s.checkpoint, podToProducer);
+    const overviewTwoCol = renderValidationAndFocus(s);
+
+    const embedSrc = `../dashboard/sprint.html?embed=1&hideHeader=1&hideOverview=1&sprint=${activeSprintNumber}`;
+
+    document.getElementById("content").innerHTML = `
+      ${headerCard}
+      ${buildTargetHtml}
+      ${goalsHtml}
+      ${overviewTwoCol}
+      <div class="info-banner">Per-pod, cross-pod, capacity, ClickUp coverage, checkpoint coverage, and risks panels still embedded from <code>sprint.html</code> below — porting incrementally. Open standalone for the full original layout: <a href="../dashboard/sprint.html" target="_blank" rel="noopener">sprint.html ↗</a></div>
+      <div class="embed-host" data-embed-src="../dashboard/sprint.html">
+        <div class="embed-loading">Loading remaining panels…</div>
+        <iframe src="${embedSrc}" title="Sprint Plan (rest)" onload="this.previousElementSibling && this.previousElementSibling.remove();"></iframe>
+      </div>
+    `;
+
+    const sw = document.getElementById("sprint-switcher");
+    if (sw) sw.addEventListener("change", e => switchSprint(+e.target.value));
+  }
+
+  function buildPodToProducerMap(d) {
+    const map = Object.assign({}, POD_TO_PRODUCER_FALLBACK);
+    if (Array.isArray(d.pods)) {
+      for (const p of d.pods) {
+        if (p && p.name && p.producer) map[p.name] = p.producer;
+      }
+    }
+    return map;
+  }
+
+  function renderBuildTarget(bt) {
+    if (!bt || !bt.headline) {
+      return `<div class="info-banner">No build target authored for this sprint yet — run <code>/sprint-plan</code> to populate <code>summary.build_target</code>.</div>`;
+    }
+    return `
+      <div class="build-target-card">
+        <div class="build-target-eyebrow">Build Target — End of Sprint</div>
+        <div class="build-target-headline">${escapeHtml(bt.headline)}</div>
+        <div class="build-target-stats">
+          ${renderBtChip(bt.territories, "Territories")}
+          ${renderBtChip(bt.new_features, "New Features")}
+        </div>
+      </div>
+    `;
+  }
+
+  function renderBtChip(field, label) {
+    if (!field) return "";
+    const count = (field.count != null) ? field.count : "—";
+    return `
+      <div class="bt-chip">
+        <div class="bt-chip-row">
+          <span class="bt-chip-count">${escapeHtml(String(count))}</span>
+          <span class="bt-chip-label">${escapeHtml(label)}</span>
+        </div>
+        ${field.note ? `<div class="bt-chip-note">${escapeHtml(field.note)}</div>` : ""}
+      </div>
+    `;
+  }
+
+  function renderProducerGroupedGoals(checkpoint, podToProducer) {
+    if (!checkpoint || !Array.isArray(checkpoint.goals) || checkpoint.goals.length === 0) {
+      return "";
+    }
+    const buckets = bucketGoalsByProducer(checkpoint.goals, podToProducer);
+    const seenProducers = Object.keys(buckets);
+    const orderedProducers = PRODUCER_COL_ORDER.filter(p => buckets[p])
+      .concat(seenProducers.filter(p => !PRODUCER_COL_ORDER.includes(p)).sort());
+
+    const POD_ORDER = ["Empire", "Metagame", "Social Dynamics", "Battle", "Dozer"];
+    const podSort = (a, b) => {
+      const ai = POD_ORDER.indexOf(a), bi = POD_ORDER.indexOf(b);
+      if (ai === -1 && bi === -1) return a.localeCompare(b);
+      if (ai === -1) return 1;
+      if (bi === -1) return -1;
+      return ai - bi;
+    };
+
+    const cols = orderedProducers.map(producer => {
+      const bucket = buckets[producer];
+      const pods = Object.keys(bucket.pods).sort(podSort);
+      const podBlocks = pods.map(pod => {
+        const items = bucket.pods[pod].map(g => `<li>${escapeHtml(g)}</li>`).join("");
+        return `
+          <div class="goal-pod-block">
+            <div class="goal-pod-block-header">
+              <span class="pod-tag pod-tag-sm ${podClass(pod)}">${escapeHtml(pod)}</span>
+            </div>
+            <ul class="goal-pod-list">${items}</ul>
+          </div>
+        `;
+      }).join("");
+      const podsLabel = pods.join(" + ");
+      return `
+        <div class="goal-producer-col">
+          <div class="goal-producer-name"><strong>${escapeHtml(producer)}</strong> · ${escapeHtml(podsLabel)}</div>
+          ${podBlocks}
+        </div>
+      `;
+    }).join("");
+
+    return `
+      <div class="panel">
+        <div class="panel-title">${escapeHtml(checkpoint.name || "Checkpoint Goals")}</div>
+        <div class="goals-3col">${cols}</div>
+      </div>
+    `;
+  }
+
+  function bucketGoalsByProducer(goals, podToProducer) {
+    const bucket = {};
+    for (const g of goals) {
+      const text = typeof g === "string" ? g : g.text;
+      const m = text.match(/^([^:]+):\s*(.+)$/);
+      const pod = m ? m[1].trim() : "Cross-pod";
+      const goalText = m ? m[2].trim() : text;
+      const producer = podToProducer[pod] || "Cross-pod / TBD";
+      if (!bucket[producer]) bucket[producer] = { producer, pods: {} };
+      if (!bucket[producer].pods[pod]) bucket[producer].pods[pod] = [];
+      bucket[producer].pods[pod].push(goalText);
+    }
+    return bucket;
+  }
+
+  function renderValidationAndFocus(s) {
+    const validation = (s.validation_in_flight || []).map(v => {
+      if (typeof v === "string") {
+        return `<div class="sprint-overview-item"><span class="shq-badge">${escapeHtml(v)}</span><span></span><span></span></div>`;
+      }
+      const pods = (v.pods || []).map(p => `<span class="pod-tag pod-tag-sm ${podClass(p)}">${escapeHtml(p)}</span>`).join(" ");
+      return `
+        <div class="sprint-overview-item">
+          <span class="shq-badge">${escapeHtml(v.id || "")}</span>
+          <span>${escapeHtml(v.label || "")}</span>
+          <span>${pods}</span>
+        </div>`;
+    }).join("");
+    const focus = (s.active_focus || []).map(f => {
+      const text = typeof f === "string" ? f : (f.text || "");
+      const shqs = (typeof f === "object" && f.shqs ? f.shqs : []).map(x => `<span class="shq-badge">${escapeHtml(x)}</span>`).join(" ");
+      const pods = (typeof f === "object" && f.pods ? f.pods : []).map(p => `<span class="pod-tag pod-tag-sm ${podClass(p)}">${escapeHtml(p)}</span>`).join(" ");
+      return `
+        <div class="sprint-overview-item">
+          <span></span>
+          <span>${escapeHtml(text)}</span>
+          <span>${shqs} ${pods}</span>
+        </div>`;
+    }).join("");
+    if (!validation && !focus) return "";
+    return `
+      <div class="panel">
+        <div class="sprint-overview-twocol">
+          <div class="sprint-overview-col">
+            <h3>Validation In Flight</h3>
+            ${validation || `<div class="small">No active SHQs listed.</div>`}
+          </div>
+          <div class="sprint-overview-col">
+            <h3>Active Focus This Sprint</h3>
+            ${focus || `<div class="small">No active focus items listed.</div>`}
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
   function renderCapacity() {
     const c = CAPACITY_DATA || {};
     const storageKey = "capacity";
