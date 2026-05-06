@@ -7,16 +7,6 @@ Pod Lead: Paul Flores
 > Ranked backlog of all Social Dynamics features. Rank is global priority — #1 is always the most important thing.
 > Full feature specs in `planning/features/`. Staffing in `planning/capacity.md`.
 
----
-
-## Initial Launch Requirement
-
-v1 multiplayer feature-complete by end of M&Ms (6/23), shippable to beta players by end of Beta Launch Prep (7/21).
-
-> *In flight (not numbered)*: MM1 Multiplayer Map Foundation — **DONE**. Sprint A (S28, IN PROGRESS) — Tile Ownership/States/Visualization, Embark Flow, MP Map Instance Creation/List/Join dev UI v1, Battles, Troop Training. End-of-A state: players select MP room, land on map, battle to conquer neutral & other player tiles.
-
----
-
 ## v1 MVP — Targets Required to Release Anything at All
 
 > The minimum set we must land across Sprints B/C/D (plus Beta Launch Prep) to ship a multiplayer beta. Treat these as hard targets. If we beat them, pull in Post-MVP items below — ideally we sprint faster and land more before M&Ms ends.
