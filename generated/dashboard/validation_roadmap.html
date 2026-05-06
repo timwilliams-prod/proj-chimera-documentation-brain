@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lotus Validation Roadmap</title>
+  <style>
+    :root {
+      --bg: #1a1a2e;
+      --bg-panel: #16213e;
+      --bg-card: #0f3460;
+      --bg-row-alt: #1a2744;
+      --text: #e0e0e0;
+      --text-dim: #8899aa;
+      --text-bright: #ffffff;
+      --border: #2a3a5e;
+      --accent: #53a8ff;
+
+      --wh-battle: #FF4444;
+      --wh-empire: #4A9EFF;
+      --wh-monetization: #FFD700;
+      --wh-production: #888888;
+
+      --confidence-green: #22c55e;
+      --confidence-yellow: #eab308;
+      --confidence-red: #ef4444;
+      --confidence-purple: #8b5cf6;
+      --confidence-gray: #6b7280;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 24px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* ── Navigation ── */
+    .top-nav {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .nav-brand { font-weight: 700; color: var(--accent); font-size: 16px; }
+    .nav-links { display: flex; gap: 8px; flex: 1; }
+    .nav-link {
+      padding: 6px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 13px;
+      transition: all 0.2s;
+    }
+    .nav-link:hover { background: rgba(83,168,255,0.1); color: var(--accent); }
+    .nav-link.active { color: var(--accent); background: rgba(83,168,255,0.15); font-weight: 600; }
+    .nav-repo { font-size: 12px; }
+
+    /* ── Header ── */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--border);
+    }
+    .header-left h1 { font-size: 28px; color: var(--text-bright); margin-bottom: 4px; }
+    .header-left .subtitle { color: var(--text-dim); font-size: 14px; }
+    .last-updated {
+      display: inline-block;
+      background: rgba(83, 168, 255, 0.12);
+      border: 1px solid rgba(83, 168, 255, 0.35);
+      color: var(--accent);
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 8px;
+      letter-spacing: 0.2px;
+    }
+    .stale-warning {
+      background: rgba(234, 179, 8, 0.15);
+      border: 1px solid var(--confidence-yellow);
+      color: var(--confidence-yellow);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      margin-top: 8px;
+    }
+
+    /* ── Milestone Tabs ── */
+    .milestone-tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+    .milestone-tab {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .milestone-tab:hover { border-color: var(--accent); }
+    .milestone-tab.active {
+      background: rgba(83, 168, 255, 0.15);
+      border-color: var(--accent);
+    }
+    .milestone-tab .tab-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-bright);
+      margin-bottom: 4px;
+    }
+    .milestone-tab .tab-meta {
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+    .milestone-tab .tab-stats {
+      display: flex;
+      gap: 8px;
+      margin-top: 6px;
+      font-size: 11px;
+    }
+
+    /* ── Filters ── */
+    .filters {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .filter-group {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .filter-label {
+      font-size: 12px;
+      color: var(--text-dim);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .filter-button {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-button:hover { border-color: var(--accent); }
+    .filter-button.active {
+      background: rgba(83, 168, 255, 0.2);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .search-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      outline: none;
+      flex: 1;
+      min-width: 200px;
+    }
+    .search-box:focus { border-color: var(--accent); }
+
+    /* ── Summary Stats ── */
+    .summary-stats {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .stat-number {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 11px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── Winning Hypothesis Cards ── */
+    .wh-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .wh-card {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      border-left: 4px solid var(--accent);
+    }
+    .wh-card.wh-battle { border-left-color: var(--wh-battle); }
+    .wh-card.wh-empire { border-left-color: var(--wh-empire); }
+    .wh-card.wh-monetization { border-left-color: var(--wh-monetization); }
+    .wh-card.wh-production { border-left-color: var(--wh-production); }
+
+    .wh-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      gap: 16px;
+    }
+    .wh-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-bright);
+    }
+    .wh-confidence-summary {
+      font-size: 12px;
+      color: var(--text-dim);
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .wh-statement {
+      font-size: 13px;
+      color: var(--text-dim);
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+
+    /* ── BHQ Sections ── */
+    .bhq-list {
+      list-style: none;
+    }
+    .bhq-item {
+      border-top: 1px solid var(--border);
+      padding: 16px 0;
+    }
+    .bhq-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+    .bhq-header:hover .bhq-id { color: var(--accent); }
+    .bhq-id {
+      font-weight: 600;
+      color: var(--text-bright);
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .bhq-question {
+      flex: 1;
+      font-size: 14px;
+      color: var(--text);
+    }
+    .bhq-progress {
+      font-size: 12px;
+      color: var(--text-dim);
+      white-space: nowrap;
+    }
+    .bhq-toggle {
+      color: var(--accent);
+      font-size: 18px;
+      line-height: 1;
+      user-select: none;
+    }
+
+    /* ── SHQ List ── */
+    .shq-list {
+      list-style: none;
+      margin-left: 24px;
+      display: none;
+    }
+    .shq-list.expanded {
+      display: block;
+    }
+    .shq-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      gap: 12px;
+      font-size: 13px;
+    }
+    .shq-id {
+      font-weight: 600;
+      color: var(--accent);
+      min-width: 60px;
+    }
+    .shq-question {
+      flex: 1;
+      color: var(--text);
+    }
+    .shq-links {
+      display: flex;
+      gap: 8px;
+    }
+    .shq-link {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: var(--bg-card);
+      transition: all 0.2s;
+    }
+    .shq-link:hover {
+      background: rgba(83, 168, 255, 0.2);
+      color: var(--accent);
+    }
+
+    /* ── Confidence Badges ── */
+    .confidence-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .confidence-badge.confident {
+      background: rgba(34, 197, 94, 0.2);
+      color: var(--confidence-green);
+    }
+    .confidence-badge.on-track {
+      background: rgba(234, 179, 8, 0.2);
+      color: var(--confidence-yellow);
+    }
+    .confidence-badge.off-track {
+      background: rgba(239, 68, 68, 0.2);
+      color: var(--confidence-red);
+    }
+    .confidence-badge.validation-pending {
+      background: rgba(139, 92, 246, 0.2);
+      color: var(--confidence-purple);
+    }
+    .confidence-badge.other {
+      background: rgba(107, 114, 128, 0.2);
+      color: var(--confidence-gray);
+    }
+
+    /* ── Empty State ── */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-dim);
+      font-size: 14px;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 12px;
+      padding: 16px 0;
+      margin-top: 40px;
+    }
+
+    /* ── Loading ── */
+    .loading {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-dim);
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <span class="nav-brand">Lotus Tools</span>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Production Dashboard</a>
+      <a href="sprint.html" class="nav-link">Sprint Plan</a>
+      <a href="roadmap.html" class="nav-link">Roadmap</a>
+      <a href="validation.html" class="nav-link">Validation</a>
+      <a href="validation_roadmap.html" class="nav-link active">Validation Roadmap v2</a>
+      <a href="files.html" class="nav-link">Files</a>
+    </div>
+    <a href="https://github.com/timwilliams-prod/proj-chimera-documentation-brain/tree/main" class="nav-link nav-repo" target="_blank" rel="noopener">GitHub &nearr;</a>
+  </nav>
+
+  <div id="app"></div>
+
+  <script src="validation_roadmap_data.js"></script>
+  <script>
+    // ── Data Loading ──
+    let roadmapData = null;
+    let currentMilestone = null;
+    let filters = {
+      hypothesis: 'all',
+      confidence: 'all',
+      search: ''
+    };
+
+    function loadData() {
+      try {
+        if (!window.VALIDATION_ROADMAP_DATA) {
+          throw new Error('Validation roadmap data not loaded');
+        }
+
+        roadmapData = window.VALIDATION_ROADMAP_DATA;
+
+        // Convert milestones object to array if needed
+        if (roadmapData.milestones && !Array.isArray(roadmapData.milestones)) {
+          roadmapData.milestones = Object.values(roadmapData.milestones);
+        }
+
+        // Set current milestone (first one marked as current, or first in list)
+        currentMilestone = roadmapData.milestones.find(m => m.status === 'current') || roadmapData.milestones[0];
+
+        render();
+      } catch (error) {
+        document.getElementById('app').innerHTML = `
+          <div class="empty-state">
+            <p>Failed to load validation roadmap data.</p>
+            <p style="font-size: 12px; margin-top: 8px;">Error: ${error.message}</p>
+          </div>
+        `;
+      }
+    }
+
+    // ── Utilities ──
+    function formatDate(isoString) {
+      const date = new Date(isoString);
+      return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+    }
+
+    function getConfidenceClass(confidence) {
+      if (!confidence) return 'other';
+      const lower = confidence.toLowerCase();
+      if (lower.includes('confident')) return 'confident';
+      if (lower.includes('on track')) return 'on-track';
+      if (lower.includes('off track')) return 'off-track';
+      if (lower.includes('validation pending')) return 'validation-pending';
+      return 'other';
+    }
+
+    function getConfidenceEmoji(confidence) {
+      if (!confidence) return '';
+      if (confidence.includes('🟢')) return '🟢';
+      if (confidence.includes('🟡')) return '🟡';
+      if (confidence.includes('🔴')) return '🔴';
+      if (confidence.includes('🟣')) return '🟣';
+      return '';
+    }
+
+    function getWHClass(name) {
+      const lower = name.toLowerCase();
+      if (lower.includes('battle')) return 'wh-battle';
+      if (lower.includes('empire')) return 'wh-empire';
+      if (lower.includes('monetization')) return 'wh-monetization';
+      if (lower.includes('production')) return 'wh-production';
+      return '';
+    }
+
+    function isStale(generatedAt) {
+      const generated = new Date(generatedAt);
+      const now = new Date();
+      const daysDiff = (now - generated) / (1000 * 60 * 60 * 24);
+      return daysDiff > 7;
+    }
+
+    function toggleBHQ(bhqId) {
+      const element = document.getElementById(`shq-list-${bhqId}`);
+      const toggle = document.getElementById(`toggle-${bhqId}`);
+      if (element && toggle) {
+        element.classList.toggle('expanded');
+        toggle.textContent = element.classList.contains('expanded') ? '−' : '+';
+      }
+    }
+
+    function setFilter(type, value) {
+      filters[type] = value;
+      render();
+    }
+
+    function setMilestone(milestone) {
+      currentMilestone = milestone;
+      render();
+    }
+
+    // ── Filtering ──
+    function filterSHQs(shqs) {
+      return shqs.filter(shq => {
+        // Search filter
+        if (filters.search) {
+          const searchLower = filters.search.toLowerCase();
+          const matchesSearch =
+            shq.id.toLowerCase().includes(searchLower) ||
+            shq.question.toLowerCase().includes(searchLower);
+          if (!matchesSearch) return false;
+        }
+
+        // Confidence filter
+        if (filters.confidence !== 'all') {
+          const confClass = getConfidenceClass(shq.confidence);
+          if (confClass !== filters.confidence) return false;
+        }
+
+        return true;
+      });
+    }
+
+    function filterWHs(winningHypotheses) {
+      if (filters.hypothesis === 'all') {
+        return winningHypotheses;
+      }
+      return winningHypotheses.filter(wh => {
+        const whClass = getWHClass(wh.name);
+        return whClass === `wh-${filters.hypothesis}`;
+      });
+    }
+
+    // ── Rendering ──
+    function render() {
+      if (!roadmapData) return;
+
+      const milestoneSHQs = roadmapData.winning_hypotheses.map(wh => ({
+        ...wh,
+        bhqs: wh.bhqs.map(bhq => ({
+          ...bhq,
+          shqs: bhq.shqs.filter(shq => shq.milestone === currentMilestone.name)
+        })).filter(bhq => bhq.shqs.length > 0)
+      })).filter(wh => wh.bhqs.length > 0);
+
+      const filteredWHs = filterWHs(milestoneSHQs);
+
+      const totalSHQs = currentMilestone.total_shqs;
+      const byConfidence = currentMilestone.by_confidence || {};
+
+      const stale = isStale(roadmapData.generated_at);
+
+      document.getElementById('app').innerHTML = `
+        <div class="header">
+          <div class="header-left">
+            <h1>Validation Roadmap</h1>
+            <p class="subtitle">Winning Hypotheses → BHQs → SHQs</p>
+            <span class="last-updated">Updated: ${formatDate(roadmapData.generated_at)}</span>
+            ${stale ? '<div class="stale-warning">⚠️ Data is more than 7 days old. Run /validation-roadmap to refresh.</div>' : ''}
+          </div>
+        </div>
+
+        ${renderMilestoneTabs()}
+        ${renderFilters()}
+        ${renderSummaryStats(totalSHQs, byConfidence)}
+        ${renderWinningHypotheses(filteredWHs)}
+      `;
+
+      // Attach event listeners
+      attachEventListeners();
+    }
+
+    function renderMilestoneTabs() {
+      return `
+        <div class="milestone-tabs">
+          ${roadmapData.milestones.map(milestone => {
+            const isCurrent = milestone.name === currentMilestone.name;
+            return `
+              <div class="milestone-tab ${isCurrent ? 'active' : ''}" onclick="setMilestone(${JSON.stringify(milestone).replace(/"/g, '&quot;')})">
+                <div class="tab-name">${milestone.name}</div>
+                <div class="tab-meta">${milestone.start_date || ''} – ${milestone.end_date || ''}</div>
+                <div class="tab-stats">
+                  <span>${milestone.total_shqs} SHQs</span>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      `;
+    }
+
+    function renderFilters() {
+      return `
+        <div class="filters">
+          <div class="filter-group">
+            <span class="filter-label">Hypothesis:</span>
+            <button class="filter-button ${filters.hypothesis === 'all' ? 'active' : ''}" onclick="setFilter('hypothesis', 'all')">All</button>
+            <button class="filter-button ${filters.hypothesis === 'battle' ? 'active' : ''}" onclick="setFilter('hypothesis', 'battle')">Battle</button>
+            <button class="filter-button ${filters.hypothesis === 'empire' ? 'active' : ''}" onclick="setFilter('hypothesis', 'empire')">Empire</button>
+            <button class="filter-button ${filters.hypothesis === 'monetization' ? 'active' : ''}" onclick="setFilter('hypothesis', 'monetization')">Monetization</button>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">Confidence:</span>
+            <button class="filter-button ${filters.confidence === 'all' ? 'active' : ''}" onclick="setFilter('confidence', 'all')">All</button>
+            <button class="filter-button ${filters.confidence === 'confident' ? 'active' : ''}" onclick="setFilter('confidence', 'confident')">🟢 Confident</button>
+            <button class="filter-button ${filters.confidence === 'on-track' ? 'active' : ''}" onclick="setFilter('confidence', 'on-track')">🟡 On Track</button>
+            <button class="filter-button ${filters.confidence === 'off-track' ? 'active' : ''}" onclick="setFilter('confidence', 'off-track')">🔴 Off Track</button>
+            <button class="filter-button ${filters.confidence === 'validation-pending' ? 'active' : ''}" onclick="setFilter('confidence', 'validation-pending')">🟣 Pending</button>
+          </div>
+          <input
+            type="text"
+            class="search-box"
+            placeholder="Search SHQs..."
+            value="${filters.search}"
+            onkeyup="setFilter('search', this.value)"
+          >
+        </div>
+      `;
+    }
+
+    function renderSummaryStats(total, byConfidence) {
+      return `
+        <div class="summary-stats">
+          <div class="stat-item">
+            <div class="stat-number" style="color: var(--text-bright);">${total}</div>
+            <div class="stat-label">Total SHQs</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" style="color: var(--confidence-green);">${byConfidence.confident || 0}</div>
+            <div class="stat-label">🟢 Confident</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" style="color: var(--confidence-yellow);">${byConfidence.on_track || 0}</div>
+            <div class="stat-label">🟡 On Track</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" style="color: var(--confidence-red);">${byConfidence.off_track || 0}</div>
+            <div class="stat-label">🔴 Off Track</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" style="color: var(--confidence-purple);">${byConfidence.validation_pending || 0}</div>
+            <div class="stat-label">🟣 Pending</div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderWinningHypotheses(winningHypotheses) {
+      if (winningHypotheses.length === 0) {
+        return `<div class="empty-state">No SHQs found for the selected filters.</div>`;
+      }
+
+      return `
+        <div class="wh-cards">
+          ${winningHypotheses.map(wh => renderWHCard(wh)).join('')}
+        </div>
+      `;
+    }
+
+    function renderWHCard(wh) {
+      const totalSHQs = wh.bhqs.reduce((sum, bhq) => sum + bhq.shqs.length, 0);
+
+      return `
+        <div class="wh-card ${getWHClass(wh.name)}">
+          <div class="wh-header">
+            <div class="wh-title">${wh.id}: ${wh.name}</div>
+            <div class="wh-confidence-summary">${totalSHQs} SHQs</div>
+          </div>
+          ${wh.statement ? `<div class="wh-statement">"${wh.statement}"</div>` : ''}
+          <ul class="bhq-list">
+            ${wh.bhqs.map(bhq => renderBHQItem(bhq, wh.id)).join('')}
+          </ul>
+        </div>
+      `;
+    }
+
+    function renderBHQItem(bhq, whId) {
+      const bhqId = `${whId}-${bhq.id}`.replace(/\s/g, '-');
+      const filteredSHQs = filterSHQs(bhq.shqs);
+      const totalSHQs = bhq.shqs.length;
+      const answeredSHQs = bhq.shqs.filter(shq =>
+        shq.confidence && (
+          shq.confidence.includes('Confident') ||
+          shq.confidence.includes('On track')
+        )
+      ).length;
+
+      if (filteredSHQs.length === 0) return '';
+
+      return `
+        <li class="bhq-item">
+          <div class="bhq-header" onclick="toggleBHQ('${bhqId}')">
+            <span class="bhq-id">${bhq.id}</span>
+            <span class="bhq-question">${bhq.question}</span>
+            <span class="bhq-progress">${answeredSHQs}/${totalSHQs}</span>
+            <span class="bhq-toggle" id="toggle-${bhqId}">+</span>
+          </div>
+          <ul class="shq-list" id="shq-list-${bhqId}">
+            ${filteredSHQs.map(shq => renderSHQItem(shq)).join('')}
+          </ul>
+        </li>
+      `;
+    }
+
+    function renderSHQItem(shq) {
+      return `
+        <li class="shq-item">
+          <span class="shq-id">${shq.id}</span>
+          <span class="shq-question">${shq.question}</span>
+          <span class="confidence-badge ${getConfidenceClass(shq.confidence)}">
+            ${getConfidenceEmoji(shq.confidence)} ${shq.confidence || 'N/A'}
+          </span>
+          <div class="shq-links">
+            ${shq.notion_url ? `<a href="${shq.notion_url}" class="shq-link" target="_blank">Notion</a>` : ''}
+            ${shq.clickup_url ? `<a href="${shq.clickup_url}" class="shq-link" target="_blank">ClickUp</a>` : ''}
+          </div>
+        </li>
+      `;
+    }
+
+    function attachEventListeners() {
+      // Event listeners are inline in the HTML for simplicity
+    }
+
+    // ── Initialize ──
+    document.getElementById('app').innerHTML = '<div class="loading">Loading validation roadmap...</div>';
+    loadData();
+  </script>
+
+  <div class="footer">
+    Generated by Lotus Validation Roadmap Skill
+  </div>
+
+</body>
+</html>

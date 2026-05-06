@@ -124,7 +124,7 @@
     "#/action-center":             () => renderActionCenter(),
     "#/reports":                   () => renderReports(),
     "#/plans/roadmap":             () => renderRoadmap(),
-    "#/plans/validation":          () => renderEmbedded("Validation Roadmap", "../dashboard/validation.html"),
+    "#/plans/validation":          () => renderEmbedded("Validation Roadmap", "../dashboard/validation_roadmap.html"),
     "#/plans/sprints":             () => renderSprintPlan(),
     "#/plans/capacity":            () => renderCapacity(),
     "#/priorities/empire":         () => renderPriorities("empire"),
