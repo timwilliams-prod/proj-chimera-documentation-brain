@@ -1077,7 +1077,7 @@
 
     const buildTargetHtml = renderBuildTarget(s.build_target);
     const goalsHtml = renderProducerGroupedGoals(s.checkpoint, podToProducer);
-    const overviewTwoCol = renderValidationAndFocus(s);
+    const validationHtml = renderValidationInFlight(s);
 
     const embedSrc = `../dashboard/sprint.html?embed=1&hideHeader=1&hideOverview=1&sprint=${activeSprintNumber}`;
 
@@ -1085,7 +1085,7 @@
       ${headerCard}
       ${buildTargetHtml}
       ${goalsHtml}
-      ${overviewTwoCol}
+      ${validationHtml}
       <div class="info-banner">Per-pod, cross-pod, capacity, ClickUp coverage, checkpoint coverage, and risks panels still embedded from <code>sprint.html</code> below — porting incrementally. Open standalone for the full original layout: <a href="../dashboard/sprint.html" target="_blank" rel="noopener">sprint.html ↗</a></div>
       <div class="embed-host" data-embed-src="../dashboard/sprint.html">
         <div class="embed-loading">Loading remaining panels…</div>
@@ -1115,24 +1115,6 @@
       <div class="build-target-card">
         <div class="build-target-eyebrow">Build Target — End of Sprint</div>
         <div class="build-target-headline">${escapeHtml(bt.headline)}</div>
-        <div class="build-target-stats">
-          ${renderBtChip(bt.territories, "Territories")}
-          ${renderBtChip(bt.new_features, "New Features")}
-        </div>
-      </div>
-    `;
-  }
-
-  function renderBtChip(field, label) {
-    if (!field) return "";
-    const count = (field.count != null) ? field.count : "—";
-    return `
-      <div class="bt-chip">
-        <div class="bt-chip-row">
-          <span class="bt-chip-count">${escapeHtml(String(count))}</span>
-          <span class="bt-chip-label">${escapeHtml(label)}</span>
-        </div>
-        ${field.note ? `<div class="bt-chip-note">${escapeHtml(field.note)}</div>` : ""}
       </div>
     `;
   }
@@ -1201,43 +1183,25 @@
     return bucket;
   }
 
-  function renderValidationAndFocus(s) {
-    const validation = (s.validation_in_flight || []).map(v => {
+  function renderValidationInFlight(s) {
+    const items = s.validation_in_flight || [];
+    if (!items.length) return "";
+    const rows = items.map(v => {
       if (typeof v === "string") {
-        return `<div class="sprint-overview-item"><span class="shq-badge">${escapeHtml(v)}</span><span></span><span></span></div>`;
+        return `<span class="vif-row"><span class="shq-badge">${escapeHtml(v)}</span></span>`;
       }
       const pods = (v.pods || []).map(p => `<span class="pod-tag pod-tag-sm ${podClass(p)}">${escapeHtml(p)}</span>`).join(" ");
       return `
-        <div class="sprint-overview-item">
+        <span class="vif-row">
           <span class="shq-badge">${escapeHtml(v.id || "")}</span>
-          <span>${escapeHtml(v.label || "")}</span>
-          <span>${pods}</span>
-        </div>`;
+          <span class="vif-label">${escapeHtml(v.label || "")}</span>
+          ${pods}
+        </span>`;
     }).join("");
-    const focus = (s.active_focus || []).map(f => {
-      const text = typeof f === "string" ? f : (f.text || "");
-      const shqs = (typeof f === "object" && f.shqs ? f.shqs : []).map(x => `<span class="shq-badge">${escapeHtml(x)}</span>`).join(" ");
-      const pods = (typeof f === "object" && f.pods ? f.pods : []).map(p => `<span class="pod-tag pod-tag-sm ${podClass(p)}">${escapeHtml(p)}</span>`).join(" ");
-      return `
-        <div class="sprint-overview-item">
-          <span></span>
-          <span>${escapeHtml(text)}</span>
-          <span>${shqs} ${pods}</span>
-        </div>`;
-    }).join("");
-    if (!validation && !focus) return "";
     return `
-      <div class="panel">
-        <div class="sprint-overview-twocol">
-          <div class="sprint-overview-col">
-            <h3>Validation In Flight</h3>
-            ${validation || `<div class="small">No active SHQs listed.</div>`}
-          </div>
-          <div class="sprint-overview-col">
-            <h3>Active Focus This Sprint</h3>
-            ${focus || `<div class="small">No active focus items listed.</div>`}
-          </div>
-        </div>
+      <div class="vif-section">
+        <span class="vif-eyebrow">Validation In Flight</span>
+        <div class="vif-rows">${rows}</div>
       </div>
     `;
   }

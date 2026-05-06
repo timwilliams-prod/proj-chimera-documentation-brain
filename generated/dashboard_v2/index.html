@@ -846,45 +846,7 @@
       line-height: 1.5;
       color: var(--text-bright);
       font-weight: 400;
-      margin-bottom: 14px;
-    }
-    .build-target-stats {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .bt-chip {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 8px 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      min-width: 130px;
-      max-width: 360px;
-    }
-    .bt-chip-row {
-      display: flex;
-      align-items: baseline;
-      gap: 6px;
-    }
-    .bt-chip-count {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--text-bright);
-      line-height: 1;
-    }
-    .bt-chip-label {
-      font-size: 11px;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-    }
-    .bt-chip-note {
-      font-size: 11.5px;
-      color: var(--text-dim);
-      line-height: 1.35;
+      margin-bottom: 0;
     }
 
     /* Producer-grouped Goals — 3 columns */
@@ -940,33 +902,38 @@
       font-size: 16px;
     }
 
-    /* Validation In Flight + Active Focus two-column layout */
-    .sprint-overview-twocol {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-    @media (max-width: 900px) { .sprint-overview-twocol { grid-template-columns: 1fr; } }
-    .sprint-overview-col h3 {
-      font-size: 11px;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-      margin: 0 0 8px 0;
-      padding-bottom: 6px;
+    /* Validation In Flight — slim, no panel framing, inline rows */
+    .vif-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 8px 14px;
+      padding: 8px 4px 14px 4px;
+      margin-bottom: 14px;
       border-bottom: 1px solid var(--border);
     }
-    .sprint-overview-item {
-      padding: 6px 0;
-      font-size: 12.5px;
-      line-height: 1.4;
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      align-items: baseline;
-      gap: 8px;
-      border-bottom: 1px solid rgba(42, 58, 94, 0.2);
+    .vif-eyebrow {
+      font-size: 10.5px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+      flex-shrink: 0;
     }
-    .sprint-overview-item:last-child { border-bottom: none; }
+    .vif-rows {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 14px;
+      flex: 1;
+    }
+    .vif-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      line-height: 1.3;
+    }
+    .vif-label { color: var(--text); }
     .shq-badge {
       font-family: 'Cascadia Code', 'Fira Code', Consolas, monospace;
       font-size: 10.5px;
@@ -1126,7 +1093,8 @@
   <script src="data/help_data.js"></script>
   <script src="data/brain_health_data.js"></script>
 
-  <!-- App router and pages -->
-  <script src="js/app.js"></script>
+  <!-- App router and pages.
+       Bump ?v= when shipping app.js changes so browsers don't serve a stale copy. -->
+  <script src="js/app.js?v=2026-05-06b"></script>
 </body>
 </html>

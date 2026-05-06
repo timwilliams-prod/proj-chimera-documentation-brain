@@ -312,9 +312,7 @@ var SPRINT_DATA = {
 
   summary: {
     build_target: {
-      headline: "Sprint 29 closes M&M Checkpoint 2: in-client multiplayer is demonstrably playable in dev UI, the Empire Progression Tree starts and Building Upgrades ships, the Battle HUD passes 50% implementation, and Dozer's compliance + UI Framework V2 land feature-complete.",
-      territories: { count: 0, note: "T7 (Jacob) and T8 (Elise) progressing in pipeline; no new playable territories ship in this sprint's build" },
-      new_features: { count: 5, note: "Building Upgrades shipped · MM2 Sprint B in-client multiplayer dev UI · Empire Progression Tree (eng kickoff) · Battle HUD ≥50% impl · Compliance (OneTrust + Age Gate) feature-complete" }
+      headline: "Sprint 29 closes M&M Checkpoint 2: Building Upgrades ships, partial Battle HUD updates, Empire Progression Tree starts. Initial in-client version of multiplayer targeted. Player experience updated through T6."
     },
     milestone_goals: [
       "Multiplayer foundations playable in internal playtests by end of M&Ms",
