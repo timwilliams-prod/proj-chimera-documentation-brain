@@ -727,6 +727,11 @@
         --text: #111; --text-dim: #555; --text-bright: #000; --border: #ccc;
       }
     }
+
+    /* ── Embed mode (loaded inside the v2 portal via iframe with ?embed=1) ── */
+    body.embed { padding: 0 !important; margin: 0 !important; max-width: none !important; background: transparent !important; }
+    body.embed .top-nav { display: none !important; }
+    body.embed .footer { display: none !important; }
   </style>
 </head>
 <body>
@@ -739,6 +744,7 @@
       <a href="roadmap.html" class="nav-link">Roadmap</a>
       <a href="validation.html" class="nav-link">Validation</a>
       <a href="files.html" class="nav-link">Files</a>
+      <a href="../dashboard_v2/index.html" class="nav-link" target="_blank" rel="noopener" style="background:rgba(234,179,8,0.15);color:#eab308;" title="Productionomicon 2 — picon">picon ↗</a>
     </div>
     <a href="https://github.com/timwilliams-prod/proj-chimera-documentation-brain/tree/main" class="nav-link nav-repo" target="_blank" rel="noopener">GitHub &nearr;</a>
   </nav>
@@ -2047,6 +2053,27 @@
       document.getElementById('app').innerHTML =
         '<div class="no-data-message">No sprint manifest found.<br>Run <code>/sprint-plan</code> to generate sprint data.</div>';
     }
+  </script>
+
+  <script>
+    /* Embed-mode bridge for the v2 portal */
+    (function() {
+      if (new URLSearchParams(location.search).get('embed') !== '1') return;
+      document.body.classList.add('embed');
+      let lastH = 0;
+      function postHeight() {
+        const h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+        if (h !== lastH) {
+          lastH = h;
+          parent.postMessage({ type: 'embed-height', height: h }, '*');
+        }
+      }
+      window.addEventListener('load', postHeight);
+      window.addEventListener('resize', postHeight);
+      window.addEventListener('hashchange', postHeight);
+      try { new ResizeObserver(postHeight).observe(document.body); } catch (e) {}
+      setInterval(postHeight, 1500);
+    })();
   </script>
 </body>
 </html>
