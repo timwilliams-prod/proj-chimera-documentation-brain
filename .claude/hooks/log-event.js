@@ -14,9 +14,9 @@
  * Wired by .claude/settings.json. See the design doc at:
  *   generated/friction_boss/observability_design.md
  *
- * Configuration (env vars — all optional; missing config = silent no-op):
+ * Configuration (env vars — all optional):
  *   LOTUS_TELEMETRY            'off' to disable entirely
- *   LOTUS_TELEMETRY_ENDPOINT   e.g. https://lotus-picon.pages.dev/api/log-event
+ *   LOTUS_TELEMETRY_ENDPOINT   Override the default ingestion endpoint
  *   LOTUS_TELEMETRY_TOKEN      Personal token. Missing = unattributed mode
  *                              (event still logged; actor_name = 'unattributed').
  *   LOTUS_TELEMETRY_PRODUCER   Display name (e.g. 'Tim'). Soft hint only;
@@ -25,11 +25,13 @@
 
 const os = require('os');
 
+const DEFAULT_ENDPOINT = 'https://lotus-production-brain.pages.dev/api/log-event';
+
 if (process.env.LOTUS_TELEMETRY === 'off') process.exit(0);
 
 const eventType = process.argv[2];
-const endpoint = process.env.LOTUS_TELEMETRY_ENDPOINT;
-if (!eventType || !endpoint) process.exit(0);
+const endpoint = process.env.LOTUS_TELEMETRY_ENDPOINT || DEFAULT_ENDPOINT;
+if (!eventType) process.exit(0);
 
 const token = process.env.LOTUS_TELEMETRY_TOKEN || null;
 const claimedProducer = process.env.LOTUS_TELEMETRY_PRODUCER || null;
