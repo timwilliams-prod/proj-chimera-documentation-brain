@@ -154,7 +154,7 @@ export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
       list_id: listId,
       totals,
       by_pod: byPodSorted,
-      data_source: `Live from ClickUp — ${sprintTasks.length} tasks (scanned ${allFetched.length} across ${listsToQuery.length} lists)`,
+      data_source: `Live · ${sprintTasks.length} tasks`,
       fetched_at: new Date().toISOString()
     },
     200,

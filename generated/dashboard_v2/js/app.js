@@ -310,6 +310,12 @@
     } else if (listId) {
       fetchLiveSprint(listId);
     }
+    // 3-state widget label: live cache | loading | snapshot fallback.
+    // Loading takes ~1 min because the fix scans 5 ClickUp lists to capture
+    // TIML tasks — surface that to the user so the wait isn't mysterious.
+    const sprintLabel = cacheFresh
+      ? (s.data_source || "Live")
+      : (listId ? "Updating live data from ClickUp… (~1 min)" : `Snapshot from ${d.generated_at || "—"}`);
 
     const today = new Date();
     const endDate = m.end_date ? new Date(m.end_date) : null;
@@ -377,8 +383,8 @@
             <span class="panel-subtitle">${s.start_date || ""} → ${s.end_date || ""}</span>
           </div>
           <div style="font-size:20px;color:var(--text-bright);font-weight:600;">${s.name || "—"}</div>
-          <div style="font-size:11px;color:var(--text-dim);margin-top:2px;">
-            ${s.data_source ? s.data_source : `Snapshot from ${d.generated_at || "—"}`}
+          <div style="font-size:11px;color:var(--text-dim);margin-top:2px;font-style:${cacheFresh ? "normal" : "italic"};">
+            ${sprintLabel}
           </div>
           <div class="meta-row">
             ${daysLeftSprint !== null ? `<span><strong>${daysLeftSprint}</strong> days left</span>` : ""}
