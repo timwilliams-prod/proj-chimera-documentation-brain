@@ -123,7 +123,7 @@
     "#/dashboard":                 () => renderHome(),
     "#/action-center":             () => renderActionCenter(),
     "#/reports":                   () => renderReports(),
-    "#/plans/roadmap":             () => renderEmbedded("Roadmap", "../dashboard/roadmap.html"),
+    "#/plans/roadmap":             () => renderRoadmap(),
     "#/plans/validation":          () => renderEmbedded("Validation Roadmap", "../dashboard/validation.html"),
     "#/plans/sprints":             () => renderEmbedded("Sprint Plans", "../dashboard/sprint.html", "Ported as-is from the existing dashboard. Dropdown bug + Next-label work tracked for a follow-up session."),
     "#/plans/capacity":            () => renderCapacity(),
@@ -144,6 +144,7 @@
   function route() {
     const hash = window.location.hash || "#/dashboard";
     document.body.classList.remove("edit-mode");
+    closeBoulderPopover();
     const handler = ROUTES[hash];
     if (handler) {
       handler();
@@ -450,6 +451,418 @@
         <div class="embed-loading">Loading…</div>
         <iframe src="${embedSrc}" title="${title}" onload="this.previousElementSibling && this.previousElementSibling.remove();"></iframe>
       </div>
+    `;
+  }
+
+  // ────────────────────────────────────────────────────────────────────────────
+  // Roadmap (native — replaces the iframe to dashboard/roadmap.html)
+  // ────────────────────────────────────────────────────────────────────────────
+  const POD_COLORS_HEX = {
+    "Empire": "#4A9EFF",
+    "Metagame": "#FF8C42",
+    "Battle": "#FF4444",
+    "Social Dynamics": "#44BB77",
+    "Dozer": "#AA77FF",
+    "Art": "#FFD700"
+  };
+  const MS_COLORS = {
+    "Sys Validation": "#6b7280",
+    "Sys Val": "#6b7280",
+    "M&Ms": "#4A9EFF",
+    "Beta Prep": "#eab308",
+    "M&C": "#22c55e",
+    "Live Ops & Social": "#AA77FF",
+    "Live Ops": "#AA77FF",
+    "Soft Launch": "#FF8C42"
+  };
+
+  function renderRoadmap() {
+    const d = DASHBOARD_DATA || {};
+    const r = d.roadmap;
+    if (!r || !Array.isArray(r.boulders)) {
+      document.getElementById("content").innerHTML = `
+        ${pageHeader({ title: "Roadmap", subtitle: "Source: <code>generated/dashboard/dashboard_data.js</code>" })}
+        <div class="panel"><div class="small">No roadmap data found in DASHBOARD_DATA.roadmap. Run /production-dashboard.</div></div>
+      `;
+      return;
+    }
+
+    const todayStr = new Date().toISOString().slice(0, 10);
+    const lastMs = r.milestones[r.milestones.length - 1];
+    const tlStart = r.timeline_start;
+    const tlEnd = lastMs.date;
+
+    const months = generateMonths(tlStart, tlEnd);
+    const chartStart = months[0].start;
+    const chartEnd = months[months.length - 1].end;
+    const totalDays = daysBetween(chartStart, chartEnd);
+    const pct = (dateStr) => {
+      const days = daysBetween(chartStart, dateStr);
+      return Math.max(0, Math.min(100, (days / totalDays) * 100));
+    };
+
+    const monthCols = months.map(m => {
+      const isCurrent = todayStr >= m.start && todayStr <= m.end;
+      return `<div class="roadmap-month-col ${isCurrent ? "current" : ""}">${m.label}</div>`;
+    }).join("");
+
+    const gridlines = months.map(m => {
+      const left = pct(m.start);
+      return `<div class="month-gridline" style="left: ${left}%;"></div>`;
+    }).join("");
+
+    const msPeriods = buildMilestonePeriods(r.milestones, chartStart, chartEnd);
+    const currentMsName = (d.milestone && d.milestone.name) || "";
+    const msBands = msPeriods.map(ms => {
+      const left = pct(ms.start);
+      const right = pct(ms.end);
+      const width = right - left;
+      const color = MS_COLORS[ms.name] || "#888";
+      const isActive = currentMsName.includes(ms.name);
+      return `<div class="milestone-band ${isActive ? "active-ms" : ""}"
+                   style="left: ${left}%; width: ${width}%; background: ${color};">
+                ${ms.name}
+              </div>`;
+    }).join("");
+
+    const msMarkers = r.milestones.map(ms => {
+      const left = pct(ms.date);
+      if (left <= 0 || left >= 100) return "";
+      return `<div class="milestone-marker" style="left: ${left}%;"></div>`;
+    }).join("");
+
+    const todayLeft = pct(todayStr);
+    const todayMarker = (todayLeft > 0 && todayLeft < 100)
+      ? `<div class="today-marker" style="left: ${todayLeft}%;"></div>`
+      : "";
+
+    const podRows = r.pods.map(pod => {
+      const podColor = POD_COLORS_HEX[pod] || "#888";
+      const podBoulders = r.boulders
+        .map((b, idx) => ({ b, idx }))
+        .filter(({ b }) => b.pod === pod);
+
+      // Stack overlapping boulders into lanes
+      const lanes = [];
+      podBoulders.forEach(({ b, idx }) => {
+        let placed = false;
+        for (let i = 0; i < lanes.length; i++) {
+          const last = lanes[i][lanes[i].length - 1].b;
+          if (b.start >= last.end) {
+            lanes[i].push({ b, idx });
+            placed = true;
+            break;
+          }
+        }
+        if (!placed) lanes.push([{ b, idx }]);
+      });
+
+      const rowHeight = Math.max(1, lanes.length) * 30 + 12;
+
+      const boulderHtml = lanes.map((lane, laneIdx) => {
+        return lane.map(({ b, idx }) => {
+          const left = pct(b.start);
+          const right = pct(b.end);
+          const width = right - left;
+          const top = 6 + laneIdx * 30;
+          return `
+            <div class="boulder-bar ${b.status === "future" ? "future" : ""}"
+                 style="left: ${left}%; width: ${width}%; top: ${top}px; background: ${podColor};"
+                 data-boulder-idx="${idx}"
+                 title="${escapeAttr(b.name)}">
+              ${escapeHtml(b.name)}
+            </div>
+          `;
+        }).join("");
+      }).join("");
+
+      return `
+        <div class="roadmap-row" style="min-height: ${rowHeight}px;">
+          <div class="roadmap-pod-label">
+            <div class="roadmap-pod-dot" style="background: ${podColor};"></div>
+            ${pod}
+          </div>
+          <div class="roadmap-track">
+            <div class="month-gridlines">${gridlines}</div>
+            ${msMarkers}
+            ${todayMarker}
+            ${boulderHtml}
+          </div>
+        </div>
+      `;
+    }).join("");
+
+    const podLegend = r.pods.map(pod => {
+      const color = POD_COLORS_HEX[pod] || "#888";
+      return `<span class="legend-item"><span class="legend-swatch" style="background:${color}"></span>${pod}</span>`;
+    }).join("");
+    const msLegend = msPeriods.map(ms => {
+      const color = MS_COLORS[ms.name] || "#888";
+      return `<span class="legend-item"><span class="legend-swatch" style="background:${color}"></span>${ms.name}</span>`;
+    }).join("");
+
+    document.getElementById("content").innerHTML = `
+      ${pageHeader({
+        title: "Roadmap",
+        subtitle: `${formatDate(tlStart)} through ${formatDate(tlEnd)} · ${r.boulders.length} features across ${r.pods.length} pods · click a bar for details`,
+        actions: `<a class="btn btn-ghost" href="../dashboard/roadmap.html" target="_blank">Open standalone ↗</a>`
+      })}
+
+      <div class="panel">
+        <div class="panel-title">Feature Roadmap <span class="panel-subtitle">— M&Ms to Soft Launch</span></div>
+
+        <div class="roadmap-legend">
+          <span class="legend-label">MILESTONES:</span>
+          ${msLegend}
+        </div>
+        <div class="roadmap-legend">
+          <span class="legend-label">PODS:</span>
+          ${podLegend}
+          <span class="legend-item" style="margin-left: 12px;">
+            <span class="legend-swatch" style="opacity:0.55; background: #888; border: 1px dashed #aaa;"></span>
+            Future (unstarted)
+          </span>
+        </div>
+
+        <div class="roadmap-container" id="roadmap-container">
+          <div class="roadmap-grid">
+            <div class="roadmap-header">
+              <div class="roadmap-label-col">Pod</div>
+              <div class="roadmap-timeline-area">
+                <div class="roadmap-months">${monthCols}</div>
+              </div>
+            </div>
+            <div class="milestone-band-row">
+              <div class="roadmap-label-col" style="font-size: 11px; display: flex; align-items: center;">Milestone</div>
+              <div class="milestone-band-track">${msBands}</div>
+            </div>
+            <div class="roadmap-body">
+              ${podRows}
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Wire up click-to-pin popover (single delegated listener on the container)
+    const container = document.getElementById("roadmap-container");
+    container.addEventListener("click", (e) => {
+      const bar = e.target.closest(".boulder-bar");
+      if (!bar) return;
+      e.stopPropagation();
+      const idx = +bar.dataset.boulderIdx;
+      const boulder = r.boulders[idx];
+      if (!boulder) return;
+      if (activeBoulderIdx === idx) {
+        closeBoulderPopover();
+        return;
+      }
+      openBoulderPopover(bar, boulder, idx);
+    });
+  }
+
+  // -- Roadmap render helpers --
+  function daysBetween(a, b) {
+    return Math.round((new Date(b) - new Date(a)) / 86400000);
+  }
+  function formatDate(dateStr) {
+    const d = new Date(dateStr + "T00:00:00");
+    return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+  }
+  function generateMonths(startDate, endDate) {
+    const months = [];
+    const start = new Date(startDate + "T00:00:00");
+    const end = new Date(endDate + "T00:00:00");
+    let current = new Date(start.getFullYear(), start.getMonth(), 1);
+    while (current <= end) {
+      const y = current.getFullYear();
+      const m = current.getMonth();
+      const mStart = `${y}-${String(m + 1).padStart(2, "0")}-01`;
+      const lastDay = new Date(y, m + 1, 0);
+      const mEnd = `${lastDay.getFullYear()}-${String(lastDay.getMonth() + 1).padStart(2, "0")}-${String(lastDay.getDate()).padStart(2, "0")}`;
+      const label = current.toLocaleDateString("en-US", { month: "short" }) + " '" + String(y).slice(2);
+      months.push({ label, start: mStart, end: mEnd });
+      current.setMonth(current.getMonth() + 1);
+    }
+    return months;
+  }
+  function buildMilestonePeriods(milestones, tlStart, tlEnd) {
+    const periods = [];
+    for (let i = 0; i < milestones.length; i++) {
+      const msStart = i === 0 ? tlStart : milestones[i - 1].date;
+      const msEnd = milestones[i].date;
+      periods.push({ name: milestones[i].name, start: msStart, end: msEnd });
+    }
+    return periods;
+  }
+  function escapeHtml(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  }
+  function escapeAttr(s) { return escapeHtml(s); }
+
+  // ────────────────────────────────────────────────────────────────────────────
+  // Boulder popover (click to pin, outside-click / Escape to close)
+  // ────────────────────────────────────────────────────────────────────────────
+  const CLICKUP_TEAM_ID = "36181078";
+  let activePopover = null;
+  let activeBoulderIdx = null;
+  let activeAnchor = null;
+  let activeFetchToken = 0;
+
+  // Map boulder status vocabulary ("active", "future") onto the .pill-* classes
+  // declared in index.html ("in_progress", "not_started", etc.).
+  const BOULDER_STATUS_PILL = {
+    active: { cls: "in_progress", label: "Active" },
+    future: { cls: "not_started", label: "Future" },
+    parked: { cls: "parked",      label: "Parked" },
+    blocked:{ cls: "blocked",     label: "Blocked" },
+    done:   { cls: "complete",    label: "Done" }
+  };
+
+  function openBoulderPopover(barEl, boulder, idx) {
+    closeBoulderPopover();
+
+    const podColor = POD_COLORS_HEX[boulder.pod] || "#888";
+    const pill = BOULDER_STATUS_PILL[boulder.status] || { cls: "pending", label: boulder.status || "Unknown" };
+    const pop = document.createElement("div");
+    pop.className = "boulder-popover";
+    pop.setAttribute("role", "dialog");
+    pop.innerHTML = `
+      <button class="pop-close" data-action="pop-close" aria-label="Close">×</button>
+      <div class="pop-title">${escapeHtml(boulder.name)}</div>
+      <div class="pop-meta">
+        <span>${escapeHtml(formatDate(boulder.start))} → ${escapeHtml(formatDate(boulder.end))}</span>
+        <span class="pod-tag pod-tag-sm ${podClass(boulder.pod)}" style="background:${podColor};">${escapeHtml(boulder.pod)}</span>
+        <span class="pill pill-${pill.cls}">${escapeHtml(pill.label)}</span>
+      </div>
+      <div class="pop-summary">${escapeHtml(boulder.details || "No summary available.")}</div>
+      <div class="pop-actions" data-clickup-slot>
+        <span class="pop-link-loading">Looking up ClickUp ticket…</span>
+      </div>
+      <div class="pop-arrow"></div>
+    `;
+    document.body.appendChild(pop);
+
+    activePopover = pop;
+    activeBoulderIdx = idx;
+    activeAnchor = barEl;
+    barEl.classList.add("is-active");
+
+    positionPopover(pop, barEl);
+
+    // Close interactions
+    pop.addEventListener("click", (e) => {
+      const a = e.target.closest("[data-action='pop-close']");
+      if (a) closeBoulderPopover();
+    });
+    setTimeout(() => {
+      document.addEventListener("click", outsideClickHandler, true);
+      document.addEventListener("keydown", escKeyHandler, true);
+      window.addEventListener("resize", repositionActivePopover);
+      window.addEventListener("scroll", repositionActivePopover, true);
+    }, 0);
+
+    // Async ClickUp lookup
+    activeFetchToken += 1;
+    const myToken = activeFetchToken;
+    fetchClickUpLink(boulder.name).then(result => {
+      if (myToken !== activeFetchToken || !activePopover) return;
+      const slot = activePopover.querySelector("[data-clickup-slot]");
+      if (!slot) return;
+      slot.innerHTML = renderClickUpSlot(result, boulder.name);
+      // Reposition in case the content height changed (caption can wrap)
+      repositionActivePopover();
+    });
+  }
+
+  function closeBoulderPopover() {
+    if (!activePopover) return;
+    activePopover.remove();
+    if (activeAnchor) activeAnchor.classList.remove("is-active");
+    activePopover = null;
+    activeBoulderIdx = null;
+    activeAnchor = null;
+    document.removeEventListener("click", outsideClickHandler, true);
+    document.removeEventListener("keydown", escKeyHandler, true);
+    window.removeEventListener("resize", repositionActivePopover);
+    window.removeEventListener("scroll", repositionActivePopover, true);
+  }
+
+  function outsideClickHandler(e) {
+    if (!activePopover) return;
+    if (activePopover.contains(e.target)) return;
+    if (activeAnchor && activeAnchor.contains(e.target)) return;
+    closeBoulderPopover();
+  }
+  function escKeyHandler(e) {
+    if (e.key === "Escape") closeBoulderPopover();
+  }
+  function repositionActivePopover() {
+    if (activePopover && activeAnchor) positionPopover(activePopover, activeAnchor);
+  }
+
+  function positionPopover(pop, anchor) {
+    const rect = anchor.getBoundingClientRect();
+    const popW = pop.offsetWidth || 340;
+    const popH = pop.offsetHeight || 180;
+    const margin = 8;
+    const arrow = pop.querySelector(".pop-arrow");
+
+    // Default: place above the bar; flip below if not enough room.
+    const spaceAbove = rect.top;
+    const spaceBelow = window.innerHeight - rect.bottom;
+    const placeBelow = spaceAbove < popH + margin && spaceBelow > spaceAbove;
+
+    let top = placeBelow ? rect.bottom + margin : rect.top - popH - margin;
+    // Clamp vertically inside viewport
+    top = Math.max(margin, Math.min(top, window.innerHeight - popH - margin));
+
+    // Horizontal: try to center over the bar, clamp to viewport
+    const barCenter = rect.left + rect.width / 2;
+    let left = barCenter - popW / 2;
+    left = Math.max(margin, Math.min(left, window.innerWidth - popW - margin));
+
+    pop.style.top = `${Math.round(top)}px`;
+    pop.style.left = `${Math.round(left)}px`;
+    pop.classList.toggle("flip-down", placeBelow);
+
+    // Arrow horizontal position (relative to popover)
+    if (arrow) {
+      const arrowLeft = Math.max(12, Math.min(popW - 24, barCenter - left - 6));
+      arrow.style.left = `${Math.round(arrowLeft)}px`;
+    }
+  }
+
+  async function fetchClickUpLink(name) {
+    try {
+      const url = `/api/clickup-search?name=${encodeURIComponent(name)}&limit=3`;
+      const r = await fetch(url, { headers: { "accept": "application/json" } });
+      if (!r.ok) return { ok: false, status: r.status };
+      const data = await r.json();
+      return { ok: true, data };
+    } catch (e) {
+      return { ok: false, error: String(e) };
+    }
+  }
+
+  function renderClickUpSlot(result, name) {
+    const searchUrl = `https://app.clickup.com/${CLICKUP_TEAM_ID}/search?q=${encodeURIComponent(name)}`;
+    if (result && result.ok && result.data && Array.isArray(result.data.matches) && result.data.matches.length > 0) {
+      const top = result.data.matches[0];
+      const more = result.data.matches.length - 1;
+      const caption = [top.list_name, top.status].filter(Boolean).map(escapeHtml).join(" · ");
+      return `
+        <a class="btn btn-primary" href="${escapeAttr(top.url)}" target="_blank" rel="noopener">Open in ClickUp ↗</a>
+        ${caption ? `<span class="pop-link-caption">${caption}</span>` : ""}
+        ${more > 0 ? `<a class="pop-link-caption" href="${escapeAttr(searchUrl)}" target="_blank" rel="noopener">+${more} more match${more === 1 ? "" : "es"} ↗</a>` : ""}
+      `;
+    }
+    // No matches OR function not deployed: fall back to a workspace search
+    return `
+      <a class="btn btn-ghost" href="${escapeAttr(searchUrl)}" target="_blank" rel="noopener">Search "${escapeHtml(name)}" in ClickUp ↗</a>
+      <span class="pop-link-error">live lookup unavailable</span>
     `;
   }
 

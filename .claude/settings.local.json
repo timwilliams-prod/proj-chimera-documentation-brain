@@ -55,7 +55,9 @@
       "mcp__plugin_slack_slack__slack_send_message",
       "mcp__clickup__clickup_update_task",
       "mcp__notion__notion-update-page",
-      "mcp__google-workspace__sheets_getText"
+      "mcp__google-workspace__sheets_getText",
+      "Bash(grep -E \"[0-9]{12,}\")",
+      "mcp__clickup__clickup_get_custom_fields"
     ]
   },
   "hooks": {
