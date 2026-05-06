@@ -225,13 +225,78 @@
   }
 
   // ────────────────────────────────────────────────────────────────────────────
+  // Live sprint data (Pages Function /api/clickup-sprint)
+  // ────────────────────────────────────────────────────────────────────────────
+  // Fixes the snapshot's "Tasks in Multiple Lists" undercount. Render flow:
+  //   1. renderHome() paints immediately using the snapshot (fast first paint)
+  //   2. If no live data is cached, kick off a background fetch
+  //   3. When the fetch lands, re-render home so the widget updates in place
+  // Cached for 60s to match the function's edge cache and avoid refetch on
+  // every nav back to home in a single session.
+
+  let _liveSprintCache = null; // { listId, totals, by_pod, data_source, _fetchedAt }
+  let _liveSprintFetching = false;
+
+  function inferCurrentSprintListId(snapshotSprintName) {
+    if (typeof SPRINT_MANIFEST === "undefined") return null;
+    // Prefer matching the snapshot's sprint name — keeps the live widget
+    // aligned with whatever the snapshot considers "current", even if
+    // SPRINT_CURRENT has drifted ahead to a Preview sprint.
+    if (snapshotSprintName) {
+      const m = SPRINT_MANIFEST.find(s => s.name === snapshotSprintName);
+      if (m && m.listId) return m.listId;
+    }
+    if (typeof SPRINT_CURRENT !== "undefined") {
+      const cur = SPRINT_MANIFEST.find(s => s.number === SPRINT_CURRENT);
+      if (cur && cur.listId) return cur.listId;
+    }
+    const last = SPRINT_MANIFEST.find(s => s.listId);
+    return last ? last.listId : null;
+  }
+
+  function fetchLiveSprint(listId) {
+    if (_liveSprintFetching) return;
+    if (_liveSprintCache && _liveSprintCache.listId === listId &&
+        (Date.now() - _liveSprintCache._fetchedAt) < 60000) return;
+    _liveSprintFetching = true;
+    fetch(`/api/clickup-sprint?listId=${encodeURIComponent(listId)}`)
+      .then(r => r.ok ? r.json() : null)
+      .then(j => {
+        if (!j) return;
+        _liveSprintCache = { ...j, listId, _fetchedAt: Date.now() };
+        // Re-render only if we're still on home (don't fight the user's nav)
+        const h = location.hash || "#/dashboard";
+        if (h === "#/" || h === "#/dashboard") renderHome();
+      })
+      .catch(() => { /* keep snapshot, fail silently */ })
+      .finally(() => { _liveSprintFetching = false; });
+  }
+
+  // ────────────────────────────────────────────────────────────────────────────
   // Pages
   // ────────────────────────────────────────────────────────────────────────────
 
   function renderHome() {
     const d = DASHBOARD_DATA || {};
     const m = d.milestone || {};
-    const s = d.sprint || {};
+    let s = d.sprint || {};
+
+    // Merge live sprint data if we have it cached; otherwise kick off a fetch
+    // in the background. The fetch will trigger a re-render when it lands.
+    const listId = inferCurrentSprintListId(s.name);
+    const cacheFresh = _liveSprintCache && _liveSprintCache.listId === listId &&
+                       (Date.now() - _liveSprintCache._fetchedAt) < 60000;
+    if (cacheFresh) {
+      s = {
+        ...s,
+        totals: _liveSprintCache.totals,
+        by_pod: _liveSprintCache.by_pod,
+        data_source: _liveSprintCache.data_source
+      };
+    } else if (listId) {
+      fetchLiveSprint(listId);
+    }
+
     const today = new Date();
     const endDate = m.end_date ? new Date(m.end_date) : null;
     const daysLeftMs = endDate ? (endDate - today) : null;
@@ -298,6 +363,9 @@
             <span class="panel-subtitle">${s.start_date || ""} → ${s.end_date || ""}</span>
           </div>
           <div style="font-size:20px;color:var(--text-bright);font-weight:600;">${s.name || "—"}</div>
+          <div style="font-size:11px;color:var(--text-dim);margin-top:2px;">
+            ${s.data_source ? s.data_source : `Snapshot from ${d.generated_at || "—"}`}
+          </div>
           <div class="meta-row">
             ${daysLeftSprint !== null ? `<span><strong>${daysLeftSprint}</strong> days left</span>` : ""}
             <span><strong>Total:</strong> ${(s.totals || {}).total || 0}</span>
