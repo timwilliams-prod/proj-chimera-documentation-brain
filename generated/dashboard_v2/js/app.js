@@ -242,9 +242,23 @@
     // Prefer matching the snapshot's sprint name — keeps the live widget
     // aligned with whatever the snapshot considers "current", even if
     // SPRINT_CURRENT has drifted ahead to a Preview sprint.
+    //
+    // Match tolerantly: snapshot says "Abra 28" while manifest says "Abra".
+    // Try exact, then either-direction substring, then sprint-number embedded
+    // in the snapshot string.
     if (snapshotSprintName) {
-      const m = SPRINT_MANIFEST.find(s => s.name === snapshotSprintName);
-      if (m && m.listId) return m.listId;
+      const snap = String(snapshotSprintName);
+      const exact = SPRINT_MANIFEST.find(s => s.name === snap);
+      if (exact && exact.listId) return exact.listId;
+      const partial = SPRINT_MANIFEST.find(s =>
+        s.name && (snap.includes(s.name) || s.name.includes(snap))
+      );
+      if (partial && partial.listId) return partial.listId;
+      const numMatch = snap.match(/\d+/);
+      if (numMatch) {
+        const byNum = SPRINT_MANIFEST.find(s => s.number === Number(numMatch[0]));
+        if (byNum && byNum.listId) return byNum.listId;
+      }
     }
     if (typeof SPRINT_CURRENT !== "undefined") {
       const cur = SPRINT_MANIFEST.find(s => s.number === SPRINT_CURRENT);
