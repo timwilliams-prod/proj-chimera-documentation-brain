@@ -1,3 +1,111 @@
+---
+name: sprint-plan
+description: Sprint planning (Preview + Kickoff modes). Reads brain + capacity + ClickUp + Google Calendar PTO; drafts plan markdown, sprint dashboard data, and (Kickoff only) scaffolds ClickUp tasks.
+owner: Tim
+category: planning
+
+# ─── Skill Maturity Framework (q1-1) ─────────────────────────────────────
+# Manually maintained; /skill-evaluate reads this + telemetry to score the
+# skill against the seven Maturity Gate criteria.
+
+# Criterion #1 — Logic stability
+# vibe         : initial draft, REVIEW OUTPUT — not yet exercised
+# hardening    : working on stability, not yet confirmed across recent runs
+# stable       : confirmed stable across recent runs
+# problematic  : was stable, has degraded (auto-set on failure spikes)
+logic_stability: hardening
+last_maturity_review: 2026-05-06
+
+# Criterion #2 — Idempotency
+# none      : second run breaks something
+# additive  : second run is safe (may be wasteful, never destructive)
+# pure      : same inputs → same outputs, no side effects
+idempotent: additive
+# Notes:
+# - Preview re-runs overwrite generated/sprint_plans/sprint_NN_*.md safely.
+# - Kickoff re-runs MUST check ClickUp for existing tasks before re-creating.
+
+# Criterion #3 — Failure modes (declared)
+# Captured failures with matching `id` are "known"; novel failures get flagged.
+failure_modes:
+  - id: clickup_rate_limit
+    description: ClickUp API rate-limited during bulk task creation
+    detection: HTTP 429 from clickup_create_task or clickup_add_task_to_list
+    mitigation: Retry with backoff; halve batch size if persistent
+  - id: capacity_stale
+    description: planning/capacity.md older than 5 weeks → wrong pod assignments
+    detection: capacity.md `Last Updated` header exceeds staleness threshold
+    mitigation: Warn user, confirm before proceeding with stale data
+  - id: milestone_boundary_split
+    description: Sprint straddles milestone boundary, must-have features ambiguous
+    detection: Sprint start/end map to different milestones in product_targets.md
+    mitigation: Surface as open question, default to upcoming milestone
+  - id: pod_features_stale
+    description: A pod's features.md older than 5 weeks → wrong priorities
+    detection: pod features.md `Last Updated` header exceeds staleness threshold
+    mitigation: Warn per pod, do not block
+  - id: google_calendar_unavailable
+    description: Lotus OOO Calendar fetch fails → PTO unaccounted for in capacity
+    detection: MCP error from google-workspace.calendar_listEvents
+    mitigation: Proceed without PTO, surface warning prominently in plan
+  - id: clickup_multilist_missed
+    description: Tasks added to sprint list but homed in Product Backlog not detected
+    detection: Mismatch between filter_tasks counts and Filtered Team Tasks endpoint counts
+    mitigation: Use Filtered Team Tasks endpoint for accurate task lists
+
+# Criterion #4 — Approval gates
+requires_approval: true
+approval_points:
+  - mode_selection            # Preview vs Kickoff confirmation
+  - capacity_overallocation   # if any IC is overallocated, surface and confirm
+  - clickup_task_creation     # before bulk-creating tasks (Kickoff only)
+
+# Criterion #5 — Observability
+# Emit these events to /api/log-event during the run.
+# tool_use is captured automatically by PostToolUse hook; the rest are
+# emitted explicitly by the skill at the relevant points.
+emits_events:
+  - skill_invocation          # at start
+  - approval_request          # at each approval gate
+  - approval_decision         # producer's response
+  - tool_use                  # auto via PostToolUse hook
+  - skill_failure             # on caught known/novel failures (see below)
+  - session_end               # at completion
+
+# Failure emission contract (criterion #3 + #5):
+# When the skill catches a failure that matches a declared failure_mode,
+# emit a skill_failure event with `failure_mode_id` set. When the skill
+# catches an unexpected error, emit with `failure_mode_id: novel` and the
+# error context — this surfaces it for documentation in the next review.
+
+# Criterion #6 — Reversibility
+# git_commit : change is in a git commit, undoable via git
+# manual     : producer must manually undo (e.g. delete ClickUp tasks)
+# none       : no undo path (avoid)
+reversible:
+  files: git_commit
+  clickup: manual
+  dashboard_data: git_commit
+
+# Criterion #7 — Scope (declared lanes)
+# Telemetry flags any tool_use with a target_path outside `write` as a
+# scope violation. External writes are tracked separately.
+scope:
+  read:
+    - planning/**
+    - generated/roadmap.md
+    - generated/sprint_plans/**
+    - reference/**
+  write:
+    - generated/sprint_plans/**
+    - generated/dashboard/sprints/sprint_*.js
+  external_reads:
+    - clickup
+    - google_calendar
+  external_writes:
+    - clickup           # Kickoff mode only
+---
+
 # Sprint Plan Skill
 
 You are generating a **sprint plan** that bridges strategic planning (this brain) with execution (ClickUp). This skill has two modes depending on where you are in the sprint cycle.
