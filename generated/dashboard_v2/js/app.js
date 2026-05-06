@@ -125,7 +125,7 @@
     "#/reports":                   () => renderReports(),
     "#/plans/roadmap":             () => renderRoadmap(),
     "#/plans/validation":          () => renderEmbedded("Validation Roadmap", "../dashboard/validation.html"),
-    "#/plans/sprints":             () => renderEmbedded("Sprint Plans", "../dashboard/sprint.html", "Ported as-is from the existing dashboard. Dropdown bug + Next-label work tracked for a follow-up session."),
+    "#/plans/sprints":             () => renderSprintPlan(),
     "#/plans/capacity":            () => renderCapacity(),
     "#/priorities/empire":         () => renderPriorities("empire"),
     "#/priorities/metagame":       () => renderPriorities("metagame"),
@@ -941,10 +941,15 @@
         ${more > 0 ? `<a class="pop-link-caption" href="${escapeAttr(searchUrl)}" target="_blank" rel="noopener">+${more} more match${more === 1 ? "" : "es"} ↗</a>` : ""}
       `;
     }
-    // No matches OR function not deployed: fall back to a workspace search
+    // Distinguish "function ran fine, no name matches" from "function call
+    // failed" so the user knows whether to fix a boulder name or check the
+    // function's deploy state.
+    const okButEmpty = result && result.ok && result.data &&
+      Array.isArray(result.data.matches) && result.data.matches.length === 0;
+    const errorLabel = okButEmpty ? "no ClickUp matches" : "live lookup unavailable";
     return `
       <a class="btn btn-ghost" href="${escapeAttr(searchUrl)}" target="_blank" rel="noopener">Search "${escapeHtml(name)}" in ClickUp ↗</a>
-      <span class="pop-link-error">live lookup unavailable</span>
+      <span class="pop-link-error">${errorLabel}</span>
     `;
   }
 

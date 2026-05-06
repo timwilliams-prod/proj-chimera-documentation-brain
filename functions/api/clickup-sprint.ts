@@ -2,11 +2,20 @@
 // GET /api/clickup-sprint?listId=<sprint_list_id>
 //   → { list_id, totals, by_pod, data_source, fetched_at }
 //
-// Returns live sprint data for picon's Home Sprint widget. Uses ClickUp's
-// Filtered Team Tasks endpoint (?list_ids[]=...) which respects multi-list
-// memberships — fixes the "snapshot saw 2 tasks but the sprint actually has
-// 117" bug caused by tasks whose home list is Product Backlog but were
-// *added* to a sprint list via the "Tasks in Multiple Lists" ClickApp.
+// Returns live sprint data for picon's Home Sprint widget.
+//
+// ClickUp's `?list_ids[]=` filter on the team-task endpoint only matches
+// HOME list — it does NOT include tasks added via the "Tasks in Multiple
+// Lists" (TIML) ClickApp, despite docs implying otherwise. Verified via
+// MCP 2026-05-06: task 86ah5gax1 is home-listed in Product Backlog with
+// `locations: [{id: "901326732674" (Abra 28)}]`, but a sprint-only
+// list_ids query did not return it.
+//
+// Fix: query the union of [sprint list, source lists] in one paginated
+// call, then filter client-side to keep tasks where either home list OR
+// any `locations[]` entry matches the sprint list. SOURCE_LIST_IDS lists
+// the lists that typically feed the sprint via TIML — extend if more
+// source lists appear in practice.
 //
 // Env (Cloudflare Pages → Settings → Environment variables):
 //   CLICKUP_API_TOKEN   pk_... (personal API token)
@@ -24,6 +33,17 @@ interface Env {
 // re-verifying against ClickUp — this string must match exactly.
 const POD_FIELD_NAME = "🪷 Lotus Pod";
 
+// Lists from which tasks commonly get TIML-added to a sprint. Verified
+// via workspace hierarchy MCP 2026-05-06 in the Product Backlog folder.
+// If a task lives elsewhere and is TIML'd into the sprint, it'll be
+// missed — extend this list when new source lists appear.
+const SOURCE_LIST_IDS = [
+  "901208416337", // Product Backlog
+  "188607299",    // Bug Backlog
+  "901324723345", // SHQ Tracker
+  "901208509635"  // Feature Priority
+];
+
 interface ClickUpCustomField {
   id: string;
   name: string;
@@ -34,11 +54,18 @@ interface ClickUpCustomField {
   value?: unknown;
 }
 
+interface ClickUpLocation {
+  id: string;
+  name?: string;
+}
+
 interface ClickUpTask {
   id: string;
   name: string;
   status?: { status?: string };
   custom_fields?: ClickUpCustomField[];
+  list?: { id?: string; name?: string };
+  locations?: ClickUpLocation[];
 }
 
 type Bucket = "open" | "in_progress" | "complete" | "blocked";
@@ -63,14 +90,21 @@ export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
     return jsonResponse({ error: "ClickUp credentials not configured" }, 500);
   }
 
-  // Page through all tasks for the list. ClickUp returns 100/page; fewer = end.
-  // Cap pages for safety (a single sprint list with >2000 tasks would be a bug).
-  const allTasks: ClickUpTask[] = [];
-  for (let page = 0; page < 20; page++) {
+  // Build the union list_ids[] query: sprint + all source lists. Dedupe so
+  // we don't accidentally double-include if the sprint ID happens to be in
+  // SOURCE_LIST_IDS. ClickUp accepts repeated list_ids[]= params natively.
+  const listsToQuery = Array.from(new Set([listId, ...SOURCE_LIST_IDS]));
+  const listIdsParam = listsToQuery
+    .map((id) => `list_ids[]=${encodeURIComponent(id)}`)
+    .join("&");
+
+  // Page through all matching tasks. Bumped cap to 30 pages (3000 tasks)
+  // since we're now scanning Product/Bug/SHQ backlogs alongside the sprint.
+  const allFetched: ClickUpTask[] = [];
+  for (let page = 0; page < 30; page++) {
     const r = await fetch(
       `https://api.clickup.com/api/v2/team/${env.CLICKUP_TEAM_ID}/task` +
-        `?list_ids[]=${encodeURIComponent(listId)}` +
-        `&include_closed=true&subtasks=true&page=${page}`,
+        `?${listIdsParam}&include_closed=true&subtasks=true&page=${page}`,
       { headers: { Authorization: env.CLICKUP_API_TOKEN } }
     );
     if (!r.ok) {
@@ -78,15 +112,30 @@ export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
     }
     const j = (await r.json()) as { tasks?: ClickUpTask[] };
     const batch = j.tasks || [];
-    allTasks.push(...batch);
+    allFetched.push(...batch);
     if (batch.length < 100) break;
+  }
+
+  // Filter to tasks actually in the sprint (home list OR multi-list location).
+  // Dedupe by task id in case ClickUp returns the same task more than once
+  // when it matches multiple of the queried list_ids.
+  const seen = new Set<string>();
+  const sprintTasks: ClickUpTask[] = [];
+  for (const t of allFetched) {
+    if (seen.has(t.id)) continue;
+    const inSprint =
+      t.list?.id === listId ||
+      (t.locations || []).some((loc) => loc.id === listId);
+    if (!inSprint) continue;
+    seen.add(t.id);
+    sprintTasks.push(t);
   }
 
   // Aggregate by pod + bucket
   const totals = { total: 0, open: 0, in_progress: 0, complete: 0, blocked: 0 };
   const byPod: Record<string, PodTotals> = {};
 
-  for (const t of allTasks) {
+  for (const t of sprintTasks) {
     const pod = resolvePodName(t);
     const bucket = statusBucket(t.status?.status);
     totals.total += 1;
@@ -98,7 +147,6 @@ export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
     byPod[pod][bucket] += 1;
   }
 
-  // Sort pods by total descending so the widget shows largest contributors first
   const byPodSorted = Object.values(byPod).sort((a, b) => b.total - a.total);
 
   return jsonResponse(
@@ -106,7 +154,7 @@ export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
       list_id: listId,
       totals,
       by_pod: byPodSorted,
-      data_source: `Live from ClickUp — ${allTasks.length} tasks`,
+      data_source: `Live from ClickUp — ${sprintTasks.length} tasks (scanned ${allFetched.length} across ${listsToQuery.length} lists)`,
       fetched_at: new Date().toISOString()
     },
     200,
