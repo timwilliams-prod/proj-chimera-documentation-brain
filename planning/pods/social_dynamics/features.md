@@ -1,6 +1,6 @@
 # Social Dynamics Features
 
-Last Updated: 2026-05-05
+Last Updated: 2026-05-06
 Doc Status: DRAFT
 Pod Lead: Paul Flores
 
@@ -15,27 +15,41 @@ v1 multiplayer feature-complete by end of M&Ms (6/23), shippable to beta players
 
 > *In flight (not numbered)*: MM1 Multiplayer Map Foundation — **DONE**. Sprint A (S28, IN PROGRESS) — Tile Ownership/States/Visualization, Embark Flow, MP Map Instance Creation/List/Join dev UI v1, Battles, Troop Training. End-of-A state: players select MP room, land on map, battle to conquer neutral & other player tiles.
 
+---
+
+## v1 MVP — Targets Required to Release Anything at All
+
+> The minimum set we must land across Sprints B/C/D (plus Beta Launch Prep) to ship a multiplayer beta. Treat these as hard targets. If we beat them, pull in Post-MVP items below — ideally we sprint faster and land more before M&Ms ends.
+
 1. **MP Resource Generators** — M&Ms, Sprint B (S29), NOT STARTED
-2. **MP Barracks** — M&Ms, Sprint B (S29), NOT STARTED
-3. **MP Foundations** — M&Ms, Sprint B (S29), NOT STARTED
-4. **Troops earning** — M&Ms, Sprint B (S29), NOT STARTED
-5. **Passive Bonus Tiles** — M&Ms, Sprint C (S30), NOT STARTED
-6. **Building Upgrades** — M&Ms, Sprint C (S30), NOT STARTED
-7. **Persistent Hero Health** — M&Ms, Sprint C (S30), NOT STARTED
-8. **Hero Avatars** — M&Ms, Sprint C (S30), NOT STARTED
-   Subsumes the prior "Hero Party Map Representation."
-9. **Basic Relics** — M&Ms, Sprint C (S30), NOT STARTED
-   Item version of Passive Bonus Tiles.
-10. **Hero Energy & Pathing + Attack/Defend Tile Actions** — M&Ms, Sprint D (S31), NOT STARTED
-11. **Meta basic ruleset** — M&Ms, Sprint D (S31), NOT STARTED
-    Map cycle: open for fixed duration, then resets.
-12. **Map Leaderboards v1** — M&Ms, Sprint D (S31), NOT STARTED
-    Per-individual-map (not cross-season).
-13. **Basic Matchmaking v1** — M&Ms, Sprint D (S31), NOT STARTED
-14. **Story Shards** — M&Ms, Sprint D (S31), NOT STARTED
-    Collectible items at random map locations (pulled forward from P7).
-15. **Onboarding implementation & polish** — Beta Launch Prep, Sprint E (S32), NOT STARTED
-16. **UI polish & stability** — Beta Launch Prep, Sprint F (S33), NOT STARTED
+2. **Troops earning** — M&Ms, Sprint B (S29), NOT STARTED
+3. **Persistent Hero Health** — M&Ms, Sprint C (S30), NOT STARTED
+4. **Building Upgrades** — M&Ms, Sprint C (S30), NOT STARTED
+5. **Meta basic ruleset** — M&Ms, Sprint D (S31), NOT STARTED
+   Map cycle: open for fixed duration, then resets.
+6. **Map Leaderboards v1** — M&Ms, Sprint D (S31), NOT STARTED
+   Per-individual-map (not cross-season).
+7. **Basic Matchmaking v1** — M&Ms, Sprint D (S31), NOT STARTED
+8. **Onboarding implementation & polish** — Beta Launch Prep, Sprint E (S32), NOT STARTED
+9. **UI polish & stability** — Beta Launch Prep, Sprint F (S33), NOT STARTED
+
+---
+
+## Post-MVP — Highest Priority Next Features
+
+> The features we *want* to land for v1 — they make the experience meaningfully richer (hero identity, hero movement, items/buildings worth fighting over). Pull-in order if we beat MVP targets within M&Ms; otherwise these become the top of the M&C backlog.
+
+10. **Hero Avatars** — Pull-in target
+    Subsumes the prior "Hero Party Map Representation." Visible hero presence on the map.
+11. **Hero Energy & Pathing + Attack/Defend Tile Actions** — Pull-in target
+    Heroes physically move across the map and take tile-level actions.
+12. **Story Shards** — Pull-in target
+    Collectible items at random map locations.
+13. **Basic Relics** — Pull-in target
+    Item version of Passive Bonus Tiles.
+14. **MP Barracks** — Pull-in target
+15. **MP Foundations** — Pull-in target
+16. **Passive Bonus Tiles** — Pull-in target
 
 ---
 
