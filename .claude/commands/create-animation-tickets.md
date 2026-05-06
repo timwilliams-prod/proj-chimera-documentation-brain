@@ -71,7 +71,7 @@ Creates a parent ticket and 10 sequential subtasks for unit animation work, base
    - Custom field "🪷 Lotus Pod" = "Battle" (ID: `ee297ee9-3b42-4f32-b3d8-b577debf883f`, value: `a1bd403a-aafc-4224-834f-6a75a452e761`)
    - Tag: "animation"
    - Task type: "Deliverable"
-   - Parent: `86ag91381` (Unit Content parent)
+   - Parent: `86ag90gaw` (CHI-36166 — "Unit Animations")
 
 8. **Create Subtasks** (only the deliverables selected in step 5, in canonical order)
 
@@ -140,7 +140,7 @@ User: Create animation tickets for "Toshoia" starting May 25th, assign to Tony B
 - User can override dependency check if needed
 - Weekends (Saturday/Sunday) are excluded from working days
 - All dates calculated sequentially (one task after another)
-- Parent ticket gets parent ID: `86ag91381` (Unit Content parent)
+- Parent ticket gets parent ID: `86ag90gaw` (CHI-36166 — "Unit Animations")
 - **Total pipeline time depends on which deliverables were selected in step 5.** Full kit (all 10) = 16 working days / 128 hours. Common subsets land in the 7–14 working-day range.
 - For tighter schedules, ask the user whether the "Feedback and Revisions" subtask should be parallelized (overlap with later abilities) rather than serialized at the end
 - Deliverable selection is per-unit; never assume the previous unit's selection applies to the next one
