@@ -61,6 +61,7 @@ Creates a parent ticket and subtasks for concept art based on the template CHI-3
    - Assignee: found user ID
    - Custom field "🪷 Lotus Pod" = "Battle" (ID: `ee297ee9-3b42-4f32-b3d8-b577debf883f`, value: `a1bd403a-aafc-4224-834f-6a75a452e761`)
    - Tag: "2d"
+   - Task type: `"Deliverable"` (parent only — subtasks use the default task type)
    - Parent: Same as template (from template's parent field)
 
 7. **Create Subtasks** (in order)

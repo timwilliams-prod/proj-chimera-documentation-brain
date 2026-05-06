@@ -59,6 +59,7 @@ Creates a parent ticket and subtasks for 3D modeling based on the template CHI-3
    - Assignee: found user ID
    - Custom field "🪷 Lotus Pod" = "Battle" (ID: `ee297ee9-3b42-4f32-b3d8-b577debf883f`, value: `a1bd403a-aafc-4224-834f-6a75a452e761`)
    - Tag: "3d"
+   - Task type: `"Deliverable"` (parent only — subtasks use the default task type)
    - Parent: `86ag91381` (from template's parent field)
 
 7. **Create Subtasks** (in order)
