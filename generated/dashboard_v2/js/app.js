@@ -308,16 +308,32 @@
     Object.entries(params).forEach(([k, v]) => {
       if (v !== undefined && v !== null && v !== "") qs.append(k, v);
     });
-    const r = await fetch(`/api/query-events?${qs.toString()}`, {
+    const url = `/api/query-events?${qs.toString()}`;
+    const r = await fetch(url, {
       headers: { "X-Lotus-Telemetry-Token": getTelemetryToken() || "" }
     });
-    if (r.status === 401) {
-      lsRemove("telemetry_token");
-      const err = new Error("unauthorized");
-      err.unauthorized = true;
+    if (!r.ok) {
+      // Read the body so the user can see what came back (auth error, function
+      // not deployed serving HTML, etc). Cap the snippet so we don't dump 50KB
+      // into the panel if we got the SPA index.html as a fallback.
+      let snippet = "";
+      try { snippet = (await r.text() || "").slice(0, 200); } catch (_) {}
+      const err = new Error(`HTTP ${r.status} from ${url}${snippet ? ` — ${snippet}` : ""}`);
+      err.status = r.status;
+      err.url = url;
+      err.snippet = snippet;
       throw err;
     }
-    if (!r.ok) throw new Error(`query-events ${r.status}`);
+    // If the function isn't deployed, Cloudflare may serve the SPA index.html
+    // with a 200 status. Surface that as a real error rather than a JSON parse
+    // crash buried in the catch block.
+    const ct = r.headers.get("content-type") || "";
+    if (!ct.includes("application/json")) {
+      const err = new Error(`Expected JSON from ${url}, got ${ct || "no content-type"}. The /api/query-events Pages Function may not be deployed on this domain.`);
+      err.status = r.status;
+      err.url = url;
+      throw err;
+    }
     return r.json();
   }
 
@@ -1791,14 +1807,30 @@
       paintRollup("7d",  summarizeEvents(d7.events  || []));
       paintRollup("30d", summarizeEvents(d30.events || []));
     } catch (e) {
-      if (e.unauthorized) { renderLogs(); return; }
       ["7d", "30d"].forEach(k => {
         const sub = document.getElementById(`rollup-${k}-subtitle`);
         const body = document.getElementById(`rollup-${k}-body`);
         if (sub) sub.textContent = "error";
-        if (body) body.innerHTML = `<div class="small" style="color:var(--status-red);">Failed to load: ${escHtml(e.message)}</div>`;
+        if (body) body.innerHTML = renderLogsError(e);
       });
     }
+  }
+
+  function renderLogsError(e) {
+    const status = e.status ? ` (${e.status})` : "";
+    let hint = "";
+    if (e.status === 401) {
+      hint = `<div class="small" style="margin-top:6px;">The token was rejected by <code>/api/query-events</code>. Confirm a matching <code>TELEMETRY_TOKEN_&lt;NAME&gt;</code> env var is set on the Cloudflare Pages project, then click <strong>Forget token</strong> above and paste again.</div>`;
+    } else if (e.status === 404 || /not be deployed/.test(e.message || "")) {
+      hint = `<div class="small" style="margin-top:6px;">The endpoint isn't responding from this origin. Check that the <code>functions/api/query-events.ts</code> deploy has landed on the same Pages project that serves this dashboard.</div>`;
+    }
+    return `
+      <div class="small" style="color:var(--status-red);font-weight:600;">
+        Failed to load${status}
+      </div>
+      <div class="small" style="margin-top:4px;word-break:break-all;">${escHtml(e.message || String(e))}</div>
+      ${hint}
+    `;
   }
 
   function paintRollup(key, s) {
@@ -1857,9 +1889,8 @@
     try {
       resp = await fetchEvents(params);
     } catch (e) {
-      if (e.unauthorized) { renderLogs(); return; }
       if (sub) sub.textContent = "error";
-      body.innerHTML = `<div class="small" style="color:var(--status-red);">Failed to load: ${escHtml(e.message)}</div>`;
+      body.innerHTML = renderLogsError(e);
       return;
     }
 
