@@ -74,7 +74,7 @@
       links: [
         { id: "brain-health", label: "Brain Health",  route: "#/health/brain" },
         { id: "agent-health", label: "Agent Health",  route: "#/health/agent",  badge: "soon" },
-        { id: "agent-logs",   label: "Agent Logs",    route: "#/health/logs",   badge: "soon" }
+        { id: "agent-logs",   label: "Agent Logs",    route: "#/health/logs" }
       ]
     },
     {
@@ -134,7 +134,7 @@
     "#/priorities/dozer":          () => renderPriorities("dozer"),
     "#/health/brain":              () => renderBrainHealth(),
     "#/health/agent":              () => renderComingSoon("Agent Health", "Will surface running agents, recent failures, model usage, and rate-limit/cost signals."),
-    "#/health/logs":               () => renderComingSoon("Agent Logs", "Will stream a searchable history of agent runs once we wire up Cloudflare KV/D1 storage."),
+    "#/health/logs":               () => renderLogs(),
     "#/help/links":                () => renderHelpLinks(),
     "#/help/skills":               () => renderHelpSkills(),
     "#/help/ai":                   () => renderHelpAi(),
@@ -284,6 +284,86 @@
       })
       .catch(() => { /* keep snapshot, fail silently */ })
       .finally(() => { _liveSprintFetching = false; });
+  }
+
+  // ────────────────────────────────────────────────────────────────────────────
+  // Telemetry / event log (Pages Function /api/query-events)
+  // ────────────────────────────────────────────────────────────────────────────
+  // The producer hook in .claude/hooks/log-event.js POSTs every skill
+  // invocation, tool use, subagent use, and session end to /api/log-event,
+  // which writes to D1. /api/query-events reads it back. The token comes from
+  // a TELEMETRY_TOKEN_<NAME> env var on Cloudflare; producers paste their own
+  // into the Logs page once and it's cached in localStorage from there on.
+
+  const TELEMETRY_RANGE_MS = {
+    "24h": 24 * 3600 * 1000,
+    "7d":  7 * 24 * 3600 * 1000,
+    "30d": 30 * 24 * 3600 * 1000
+  };
+
+  function getTelemetryToken() { return lsGet("telemetry_token"); }
+
+  async function fetchEvents(params) {
+    const qs = new URLSearchParams();
+    Object.entries(params).forEach(([k, v]) => {
+      if (v !== undefined && v !== null && v !== "") qs.append(k, v);
+    });
+    const r = await fetch(`/api/query-events?${qs.toString()}`, {
+      headers: { "X-Lotus-Telemetry-Token": getTelemetryToken() || "" }
+    });
+    if (r.status === 401) {
+      lsRemove("telemetry_token");
+      const err = new Error("unauthorized");
+      err.unauthorized = true;
+      throw err;
+    }
+    if (!r.ok) throw new Error(`query-events ${r.status}`);
+    return r.json();
+  }
+
+  function summarizeEvents(events) {
+    const byType = {};
+    let scopeViolations = 0;
+    const skillCounts = {};
+    for (const e of events) {
+      byType[e.event_type] = (byType[e.event_type] || 0) + 1;
+      if (e.scope_violation) scopeViolations += 1;
+      if (e.event_type === "skill_invocation" && e.skill) {
+        skillCounts[e.skill] = (skillCounts[e.skill] || 0) + 1;
+      }
+    }
+    const topSkills = Object.entries(skillCounts)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 5)
+      .map(([skill, count]) => ({ skill, count }));
+    return {
+      total: events.length,
+      invocations: byType.skill_invocation || 0,
+      tool_uses:   byType.tool_use         || 0,
+      subagents:   byType.subagent_use     || 0,
+      failures:    byType.skill_failure    || 0,
+      scope_violations: scopeViolations,
+      top_skills: topSkills
+    };
+  }
+
+  function relTime(ts) {
+    if (!ts) return "—";
+    const diff = Date.now() - Number(ts);
+    if (diff < 0) return "just now";
+    const sec = Math.floor(diff / 1000);
+    if (sec < 60) return `${sec}s ago`;
+    const min = Math.floor(sec / 60);
+    if (min < 60) return `${min}m ago`;
+    const hr = Math.floor(min / 60);
+    if (hr < 24) return `${hr}h ago`;
+    const day = Math.floor(hr / 24);
+    return `${day}d ago`;
+  }
+
+  function absTime(ts) {
+    if (!ts) return "—";
+    try { return new Date(Number(ts)).toLocaleString(); } catch (_) { return String(ts); }
   }
 
   // ────────────────────────────────────────────────────────────────────────────
@@ -1515,6 +1595,328 @@
           </tbody>
         </table>
       </div>
+    `;
+  }
+
+  // ────────────────────────────────────────────────────────────────────────────
+  // Agent Logs page (#/health/logs) — live raw event log
+  // ────────────────────────────────────────────────────────────────────────────
+  // Renders three things, top to bottom:
+  //   1. Two rollup cards (last 7d / 30d): event counts + top skills
+  //   2. Filter row (range, event type, skill, actor, limit)
+  //   3. Event table (most recent first)
+  //
+  // Token: /api/query-events requires X-Lotus-Telemetry-Token. We prompt once
+  // and cache in localStorage. Any 401 wipes the cached token and re-prompts.
+  // The rollup queries are independent of the user's filter — they always
+  // cover 7d and 30d so the headline numbers stay stable across filter changes.
+
+  const LOG_EVENT_TYPE_COLOR = {
+    skill_invocation:  "rgba(59,130,246,0.18)",   // blue
+    tool_use:          "rgba(136,153,170,0.18)",   // gray
+    subagent_use:      "rgba(170,119,255,0.18)",   // purple
+    approval_request:  "rgba(234,179,8,0.18)",     // yellow
+    approval_decision: "rgba(234,179,8,0.18)",
+    skill_failure:     "rgba(239,68,68,0.22)",     // red
+    session_end:       "rgba(34,197,94,0.18)",     // green
+    agent_run:         "rgba(83,168,255,0.18)"     // accent
+  };
+  const LOG_EVENT_TYPE_TEXT = {
+    skill_failure: "var(--status-red)"
+  };
+
+  function logEventPillStyle(t) {
+    const bg = LOG_EVENT_TYPE_COLOR[t] || "rgba(136,153,170,0.18)";
+    const fg = LOG_EVENT_TYPE_TEXT[t] || "var(--text-bright)";
+    return `background:${bg};color:${fg};`;
+  }
+
+  function logTruncate(s, n) {
+    if (!s) return "—";
+    return s.length > n ? s.slice(0, n - 1) + "…" : s;
+  }
+
+  function escHtml(s) {
+    if (s == null) return "";
+    return String(s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  }
+
+  function renderLogs() {
+    const content = document.getElementById("content");
+
+    if (!getTelemetryToken()) {
+      content.innerHTML = `
+        ${pageHeader({ title: "Agent Logs", subtitle: "Skill and agent telemetry from D1 (via /api/query-events)." })}
+        <div class="panel">
+          <div class="panel-title">Telemetry token required</div>
+          <p class="small" style="margin-bottom:12px;">
+            This page reads from <code>/api/query-events</code>, which needs an <code>X-Lotus-Telemetry-Token</code>
+            for every request. Paste yours below — it's stored in your browser only
+            (<code>localStorage</code> under <code>lotusv2.telemetry_token</code>) and never sent anywhere except
+            the Pages Function above. Ask Tim if you don't have one (it's the same value as the
+            <code>TELEMETRY_TOKEN_&lt;NAME&gt;</code> Cloudflare env var matched to you).
+          </p>
+          <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+            <input type="password" id="token-input" placeholder="paste TELEMETRY_TOKEN_… value"
+                   style="flex:1;min-width:280px;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:6px;font-family:inherit;font-size:13px;">
+            <button class="btn btn-primary" id="save-token-btn">Save &amp; load</button>
+          </div>
+        </div>
+      `;
+      const input = document.getElementById("token-input");
+      const save = () => {
+        const v = (input.value || "").trim();
+        if (!v) { showToast("Paste a token first."); return; }
+        lsSet("telemetry_token", v);
+        renderLogs();
+      };
+      document.getElementById("save-token-btn").addEventListener("click", save);
+      input.addEventListener("keypress", (e) => { if (e.key === "Enter") save(); });
+      input.focus();
+      return;
+    }
+
+    const filters = lsGet("logs_filters") || {
+      range: "7d", event_type: "all", skill: "", actor: "", limit: 200
+    };
+
+    content.innerHTML = `
+      ${pageHeader({
+        title: "Agent Logs",
+        subtitle: "Skill and agent telemetry from D1. Click Refresh to re-fetch.",
+        actions: `
+          <button class="btn" id="logs-refresh">Refresh</button>
+          <button class="btn btn-ghost" id="logs-forget-token">Forget token</button>
+        `
+      })}
+
+      <div class="grid-2">
+        <div class="panel">
+          <div class="panel-title">Last 7 days <span class="panel-subtitle" id="rollup-7d-subtitle">loading…</span></div>
+          <div id="rollup-7d-body"><div class="small">Loading…</div></div>
+        </div>
+        <div class="panel">
+          <div class="panel-title">Last 30 days <span class="panel-subtitle" id="rollup-30d-subtitle">loading…</span></div>
+          <div id="rollup-30d-body"><div class="small">Loading…</div></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">
+          Events
+          <span class="panel-subtitle" id="events-subtitle">loading…</span>
+        </div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end;margin-bottom:14px;">
+          <label class="small" style="display:flex;flex-direction:column;gap:4px;">
+            <span>Range</span>
+            <select data-logs-filter="range" class="logs-filter-control">
+              <option value="24h" ${filters.range === "24h" ? "selected" : ""}>Last 24h</option>
+              <option value="7d"  ${filters.range === "7d"  ? "selected" : ""}>Last 7 days</option>
+              <option value="30d" ${filters.range === "30d" ? "selected" : ""}>Last 30 days</option>
+            </select>
+          </label>
+          <label class="small" style="display:flex;flex-direction:column;gap:4px;">
+            <span>Event type</span>
+            <select data-logs-filter="event_type" class="logs-filter-control">
+              <option value="all"               ${filters.event_type === "all"               ? "selected" : ""}>All</option>
+              <option value="skill_invocation"  ${filters.event_type === "skill_invocation"  ? "selected" : ""}>Skill invocation</option>
+              <option value="tool_use"          ${filters.event_type === "tool_use"          ? "selected" : ""}>Tool use</option>
+              <option value="subagent_use"      ${filters.event_type === "subagent_use"      ? "selected" : ""}>Subagent use</option>
+              <option value="skill_failure"     ${filters.event_type === "skill_failure"     ? "selected" : ""}>Skill failure</option>
+              <option value="session_end"       ${filters.event_type === "session_end"       ? "selected" : ""}>Session end</option>
+            </select>
+          </label>
+          <label class="small" style="display:flex;flex-direction:column;gap:4px;">
+            <span>Skill (server filter)</span>
+            <input type="text" data-logs-filter="skill" class="logs-filter-control"
+                   placeholder="e.g. sprint-plan" value="${escHtml(filters.skill || "")}">
+          </label>
+          <label class="small" style="display:flex;flex-direction:column;gap:4px;">
+            <span>Actor contains (client filter)</span>
+            <input type="text" data-logs-filter="actor" class="logs-filter-control"
+                   placeholder="e.g. tim or eda" value="${escHtml(filters.actor || "")}">
+          </label>
+          <label class="small" style="display:flex;flex-direction:column;gap:4px;">
+            <span>Limit</span>
+            <input type="number" data-logs-filter="limit" class="logs-filter-control"
+                   min="10" max="1000" step="10" value="${Number(filters.limit) || 200}" style="width:90px;">
+          </label>
+        </div>
+        <div id="events-body" style="overflow-x:auto;"><div class="small">Loading…</div></div>
+      </div>
+    `;
+
+    // Style the filter controls to match the rest of the dashboard
+    document.querySelectorAll(".logs-filter-control").forEach(el => {
+      el.style.background = "var(--bg)";
+      el.style.border = "1px solid var(--border)";
+      el.style.color = "var(--text-bright)";
+      el.style.padding = "6px 10px";
+      el.style.borderRadius = "6px";
+      el.style.fontSize = "12.5px";
+      el.style.fontFamily = "inherit";
+    });
+
+    document.getElementById("logs-refresh").addEventListener("click", () => renderLogs());
+    document.getElementById("logs-forget-token").addEventListener("click", () => {
+      lsRemove("telemetry_token");
+      renderLogs();
+    });
+
+    document.querySelectorAll("[data-logs-filter]").forEach(el => {
+      const evtName = (el.tagName === "INPUT" && el.type !== "number") ? "input" : "change";
+      let debounce;
+      el.addEventListener(evtName, () => {
+        const next = { ...filters };
+        next[el.dataset.logsFilter] = el.value;
+        lsSet("logs_filters", next);
+        clearTimeout(debounce);
+        debounce = setTimeout(() => loadLogsTable(next), 250);
+      });
+    });
+
+    loadLogsRollups();
+    loadLogsTable(filters);
+  }
+
+  async function loadLogsRollups() {
+    const now = Date.now();
+    try {
+      const [d7, d30] = await Promise.all([
+        fetchEvents({ since: now - TELEMETRY_RANGE_MS["7d"],  limit: 10000 }),
+        fetchEvents({ since: now - TELEMETRY_RANGE_MS["30d"], limit: 10000 })
+      ]);
+      paintRollup("7d",  summarizeEvents(d7.events  || []));
+      paintRollup("30d", summarizeEvents(d30.events || []));
+    } catch (e) {
+      if (e.unauthorized) { renderLogs(); return; }
+      ["7d", "30d"].forEach(k => {
+        const sub = document.getElementById(`rollup-${k}-subtitle`);
+        const body = document.getElementById(`rollup-${k}-body`);
+        if (sub) sub.textContent = "error";
+        if (body) body.innerHTML = `<div class="small" style="color:var(--status-red);">Failed to load: ${escHtml(e.message)}</div>`;
+      });
+    }
+  }
+
+  function paintRollup(key, s) {
+    const sub  = document.getElementById(`rollup-${key}-subtitle`);
+    const body = document.getElementById(`rollup-${key}-body`);
+    if (!body) return;
+    if (sub) sub.textContent = `${s.total} events`;
+
+    const stat = (label, value, color) => `
+      <div>
+        <div class="small" style="text-transform:uppercase;letter-spacing:0.5px;font-size:10.5px;">${label}</div>
+        <div style="font-size:20px;font-weight:700;color:${color || "var(--text-bright)"};line-height:1.2;">${value}</div>
+      </div>
+    `;
+
+    body.innerHTML = `
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px 18px;">
+        ${stat("Skill runs",       s.invocations)}
+        ${stat("Tool uses",        s.tool_uses)}
+        ${stat("Subagent runs",    s.subagents)}
+        ${stat("Failures",         s.failures,         s.failures         ? "var(--status-red)" : null)}
+        ${stat("Scope violations", s.scope_violations, s.scope_violations ? "var(--status-red)" : null)}
+        ${stat("Total events",     s.total)}
+      </div>
+      ${s.top_skills.length ? `
+        <div style="margin-top:16px;">
+          <div class="small" style="text-transform:uppercase;letter-spacing:0.5px;font-size:10.5px;margin-bottom:6px;">Top skills</div>
+          <div style="display:flex;flex-direction:column;gap:3px;">
+            ${s.top_skills.map(t => `
+              <div style="display:flex;justify-content:space-between;font-size:12.5px;border-bottom:1px solid rgba(42,58,94,0.4);padding:3px 0;">
+                <code>${escHtml(t.skill)}</code>
+                <span class="small">${t.count}</span>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      ` : `<div class="small" style="margin-top:14px;">No skill invocations in this window.</div>`}
+    `;
+  }
+
+  async function loadLogsTable(filters) {
+    const sub  = document.getElementById("events-subtitle");
+    const body = document.getElementById("events-body");
+    if (!body) return;
+    if (sub) sub.textContent = "loading…";
+    body.innerHTML = `<div class="small">Loading…</div>`;
+
+    const params = {
+      since: Date.now() - (TELEMETRY_RANGE_MS[filters.range] || TELEMETRY_RANGE_MS["7d"]),
+      limit: Math.max(10, Math.min(1000, Number(filters.limit) || 200))
+    };
+    if (filters.event_type && filters.event_type !== "all") params.event_type = filters.event_type;
+    if (filters.skill) params.skill = filters.skill;
+
+    let resp;
+    try {
+      resp = await fetchEvents(params);
+    } catch (e) {
+      if (e.unauthorized) { renderLogs(); return; }
+      if (sub) sub.textContent = "error";
+      body.innerHTML = `<div class="small" style="color:var(--status-red);">Failed to load: ${escHtml(e.message)}</div>`;
+      return;
+    }
+
+    let events = resp.events || [];
+    if (filters.actor) {
+      const needle = filters.actor.toLowerCase();
+      events = events.filter(ev =>
+        `${ev.actor_type || ""}:${ev.actor_name || ""}`.toLowerCase().includes(needle)
+      );
+    }
+
+    if (sub) sub.textContent = `${events.length} of ${resp.count} events`;
+
+    if (!events.length) {
+      body.innerHTML = `<div class="small" style="padding:12px 0;">No events match these filters.</div>`;
+      return;
+    }
+
+    body.innerHTML = `
+      <table>
+        <thead>
+          <tr>
+            <th style="width:90px;">When</th>
+            <th style="width:130px;">Event</th>
+            <th style="width:170px;">Actor</th>
+            <th style="width:180px;">Skill / Tool</th>
+            <th>Target</th>
+            <th style="width:80px;">Session</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${events.map(ev => {
+            const skillOrTool = ev.skill
+              ? `<code>${escHtml(ev.skill)}</code>`
+              : ev.tool
+              ? `<code>${escHtml(ev.tool)}</code>`
+              : "—";
+            const tgt = ev.target_path || "";
+            const errBadge = ev.event_type === "skill_failure" && ev.error_type
+              ? ` <span class="small" style="color:var(--status-red);">${escHtml(ev.error_type)}</span>`
+              : "";
+            const scopeBadge = ev.scope_violation
+              ? ` <span class="pill" style="background:rgba(239,68,68,0.18);color:var(--status-red);">scope!</span>`
+              : "";
+            return `
+              <tr>
+                <td title="${escHtml(absTime(ev.ts))}">${escHtml(relTime(ev.ts))}</td>
+                <td><span class="pill" style="${logEventPillStyle(ev.event_type)}">${escHtml(ev.event_type)}</span>${scopeBadge}</td>
+                <td><span class="small">${escHtml(ev.actor_type || "—")}:</span> ${escHtml(ev.actor_name || "—")}</td>
+                <td>${skillOrTool}${errBadge}</td>
+                <td title="${escHtml(tgt)}" style="word-break:break-all;">${escHtml(logTruncate(tgt, 80))}</td>
+                <td><code class="small">${escHtml((ev.session_id || "").slice(-6))}</code></td>
+              </tr>
+            `;
+          }).join("")}
+        </tbody>
+      </table>
     `;
   }
 
