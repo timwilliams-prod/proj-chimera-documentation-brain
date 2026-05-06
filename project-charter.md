@@ -24,6 +24,34 @@ Game Documentation DB    -sync->  planning/ files        -inform-> Sprint-level 
 
 ---
 
+## Asking the Brain (Eda)
+
+The brain has a concierge: **Eda**, a subagent persona drawn from the in-game character of the same name (Heart of Avalon, Sentient Moral Archive). She is the single front door for any question about Lotus.
+
+**Three slash commands all route to Eda — pick whichever you remember:**
+- `/eda <question>`
+- `/ask <question>`
+- `/brain <question>`
+
+### What Eda is good for
+
+- "Where do SHQs live?" / "What's the next SHQ ID?" / "Who owns the Battle pod?" — factual lookups in the brain
+- "What's the live status of SHQ3-3 in ClickUp?" — cross-system lookups (brain + ClickUp / Notion / Slack / Google)
+- "I want to plan next sprint — which skill?" — routing to the right specialist skill
+- Onboarding: "Where do I start? How is this brain organized?"
+
+### When to skip Eda and run a skill directly
+
+If you already know which skill you need — `/sprint-plan`, `/risk-evaluation`, `/tech-debt`, etc. — just run it. Eda is the front door for *finding* things and *asking questions*; the specialist skills are the front doors for *doing work*. Eda is read-only and will never edit `planning/` files herself.
+
+### How she works (briefly)
+
+Eda is built on Claude Code's custom subagent primitive (`.claude/agents/eda.md`). She delegates to three hidden worker subagents — `eda-brain-search` (markdown Q&A), `eda-cross-search` (brain + external systems), and `eda-skill-router` (maps requests to existing skills) — and composes their findings into a single response in her voice with sources cited.
+
+LLMs and humans should treat her output as authoritative for *what the brain currently says* — she always cites file paths and flags DRAFT/STALE documents. She does NOT replace reading the source files when you need full context.
+
+---
+
 ## Lotus Project Overview
 
 **Game**: Lotus — mobile army battler with empire-building metagame
@@ -482,3 +510,4 @@ When operating in this brain:
 | 2026-03-24 | Initial Lotus project charter created from brain-template | Tim / Claude |
 | 2026-03-25 | Added Sprint Plans section to pod plans; documented in charter | Tim / Claude |
 | 2026-04-20 | Art Pod closed (effective 2026-04-13); artists distributed to other pods. Updated must-have feature pod assignments in product_targets.md (6 Starter Heroes → Battle; Art Outsourcing Pipelines → Cross-pod; Tone/Emotion → Empire) | Tim / Claude |
+| 2026-05-06 | Added Eda concierge subagent (`.claude/agents/eda.md`) + three worker subagents (brain-search, cross-search, skill-router) + three slash command aliases (`/eda`, `/ask`, `/brain`). Single front door for brain Q&A, cross-system search, and skill routing. | Tim / Claude |
