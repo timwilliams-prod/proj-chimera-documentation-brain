@@ -1,42 +1,36 @@
-// generated/dashboard/validation_roadmap_data.js
-// Auto-generated — do not edit manually
-// Generated: 2026-05-07T17:30:00Z
-
 const VALIDATION_ROADMAP_DATA = {
-  "generated_at": "2026-05-07T17:30:00Z",
+  "generated_at": "2026-05-05T21:58:00.000Z",
   "notion_source": "https://www.notion.so/1d73f0b3b6ab80f4a18fd58479aa8da2",
   "data_source_id": "collection://4b7e078b-4c09-4f7c-b7ff-7c1fe2db0a21",
-
-  "milestones": [
-    {
+  
+  "milestones": {
+    "Multiplayer & Meta": {
       "name": "Multiplayer & Meta",
       "status": "current",
-      "start_date": "April 2026",
-      "end_date": "June 2026",
-      "total_shqs": 17,
-      "by_confidence": {
-        "confident": 0,
-        "on_track": 0,
-        "off_track": 0,
-        "validation_pending": 2,
-        "pending": 15
-      }
-    },
-    {
-      "name": "Systems Validation",
-      "status": "completed",
-      "start_date": "December 2025",
-      "end_date": "March 2026",
+      "period": "April - June 2026",
       "total_shqs": 26,
       "by_confidence": {
-        "confident": 14,
-        "on_track": 1,
-        "off_track": 0,
-        "validation_pending": 5,
-        "reword_moved": 6
+        "🟢 Confident we have it solved": 0,
+        "🟡 On track - Additional iterations required": 0,
+        "🔴 Off Track - need to do something": 0,
+        "🟣 Validation Pending": 2,
+        "pending": 24
+      }
+    },
+    "Systems Validation": {
+      "name": "Systems Validation",
+      "status": "completed",
+      "period": "December 2025 - March 2026",
+      "total_shqs": 18,
+      "by_confidence": {
+        "🟢 Confident we have it solved": 14,
+        "🟡 On track - Additional iterations required": 1,
+        "🔴 Off Track - need to do something": 0,
+        "🟣 Validation Pending": 3,
+        "Reword/Moved to next milestone": 5
       }
     }
-  ],
+  },
 
   "winning_hypotheses": [
     {
@@ -107,7 +101,7 @@ const VALIDATION_ROADMAP_DATA = {
               "notion_url": "https://www.notion.so/3573f0b3b6ab80779112e975c73b5556"
             },
             {
-              "id": "SHQ 26",
+              "id": "SHQ 26 (M&M)",
               "question": "Is the player motivated to collect specific and varied heroes and troops against each planned game mode (Dungeons, XP farm, Conquest, etc)?",
               "milestone": "Multiplayer & Meta",
               "confidence": null,
@@ -125,7 +119,7 @@ const VALIDATION_ROADMAP_DATA = {
               "notion_url": "https://www.notion.so/55dc4605c43f4508a378db0ede961f23"
             },
             {
-              "id": "SHQ26",
+              "id": "SHQ26 (SV)",
               "question": "Is the player motivated to collect specific and varied heroes and troops against each planned game mode (Dungeons, XP farm, Conquest, etc)?",
               "milestone": "Systems Validation",
               "confidence": "🟣 Validation Pending",
@@ -250,7 +244,7 @@ const VALIDATION_ROADMAP_DATA = {
           "question": "Can we create sharp motivations to return the next session / day that feel time sensitive and organic, without having a miss create churn due to a feeling of punishment?",
           "shqs": [
             {
-              "id": "SHQ 08",
+              "id": "SHQ 08 (M&M)",
               "question": "Can we create progression opportunities to come back and finish the next session that are high-impact and time sensitive",
               "milestone": "Multiplayer & Meta",
               "confidence": "🟣 Validation Pending",
@@ -259,7 +253,7 @@ const VALIDATION_ROADMAP_DATA = {
               "notion_url": "https://www.notion.so/3573f0b3b6ab80588d61ddf74468e6d3"
             },
             {
-              "id": "SHQ8",
+              "id": "SHQ8 (SV)",
               "question": "Can we create progression opportunities to come back and finish the next session that are high-impact and time sensitive",
               "milestone": "Systems Validation",
               "confidence": "Reword/Moved to next milestone",
@@ -369,7 +363,7 @@ const VALIDATION_ROADMAP_DATA = {
           "question": "Can we create heroes that resonate with our target audience and inspire collectability?",
           "shqs": [
             {
-              "id": "SHQ 17",
+              "id": "SHQ 17 (M&M)",
               "question": "Do players get attached to favorite heroes and feel excited to focus on its progression?",
               "milestone": "Multiplayer & Meta",
               "confidence": "🟣 Validation Pending",
@@ -387,7 +381,7 @@ const VALIDATION_ROADMAP_DATA = {
               "notion_url": "https://www.notion.so/3573f0b3b6ab80adba74e1ad04fa3a3c"
             },
             {
-              "id": "SHQ11",
+              "id": "SHQ11 (SV)",
               "question": "Do players get attached to favorite heroes and feel excited to focus on its progression?",
               "milestone": "Systems Validation",
               "confidence": "🟣 Validation Pending",
@@ -420,7 +414,7 @@ const VALIDATION_ROADMAP_DATA = {
               "notion_url": "https://www.notion.so/3573f0b3b6ab80d9aabef50b84ab0d64"
             },
             {
-              "id": "SHQ16",
+              "id": "SHQ16 (SV)",
               "question": "Can we paper design shared multiplayer maps that feel exciting and offer long term replayability?",
               "milestone": "Systems Validation",
               "confidence": "🟢 Confident we have it solved",
@@ -444,7 +438,7 @@ const VALIDATION_ROADMAP_DATA = {
               "notion_url": "https://www.notion.so/3573f0b3b6ab805190fcd45ca3f8dbe5"
             },
             {
-              "id": "SHQ 16",
+              "id": "SHQ 16 (M&M)",
               "question": "[prototype] Does multiplayer pacing encourage the player to login multiple times a day to take specific actions",
               "milestone": "Multiplayer & Meta",
               "confidence": null,
