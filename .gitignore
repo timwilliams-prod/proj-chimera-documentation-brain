@@ -2,6 +2,7 @@
 
 # Environment variables (API keys, secrets)
 .env
+.claude/.env
 
 # Claude Code runtime state
 .claude/scheduled_tasks.json
