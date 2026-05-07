@@ -41,42 +41,36 @@ Gathers comprehensive status for a game unit/hero across Google Drive (latest im
 - Use `slack_search_users` with the email to find Slack user ID
 - Store the Slack user ID for final DM
 
-### 3. Search Miro Board for Concept Images (Primary)
+### 3. Build Miro Deep Link to the Assigned Artist's Latest Column
 
-The Miro concept art progress board is the primary source for the latest concept image. Only the **Vinod Rams** and **Vinicius Muniz** lanes are searched — skip Guilherme Lascasas and any other lanes.
+The Miro concept art progress board is a horizontal timeline (newer = larger x). Each artist has a vertical lane with date columns marching to the right. Instead of trying to find a specific image (pagination caps at 200 and often misses the latest), we link to the **rightmost recent date column** in the assigned artist's lane — this drops the user at the artist's "today" area where their most recent work lives.
 
 **Board:** `https://miro.com/app/board/uXjVG_G7jjo=/`
 
-**Step 3a — Anchor on artist labels:**
-- Use `mcp__miro__board_list_items` with `item_type=text` to enumerate text widgets on the board
-- Find the two artist label texts: `"Vinod Rams"` and `"Vinicius Muniz"` (large fontSize ~747, white text)
-- Record each artist's `position.y` (the lane's vertical anchor)
-- Define each lane's y-window as anchor_y ± 3000 units (covers date row + image row)
+**Step 3a — Identify the assigned concept artist:**
+- Find the unit's concept ticket in ClickUp by name pattern: `Hero - {Unit Name} - Concepts`
+  - Use `clickup_search` with query `Hero - {Unit Name} - Concepts` filtered to list `901208416337` (Product Backlog), or pull from the same ClickUp results gathered in Step 4
+  - Capture the `assignees[0].username` — this is the **assigned concept artist**
+- If the concept ticket isn't found, fall back to the main pipeline ticket `HERO - {Unit Name}` (in Unit Pipeline Tracking, list `901205961882`) and use its assignee
+- If the assigned artist's name doesn't match `"Vinod Rams"` or `"Vinicius Muniz"` (e.g., Guilherme Lascasas, someone else, or unassigned), **skip Miro** and fall through to step 3c (Drive fallback)
+- Otherwise: this artist defines the single lane to search
 
-**Step 3b — Collect unit-matching signals within each lane:**
-Within each lane's y-window, gather any of these signals (used as confidence boosters in step 3c):
-- **Text widgets** containing the hero name in their content (case-insensitive, partial match OK)
-- **Notion link text** with hrefs like `notion.so/...{hero_name}...` (e.g., `Approved-Merrin-AoE-Specialist`)
-- **Image `data.altText` or `data.title`** containing the hero name — when present, this is the strongest signal
-- **Date labels** near such matches (smaller fontSize ~369, formatted like `M/D/YY`) — capture them as date hints
+**Step 3b — Find the rightmost recent date label in the artist's lane and build the deep link:**
+- Use `mcp__miro__board_list_items` with `item_type=text` to enumerate text widgets (one call usually returns everything — no image pagination needed)
+- Find the artist label text matching the assigned artist (large fontSize ~747, white text). Record `position.y` (lane anchor).
+- Define the lane's y-window as `anchor_y ± 3000` units
+- Filter text widgets to: y in lane window AND content matching `\d+/\d+/\d+` (date format like `5/7/26`)
+- Parse each date label's content into a date. **Filter out future dates** (anything > today, in case the board has placeholder columns ahead)
+- Pick the date label with the **largest x** among the surviving labels — this is the most recent date column in the artist's lane
+- If no date labels qualify → fall through to step 3c (Drive fallback)
+- Construct the Miro deep link: `https://miro.com/app/board/uXjVG_G7jjo=/?moveToWidget={date_label_id}`
+- **Do NOT call `mcp__miro__image_get_url`** — we're linking to a column, not an image
+- Record: assigned artist, picked date (formatted `M/D`), deep link
+- DM line format: `*{artist}* — Check the latest on the Miro board <{deep_link}|here>. _(today's column: {date})_`
+  - If picked date == today: use `_(today's column: {date})_`
+  - Otherwise: use `_(latest column: {date})_`
 
-Signals are optional: if none are found, step 3c still returns the rightmost images by x-position. The signals are used to filter or disambiguate when many candidates exist.
-
-**Step 3c — Pick the top 2 rightmost images in each lane:**
-- Re-query `mcp__miro__board_list_items` with `item_type=image`, paginating until `has_more=false`
-- Filter to images whose `position.y` falls in the lane's y-window
-- Sort by `position.x` **descending** (rightmost = most recent on the horizontal timeline)
-- Take the **top 2 images** by x-position from each lane (yielding up to 4 candidates total across both lanes)
-- If a lane has no images in its y-window, skip it; if both lanes are empty, fall through to step 3e (Drive fallback)
-- When more than 2 candidates exist within a tight x-range, prefer images that match a step-3b signal (alt/title hit, or within ~5000 units of a unit-mentioning anchor)
-
-**Step 3d — Capture image details:**
-For each of the top 2 images per lane:
-- Use `mcp__miro__image_get_url` to get the **signed download URL** (note: signed URLs expire in ~2 hours, so they should be sent in the DM promptly)
-- Record: artist (lane), nearest date label, image x/y position, Miro deep link (`?moveToWidget={image_id}`)
-- These will be embedded in the DM with link text **"image 01"** and **"image 02"** (per artist/lane)
-
-**Step 3e — Fallback to Google Drive (only if Miro returned nothing):**
+**Step 3c — Fallback to Google Drive (only if Miro returned nothing):**
 - Parent folder: `1uGs0fpHNkKgtQbajDOwFxU8GrDn0vbXo`
 - Search within parent folder for sub-folders matching the hero name (case-insensitive)
 - Use `drive_search` with query like: `name contains '{hero_name}' and '{parent_folder_id}' in parents and mimeType='application/vnd.google-apps.folder'`
@@ -125,15 +119,16 @@ For each of the top 2 images per lane:
 - If not found, mark as "Not available"
 
 ### 7. Search Slack for Discussions and Shared Images
-- Use Slack MCP search tool for messages containing the hero name
-- Filter: last 10 days
-- Search in: all public channels (use `slack_search_public`)
-- For each relevant result:
-  - Channel name
+- Use `slack_search_public` for messages containing the hero name
+- Filter: last 10 days, sort by timestamp descending so the most recent is first
+- Use `response_format: "detailed"` so the response includes per-message metadata (channel_id, message_ts, permalink) — `concise` may strip these
+- For each relevant result, capture:
+  - Channel name AND channel_id
   - Message preview (first 100 chars)
   - Author
-  - Timestamp
-  - Link to message
+  - `message_ts` (e.g. `1778184146.276569`)
+  - **Permalink** — preferred from the response field directly. If the response only has channel_id + ts, build it as: `https://fortisgames.slack.com/archives/{channel_id}/p{ts_with_dot_removed}` (e.g. `p1778184146276569`)
+- Capture the **most recent message's permalink separately** — it will be the clickable target in the DM's Slack Activity section
 - Limit to top 10 most recent/relevant results
 
 **Also run a parallel search for image-bearing messages:**
@@ -159,12 +154,9 @@ Message should use standard Slack markdown formatting (not rich blocks):
 
 ---
 
-*🎨 Latest Concept Images (Miro)*
-{for each artist with images:}
-*{artist_name}*
-• <{img1_signed_url}|image 01> _(near {date1})_
-• <{img2_signed_url}|image 02> _(near {date2})_
-{if Drive fallback used:}
+*🎨 Latest Concept (Miro)*
+• *{assigned_artist}* — Check the latest on the Miro board <{miro_deep_link}|here>. _(today's column: {date})_
+{if Drive fallback used (no Miro lane match):}
 • _Drive fallback_ — <{drive_folder_url}|{filename}> _({modified_date})_
 
 *📸 Recently Shared in Slack* _(last 10 days)_
@@ -190,7 +182,7 @@ Message should use standard Slack markdown formatting (not rich blocks):
 {emoji} *{count} To Do* • {emoji} *{count} Done*
 
 *💬 Slack Activity* (last 10 days: {count} mentions)
-Most recent: {X} days ago in <{slack_link}|#{channel}>
+<{most_recent_message_permalink}|Latest message> in #{channel} • {X} days ago
 ```
 
 **Formatting Rules**:
@@ -228,7 +220,7 @@ After sending the Slack DM, display to user:
 - This is a read-only status gathering tool with private delivery
 
 ### Handle Missing Data Gracefully
-- If Miro board has no unit-matching anchor in either lane: fall back to Google Drive (step 3e)
+- If Miro lane has no usable date label (assigned artist isn't Vinod/Vinicius, or lane has no past-or-today date columns): fall back to Google Drive (step 3c)
 - If Drive fallback also returns nothing: skip image section, note "No concept image found (Miro + Drive)" in Slack message
 - If Design Kit not found in Notion: show "Design Kit not available" in message
 - If no ClickUp tickets found: show "No tickets found" in message
@@ -270,17 +262,20 @@ After sending the Slack DM, display to user:
 ### Miro Board Details (Primary Image Source)
 - Board URL: `https://miro.com/app/board/uXjVG_G7jjo=/`
 - The board is a horizontal timeline: dates progress left → right (newer = larger x)
-- Artists are organized into vertical lanes (rows). Only these two are searched:
+- Artists are organized into vertical lanes (rows). Supported lanes (must match a ClickUp concept-ticket assignee):
   - **Vinod Rams** lane — anchor `position.y ≈ 8,800`
   - **Vinicius Muniz** lane — anchor `position.y ≈ 42,400`
-- A third lane exists for Guilherme Lascasas (`y ≈ 24,200`) — **do not search it**
-- Lane y-anchor positions can shift as the board grows; always re-derive them by searching for the artist name text (large fontSize ~747) rather than hardcoding y-values
-- Lane y-window: anchor_y ± 3,000 captures the date row + image row for that artist
-- Image selection: take the **top 2 rightmost images** in each lane's y-window (newest = largest x). Fetch all image pages until `has_more=false` before sorting.
-- Confidence signals (used to disambiguate when many candidates cluster at similar x): `data.altText`/`data.title` on the image containing the unit name, or proximity (~5000 units) to a text widget or Notion link mentioning the unit
-- Date labels follow `M/D/YY` format (smaller fontSize ~369) and sit just below images — use them as the "near {date}" hint in the DM
-- Image URLs from `image_get_url` are signed CloudFront links that **expire in ~2 hours**, so the DM should be sent promptly after fetching
-- DM link text convention: label the two images **"image 01"** and **"image 02"** per lane, in rightmost-first order
+- A third lane exists for Guilherme Lascasas (`y ≈ 24,200`) — only used if a unit's concept ticket is assigned to him; otherwise skip
+- **Single-lane rule**: only the assigned concept artist's lane is checked. The assignee is read from the `Hero - {Unit} - Concepts` ticket (or main `HERO - {Unit}` parent if the concept ticket is missing). If the assignee isn't in the supported list → skip Miro, fall back to Drive.
+- Lane y-anchor positions can shift; always re-derive by searching for the artist name text (large fontSize ~747) rather than hardcoding y-values
+- Lane y-window: anchor_y ± 3,000 captures the date row + image row
+- **Date-column linking strategy** (replaces image-search to dodge the 200-image pagination cap):
+  - Filter text widgets in the lane window to date labels (fontSize ~369, content matching `M/D/YY`)
+  - Parse and discard any future dates (> today)
+  - Pick the rightmost remaining date label as the link target → `?moveToWidget={date_label_id}`
+  - The deep link drops the user at the artist's most recent date column, where their latest work for the assigned unit will be visible
+- **Do NOT call `image_get_url`** — we don't fetch images at all. Just text widgets (which usually return in one call).
+- DM line format: `*{artist}* — Check the latest on the Miro board <{deep_link}|here>. _(today's column: {date})_` (or `latest column: {date}` if not today)
 - This board is read-only for this skill — do NOT create/move/edit Miro items
 
 ### Google Drive Details (Fallback Image Source)
