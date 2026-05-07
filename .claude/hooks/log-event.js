@@ -14,18 +14,31 @@
  * Wired by .claude/settings.json. See the design doc at:
  *   generated/friction_boss/observability_design.md
  *
+ * Identity attribution (in priority order):
+ *   1. LOTUS_TELEMETRY_PRODUCER env var (manual override; e.g. "Tim")
+ *   2. `git config user.email`         (auto-detected from local git config)
+ *   3. "unattributed"                   (fallback)
+ *
  * Configuration (env vars — all optional):
  *   LOTUS_TELEMETRY            'off' to disable entirely
  *   LOTUS_TELEMETRY_ENDPOINT   Override the default ingestion endpoint
- *   LOTUS_TELEMETRY_TOKEN      Personal token. Missing = unattributed mode
- *                              (event still logged; actor_name = 'unattributed').
- *   LOTUS_TELEMETRY_PRODUCER   Display name (e.g. 'Tim'). Soft hint only;
- *                              the validated token wins server-side.
+ *   LOTUS_TELEMETRY_PRODUCER   Display name override (otherwise auto-detected
+ *                              from `git config user.email`)
+ *
+ * Spam protection:
+ *   The shared key below MUST match the SHARED_KEY constant in
+ *   functions/api/log-event.ts. Both are kept in the git repo on purpose —
+ *   it's a low-bar drive-by spam filter, not a real secret. Rotate by
+ *   editing both files and redeploying.
  */
 
 const os = require('os');
+const { execSync } = require('child_process');
 
 const DEFAULT_ENDPOINT = 'https://lotus-production-brain.pages.dev/api/log-event';
+
+// MUST match functions/api/log-event.ts SHARED_KEY constant.
+const SHARED_KEY = 'lts_GkunqNt-ve0vaI0UziIa4IHOomVGgnaI';
 
 if (process.env.LOTUS_TELEMETRY === 'off') process.exit(0);
 
@@ -33,8 +46,7 @@ const eventType = process.argv[2];
 const endpoint = process.env.LOTUS_TELEMETRY_ENDPOINT || DEFAULT_ENDPOINT;
 if (!eventType) process.exit(0);
 
-const token = process.env.LOTUS_TELEMETRY_TOKEN || null;
-const claimedProducer = process.env.LOTUS_TELEMETRY_PRODUCER || null;
+const actorName = resolveActorName();
 
 let raw = '';
 process.stdin.setEncoding('utf8');
@@ -52,13 +64,29 @@ process.stdin.on('end', () => {
 // Safety net — if stdin hangs, abandon after 2s rather than block the workflow
 setTimeout(() => process.exit(0), 2000).unref();
 
+// ─── Identity ────────────────────────────────────────────────────────
+
+function resolveActorName() {
+  if (process.env.LOTUS_TELEMETRY_PRODUCER) {
+    return process.env.LOTUS_TELEMETRY_PRODUCER;
+  }
+  try {
+    const email = execSync('git config user.email', {
+      encoding: 'utf8',
+      stdio: ['pipe', 'pipe', 'ignore'],
+    }).trim();
+    if (email) return email;
+  } catch (_) { /* git not installed, no repo, no config — fall through */ }
+  return 'unattributed';
+}
+
 // ─── Event construction ──────────────────────────────────────────────
 
 function buildEvent(type, hook) {
   const base = {
     client_ts: Date.now(),
     actor_type: 'producer',
-    actor_name: claimedProducer || 'unattributed',
+    actor_name: actorName,
     session_id: hook.session_id || hook.sessionId || 'unknown',
     event_type: type,
     metadata: {
@@ -90,7 +118,7 @@ function buildEvent(type, hook) {
       base.actor_name = hook.subagent_type
         || hook.metadata?.subagent_name
         || 'unknown';
-      base.metadata.parent_actor = claimedProducer || 'unattributed';
+      base.metadata.parent_actor = actorName;
       base.duration_ms = hook.duration_ms ?? null;
       return base;
     }
@@ -110,8 +138,10 @@ function buildEvent(type, hook) {
 // ─── Network ─────────────────────────────────────────────────────────
 
 async function send(event) {
-  const headers = { 'content-type': 'application/json' };
-  if (token) headers['x-lotus-telemetry-token'] = token;
+  const headers = {
+    'content-type': 'application/json',
+    'x-lotus-shared-key': SHARED_KEY,
+  };
 
   // Bound the request — telemetry is fire-and-forget
   const ctrl = new AbortController();

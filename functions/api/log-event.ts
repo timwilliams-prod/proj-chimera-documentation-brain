@@ -6,23 +6,31 @@
 //   Batch:   [ { ... }, { ... }, ... ]
 //
 // Headers:
-//   X-Lotus-Telemetry-Token: <token>     optional
-//                                        Missing = unattributed mode
-//                                        Match against TELEMETRY_TOKEN_<NAME>
-//                                        env vars; suffix becomes actor_name.
+//   X-Lotus-Shared-Key: <SHARED_KEY>     required
+//                                        Low-bar drive-by spam filter — the
+//                                        key lives in the git repo on purpose
+//                                        so anyone with repo access can write.
+//                                        See .claude/hooks/log-event.js.
 //
 // Response:
 //   201 { ok, id }       single
 //   201 { ok, ids }      batch
-//   400 { error }        validation failure (no token errors — unattributed
-//                        mode means a missing/bad token is not an error)
+//   400 { error }        validation failure
+//   401 { error }        missing or wrong shared key
+//
+// Identity attribution is client-claimed — actor_name comes from the request
+// body (typically the producer's git config user.email). For internal
+// productivity telemetry that's a tolerable trust model. The hostname and
+// os_user metadata fields provide a sanity-check signal.
 //
 // See generated/friction_boss/observability_design.md for the full design.
 
 interface Env {
   LOTUS_EVENTS: D1Database;
-  [key: string]: any;        // for TELEMETRY_TOKEN_* env vars
 }
+
+// MUST match .claude/hooks/log-event.js SHARED_KEY constant.
+const SHARED_KEY = 'lts_GkunqNt-ve0vaI0UziIa4IHOomVGgnaI';
 
 const VALID_EVENT_TYPES = new Set([
   'skill_invocation',
@@ -64,16 +72,18 @@ interface IncomingEvent {
 }
 
 export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
+  // Shared-key gate
+  const incomingKey = request.headers.get('x-lotus-shared-key');
+  if (!incomingKey || !constantTimeEqual(incomingKey, SHARED_KEY)) {
+    return jsonResponse({ error: 'invalid or missing shared key' }, 401);
+  }
+
   let body: IncomingEvent | IncomingEvent[];
   try {
     body = await request.json();
   } catch (_) {
     return jsonResponse({ error: 'invalid json' }, 400);
   }
-
-  // Resolve attributed actor from token (if supplied + valid)
-  const incomingToken = request.headers.get('x-lotus-telemetry-token');
-  const validatedActor = resolveTokenToActor(incomingToken, env);
 
   const events = Array.isArray(body) ? body : [body];
   if (events.length === 0) return jsonResponse({ error: 'no events' }, 400);
@@ -83,8 +93,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
     const validation = validateEvent(e);
     if (validation) return jsonResponse({ error: validation }, 400);
 
-    // Validated token wins over claimed actor_name
-    const actorName = validatedActor || e.actor_name || 'unattributed';
+    const actorName = e.actor_name || 'unattributed';
 
     // Scope-violation check (locked decision #3 — synchronous).
     // Stub for v1: requires the frontmatter cache, which arrives with
@@ -153,32 +162,11 @@ function validateEvent(e: IncomingEvent): string | null {
   return null;
 }
 
-/**
- * Match token against TELEMETRY_TOKEN_* env vars. Returns the producer name
- * derived from the suffix (e.g. TELEMETRY_TOKEN_TIM → 'Tim') if matched,
- * else null. Constant-time comparison to avoid timing leaks.
- */
-function resolveTokenToActor(token: string | null, env: Env): string | null {
-  if (!token) return null;
-  for (const [key, value] of Object.entries(env)) {
-    if (!key.startsWith('TELEMETRY_TOKEN_')) continue;
-    if (typeof value !== 'string') continue;
-    if (constantTimeEqual(token, value)) {
-      return titleCase(key.slice('TELEMETRY_TOKEN_'.length));
-    }
-  }
-  return null;
-}
-
 function constantTimeEqual(a: string, b: string): boolean {
   if (a.length !== b.length) return false;
   let diff = 0;
   for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
   return diff === 0;
-}
-
-function titleCase(s: string): string {
-  return s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
 }
 
 function truncate(s: string | undefined | null, max: number): string | null {
