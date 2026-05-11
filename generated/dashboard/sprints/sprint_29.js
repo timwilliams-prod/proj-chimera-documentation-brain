@@ -40,8 +40,8 @@ var SPRINT_DATA = {
 
       people: [
         { name: "Diana Vasilescu", discipline: "Design", avail: 9, total: 10, priorities: ["WME #2b spec + UX finalization (absorbing Yura's UX) — must close before Henrique vacation 5/20", "WME #2a iteration support during Henrique's last week", "Territory Map visual target/ vertical slice feedback"], notes: "US — Memorial Day -1. Highest individual load this sprint (design lead + UX + Region 2 + Territory Map).", flags: ["pto"] },
-        { name: "Jacob Siegel", discipline: "Design", avail: 9, total: 10, priorities: ["T8 design", "T8 begin implementation", "World Map Reshaping continuation"], notes: "US — Memorial Day -1.", flags: ["pto"] },
-        { name: "Elise Cole", discipline: "Design", avail: 9, total: 10, priorities: ["T7 design", "T7 begin implementation"], notes: "US — Memorial Day -1.", flags: ["pto", "carry-over"] },
+        { name: "Jacob Siegel", discipline: "Design", avail: 9, total: 10, priorities: ["T6 redesign", "World Map Reshaping continuation"], notes: "US — Memorial Day -1.", flags: ["pto"] },
+        { name: "Elise Cole", discipline: "Design", avail: 9, total: 10, priorities: ["T5 redesign"], notes: "US — Memorial Day -1.", flags: ["pto", "carry-over"] },
         { name: "Henrique De Lima", discipline: "Eng", avail: 4.5, total: 10, priorities: ["WME #2a wrap (week 1)", "WME #2b eng kickoff — bounded scope (week 1, hand-off ready)", "Pre-vacation handoff doc"], notes: "Vacation 5/20-6/6 (5 days lost in S29). Partial appt 5/13 morning. Sole client engineer — Empire eng pauses 5/20 onwards.", flags: ["sole-eng", "pto"] },
         { name: "Laura Santana", discipline: "QA", avail: 10, total: 10, priorities: ["WME #2a smoke-test during Henrique's wrap", "Bug verification", "Test plan prep for #2b"], notes: "BR — no holiday.", flags: [] },
         { name: "Marcos Teles", discipline: "Tech Art", avail: 10, total: 10, priorities: ["Territory Map Optimization Review wrap (collab w Pedro) — CP2 close-out", "WME TA support", "Water VFX/Shader exploration"], notes: "BR — no holiday. Empire-embedded artist.", flags: [] },
